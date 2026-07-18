@@ -95,7 +95,9 @@ SSD_n $>
 
 #### PAL is an execution-oriented binary reconstruction and forensic analysis layer built over Ghidra, producing evidence-linked readable and executable Python projections that can be compared directly against assembly and decompiled C.
 
-## System Topology
+---
+
+# System Topology
 
 ```mermaid
 flowchart TD
