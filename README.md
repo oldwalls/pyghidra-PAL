@@ -26,7 +26,10 @@ This repository is a proof of concept. The current successes apply to selected b
 
 ## The 80386 80s View
 
-<img width="3840" height="1998" alt="four_panel_view" src="https://github.com/user-attachments/assets/8a0460c3-d82e-4e20-8f9d-eba2e033dbf0" />
+#### 4-pane simultaneous, context linked, ASM, c-code & py-code analsysis view
+
+<img width="3840" height="2160" alt="4-pane-view" src="https://github.com/user-attachments/assets/43c2cc33-d6c7-463c-801f-2a08018ba3f5" />
+
 
 
 ```text
