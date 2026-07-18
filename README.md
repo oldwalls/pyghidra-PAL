@@ -8,7 +8,7 @@
 
 **Document role:** architecture starter and custody map  
 **Status:** living experimental alpha design  
-**AI codegen & analysis stack:** custody: GPT SOL high & max / analysis mirrors: GEMINI Flash extended / Sonnet 5 extra 
+**AI codegen & analysis stack:** custody: GPT SOL high & max / adversaral mirrors: GEMINI Flash extended / Sonnet 5 extra 
 
 ---
 
