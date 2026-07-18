@@ -4,7 +4,7 @@
 
 ### pre-Alpha v0.21 - a new way to analyze executables (work in progress)
 
-# PAL Architecture: Evidence to Executable State Machine
+# PAL Architecture: PyGHidra Evidence to Executable State Machine
 
 **Document role:** architecture starter and custody map  
 **Status:** living experimental alpha design  
@@ -93,7 +93,7 @@ SSD_n $>
                       └── ...
 ```
 
-### PAL is an execution-oriented binary reconstruction and forensic analysis layer built over Ghidra, producing evidence-linked readable and executable Python projections that can be compared directly against assembly and decompiled C.
+#### PAL is an execution-oriented binary reconstruction and forensic analysis layer built over Ghidra, producing evidence-linked readable and executable Python projections that can be compared directly against assembly and decompiled C.
 
 ## System Topology
 
