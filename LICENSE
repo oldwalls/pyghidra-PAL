@@ -201,11 +201,15 @@
    See the License for the specific language governing permissions and
    limitations under the License.
 
-DISCLAMER:
-==========
-PAL is an independent research project built on Ghidra and PyGhidra.
+PAL
+Copyright 2026 Remigiusz Szyndler
 
-Ghidra and PyGhidra are maintained by the National Security Agency
-Research Directorate and are distributed under the Apache License 2.0.
+PAL is an independent execution-oriented binary reconstruction and
+forensic analysis research project.
+
+PAL uses the public APIs of Ghidra and PyGhidra.
+Ghidra and PyGhidra are separate projects maintained by the National
+Security Agency Research Directorate and licensed under Apache-2.0.
+
 PAL is not affiliated with or endorsed by the National Security Agency.
 
