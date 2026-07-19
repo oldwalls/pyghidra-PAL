@@ -12,17 +12,7 @@
 
 ---
 
-PAL began as a practical question: how far can Ghidra’s recovered program truth be carried beyond decompiler text and reshaped into code that can be inspected, tested, and eventually executed with fidelity?
-
-The present proof of concept answers that question for a limited but growing set of samples. PAL’s Icecube factory freezes each recovered function into a detached evidence object containing its decompiled C image, assembly, p-code relationships, control-flow structure, variable identities, ABI custody, branch evidence, and paired Python projections. The Icecube is not merely an export file. It is the preserved intermediate state from which PAL can repeatedly render a human-oriented `read.py`, an execution-oriented `exec.py`, and the metadata needed to compare both against the underlying machine code.
-
-From that frozen evidence, PAL attempts to reconstruct the function as an explicit state machine. Loads, stores, calls, fixed-width operations, branch conditions, loop structure, parameter carriers, and value materialization are progressively translated into executable Python semantics. On selected test programs, this process has reached close behavioral agreement with the original compiled functions. That result is not yet universal, and PAL should not be mistaken for a finished decompiler. It remains a pre-alpha research and engineering prototype whose current value lies equally in what it reconstructs and in how clearly it exposes where reconstruction fails.
-
-The four-pane View places assembly, Ghidra C, readable Python, and executable Python beside one another, linked through Icecube metadata. This makes errors in structure, variable materialization, branch ownership, ABI handling, and semantic compression immediately visible. Instead of asking the user to trust a single reconstructed listing, PAL presents several competing views of the same function and preserves the evidence required to compare them.
-
-PAL is therefore best understood as an execution-oriented binary reconstruction and forensic comparison layer built on Ghidra. Ghidra remains the analysis engine and source of machine-level authority; PAL attempts to carry that authority into a portable state-machine representation and then project it into code that a human can understand and a Python runtime can exercise.
-
-This repository is a proof of concept. The current successes apply to selected binaries and controlled samples, while many difficult areas remain open. The purpose of this release is not to claim general decompilation closure, but to demonstrate that an evidence-preserving Icecube pipeline can bridge disassembly, decompiler structure, semantic recovery, and executable reconstruction in one inspectable workflow.
+#### PAL has demonstrated executable-to-Python state-machine recovery with behavioral convergence across a limited controlled corpus.
 
 ## The 80386 80s View
 
