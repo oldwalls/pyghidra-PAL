@@ -22,9 +22,13 @@
 
 <img width="3840" height="2160" alt="4-pane-view" src="https://github.com/user-attachments/assets/43c2cc33-d6c7-463c-801f-2a08018ba3f5" />
 
-#### codium step debug of PAL .py projection
+---
+
+## Codium Step Debug of PAL .py Projection
 
 <img width="3840" height="1997" alt="desktop debug" src="https://github.com/user-attachments/assets/c31f6529-0b2b-48f7-8540-234d3c1403a4" />
+
+---
 
 #### PAL is an execution-oriented binary reconstruction and forensic analysis layer built over Ghidra, producing evidence-linked readable and executable Python projections that can be compared directly against assembly and decompiled C.
 
@@ -54,7 +58,7 @@ Ghidra provides several views of the same program:
 Ghidra C is valuable comparative evidence, but it is not PAL's sole authority.
 PAL reconciles it with p-code, CFG topology, physical storage, and ABI evidence.
 
-## Authoritative PAL Stack
+## PAL Decompiler Stack
 
 ```mermaid
 flowchart TD
