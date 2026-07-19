@@ -2,7 +2,7 @@
 
 ---
 
-### pre-Alpha v0.21 - a new way to analyze executables (work in progress)
+### pre-Alpha v0.21 (work in progress)
 
 # PAL Architecture: PyGhidra Evidence to Executable Python State Machine
 
