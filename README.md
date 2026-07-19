@@ -4,7 +4,7 @@
 
 ### pre-Alpha v0.21 - a new way to analyze executables (work in progress)
 
-# PAL Architecture: PyGHidra Evidence to Executable State Machine
+# PAL Architecture: PyGhidra Evidence to Executable Python State Machine
 
 **Document role:** architecture starter and custody map  
 **Status:** living experimental alpha design  
@@ -12,7 +12,9 @@
 
 ---
 
-#### PAL has demonstrated executable-to-Python state-machine recovery with behavioral convergence across a limited controlled corpus.
+### PAL has demonstrated executable-to-Python state-machine recovery with behavioral convergence across a limited controlled corpus.
+
+---
 
 ## The 80386 80s View
 
@@ -20,71 +22,9 @@
 
 <img width="3840" height="2160" alt="4-pane-view" src="https://github.com/user-attachments/assets/43c2cc33-d6c7-463c-801f-2a08018ba3f5" />
 
+#### codium step debug of PAL .py projection
 
-
-```text
-      ----------------
-      ***EXECUTABLE***
-      ----------------
-            ||
-            ||  
-            ||
-            \/
-      ----------------
-      >>>| GHIDRA |<<<		"Ghidra Analysis -> ASM, c-code, RAW p-code, HF p-code
-      ---------------
-             \  /
-              ||
-              ||  "Python Bridge"
-              ||
-             /  \
-  -------------------------------
-   Py-Ghidra interface exposure
-  -------------------------------
-       \  /
-        ||
-        ||  "Python Metadata"
-        ||
-       /  \
-  ------------------------------            ----------------------------------------------------------
-  PAL PyGhidra lifter/decompiler =========> PAL stack
-  ------------------------------            └── "Lifter" - high resolution import of Ghidra SSA internals
-      ||                                    └── "CFG" - Construction of CFG based on Ghidra & metadata		
-      ||  "Export as py-code"               └── "Resolver" - SSA => PAL Objects translator/normalizer
-      ||                                    └── "Compute" - Synthesis of actionable PAL objects metadata 
-      \/                                    └── "SemanticGraph" - relational graph mapper  
-     --------                               └── "StructuralGraphLifter" - Synthesizes execution tree graph 
-    Filesystem                              └── "PHIFolder" - Generates variable mutation paths and targets
-     --------                               └── "Emitter" - Metadata & graph consumer / py-code synthesis
-=======================================
-SSD_n $>
-      ~/PAL/
-      └── projects/
-          └── <program_name>/
-              ├── PAL_dispatch.py
-              ├── PAL_function_manifest.json
-              ├── PAL_jump_table.json
-              ├── functions/
-              │   ├── <function>.pal.json
-              │   ├── <function>.read.pal.py
-              │   ├── <function>.exec.pal.py
-              │   └── ...
-              └── execute/
-                  ├── config.exec.json
-                  ├── PAL_runner.py
-                  ├── PAL_project_runtime.py
-                  ├── runtime/
-                  │   ├── PALhelpers.py
-                  │   ├── PALABI.py
-                  │   └── PALMEM.py
-                  ├── shims/
-                  │   ├── libc.py
-                  │   ├── system.py
-                  │   └── ...
-                  └── functions/
-                      ├── <function>.exec.pal.py
-                      └── ...
-```
+<img width="3840" height="1997" alt="desktop debug" src="https://github.com/user-attachments/assets/c31f6529-0b2b-48f7-8540-234d3c1403a4" />
 
 #### PAL is an execution-oriented binary reconstruction and forensic analysis layer built over Ghidra, producing evidence-linked readable and executable Python projections that can be compared directly against assembly and decompiled C.
 
