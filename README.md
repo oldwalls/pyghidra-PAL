@@ -16,7 +16,7 @@
 
 ---
 
-## The 80386 80s View
+## The 80386 80s Terminal View
 
 #### Four-Pane Simultaneous, Context-Linked ASM, C, and Python Analysis View
 
