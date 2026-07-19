@@ -1,0 +1,22 @@
+{
+    "python.defaultInterpreterPath": "/home/rem/miniconda/envs/pal-debug/bin/python",
+    "python.condaPath": "/home/rem/miniconda/bin/conda",
+    "python.terminal.activateEnvironment": true,
+    "python.terminal.activateEnvInCurrentTerminal": true,
+
+    "python.analysis.extraPaths": [
+        "${workspaceFolder}",
+        "${workspaceFolder}/runtime",
+        "${workspaceFolder}/shims",
+        "${workspaceFolder}/functions"
+    ],
+    "python.analysis.autoSearchPaths": true,
+    "python.analysis.indexing": true,
+
+    "terminal.integrated.cwd": "${workspaceFolder}",
+    "terminal.integrated.env.linux": {
+        "PYTHONPATH": "${workspaceFolder}/runtime:${workspaceFolder}/shims:${workspaceFolder}/functions:${workspaceFolder}",
+        "PAL_DEBUG_ENV": "pal-debug",
+        "PAL_DEBUG_PYTHON": "/home/rem/miniconda/envs/pal-debug/bin/python"
+    }
+}

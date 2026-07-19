@@ -1,0 +1,11 @@
+# PAL readable projection; this file is not execution authority.
+# Ghidra function: <EXTERNAL>::memcpy
+# Entry address: 0x1025a0
+
+# PAL readable projection (non-executable)
+# Width/sign contracts remain available in PAL provenance metadata
+
+def memcpy(param_0, param_2, param_1):
+    abi_context = ABI.current('function_entry:1058208')
+    v_46 = PTR_memcpy_0010bee0()
+    return v_46

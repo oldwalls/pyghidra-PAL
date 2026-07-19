@@ -1,0 +1,11 @@
+# PAL readable projection; this file is not execution authority.
+# Ghidra function: <EXTERNAL>::fwrite
+# Entry address: 0x1026c0
+
+# PAL readable projection (non-executable)
+# Width/sign contracts remain available in PAL provenance metadata
+
+def fwrite(param_1, param_3, param_0, param_2):
+    abi_context = ABI.current('function_entry:1058496')
+    v_18 = PTR_fwrite_0010bf70()
+    return v_18
