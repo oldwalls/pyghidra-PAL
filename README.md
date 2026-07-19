@@ -26,7 +26,8 @@
 
 ## Codium Step Debug of PAL .py Projection
 
-<img width="3840" height="1997" alt="desktop debug" src="https://github.com/user-attachments/assets/c31f6529-0b2b-48f7-8540-234d3c1403a4" />
+<img width="3840" height="1998" alt="named_debug" src="https://github.com/user-attachments/assets/f6285672-3ed5-41d3-be57-986951551c8f" />
+
 
 ---
 
