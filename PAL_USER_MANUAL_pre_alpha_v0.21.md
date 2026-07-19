@@ -24,7 +24,7 @@ PAL has demonstrated executable-to-Python state-machine recovery across a limite
 Default development root:
 
 ```text
-~/gh/PAL/
+~/PAL/
 ```
 
 Important entry points:
