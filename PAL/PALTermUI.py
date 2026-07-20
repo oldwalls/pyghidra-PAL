@@ -1,6 +1,6 @@
 # ============================================================
 # PAL TERMINAL UI / ONCS
-# BUILD: termui_v10_glitter_stable_linkage_function_filter
+# BUILD: termui_v12_quad_context_lock_direct_c_scroll
 # FOUR-PANE MODE: statement_linkage_decoupled_from_object_highlight
 # Curses/VT100 PAL root/project/function browser with project-global ONCS
 # ============================================================
@@ -10,6 +10,7 @@ import ast
 import builtins
 import curses
 import curses.textpad
+import functools
 import gzip
 import hashlib
 import io
@@ -54,6 +55,24 @@ KEY_CTRL_TAB = 0x1FE
 CTRL_TAB_SEQUENCES = (
     "\x1b[27;5;9~",  # xterm modifyOtherKeys
     "\x1b[9;5u",     # CSI-u / kitty keyboard protocol
+)
+
+
+def _environment_truth(name, default=False):
+    value = os.environ.get(name)
+    if value is None:
+        return bool(default)
+    return str(value).strip().lower() in (
+        "1", "true", "yes", "on", "full", "enabled",
+    )
+
+
+# v11 defaults to a light ONCS/metadata path.  Deep per-variable metadata
+# discovery can still be requested for forensic UI work, but ordinary browse,
+# rename, highlight and READ/EXEC block linkage do not pay that cost.
+TERMUI_MINIMAL_VARIABLE_METADATA = not _environment_truth(
+    "PAL_TERMUI_FULL_VARIABLE_METADATA",
+    False,
 )
 
 
@@ -452,6 +471,10 @@ class ONCSNameState:
         self.function_names = (
             project_store.function_names() if project_store is not None else set()
         )
+        self.minimal_variable_metadata = TERMUI_MINIMAL_VARIABLE_METADATA
+        self._render_cache = {}
+        self._mapping_cache = {}
+        self._line_span_cache = {}
         self.existing_contracts = _existing_oncs_contracts(document)
         self.operator_aliases = {
             sid: str(contract.get("operator_alias"))
@@ -498,13 +521,18 @@ class ONCSNameState:
         self.revision = int(payload.get("revision", 0) or 0)
         self.status = "standalone ONCS sidecar loaded"
 
+    def _invalidate_projection_caches(self):
+        self._render_cache.clear()
+        self._mapping_cache.clear()
+        self._line_span_cache.clear()
+
     def base_lines(self, projection):
         projection = str(projection)
         if projection not in self._base_cache:
-            self._base_cache[projection] = _document_projection_lines(
-                self.document, projection
+            self._base_cache[projection] = tuple(
+                _document_projection_lines(self.document, projection)
             )
-        return list(self._base_cache[projection])
+        return self._base_cache[projection]
 
     def _build_variables(self):
         combined = []
@@ -522,7 +550,11 @@ class ONCSNameState:
             name: index for index, name in enumerate(facts["parameters"])
         }
 
-        metadata_records = _metadata_variable_records(self.document)
+        metadata_records = (
+            {}
+            if self.minimal_variable_metadata
+            else _metadata_variable_records(self.document)
+        )
         existing_by_name = {}
         for sid, record in (
             list(metadata_records.items()) + list(self.existing_contracts.items())
@@ -625,6 +657,7 @@ class ONCSNameState:
         self.contracts = contracts
         self.inventory = inventory
         self._index_contract_names()
+        self._invalidate_projection_caches()
         return contracts
 
     def _index_contract_names(self):
@@ -693,17 +726,52 @@ class ONCSNameState:
         return mapping
 
     def display_mapping(self, naming, operator_overlay=False):
+        key = (str(naming or "humanizer").lower(), bool(operator_overlay))
+        cached = self._mapping_cache.get(key)
+        if cached is not None:
+            return cached
         mapping = self.variable_mapping(naming, operator_overlay)
         for source, target in self.function_mapping(naming, operator_overlay).items():
             if source not in mapping:
                 mapping[source] = target
+        self._mapping_cache[key] = mapping
         return mapping
 
     def render_lines(self, projection, naming, operator_overlay=False):
-        return _replace_name_tokens(
-            self.base_lines(projection),
-            self.display_mapping(naming, operator_overlay),
+        key = (
+            str(projection),
+            str(naming or "humanizer").lower(),
+            bool(operator_overlay),
         )
+        cached = self._render_cache.get(key)
+        if cached is None:
+            cached = tuple(_replace_name_tokens(
+                self.base_lines(projection),
+                self.display_mapping(naming, operator_overlay),
+            ))
+            self._render_cache[key] = cached
+        return cached
+
+    def _line_spans(self, projection, naming, line, operator_overlay=False):
+        key = (
+            str(projection),
+            str(naming or "humanizer").lower(),
+            bool(operator_overlay),
+            int(line),
+        )
+        cached = self._line_span_cache.get(key)
+        if cached is not None:
+            return cached
+        base = self.base_lines(projection)
+        if not base or line < 0 or line >= len(base):
+            cached = ()
+        else:
+            cached = tuple(_line_token_spans(
+                base[line],
+                self.display_mapping(naming, operator_overlay),
+            ))
+        self._line_span_cache[key] = cached
+        return cached
 
     def display_to_pal_column(
         self, projection, naming, line, column, operator_overlay=False
@@ -711,8 +779,8 @@ class ONCSNameState:
         base = self.base_lines(projection)
         if not base or line < 0 or line >= len(base):
             return max(0, int(column))
-        spans = _line_token_spans(
-            base[line], self.display_mapping(naming, operator_overlay)
+        spans = self._line_spans(
+            projection, naming, line, operator_overlay
         )
         column = max(0, int(column))
         delta = 0
@@ -732,8 +800,8 @@ class ONCSNameState:
         base = self.base_lines(projection)
         if not base or line < 0 or line >= len(base):
             return max(0, int(column))
-        spans = _line_token_spans(
-            base[line], self.display_mapping(naming, operator_overlay)
+        spans = self._line_spans(
+            projection, naming, line, operator_overlay
         )
         column = max(0, int(column))
         delta = 0
@@ -998,6 +1066,10 @@ class PALTerminalModel:
         self.object_focus = None
         self.cursor_context = {}
         self.cursor_contract_sid = None
+        self._hotspot_cache = {}
+        self._cursor_block_cache = {}
+        self._projection_sync_cache = {}
+        self._truth_source_lines_cache = {}
         self.update_cursor_context()
 
     @classmethod
@@ -1055,13 +1127,11 @@ class PALTerminalModel:
         target_base_column = source_base_column
         reason = "same_line_fallback"
         try:
-            mapping = self.document.sync_cursor(
+            mapping = self.sync_projection_cursor(
                 self.projection,
                 target,
                 self.line,
                 source_base_column,
-                source_naming="pal",
-                target_naming="pal",
             )
             if mapping.get("matched"):
                 target_line = int(mapping["target_view"]["line"])
@@ -1106,20 +1176,18 @@ class PALTerminalModel:
         )
         return self.operator_overlay
 
-    def current_contract(self):
-        """Return the exact editable variable identity under the cursor.
+    def current_contract(self, advanced=False):
+        """Return the editable variable identity beneath the cursor.
 
-        Display spellings such as ``local_14`` are not globally unique: several
-        SSA identities may intentionally collapse into one PAL local.  The ONCS
-        spelling index therefore rejects ambiguous names.  When that happens,
-        recover the exact SID from the object-aware Icecube hotspot beneath the
-        cursor instead of pretending the displayed token has no contract.
+        v11 keeps ordinary cursor movement lexical and cached.  The expensive
+        object/hotspot recovery path is entered only for explicit variable
+        operations such as rename, revert and highlight.
         """
         contract = self.oncs.contract_at(
             self.projection, self.naming, self.line, self.column,
             self.operator_overlay,
         )
-        if contract is not None:
+        if contract is not None or not advanced:
             return contract
         focus = self.cursor_object_context(
             self.projection, self.line, self.column
@@ -1131,7 +1199,7 @@ class PALTerminalModel:
 
     def current_mode_variable_name(self, contract=None):
         """Name shown by the active SSA/PAL/Humanized + operator projection."""
-        contract = dict(contract or self.current_contract() or {})
+        contract = dict(contract or self.current_contract(advanced=False) or {})
         if not contract:
             return None
         if self.operator_overlay and contract.get("operator_alias"):
@@ -1140,7 +1208,7 @@ class PALTerminalModel:
         return str(value) if value else None
 
     def rename_current_variable(self, alias, author="human"):
-        contract = self.current_contract()
+        contract = self.current_contract(advanced=True)
         if contract is None:
             raise ValueError(
                 "cursor is not on an editable variable; function calls and structural labels are locked"
@@ -1152,7 +1220,7 @@ class PALTerminalModel:
         return value
 
     def revert_current_variable(self, author="human"):
-        contract = self.current_contract()
+        contract = self.current_contract(advanced=True)
         if contract is None:
             self.status = "cursor is not on an ONCS variable"
             return None
@@ -1167,7 +1235,7 @@ class PALTerminalModel:
 
     def toggle_highlight(self):
         self.object_focus = None
-        contract = self.current_contract()
+        contract = self.current_contract(advanced=True)
         if contract is None:
             self.highlight_sid = None
             self.status = "focus cleared; cursor is not on an ONCS variable"
@@ -1249,9 +1317,7 @@ class PALTerminalModel:
             base_column = column
         identifier = self._display_identifier_at(projection, line, column)
         candidates = [
-            item for item in list(projection_hotspots(
-                self.document, projection
-            ) or [])
+            item for item in list(self.hotspots(projection) or [])
             if int(item.get("line", -1)) == line
             and dict(item.get("object_context", {}) or {})
         ]
@@ -1320,23 +1386,27 @@ class PALTerminalModel:
         return None
 
     def update_cursor_context(self):
-        """Commit cursor position into metadata/rename/truth-preview context."""
+        """Commit block/statement allegiance without deep variable lookup."""
         self.clamp()
         try:
-            contract = self.current_contract()
+            contract = self.current_contract(advanced=False)
         except Exception:
             contract = None
         self.cursor_contract_sid = (
             str(contract.get("sid")) if contract is not None else None
         )
         try:
-            self.cursor_context = self._cursor_context()
+            self.cursor_context = self._cursor_context(
+                include_variable=False
+            )
         except Exception:
             self.cursor_context = {
                 "projection": self.projection,
                 "line": self.line,
                 "column": self.column,
             }
+        if self.cursor_contract_sid is not None:
+            self.cursor_context["variable_sid"] = self.cursor_contract_sid
         return dict(self.cursor_context)
 
     def toggle_object_focus(self, projection=None, line=None, column=None):
@@ -1411,9 +1481,36 @@ class PALTerminalModel:
         return "%s:%s" % (kind, identity)
 
     def hotspots(self, projection=None):
-        return projection_hotspots(
-            self.document, projection or self.projection
+        projection = str(projection or self.projection)
+        if projection not in self._hotspot_cache:
+            self._hotspot_cache[projection] = tuple(
+                projection_hotspots(self.document, projection) or ()
+            )
+        return self._hotspot_cache[projection]
+
+    def sync_projection_cursor(
+        self, source_projection, target_projection, line, base_column
+    ):
+        """Cached statement/block allegiance mapping for READ/EXEC linkage."""
+        key = (
+            str(source_projection),
+            str(target_projection),
+            int(line),
         )
+        cached = self._projection_sync_cache.get(key)
+        if cached is not None:
+            return dict(cached)
+        mapping = self.document.sync_cursor(
+            source_projection,
+            target_projection,
+            int(line),
+            int(base_column),
+            source_naming="pal",
+            target_naming="pal",
+        )
+        mapping = dict(mapping or {})
+        self._projection_sync_cache[key] = mapping
+        return dict(mapping)
 
     def move_hotspot(self, step=1):
         hotspots = list(self.hotspots() or [])
@@ -1452,7 +1549,7 @@ class PALTerminalModel:
         )
         return target
 
-    def _cursor_context(self):
+    def _cursor_context(self, include_variable=False):
         context = {
             "projection": self.projection,
             "naming": self.naming_label(),
@@ -1469,10 +1566,14 @@ class PALTerminalModel:
                 self.projection, self.naming, self.line, self.column,
                 self.operator_overlay,
             )
-            described = self.document.describe_cursor(
-                self.projection, self.line, base_column, line_base=0
-            )
-            raw_context = dict(described.get("context", {}) or {})
+            cache_key = (self.projection, int(self.line))
+            raw_context = self._cursor_block_cache.get(cache_key)
+            if raw_context is None:
+                described = self.document.describe_cursor(
+                    self.projection, self.line, base_column, line_base=0
+                )
+                raw_context = dict(described.get("context", {}) or {})
+                self._cursor_block_cache[cache_key] = raw_context
             context.update({
                 "cfg_block_addr": raw_context.get("cfg_block_addr"),
                 "statement_id": raw_context.get("statement_id"),
@@ -1480,19 +1581,21 @@ class PALTerminalModel:
                 "metadata_refs": list(
                     raw_context.get("metadata_refs", []) or []
                 ),
-                "object_context": raw_context.get("object_context"),
             })
+            if not TERMUI_MINIMAL_VARIABLE_METADATA:
+                context["object_context"] = raw_context.get("object_context")
         except Exception:
             pass
-        contract = self.current_contract()
-        if contract is not None:
-            context["variable_sid"] = contract.get("sid")
+        if include_variable:
+            contract = self.current_contract(advanced=True)
+            if contract is not None:
+                context["variable_sid"] = contract.get("sid")
         if self.object_focus is not None:
             context["focused_object"] = dict(self.object_focus)
         return context
 
     def oncs_digest_rows(self):
-        contract = self.current_contract()
+        contract = self.current_contract(advanced=True)
         current_sid = contract.get("sid") if contract else None
         rows = []
         for sid, item in sorted(
@@ -1526,6 +1629,111 @@ class PALTerminalModel:
             })
         return rows
 
+    def truth_source_lines(self, panel):
+        """Frozen C/ASM source lines without ONCS variable-digest construction."""
+        panel = str(panel)
+        cached = self._truth_source_lines_cache.get(panel)
+        if cached is not None:
+            return cached
+        metadata_view = IcecubeMetadataView(
+            self.document, function_record=self.function_record
+        )
+        digest = TruthDigestDaily(
+            metadata_view,
+            oncs_rows=(),
+            cursor=self._cursor_context(include_variable=False),
+        )
+        cached = tuple(
+            str(value) for value in list(
+                digest.source_lines(panel) or []
+            )
+        )
+        self._truth_source_lines_cache[panel] = cached
+        return cached
+
+    @staticmethod
+    def _block_cache_key_v12(block_addr):
+        if block_addr is None:
+            return None
+        if isinstance(block_addr, int):
+            return hex(block_addr)
+        text = str(block_addr).strip()
+        if not text:
+            return None
+        try:
+            return hex(int(text, 0))
+        except Exception:
+            return text
+
+    def cursor_block_addr_v12(
+        self, projection=None, line=None, column=None
+    ):
+        """Return only CFG block allegiance for a rendered Python cursor.
+
+        This deliberately avoids object/variable lookup.  It reuses the same
+        line-addressed describe_cursor cache as the v11 minimal sidecar path.
+        """
+        projection = str(projection or self.projection)
+        line = self.line if line is None else int(line)
+        column = self.column if column is None else int(column)
+
+        try:
+            base_column = self.oncs.display_to_pal_column(
+                projection,
+                self.naming,
+                line,
+                column,
+                self.operator_overlay,
+            )
+        except Exception:
+            base_column = column
+
+        cache_key = (projection, int(line))
+        raw_context = self._cursor_block_cache.get(cache_key)
+        if raw_context is None:
+            try:
+                described = self.document.describe_cursor(
+                    projection,
+                    line,
+                    base_column,
+                    line_base=0,
+                )
+                raw_context = dict(
+                    described.get("context", {}) or {}
+                )
+            except Exception:
+                raw_context = {}
+            self._cursor_block_cache[cache_key] = raw_context
+
+        return raw_context.get("cfg_block_addr")
+
+    def truth_block_asm_lines_v12(self, block_addr):
+        """Return one frozen ASM block, cached by canonical CFG address."""
+        key = self._block_cache_key_v12(block_addr)
+        cache_key = ("asm:block", key)
+        cached = self._truth_source_lines_cache.get(cache_key)
+        if cached is not None:
+            return cached
+
+        cursor = self._cursor_context(include_variable=False)
+        cursor["cfg_block_addr"] = block_addr
+
+        metadata_view = IcecubeMetadataView(
+            self.document, function_record=self.function_record
+        )
+        digest = TruthDigestDaily(
+            metadata_view,
+            oncs_rows=(),
+            cursor=cursor,
+        )
+        cached = tuple(
+            str(value) for value in list(
+                digest.source_lines("asm") or []
+            )
+        )
+        self._truth_source_lines_cache[cache_key] = cached
+        return cached
+
     def truth_digest(self):
         metadata_view = IcecubeMetadataView(
             self.document, function_record=self.function_record
@@ -1533,7 +1741,7 @@ class PALTerminalModel:
         return TruthDigestDaily(
             metadata_view,
             oncs_rows=self.oncs_digest_rows(),
-            cursor=self._cursor_context(),
+            cursor=self._cursor_context(include_variable=True),
         )
 
     def save(self, path=None):
@@ -2049,6 +2257,7 @@ class PythonTerminalHighlighter:
     ROLE_OPERATOR = "operator"
 
     @staticmethod
+    @functools.lru_cache(maxsize=16384)
     def segments(text):
         tokens = []
         try:
@@ -2099,6 +2308,27 @@ class PythonTerminalHighlighter:
                 out.append((match.start(), match.end(), PythonTerminalHighlighter.ROLE_HELPER))
         return out
 
+    @staticmethod
+    @functools.lru_cache(maxsize=16384)
+    def identifier_spans(text):
+        spans = []
+        try:
+            stream = io.StringIO(str(text) + "\n").readline
+            for item in tokenize.generate_tokens(stream):
+                if item.type == token.NAME:
+                    spans.append((
+                        item.start[1], item.end[1], item.string
+                    ))
+        except (IndentationError, SyntaxError, tokenize.TokenError):
+            for match in re.finditer(
+                r"\b[A-Za-z_][A-Za-z0-9_]*\b",
+                str(text),
+            ):
+                spans.append((
+                    match.start(), match.end(), match.group(0)
+                ))
+        return tuple(spans)
+
 
 class PALCursesUI:
     def __init__(self, screen, model, save_handler=None):
@@ -2125,6 +2355,13 @@ class PALCursesUI:
             for name in self.side_panes
         }
         self.last_python_pane = self.model.projection
+        self._side_static_lines_cache = {}
+        # v12: C is immutable/static; ASM is block-specific and keyed by the
+        # CFG allegiance of the last active READ/EXEC pane.
+        self._side_asm_block_lines_cache = {}
+        self._side_asm_block_addr = None
+        self._last_layout = None
+        self._dirty = True
         self._init_terminal()
 
     def _init_terminal(self):
@@ -2206,6 +2443,21 @@ class PALCursesUI:
         except curses.error:
             pass
 
+    def _prepare_frame(self, layout):
+        height, width = self.screen.getmaxyx()
+        signature = (str(layout), int(height), int(width))
+        if signature != self._last_layout:
+            self.screen.erase()
+            self._last_layout = signature
+        return height, width
+
+    def _present(self):
+        try:
+            self.screen.noutrefresh()
+            curses.doupdate()
+        except Exception:
+            self.screen.refresh()
+
     def _focus_spans(self, pane, text):
         names = set(self.model.object_focus_names(pane))
         legacy = self.model.highlight_name()
@@ -2213,18 +2465,13 @@ class PALCursesUI:
             names.add(str(legacy))
         if not names:
             return []
-        spans = []
-        try:
-            stream = io.StringIO(str(text) + "\n").readline
-            for item in tokenize.generate_tokens(stream):
-                if item.type == token.NAME and item.string in names:
-                    spans.append((item.start[1], item.end[1]))
-        except (IndentationError, SyntaxError, tokenize.TokenError):
-            pattern = r"\b(?:%s)\b" % "|".join(
-                re.escape(value) for value in sorted(names, key=len, reverse=True)
+        return [
+            (start, end)
+            for start, end, value in PythonTerminalHighlighter.identifier_spans(
+                str(text)
             )
-            spans = [match.span() for match in re.finditer(pattern, str(text))]
-        return spans
+            if value in names
+        ]
 
     def _draw_code_line(self, y, line_number, text, selected, code_x, width):
         visible = text[self.model.left_column:self.model.left_column + width]
@@ -2283,21 +2530,47 @@ class PALCursesUI:
                 except Exception as exc:
                     return ["%s projection unavailable: %s" % (pane, exc)]
 
-        digest_panel = "asm" if pane == "asm" else "c_code"
-        try:
-            digest = self.model.truth_digest()
-            # Four-pane C/ASM is the frozen source-machine metadata itself: no
-            # digest header, report footer, line-number commentary, or summary.
-            return [
-                str(value) for value in list(
-                    digest.source_lines(digest_panel) or []
+        if pane == "asm":
+            key = self.model._block_cache_key_v12(
+                self._side_asm_block_addr
+            )
+            cached = self._side_asm_block_lines_cache.get(key)
+            if cached is not None:
+                return cached
+            try:
+                if self._side_asm_block_addr is None:
+                    cached = tuple(
+                        self.model.truth_source_lines("asm")
+                    )
+                else:
+                    cached = tuple(
+                        self.model.truth_block_asm_lines_v12(
+                            self._side_asm_block_addr
+                        )
+                    )
+            except Exception as exc:
+                cached = (
+                    "ASM truth panel unavailable",
+                    "%s: %s" % (type(exc).__name__, exc),
                 )
-            ]
+            self._side_asm_block_lines_cache[key] = cached
+            return cached
+
+        digest_panel = "c_code"
+        cached = self._side_static_lines_cache.get(digest_panel)
+        if cached is not None:
+            return cached
+        try:
+            # Source-only path: do not build the all-variable Truth Digest just
+            # to paint immutable C.  ASM uses its block-specific v12 path above.
+            cached = tuple(self.model.truth_source_lines(digest_panel))
         except Exception as exc:
-            return [
+            cached = (
                 "%s truth panel unavailable" % digest_panel.upper(),
                 "%s: %s" % (type(exc).__name__, exc),
-            ]
+            )
+        self._side_static_lines_cache[digest_panel] = cached
+        return cached
 
     def _side_python_peer(self, pane):
         if pane == "readable":
@@ -2306,7 +2579,43 @@ class PALCursesUI:
             return "readable"
         return None
 
+    def _side_lock_asm_v12(self, source_pane):
+        """Lock ASM contents to the CFG block under the active Python line."""
+        if source_pane not in ("readable", "executable"):
+            return False
+
+        source = self.side_state[source_pane]
+        block_addr = self.model.cursor_block_addr_v12(
+            source_pane,
+            int(source["line"]),
+            int(source["column"]),
+        )
+        if block_addr is None:
+            # Synthetic/presentation lines may own no CFG block.  Retain the
+            # last proven block rather than replacing machine truth with noise.
+            return False
+
+        new_key = self.model._block_cache_key_v12(block_addr)
+        old_key = self.model._block_cache_key_v12(
+            self._side_asm_block_addr
+        )
+        self._side_asm_block_addr = block_addr
+
+        asm_state = self.side_state["asm"]
+        if new_key != old_key:
+            asm_state["line"] = 0
+            asm_state["column"] = 0
+            asm_state["top"] = 0
+            asm_state["left"] = 0
+        return True
+
     def _side_soft_sync_c(self, source_pane):
+        """Map active Python position directly onto the full C viewport.
+
+        The C pane is a passive 0-100% follower.  Its viewport top moves across
+        the complete available C range, rather than waiting for a selected line
+        to collide with a page edge.
+        """
         if source_pane not in ("readable", "executable"):
             return False
         source_lines = self._side_lines(source_pane)
@@ -2317,6 +2626,17 @@ class PALCursesUI:
         c_state = self.side_state["c_code"]
         c_state["line"] = line_from_document_position(position, len(c_lines))
         c_state["column"] = 0
+
+        height, width = self.screen.getmaxyx()
+        rect = self._side_rectangles(height, width).get(
+            "c_code", (0, 0, 3, 8)
+        )
+        inner_height = max(1, int(rect[2]) - 2)
+        maximum_top = max(0, len(c_lines) - inner_height)
+        c_state["top"] = min(
+            maximum_top,
+            max(0, int(round(position * maximum_top))),
+        )
         return True
 
     def _side_object_hotspot(
@@ -2326,7 +2646,7 @@ class PALCursesUI:
             return None
         focus_key = self.model._focus_key(focus)
         matches = []
-        for item in list(projection_hotspots(self.model.document, pane) or []):
+        for item in list(self.model.hotspots(pane) or []):
             context = dict(item.get("object_context", {}) or {})
             if not context:
                 continue
@@ -2392,13 +2712,11 @@ class PALCursesUI:
                 source_column,
                 self.model.operator_overlay,
             )
-            mapping = self.model.document.sync_cursor(
+            mapping = self.model.sync_projection_cursor(
                 source_pane,
                 peer,
                 source_line,
                 source_base_column,
-                source_naming="pal",
-                target_naming="pal",
             )
             if mapping.get("matched"):
                 target_line = int(mapping["target_view"]["line"])
@@ -2429,37 +2747,44 @@ class PALCursesUI:
         target["line"] = target_line
         target["column"] = target_column
         self.last_python_pane = source_pane
+        self._side_lock_asm_v12(source_pane)
         if soft_c:
             self._side_soft_sync_c(source_pane)
 
-        # Keep Truth Digest / ASM block lookup anchored to the active Python
-        # statement without changing the ordinary single-view scroll state.
+        # Keep block allegiance anchored to the active Python statement without
+        # changing ordinary single-view scroll state or invoking variable lookup.
         self.model.projection = source_pane
         self.model.line = source_line
         self.model.column = source_column
         self.model.clamp()
         self.model.update_cursor_context()
-        self.model.status = "READ/EXEC linked (%s); C soft-sync %.1f%%" % (
-            reason,
-            percentage_document_position(source_line, len(source_lines)) * 100.0,
+        block_label = (
+            self.model._block_cache_key_v12(
+                self._side_asm_block_addr
+            )
+            or "-"
+        )
+        self.model.status = (
+            "READ/EXEC linked (%s); ASM=%s; C direct %.1f%%"
+            % (
+                reason,
+                block_label,
+                percentage_document_position(
+                    source_line, len(source_lines)
+                ) * 100.0,
+            )
         )
         return True
 
     def _side_soft_sync_from_c(self):
-        c_lines = self._side_lines("c_code")
-        position = percentage_document_position(
-            self.side_state["c_code"]["line"], len(c_lines)
-        )
+        """C is free-browse locally and never drives Python allegiance."""
         anchor = self.last_python_pane
         if anchor not in ("readable", "executable"):
             anchor = "readable"
-        anchor_lines = self._side_lines(anchor)
-        self.side_state[anchor]["line"] = line_from_document_position(
-            position, len(anchor_lines)
+        self.model.status = (
+            "C free browse; direct soft-scroll resumes from highlighted %s"
+            % anchor.upper()
         )
-        self.side_state[anchor]["column"] = 0
-        self._side_sync_python_pair(anchor, soft_c=False)
-        self.model.status = "C soft area sync %.1f%%" % (position * 100.0)
         return True
 
     def _side_refresh_linkage(self, source_pane):
@@ -2467,6 +2792,11 @@ class PALCursesUI:
             return self._side_sync_python_pair(source_pane)
         if source_pane == "c_code":
             return self._side_soft_sync_from_c()
+        if source_pane == "asm":
+            self.model.status = (
+                "ASM free browse; Python movement restores block lock"
+            )
+            return True
         return False
 
     def _side_hotspot_projection(self):
@@ -2479,7 +2809,7 @@ class PALCursesUI:
 
     def _side_move_hotspot(self, step=1):
         pane = self._side_hotspot_projection()
-        hotspots = list(projection_hotspots(self.model.document, pane) or [])
+        hotspots = list(self.model.hotspots(pane) or [])
         if not hotspots:
             self.model.status = "no active Icecube hotspots for %s" % pane
             return False
@@ -2603,6 +2933,11 @@ class PALCursesUI:
         if pane in ("readable", "executable"):
             self.last_python_pane = pane
             self._side_sync_model_cursor(pane)
+            self._side_sync_python_pair(pane)
+        elif pane == "asm":
+            self._side_lock_asm_v12(self.last_python_pane)
+        elif pane == "c_code":
+            self._side_soft_sync_c(self.last_python_pane)
         self.model.status = "active comparison pane: %s" % self.side_titles[pane]
         return pane
 
@@ -2769,8 +3104,7 @@ class PALCursesUI:
                     )
 
     def _draw_side_by_side(self):
-        self.screen.erase()
-        height, width = self.screen.getmaxyx()
+        height, width = self._prepare_frame("four-pane")
         if height < 14 or width < 72:
             warning = (
                 "F9 SIDE-BY-SIDE NEEDS AT LEAST 72x14; current terminal=%dx%d"
@@ -2780,7 +3114,7 @@ class PALCursesUI:
             self._safe_addstr(
                 2, 0, "F9 or Esc returns to single view", self._attr("default"), width - 1
             )
-            self.screen.refresh()
+            self._present()
             return
 
         rectangles = self._side_rectangles(height, width)
@@ -2809,7 +3143,7 @@ class PALCursesUI:
         self._safe_addstr(
             height - 1, 0, message.ljust(width), self._attr("default"), width - 1
         )
-        self.screen.refresh()
+        self._present()
 
     def _handle_side_navigation(self, key):
         pane = self._side_active_name()
@@ -2820,6 +3154,10 @@ class PALCursesUI:
         rect = rectangles.get(pane, (0, 0, 3, 8))
         inner_height = max(1, rect[2] - 2)
         maximum_line = max(0, len(lines) - 1)
+        before = (
+            int(state["line"]), int(state["column"]),
+            int(state["top"]), int(state["left"]),
+        )
         cursor_changed = False
         viewport_only = False
 
@@ -2872,29 +3210,36 @@ class PALCursesUI:
         elif state["line"] >= state["top"] + inner_height:
             state["top"] = state["line"] - inner_height + 1
 
-        # Arrow keys move the semantic cursor.  Horizontal viewport movement is
-        # deliberately isolated on j/k (h/l aliases retained) and never changes
-        # the linked position.
+        digits = max(3, len(str(max(1, len(lines)))))
+        gutter = min(rect[3] - 3, digits + 2)
+        text_width = max(1, rect[3] - gutter - 2)
         if cursor_changed:
-            digits = max(3, len(str(max(1, len(lines)))))
-            gutter = min(rect[3] - 3, digits + 2)
-            text_width = max(1, rect[3] - gutter - 2)
             if state["column"] < state["left"]:
                 state["left"] = state["column"]
             elif state["column"] >= state["left"] + text_width:
                 state["left"] = state["column"] - text_width + 1
+
+        after = (
+            int(state["line"]), int(state["column"]),
+            int(state["top"]), int(state["left"]),
+        )
+        if after == before:
+            # v11 boundary trap: top-UP, bottom-DOWN, and exhausted horizontal
+            # motion are true no-ops.  Do not recompute linkage or repaint VT100.
+            return False
+
+        if cursor_changed:
             self._side_refresh_linkage(pane)
             if pane in ("readable", "executable"):
                 self._side_sync_model_cursor(pane)
         elif viewport_only and pane in ("readable", "executable"):
-            # Preserve horizontal scroll when returning to single view.
             self.side_state[pane]["left"] = state["left"]
         return True
 
     def _rename_committed_variable(self, pane=None):
         if pane in ("readable", "executable"):
             self._side_sync_model_cursor(pane)
-        contract = self.model.current_contract()
+        contract = self.model.current_contract(advanced=True)
         if contract is None:
             self.model.status = "cursor is not on an editable ONCS variable"
             return False
@@ -3013,8 +3358,7 @@ class PALCursesUI:
         if self.side_by_side:
             self._draw_side_by_side()
             return
-        self.screen.erase()
-        height, width = self.screen.getmaxyx()
+        height, width = self._prepare_frame("single")
         lines = self.model.lines()
         body_height = max(1, height - 2)
         self.model.clamp()
@@ -3028,7 +3372,11 @@ class PALCursesUI:
         for row in range(body_height):
             line_number = self.model.top_line + row
             if line_number >= len(lines):
-                break
+                self._safe_addstr(
+                    row, 0, " " * max(0, width - 1),
+                    self._attr("default"), max(0, width - 1)
+                )
+                continue
             selected = line_number == self.model.line
             number = (" %*d " % (digits, line_number + 1))
             self._safe_addstr(
@@ -3068,7 +3416,7 @@ class PALCursesUI:
                 self.screen.move(self.model.line - self.model.top_line, cursor_x)
             except curses.error:
                 pass
-        self.screen.refresh()
+        self._present()
 
     def _prompt(self, label, initial=""):
         height, width = self.screen.getmaxyx()
@@ -3118,11 +3466,27 @@ class PALCursesUI:
                 buffer.insert(cursor, key)
                 cursor += 1
 
+    @staticmethod
+    def _metadata_lines_without_daily_banner_v12(lines):
+        """Remove the duplicated report masthead from the F3 sub-pane."""
+        lines = [str(value) for value in list(lines or [])]
+        if (
+            len(lines) >= 2
+            and lines[0].strip().upper() == "TRUTH DIGEST DAILY"
+            and set(lines[1].strip()) <= {"="}
+        ):
+            lines = lines[2:]
+            while lines and not lines[0].strip():
+                lines.pop(0)
+        return lines
+
     def _metadata_overlay(self):
         digest = self.model.truth_digest()
         top = 0
         while True:
-            lines = digest.lines()
+            lines = self._metadata_lines_without_daily_banner_v12(
+                digest.lines()
+            )
             height, width = self.screen.getmaxyx()
             box_h = max(8, height - 4)
             box_w = max(30, width - 6)
@@ -3135,9 +3499,9 @@ class PALCursesUI:
             except curses.error:
                 pass
             title = (
-                " TRUTH DIGEST RAW | R curated | arrows scroll | Esc closes "
+                " RAW METADATA | R curated | arrows scroll | Esc closes "
                 if digest.raw else
-                " TRUTH DIGEST DAILY | F1 C F2 defs F3 calls F4 ABI F5 ASM R raw "
+                " F1 C | F2 defs | F3 calls | F4 ABI | F5 ASM | R raw "
             )
             try:
                 window.addnstr(
@@ -3188,35 +3552,56 @@ class PALCursesUI:
     def handle_key(self, key):
         if key == getattr(curses, "KEY_F9", curses.KEY_F0 + 9):
             self._toggle_side_by_side()
-            return
-        if self.side_by_side and self._handle_side_key(key):
-            return
+            return True
+        if self.side_by_side:
+            return bool(self._handle_side_key(key))
 
         lines = self.model.lines()
         height, width = self.screen.getmaxyx()
         page = max(1, height - 3)
+        before = (
+            self.model.projection,
+            self.model.naming,
+            bool(self.model.operator_overlay),
+            int(self.model.line),
+            int(self.model.column),
+            int(self.model.top_line),
+            int(self.model.left_column),
+        )
+        explicit_redraw = False
+        cursor_action = False
+
         if key in ("q", "Q"):
             self.exit_reason = "function_list"
             self.running = False
+            return False
         elif key == curses.KEY_F1:
-            self.model.switch_projection()
+            explicit_redraw = bool(self.model.switch_projection())
+            cursor_action = explicit_redraw
         elif key == curses.KEY_F2:
             self.model.cycle_naming()
+            explicit_redraw = True
+            cursor_action = True
         elif key == "\x0f":
             self.model.toggle_operator_overlay()
+            explicit_redraw = True
+            cursor_action = True
         elif key == "\t":
-            self.model.move_hotspot(1)
+            explicit_redraw = self.model.move_hotspot(1) is not None
         elif key in (KEY_CTRL_TAB, getattr(curses, "KEY_BTAB", -99999)):
-            self.model.move_hotspot(-1)
+            explicit_redraw = self.model.move_hotspot(-1) is not None
         elif key in ("\n", "\r", curses.KEY_ENTER):
             self.model.update_cursor_context()
             self.model.toggle_object_focus()
+            explicit_redraw = True
         elif key == curses.KEY_F3:
             self._metadata_overlay()
+            explicit_redraw = True
         elif key == curses.KEY_F4:
-            self._rename_committed_variable()
+            explicit_redraw = bool(self._rename_committed_variable())
         elif key == curses.KEY_F5:
             self.model.revert_current_variable()
+            explicit_redraw = True
         elif key == curses.KEY_F6:
             default = "%s.%s.%s.py" % (
                 getattr(self.model.document, "function_name", "function"),
@@ -3229,8 +3614,10 @@ class PALCursesUI:
                     self.model.export(path)
                 except Exception as exc:
                     self.model.status = "export failed: %s" % exc
+            explicit_redraw = True
         elif key in ("x", "X"):
             self.model.toggle_highlight()
+            explicit_redraw = True
         elif key == "\x13":
             try:
                 if callable(self.save_handler):
@@ -3239,46 +3626,87 @@ class PALCursesUI:
                     self.model.save()
             except Exception as exc:
                 self.model.status = "save failed: %s" % exc
+            explicit_redraw = True
         elif key in (curses.KEY_DOWN, "j"):
-            self.model.line = min(max(0, len(lines) - 1), self.model.line + 1)
+            self.model.line = min(
+                max(0, len(lines) - 1), self.model.line + 1
+            )
+            cursor_action = True
         elif key in (curses.KEY_UP, "k"):
             self.model.line = max(0, self.model.line - 1)
+            cursor_action = True
         elif key == curses.KEY_NPAGE:
-            self.model.line = min(max(0, len(lines) - 1), self.model.line + page)
+            self.model.line = min(
+                max(0, len(lines) - 1), self.model.line + page
+            )
+            cursor_action = True
         elif key == curses.KEY_PPAGE:
             self.model.line = max(0, self.model.line - page)
+            cursor_action = True
         elif key == curses.KEY_LEFT:
             self.model.column = max(0, self.model.column - 1)
+            cursor_action = True
         elif key == curses.KEY_RIGHT:
             self.model.column = min(
                 len(self.model.current_line_text()), self.model.column + 1
             )
+            cursor_action = True
         elif key == curses.KEY_HOME:
             self.model.column = 0
+            cursor_action = True
         elif key == curses.KEY_END:
             self.model.column = len(self.model.current_line_text())
+            cursor_action = True
         elif key == curses.KEY_RESIZE:
-            pass
+            self._last_layout = None
+            explicit_redraw = True
+        else:
+            return False
+
         self.model.clamp()
-        if key in (
-            curses.KEY_F1, curses.KEY_F2, "\x0f",
-            curses.KEY_DOWN, curses.KEY_UP, curses.KEY_NPAGE,
-            curses.KEY_PPAGE, curses.KEY_LEFT, curses.KEY_RIGHT,
-            curses.KEY_HOME, curses.KEY_END,
-        ):
+        after_cursor = (
+            self.model.projection,
+            self.model.naming,
+            bool(self.model.operator_overlay),
+            int(self.model.line),
+            int(self.model.column),
+        )
+        before_cursor = before[:5]
+
+        if cursor_action and after_cursor != before_cursor:
             self.model.update_cursor_context()
+
         code_width = max(1, width - 10)
         if self.model.column < self.model.left_column:
             self.model.left_column = self.model.column
         elif self.model.column >= self.model.left_column + code_width:
             self.model.left_column = self.model.column - code_width + 1
+
         if self.side_by_side:
             self._side_capture_model_cursor()
 
+        after = (
+            self.model.projection,
+            self.model.naming,
+            bool(self.model.operator_overlay),
+            int(self.model.line),
+            int(self.model.column),
+            int(self.model.top_line),
+            int(self.model.left_column),
+        )
+        changed = explicit_redraw or after != before
+        # Boundary clicks are intentionally blank operations: no status churn,
+        # no linkage refresh, no complete ASCII frame sent to the terminal.
+        return bool(changed)
+
     def run(self):
         while self.running:
-            self.draw()
-            self.handle_key(self.screen.get_wch())
+            if self._dirty:
+                self.draw()
+                self._dirty = False
+            changed = self.handle_key(self.screen.get_wch())
+            if changed:
+                self._dirty = True
         return self.exit_reason
 
 
@@ -3366,7 +3794,11 @@ class PALProjectBrowserUI:
             height - 1, 0, str(self.workspace.status or "").ljust(width),
             0, width - 1
         )
-        self.screen.refresh()
+        try:
+            self.screen.noutrefresh()
+            curses.doupdate()
+        except Exception:
+            self.screen.refresh()
 
     def _open(self):
         try:
@@ -3376,23 +3808,34 @@ class PALProjectBrowserUI:
             return None
 
     def run(self):
+        dirty = True
         while True:
             try:
                 curses.curs_set(0)
             except curses.error:
                 pass
-            self.draw()
+            if dirty:
+                self.draw()
+                dirty = False
             key = self.screen.get_wch()
             height, unused_width = self.screen.getmaxyx()
             page = max(1, height - 4)
+            before = (
+                int(self.workspace.line),
+                int(self.workspace.top_line),
+                str(self.workspace.status or ""),
+            )
+            explicit = False
             if key in ("q", "Q"):
                 return None
             if key in ("\n", "\r", curses.KEY_ENTER, curses.KEY_RIGHT, "l"):
                 catalog = self._open()
                 if catalog is not None:
                     return catalog
+                explicit = True
             elif key in ("r", "R"):
                 self.workspace.refresh()
+                explicit = True
             elif key in (curses.KEY_DOWN, "j"):
                 self.workspace.line += 1
             elif key in (curses.KEY_UP, "k"):
@@ -3406,8 +3849,16 @@ class PALProjectBrowserUI:
             elif key in (curses.KEY_END, "G"):
                 self.workspace.line = max(0, len(self.workspace.records) - 1)
             elif key == curses.KEY_RESIZE:
-                pass
+                explicit = True
+            else:
+                continue
             self.workspace.clamp()
+            after = (
+                int(self.workspace.line),
+                int(self.workspace.top_line),
+                str(self.workspace.status or ""),
+            )
+            dirty = explicit or after != before
 
 
 class PALFunctionBrowserUI:
@@ -3539,7 +3990,11 @@ class PALFunctionBrowserUI:
             height - 1, 0, str(self.catalog.status or "").ljust(width),
             0, width - 1
         )
-        self.screen.refresh()
+        try:
+            self.screen.noutrefresh()
+            curses.doupdate()
+        except Exception:
+            self.screen.refresh()
 
     def _open(self):
         try:
@@ -3554,15 +4009,27 @@ class PALFunctionBrowserUI:
             return None
 
     def run(self):
+        dirty = True
         while True:
             try:
                 curses.curs_set(0)
             except curses.error:
                 pass
-            self.draw()
+            if dirty:
+                self.draw()
+                dirty = False
             key = self.screen.get_wch()
             height, unused_width = self.screen.getmaxyx()
             page = max(1, height - 4)
+            before = (
+                int(self.catalog.line),
+                int(self.catalog.top_line),
+                str(self.catalog.function_filter or ""),
+                str(self.catalog.function_naming),
+                bool(self.catalog.function_operator_overlay),
+                str(self.catalog.status or ""),
+            )
+            explicit = False
             if key in ("q", "Q"):
                 return None
             if key == "/":
@@ -3571,18 +4038,23 @@ class PALFunctionBrowserUI:
                 )
                 if value is not None:
                     self.catalog.set_function_filter(value)
+                dirty = True
                 continue
             if key == "\x18":
                 self.catalog.clear_function_filter()
+                dirty = True
                 continue
             if key in ("\n", "\r", curses.KEY_ENTER, curses.KEY_RIGHT, "l"):
                 model = self._open()
                 if model is not None:
                     return model
+                explicit = True
             elif key == curses.KEY_F2:
                 self.catalog.cycle_function_naming()
+                explicit = True
             elif key == "\x0f":
                 self.catalog.toggle_function_operator_overlay()
+                explicit = True
             elif key == curses.KEY_F4:
                 fid = self.catalog.function_id()
                 record = self.catalog.function_registry.record(fid) or {}
@@ -3596,11 +4068,13 @@ class PALFunctionBrowserUI:
                         self.catalog.rename_selected_function(value.strip())
                     except Exception as exc:
                         self.catalog.status = "function rename failed: %s" % exc
+                explicit = True
             elif key == curses.KEY_F5:
                 try:
                     self.catalog.clear_selected_function()
                 except Exception as exc:
                     self.catalog.status = "function revert failed: %s" % exc
+                explicit = True
             elif key in (curses.KEY_DOWN, "j"):
                 self.catalog.line += 1
             elif key in (curses.KEY_UP, "k"):
@@ -3612,10 +4086,23 @@ class PALFunctionBrowserUI:
             elif key in (curses.KEY_HOME, "g"):
                 self.catalog.line = 0
             elif key in (curses.KEY_END, "G"):
-                self.catalog.line = max(0, len(self.catalog.records) - 1)
+                self.catalog.line = max(
+                    0, len(self.catalog.visible_records()) - 1
+                )
             elif key == curses.KEY_RESIZE:
-                pass
+                explicit = True
+            else:
+                continue
             self.catalog.clamp()
+            after = (
+                int(self.catalog.line),
+                int(self.catalog.top_line),
+                str(self.catalog.function_filter or ""),
+                str(self.catalog.function_naming),
+                bool(self.catalog.function_operator_overlay),
+                str(self.catalog.status or ""),
+            )
+            dirty = explicit or after != before
 
 
 def _run_curses(screen, catalog, verify=True, projection=None, naming="pal", show_splash=True):
