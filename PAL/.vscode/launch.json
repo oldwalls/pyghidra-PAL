@@ -1,0 +1,17 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "PAL: Current file (project-aware)",
+            "type": "debugpy",
+            "request": "launch",
+            "program": "${file}",
+            "cwd": "${workspaceFolder}",
+            "console": "integratedTerminal",
+            "justMyCode": false,
+            "env": {
+                "PYTHONPATH": "${workspaceFolder}:${fileDirname}:${fileDirname}/..:${fileDirname}/../runtime:${fileDirname}/../shims:${env:PYTHONPATH}"
+            }
+        }
+    ]
+}

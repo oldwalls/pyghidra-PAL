@@ -1,5 +1,5 @@
 {
-  "build": "pal_exec_interface_v1f_dispatch_namespace_separation",
+  "build": "pal_exec_interface_v1g_stdio_game_io",
   "counts": {
     "call_plans": 8,
     "entry_plans": 17,
@@ -18,15 +18,15 @@
       "artifacts": {
         "executable": {
           "path": "functions/f_0000000000101000_init.exec.py",
-          "sha256": "440707731cee0d29230916a28730ba1eac2c095a4dea13476517ed546458db4d"
+          "sha256": "9326fce74bb966269661fd944d78c737b207680be7554b864bee82dcc02e66e8"
         },
         "icecube": {
           "path": "functions/f_0000000000101000_init.icecube.json.gz",
-          "sha256": "5ff35db7490e9aedfd998181e946301cf2625ce8fb82a5da5797ed4a725fe25a"
+          "sha256": "15b274747495f9601d716c778d6c2f6636be59fa3e03907f1bcf632573b12b35"
         },
         "readable": {
           "path": "functions/f_0000000000101000_init.read.py",
-          "sha256": "0208effd600c4c488ce8c77710de37b4703fd1f2752640f28b2656b03e9a7d6f"
+          "sha256": "6fe9c60ec99647e33ec1680d1177fef300bcb14903e26ba1391029fee8f66063"
         }
       },
       "body_max": 1052698,
@@ -52,7 +52,7 @@
       "pal_name": "f_init",
       "published_icecube": "icecubes/f_0000000000101000_init.icecube.json.gz",
       "published_module": "functions/f_0000000000101000_init.py",
-      "published_sha256": "440707731cee0d29230916a28730ba1eac2c095a4dea13476517ed546458db4d",
+      "published_sha256": "9326fce74bb966269661fd944d78c737b207680be7554b864bee82dcc02e66e8",
       "python_parameter_count": 1,
       "python_symbol": "_init",
       "qualified_name": "Global::_init",
@@ -67,20 +67,20 @@
       "warnings": []
     },
     {
-      "active_name": "f_acrobat",
+      "active_name": "f_whale",
       "active_name_source": "generated",
       "artifacts": {
         "executable": {
           "path": "functions/f_0000000000101020_FUN_00101020.exec.py",
-          "sha256": "293828570f1152f6d510844a4c42c8fe1a71160df49e314ba70d31c0c21a1724"
+          "sha256": "0b7c618f85a51f436dc261d0dd133fbf8e153b2d18f3c2d139132c557bbaa025"
         },
         "icecube": {
           "path": "functions/f_0000000000101020_FUN_00101020.icecube.json.gz",
-          "sha256": "98a161f7179b507d573d5b8197213cd1d010a3079a87a17f19ef6b6798bcea20"
+          "sha256": "3a9a3aebf2d97f0413f0948a434611ebb1a3acd250fe874ce692ecff67b6564c"
         },
         "readable": {
           "path": "functions/f_0000000000101020_FUN_00101020.read.py",
-          "sha256": "1652a3d128232506b180ea3d440fa807a751347bf85f5a3d35e8fe2114be8923"
+          "sha256": "a3a1da314e4b8165506d13249bc4a42c0982828a6570c831e5dcb4e1bbbc4074"
         }
       },
       "body_max": 1052716,
@@ -93,7 +93,7 @@
       "entry_plan_id": "function_entry:1052704",
       "external": false,
       "function_id": "function:0x101020",
-      "generated_name": "f_acrobat",
+      "generated_name": "f_whale",
       "inline": false,
       "is_shim_boundary": false,
       "module": "functions.f_0000000000101020_FUN_00101020",
@@ -106,7 +106,7 @@
       "pal_name": "f_FUN_00101020",
       "published_icecube": "icecubes/f_0000000000101020_FUN_00101020.icecube.json.gz",
       "published_module": "functions/f_0000000000101020_FUN_00101020.py",
-      "published_sha256": "293828570f1152f6d510844a4c42c8fe1a71160df49e314ba70d31c0c21a1724",
+      "published_sha256": "0b7c618f85a51f436dc261d0dd133fbf8e153b2d18f3c2d139132c557bbaa025",
       "python_parameter_count": 0,
       "python_symbol": "FUN_00101020",
       "qualified_name": "Global::FUN_00101020",
@@ -126,15 +126,15 @@
       "artifacts": {
         "executable": {
           "path": "functions/f_0000000000101040_cxa_finalize.exec.py",
-          "sha256": "51f42fa66d3efa4e85eaa48f542768d84d6a04ecc4ba0c955c1d1aa5926ee73d"
+          "sha256": "265b042c6b7afdb996466347acb1367106ce3e4007d49c4e40f20ce1534b9c9d"
         },
         "icecube": {
           "path": "functions/f_0000000000101040_cxa_finalize.icecube.json.gz",
-          "sha256": "c4e3d35531a5b1fda70747fff087e0016cf52d1570e452df200f236868dd0144"
+          "sha256": "a5d469449f79c72085576e7231e098673bce77d87d3bf4c0884259941f5d6fce"
         },
         "readable": {
           "path": "functions/f_0000000000101040_cxa_finalize.read.py",
-          "sha256": "f2395cb3a348fd0e64d42fa87e64d088722d678eb1ed94d0310c003e64bef14f"
+          "sha256": "9ee44915b0b5f49d78d15984aff351acaadee50abbe8653c3e13e1aa2196ada7"
         }
       },
       "body_max": 1052746,
@@ -160,7 +160,7 @@
       "pal_name": "f_cxa_finalize",
       "published_icecube": "icecubes/f_0000000000101040_cxa_finalize.icecube.json.gz",
       "published_module": "functions/f_0000000000101040_cxa_finalize.py",
-      "published_sha256": "51f42fa66d3efa4e85eaa48f542768d84d6a04ecc4ba0c955c1d1aa5926ee73d",
+      "published_sha256": "265b042c6b7afdb996466347acb1367106ce3e4007d49c4e40f20ce1534b9c9d",
       "python_parameter_count": 0,
       "python_symbol": "__cxa_finalize",
       "qualified_name": "<EXTERNAL>::__cxa_finalize",
@@ -180,15 +180,15 @@
       "artifacts": {
         "executable": {
           "path": "functions/f_0000000000101050_stack_chk_fail.exec.py",
-          "sha256": "56f90b9e026fcb251e38061d0e8a5b2a23ea3c7c25c840b488514729d3add4d8"
+          "sha256": "59004b3b5ce0e54aa70db3f46e9f425e76b940f9d5b5c63ad9722e3b0029b119"
         },
         "icecube": {
           "path": "functions/f_0000000000101050_stack_chk_fail.icecube.json.gz",
-          "sha256": "a5994a0735d64efc5932e18755aecd1fe6247668c0c76160798518a0de71b12c"
+          "sha256": "51dfa9738172851e8ae9e036a7eb3aefd7882e8ee16a822ae1ea65a404104a10"
         },
         "readable": {
           "path": "functions/f_0000000000101050_stack_chk_fail.read.py",
-          "sha256": "a150b4970aea2294e1eec6bca18d7dc272e192345871df3d79cd06fd3c31a2c1"
+          "sha256": "df5b45a2a037a9050c10c6da8dbe425da3782632bae9e565d0f92a1820d3f1bd"
         }
       },
       "body_max": 1052762,
@@ -214,7 +214,7 @@
       "pal_name": "f_stack_chk_fail",
       "published_icecube": "icecubes/f_0000000000101050_stack_chk_fail.icecube.json.gz",
       "published_module": "functions/f_0000000000101050_stack_chk_fail.py",
-      "published_sha256": "56f90b9e026fcb251e38061d0e8a5b2a23ea3c7c25c840b488514729d3add4d8",
+      "published_sha256": "59004b3b5ce0e54aa70db3f46e9f425e76b940f9d5b5c63ad9722e3b0029b119",
       "python_parameter_count": 0,
       "python_symbol": "__stack_chk_fail",
       "qualified_name": "<EXTERNAL>::__stack_chk_fail",
@@ -234,15 +234,15 @@
       "artifacts": {
         "executable": {
           "path": "functions/f_0000000000101060_start.exec.py",
-          "sha256": "729592520ffa16b8cc5ebf4a83f72ee828334e8727c322320519ec91a838a6f1"
+          "sha256": "0414dcdcec6808b60a901cbc1806b0dec9321818d231ec69c18e7204227de189"
         },
         "icecube": {
           "path": "functions/f_0000000000101060_start.icecube.json.gz",
-          "sha256": "a9275c04b7e30f7ac3116bcc1b3d2219afca111488d876a50cef98aa1390ad68"
+          "sha256": "68334101892c8d7b62e128fa3b9969f7383b4e21783e8096c910d23a4a559dc5"
         },
         "readable": {
           "path": "functions/f_0000000000101060_start.read.py",
-          "sha256": "0e7f08177cbfc8538f262eb11f418d4fe9d5d64ff7f803582995eefe5421f64b"
+          "sha256": "dfeb981ab3a43d342e33965161acbae750f9646ac4ef03604b5ea877bba9fc00"
         }
       },
       "body_max": 1052805,
@@ -268,7 +268,7 @@
       "pal_name": "f_start",
       "published_icecube": "icecubes/f_0000000000101060_start.icecube.json.gz",
       "published_module": "functions/f_0000000000101060_start.py",
-      "published_sha256": "729592520ffa16b8cc5ebf4a83f72ee828334e8727c322320519ec91a838a6f1",
+      "published_sha256": "0414dcdcec6808b60a901cbc1806b0dec9321818d231ec69c18e7204227de189",
       "python_parameter_count": 2,
       "python_symbol": "_start",
       "qualified_name": "Global::_start",
@@ -288,15 +288,15 @@
       "artifacts": {
         "executable": {
           "path": "functions/f_0000000000101090_deregister_tm_clones.exec.py",
-          "sha256": "fda845263397d54cccc7c33a4108fb10db2af950dbadde28abe5aaf51a45ac7b"
+          "sha256": "90274008fbfe0618895840f8dd33225d150fbd08afde525c0ef2f70eb8427421"
         },
         "icecube": {
           "path": "functions/f_0000000000101090_deregister_tm_clones.icecube.json.gz",
-          "sha256": "dd2206f7255fba36e014c37de36d1df802b9089a688818f729ecf2f5de17dc4b"
+          "sha256": "76eccdd3e3e461c6a730ec04740e828cc57408001fa1c96817043538b9240dec"
         },
         "readable": {
           "path": "functions/f_0000000000101090_deregister_tm_clones.read.py",
-          "sha256": "5d1dadce4c7fbc405f820fe5499a189285440f22bd95e850822fa64dddfce392"
+          "sha256": "1bcfaebf12b3345c0fe7788d256701fbdc34b4f0c1d9bc2401ebccd4f2cbd6ee"
         }
       },
       "body_max": 1052856,
@@ -322,7 +322,7 @@
       "pal_name": "f_deregister_tm_clones",
       "published_icecube": "icecubes/f_0000000000101090_deregister_tm_clones.icecube.json.gz",
       "published_module": "functions/f_0000000000101090_deregister_tm_clones.py",
-      "published_sha256": "fda845263397d54cccc7c33a4108fb10db2af950dbadde28abe5aaf51a45ac7b",
+      "published_sha256": "90274008fbfe0618895840f8dd33225d150fbd08afde525c0ef2f70eb8427421",
       "python_parameter_count": 0,
       "python_symbol": "deregister_tm_clones",
       "qualified_name": "Global::deregister_tm_clones",
@@ -341,15 +341,15 @@
       "artifacts": {
         "executable": {
           "path": "functions/f_00000000001010c0_register_tm_clones.exec.py",
-          "sha256": "0e1fdb5decb386be29c64afaf2102d96960c2f66ec49feb0964ecc4e2c1a2d4a"
+          "sha256": "2d1f2bf1e46ba19d421c291ac83b3d15eb64024efd41a142b73c979f85f146c2"
         },
         "icecube": {
           "path": "functions/f_00000000001010c0_register_tm_clones.icecube.json.gz",
-          "sha256": "fb16940780fd991f0c47ea1a42e90d654937161c47cea6d0a56244a3c11984e2"
+          "sha256": "095209e43ddf7c78c2c35afb9ee55fca66245af0d7bb3de7b864287e13c88ad3"
         },
         "readable": {
           "path": "functions/f_00000000001010c0_register_tm_clones.read.py",
-          "sha256": "320109dede11d900260be7009c2e9530ca81c39c5150fa474dde2ddb22985d4c"
+          "sha256": "b0d3a4818e4290e10c764674d3730ad19ae2511025cbcd8d9fd392d47798f037"
         }
       },
       "body_max": 1052920,
@@ -375,7 +375,7 @@
       "pal_name": "f_register_tm_clones",
       "published_icecube": "icecubes/f_00000000001010c0_register_tm_clones.icecube.json.gz",
       "published_module": "functions/f_00000000001010c0_register_tm_clones.py",
-      "published_sha256": "0e1fdb5decb386be29c64afaf2102d96960c2f66ec49feb0964ecc4e2c1a2d4a",
+      "published_sha256": "2d1f2bf1e46ba19d421c291ac83b3d15eb64024efd41a142b73c979f85f146c2",
       "python_parameter_count": 0,
       "python_symbol": "register_tm_clones",
       "qualified_name": "Global::register_tm_clones",
@@ -394,15 +394,15 @@
       "artifacts": {
         "executable": {
           "path": "functions/f_0000000000101140_frame_dummy.exec.py",
-          "sha256": "cb64a33179a60c97d46786a57e92b26730d56363ebe3a5f9d10cf60abd5b2b10"
+          "sha256": "4454cd8a9875a48bc823cd784c33dfcdcab82c13933c9ca8fca36443288e43e1"
         },
         "icecube": {
           "path": "functions/f_0000000000101140_frame_dummy.icecube.json.gz",
-          "sha256": "b49e0d9fd4c48333136632f0caab7226b728204b167b252cbbd4ca354459a826"
+          "sha256": "f52d439a89fbb6fd18ff5eafd3c3c282eed9830cfa6a7baed91c729fee0beb34"
         },
         "readable": {
           "path": "functions/f_0000000000101140_frame_dummy.read.py",
-          "sha256": "09266fa0916927bfe580d7338409fea124499949cf00beffcb49d4c7bebd2ca4"
+          "sha256": "29cd915810e5ccddf553afd707abc87b554e5c349a54cb52e217f240d10b3e76"
         }
       },
       "body_max": 1053000,
@@ -428,7 +428,7 @@
       "pal_name": "f_frame_dummy",
       "published_icecube": "icecubes/f_0000000000101140_frame_dummy.icecube.json.gz",
       "published_module": "functions/f_0000000000101140_frame_dummy.py",
-      "published_sha256": "cb64a33179a60c97d46786a57e92b26730d56363ebe3a5f9d10cf60abd5b2b10",
+      "published_sha256": "4454cd8a9875a48bc823cd784c33dfcdcab82c13933c9ca8fca36443288e43e1",
       "python_parameter_count": 0,
       "python_symbol": "frame_dummy",
       "qualified_name": "Global::frame_dummy",
@@ -448,15 +448,15 @@
       "artifacts": {
         "executable": {
           "path": "functions/f_0000000000101149_process_payload_block.exec.py",
-          "sha256": "66d6c0fc1c319f228d5b3bca9612b3e3e0b3d7c7a81bd740cf0e6d8e67a8b6ec"
+          "sha256": "ce4f31ae4ad952daa76ce01b0cd8bbae89d815b27a73c6b75a9554152a5769d0"
         },
         "icecube": {
           "path": "functions/f_0000000000101149_process_payload_block.icecube.json.gz",
-          "sha256": "8af8c3e21416fce12ef62274deea156cfb35725d9d305b9f500067039f3a9ea3"
+          "sha256": "337f3efb55c3cf6a7bce4fab5d826c5034697587fdc11892e57f7f4998d499b7"
         },
         "readable": {
           "path": "functions/f_0000000000101149_process_payload_block.read.py",
-          "sha256": "1b3354b09e359bfcf226c425cf59c46258a1622e9e5f8ad803e2ee2a40df2eef"
+          "sha256": "b3434804fa2347ed66ff8101ea2a0b0772e3451886899af4669900de19f61c59"
         }
       },
       "body_max": 1053155,
@@ -482,7 +482,7 @@
       "pal_name": "f_process_payload_block",
       "published_icecube": "icecubes/f_0000000000101149_process_payload_block.icecube.json.gz",
       "published_module": "functions/f_0000000000101149_process_payload_block.py",
-      "published_sha256": "66d6c0fc1c319f228d5b3bca9612b3e3e0b3d7c7a81bd740cf0e6d8e67a8b6ec",
+      "published_sha256": "ce4f31ae4ad952daa76ce01b0cd8bbae89d815b27a73c6b75a9554152a5769d0",
       "python_parameter_count": 3,
       "python_symbol": "process_payload_block",
       "qualified_name": "Global::process_payload_block",
@@ -501,15 +501,15 @@
       "artifacts": {
         "executable": {
           "path": "functions/f_00000000001011e4_main.exec.py",
-          "sha256": "e7ba74d9bfebfbfb526097b72cfdf8bad0213affdfd96414389a19af647378a5"
+          "sha256": "449151e8783d93dc791c00f877f7824e732410adddb2f2b3f30c0606e97ae017"
         },
         "icecube": {
           "path": "functions/f_00000000001011e4_main.icecube.json.gz",
-          "sha256": "8ffa6ab14c71ef8b2ecda76aea7478cbb134cdfdeaafb4f4a6a61b2bdea2b124"
+          "sha256": "26ac73d3c40dbb8bc475c61ff8198b94363593daad87382a31005d5884c18df9"
         },
         "readable": {
           "path": "functions/f_00000000001011e4_main.read.py",
-          "sha256": "a9c676bdbc03b345261c8f1316d9467161ba5684fc0e49a4983bdfef30a04565"
+          "sha256": "d79e44287db8c8324afbb9b6e6cfafaf31b92efdb5bd8d4966529a4cfbdb8048"
         }
       },
       "body_max": 1053253,
@@ -535,7 +535,7 @@
       "pal_name": "f_main",
       "published_icecube": "icecubes/f_00000000001011e4_main.icecube.json.gz",
       "published_module": "functions/f_00000000001011e4_main.py",
-      "published_sha256": "e7ba74d9bfebfbfb526097b72cfdf8bad0213affdfd96414389a19af647378a5",
+      "published_sha256": "449151e8783d93dc791c00f877f7824e732410adddb2f2b3f30c0606e97ae017",
       "python_parameter_count": 0,
       "python_symbol": "main",
       "qualified_name": "Global::main",
@@ -555,15 +555,15 @@
       "artifacts": {
         "executable": {
           "path": "functions/f_0000000000101248_fini.exec.py",
-          "sha256": "c3eab758c398e885787aa27c44ab1939ac044022c196ab5f9b9031eaa4baef49"
+          "sha256": "4947a0fed8baebf2571439856b95e1e5f9a8c496c64522f72b1e88fd53b9133e"
         },
         "icecube": {
           "path": "functions/f_0000000000101248_fini.icecube.json.gz",
-          "sha256": "f9c7c8492e0b5a0390aea1e0fc38501674ea9b4ad9d4d5b32f3a6d4e63d3d3a4"
+          "sha256": "eecdb484df286f382e30fbabd267c9e65692c913b3746ad25857adfe0a0366d3"
         },
         "readable": {
           "path": "functions/f_0000000000101248_fini.read.py",
-          "sha256": "e051c3962a13715e666d1269e5d0b6f34c86af866410204e8a8859ac37c83bff"
+          "sha256": "8389d6036ec7efbd073e0cf1b332401f774b3d9a64fd7c4440434a6650bb13d3"
         }
       },
       "body_max": 1053268,
@@ -589,7 +589,7 @@
       "pal_name": "f_fini",
       "published_icecube": "icecubes/f_0000000000101248_fini.icecube.json.gz",
       "published_module": "functions/f_0000000000101248_fini.py",
-      "published_sha256": "c3eab758c398e885787aa27c44ab1939ac044022c196ab5f9b9031eaa4baef49",
+      "published_sha256": "4947a0fed8baebf2571439856b95e1e5f9a8c496c64522f72b1e88fd53b9133e",
       "python_parameter_count": 0,
       "python_symbol": "_fini",
       "qualified_name": "Global::_fini",
@@ -608,15 +608,15 @@
       "artifacts": {
         "executable": {
           "path": "functions/f_0000000000105000_libc_start_main.exec.py",
-          "sha256": "2f8256f4636ff0aaf7846c42fc243534990d93255cd4d78c7a0d53c177d94d5f"
+          "sha256": "a701f9117968fbc325cd775c8e0138dbb6694d3aba5293cf39c4da67993d143d"
         },
         "icecube": {
           "path": "functions/f_0000000000105000_libc_start_main.icecube.json.gz",
-          "sha256": "95f86409970f0812da7a3437a784c1a7ebd94d980cce57e638990198b6e6e18f"
+          "sha256": "c1eb132ddb63f37239e3875d8e8f4387b8dd76ae5502144b170e33d832bad950"
         },
         "readable": {
           "path": "functions/f_0000000000105000_libc_start_main.read.py",
-          "sha256": "abae18a2a7f752aabdab7106721fe48d302ee011f4ff84c070fd9220423fe6d1"
+          "sha256": "388d26b107defa21a5ee2c0e3752a2c7080e5e46f296ebd530e785922d702584"
         }
       },
       "body_max": 1069056,
@@ -642,7 +642,7 @@
       "pal_name": "f_libc_start_main",
       "published_icecube": "icecubes/f_0000000000105000_libc_start_main.icecube.json.gz",
       "published_module": "functions/f_0000000000105000_libc_start_main.py",
-      "published_sha256": "2f8256f4636ff0aaf7846c42fc243534990d93255cd4d78c7a0d53c177d94d5f",
+      "published_sha256": "a701f9117968fbc325cd775c8e0138dbb6694d3aba5293cf39c4da67993d143d",
       "python_parameter_count": 0,
       "python_symbol": "__libc_start_main",
       "qualified_name": "<EXTERNAL>::__libc_start_main",
@@ -661,15 +661,15 @@
       "artifacts": {
         "executable": {
           "path": "functions/f_0000000000105008_ITM_deregisterTMCloneTable.exec.py",
-          "sha256": "c15ae6c607182509daea23ce71e3d542dced081c9ce6f7cd2884799972f4c8b2"
+          "sha256": "0672d7e711638b653dcb09839430ed87b061604b7106e800546e33b930a5abef"
         },
         "icecube": {
           "path": "functions/f_0000000000105008_ITM_deregisterTMCloneTable.icecube.json.gz",
-          "sha256": "04e2ba167fe315bb351f2108a20519b8a18e1d6ea84d5c4d9c437f6ad60d29ed"
+          "sha256": "ceef2c309dc7048ed0d67497287d5af155557653fa9790b85f7f8750ae9a2c94"
         },
         "readable": {
           "path": "functions/f_0000000000105008_ITM_deregisterTMCloneTable.read.py",
-          "sha256": "b0825a54bdb7d5de1d6a270392ef749a091e3e8521f125715e3db2f65b0d6e32"
+          "sha256": "4c01045f658d90953908c22b70fc50fcc964e35e1b3f0b8851c313434f757b1f"
         }
       },
       "body_max": 1069064,
@@ -695,7 +695,7 @@
       "pal_name": "f_ITM_deregisterTMCloneTable",
       "published_icecube": "icecubes/f_0000000000105008_ITM_deregisterTMCloneTable.icecube.json.gz",
       "published_module": "functions/f_0000000000105008_ITM_deregisterTMCloneTable.py",
-      "published_sha256": "c15ae6c607182509daea23ce71e3d542dced081c9ce6f7cd2884799972f4c8b2",
+      "published_sha256": "0672d7e711638b653dcb09839430ed87b061604b7106e800546e33b930a5abef",
       "python_parameter_count": 0,
       "python_symbol": "_ITM_deregisterTMCloneTable",
       "qualified_name": "<EXTERNAL>::_ITM_deregisterTMCloneTable",
@@ -714,15 +714,15 @@
       "artifacts": {
         "executable": {
           "path": "functions/f_0000000000105010_stack_chk_fail.exec.py",
-          "sha256": "78acf326af2a796df234adfa69cb35d3f8dd4b09e214e89c66e4edbb92ee37d9"
+          "sha256": "48cc6921a34e4ed162c534a44539793d5403868296005fc24511d102b9ae45eb"
         },
         "icecube": {
           "path": "functions/f_0000000000105010_stack_chk_fail.icecube.json.gz",
-          "sha256": "2c579b72f37edb11479467e0cf1a1e8ff3c838cf776ff932fdbc3c8ba8d77e6a"
+          "sha256": "647f839575cb4d2cc696547dd07df4d63327014ea8d36036b8cc6b397b9c84b0"
         },
         "readable": {
           "path": "functions/f_0000000000105010_stack_chk_fail.read.py",
-          "sha256": "5b6ee2b564fb31b7eb2ce664a6ee185dab49eb884790c37bc743c504574982e6"
+          "sha256": "70eb06c02971e8252c316e35bb6b01cfe0b0a738d82e15937af31d61b02a2ab4"
         }
       },
       "body_max": 1069072,
@@ -748,7 +748,7 @@
       "pal_name": "f_stack_chk_fail",
       "published_icecube": "icecubes/f_0000000000105010_stack_chk_fail.icecube.json.gz",
       "published_module": "functions/f_0000000000105010_stack_chk_fail.py",
-      "published_sha256": "78acf326af2a796df234adfa69cb35d3f8dd4b09e214e89c66e4edbb92ee37d9",
+      "published_sha256": "48cc6921a34e4ed162c534a44539793d5403868296005fc24511d102b9ae45eb",
       "python_parameter_count": 0,
       "python_symbol": "__stack_chk_fail",
       "qualified_name": "<EXTERNAL>::__stack_chk_fail",
@@ -767,15 +767,15 @@
       "artifacts": {
         "executable": {
           "path": "functions/f_0000000000105018_gmon_start.exec.py",
-          "sha256": "717266b04203d69a29dfcbcd1c4bcf72cf638020a2787c8eae69b4e07334eb1c"
+          "sha256": "5a867f9e786df27e729f86b1c37d6f8a513fa1b74b1324fa7108fc0ac5816e4d"
         },
         "icecube": {
           "path": "functions/f_0000000000105018_gmon_start.icecube.json.gz",
-          "sha256": "1f6d7a185014e83f767e290b9cb5cd60eeafc84e8d889f06c43f79dab72533c9"
+          "sha256": "ab42f138d5713c057d6af09ed2b290d2b49ec525bd01edafe492467609115fe3"
         },
         "readable": {
           "path": "functions/f_0000000000105018_gmon_start.read.py",
-          "sha256": "21c24e43b5cfeb0b1774c04123311a4dc1c7169319b6080208289db6b7f88535"
+          "sha256": "40caee42c5bbbf13bbef0a0eed641e312adea16fde4a3098b5b1d105e256a83d"
         }
       },
       "body_max": 1069080,
@@ -801,7 +801,7 @@
       "pal_name": "f_gmon_start",
       "published_icecube": "icecubes/f_0000000000105018_gmon_start.icecube.json.gz",
       "published_module": "functions/f_0000000000105018_gmon_start.py",
-      "published_sha256": "717266b04203d69a29dfcbcd1c4bcf72cf638020a2787c8eae69b4e07334eb1c",
+      "published_sha256": "5a867f9e786df27e729f86b1c37d6f8a513fa1b74b1324fa7108fc0ac5816e4d",
       "python_parameter_count": 0,
       "python_symbol": "__gmon_start__",
       "qualified_name": "<EXTERNAL>::__gmon_start__",
@@ -820,15 +820,15 @@
       "artifacts": {
         "executable": {
           "path": "functions/f_0000000000105020_ITM_registerTMCloneTable.exec.py",
-          "sha256": "067663796f2b860b9508533dd91e635fb02e7203c2b165a793cac7051ec895bd"
+          "sha256": "8f33b84c0c98128fab5af74d977b359f8e2194f3486443ce0da9d099645d17ec"
         },
         "icecube": {
           "path": "functions/f_0000000000105020_ITM_registerTMCloneTable.icecube.json.gz",
-          "sha256": "661a1ea344b076f758d351b618b0f062b5814ae61cbc06bf7af2b4dfbe98c01d"
+          "sha256": "2fa645427e75d86f64282c952409402f5dce798f5dee81a8b0ebe708c90ed279"
         },
         "readable": {
           "path": "functions/f_0000000000105020_ITM_registerTMCloneTable.read.py",
-          "sha256": "8bd1e688cdbad26bde17b3264f9f2100bbba5343706b702769752b57d7392e92"
+          "sha256": "fcb7c818e2d73bf2bc5a9c3254e4e34a2c7d77c39362b6e2dab6ffa47933ee9d"
         }
       },
       "body_max": 1069088,
@@ -854,7 +854,7 @@
       "pal_name": "f_ITM_registerTMCloneTable",
       "published_icecube": "icecubes/f_0000000000105020_ITM_registerTMCloneTable.icecube.json.gz",
       "published_module": "functions/f_0000000000105020_ITM_registerTMCloneTable.py",
-      "published_sha256": "067663796f2b860b9508533dd91e635fb02e7203c2b165a793cac7051ec895bd",
+      "published_sha256": "8f33b84c0c98128fab5af74d977b359f8e2194f3486443ce0da9d099645d17ec",
       "python_parameter_count": 0,
       "python_symbol": "_ITM_registerTMCloneTable",
       "qualified_name": "<EXTERNAL>::_ITM_registerTMCloneTable",
@@ -873,15 +873,15 @@
       "artifacts": {
         "executable": {
           "path": "functions/f_0000000000105028_cxa_finalize.exec.py",
-          "sha256": "9a332a72099f8a06ed41142b01a54d2739633f522e03c1b10b41c7fbaf0439d9"
+          "sha256": "f19fb5925902ef573b654afae54fda8d046361433d22906adf79e363feb1c649"
         },
         "icecube": {
           "path": "functions/f_0000000000105028_cxa_finalize.icecube.json.gz",
-          "sha256": "576c89ef4dcbb6d4078067795ac3a7e76bbbd6bb0e2c6b40ba6b8cce00c58b7d"
+          "sha256": "89910aec17acdc4346330ec44cb8ae896f6c052fdceb835b2c667cdc4a743240"
         },
         "readable": {
           "path": "functions/f_0000000000105028_cxa_finalize.read.py",
-          "sha256": "a95eba204af294494edbfcc25cf8f04a67f57939406eec2a7eddb6c653399a2d"
+          "sha256": "451c6b44f914c32777066666f5da3641c90ed71635c6ab4470b97dcc7f9da607"
         }
       },
       "body_max": 1069096,
@@ -907,7 +907,7 @@
       "pal_name": "f_cxa_finalize",
       "published_icecube": "icecubes/f_0000000000105028_cxa_finalize.icecube.json.gz",
       "published_module": "functions/f_0000000000105028_cxa_finalize.py",
-      "published_sha256": "9a332a72099f8a06ed41142b01a54d2739633f522e03c1b10b41c7fbaf0439d9",
+      "published_sha256": "f19fb5925902ef573b654afae54fda8d046361433d22906adf79e363feb1c649",
       "python_parameter_count": 0,
       "python_symbol": "__cxa_finalize",
       "qualified_name": "<EXTERNAL>::__cxa_finalize",
@@ -931,19 +931,21 @@
     "ELF data sections, relocations, globals, heap, TLS, and permissions are not fully mapped",
     "indirect calls and unresolved dynamic-linker behavior fail closed",
     "threads, signals, exceptions, and dynamic code generation are unsupported",
-    "printf-family formatting is a bounded Python shim and not full libc",
+    "stdio formatting and line input are bounded Python shims, not full libc",
+    "static C strings require an optional PAL_stdio_strings.json overlay until ELF data publication lands",
     "a published function may still fail when its frozen ABI plan is deferred"
   ],
   "program": {
     "compiler_spec_id": "gcc",
     "executable_format": "Executable and Linking Format (ELF)",
-    "executable_path": "/home/rem/gh/PAL/alpha_corpo.exe",
+    "executable_path": "alpha_corpo.exe",
+    "executable_path_policy": "relative_to_pal_repository_root_or_basename",
     "image_base": 1048576,
     "image_base_hex": "0x100000",
     "language_id": "x86:LE:64:default",
     "name": "alpha_corpo.exe"
   },
-  "published_at_utc": "2026-07-19T03:10:56Z",
+  "published_at_utc": "2026-07-20T15:22:33Z",
   "runtime_modules": [
     "PALABI",
     "PALMEM",
@@ -952,7 +954,7 @@
   "schema_version": 1,
   "shim_policy": {
     "no_return_family": "python_system_exit_v1",
-    "print_family": "python_print_v1",
+    "print_family": "python_stream_io_v2",
     "shimmed_names": [
       "__fprintf_chk",
       "__printf_chk",
@@ -960,6 +962,7 @@
       "_exit",
       "abort",
       "exit",
+      "fgets",
       "fprintf",
       "fputc",
       "fputc_unlocked",
@@ -967,8 +970,11 @@
       "fputs_unlocked",
       "printf",
       "putchar",
-      "puts"
+      "puts",
+      "strcmp",
+      "strcspn"
     ],
+    "stdio_family": "python_fgets_string_v1",
     "unknown_external": "closed_runtime_trap",
     "unresolved_known_targets": [
       "_ITM_deregisterTMCloneTable",
@@ -986,8 +992,8 @@
       "frame_dummy"
     ]
   },
-  "source_manifest_sha256": "7a013f8390d5fa4087109d1298b33662792fdb7d072113d9effc8cd91ddd0c58",
-  "source_project": "/home/rem/gh/PAL/project/alpha_corpo.exe",
+  "source_manifest_sha256": "19ff4a535b26bbabb5e624b7a4dd3802d15ecd3500ec48e729249d0e74d30c77",
+  "source_project": "/home/rem/gh/PAL/pyghidra-PAL/PAL/project/alpha_corpo.exe",
   "thunk_targets": [
     "_ITM_deregisterTMCloneTable",
     "_ITM_registerTMCloneTable",

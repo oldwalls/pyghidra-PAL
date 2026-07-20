@@ -1,0 +1,793 @@
+
+===== CFG DEBUG =====
+
+[EDGES]
+0x104560 -> 0x1045ff  true raw=true role=raw_true_explicit_target pol=target inv=False
+0x104560 -> 0x104588  false raw=false role=raw_false_fallthrough pol=target inv=True
+0x104588 -> 0x1045e0  true raw=true role=raw_true_explicit_target pol=target inv=False
+0x104588 -> 0x104591  false raw=false role=raw_false_fallthrough pol=target inv=True
+0x104591 -> 0x104630  true raw=true role=raw_true_explicit_target pol=target inv=False
+0x104591 -> 0x1045a1  false raw=false role=raw_false_fallthrough pol=target inv=True
+0x1045a1 -> 0x1045ff  true raw=true role=raw_taken_by_exact_fallthrough_complement_v19 pol=target inv=False
+0x1045a1 -> 0x1045ad  false raw=false role=raw_false_exact_fallthrough_v19 pol=target inv=True
+0x1045ad -> 0x104604  true raw=true role=raw_true_explicit_target pol=fallthrough inv=True
+0x1045ad -> 0x1045c5  false raw=false role=raw_false_fallthrough pol=fallthrough inv=False
+0x1045c5 -> 0x104610  true raw=true role=raw_true_explicit_target pol=fallthrough inv=True
+0x1045c5 -> 0x1045d0  false raw=false role=raw_false_fallthrough pol=fallthrough inv=False
+0x1045d0 -> EXIT  uncond raw=uncond role=uncond pol=unknown inv=None
+0x1045d5 -> EXIT  uncond raw=uncond role=uncond pol=unknown inv=None
+0x1045e0 -> 0x104591  true raw=true role=raw_true_explicit_target pol=fallthrough inv=True
+0x1045e0 -> 0x1045ff  false raw=false role=raw_false_fallthrough pol=fallthrough inv=False
+0x1045ff -> 0x104604  uncond raw=uncond role=uncond pol=unknown inv=None
+0x104604 -> 0x1046a8  true raw=true role=raw_true_explicit_target pol=target inv=False
+0x104604 -> 0x10460c  false raw=false role=raw_false_fallthrough pol=target inv=True
+0x10460c -> 0x1045d5  true raw=true role=raw_true_explicit_target pol=target inv=False
+0x10460c -> 0x104610  false raw=false role=raw_false_fallthrough pol=target inv=True
+0x104610 -> 0x1045d0  true raw=true role=raw_true_explicit_target pol=target inv=False
+0x104610 -> 0x104615  false raw=false role=raw_false_fallthrough pol=target inv=True
+0x104615 -> EXIT  uncond raw=uncond role=uncond pol=unknown inv=None
+0x104630 -> 0x1045a1  true raw=true role=raw_true_explicit_target pol=fallthrough inv=True
+0x104630 -> 0x10463d  false raw=false role=raw_false_fallthrough pol=fallthrough inv=False
+0x10463d -> 0x104660  true raw=true role=raw_true_explicit_target pol=target inv=False
+0x10463d -> 0x104647  false raw=false role=raw_false_fallthrough pol=target inv=True
+0x104647 -> 0x1045a1  uncond raw=uncond role=uncond pol=unknown inv=None
+0x104660 -> 0x104647  true raw=true role=raw_true_explicit_target pol=fallthrough inv=True
+0x104660 -> 0x10466a  false raw=false role=raw_false_fallthrough pol=fallthrough inv=False
+0x10466a -> 0x104647  true raw=true role=raw_true_explicit_target pol=fallthrough inv=True
+0x10466a -> 0x104671  false raw=false role=raw_false_fallthrough pol=fallthrough inv=False
+0x104671 -> 0x1045a1  true raw=true role=raw_true_explicit_target pol=fallthrough inv=True
+0x104671 -> 0x104691  false raw=false role=raw_false_fallthrough pol=fallthrough inv=False
+0x104691 -> 0x1045a1  uncond raw=uncond role=uncond pol=unknown inv=None
+0x1046a8 -> 0x1045d0  true raw=true role=raw_true_explicit_target pol=target inv=False
+
+[BRANCH RESOLUTION EVENTS]
+{'kind': 'binary_branch_truth_bound_by_evidence_class_v21d', 'src': 1066336, 'first_dst': 1066495, 'second_dst': 1066376, 'hf_target': 1066495, 'hf_normalized_target': 1066495, 'direct_dst': 1066495, 'first_invert': False, 'second_invert': True, 'condition_truth_authority': 'raw_jcc_hf_relation_direct_flags', 'reason': 'branch_truth_evidence_v21d hf_target=0x1045ff raw_target=0x1045ff raw_fallthrough=0x104588 legacy_hint=(mnemonic=JS hf_cond_opcode=INT_SLESS hf_sign_shape=negative) class=direct_flags'}
+{'kind': 'binary_branch_truth_bound_by_evidence_class_v21d', 'src': 1066376, 'first_dst': 1066464, 'second_dst': 1066385, 'hf_target': 1066464, 'hf_normalized_target': 1066464, 'direct_dst': 1066464, 'first_invert': False, 'second_invert': True, 'condition_truth_authority': 'raw_jcc_hf_relation_direct_flags', 'reason': 'branch_truth_evidence_v21d hf_target=0x1045e0 raw_target=0x1045e0 raw_fallthrough=0x104591 legacy_hint=(mnemonic=JNZ hf_cond_opcode=INT_NOTEQUAL) class=direct_flags'}
+{'kind': 'binary_branch_truth_bound_by_evidence_class_v21d', 'src': 1066464, 'first_dst': 1066385, 'second_dst': 1066495, 'hf_target': 1066385, 'hf_normalized_target': 1066385, 'direct_dst': 1066495, 'first_invert': True, 'second_invert': False, 'condition_truth_authority': 'raw_jcc_hf_relation_direct_flags', 'reason': 'branch_truth_evidence_v21d hf_target=0x104591 raw_target=0x104591 raw_fallthrough=0x1045ff legacy_hint=(mnemonic=JNZ hf_cond_opcode=INT_EQUAL) class=direct_flags'}
+{'kind': 'binary_branch_truth_bound_by_evidence_class_v21d', 'src': 1066385, 'first_dst': 1066544, 'second_dst': 1066401, 'hf_target': 1066544, 'hf_normalized_target': 1066544, 'direct_dst': 1066544, 'first_invert': False, 'second_invert': True, 'condition_truth_authority': 'raw_jcc_hf_relation_direct_flags', 'reason': 'branch_truth_evidence_v21d hf_target=0x104630 raw_target=0x104630 raw_fallthrough=0x1045a1 legacy_hint=(mnemonic=JNZ hf_cond_opcode=INT_NOTEQUAL) class=direct_flags'}
+{'kind': 'binary_branch_truth_bound_by_evidence_class_v21d', 'src': 1066544, 'first_dst': 1066401, 'second_dst': 1066557, 'hf_target': 1066401, 'hf_normalized_target': 1066401, 'direct_dst': 1066557, 'first_invert': True, 'second_invert': False, 'condition_truth_authority': 'raw_jcc_hf_relation_direct_flags', 'reason': 'branch_truth_evidence_v21d hf_target=0x1045a1 raw_target=0x1045a1 raw_fallthrough=0x10463d legacy_hint=(mnemonic=JZ hf_cond_opcode=INT_NOTEQUAL) class=direct_flags'}
+{'kind': 'binary_branch_truth_bound_by_evidence_class_v21d', 'src': 1066557, 'first_dst': 1066592, 'second_dst': 1066567, 'hf_target': 1066592, 'hf_normalized_target': 1066592, 'direct_dst': 1066592, 'first_invert': False, 'second_invert': True, 'condition_truth_authority': 'raw_jcc_hf_relation_direct_flags', 'reason': 'branch_truth_evidence_v21d hf_target=0x104660 raw_target=0x104660 raw_fallthrough=0x104647 legacy_hint=(mnemonic=JZ hf_cond_opcode=INT_EQUAL) class=direct_flags'}
+{'kind': 'binary_branch_truth_bound_by_evidence_class_v21d', 'src': 1066592, 'first_dst': 1066567, 'second_dst': 1066602, 'hf_target': 1066567, 'hf_normalized_target': 1066567, 'direct_dst': 1066602, 'first_invert': True, 'second_invert': False, 'condition_truth_authority': 'raw_jcc_hf_relation_direct_flags', 'reason': 'branch_truth_evidence_v21d hf_target=0x104647 raw_target=0x104647 raw_fallthrough=0x10466a legacy_hint=(mnemonic=JNZ hf_cond_opcode=INT_EQUAL) class=direct_flags'}
+{'kind': 'binary_branch_truth_bound_by_evidence_class_v21d', 'src': 1066602, 'first_dst': 1066567, 'second_dst': 1066609, 'hf_target': 1066567, 'hf_normalized_target': 1066567, 'direct_dst': 1066609, 'first_invert': True, 'second_invert': False, 'condition_truth_authority': 'raw_jcc_hf_relation_direct_flags', 'reason': 'branch_truth_evidence_v21d hf_target=0x104647 raw_target=0x104647 raw_fallthrough=0x104671 legacy_hint=(mnemonic=JNZ hf_cond_opcode=INT_EQUAL) class=direct_flags'}
+{'kind': 'binary_branch_truth_bound_by_evidence_class_v21d', 'src': 1066609, 'first_dst': 1066401, 'second_dst': 1066641, 'hf_target': 1066401, 'hf_normalized_target': 1066401, 'direct_dst': 1066641, 'first_invert': True, 'second_invert': False, 'condition_truth_authority': 'raw_jcc_hf_relation_direct_flags', 'reason': 'branch_truth_evidence_v21d hf_target=0x1045a1 raw_target=0x1045a1 raw_fallthrough=0x104691 legacy_hint=(mnemonic=JZ hf_cond_opcode=INT_NOTEQUAL) class=direct_flags'}
+{'kind': 'binary_branch_truth_bound_by_evidence_class_v21d', 'src': 1066401, 'first_dst': 1066495, 'second_dst': 1066413, 'hf_target': 1066492, 'hf_normalized_target': 1066495, 'direct_dst': 1066495, 'first_invert': False, 'second_invert': True, 'condition_truth_authority': 'raw_jcc_hf_relation_direct_flags', 'reason': 'branch_truth_evidence_v21d hf_target=0x1045ff raw_target=0x1045ff raw_fallthrough=0x1045ad legacy_hint=(mnemonic=JZ hf_cond_opcode=INT_EQUAL) class=direct_flags'}
+{'kind': 'binary_branch_resolved_by_exact_fallthrough_complement_v19', 'src': 1066401, 'raw_branch_target': 1066492, 'raw_fallthrough': 1066413, 'taken_dst': 1066495, 'fallthrough_dst': 1066413, 'condition_polarity': 'target', 'taken_invert': False, 'fallthrough_invert': True, 'reason': 'branch_truth_evidence_v21d hf_target=0x1045ff raw_target=0x1045ff raw_fallthrough=0x1045ad legacy_hint=(mnemonic=JZ hf_cond_opcode=INT_EQUAL) class=direct_flags', 'condition_truth_authority': 'raw_jcc_hf_relation_direct_flags'}
+{'kind': 'binary_branch_truth_bound_by_evidence_class_v21d', 'src': 1066413, 'first_dst': 1066500, 'second_dst': 1066437, 'hf_target': 1066500, 'hf_normalized_target': 1066500, 'direct_dst': 1066437, 'first_invert': True, 'second_invert': False, 'condition_truth_authority': 'raw_jcc_hf_relation_direct_flags', 'reason': 'branch_truth_evidence_v21d hf_target=0x104604 raw_target=0x104604 raw_fallthrough=0x1045c5 legacy_hint=(mnemonic=JZ hf_cond_opcode=INT_NOTEQUAL) class=direct_flags'}
+{'kind': 'binary_branch_truth_bound_by_evidence_class_v21d', 'src': 1066500, 'first_dst': 1066664, 'second_dst': 1066508, 'hf_target': 1066664, 'hf_normalized_target': 1066664, 'direct_dst': 1066664, 'first_invert': False, 'second_invert': True, 'condition_truth_authority': 'raw_jcc_hf_relation_direct_flags', 'reason': 'branch_truth_evidence_v21d hf_target=0x1046a8 raw_target=0x1046a8 raw_fallthrough=0x10460c legacy_hint=(mnemonic=JNZ hf_cond_opcode=INT_NOTEQUAL) class=direct_flags'}
+{'kind': 'binary_branch_truth_bound_by_evidence_class_v21d', 'src': 1066664, 'first_dst': 1066448, 'second_dst': None, 'hf_target': 1066448, 'hf_normalized_target': 1066448, 'direct_dst': 1066448, 'first_invert': False, 'second_invert': True, 'condition_truth_authority': 'raw_jcc_hf_relation_direct_flags', 'reason': 'branch_truth_evidence_v21d hf_target=0x1045d0 raw_target=0x1045d0 raw_fallthrough=0x1045d0 legacy_hint=(mnemonic=JNZ hf_cond_opcode=INT_NOTEQUAL) class=direct_flags'}
+{'kind': 'binary_branch_truth_bound_by_evidence_class_v21d', 'src': 1066508, 'first_dst': 1066453, 'second_dst': 1066512, 'hf_target': 1066453, 'hf_normalized_target': 1066453, 'direct_dst': 1066453, 'first_invert': False, 'second_invert': True, 'condition_truth_authority': 'raw_jcc_hf_relation_direct_flags', 'reason': 'branch_truth_evidence_v21d hf_target=0x1045d5 raw_target=0x1045d5 raw_fallthrough=0x104610 legacy_hint=(mnemonic=JZ hf_cond_opcode=INT_EQUAL) class=direct_flags'}
+{'kind': 'binary_branch_truth_bound_by_evidence_class_v21d', 'src': 1066437, 'first_dst': 1066512, 'second_dst': 1066448, 'hf_target': 1066512, 'hf_normalized_target': 1066512, 'direct_dst': 1066448, 'first_invert': True, 'second_invert': False, 'condition_truth_authority': 'raw_jcc_hf_relation_direct_flags', 'reason': 'branch_truth_evidence_v21d hf_target=0x104610 raw_target=0x104610 raw_fallthrough=0x1045d0 legacy_hint=(mnemonic=JZ hf_cond_opcode=INT_NOTEQUAL) class=direct_flags'}
+{'kind': 'binary_branch_truth_bound_by_evidence_class_v21d', 'src': 1066512, 'first_dst': 1066448, 'second_dst': 1066517, 'hf_target': 1066448, 'hf_normalized_target': 1066448, 'direct_dst': 1066448, 'first_invert': False, 'second_invert': True, 'condition_truth_authority': 'raw_jcc_hf_relation_direct_flags', 'reason': 'branch_truth_evidence_v21d hf_target=0x1045d0 raw_target=0x1045d0 raw_fallthrough=0x104615 legacy_hint=(mnemonic=JNZ hf_cond_opcode=INT_NOTEQUAL) class=direct_flags'}
+
+[IPDOM]
+0x104560 -> ipdom: EXIT
+0x104588 -> ipdom: EXIT
+0x104591 -> ipdom: 0x1045a1
+0x1045a1 -> ipdom: EXIT
+0x1045ad -> ipdom: EXIT
+0x1045c5 -> ipdom: EXIT
+0x1045d0 -> ipdom: EXIT
+0x1045d5 -> ipdom: EXIT
+0x1045e0 -> ipdom: EXIT
+0x1045ff -> ipdom: 0x104604
+0x104604 -> ipdom: EXIT
+0x10460c -> ipdom: EXIT
+0x104610 -> ipdom: EXIT
+0x104615 -> ipdom: EXIT
+0x104630 -> ipdom: 0x1045a1
+0x10463d -> ipdom: 0x1045a1
+0x104647 -> ipdom: 0x1045a1
+0x104660 -> ipdom: 0x1045a1
+0x10466a -> ipdom: 0x1045a1
+0x104671 -> ipdom: 0x1045a1
+0x104691 -> ipdom: 0x1045a1
+0x1046a8 -> ipdom: 0x1045d0
+
+=====================
+
+===== PAL RESOLVER INDIRECT STORAGE v22c =====
+
+[INVENTORY]
+{'active': False,
+ 'address_tied_families': 0,
+ 'custody_transitions': 0,
+ 'effect_owner_groups': 0,
+ 'escape_barrier_sids': 0,
+ 'input_contracts': 0,
+ 'kind': 'resolver_indirect_storage_inventory_v22c',
+ 'machine_state_families': 0,
+ 'machine_state_sids': 0,
+ 'owner_categories': {},
+ 'parameter_initializers': 0,
+ 'persistent_families': 0,
+ 'rule': 'HighVariable_identity_families_plus_address_escape_alias_barrier',
+ 'runtime_order': 'CFG_governed_not_linearized',
+ 'storage_families': 0,
+ 'version': 'v22c_indirect_storage_families',
+ 'warnings': 0}
+
+[STORAGE FAMILIES]
+
+[PARAMETER INITIALIZERS / STORAGE WRITES]
+[]
+
+[WARNINGS]
+[]
+===== END PAL RESOLVER INDIRECT STORAGE =====
+
+========================================================================
+PALRAW AUDIT v0.3 :: raw instruction BLOCK p-code vs HF/PAL CFG
+========================================================================
+
+--- 0x10127f ---
+Raw block  : 0x10127f -> next 0x104560
+Instr count: 0
+Terminal   : None None
+Raw succs  : []
+Norm succs : None
+HF block   : None
+CFG edges  : []
+STATUS     : no_hf_block
+NOTE       : No PAL/HighFunction block mapped to this address.
+Raw instructions:
+Terminal raw p-code:
+HF/PAL ops :
+
+--- 0x1011b6 ---
+Raw block  : 0x1011b6 -> next 0x104560
+Instr count: 0
+Terminal   : None None
+Raw succs  : []
+Norm succs : None
+HF block   : None
+CFG edges  : []
+STATUS     : no_hf_block
+NOTE       : No PAL/HighFunction block mapped to this address.
+Raw instructions:
+Terminal raw p-code:
+HF/PAL ops :
+
+--- 0x101219 ---
+Raw block  : 0x101219 -> next 0x104560
+Instr count: 0
+Terminal   : None None
+Raw succs  : []
+Norm succs : None
+HF block   : None
+CFG edges  : []
+STATUS     : no_hf_block
+NOTE       : No PAL/HighFunction block mapped to this address.
+Raw instructions:
+Terminal raw p-code:
+HF/PAL ops :
+
+--- 0x10120f ---
+Raw block  : 0x10120f -> next 0x104560
+Instr count: 0
+Terminal   : None None
+Raw succs  : []
+Norm succs : None
+HF block   : None
+CFG edges  : []
+STATUS     : no_hf_block
+NOTE       : No PAL/HighFunction block mapped to this address.
+Raw instructions:
+Terminal raw p-code:
+HF/PAL ops :
+
+--- 0x101221 ---
+Raw block  : 0x101221 -> next 0x104560
+Instr count: 0
+Terminal   : None None
+Raw succs  : []
+Norm succs : None
+HF block   : None
+CFG edges  : []
+STATUS     : no_hf_block
+NOTE       : No PAL/HighFunction block mapped to this address.
+Raw instructions:
+Terminal raw p-code:
+HF/PAL ops :
+
+--- 0x101284 ---
+Raw block  : 0x101284 -> next 0x104560
+Instr count: 0
+Terminal   : None None
+Raw succs  : []
+Norm succs : None
+HF block   : None
+CFG edges  : []
+STATUS     : no_hf_block
+NOTE       : No PAL/HighFunction block mapped to this address.
+Raw instructions:
+Terminal raw p-code:
+HF/PAL ops :
+
+--- 0x10127f ---
+Raw block  : 0x10127f -> next 0x104560
+Instr count: 0
+Terminal   : None None
+Raw succs  : []
+Norm succs : None
+HF block   : None
+CFG edges  : []
+STATUS     : no_hf_block
+NOTE       : No PAL/HighFunction block mapped to this address.
+Raw instructions:
+Terminal raw p-code:
+HF/PAL ops :
+
+========================================================================
+
+===== PAL COMPUTE ANALYZER =====
+{'kind': 'pal_compute_inventory_v22',
+ 'version': 'v23b_abi_thunk_compatibility_return_reconciliation',
+ 'runtime_representation': 'raw_unsigned_bitvector_at_ssa_boundaries',
+ 'operations': 68,
+ 'output_plans': 63,
+ 'control_contracts': 24,
+ 'c_compute_filtered': 63,
+ 'use_site_overrides': 2,
+ 'return_observation_view_mismatches': 0,
+ 'storage_custody_related_ops': 0,
+ 'indirect_custody_contracts': 0,
+ 'indirect_custody_resolved': 0,
+ 'indirect_custody_deferred': 0,
+ 'indirect_effect_owner_compute_ops': 0,
+ 'storage_family_bindings': 0,
+ 'function_entry_abi_plan': True,
+ 'call_site_abi_plans': 15,
+ 'internal_call_plan_failures': 0,
+ 'unsupported_implicit_inputs': 0,
+ 'abi_runtime_helper_assignments': 0,
+ 'no_return_calls': 0,
+ 'reachable_return_boundaries': 6,
+ 'unreachable_return_boundaries': 0,
+ 'synthetic_no_return_continuations_suppressed': 0,
+ 'statuses': {'deferred_external': 15,
+              'deferred_memory': 24,
+              'helper_required': 22,
+              'metadata_only': 7},
+ 'categories': {'call_boundary': 15,
+                'pointer_arithmetic': 10,
+                'memory': 14,
+                'integer_bitwise': 3,
+                'comparison': 17,
+                'phi_merge': 1,
+                'transport': 6,
+                'conversion': 1,
+                'integer_arithmetic': 1},
+ 'helpers': {'c_ptrsub': 10,
+             'c_load': 10,
+             'c_and': 3,
+             'c_slt': 1,
+             'c_ne': 10,
+             'c_eq': 6,
+             'c_store': 4,
+             'c_zext': 1,
+             'c_neg': 1},
+ 'opcodes': {'CALL': 15,
+             'PTRSUB': 10,
+             'LOAD': 10,
+             'INT_AND': 3,
+             'INT_SLESS': 1,
+             'INT_NOTEQUAL': 10,
+             'INT_EQUAL': 6,
+             'STORE': 4,
+             'MULTIEQUAL': 1,
+             'COPY': 6,
+             'INT_ZEXT': 1,
+             'INT_2COMP': 1},
+ 'warnings': 0}
+
+[WARNINGS]
+[]
+
+[METADATA-ONLY COMPUTE BOUNDARIES]
+0x104604 MULTIEQUAL ['v_1185', 'v_1172'] -> v_3626 classification=None
+0x1045d5 COPY ['c_0_4'] -> v_3661 classification=same_width_copy_recast
+
+[HELPER-REQUIRED CONTRACTS]
+0x104560 INT_AND v_73 helper=c_and widths=[32, 32]->32 overrides=0
+0x104560 INT_SLESS v_104 helper=c_slt widths=[32, 32]->8 overrides=1
+0x104588 INT_NOTEQUAL v_141 helper=c_ne widths=[32, 32]->8 overrides=0
+0x1045e0 INT_EQUAL v_1029 helper=c_eq widths=[64, 64]->8 overrides=0
+0x104591 INT_NOTEQUAL v_179 helper=c_ne widths=[32, 32]->8 overrides=0
+0x104630 INT_AND v_648 helper=c_and widths=[32, 32]->32 overrides=0
+0x104630 INT_NOTEQUAL v_654 helper=c_ne widths=[32, 32]->8 overrides=0
+0x10463d INT_EQUAL v_698 helper=c_eq widths=[64, 64]->8 overrides=0
+0x104660 INT_EQUAL v_781 helper=c_eq widths=[64, 64]->8 overrides=0
+0x10466a INT_EQUAL v_819 helper=c_eq widths=[64, 64]->8 overrides=0
+0x104671 INT_NOTEQUAL v_901 helper=c_ne widths=[64, 64]->8 overrides=0
+0x104691 INT_AND v_924 helper=c_and widths=[32, 32]->32 overrides=0
+0x1045a1 INT_EQUAL v_217 helper=c_eq widths=[32, 32]->8 overrides=0
+0x1045ad INT_NOTEQUAL v_270 helper=c_ne widths=[32, 32]->8 overrides=0
+0x104604 INT_NOTEQUAL v_545 helper=c_ne widths=[32, 32]->8 overrides=0
+0x1046a8 INT_NOTEQUAL v_599 helper=c_ne widths=[32, 32]->8 overrides=0
+0x10460c INT_EQUAL v_573 helper=c_eq widths=[32, 32]->8 overrides=0
+0x1045c5 INT_NOTEQUAL v_301 helper=c_ne widths=[32, 32]->8 overrides=0
+0x104610 INT_NOTEQUAL v_386 helper=c_ne widths=[64, 64]->8 overrides=0
+0x104615 INT_NOTEQUAL v_449 helper=c_ne widths=[32, 32]->8 overrides=0
+0x104615 INT_ZEXT v_508 helper=c_zext widths=[8]->32 overrides=1
+0x104615 INT_2COMP v_507 helper=c_neg widths=[32]->32 overrides=0
+
+[INDIRECT STORAGE-CUSTODY CONTRACTS]
+
+[INDIRECT CUSTODY INVENTORY]
+{'kind': 'pal_compute_indirect_custody_inventory_v22d',
+ 'version': 'v23b_abi_thunk_compatibility_return_reconciliation',
+ 'resolver_transitions': 0,
+ 'compute_indirect_contracts': 0,
+ 'resolved_custody': 0,
+ 'deferred_custody': 0,
+ 'effect_owner_compute_bindings': 0,
+ 'effect_owner_compute_ops': 0,
+ 'owner_categories': {},
+ 'storage_families': 0,
+ 'storage_sid_bindings': 0,
+ 'address_escape_barrier_sids': 0,
+ 'parameter_storage_initializers': 0,
+ 'runtime_helpers': 0,
+ 'warnings': 0,
+ 'rule': 'INDIRECT_is_metadata_only_owner_bound_storage_transition'}
+
+[ABI-D ENTRY/CALL PLAN INVENTORY]
+{'kind': 'pal_compute_abi_plan_inventory_v23',
+ 'version': 'v23b_abi_thunk_compatibility_return_reconciliation',
+ 'function': 'FUN_00104560',
+ 'entry_plan_present': True,
+ 'entry_plan_status': 'ready',
+ 'fixed_arguments': 1,
+ 'implicit_inputs': 0,
+ 'implicit_inputs_unsupported': 0,
+ 'call_compute_contracts': 15,
+ 'call_site_plans': 15,
+ 'call_sites_without_plan': 0,
+ 'call_statuses': {'deferred_target_dispatch': 3, 'ready': 12},
+ 'dispatch_classes': {'resolved_thunk_endpoint_deferred': 3,
+                      'external_via_import_thunk': 12},
+ 'internal_calls': 0,
+ 'internal_calls_with_target_compatible_plan': 0,
+ 'internal_calls_without_target_compatible_plan': 0,
+ 'internal_calls_with_deferred_target_compatibility': 0,
+ 'internal_calls_with_incompatible_target': 0,
+ 'internal_calls_without_transport_plan': 0,
+ 'external_calls': 12,
+ 'thunk_calls': 15,
+ 'external_via_thunk_calls': 12,
+ 'thunk_endpoint_deferred_calls': 3,
+ 'thunk_calls_misclassified_internal': 0,
+ 'target_compatibility_overclaims': 0,
+ 'no_return_calls': 0,
+ 'result_carrier_contracts': 15,
+ 'abi_runtime_helper_assignments': 0,
+ 'warnings': 0,
+ 'acceptance_gates': {'every_emitted_function_has_entry_plan': True,
+                      'every_call_has_call_site_plan': True,
+                      'every_internal_call_has_target_compatible_plan': True,
+                      'every_internal_call_has_carrier_transport_plan': True,
+                      'no_resolved_thunk_misclassified_internal': True,
+                      'no_target_compatibility_overclaim': True,
+                      'no_implicit_input_is_unsupported': True,
+                      'no_runtime_helper_assigned_by_ABI_guesswork': True},
+ 'return_boundary_reconciliation': {'kind': 'pal_compute_return_boundary_reconciliation_v23b',
+                                    'version': 'v23b_abi_thunk_compatibility_return_reconciliation',
+                                    'function': 'FUN_00104560',
+                                    'entry_block_addr': 1066336,
+                                    'cfg_evidence_available': True,
+                                    'no_return_terminating_blocks': [],
+                                    'no_return_call_op_keys': [],
+                                    'return_boundaries': 6,
+                                    'reachable_return_boundaries': 6,
+                                    'unreachable_return_boundaries': 0,
+                                    'deferred_return_boundaries': 0,
+                                    'reachable_return_widths': [32],
+                                    'width_reconciled': True,
+                                    'synthetic_no_return_continuations_suppressed': 0,
+                                    'rule': 'traverse_CFG_with_no_return_blocks_as_terminal_then_reconcile_reachable_raw_return_transports_only'},
+ 'rule': 'ABI_A_B_C_authority_only_thunk_endpoint_and_compatibility_tri_state_no_downstream_argument_reinference'}
+
+[FUNCTION ENTRY ABI PLAN]
+{'plan_id': 'function_entry:1066336',
+ 'status': 'ready',
+ 'callable_signature_status': 'legacy_non_variadic_fallback',
+ 'fixed_argument_count': 1,
+ 'implicit_input_count': 0,
+ 'variadic_register_save_area': {'required': False,
+                                 'status': 'not_required',
+                                 'slots': [{'sid': 'v_2870',
+                                            'bank': 'gp',
+                                            'index': 0,
+                                            'register': 'RDI',
+                                            'width_bits': 64,
+                                            'canonical_alias': 'param_0',
+                                            'owner_namespace': 'logical_parameter',
+                                            'owner_role': 'callable_parameter_carrier',
+                                            'materialization': 'capture_entry_register_bits',
+                                            'source': 'abi_context.registers',
+                                            'runtime_helper': None,
+                                            'authority': 'PALSymbolResolver_ABI_C_physical_carrier_binding'}],
+                                 'gp_slots': [{'sid': 'v_2870',
+                                               'bank': 'gp',
+                                               'index': 0,
+                                               'register': 'RDI',
+                                               'width_bits': 64,
+                                               'canonical_alias': 'param_0',
+                                               'owner_namespace': 'logical_parameter',
+                                               'owner_role': 'callable_parameter_carrier',
+                                               'materialization': 'capture_entry_register_bits',
+                                               'source': 'abi_context.registers',
+                                               'runtime_helper': None,
+                                               'authority': 'PALSymbolResolver_ABI_C_physical_carrier_binding'}],
+                                 'sse_slots': [],
+                                 'fixed_variadic_partition_status': 'deferred_to_entry_protocol_analysis',
+                                 'source': 'abi_context.registers',
+                                 'authority': 'ABI_C_carriers_plus_variadic_contract'},
+ 'overflow_argument_area': {'required': False,
+                            'status': 'not_required',
+                            'source': 'abi_context.overflow_argument_area',
+                            'observed_stack_carriers': [],
+                            'materialization': 'consume_preclassified_overflow_slots',
+                            'offset_inference_allowed': False,
+                            'authority': 'ABI_C_stack_carriers_or_variadic_protocol'},
+ 'variadic_al': {'required': False,
+                 'status': 'not_required',
+                 'source': 'abi_context.variadic_xmm_count',
+                 'inputs': [],
+                 'default_allowed': False,
+                 'authority': 'ABI_C_variadic_xmm_count_contract'},
+ 'frame_base': {'required': False,
+                'status': 'not_observed',
+                'source': 'abi_context.frame_base',
+                'inputs': [],
+                'derive_from_parameter_names': False,
+                'authority': 'ABI_C_frame_state_custody'},
+ 'tls_base': {'required': False,
+              'status': 'not_observed',
+              'source': 'abi_context.tls_base',
+              'inputs': [],
+              'derive_from_expression_names': False,
+              'authority': 'ABI_C_tls_state_custody'},
+ 'return_contract': {'kind': 'pal_compute_return_carrier_contract_abi_d',
+                     'version': 'v23b_abi_thunk_compatibility_return_reconciliation',
+                     'status': 'return_width_proven_carrier_deferred',
+                     'no_return': False,
+                     'output_sid': None,
+                     'output_width_bits': None,
+                     'declared_width_bits': None,
+                     'effective_result_width_bits': 32,
+                     'declared_return': {'name': 'undefined',
+                                         'display_name': 'undefined',
+                                         'class_name': 'DefaultDataType',
+                                         'length_bytes': 1,
+                                         'width_bits': 8,
+                                         'signed': None,
+                                         'kind_hint': None},
+                     'return_storage': {'repr': '<UNASSIGNED>',
+                                        'size_bytes': 0,
+                                        'flags': {'register': False,
+                                                  'stack': False,
+                                                  'memory': False,
+                                                  'unassigned': True,
+                                                  'void': False,
+                                                  'auto': False},
+                                        'pieces': [],
+                                        'storage_keys': []},
+                     'carrier_pieces': [],
+                     'normalization': {'mode': 'mask_to_output_width',
+                                       'width_bits': 32,
+                                       'mask': 4294967295},
+                     'runtime_helper': None,
+                     'runtime_helper_authority': 'no_ABI_runtime_helper_assigned',
+                     'authority': 'reachable_raw_return_transport',
+                     'reported_declared_width_bits': 8,
+                     'declared_width_authoritative': False,
+                     'declared_return_evidence_status': 'non_authoritative_default_or_unresolved_prototype',
+                     'transport_width_bits': 32,
+                     'logical_result_width_bits': 32,
+                     'reachable_return_widths': [32],
+                     'reachable_return_boundary_count': 6,
+                     'unreachable_return_boundary_count': 0,
+                     'deferred_return_boundary_count': 0},
+ 'reachable_return_boundaries': [{'block_addr': 1066448,
+                                  'return_value_sid': 'v_3666',
+                                  'return_value_width_bits': 32,
+                                  'return_transport_width_bits': 32,
+                                  'return_logical_width_bits': 32,
+                                  'return_declared_view': None,
+                                  'return_boundary_authority': 'raw_return_register_transport',
+                                  'return_reachability': 'reachable',
+                                  'reachable_return': True,
+                                  'execution_suppressed': False,
+                                  'emission_policy': 'emit_reachable_return_boundary',
+                                  'cut_by_no_return_blocks': [],
+                                  'cut_by_no_return_call_op_keys': []},
+                                 {'block_addr': 1066448,
+                                  'return_value_sid': 'v_3669',
+                                  'return_value_width_bits': 32,
+                                  'return_transport_width_bits': 32,
+                                  'return_logical_width_bits': 32,
+                                  'return_declared_view': None,
+                                  'return_boundary_authority': 'raw_return_register_transport',
+                                  'return_reachability': 'reachable',
+                                  'reachable_return': True,
+                                  'execution_suppressed': False,
+                                  'emission_policy': 'emit_reachable_return_boundary',
+                                  'cut_by_no_return_blocks': [],
+                                  'cut_by_no_return_call_op_keys': []},
+                                 {'block_addr': 1066448,
+                                  'return_value_sid': 'v_3672',
+                                  'return_value_width_bits': 32,
+                                  'return_transport_width_bits': 32,
+                                  'return_logical_width_bits': 32,
+                                  'return_declared_view': None,
+                                  'return_boundary_authority': 'raw_return_register_transport',
+                                  'return_reachability': 'reachable',
+                                  'reachable_return': True,
+                                  'execution_suppressed': False,
+                                  'emission_policy': 'emit_reachable_return_boundary',
+                                  'cut_by_no_return_blocks': [],
+                                  'cut_by_no_return_call_op_keys': []},
+                                 {'block_addr': 1066448,
+                                  'return_value_sid': 'v_3627',
+                                  'return_value_width_bits': 32,
+                                  'return_transport_width_bits': 32,
+                                  'return_logical_width_bits': 32,
+                                  'return_declared_view': None,
+                                  'return_boundary_authority': 'raw_return_register_transport',
+                                  'return_reachability': 'reachable',
+                                  'reachable_return': True,
+                                  'execution_suppressed': False,
+                                  'emission_policy': 'emit_reachable_return_boundary',
+                                  'cut_by_no_return_blocks': [],
+                                  'cut_by_no_return_call_op_keys': []},
+                                 {'block_addr': 1066453,
+                                  'return_value_sid': 'v_3661',
+                                  'return_value_width_bits': 32,
+                                  'return_transport_width_bits': 32,
+                                  'return_logical_width_bits': 32,
+                                  'return_declared_view': None,
+                                  'return_boundary_authority': 'raw_return_register_transport',
+                                  'return_reachability': 'reachable',
+                                  'reachable_return': True,
+                                  'execution_suppressed': False,
+                                  'emission_policy': 'emit_reachable_return_boundary',
+                                  'cut_by_no_return_blocks': [],
+                                  'cut_by_no_return_call_op_keys': []},
+                                 {'block_addr': 1066517,
+                                  'return_value_sid': 'v_3628',
+                                  'return_value_width_bits': 32,
+                                  'return_transport_width_bits': 32,
+                                  'return_logical_width_bits': 32,
+                                  'return_declared_view': None,
+                                  'return_boundary_authority': 'raw_return_register_transport',
+                                  'return_reachability': 'reachable',
+                                  'reachable_return': True,
+                                  'execution_suppressed': False,
+                                  'emission_policy': 'emit_reachable_return_boundary',
+                                  'cut_by_no_return_blocks': [],
+                                  'cut_by_no_return_call_op_keys': []}],
+ 'unreachable_return_boundaries': []}
+
+[RETURN BOUNDARY RECONCILIATION]
+{'kind': 'pal_compute_return_boundary_reconciliation_v23b',
+ 'version': 'v23b_abi_thunk_compatibility_return_reconciliation',
+ 'function': 'FUN_00104560',
+ 'entry_block_addr': 1066336,
+ 'cfg_evidence_available': True,
+ 'no_return_terminating_blocks': [],
+ 'no_return_call_op_keys': [],
+ 'return_boundaries': 6,
+ 'reachable_return_boundaries': 6,
+ 'unreachable_return_boundaries': 0,
+ 'deferred_return_boundaries': 0,
+ 'reachable_return_widths': [32],
+ 'width_reconciled': True,
+ 'synthetic_no_return_continuations_suppressed': 0,
+ 'rule': 'traverse_CFG_with_no_return_blocks_as_terminal_then_reconcile_reachable_raw_return_transports_only'}
+
+[CALL SITE ABI PLANS]
+{'op_key': '1066336:(ram, 0x10456b, 18, 0):0',
+ 'target': '__fpending',
+ 'dispatch_class': 'resolved_thunk_endpoint_deferred',
+ 'status': 'deferred_target_dispatch',
+ 'argument_count': 0,
+ 'carrier_allocation_status': 'complete',
+ 'target_compatibility_status': 'deferred',
+ 'target_compatible': None,
+ 'no_return': False,
+ 'result_width_bits': 64}
+{'op_key': '1066336:(ram, 0x104579, 26, 3):3',
+ 'target': 'fileno',
+ 'dispatch_class': 'external_via_import_thunk',
+ 'status': 'ready',
+ 'argument_count': 1,
+ 'carrier_allocation_status': 'complete',
+ 'target_compatibility_status': 'compatible',
+ 'target_compatible': True,
+ 'no_return': False,
+ 'result_width_bits': 32}
+{'op_key': '1066376:(ram, 0x104588, 50, 0):0',
+ 'target': '__freading',
+ 'dispatch_class': 'resolved_thunk_endpoint_deferred',
+ 'status': 'deferred_target_dispatch',
+ 'argument_count': 0,
+ 'carrier_allocation_status': 'complete',
+ 'target_compatibility_status': 'deferred',
+ 'target_compatible': None,
+ 'no_return': False,
+ 'result_width_bits': 32}
+{'op_key': '1066464:(ram, 0x1045e3, 378, 0):0',
+ 'target': 'fileno',
+ 'dispatch_class': 'external_via_import_thunk',
+ 'status': 'ready',
+ 'argument_count': 1,
+ 'carrier_allocation_status': 'complete',
+ 'target_compatibility_status': 'compatible',
+ 'target_compatible': True,
+ 'no_return': False,
+ 'result_width_bits': 32}
+{'op_key': '1066464:(ram, 0x1045f1, 394, 1):1',
+ 'target': 'lseek',
+ 'dispatch_class': 'external_via_import_thunk',
+ 'status': 'ready',
+ 'argument_count': 3,
+ 'carrier_allocation_status': 'complete',
+ 'target_compatibility_status': 'compatible',
+ 'target_compatible': True,
+ 'no_return': False,
+ 'result_width_bits': 64}
+{'op_key': '1066385:(ram, 0x104594, 65, 0):0',
+ 'target': '__freading',
+ 'dispatch_class': 'resolved_thunk_endpoint_deferred',
+ 'status': 'deferred_target_dispatch',
+ 'argument_count': 1,
+ 'carrier_allocation_status': 'complete',
+ 'target_compatibility_status': 'deferred',
+ 'target_compatible': None,
+ 'no_return': False,
+ 'result_width_bits': 32}
+{'op_key': '1066567:(ram, 0x104651, 293, 0):0',
+ 'target': 'fseeko',
+ 'dispatch_class': 'external_via_import_thunk',
+ 'status': 'ready',
+ 'argument_count': 3,
+ 'carrier_allocation_status': 'complete',
+ 'target_compatibility_status': 'compatible',
+ 'target_compatible': True,
+ 'no_return': False,
+ 'result_width_bits': 32}
+{'op_key': '1066609:(ram, 0x104674, 329, 0):0',
+ 'target': 'fileno',
+ 'dispatch_class': 'external_via_import_thunk',
+ 'status': 'ready',
+ 'argument_count': 1,
+ 'carrier_allocation_status': 'complete',
+ 'target_compatibility_status': 'compatible',
+ 'target_compatible': True,
+ 'no_return': False,
+ 'result_width_bits': 32}
+{'op_key': '1066609:(ram, 0x104682, 345, 1):1',
+ 'target': 'lseek',
+ 'dispatch_class': 'external_via_import_thunk',
+ 'status': 'ready',
+ 'argument_count': 3,
+ 'carrier_allocation_status': 'complete',
+ 'target_compatibility_status': 'compatible',
+ 'target_compatible': True,
+ 'no_return': False,
+ 'result_width_bits': 64}
+{'op_key': '1066401:(ram, 0x1045a4, 80, 0):0',
+ 'target': 'fflush',
+ 'dispatch_class': 'external_via_import_thunk',
+ 'status': 'ready',
+ 'argument_count': 1,
+ 'carrier_allocation_status': 'complete',
+ 'target_compatibility_status': 'compatible',
+ 'target_compatible': True,
+ 'no_return': False,
+ 'result_width_bits': 32}
+{'op_key': '1066495:(ram, 0x1045ff, 251, 0):0',
+ 'target': 'fclose',
+ 'dispatch_class': 'external_via_import_thunk',
+ 'status': 'ready',
+ 'argument_count': 1,
+ 'carrier_allocation_status': 'complete',
+ 'target_compatibility_status': 'compatible',
+ 'target_compatible': True,
+ 'no_return': False,
+ 'result_width_bits': 32}
+{'op_key': '1066413:(ram, 0x1045ad, 93, 0):0',
+ 'target': '__errno_location',
+ 'dispatch_class': 'external_via_import_thunk',
+ 'status': 'ready',
+ 'argument_count': 0,
+ 'carrier_allocation_status': 'complete',
+ 'target_compatibility_status': 'compatible',
+ 'target_compatible': True,
+ 'no_return': False,
+ 'result_width_bits': 64}
+{'op_key': '1066413:(ram, 0x1045bb, 101, 2):2',
+ 'target': 'fclose',
+ 'dispatch_class': 'external_via_import_thunk',
+ 'status': 'ready',
+ 'argument_count': 1,
+ 'carrier_allocation_status': 'complete',
+ 'target_compatibility_status': 'compatible',
+ 'target_compatible': True,
+ 'no_return': False,
+ 'result_width_bits': 32}
+{'op_key': '1066448:(ram, 0x1046b0, 244, 0):0',
+ 'target': '__errno_location',
+ 'dispatch_class': 'external_via_import_thunk',
+ 'status': 'ready',
+ 'argument_count': 0,
+ 'carrier_allocation_status': 'complete',
+ 'target_compatibility_status': 'compatible',
+ 'target_compatible': True,
+ 'no_return': False,
+ 'result_width_bits': 64}
+{'op_key': '1066517:(ram, 0x104615, 161, 0):0',
+ 'target': '__errno_location',
+ 'dispatch_class': 'external_via_import_thunk',
+ 'status': 'ready',
+ 'argument_count': 0,
+ 'carrier_allocation_status': 'complete',
+ 'target_compatibility_status': 'compatible',
+ 'target_compatible': True,
+ 'no_return': False,
+ 'result_width_bits': 64}
+===== END PAL COMPUTE ANALYZER =====
+
+
+[PHI DROP-INS]
+------------------------------------------------------------
+pred=0x1045ad -> join=0x104604 :: v_3626 = v_1185
+pred=0x1045ff -> join=0x104604 :: v_3626 = v_1172
+------------------------------------------------------------
+{'active': True,
+ 'bound_plans': 63,
+ 'control_contracts_forwarded': 24,
+ 'input_op_contracts': 68,
+ 'input_plans': 63,
+ 'kind': 'phi_compute_consumer_inventory_v21',
+ 'outputless_contracts_forwarded': 5,
+ 'phi_merge_contracts': 1,
+ 'phi_transition_contracts': 2,
+ 'preserved_compute_boundaries': 58,
+ 'preserved_deferred_contracts': 34,
+ 'preserved_outputless_boundaries': 5,
+ 'preserved_outputless_deferred_contracts': 5,
+ 'preserved_outputless_helpers': 4,
+ 'preserved_runtime_helpers': 42,
+ 'rule': 'preserve_PALCompute_authority_remap_execution_destination_only',
+ 'state_alias_bindings': 0,
+ 'transition_owners': {'predecessor_phi_dropin': 2},
+ 'version': 'v21_compute_contract_consumers',
+ 'warnings': 0}
+[]
+
+=== PAL BATCH FAILURE ===
+Traceback (most recent call last):
+  File "PALBatchDecompiler.py", line 884, in _decompile_one
+    result = pipeline_run()
+  File "PALDecompilerPipeline.py", line 708, in run_all
+    self.run_emitter()
+    ~~~~~~~~~~~~~~~~^^
+  File "PALDecompilerPipeline.py", line 620, in run_emitter
+    views = emitter.emit_function_pair()
+  File "PALemitter.py", line 7843, in emit_function_pair
+    executable_lines = list(self.emit_function(self.RENDER_EXECUTABLE))
+                            ~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^
+  File "PALemitter.py", line 7670, in emit_function
+    self._enforce_executable_identity_gate_v46p(
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        rendered_lines
+        ^^^^^^^^^^^^^^
+    )
+    ^
+  File "PALemitter.py", line 7568, in _enforce_executable_identity_gate_v46p
+    raise RuntimeError(
+    ...<3 lines>...
+    )
+RuntimeError: PAL emitter refused executable output with unbound identities: v_1128, v_2946, v_50, v_673, v_681, v_756, v_764, v_802

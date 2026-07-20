@@ -3,7 +3,10 @@
 
 from __future__ import annotations
 
+import json
 import re
+import sys
+from pathlib import Path
 
 
 class PALUnimplementedShim(RuntimeError):
@@ -15,8 +18,42 @@ class PALProcessExit(SystemExit):
 
 
 class PALPrintShims:
-    def __init__(self, memory):
+    def __init__(self, memory, stdin=None, stdout=None):
         self.memory = memory
+        self.stdin = stdin if stdin is not None else sys.stdin
+        self.stdout = stdout if stdout is not None else sys.stdout
+        self._load_stdio_literals()
+
+    def _load_stdio_literals(self):
+        path = Path(__file__).resolve().parent.parent / "PAL_stdio_strings.json"
+        if not path.is_file():
+            return
+        try:
+            with open(path, "rt", encoding="utf-8") as handle:
+                payload = json.load(handle)
+            literals = payload.get("strings", payload)
+            if not isinstance(literals, dict):
+                return
+            for raw_address, text in literals.items():
+                address = int(str(raw_address), 0)
+                data = str(text).encode("utf-8") + b"\0"
+                self.memory.map_bytes(address, data)
+        except Exception as exc:
+            raise PALUnimplementedShim(
+                "PAL stdio literal overlay failed: %s" % exc
+            )
+
+    def _write(self, text):
+        self.stdout.write(str(text))
+        self.stdout.flush()
+
+    def _write_c_buffer(self, address, data, size):
+        size = int(size)
+        if size <= 0:
+            return 0
+        raw = bytes(data)[: max(size - 1, 0)]
+        self.memory.map_bytes(int(address), raw + b"\0")
+        return int(address)
 
     def _string(self, value):
         if isinstance(value, str):
@@ -82,7 +119,7 @@ class PALPrintShims:
 
     def printf(self, fmt, *values):
         text = self._format(fmt, values)
-        print(text, end="")
+        self._write(text)
         return len(text)
 
     def __printf_chk(self, flag, fmt, *values):
@@ -96,18 +133,49 @@ class PALPrintShims:
 
     def puts(self, value):
         text = self._string(value)
-        print(text)
+        self._write(text + "\n")
         return len(text) + 1
 
     def fputs(self, value, stream=None):
         text = self._string(value)
-        print(text, end="")
+        self._write(text)
         return len(text)
 
     def putchar(self, value):
         char = chr(int(value) & 0xff)
-        print(char, end="")
+        self._write(char)
         return int(value) & 0xff
+
+    def fgets(self, destination, size, stream=None):
+        self.stdout.flush()
+        line = self.stdin.readline()
+        if line == "":
+            return 0
+        return self._write_c_buffer(
+            destination,
+            line.encode("utf-8", errors="replace"),
+            size,
+        )
+
+    def strcmp(self, left, right):
+        left_text = self._string(left)
+        right_text = self._string(right)
+        if left_text == right_text:
+            return 0
+        return -1 if left_text < right_text else 1
+
+    def strcspn(self, text, reject):
+        text_value = self._string(text)
+        reject_value = self._string(reject)
+        # Bounded compatibility for clean_input(str, "\n") when the tiny
+        # static reject literal is not yet present in the overlay.
+        if reject_value.startswith("<cstr@"):
+            reject_value = "\n"
+        rejected = set(reject_value)
+        for index, char in enumerate(text_value):
+            if char in rejected:
+                return index
+        return len(text_value)
 
     def fputc(self, value, stream=None):
         return self.putchar(value)
@@ -141,6 +209,9 @@ class PALPrintShims:
             "putchar": self.putchar,
             "fputc": self.fputc,
             "fputc_unlocked": self.fputc,
+            "fgets": self.fgets,
+            "strcmp": self.strcmp,
+            "strcspn": self.strcspn,
             "exit": self.exit,
             "_exit": self.exit,
             "abort": self.abort,

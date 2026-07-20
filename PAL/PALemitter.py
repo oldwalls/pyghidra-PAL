@@ -1,6 +1,6 @@
 # ============================================================
 # PAL EMITTER
-# BUILD: v46f_canonical_ABI_SSA_predicate_bridge
+# BUILD: v46p_immutable_abi_context_continuity
 # Paired executable/readable rendering + authoritative ABI custody
 # ============================================================
 #
@@ -50,12 +50,21 @@
 
 import ast
 import copy
+import json
+import os
 import re
+import sys
 from contextlib import contextmanager
+from pathlib import Path
 
 from PALCodeDocument import PALCodeDocument
 
 _INDENT = "    "
+
+# Human-readable diagnostic printers are opt-in. This switch does not disable
+# detached PAL metadata collection or executable/readable emission.
+DEBUG_REPORTING = "OFF"
+
 
 
 _BINARY = {
@@ -129,7 +138,7 @@ _COMMUTATIVE = {
 
 class PALemitter:
 
-    VERSION = "v46f_canonical_ABI_SSA_predicate_bridge"
+    VERSION = "v46p_immutable_abi_context_continuity"
     ABI_CUSTODY_VERSION = "v46f_canonical_ABI_SSA_predicate_bridge"
 
     ABI_RUNTIME_HELPERS = frozenset((
@@ -165,6 +174,500 @@ class PALemitter:
     def _is_readable_render_v44(self):
         return self.render_mode == self.RENDER_READABLE
 
+    def _debug_reporting_enabled_v46g(self):
+        """
+        Gate emitter-side console reports without disabling audit metadata.
+
+        Precedence:
+            func.emitter_debug_reporting
+            PAL_EMITTER_DEBUG_REPORTING environment variable
+            module-level DEBUG_REPORTING
+        """
+        value = getattr(self.func, "emitter_debug_reporting", None)
+        if value is None:
+            value = os.environ.get("PAL_EMITTER_DEBUG_REPORTING")
+        if value is None:
+            value = DEBUG_REPORTING
+        if isinstance(value, bool):
+            return value
+        return str(value).strip().upper() in {
+            "1", "TRUE", "YES", "Y", "ON", "ENABLE", "ENABLED",
+        }
+
+    @staticmethod
+    def _readable_c_string_normalize_mapping_v46g(payload):
+        if not isinstance(payload, dict):
+            return {}
+        strings = payload.get("strings", payload)
+        if not isinstance(strings, dict):
+            return {}
+
+        normalized = {}
+        for raw_address, raw_text in strings.items():
+            try:
+                address = (
+                    int(raw_address)
+                    if isinstance(raw_address, int)
+                    else int(str(raw_address).strip(), 0)
+                )
+            except Exception:
+                continue
+            if not isinstance(raw_text, str):
+                continue
+            normalized[address] = raw_text
+        return normalized
+
+    @staticmethod
+    def _readable_c_string_normalized_program_token_v46h(value):
+        if value is None:
+            return None
+        text = Path(str(value)).name.strip().lower()
+        for suffix in (".exe", ".elf", ".bin", ".out"):
+            if text.endswith(suffix):
+                text = text[:-len(suffix)]
+                break
+        return re.sub(r"[^a-z0-9]+", "", text) or None
+
+    def _readable_c_string_program_tokens_v46h(self):
+        """
+        Collect explicit program/project identity evidence when available.
+
+        PALFunctionObject currently does not normally expose these fields, so
+        an empty result is expected during Batch emission.
+        """
+        values = [
+            getattr(self.func, "program_name", None),
+            getattr(self.func, "project_name", None),
+            getattr(self.func, "executable_name", None),
+            os.environ.get("PAL_PROGRAM_NAME"),
+            os.environ.get("PAL_ACTIVE_PROJECT"),
+        ]
+
+        program = getattr(self.func, "program", None)
+        get_name = getattr(program, "getName", None)
+        if callable(get_name):
+            try:
+                values.append(get_name())
+            except Exception:
+                pass
+
+        tokens = []
+        for value in values:
+            token = self._readable_c_string_normalized_program_token_v46h(
+                value
+            )
+            if token and token not in tokens:
+                tokens.append(token)
+        return tokens
+
+    def _readable_c_string_call_addresses_v46h(self):
+        """
+        Return exact constant addresses observed as CALL/CALLIND arguments.
+
+        These addresses select among project overlays only. They are not
+        themselves classified as strings. A readable substitution still
+        requires exact membership in the selected overlay.
+        """
+        addresses = set()
+        seen_objects = set()
+
+        def consume(op_or_node):
+            if op_or_node is None:
+                return
+
+            marker = id(op_or_node)
+            if marker in seen_objects:
+                return
+            seen_objects.add(marker)
+
+            if getattr(op_or_node, "opcode", None) not in (
+                "CALL", "CALLIND"
+            ):
+                return
+
+            inputs = list(getattr(op_or_node, "inputs", []) or [])
+            for value in inputs[1:]:
+                raw = getattr(value, "var", value)
+                if not getattr(raw, "is_constant", False):
+                    continue
+                address = self._const_int_value(raw)
+                if isinstance(address, int):
+                    addresses.add(address)
+
+        for node in list((getattr(self, "nodes", {}) or {}).values()):
+            consume(node)
+
+        try:
+            for op in self._iter_all_ops():
+                consume(op)
+        except Exception:
+            # FormulaNodes cover ordinary PAL calls. The block walk is extra
+            # coverage for outputless call operations.
+            pass
+
+        return addresses
+
+    def _readable_c_string_overlay_candidates_v46h(self):
+        """
+        Discover bounded project overlays without requiring a live Program.
+
+        Search is limited to:
+          - explicit function/environment paths;
+          - the emitter module root and its parents;
+          - CWD and its parents;
+          - direct project/* children under those roots.
+
+        No recursive repository or home-directory scan occurs.
+        """
+        candidates = []
+        markers = set()
+
+        def add(path, authority, explicit=False):
+            if not path:
+                return
+
+            try:
+                candidate = Path(str(path)).expanduser()
+            except Exception:
+                return
+
+            if candidate.name != "PAL_stdio_strings.json":
+                candidate = candidate / "PAL_stdio_strings.json"
+
+            try:
+                marker = str(candidate.resolve(strict=False))
+            except Exception:
+                marker = str(candidate)
+
+            if marker in markers:
+                return
+
+            markers.add(marker)
+            candidates.append({
+                "path": candidate,
+                "authority": authority,
+                "explicit": bool(explicit),
+            })
+
+        add(
+            getattr(self.func, "pal_stdio_strings_path", None),
+            "func.pal_stdio_strings_path",
+            explicit=True,
+        )
+        add(
+            getattr(self.func, "stdio_strings_path", None),
+            "func.stdio_strings_path",
+            explicit=True,
+        )
+        add(
+            os.environ.get("PAL_STDIO_STRINGS"),
+            "PAL_STDIO_STRINGS",
+            explicit=True,
+        )
+
+        roots = []
+        root_markers = set()
+
+        for base in (
+            Path(__file__).resolve().parent,
+            Path.cwd(),
+        ):
+            for root in [base] + list(base.parents):
+                try:
+                    marker = str(root.resolve(strict=False))
+                except Exception:
+                    marker = str(root)
+
+                if marker in root_markers:
+                    continue
+
+                root_markers.add(marker)
+                roots.append(Path(marker))
+
+        for root in roots:
+            add(root, "direct_root_candidate")
+
+            project_dir = root / "project"
+            if project_dir.is_dir():
+                for overlay in sorted(
+                    project_dir.glob("*/PAL_stdio_strings.json")
+                ):
+                    add(
+                        overlay,
+                        "PAL_project_directory_discovery",
+                    )
+
+            if root.parent.name == "project":
+                add(root, "active_project_directory")
+
+        return candidates
+
+    def _readable_c_string_overlay_record_v46h(self, candidate):
+        path = candidate.get("path")
+
+        if not isinstance(path, Path) or not path.is_file():
+            return None
+
+        try:
+            with path.open("rt", encoding="utf-8") as handle:
+                payload = json.load(handle)
+
+            mapping = self._readable_c_string_normalize_mapping_v46g(
+                payload
+            )
+        except Exception as exc:
+            self.readable_c_string_overlay_warnings.append({
+                "kind": (
+                    "emitter_readable_c_string_overlay_load_failed_v46h"
+                ),
+                "path": str(path),
+                "authority": candidate.get("authority"),
+                "error": str(exc),
+                "action": "preserve_pointer_arguments",
+            })
+            return None
+
+        if not mapping:
+            return None
+
+        program_value = (
+            payload.get("program")
+            if isinstance(payload, dict)
+            else None
+        )
+
+        return {
+            "path": path,
+            "authority": candidate.get("authority"),
+            "explicit": bool(candidate.get("explicit")),
+            "mapping": mapping,
+            "program_token": (
+                self._readable_c_string_normalized_program_token_v46h(
+                    program_value
+                )
+            ),
+            "directory_token": (
+                self._readable_c_string_normalized_program_token_v46h(
+                    path.parent.name
+                )
+            ),
+        }
+
+    def _select_readable_c_string_overlay_v46h(self, records):
+        records = list(records or [])
+
+        if not records:
+            return None, "none"
+
+        explicit = [
+            record for record in records
+            if record.get("explicit")
+        ]
+        if explicit:
+            return explicit[0], "explicit_path"
+
+        identity_tokens = set(
+            self._readable_c_string_program_tokens_v46h()
+        )
+        if identity_tokens:
+            matches = [
+                record for record in records
+                if (
+                    record.get("program_token") in identity_tokens
+                    or record.get("directory_token") in identity_tokens
+                )
+            ]
+            if len(matches) == 1:
+                return matches[0], "program_identity"
+
+        if len(records) == 1:
+            return records[0], "single_project_overlay"
+
+        call_addresses = self._readable_c_string_call_addresses_v46h()
+        scored = []
+
+        for record in records:
+            mapping_addresses = set(record.get("mapping", {}))
+            overlap = call_addresses & mapping_addresses
+            scored.append((len(overlap), record))
+
+        best_score = max(score for score, _ in scored)
+        best = [
+            record for score, record in scored
+            if score == best_score and score > 0
+        ]
+
+        if len(best) == 1:
+            return best[0], "unique_call_address_coverage"
+
+        self.readable_c_string_overlay_warnings.append({
+            "kind": "emitter_readable_c_string_overlay_ambiguous_v46h",
+            "candidate_paths": [
+                str(record.get("path")) for record in records
+            ],
+            "call_constant_addresses": [
+                hex(value) for value in sorted(call_addresses)
+            ],
+            "best_address_overlap": best_score,
+            "action": (
+                "preserve_pointer_arguments_set_PAL_STDIO_STRINGS_"
+                "for_explicit_authority"
+            ),
+        })
+        return None, "ambiguous"
+
+    def _load_readable_c_string_overlay_v46h(self):
+        """
+        Load one presentation-only address -> string mapping.
+
+        Selection is fail-closed. No selected overlay means readable output
+        retains numeric pointers. Executable rendering is never affected.
+        """
+        self.readable_c_string_overlay_source = None
+        self.readable_c_string_overlay_selection = "none"
+        self.readable_c_string_overlay_warnings = []
+
+        inline = getattr(self.func, "pal_stdio_strings", None)
+        normalized = self._readable_c_string_normalize_mapping_v46g(
+            inline
+        )
+
+        if normalized:
+            self.readable_c_string_overlay_source = (
+                "func.pal_stdio_strings"
+            )
+            self.readable_c_string_overlay_selection = "inline_mapping"
+            return normalized
+
+        records = []
+
+        for candidate in (
+            self._readable_c_string_overlay_candidates_v46h()
+        ):
+            record = self._readable_c_string_overlay_record_v46h(
+                candidate
+            )
+            if record is not None:
+                records.append(record)
+
+        selected, reason = (
+            self._select_readable_c_string_overlay_v46h(records)
+        )
+        self.readable_c_string_overlay_selection = reason
+
+        if selected is None:
+            return {}
+
+        self.readable_c_string_overlay_source = str(
+            selected.get("path")
+        )
+        return dict(selected.get("mapping") or {})
+
+    def _readable_c_string_literal_for_value_v46g(self, value):
+        if (
+            not self._is_readable_render_v44()
+            or not self.readable_c_string_literals
+            or value is None
+        ):
+            return None
+
+        raw = getattr(value, "var", value)
+        if not getattr(raw, "is_constant", False):
+            return None
+
+        address = self._const_int_value(raw)
+        if address is None:
+            return None
+        return self.readable_c_string_literals.get(int(address))
+
+    @staticmethod
+    def _standalone_integer_literal_v46i(rendered):
+        """
+        Parse only a complete Python integer literal.
+
+        This deliberately rejects variables, arithmetic, casts, helper calls,
+        dereferences, indexing, and composite expressions.  Redundant balanced
+        parentheses around the literal are accepted because the canonical
+        expression renderer may preserve them.
+        """
+        if rendered is None:
+            return None
+
+        text = str(rendered).strip()
+        while (
+            len(text) >= 2
+            and text.startswith("(")
+            and text.endswith(")")
+        ):
+            depth = 0
+            encloses_all = True
+            for index, character in enumerate(text):
+                if character == "(":
+                    depth += 1
+                elif character == ")":
+                    depth -= 1
+                    if depth == 0 and index != len(text) - 1:
+                        encloses_all = False
+                        break
+                if depth < 0:
+                    encloses_all = False
+                    break
+            if not encloses_all or depth != 0:
+                break
+            text = text[1:-1].strip()
+
+        if not re.fullmatch(
+            r"[+-]?(?:"
+            r"0[xX][0-9a-fA-F](?:_?[0-9a-fA-F])*|"
+            r"0[bB][01](?:_?[01])*|"
+            r"0[oO][0-7](?:_?[0-7])*|"
+            r"(?:0|[1-9][0-9]*(?:_?[0-9])*)"
+            r")",
+            text,
+        ):
+            return None
+
+        try:
+            return int(text.replace("_", ""), 0)
+        except Exception:
+            return None
+
+    def _readable_call_argument_expr_v46i(self, value):
+        """
+        Project one READ call argument through the string overlay.
+
+        First use direct PAL constant identity.  If ABI planning has wrapped
+        the constant in an SSA/formula carrier, render it canonically and
+        accept only a complete standalone integer literal.  Exact overlay
+        membership is still required.
+
+        EXEC and all non-call expression paths remain unchanged.
+        """
+        literal = self._readable_c_string_literal_for_value_v46g(value)
+        if literal is not None:
+            return repr(literal)
+
+        rendered = self._expr(value)
+        if (
+            not self._is_readable_render_v44()
+            or not self.readable_c_string_literals
+        ):
+            return rendered
+
+        address = self._standalone_integer_literal_v46i(rendered)
+        if address is None:
+            return rendered
+
+        literal = self.readable_c_string_literals.get(int(address))
+        if literal is None:
+            return rendered
+
+        return repr(literal)
+
+    # Historical helper name retained for compatibility with isolated callers.
+    def _readable_call_argument_expr_v46g(self, value):
+        return self._readable_call_argument_expr_v46i(value)
+
     def __init__(self, func, render_mode="executable"):
 
         self.func = func
@@ -194,6 +697,13 @@ class PALemitter:
 
         self.nodes, self.phi_nodes = self._load_semantic_graph(func)
         self.var_map = getattr(func, "var_map", {}) or {}
+
+        # v46h: FormulaNodes must exist before overlay selection so a
+        # program-less PALFunctionObject can identify the unique project
+        # overlay by exact constant call-argument coverage.
+        self.readable_c_string_literals = (
+            self._load_readable_c_string_overlay_v46h()
+        )
 
         self.condition_vars = list(getattr(func, "condition_vars", []))
         self.return_vars = list(getattr(func, "return_vars", []))
@@ -292,6 +802,7 @@ class PALemitter:
         self.custody_active = bool(
             self.custody_indirect_contracts_by_output_sid
             or self.custody_indirect_contracts_by_op
+            or self.custody_parameter_initializers
         )
         self.custody_family_descriptors = {}
         self.custody_family_by_sid = {}
@@ -301,6 +812,10 @@ class PALemitter:
         self.custody_read_events = []
         self.custody_write_events = []
         self.custody_parameter_initializer_events = []
+        self.custody_parameter_initializer_preamble_events = []
+        self.custody_parameter_initializer_rejections = []
+        self.custody_parameter_initializer_preamble_output_sids = set()
+        self.custody_parameter_initializer_preamble_records_by_output_sid = {}
         self.custody_static_warnings = []
         self.custody_warnings = []
         self.custody_unresolved_address_families = set()
@@ -391,9 +906,18 @@ class PALemitter:
         self.abi_raw_name_aliases = {}
         self.abi_raw_name_alias_candidates = {}
         self.abi_ambiguous_raw_name_aliases = {}
+        self.abi_exact_machine_carrier_alias_sources = set()
+        self.abi_immutable_context_alias_names = set()
+        self.abi_immutable_context_root_ids = set()
+        self.abi_immutable_context_events = []
+        self.abi_unresolved_identity_events = []
         self.abi_entry_storage_initializers_by_op = {}
         self.abi_entry_storage_initializer_rejections = {}
         self.abi_entry_storage_initializer_rejected_output_sids = set()
+        self.abi_fixed_argument_local_initializers_by_op = {}
+        self.abi_fixed_argument_local_initializer_events = []
+        self.abi_phi_entry_local_seed_contracts_by_key = {}
+        self.abi_phi_entry_local_seed_events = []
         self.abi_fixed_argument_names = []
         self.abi_fixed_argument_sids = set()
         self.abi_entry_materialization_records = []
@@ -403,8 +927,15 @@ class PALemitter:
         self.abi_call_plans_by_plan_id = {}
         self.abi_entry_materialization_events = []
         self.abi_entry_storage_initializer_events = []
+        self.abi_fixed_argument_local_initializer_events = []
+        self.abi_phi_entry_local_seed_events = []
         self.abi_call_render_events = []
         self.abi_convergence_render_events = []
+        self.abi_identity_reuse_events = []
+        self.abi_identity_reuse_rejections = []
+        self.abi_immutable_context_events = []
+        self.abi_unresolved_identity_events = []
+        self.abi_phi_entry_local_seed_events = []
         self.abi_return_render_events = []
         self.abi_render_warnings = []
         self._abi_event_keys = set()
@@ -1837,6 +2368,297 @@ class PALemitter:
             ("parameter_initializer", output_sid),
         )
 
+    def _custody_parameter_initializer_family_v46l(self, record):
+        """Return the exact resolver storage family named by one sidecar."""
+        if not isinstance(record, dict):
+            return None
+
+        output_sid = record.get("output_sid")
+        descriptor = self._custody_descriptor_for_sid_v45(output_sid)
+        if isinstance(descriptor, dict):
+            return descriptor
+
+        family_id = record.get("family_id")
+        if family_id is not None:
+            descriptor = self.custody_family_descriptors.get(str(family_id))
+            if isinstance(descriptor, dict):
+                return descriptor
+
+        for family in self.custody_storage_families_by_key.values():
+            if not isinstance(family, dict):
+                continue
+            if str(family.get("family_id")) == str(family_id):
+                return family
+
+        return None
+
+    def _custody_parameter_initializer_source_v46l(self, record):
+        """
+        Resolve only a published callable parameter identity.
+
+        The resolver sidecar's ``parameter`` field is the primary authority.
+        Source-SID ABI ownership is a compatibility confirmation, not a new
+        name inference rule.
+        """
+        if not isinstance(record, dict):
+            return None
+
+        allowed = {
+            self._sanitize_name(str(name))
+            for name in self._abi_signature_parameters_v46()
+            if name
+        }
+        candidates = []
+
+        published = record.get("parameter")
+        if published:
+            published_name = self._sanitize_name(str(published))
+            return published_name if published_name in allowed else None
+
+        source_sid = record.get("source_sid")
+        abi_name = self._abi_name_for_sid_v46(source_sid)
+        if abi_name:
+            candidates.append(self._sanitize_name(str(abi_name)))
+
+        for parameter in list(getattr(self.func, "parameters", []) or []):
+            if str(self._sid_of(parameter)) != str(source_sid):
+                continue
+            candidates.append(self._sanitize_name(str(self._var(parameter))))
+
+        seen = set()
+        for candidate in candidates:
+            if not candidate or candidate in seen:
+                continue
+            seen.add(candidate)
+            if candidate in allowed:
+                return candidate
+
+        return None
+
+    def _custody_parameter_initializer_target_v46l(self, record):
+        """Resolve the nonpersistent C-storage family destination."""
+        if not isinstance(record, dict):
+            return None
+
+        output_sid = record.get("output_sid")
+        family = self._custody_parameter_initializer_family_v46l(record)
+        family = family if isinstance(family, dict) else {}
+
+        classification = family.get("classification")
+        persistent = bool(family.get("persistent"))
+        storage_space = family.get("storage_space")
+        ordinary_local = bool(family.get("ordinary_c_local_candidate"))
+
+        local_authority = bool(
+            storage_space == "stack"
+            or ordinary_local
+            or (
+                classification == "address_tied_c_storage"
+                and not persistent
+            )
+        )
+        if not local_authority:
+            return None
+
+        candidates = [
+            family.get("high_name"),
+            self.var_map.get(output_sid),
+            self.var_map.get(str(output_sid)),
+        ]
+        for candidate in candidates:
+            if not candidate:
+                continue
+            name = self._sanitize_name(str(candidate))
+            if name:
+                return name
+
+        return None
+
+    def _custody_reject_parameter_initializer_v46l(
+        self,
+        record,
+        reason,
+        **details
+    ):
+        warning = {
+            "kind": (
+                "emitter_parameter_storage_initializer_"
+                "preamble_rejected_v46l"
+            ),
+            "version": self.VERSION,
+            "projection": self.render_mode,
+            "reason": reason,
+            "output_sid": (
+                record.get("output_sid")
+                if isinstance(record, dict) else None
+            ),
+            "source_sid": (
+                record.get("source_sid")
+                if isinstance(record, dict) else None
+            ),
+            "parameter": (
+                record.get("parameter")
+                if isinstance(record, dict) else None
+            ),
+            "family_id": (
+                record.get("family_id")
+                if isinstance(record, dict) else None
+            ),
+            "action": "leave_missing_initializer_visible_in_custody_gate",
+        }
+        warning.update(details)
+        self.custody_parameter_initializer_rejections.append(warning)
+        self.custody_warnings.append(warning)
+        return None
+
+    def _emit_custody_parameter_initializer_preamble_v46l(self):
+        """
+        Materialize resolver-proven parameter-to-storage COPYs independently
+        of the ExecTree.
+
+        The corresponding live COPY may have been folded away before
+        structured emission.  The sidecar remains the authoritative statement
+        that a callable parameter initializes distinct, mutable C storage:
+
+            local_20 = param_3
+        """
+        for record in list(self.custody_parameter_initializers or []):
+            if not isinstance(record, dict):
+                self._custody_reject_parameter_initializer_v46l(
+                    record,
+                    "record_not_mapping",
+                )
+                continue
+
+            output_sid = record.get("output_sid")
+            source_sid = record.get("source_sid")
+
+            if (
+                record.get("role") != "parameter_storage_initializer"
+                or record.get("entry_state") is not True
+                or str(record.get("opcode") or "").upper() != "COPY"
+                or output_sid is None
+                or source_sid is None
+            ):
+                self._custody_reject_parameter_initializer_v46l(
+                    record,
+                    "sidecar_contract_incomplete_or_not_entry_COPY",
+                )
+                continue
+
+            output_key = str(output_sid)
+            if output_key in self.custody_parameter_initializer_preamble_output_sids:
+                continue
+
+            source_name = self._custody_parameter_initializer_source_v46l(
+                record
+            )
+            if not source_name:
+                self._custody_reject_parameter_initializer_v46l(
+                    record,
+                    "published_parameter_not_in_callable_signature",
+                )
+                continue
+
+            target_name = self._custody_parameter_initializer_target_v46l(
+                record
+            )
+            if not target_name:
+                self._custody_reject_parameter_initializer_v46l(
+                    record,
+                    "nonpersistent_local_storage_identity_unresolved",
+                )
+                continue
+
+            if target_name == source_name:
+                self._custody_reject_parameter_initializer_v46l(
+                    record,
+                    "source_and_target_execution_names_identical",
+                    source_name=source_name,
+                    target_name=target_name,
+                )
+                continue
+
+            before = len(self.lines)
+            self._emit_assignment(
+                target_name,
+                source_name,
+                custody_sid=output_sid,
+                provenance={
+                    "role": (
+                        "custody_parameter_initializer_preamble"
+                    ),
+                    "definition_sids": [output_sid],
+                    "use_sids": [source_sid],
+                    "metadata_refs": [
+                        "custody:parameter_initializer:%s"
+                        % output_key
+                    ],
+                },
+            )
+            if len(self.lines) == before:
+                self._custody_reject_parameter_initializer_v46l(
+                    record,
+                    "assignment_writer_suppressed_preamble",
+                    source_name=source_name,
+                    target_name=target_name,
+                )
+                continue
+
+            self.custody_parameter_initializer_preamble_output_sids.add(
+                output_key
+            )
+            self.custody_parameter_initializer_preamble_records_by_output_sid[
+                output_key
+            ] = record
+
+            event = {
+                "kind": (
+                    "emitter_parameter_storage_initializer_"
+                    "preamble_rendered_v46l"
+                ),
+                "version": self.VERSION,
+                "projection": self.render_mode,
+                "output_sid": output_sid,
+                "source_sid": source_sid,
+                "parameter": record.get("parameter"),
+                "family_id": record.get("family_id"),
+                "lhs": target_name,
+                "rhs": source_name,
+                "rendered": self.lines[-1].strip(),
+                "must_print_authority": (
+                    "PALSymbolResolver_parameter_initializer_sidecar_"
+                    "via_PALCompute"
+                ),
+                "execution_policy": (
+                    "emit_before_ExecTree_even_when_COPY_was_folded"
+                ),
+            }
+            self.custody_parameter_initializer_preamble_events.append(event)
+            self._custody_record_event_v45(
+                self.custody_parameter_initializer_events,
+                event,
+                ("parameter_initializer", output_key),
+            )
+
+    def _custody_parameter_initializer_op_materialized_v46l(self, op):
+        """Suppress only the live COPY already materialized by the preamble."""
+        if op is None:
+            return False
+        output_sid = self._sid_of(getattr(op, "output", None))
+        if output_sid is None:
+            return False
+        output_key = str(output_sid)
+        record = self.custody_parameter_initializer_preamble_records_by_output_sid.get(
+            output_key
+        )
+        if not isinstance(record, dict):
+            return False
+        return (
+            str(getattr(op, "opcode", "") or "").upper()
+            == str(record.get("opcode") or "").upper()
+        )
+
     def _apply_custody_raw_condition_reads_v45(self, expr):
         """
         Make RawCond text observe the same storage families as FormulaNode
@@ -2194,20 +3016,40 @@ class PALemitter:
                 for key in (
                     "source_name", "high_name", "name", "execution_name"
                 ):
+                    source_name = record.get(key)
                     self._abi_register_raw_name_alias_v46(
-                        record.get(key), target
+                        source_name, target
                     )
+
+                    source_token = (
+                        self._abi_raw_identifier_token_v46j(
+                            source_name
+                        )
+                    )
+                    if (
+                        source_token
+                        and source_token.startswith("in_")
+                    ):
+                        self.abi_exact_machine_carrier_alias_sources.add(
+                            source_token
+                        )
+
                 register = self._abi_register_text_v46(
                     record.get("register")
                 )
                 if register:
-                    # Ghidra's legacy implicit live-in names use this exact
-                    # form (in_AL, in_FS_OFFSET, ...).  Register ownership is
-                    # already published by ABI-C; only the identifier spelling
-                    # is constructed here.
-                    self._abi_register_raw_name_alias_v46(
-                        "in_%s" % register, target
+                    # Ghidra's implicit live-in spelling is an exact ABI
+                    # machine-carrier surface, not a mutable state alias.
+                    carrier_token = self._abi_raw_identifier_token_v46j(
+                        "in_%s" % register
                     )
+                    self._abi_register_raw_name_alias_v46(
+                        carrier_token, target
+                    )
+                    if carrier_token:
+                        self.abi_exact_machine_carrier_alias_sources.add(
+                            carrier_token
+                        )
 
     def _abi_entry_storage_initializer_contract_v46b(self, op):
         """
@@ -2352,6 +3194,254 @@ class PALemitter:
             return fallback
         source_name = contract.get("source_name")
         return str(source_name) if source_name else fallback
+
+    def _abi_fixed_argument_local_output_name_v46k(
+        self,
+        out,
+        output_sid,
+        source_name,
+    ):
+        """
+        Recover the destination storage identity without passing through
+        ``_var(out)``.
+
+        ``_var`` is intentionally ABI-aware and may collapse the destination
+        HighVariable back to the fixed argument name.  That is correct for
+        reads, but incorrect for the LHS of the physical initialization:
+
+            local_20 = param_3
+        """
+        descriptor = self._abi_storage_descriptor_for_output_v46c(
+            out,
+            output_sid,
+        )
+        representative = (
+            dict(descriptor.get("representative") or {})
+            if isinstance(descriptor, dict)
+            else {}
+        )
+
+        candidates = [
+            getattr(out, "name", None),
+            (
+                descriptor.get("high_name")
+                if isinstance(descriptor, dict)
+                else None
+            ),
+            representative.get("name"),
+            representative.get("high_name"),
+            self.var_map.get(output_sid),
+            self.var_map.get(str(output_sid)),
+        ]
+
+        fixed_names = {
+            self._sanitize_name(str(name))
+            for name in self.abi_fixed_argument_names
+            if name
+        }
+        source_name = self._sanitize_name(str(source_name))
+
+        for candidate in candidates:
+            if not candidate:
+                continue
+            name = self._sanitize_name(str(candidate))
+            if (
+                not name
+                or name == source_name
+                or name in fixed_names
+            ):
+                continue
+            return name
+
+        return None
+
+    def _abi_fixed_argument_local_initializer_contract_v46k(self, op):
+        """
+        Preserve a fixed ABI argument copied into distinct local stack state.
+
+        Ghidra may keep the parameter and local in one HighVariable family.
+        Ordinary transparent/self-copy suppression then sees no semantic
+        difference and deletes the instruction, even though ASM performs a
+        real register-to-stack initialization.
+
+        Authority:
+          - source belongs to one published ABI-D fixed argument;
+          - destination is stack-owned by PAL variable/storage metadata;
+          - destination has a distinct local storage name;
+          - operation is one transparent one-input transfer.
+
+        This is not name-based ABI placement inference.
+        """
+        if not self.abi_active or op is None:
+            return None
+
+        op_key = self._op_key(op)
+        if op_key in self.abi_fixed_argument_local_initializers_by_op:
+            return self.abi_fixed_argument_local_initializers_by_op.get(
+                op_key
+            )
+
+        opcode = getattr(op, "opcode", None)
+        out = getattr(op, "output", None)
+        inputs = list(getattr(op, "inputs", []) or [])
+
+        if (
+            opcode not in _TRANSPARENT
+            or out is None
+            or len(inputs) != 1
+        ):
+            return None
+
+        source = inputs[0]
+        source_sid = self._sid_of(source)
+        output_sid = self._sid_of(out)
+
+        if source_sid is None or output_sid is None:
+            return None
+
+        source_sid_text = str(source_sid)
+        root = self._abi_unique_root_for_sid_v46c(source_sid)
+        root_sid = (
+            str(root.get("sid"))
+            if isinstance(root, dict)
+            and root.get("sid") is not None
+            else None
+        )
+
+        fixed_owned = (
+            source_sid_text in self.abi_fixed_argument_sids
+            or (
+                root_sid is not None
+                and root_sid in self.abi_fixed_argument_sids
+            )
+        )
+        if not fixed_owned:
+            return None
+
+        source_name = (
+            self._abi_name_for_sid_v46(source_sid)
+            or (
+                self._abi_name_for_sid_v46(root_sid)
+                if root_sid is not None
+                else None
+            )
+        )
+        if not source_name:
+            return None
+
+        descriptor = self._abi_storage_descriptor_for_output_v46c(
+            out,
+            output_sid,
+        )
+        representative = (
+            dict(descriptor.get("representative") or {})
+            if isinstance(descriptor, dict)
+            else {}
+        )
+        storage_space = (
+            descriptor.get("storage_space")
+            if isinstance(descriptor, dict)
+            else None
+        ) or representative.get("space")
+
+        stack_owned = (
+            self._is_stack_local_var(out)
+            or str(storage_space or "") == "stack"
+        )
+        if not stack_owned:
+            return None
+
+        output_name = (
+            self._abi_fixed_argument_local_output_name_v46k(
+                out,
+                output_sid,
+                source_name,
+            )
+        )
+        if not output_name:
+            return None
+
+        contract = {
+            "kind": (
+                "emitter_abi_fixed_argument_local_initializer_v46k"
+            ),
+            "version": self.ABI_CUSTODY_VERSION,
+            "op_key": op_key,
+            "op_id": str(getattr(op, "op_id", None)),
+            "opcode": opcode,
+            "source_sid": source_sid_text,
+            "source_root_sid": root_sid,
+            "source_name": str(source_name),
+            "output_sid": str(output_sid),
+            "output_name": str(output_name),
+            "storage_family_id": (
+                descriptor.get("family_id")
+                if isinstance(descriptor, dict)
+                else None
+            ),
+            "storage_space": storage_space or "stack",
+            "storage_offset": (
+                descriptor.get("storage_offset")
+                if isinstance(descriptor, dict)
+                else getattr(out, "offset", None)
+            ),
+            "execution_policy": (
+                "must_print_fixed_argument_to_distinct_local_state"
+            ),
+            "authority": (
+                "ABI_D_fixed_argument_ownership_plus_"
+                "PAL_stack_storage_identity"
+            ),
+        }
+
+        self.abi_fixed_argument_local_initializers_by_op[
+            op_key
+        ] = contract
+        return contract
+
+    def _abi_index_fixed_argument_local_initializers_v46k(self):
+        for op in self._iter_all_ops():
+            self._abi_fixed_argument_local_initializer_contract_v46k(
+                op
+            )
+
+    def _abi_fixed_argument_local_initializer_lhs_v46k(
+        self,
+        contract,
+        fallback,
+    ):
+        if not isinstance(contract, dict):
+            return fallback
+        return str(contract.get("output_name") or fallback)
+
+    def _abi_note_fixed_argument_local_initializer_v46k(
+        self,
+        op,
+        rendered,
+    ):
+        contract = (
+            self._abi_fixed_argument_local_initializer_contract_v46k(
+                op
+            )
+        )
+        if not isinstance(contract, dict):
+            return
+
+        event = dict(contract)
+        event.update({
+            "projection": self.render_mode,
+            "rendered": rendered,
+            "must_print_consumed": True,
+        })
+        self._abi_record_event_v46(
+            self.abi_fixed_argument_local_initializer_events,
+            event,
+            (
+                "fixed_argument_local_initializer",
+                contract.get("op_key"),
+                self.render_mode,
+            ),
+        )
 
     def _abi_add_materialization_v46(self, record, seen_sids):
         sid = record.get("sid")
@@ -2648,7 +3738,9 @@ class PALemitter:
         )
 
         self._abi_build_raw_name_aliases_v46b()
+        self._abi_index_immutable_context_v46p()
         self._abi_index_entry_storage_initializers_v46b()
+        self._abi_index_fixed_argument_local_initializers_v46k()
 
         if self.abi_entry_path_unbound_records:
             self.abi_render_warnings.extend(
@@ -2658,19 +3750,830 @@ class PALemitter:
             copy.deepcopy(self.abi_entry_custody_warnings)
         )
 
+    @staticmethod
+    def _abi_raw_value_object_v46n(value):
+        if value is None:
+            return None
+        raw = getattr(value, "var", None)
+        return raw if raw is not None else value
+
+    def _abi_node_for_sid_v46n(self, sid):
+        if sid is None:
+            return None
+        nodes = getattr(self, "nodes", {}) or {}
+        return nodes.get(sid) or nodes.get(str(sid))
+
+    def _abi_mutable_state_rejection_v46n(self, value=None, sid=None):
+        """Classify values which must retain mutable program-state identity."""
+        raw = self._abi_raw_value_object_v46n(value)
+        if sid is None:
+            sid = self._sid_of(raw)
+        sid_text = str(sid) if sid is not None else None
+        reasons=[]
+        name=(getattr(raw,"name",None) if raw is not None and not isinstance(raw,str) else None)
+        rendered=(self._sanitize_name(str(name)) if name else None)
+        if rendered and rendered.startswith("local_"):
+            reasons.append("local_name")
+        try:
+            if raw is not None and self._is_stack_local_var(raw):
+                reasons.append("stack_variable")
+        except Exception:
+            pass
+        descriptor=None
+        if sid is not None:
+            try:
+                descriptor=self._custody_descriptor_for_sid_v45(sid)
+            except Exception:
+                descriptor=None
+        if isinstance(descriptor,dict):
+            high=str(descriptor.get("high_name") or "")
+            space=str(descriptor.get("storage_space") or descriptor.get("space") or "")
+            cls=str(descriptor.get("storage_class") or descriptor.get("family_kind") or "")
+            if high.startswith("local_"): reasons.append("custody_local_name")
+            if space == "stack": reasons.append("custody_stack_storage")
+            if cls in ("stack","local","mutable_local","state"): reasons.append("custody_mutable_state")
+        node=self._abi_node_for_sid_v46n(sid)
+        opcode=getattr(node,"opcode",None)
+        if opcode == "MULTIEQUAL":
+            reasons.append("phi_target")
+        elif opcode in ("INDIRECT","LOAD","STORE","CALL","CALLIND"):
+            reasons.append("stateful_opcode:%s" % opcode)
+        elif opcode in _BINARY or opcode in _UNARY:
+            reasons.append("computed_state:%s" % opcode)
+        for label,values in (
+            ("local_target_sid",getattr(self,"local_target_sids",set())),
+            ("state_transition_sid",getattr(self,"state_transition_alias_sids",set())),
+            ("phi_state_source_sid",getattr(self,"phi_source_alias_sids",set())),
+            ("post_update_state_sid",getattr(self,"post_update_alias_sids",set())),
+        ):
+            values=values or set()
+            if sid is not None and (sid in values or sid_text in values): reasons.append(label)
+        if not reasons: return None
+        return {"sid":sid_text,"name":rendered,"opcode":opcode,"reasons":sorted(set(reasons))}
+
+    def _abi_identity_passthrough_proven_v46n(self, sid):
+        """Require affirmative proof before a derived SID reuses an entry root."""
+        if sid is None: return False
+        records=(
+            self._abi_lookup_sid_v46(self.abi_entry_lineage_by_sid,sid),
+            self._abi_lookup_sid_v46(self.abi_entry_execution_owners_by_sid,sid),
+            self._abi_lookup_sid_v46(self.abi_alias_contracts_by_sid,sid),
+        )
+        for record in records:
+            if self._abi_identity_transition_rejected_v46j(record): return False
+        positive=("identity_passthrough","same_storage","source_matches_unique_root","exact_identity","carrier_identity","entry_identity_passthrough")
+        for record in records:
+            if not isinstance(record,dict): continue
+            if any(record.get(k) is True for k in positive): return True
+            relation=str(record.get("relation") or record.get("identity_relation") or record.get("transition_kind") or "").lower()
+            if relation in ("identity","same_storage","transparent_identity","entry_carrier"): return True
+        return False
+
+    def _abi_identity_alias_candidates_v46n(self, value, sid):
+        out=[]
+        for source,mapping in (
+            ("executable_identity",getattr(self,"abi_executable_identity_alias_by_sid",{})),
+            ("convergence",getattr(self,"abi_convergence_alias_by_sid",{})),
+        ):
+            alias=self._abi_lookup_sid_v46(mapping,sid)
+            if alias: out.append({"source":source,"name":str(alias)})
+        root=self._abi_unique_root_for_sid_v46c(sid)
+        if isinstance(root,dict):
+            rsid=root.get("sid")
+            rname=self._abi_lookup_sid_v46(self.abi_execution_name_by_sid,rsid)
+            if rname: out.append({"source":"entry_root","name":str(rname),"root_sid":str(rsid) if rsid is not None else None})
+        raw=self._abi_raw_value_object_v46n(value)
+        token=None
+        if raw is not None and not isinstance(raw,str): token=self._abi_raw_identifier_token_v46j(getattr(raw,"name",None))
+        aliases=self.abi_raw_name_alias_candidates.get(token) if token else None
+        if isinstance(aliases,(set,frozenset,list,tuple)):
+            for alias in aliases:
+                if alias: out.append({"source":"raw_variable_alias","name":str(alias),"token":token})
+        return out
+
+    def _abi_note_identity_quarantine_v46n(self, value, sid, rejection, context):
+        if not isinstance(rejection,dict): return
+        candidates=self._abi_identity_alias_candidates_v46n(value,sid)
+        if not candidates: return
+        self._abi_record_event_v46(
+            self.abi_identity_reuse_rejections,
+            {"kind":"emitter_abi_entry_identity_state_quarantined_v46n","version":self.ABI_CUSTODY_VERSION,"projection":self.render_mode,"context":context,"candidate_aliases":candidates,"action":"preserve_mutable_program_state_identity",**rejection},
+            ("entry_identity_state_quarantine",str(sid),context,tuple(rejection.get("reasons") or [])),
+        )
+
+    @staticmethod
+    def _abi_identity_transition_rejected_v46j(record):
+        """
+        Reject lineage records which explicitly require a value/storage
+        transition.  Missing flags are not invented; ABI-F root ownership is
+        otherwise consumed as published.
+        """
+        if not isinstance(record, dict):
+            return False
+
+        for key in (
+            "transition_required",
+            "storage_transition_required",
+            "value_transition_required",
+            "conversion_required",
+        ):
+            if record.get(key) is True:
+                return True
+
+        for key in (
+            "identity_passthrough",
+            "same_storage",
+            "source_matches_unique_root",
+        ):
+            if key in record and record.get(key) is False:
+                return True
+
+        return False
+
+    def _abi_root_identity_alias_for_sid_v46j(self, sid):
+        """
+        Resolve a derived SSA value through its unique ABI-F entry root.
+
+        This is identity reuse, not name inference.  The accepted root must be
+        uniquely published by ABI-F lineage/execution ownership and must not
+        carry an explicit transition requirement.
+        """
+        if not self.abi_active or sid is None:
+            return None
+
+        root = self._abi_unique_root_for_sid_v46c(sid)
+        if not isinstance(root, dict):
+            return None
+
+        root_sid = root.get("sid")
+        if root_sid is None:
+            return None
+
+        root_name = self._abi_lookup_sid_v46(
+            self.abi_execution_name_by_sid,
+            root_sid,
+        )
+        if not root_name:
+            return None
+
+        sid_text = str(sid)
+        root_sid_text = str(root_sid)
+
+        if sid_text != root_sid_text:
+            if self._abi_mutable_state_rejection_v46n(value=None, sid=sid):
+                return None
+            if not self._abi_identity_passthrough_proven_v46n(sid):
+                return None
+            node = self._abi_node_for_sid_v46n(sid)
+            opcode = getattr(node, "opcode", None)
+            if opcode is not None and opcode not in _TRANSPARENT:
+                return None
+
+        return {
+            "name": str(root_name),
+            "root_id": root.get("root_id"),
+            "root_sid": root_sid_text,
+            "source_sid": sid_text,
+            "authority": (
+                "ABI_F_affirmative_transparent_entry_identity_v46n"
+            ),
+        }
+
+    @staticmethod
+    def _abi_raw_identifier_token_v46j(name):
+        if name is None:
+            return None
+        token = re.sub(r"[^A-Za-z0-9_]", "_", str(name))
+        if token and token[0].isdigit():
+            token = "v_" + token
+        return token or None
+
+    @staticmethod
+    def _abi_context_role_tokens_v46p(record):
+        if not isinstance(record, dict):
+            return set()
+
+        tokens = set()
+        for key in (
+            "role",
+            "root_id",
+            "canonical_alias",
+            "execution_name",
+            "destination",
+            "register",
+            "source_kind",
+            "source_key",
+            "name",
+        ):
+            value = record.get(key)
+            if value is None:
+                continue
+            text = re.sub(
+                r"[^a-z0-9]+",
+                "_",
+                str(value).lower(),
+            ).strip("_")
+            if text:
+                tokens.add(text)
+
+        return tokens
+
+    @classmethod
+    def _abi_record_is_immutable_context_v46p(
+        cls,
+        record,
+    ):
+        if not isinstance(record, dict):
+            return False
+
+        tokens = cls._abi_context_role_tokens_v46p(record)
+        joined = "|".join(sorted(tokens))
+
+        tls = bool(
+            "thread_local_storage_base" in joined
+            or "tls_base" in joined
+            or "abi_tls_base" in joined
+            or "fs_offset" in joined
+        )
+        stack_context = bool(
+            "stack_pointer" in joined
+            or "abi_stack_pointer" in joined
+            or re.search(r"(^|_)rsp($|_)", joined)
+        )
+
+        return tls or stack_context
+
+    def _abi_index_immutable_context_v46p(self):
+        names = set()
+        roots = set()
+
+        for record in list(
+            self.abi_entry_materialization_records
+        ):
+            if not self._abi_record_is_immutable_context_v46p(
+                record
+            ):
+                continue
+            name = record.get("name")
+            root_id = record.get("root_id")
+            if name:
+                names.add(str(name))
+            if root_id:
+                roots.add(str(root_id))
+
+        for key, root in self.abi_entry_roots_by_sid.items():
+            if not isinstance(root, dict):
+                continue
+            if not self._abi_record_is_immutable_context_v46p(
+                root
+            ):
+                continue
+
+            root_id = root.get("root_id")
+            if root_id:
+                roots.add(str(root_id))
+
+            sid = root.get("sid") or key
+            name = self._abi_lookup_sid_v46(
+                self.abi_execution_name_by_sid,
+                sid,
+            )
+            if name:
+                names.add(str(name))
+
+            for key_name in (
+                "canonical_alias",
+                "execution_name",
+            ):
+                value = root.get(key_name)
+                if value:
+                    names.add(str(value))
+
+        self.abi_immutable_context_alias_names = names
+        self.abi_immutable_context_root_ids = roots
+
+    def _abi_immutable_context_candidate_v46p(
+        self,
+        value,
+        sid,
+    ):
+        if not self.abi_active:
+            return None
+
+        candidates = []
+
+        raw = getattr(value, "var", value)
+        raw_name = (
+            getattr(raw, "name", None)
+            if raw is not None and not isinstance(raw, str)
+            else (
+                raw if isinstance(raw, str) else None
+            )
+        )
+        token = self._abi_raw_identifier_token_v46j(
+            raw_name
+        )
+
+        if (
+            token
+            and re.fullmatch(
+                r"[A-Za-z_][A-Za-z0-9_]*",
+                str(raw_name or ""),
+            )
+            and token
+            in self.abi_exact_machine_carrier_alias_sources
+            and token
+            not in self.abi_ambiguous_raw_name_aliases
+        ):
+            aliases = self.abi_raw_name_alias_candidates.get(
+                token
+            )
+            if isinstance(
+                aliases,
+                (set, frozenset, list, tuple),
+            ):
+                ordered = sorted(
+                    str(item)
+                    for item in aliases
+                    if item is not None
+                )
+                if len(ordered) == 1:
+                    candidates.append({
+                        "name": ordered[0],
+                        "source": (
+                            "exact_machine_carrier_token"
+                        ),
+                        "source_name": token,
+                    })
+
+        for source, mapping in (
+            (
+                "abi_f_convergence_alias",
+                self.abi_convergence_alias_by_sid,
+            ),
+            (
+                "abi_f_executable_identity",
+                self.abi_executable_identity_alias_by_sid,
+            ),
+        ):
+            alias = self._abi_lookup_sid_v46(
+                mapping,
+                sid,
+            )
+            if alias:
+                candidates.append({
+                    "name": str(alias),
+                    "source": source,
+                })
+
+        contract = self._abi_lookup_sid_v46(
+            self.abi_entry_convergence_by_target_sid,
+            sid,
+        )
+        if isinstance(contract, dict):
+            root = (
+                self._abi_root_for_id_v46(
+                    contract.get("root_id")
+                )
+                or {}
+            )
+            root_sid = (
+                root.get("sid")
+                or contract.get("root_sid")
+            )
+            root_name = self._abi_lookup_sid_v46(
+                self.abi_execution_name_by_sid,
+                root_sid,
+            )
+            if (
+                root_name
+                and contract.get(
+                    "all_predecessors_owned"
+                ) is True
+            ):
+                candidates.append({
+                    "name": str(root_name),
+                    "source": (
+                        "abi_f_all_owned_convergence"
+                    ),
+                    "root_id": contract.get("root_id"),
+                })
+
+        descriptor = None
+        if sid is not None:
+            try:
+                descriptor = (
+                    self._custody_descriptor_for_sid_v45(sid)
+                )
+            except Exception:
+                descriptor = None
+
+        if isinstance(descriptor, dict):
+            high_token = self._abi_raw_identifier_token_v46j(
+                descriptor.get("high_name")
+            )
+            aliases = (
+                self.abi_raw_name_alias_candidates.get(
+                    high_token
+                )
+                if high_token
+                else None
+            )
+            if (
+                high_token
+                in self.abi_exact_machine_carrier_alias_sources
+                and isinstance(
+                    aliases,
+                    (set, frozenset, list, tuple),
+                )
+            ):
+                ordered = sorted(
+                    str(item)
+                    for item in aliases
+                    if item is not None
+                )
+                if len(ordered) == 1:
+                    candidates.append({
+                        "name": ordered[0],
+                        "source": (
+                            "storage_family_machine_carrier"
+                        ),
+                        "source_name": high_token,
+                        "family_id": descriptor.get(
+                            "family_id"
+                        ),
+                    })
+
+        accepted = []
+        for candidate in candidates:
+            name = candidate.get("name")
+            if (
+                name
+                and str(name)
+                in self.abi_immutable_context_alias_names
+            ):
+                accepted.append(candidate)
+
+        names = sorted({
+            str(item.get("name"))
+            for item in accepted
+            if item.get("name")
+        })
+        if len(names) != 1:
+            return None
+
+        name = names[0]
+        selected = next(
+            item
+            for item in accepted
+            if str(item.get("name")) == name
+        )
+
+        return {
+            "name": name,
+            "source_sid": (
+                str(sid)
+                if sid is not None
+                else None
+            ),
+            "authority": (
+                "ABI_D_F_immutable_context_continuity_v46p"
+            ),
+            **selected,
+        }
+
+    def _abi_note_immutable_context_v46p(
+        self,
+        contract,
+        context,
+    ):
+        if not isinstance(contract, dict):
+            return
+
+        event = {
+            "kind": (
+                "emitter_abi_immutable_context_reused_v46p"
+            ),
+            "version": self.ABI_CUSTODY_VERSION,
+            "projection": self.render_mode,
+            "context": context,
+            **contract,
+        }
+
+        self._abi_record_event_v46(
+            self.abi_immutable_context_events,
+            event,
+            (
+                "immutable_context",
+                contract.get("source_sid"),
+                contract.get("name"),
+                context,
+                contract.get("source"),
+            ),
+        )
+
+    def _abi_exact_machine_carrier_alias_v46o(
+        self,
+        value,
+    ):
+        """
+        Resolve one exact Ghidra machine-entry carrier spelling.
+
+        This authority is narrower than the general raw-name alias table:
+
+          * the source token must have been published from an ABI record's
+            register/source identity;
+          * the token must resolve to exactly one candidate;
+          * the target must be one canonical ABI-D execution identity;
+          * plain strings are rejected, so rendered expression text is never
+            globally rewritten.
+
+        This deliberately runs before mutable-state quarantine.  A carrier
+        object may share a SID family with later arithmetic or storage state,
+        but its exact ``in_<register>`` spelling still identifies the machine
+        entry value.
+        """
+        if not self.abi_active or value is None:
+            return None
+
+        raw = getattr(value, "var", value)
+
+        token = self._abi_raw_identifier_token_v46j(
+            getattr(raw, "name", None)
+        )
+        if not token:
+            return None
+
+        raw_name = (
+            raw
+            if isinstance(raw, str)
+            else getattr(raw, "name", None)
+        )
+        if not re.fullmatch(
+            r"[A-Za-z_][A-Za-z0-9_]*",
+            str(raw_name or ""),
+        ):
+            return None
+
+        if (
+            token
+            not in self.abi_exact_machine_carrier_alias_sources
+        ):
+            return None
+
+        if token in self.abi_ambiguous_raw_name_aliases:
+            return None
+
+        candidates = self.abi_raw_name_alias_candidates.get(token)
+        if not isinstance(
+            candidates,
+            (set, frozenset, list, tuple),
+        ):
+            return None
+
+        ordered = sorted(
+            str(item)
+            for item in candidates
+            if item is not None
+        )
+        if len(ordered) != 1:
+            return None
+
+        target = ordered[0]
+        canonical_targets = {
+            str(item)
+            for item in self.abi_execution_name_by_sid.values()
+            if item
+        }
+        if target not in canonical_targets:
+            return None
+
+        return {
+            "name": target,
+            "source_name": token,
+            "authority": (
+                "ABI_C_D_exact_machine_carrier_spelling_v46o"
+            ),
+        }
+
+    def _abi_exact_variable_alias_v46j(self, value):
+        """
+        Resolve an exact variable object through the already-built ABI alias
+        contract table.
+
+        This does not rewrite arbitrary strings or expressions.  It examines
+        only the variable object's own legacy name, requires one canonical
+        owner, and rejects every ambiguous spelling.
+        """
+        if not self.abi_active or value is None:
+            return None
+
+        raw = getattr(value, "var", value)
+
+        # A plain string may be an expression fragment.  Never treat it as a
+        # variable identity at this boundary.
+        if isinstance(raw, str):
+            return None
+
+        if self._abi_mutable_state_rejection_v46n(value=value, sid=self._sid_of(value)):
+            return None
+
+        token = self._abi_raw_identifier_token_v46j(
+            getattr(raw, "name", None)
+        )
+        if not token:
+            return None
+
+        # v46o: every in_<register> spelling is exclusively owned by the
+        # exact ABI-published machine-carrier path above.  The general alias
+        # fallback must not provide a second, weaker admission route.
+        if token.startswith("in_"):
+            return None
+
+        if token in self.abi_ambiguous_raw_name_aliases:
+            return None
+
+        candidates = self.abi_raw_name_alias_candidates.get(token)
+        if not isinstance(candidates, (set, frozenset, list, tuple)):
+            return None
+
+        ordered = sorted(
+            str(item) for item in candidates
+            if item is not None
+        )
+        if len(ordered) != 1:
+            return None
+
+        return {
+            "name": ordered[0],
+            "source_name": token,
+            "authority": (
+                "ABI_C_D_F_exact_unambiguous_variable_alias_contract"
+            ),
+        }
+
+    def _abi_expr_for_value_v46j(self, value, context="expression"):
+        """
+        Resolve an ABI value at the variable/operand boundary.
+
+        Order:
+          1. exact SID-owned ABI identity;
+          2. unique ABI-F entry-root lineage;
+          3. exact unambiguous legacy name attached to this variable object.
+
+        The third step is deliberately object-bound and never scans or rewrites
+        rendered expression text.
+        """
+        if not self.abi_active or value is None:
+            return None
+
+        sid = self._sid_of(value)
+
+        direct = self._abi_lookup_sid_v46(
+            self.abi_execution_name_by_sid,
+            sid,
+        )
+        if direct:
+            return direct
+
+        immutable_context = (
+            self._abi_immutable_context_candidate_v46p(
+                value,
+                sid,
+            )
+        )
+        if isinstance(immutable_context, dict):
+            name = immutable_context.get("name")
+            if name:
+                self._abi_note_immutable_context_v46p(
+                    immutable_context,
+                    context,
+                )
+                return name
+
+        machine_carrier = (
+            self._abi_exact_machine_carrier_alias_v46o(value)
+        )
+        if isinstance(machine_carrier, dict):
+            name = machine_carrier.get("name")
+            if name:
+                self._abi_record_event_v46(
+                    self.abi_identity_reuse_events,
+                    {
+                        "kind": (
+                            "emitter_abi_exact_machine_carrier_"
+                            "reused_v46o"
+                        ),
+                        "version": self.ABI_CUSTODY_VERSION,
+                        "projection": self.render_mode,
+                        "context": context,
+                        "source_sid": (
+                            str(sid)
+                            if sid is not None
+                            else None
+                        ),
+                        **machine_carrier,
+                    },
+                    (
+                        "exact_machine_carrier",
+                        str(sid),
+                        str(
+                            machine_carrier.get(
+                                "source_name"
+                            )
+                        ),
+                        context,
+                    ),
+                )
+                return name
+
+        rejection = self._abi_mutable_state_rejection_v46n(
+            value=value,
+            sid=sid,
+        )
+        if isinstance(rejection, dict):
+            self._abi_note_identity_quarantine_v46n(value, sid, rejection, context)
+            return None
+
+        exact = self._abi_expr_for_sid_v46(
+            sid,
+            context=context,
+        )
+        if exact is not None:
+            return exact
+
+        root_alias = self._abi_root_identity_alias_for_sid_v46j(sid)
+        if isinstance(root_alias, dict):
+            name = root_alias.get("name")
+            if name:
+                self._abi_record_event_v46(
+                    self.abi_identity_reuse_events,
+                    {
+                        "kind": (
+                            "emitter_abi_entry_root_identity_reused_v46j"
+                        ),
+                        "version": self.ABI_CUSTODY_VERSION,
+                        "projection": self.render_mode,
+                        "context": context,
+                        **root_alias,
+                    },
+                    (
+                        "entry_root_identity",
+                        str(sid),
+                        str(root_alias.get("root_id")),
+                        context,
+                    ),
+                )
+                return name
+
+        variable_alias = self._abi_exact_variable_alias_v46j(value)
+        if isinstance(variable_alias, dict):
+            name = variable_alias.get("name")
+            if name:
+                self._abi_record_event_v46(
+                    self.abi_identity_reuse_events,
+                    {
+                        "kind": (
+                            "emitter_abi_exact_variable_identity_reused_v46j"
+                        ),
+                        "version": self.ABI_CUSTODY_VERSION,
+                        "projection": self.render_mode,
+                        "context": context,
+                        "source_sid": (
+                            str(sid) if sid is not None else None
+                        ),
+                        **variable_alias,
+                    },
+                    (
+                        "exact_variable_identity",
+                        str(sid),
+                        str(variable_alias.get("source_name")),
+                        context,
+                    ),
+                )
+                return name
+
+        return None
+
     def _abi_name_for_sid_v46(self, sid):
         if sid is None:
             return None
+        alias = self._abi_lookup_sid_v46(self.abi_execution_name_by_sid, sid)
+        if alias:
+            return alias
+        if self._abi_mutable_state_rejection_v46n(value=None, sid=sid):
+            return None
         if not self._is_readable_render_v44():
-            alias = self._abi_lookup_sid_v46(
-                self.abi_executable_identity_alias_by_sid, sid
-            )
+            alias = self._abi_lookup_sid_v46(self.abi_executable_identity_alias_by_sid, sid)
             if alias:
                 return alias
         alias = self._abi_lookup_sid_v46(self.abi_convergence_alias_by_sid, sid)
         if alias:
             return alias
-        return self._abi_lookup_sid_v46(self.abi_execution_name_by_sid, sid)
+        root_alias = self._abi_root_identity_alias_for_sid_v46j(sid)
+        if isinstance(root_alias, dict):
+            return root_alias.get("name")
+        return None
 
     def _abi_expr_for_sid_v46(self, sid, context="expression"):
         if not self.abi_active or sid is None:
@@ -2928,7 +4831,10 @@ class PALemitter:
             target_expr = repr(str(target_name or "sub_unknown"))
             readable_target = self._sanitize_name(str(target_name or "sub_unknown"))
 
-        rendered_values = [self._expr(value) for _, value in pairs]
+        rendered_values = [
+            self._readable_call_argument_expr_v46i(value)
+            for _, value in pairs
+        ]
         if self._is_readable_render_v44():
             expr = "%s(%s)" % (readable_target, ", ".join(rendered_values))
         else:
@@ -3146,6 +5052,38 @@ class PALemitter:
             required_storage_initializer_keys
             - rendered_storage_initializer_keys
         )
+
+        required_fixed_local_initializer_keys = {
+            str(key)
+            for key in self.abi_fixed_argument_local_initializers_by_op
+            if key is not None
+        }
+        rendered_fixed_local_initializer_keys = {
+            str(item.get("op_key"))
+            for item in self.abi_fixed_argument_local_initializer_events
+            if item.get("projection") == self.render_mode
+            and item.get("op_key") is not None
+        }
+        missing_fixed_local_initializers = sorted(
+            required_fixed_local_initializer_keys
+            - rendered_fixed_local_initializer_keys
+        )
+        required_phi_entry_seed_keys = {
+            str(key)
+            for key in self.abi_phi_entry_local_seed_contracts_by_key
+            if key is not None
+        }
+        rendered_phi_entry_seed_keys = {
+            str(item.get("dropin_key_text"))
+            for item in self.abi_phi_entry_local_seed_events
+            if item.get("projection") == self.render_mode
+            and item.get("dropin_key_text") is not None
+        }
+        missing_phi_entry_seeds = sorted(
+            required_phi_entry_seed_keys
+            - rendered_phi_entry_seed_keys
+        )
+
         rejected_storage_initializer_candidates = []
         if not self._is_readable_render_v44():
             rejected_storage_initializer_candidates = [
@@ -3237,6 +5175,29 @@ class PALemitter:
                 "op_keys": missing_storage_initializers,
                 "action": "fail_executable_ABI_storage_custody_gate",
             })
+        if missing_fixed_local_initializers:
+            warnings.append({
+                "kind": (
+                    "emitter_abi_fixed_argument_local_initializer_"
+                    "missing_v46k"
+                ),
+                "projection": self.render_mode,
+                "op_keys": missing_fixed_local_initializers,
+                "action": (
+                    "fail_ABI_entry_local_state_substantiation_gate"
+                ),
+            })
+        if missing_phi_entry_seeds:
+            warnings.append({
+                "kind": (
+                    "emitter_abi_phi_entry_local_seed_missing_v46m"
+                ),
+                "projection": self.render_mode,
+                "dropin_keys": missing_phi_entry_seeds,
+                "action": (
+                    "fail_loop_entry_local_state_substantiation_gate"
+                ),
+            })
         if rejected_storage_initializer_candidates:
             warnings.append({
                 "kind": "emitter_abi_entry_storage_candidates_rejected_v46d",
@@ -3306,12 +5267,56 @@ class PALemitter:
             "entry_storage_initializer_candidates_rejected": len(
                 rejected_storage_initializer_candidates
             ),
+            "fixed_argument_local_initializers_required": len(
+                required_fixed_local_initializer_keys
+            ),
+            "fixed_argument_local_initializers_rendered": len(
+                rendered_fixed_local_initializer_keys
+            ),
+            "fixed_argument_local_initializers_missing": len(
+                missing_fixed_local_initializers
+            ),
+            "phi_entry_local_seeds_required": len(
+                required_phi_entry_seed_keys
+            ),
+            "phi_entry_local_seeds_rendered": len(
+                rendered_phi_entry_seed_keys
+            ),
+            "phi_entry_local_seeds_missing": len(
+                missing_phi_entry_seeds
+            ),
             "call_plans_required": len(required_call_ids),
             "call_plans_rendered": len(rendered_call_ids),
             "call_plans_unrendered": len(missing_calls),
             "unplanned_call_boundaries": len(unplanned_call_boundaries),
             "convergence_contracts": len(self.abi_entry_convergence_contracts),
             "convergence_aliases": len(self.abi_convergence_alias_by_sid),
+            "entry_identity_reuses": len([
+                item for item in self.abi_identity_reuse_events
+                if item.get("projection") == self.render_mode
+            ]),
+            "entry_identity_state_quarantines": len([
+                item for item in self.abi_identity_reuse_rejections
+                if item.get("projection") == self.render_mode
+            ]),
+            "immutable_context_reuses": len([
+                item for item in self.abi_immutable_context_events
+                if item.get("projection") == self.render_mode
+            ]),
+            "unresolved_identity_events": len(
+                self.abi_unresolved_identity_events
+            ),
+            "exact_machine_carrier_reuses": len([
+                item for item in self.abi_identity_reuse_events
+                if (
+                    item.get("projection") == self.render_mode
+                    and item.get("kind")
+                    == (
+                        "emitter_abi_exact_machine_carrier_"
+                        "reused_v46o"
+                    )
+                )
+            ]),
             "raw_convergence_target_leaks": len(raw_convergence_leaks),
             "raw_ABI_identity_name_leaks": len(raw_identity_leaks),
             "ambiguous_legacy_aliases_declared": len(
@@ -3339,6 +5344,12 @@ class PALemitter:
                 "entry_shared_storage_fully_initialized": (
                     not missing_storage_initializers
                     and not rejected_storage_initializer_candidates
+                ),
+                "fixed_argument_local_state_substantiated": (
+                    not missing_fixed_local_initializers
+                ),
+                "phi_entry_local_state_substantiated": (
+                    not missing_phi_entry_seeds
                 ),
                 "all_call_plans_consumed": not missing_calls,
                 "no_unplanned_call_boundaries": not unplanned_call_boundaries,
@@ -3375,11 +5386,31 @@ class PALemitter:
             "entry_storage_initializer_rejections": (
                 rejected_storage_initializer_candidates
             ),
+            "fixed_argument_local_initializers": copy.deepcopy(
+                self.abi_fixed_argument_local_initializer_events
+            ),
+            "phi_entry_local_seeds": copy.deepcopy(
+                self.abi_phi_entry_local_seed_events
+            ),
             "call_render_events": copy.deepcopy(self.abi_call_render_events),
             "convergence_render_events": copy.deepcopy(
                 self.abi_convergence_render_events
             ),
-            "return_render_events": copy.deepcopy(self.abi_return_render_events),
+            "identity_reuse_events": copy.deepcopy(
+                self.abi_identity_reuse_events
+            ),
+            "identity_reuse_rejections": copy.deepcopy(
+                self.abi_identity_reuse_rejections
+            ),
+            "immutable_context_events": copy.deepcopy(
+                self.abi_immutable_context_events
+            ),
+            "unresolved_identity_events": copy.deepcopy(
+                self.abi_unresolved_identity_events
+            ),
+            "return_render_events": copy.deepcopy(
+                self.abi_return_render_events
+            ),
             "raw_convergence_target_leaks": raw_convergence_leaks,
             "raw_ABI_identity_name_leaks": raw_identity_leaks,
             "ambiguous_legacy_aliases": copy.deepcopy(
@@ -3506,7 +5537,17 @@ class PALemitter:
             # Helpers own signed/unsigned interpretation.  Preserve the raw
             # constant bits instead of pre-signing literals in the emitter.
             return self._const(value)
-        return self._expr_rvalue_v37(value, None, None, set(seen or set()))
+
+        abi_expr = self._abi_expr_for_value_v46j(
+            value,
+            context="c_truth_operand",
+        )
+        if abi_expr is not None:
+            return abi_expr
+
+        return self._expr_rvalue_v37(
+            value, None, None, set(seen or set())
+        )
 
     def _c_truth_helper_arguments(self, contract, rendered_inputs):
         """Return the stable PALhelpers ABI argument list."""
@@ -3988,8 +6029,9 @@ class PALemitter:
 
         node = self._node_for(value)
         sid = self._sid_of(getattr(node, "var", None)) if node is not None else self._sid_of(value)
-        abi_expr = self._abi_expr_for_sid_v46(
-            sid, context="raw_condition_legacy"
+        abi_expr = self._abi_expr_for_value_v46j(
+            value,
+            context="raw_condition_legacy",
         )
         if abi_expr is not None:
             return abi_expr
@@ -5393,6 +7435,12 @@ class PALemitter:
             "parameter_storage_initializers_missing": len(
                 unrendered_initializer_sids
             ),
+            "parameter_storage_initializers_preamble_rendered": len(
+                self.custody_parameter_initializer_preamble_events
+            ),
+            "parameter_storage_initializer_preamble_rejections": len(
+                self.custody_parameter_initializer_rejections
+            ),
             "raw_indirect_expression_leaks": len(raw_indirect_leaks),
             "warnings": len(all_warnings),
             "rule": (
@@ -5414,10 +7462,114 @@ class PALemitter:
             "parameter_storage_initializer_events": copy.deepcopy(
                 self.custody_parameter_initializer_events
             ),
+            "parameter_initializer_preamble_events": copy.deepcopy(
+                self.custody_parameter_initializer_preamble_events
+            ),
+            "parameter_initializer_rejections": copy.deepcopy(
+                self.custody_parameter_initializer_rejections
+            ),
             "raw_indirect_leaks": raw_indirect_leaks,
             "unobserved_effect_owner_op_keys": unresolved_owner_keys,
             "warnings": all_warnings,
         }
+
+    # ---------------------------------------------------------
+    # EXECUTABLE IDENTITY PUBLICATION GATE v46p
+    # ---------------------------------------------------------
+
+    @staticmethod
+    def _unresolved_identity_name_v46p(name):
+        return bool(
+            re.fullmatch(
+                r"(?:v_(?:v_)?[0-9]+|in_[A-Za-z0-9_]+)",
+                str(name or ""),
+            )
+        )
+
+    def _unresolved_executable_identities_v46p(
+        self,
+        rendered_lines,
+    ):
+        if self._is_readable_render_v44():
+            return []
+
+        text = "\n".join(rendered_lines or [])
+        try:
+            tree = ast.parse(text)
+        except Exception:
+            return []
+
+        assigned = set()
+        loaded = set()
+
+        for node in ast.walk(tree):
+            if isinstance(node, ast.arg):
+                assigned.add(node.arg)
+            elif isinstance(node, ast.Name):
+                if isinstance(node.ctx, ast.Load):
+                    loaded.add(node.id)
+                elif isinstance(
+                    node.ctx,
+                    (ast.Store, ast.Param),
+                ):
+                    assigned.add(node.id)
+            elif isinstance(node, ast.alias):
+                assigned.add(
+                    node.asname
+                    or node.name.split(".", 1)[0]
+                )
+            elif isinstance(
+                node,
+                (ast.FunctionDef, ast.AsyncFunctionDef),
+            ):
+                assigned.add(node.name)
+
+        unresolved = sorted(
+            name
+            for name in loaded
+            if (
+                self._unresolved_identity_name_v46p(name)
+                and name not in assigned
+            )
+        )
+        return unresolved
+
+    def _enforce_executable_identity_gate_v46p(
+        self,
+        rendered_lines,
+    ):
+        unresolved = (
+            self._unresolved_executable_identities_v46p(
+                rendered_lines
+            )
+        )
+        if not unresolved:
+            return
+
+        event = {
+            "kind": (
+                "emitter_executable_unbound_identity_v46p"
+            ),
+            "version": self.VERSION,
+            "projection": self.render_mode,
+            "symbols": unresolved,
+            "action": (
+                "abort_function_publication_before_runtime"
+            ),
+        }
+        self.abi_unresolved_identity_events.append(event)
+        self.abi_render_warnings.append(event)
+        setattr(
+            self.func,
+            "emitter_unresolved_identity_symbols",
+            list(unresolved),
+        )
+
+        raise RuntimeError(
+            "PAL emitter refused executable output with "
+            "unbound identities: %s"
+            % ", ".join(unresolved)
+        )
 
     def emit_function(self, render_mode=None):
 
@@ -5476,11 +7628,17 @@ class PALemitter:
         self.custody_read_events = []
         self.custody_write_events = []
         self.custody_parameter_initializer_events = []
+        self.custody_parameter_initializer_preamble_events = []
+        self.custody_parameter_initializer_rejections = []
+        self.custody_parameter_initializer_preamble_output_sids = set()
+        self.custody_parameter_initializer_preamble_records_by_output_sid = {}
         self.custody_warnings = list(self.custody_static_warnings)
         self._custody_event_keys = set()
         self.abi_entry_materialization_events = []
         self.abi_call_render_events = []
         self.abi_convergence_render_events = []
+        self.abi_identity_reuse_events = []
+        self.abi_identity_reuse_rejections = []
         self.abi_return_render_events = []
         self.abi_render_warnings = list(self.abi_static_warnings)
         self._abi_event_keys = set()
@@ -5509,6 +7667,9 @@ class PALemitter:
             self._w("pass")
 
         rendered_lines = list(self.lines)
+        self._enforce_executable_identity_gate_v46p(
+            rendered_lines
+        )
         custody_debug = self._custody_projection_debug_v45(rendered_lines)
         abi_debug = self._abi_projection_debug_v46(rendered_lines)
         projection = self.code_document.finalize_projection(
@@ -5703,6 +7864,18 @@ class PALemitter:
             "single_core": True,
             "authoritative_mode": self.RENDER_EXECUTABLE,
             "readable_type_views": bool(self.readable_show_type_views),
+            "readable_c_string_overlay_source": (
+                self.readable_c_string_overlay_source
+            ),
+            "readable_c_string_overlay_selection": (
+                self.readable_c_string_overlay_selection
+            ),
+            "readable_c_string_literals": len(
+                self.readable_c_string_literals
+            ),
+            "readable_c_string_overlay_warnings": copy.deepcopy(
+                self.readable_c_string_overlay_warnings
+            ),
             "modes": list(self.RENDER_MODES),
             "readable_lines": len(readable_lines),
             "executable_lines": len(executable_lines),
@@ -5806,10 +7979,230 @@ class PALemitter:
         self.debug_events.append(msg)
 
     # ---------------------------------------------------------
+    # PAL STACK VERSION INVENTORY v46p
+    # ---------------------------------------------------------
+
+    @staticmethod
+    def _pal_version_scalar_v46p(value):
+        if value is None:
+            return None
+        if isinstance(value, (str, int, float)):
+            text = str(value).strip()
+            return text or None
+        return None
+
+    @classmethod
+    def _pal_holder_version_v46p(cls, holder):
+        if holder is None:
+            return None
+
+        preferred = (
+            "BATCH_BUILD",
+            "BUILD",
+            "VERSION",
+            "PIPELINE_VERSION",
+            "LIFTER_VERSION",
+            "CFG_VERSION",
+            "RESOLVER_VERSION",
+            "RAW_AUDIT_VERSION",
+            "COMPUTE_VERSION",
+            "SEMANTIC_VERSION",
+            "SGL_VERSION",
+            "PHI_VERSION",
+            "EMITTER_VERSION",
+            "DOCUMENT_VERSION",
+            "HUMANIZER_VERSION",
+        )
+
+        for name in preferred:
+            value = cls._pal_version_scalar_v46p(
+                getattr(holder, name, None)
+            )
+            if value:
+                return value
+
+        try:
+            names = sorted(dir(holder))
+        except Exception:
+            names = []
+
+        for name in names:
+            upper = str(name).upper()
+            if not (
+                upper.endswith("_VERSION")
+                or upper.endswith("_BUILD")
+            ):
+                continue
+            value = cls._pal_version_scalar_v46p(
+                getattr(holder, name, None)
+            )
+            if value:
+                return value
+
+        return None
+
+    @staticmethod
+    def _pal_source_build_marker_v46p(module):
+        path = getattr(module, "__file__", None)
+        if not path:
+            return None
+
+        try:
+            text = Path(path).read_text(
+                encoding="utf-8",
+                errors="replace",
+            )[:8192]
+        except Exception:
+            return None
+
+        patterns = (
+            r"(?m)^\s*#\s*BUILD\s*:\s*(\S[^\r\n]*)$",
+            r"(?m)^\s*#\s*VERSION\s*:\s*(\S[^\r\n]*)$",
+            r"(?m)^\s*(?:BUILD|VERSION|BATCH_BUILD)\s*=\s*[\"']([^\"']+)[\"']",
+        )
+        for pattern in patterns:
+            match = re.search(pattern, text)
+            if match:
+                return str(match.group(1)).strip()
+
+        return None
+
+    @classmethod
+    def _pal_component_version_v46p(
+        cls,
+        module_name,
+        class_name=None,
+    ):
+        module = sys.modules.get(module_name)
+        if module is None:
+            return "not_loaded"
+
+        if class_name:
+            version = cls._pal_holder_version_v46p(
+                getattr(module, class_name, None)
+            )
+            if version:
+                return version
+
+        version = cls._pal_holder_version_v46p(module)
+        if version:
+            return version
+
+        version = cls._pal_source_build_marker_v46p(module)
+        if version:
+            return version
+
+        return "unknown"
+
+    def _pal_stack_version_records_v46p(self):
+        specs = (
+            (
+                "PALStaticStringPublisher",
+                "PALStaticStringPublisher",
+                None,
+            ),
+            (
+                "PALBatchDecompiler",
+                "PALBatchDecompiler",
+                None,
+            ),
+            (
+                "PALHumanizer",
+                "PALHumanizer",
+                "PALFunctionNameRegistry",
+            ),
+            (
+                "PALDecompilerPipeline",
+                "PALDecompilerPipeline",
+                "PALDecompilerPipeline",
+            ),
+            (
+                "PALlibrary.PALLifter",
+                "PALlibrary",
+                "PALLifter",
+            ),
+            (
+                "PALlibrary.FunctionCFG",
+                "PALlibrary",
+                "FunctionCFG",
+            ),
+            (
+                "PALSymbolResolver",
+                "PALSymbolResolver",
+                "PALSymbolResolver",
+            ),
+            (
+                "PALRawAudit",
+                "PALRawAudit",
+                "PALRawAudit",
+            ),
+            (
+                "PALCompute",
+                "PALCompute",
+                "PALComputeAnalyzer",
+            ),
+            (
+                "PALSemanticGraphBuilder",
+                "PALSemanticGraphBuilder",
+                "PALSemanticGraphBuilder",
+            ),
+            (
+                "PALSGLdecomp",
+                "PALSGLdecomp",
+                "PALSGLDecompiler",
+            ),
+            (
+                "PALPHIfolder",
+                "PALPHIfolder",
+                "PALPHIfolder",
+            ),
+            (
+                "PALemitter",
+                "PALemitter",
+                "PALemitter",
+            ),
+            (
+                "PALCodeDocument",
+                "PALCodeDocument",
+                "PALCodeDocument",
+            ),
+        )
+
+        out = []
+        for label, module_name, class_name in specs:
+            if label == "PALemitter":
+                version = self.VERSION
+            else:
+                version = self._pal_component_version_v46p(
+                    module_name,
+                    class_name,
+                )
+            out.append((label, version))
+
+        return out
+
+    def _emit_pal_stack_version_block_v46p(self):
+        self._w("#======= PAL stack versioning ======")
+        for component, version in (
+            self._pal_stack_version_records_v46p()
+        ):
+            self._w(
+                "# %s = %s"
+                % (
+                    component,
+                    str(version).replace("\n", " ").strip(),
+                )
+            )
+        self._w("#====================================")
+        self._w("")
+
+    # ---------------------------------------------------------
     # HEADER
     # ---------------------------------------------------------
 
     def _emit_header(self):
+
+        self._emit_pal_stack_version_block_v46p()
 
         if (
             (self.c_truth_active or self.custody_active or self.abi_active)
@@ -5832,6 +8225,11 @@ class PALemitter:
 
         if self._is_readable_render_v44():
             self._w("# PAL readable projection (non-executable)")
+            if self.readable_c_string_literals:
+                self._w(
+                    "# Static C-string call arguments projected from "
+                    "PAL_stdio_strings.json"
+                )
             if self.readable_show_type_views:
                 self._w("# uN()/sN()/ptrN()/MEMN[] are PALCompute-backed type views")
             else:
@@ -5846,6 +8244,7 @@ class PALemitter:
 
         self.indent += 1
         self._emit_abi_entry_prologue_v46()
+        self._emit_custody_parameter_initializer_preamble_v46l()
 
     # =========================================================
     # EXEC TREE WALKER
@@ -6626,6 +9025,395 @@ class PALemitter:
         return "%s(%s, %s)" % (helper, expr, width)
 
     # =========================================================
+    # ABI PHI-ENTRY LOCAL SEED SUBSTANTIATION v46m
+    # =========================================================
+
+    @staticmethod
+    def _raw_variable_object_v46m(value):
+        if value is None:
+            return None
+        raw = getattr(value, "var", None)
+        return raw if raw is not None else value
+
+    def _raw_variable_name_v46m(self, value):
+        raw = self._raw_variable_object_v46m(value)
+        name = getattr(raw, "name", None) if raw is not None else None
+        if not name:
+            return None
+        return self._sanitize_name(str(name))
+
+    def _phi_entry_local_target_name_v46m(self, rec):
+        """
+        Recover the PHI target's storage/presentation identity without passing
+        through ABI-aware ``_var(target)``.
+
+        ABI identity projection is correct for value reads, but it must not
+        rename a distinct loop-carried local target back to its entry
+        parameter.  Serialization-safe record fields are accepted because the
+        Icecube path can legitimately retain SID/name custody after the live
+        PALVariable object is no longer contextable.
+        """
+        if not isinstance(rec, dict):
+            return None
+
+        target = rec.get("target")
+        target_sid = rec.get("target_sid")
+        raw_target = self._raw_variable_object_v46m(target)
+
+        raw_space = (
+            getattr(raw_target, "space", None)
+            if raw_target is not None else None
+        )
+        raw_type = (
+            getattr(raw_target, "var_type", None)
+            if raw_target is not None else None
+        )
+
+        record_space = (
+            rec.get("target_space")
+            or rec.get("storage_space")
+            or rec.get("space")
+        )
+
+        candidates = [
+            rec.get("target_name"),
+            self._raw_variable_name_v46m(target),
+            self.var_map.get(target_sid),
+            self.var_map.get(str(target_sid)),
+        ]
+
+        fixed_names = {
+            self._sanitize_name(str(name))
+            for name in self.abi_fixed_argument_names
+            if name
+        }
+
+        for candidate in candidates:
+            if not candidate:
+                continue
+
+            name = self._sanitize_name(str(candidate))
+            if not name:
+                continue
+            if name in fixed_names:
+                continue
+            if name.startswith("abi_"):
+                continue
+            if name.startswith("v_"):
+                continue
+            if name.startswith("0x"):
+                continue
+
+            stack_proven = bool(
+                name.startswith("local_")
+                or str(raw_space or "") == "stack"
+                or str(raw_type or "") == "stack"
+                or str(record_space or "") == "stack"
+                or rec.get("target_is_stack_local") is True
+            )
+            if not stack_proven:
+                continue
+
+            return name
+
+        return None
+
+    def _abi_fixed_argument_identity_v46m(self, value):
+        """
+        Return the canonical fixed-argument identity for one value, or None.
+
+        This consumes existing ABI-D/F ownership only. It does not infer
+        argument placement from names.
+        """
+        if value is None or not self.abi_active:
+            return None
+
+        sid = self._sid_of(value)
+        if sid is None:
+            return None
+
+        sid_text = str(sid)
+        fixed_sids = {
+            str(item)
+            for item in self.abi_fixed_argument_sids
+            if item is not None
+        }
+
+        root = self._abi_unique_root_for_sid_v46c(sid)
+        root_sid = (
+            str(root.get("sid"))
+            if isinstance(root, dict)
+            and root.get("sid") is not None
+            else None
+        )
+
+        owned = (
+            sid_text in fixed_sids
+            or (
+                root_sid is not None
+                and root_sid in fixed_sids
+            )
+        )
+
+        name = (
+            self._abi_name_for_sid_v46(sid)
+            or (
+                self._abi_name_for_sid_v46(root_sid)
+                if root_sid is not None
+                else None
+            )
+        )
+
+        fixed_names = {
+            str(item)
+            for item in self.abi_fixed_argument_names
+            if item
+        }
+        if not owned and name not in fixed_names:
+            return None
+        if not name:
+            return None
+
+        return {
+            "source_leaf_sid": sid_text,
+            "source_root_sid": root_sid,
+            "source_name": str(name),
+            "authority": (
+                "ABI_D_fixed_argument_or_ABI_F_unique_entry_root"
+            ),
+        }
+
+    def _phi_entry_fixed_argument_source_v46m(self, rec):
+        """
+        Follow only a one-input transparent entry bridge:
+
+            param_N -> COPY/CAST/... -> v_seed
+
+        The bridge's full expression is still rendered later; this traversal
+        exists only to prove that the seed is owned by one fixed ABI argument.
+        """
+        if not isinstance(rec, dict) or not self.abi_active:
+            return None
+
+        source = rec.get("source")
+        source_sid = rec.get("source_sid")
+        source_node = rec.get("source_node")
+
+        if source_node is None and source is not None:
+            source_node = self._node_for(source)
+        if source_node is None and source_sid is not None:
+            source_node = (
+                self.nodes.get(source_sid)
+                or self.nodes.get(str(source_sid))
+            )
+
+        queue = []
+        if source is not None:
+            queue.append((source, source_node))
+        elif source_node is not None:
+            queue.append(
+                (
+                    getattr(source_node, "var", None),
+                    source_node,
+                )
+            )
+
+        seen = set()
+
+        while queue:
+            value, node = queue.pop(0)
+            sid = self._sid_of(value)
+            marker = (
+                str(sid) if sid is not None
+                else "node:%s" % id(node)
+            )
+            if marker in seen:
+                continue
+            seen.add(marker)
+
+            identity = self._abi_fixed_argument_identity_v46m(value)
+            if isinstance(identity, dict):
+                identity.update({
+                    "source_sid": (
+                        str(source_sid)
+                        if source_sid is not None
+                        else (
+                            str(sid)
+                            if sid is not None
+                            else None
+                        )
+                    ),
+                    "source_bridge_opcode": (
+                        getattr(source_node, "opcode", None)
+                        if source_node is not None
+                        else None
+                    ),
+                })
+                return identity
+
+            if node is None and value is not None:
+                node = self._node_for(value)
+            if node is None:
+                continue
+
+            opcode = getattr(node, "opcode", None)
+            inputs = list(getattr(node, "inputs", []) or [])
+
+            if opcode not in _TRANSPARENT or len(inputs) != 1:
+                continue
+
+            child = inputs[0]
+            child_node = self._node_for(child)
+            queue.append((child, child_node))
+
+        return None
+
+    def _abi_phi_entry_local_seed_contract_v46m(
+        self,
+        rec,
+        loop_entry=False,
+    ):
+        """
+        Recognize the two-stage parameter-to-loop-local initialization:
+
+            entry: COPY [param_N] -> v_seed
+            header: MULTIEQUAL [v_seed, local_backedge] -> local_M
+
+        The record may be objectless as long as PHIfolder retained target/source
+        SIDs, target_name, and source_node lineage.
+        """
+        if (
+            not loop_entry
+            or not self.abi_active
+            or not isinstance(rec, dict)
+        ):
+            return None
+
+        key = self._phi_dropin_key(rec)
+        cache_key = str(key)
+
+        cached = self.abi_phi_entry_local_seed_contracts_by_key.get(
+            cache_key
+        )
+        if isinstance(cached, dict):
+            return cached
+
+        target_name = self._phi_entry_local_target_name_v46m(rec)
+        if not target_name:
+            return None
+
+        source_identity = (
+            self._phi_entry_fixed_argument_source_v46m(rec)
+        )
+        if not isinstance(source_identity, dict):
+            return None
+
+        source_name = source_identity.get("source_name")
+        if not source_name or source_name == target_name:
+            return None
+
+        contract = {
+            "kind": "emitter_abi_phi_entry_local_seed_v46m",
+            "version": self.ABI_CUSTODY_VERSION,
+            "dropin_key": key,
+            "dropin_key_text": cache_key,
+            "pred_addr": rec.get("pred_addr"),
+            "join_addr": rec.get("join_addr"),
+            "target_sid": (
+                str(rec.get("target_sid"))
+                if rec.get("target_sid") is not None
+                else None
+            ),
+            "target_name": target_name,
+            "source_sid": (
+                str(rec.get("source_sid"))
+                if rec.get("source_sid") is not None
+                else None
+            ),
+            "execution_policy": (
+                "must_print_before_first_loop_condition_evaluation"
+            ),
+            "presentation_policy": (
+                "preserve_distinct_local_LHS_bypass_ABI_value_alias"
+            ),
+            "authority": (
+                "PHIfolder_outside_predecessor_dropin_plus_"
+                "ABI_D_F_fixed_argument_lineage"
+            ),
+            **source_identity,
+        }
+
+        self.abi_phi_entry_local_seed_contracts_by_key[
+            cache_key
+        ] = contract
+        return contract
+
+    def _abi_phi_entry_local_seed_expr_v46m(self, rec, contract):
+        """
+        Render the original bridge expression, not merely its root name.
+
+        COPY produces the parameter directly; CAST/ZEXT/SEXT/TRUNC retain the
+        existing C-truth width semantics.
+        """
+        if not isinstance(contract, dict):
+            return None
+
+        source = rec.get("source")
+        source_node = rec.get("source_node")
+
+        if source_node is None and source is not None:
+            source_node = self._node_for(source)
+        if source_node is None and rec.get("source_sid") is not None:
+            source_node = (
+                self.nodes.get(rec.get("source_sid"))
+                or self.nodes.get(str(rec.get("source_sid")))
+            )
+
+        if source_node is not None:
+            opcode = getattr(source_node, "opcode", None)
+            if opcode in _TRANSPARENT:
+                expr = self._expr_from_node(source_node)
+                if expr:
+                    return expr
+
+        if source is not None:
+            expr = self._abi_expr_for_value_v46j(
+                source,
+                context="phi_entry_local_seed",
+            )
+            if expr:
+                return expr
+            return self._expr(source)
+
+        return contract.get("source_name")
+
+    def _abi_note_phi_entry_local_seed_v46m(
+        self,
+        contract,
+        rendered,
+    ):
+        if not isinstance(contract, dict):
+            return
+
+        event = dict(contract)
+        event.update({
+            "projection": self.render_mode,
+            "rendered": rendered,
+            "must_print_consumed": True,
+            "objectless_target_supported": True,
+        })
+
+        self._abi_record_event_v46(
+            self.abi_phi_entry_local_seed_events,
+            event,
+            (
+                "phi_entry_local_seed",
+                contract.get("dropin_key_text"),
+                self.render_mode,
+            ),
+        )
+
+    # =========================================================
     # LOOP-HEADER PHI ENTRY EMISSION
     # =========================================================
 
@@ -6660,7 +9448,11 @@ class PALemitter:
         cond_var = getattr(loop_node, "cond_var", None)
         if role in ("true", "forever", "while_true") or cond_var is None:
             return
-        if role not in ("body",):
+        # v46m: both body-admit and exit-predicate presentations evaluate
+        # their condition before the first body execution.  The PHI entry seed
+        # therefore belongs before either form.  Only true/do-loop forms remain
+        # excluded.
+        if role not in ("body", "exit"):
             return
 
         header = getattr(loop_node, "header", None) or getattr(loop_node, "cfg_node", None)
@@ -6854,31 +9646,75 @@ class PALemitter:
         if rec is None:
             return
         phi_key = self._phi_dropin_key(rec)
+        contract = self._abi_phi_entry_local_seed_contract_v46m(
+            rec,
+            loop_entry=loop_entry,
+        )
         target_sid = rec.get("target_sid") or self._sid_of(rec.get("target"))
         source_sid = rec.get("source_sid") or self._sid_of(rec.get("source"))
+        use_sids = [source_sid] if source_sid is not None else []
+        if (
+            isinstance(contract, dict)
+            and contract.get("source_leaf_sid") is not None
+        ):
+            use_sids.append(contract.get("source_leaf_sid"))
         metadata_refs = ["phi_dropin:%s" % str(phi_key)]
+        if isinstance(contract, dict):
+            metadata_refs.append(
+                "abi:phi_entry_local_seed:%s"
+                % contract.get("dropin_key_text")
+            )
         if target_sid is not None:
             metadata_refs.append("variable:%s" % str(target_sid))
         if source_sid is not None:
             metadata_refs.append("variable:%s" % str(source_sid))
         with self._provenance_scope(
-            role="loop_entry_phi" if loop_entry else "phi_dropin",
+            role=(
+                "abi_phi_entry_local_seed"
+                if isinstance(contract, dict)
+                else (
+                    "loop_entry_phi"
+                    if loop_entry
+                    else "phi_dropin"
+                )
+            ),
             op_keys=[phi_key],
             definition_sids=[target_sid] if target_sid is not None else [],
-            use_sids=[source_sid] if source_sid is not None else [],
+            use_sids=use_sids,
             metadata_refs=metadata_refs,
         ):
-            return self._emit_phi_dropin_record_body(rec, loop_entry=loop_entry)
+            return self._emit_phi_dropin_record_body(
+                rec,
+                loop_entry=loop_entry,
+                phi_entry_seed_contract=contract,
+            )
 
-    def _emit_phi_dropin_record_body(self, rec, loop_entry=False):
+    def _emit_phi_dropin_record_body(
+        self,
+        rec,
+        loop_entry=False,
+        phi_entry_seed_contract=None,
+    ):
 
         if rec is None:
             return
 
         key = self._phi_dropin_key(rec)
         required = self._dropin_is_required(rec)
+        if phi_entry_seed_contract is None:
+            phi_entry_seed_contract = (
+                self._abi_phi_entry_local_seed_contract_v46m(
+                    rec,
+                    loop_entry=loop_entry,
+                )
+            )
+        phi_entry_seed = isinstance(
+            phi_entry_seed_contract,
+            dict,
+        )
         abi_must_print = bool(
-            rec.get("must_print_override")
+            phi_entry_seed
+            or rec.get("must_print_override")
             or key in self.abi_entry_must_print_dropin_ids
         )
 
@@ -6909,26 +9745,46 @@ class PALemitter:
         source = rec.get("source")
         source_node = rec.get("source_node", None)
 
-        if target is None or source is None:
+        # v46m accepts a serialization-safe/objectless PHI entry record when
+        # the target name/SID and fixed-argument source lineage are proven.
+        if not phi_entry_seed and (target is None or source is None):
             return
 
         dyn_name = self._dynamic_alias_target_for_source_sid(rec.get("source_sid"))
-        if dyn_name and dyn_name == self._var(target):
+        if (
+            not phi_entry_seed
+            and dyn_name
+            and dyn_name == self._var(target)
+        ):
             if occurrence_dropins is not None:
                 occurrence_dropins.add(key)
             if not required and not loop_entry:
                 self.emitted_phi_dropins.add(key)
             return
 
-        if self._should_skip_alias_backed_phi_dropin(rec):
+        if (
+            not phi_entry_seed
+            and self._should_skip_alias_backed_phi_dropin(rec)
+        ):
             if occurrence_dropins is not None:
                 occurrence_dropins.add(key)
             if not required:
                 self.emitted_phi_dropins.add(key)
             return
 
-        target_name = self._var(target)
-        expr = self._c_truth_phi_transition_expr(rec)
+        target_name = (
+            phi_entry_seed_contract.get("target_name")
+            if phi_entry_seed
+            else self._var(target)
+        )
+        expr = None
+        if phi_entry_seed:
+            expr = self._abi_phi_entry_local_seed_expr_v46m(
+                rec,
+                phi_entry_seed_contract,
+            )
+        if not expr:
+            expr = self._c_truth_phi_transition_expr(rec)
         if not expr:
             expr = self._phi_source_expr(source, source_node)
 
@@ -6953,10 +9809,29 @@ class PALemitter:
         if not required and not loop_entry:
             self.emitted_phi_dropins.add(key)
 
-        self._emit_assignment(
-            target_name, expr, custody_sid=self._sid_of(target)
+        before_line_count = len(self.lines)
+        target_sid = (
+            rec.get("target_sid")
+            or self._sid_of(target)
         )
-        self._register_assignment_rewrite(target, source, source_node, target_name, expr)
+        self._emit_assignment(
+            target_name,
+            expr,
+            custody_sid=target_sid,
+        )
+        if target is not None:
+            self._register_assignment_rewrite(
+                target,
+                source,
+                source_node,
+                target_name,
+                expr,
+            )
+        if phi_entry_seed and len(self.lines) > before_line_count:
+            self._abi_note_phi_entry_local_seed_v46m(
+                phi_entry_seed_contract,
+                self.lines[-1].strip(),
+            )
 
     def _c_truth_phi_transition_expr(self, rec):
         if not self.c_truth_active or not isinstance(rec, dict):
@@ -7203,7 +10078,10 @@ class PALemitter:
             return "call_unknown()"
 
         name = self._call_name(inputs[0])
-        args = ", ".join(self._expr(i) for i in inputs[1:])
+        args = ", ".join(
+            self._readable_call_argument_expr_v46i(i)
+            for i in inputs[1:]
+        )
         expr = "%s(%s)" % (name, args)
         contract = self._c_truth_plan_for_node(node)
         return self._c_truth_normalize_call_expr(contract, expr, "inline_call_result")
@@ -7444,6 +10322,13 @@ class PALemitter:
             if op_key in self.emitted_ops:
                 return
 
+        # v46l: the resolver/compute sidecar may have already materialized
+        # this exact parameter-to-local COPY in the function preamble.  The
+        # live op, when it survives SGL, is then bookkeeping only.
+        if self._custody_parameter_initializer_op_materialized_v46l(op):
+            self._mark_op_emitted(op_key)
+            return
+
         # Condition compare expressions are rendered by _cond().
         if out is not None and self._is_condition_var(out):
             if self._is_pure_condition_op(oc):
@@ -7542,11 +10427,17 @@ class PALemitter:
 
         if oc in _TRANSPARENT and ins:
             sid = self._sid_of(out)
+            fixed_argument_local_initializer = (
+                self._abi_fixed_argument_local_initializer_contract_v46k(
+                    op
+                )
+            )
             parameter_initializer = (
                 self._custody_parameter_initializer_for_op_v45(op)
             )
             if (
-                not parameter_initializer
+                not fixed_argument_local_initializer
+                and not parameter_initializer
                 and not (
                     sid in getattr(self, "snapshot_copy_temp_sids", set())
                     or str(sid) in getattr(
@@ -7566,7 +10457,15 @@ class PALemitter:
         expr = self._expr_from_op(oc, ins, current_op=op)
 
         self._mark_op_emitted(op_key)
-        lhs = self._var(out)
+        fixed_argument_local_initializer = (
+            self._abi_fixed_argument_local_initializer_contract_v46k(
+                op
+            )
+        )
+        lhs = self._abi_fixed_argument_local_initializer_lhs_v46k(
+            fixed_argument_local_initializer,
+            self._var(out),
+        )
         abi_storage_initializer = (
             self._abi_entry_storage_initializer_contract_v46b(op)
             if not self._is_readable_render_v44() else None
@@ -7579,18 +10478,45 @@ class PALemitter:
             lhs,
             expr,
             custody_sid=self._sid_of(out),
-            provenance={
-                "role": "abi_entry_storage_initializer",
-                "metadata_refs": [
-                    "abi:entry_storage:%s" % str(
-                        abi_storage_initializer.get("op_key")
-                    )
-                ],
-            } if abi_storage_initializer else None,
+            provenance=(
+                {
+                    "role": "abi_entry_storage_initializer",
+                    "metadata_refs": [
+                        "abi:entry_storage:%s" % str(
+                            abi_storage_initializer.get("op_key")
+                        )
+                    ],
+                }
+                if abi_storage_initializer
+                else (
+                    {
+                        "role": (
+                            "abi_fixed_argument_local_initializer"
+                        ),
+                        "metadata_refs": [
+                            "abi:fixed_argument_local:%s" % str(
+                                fixed_argument_local_initializer.get(
+                                    "op_key"
+                                )
+                            )
+                        ],
+                    }
+                    if fixed_argument_local_initializer
+                    else None
+                )
+            ),
         )
         if abi_storage_initializer and len(self.lines) > before_line_count:
             self._abi_note_entry_storage_initializer_v46b(
                 op, self.lines[-1].strip()
+            )
+        if (
+            fixed_argument_local_initializer
+            and len(self.lines) > before_line_count
+        ):
+            self._abi_note_fixed_argument_local_initializer_v46k(
+                op,
+                self.lines[-1].strip(),
             )
         self._custody_note_parameter_initializer_emitted_v45(op, lhs)
         self._record_materialized_runtime_value_v41(out, opcode=oc)
@@ -8309,6 +11235,14 @@ class PALemitter:
         if sid is None:
             return False
 
+        # v46k: a fixed ABI argument copied into distinct local stack state
+        # is executable initialization even when Ghidra merges both values
+        # into one HighVariable family.
+        if self._abi_fixed_argument_local_initializer_contract_v46k(
+            op
+        ):
+            return False
+
         # v46b executable-only must-print: an entry GP carrier copied into a
         # memory-backed stack family initializes the SysV variadic register
         # save area.  Same-HighVariable identity does not authorize deleting
@@ -8412,7 +11346,10 @@ class PALemitter:
         if not ins:
             return "call_unknown()"
         name = self._call_name(ins[0])
-        args = ", ".join(self._expr(x) for x in ins[1:])
+        args = ", ".join(
+            self._readable_call_argument_expr_v46i(x)
+            for x in ins[1:]
+        )
         expr = "%s(%s)" % (name, args)
 
         if self.c_truth_active:
@@ -8795,12 +11732,15 @@ class PALemitter:
         if getattr(x, "is_constant", False):
             return self._const(x)
 
-        if sid is None:
-            return str(x)
-
-        abi_expr = self._abi_expr_for_sid_v46(sid, context="expression")
+        abi_expr = self._abi_expr_for_value_v46j(
+            x,
+            context="expression",
+        )
         if abi_expr is not None:
             return abi_expr
+
+        if sid is None:
+            return str(x)
 
         custody_expr = self._custody_read_expr_for_sid_v45(
             sid, context="expression"
@@ -8935,7 +11875,10 @@ class PALemitter:
                 return self._var(var)
             seen.add(sid)
 
-        abi_expr = self._abi_expr_for_sid_v46(sid, context="formula_node")
+        abi_expr = self._abi_expr_for_value_v46j(
+            var,
+            context="formula_node",
+        )
         if abi_expr is not None:
             return abi_expr
 
@@ -9627,7 +12570,10 @@ class PALemitter:
         # same-storage convergence targets.  Consume that identity before the
         # older HighVariable presentation tables can reintroduce names such as
         # param_7, in_AL, or v_789.
-        abi_name = self._abi_expr_for_sid_v46(sid, context="variable")
+        abi_name = self._abi_expr_for_value_v46j(
+            v,
+            context="variable",
+        )
         if abi_name is not None:
             return abi_name
 
@@ -9851,6 +12797,11 @@ class PALemitter:
         if out is None or src is None:
             return False
 
+        if self._abi_fixed_argument_local_initializer_contract_v46k(
+            getattr(self._node_for(out), "op", None)
+        ):
+            return False
+
         if str(self._sid_of(out)) in self.custody_parameter_initializers_by_output_sid:
             return False
 
@@ -9912,6 +12863,9 @@ class PALemitter:
 
     def debug_summary(self):
 
+        if not self._debug_reporting_enabled_v46g():
+            return
+
         print("\n[EMITTER SUMMARY]")
         print("-" * 60)
         print("Lines          :", len(self.lines))
@@ -9932,9 +12886,12 @@ class PALemitter:
         print("SGL latch/update blocks:", len(getattr(self, "sgl_latch_update_block_addrs", set()) or set()))
         print("SGL latch/update source SIDs:", len(getattr(self, "sgl_latch_update_source_sids", set()) or set()))
         print("Real stack-write override: enabled")
-        print("Emitter Build  : v39_transparent_rvalue_chain_recovery")
+        print("Emitter Build  :", self.VERSION)
 
     def debug_dump_events(self):
+
+        if not self._debug_reporting_enabled_v46g():
+            return
 
         print("\n[EMITTER EVENTS]")
         print("-" * 60)
@@ -9949,6 +12906,9 @@ class PALemitter:
 
     def debug_summary(self):
 
+        if not self._debug_reporting_enabled_v46g():
+            return
+
         print("\n[EMITTER SUMMARY]")
         print("-" * 60)
         print("Lines          :", len(self.lines))
@@ -9969,9 +12929,12 @@ class PALemitter:
         print("SGL latch/update blocks:", len(getattr(self, "sgl_latch_update_block_addrs", set()) or set()))
         print("SGL latch/update source SIDs:", len(getattr(self, "sgl_latch_update_source_sids", set()) or set()))
         print("Real stack-write override: enabled")
-        print("Emitter Build  : v39_transparent_rvalue_chain_recovery")
+        print("Emitter Build  :", self.VERSION)
 
     def debug_dump_events(self):
+
+        if not self._debug_reporting_enabled_v46g():
+            return
 
         print("\n[EMITTER EVENTS]")
         print("-" * 60)
@@ -9982,6 +12945,9 @@ class PALemitter:
         print("-" * 60)
 
     def debug_dump_variable_metadata_core(self, focus=None):
+
+        if not self._debug_reporting_enabled_v46g():
+            return
         """
         PAL emitter metadata core dump.
 
@@ -10233,6 +13199,9 @@ class PALemitter:
         print("=" * 80)
 
     def debug_dump_c_truth(self, verbose=False):
+
+        if not self._debug_reporting_enabled_v46g():
+            return
         try:
             from pprint import pprint
         except Exception:
@@ -10257,6 +13226,9 @@ class PALemitter:
         print("===== END PAL EMITTER C-TRUTH =====")
 
     def debug_dump_storage_custody(self, verbose=False):
+
+        if not self._debug_reporting_enabled_v46g():
+            return
         try:
             from pprint import pprint
         except Exception:
@@ -10287,6 +13259,9 @@ class PALemitter:
         print("===== END PAL EMITTER INDIRECT STORAGE CUSTODY =====")
 
     def debug_dump_abi_custody(self, verbose=False):
+
+        if not self._debug_reporting_enabled_v46g():
+            return
         """Print the final ABI-D/ABI-F emitter-consumer audit."""
         try:
             from pprint import pprint

@@ -2,7 +2,25 @@
 # Ghidra function: Global::FUN_00108560
 # Entry address: 0x108560
 
+#======= PAL stack versioning ======
+# PALStaticStringPublisher = static_strings_v1_defined_ghidra_data
+# PALBatchDecompiler = batch_v2d_explicit_stdio_overlay_authority
+# PALHumanizer = humanizer_v2_oncs_varnames_recovery
+# PALDecompilerPipeline = unknown
+# PALlibrary.PALLifter = unknown
+# PALlibrary.FunctionCFG = unknown
+# PALSymbolResolver = unknown
+# PALRawAudit = unknown
+# PALCompute = v23b_abi_thunk_compatibility_return_reconciliation
+# PALSemanticGraphBuilder = unknown
+# PALSGLdecomp = unknown
+# PALPHIfolder = v23_abi_f_entry_state_convergence_custody
+# PALemitter = v46p_immutable_abi_context_continuity
+# PALCodeDocument = im_d_v1_projection_alias_edit_sidecars
+#====================================
+
 # PAL readable projection (non-executable)
+# Static C-string call arguments projected from PAL_stdio_strings.json
 # Width/sign contracts remain available in PAL provenance metadata
 
 def FUN_00108560(param_0, param_1):
@@ -14,25 +32,25 @@ def FUN_00108560(param_0, param_1):
     v_6864 = FUN_00103f60(param_1, v_122)
     if v_6864 == 0:
         v_3598 = FUN_00108540(param_1)
-        v_3601 = dcgettext(0, 0x109a68, 5)
+        v_3601 = dcgettext(0, 'invalid floating point argument: %s', 5)
         error(0, 0, v_3601, v_3598)
-        FUN_001038a0(1)
+        FUN_001038a0('.shstrtab')
         __stack_chk_fail()
     else:
         v_9147 = ((uStack_60 << 64) | local_68)
         v_226 = float_nan(v_9147)
         if not v_226:
             v_9077 = (0 - 0x10c040)
-            v_3583 = FUN_00108320(1, param_1, v_9077)
+            v_3583 = FUN_00108320('.shstrtab', param_1, v_9077)
             v_9080 = (0 - 0x10c040)
-            v_3586 = FUN_00108320(0, 0x109154, v_9080)
-            v_3589 = dcgettext(0, 0x109161, 5)
+            v_3586 = FUN_00108320(0, 'not-a-number', v_9080)
+            v_3589 = dcgettext(0, 'invalid %s argument: %s', 5)
             error(0, 0, v_3589, v_3586, v_3583)
-            FUN_001038a0(1)
+            FUN_001038a0('.shstrtab')
             v_3598 = FUN_00108540(param_1)
-            v_3601 = dcgettext(0, 0x109a68, 5)
+            v_3601 = dcgettext(0, 'invalid floating point argument: %s', 5)
             error(0, 0, v_3601, v_3598)
-            FUN_001038a0(1)
+            FUN_001038a0('.shstrtab')
             __stack_chk_fail()
         else:
             v_2514 = __ctype_b_loc()
@@ -45,7 +63,6 @@ def FUN_00108560(param_0, param_1):
             local_58 = 0
             iStack_50 = 0x7fffffff
             v_9151 = strchr(v_3927, 0x2e)
-            abi_tls_base = in_FS_OFFSET
             if v_9151 == 0:
                 v_2530 = strchr(v_3927, 0x70)
                 if v_2530 != 0:
@@ -55,14 +72,12 @@ def FUN_00108560(param_0, param_1):
             v_2538 = strcspn(v_3927, 0x109179)
             v_434 = (v_3927 + (v_2538 * 1))
             v_437 = MEM8[v_434]
-            abi_tls_base = in_FS_OFFSET
             if v_437 != 0:
                 pass
             else:
                 v_474 = int2float(0)
                 v_515 = float_mult(v_9147, v_474)
                 v_527 = float_equal(v_515, v_474)
-                abi_tls_base = in_FS_OFFSET
                 if v_527:
                     pass
                 else:
@@ -86,11 +101,9 @@ def FUN_00108560(param_0, param_1):
                                 v_3625 = -1
                         v_795 = (v_9155 + (v_3625 * 1))
                         local_58 = v_795
-                        abi_tls_base = in_FS_OFFSET
                         v_4437 = v_2553
                     v_9159 = strchr(v_3927, 0x65)
                     v_4400 = v_9159
-                    abi_tls_base = in_FS_OFFSET
                     if v_4400 == 0:
                         v_9161 = strchr(v_3927, 0x45)
                         v_4400 = v_9161

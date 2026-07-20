@@ -2326,7 +2326,7 @@
       "version": "v23b_abi_thunk_compatibility_return_reconciliation",
       "xmm_registers_used": 0
     },
-    "call_site:1053093:(ram, 0x1011af, 47, 5):5": {
+    "call_site:1053107:(ram, 0x1011bd, 53, 5):5": {
       "abi_backend": {
         "name": "sysv_amd64",
         "reason": "x86_64 target plus ELF/GCC compiler evidence",
@@ -2349,7 +2349,7 @@
           "parameter_region": "prototype_unresolved",
           "runtime_helper": null,
           "source_name": null,
-          "source_sid": "v_94",
+          "source_sid": "v_110",
           "source_width_bits": 32,
           "stack_slot": null,
           "version": "v23b_abi_thunk_compatibility_return_reconciliation"
@@ -2358,7 +2358,7 @@
       "arity_authority": "observation_only",
       "arity_status": "target_prototype_unresolved",
       "authority": "PALlibrary_call_site_ABI_contract_only",
-      "block_addr": 1053093,
+      "block_addr": 1053107,
       "caller_variadic_al": {
         "authority": "PALlibrary_carrier_allocation",
         "destination": "abi_context.variadic_xmm_count",
@@ -2402,13 +2402,13 @@
       },
       "no_return": false,
       "observed_argument_sids": [
-        "v_94"
+        "v_110"
       ],
-      "op_id": "(ram, 0x1011af, 47, 5)",
-      "op_key": "1053093:(ram, 0x1011af, 47, 5):5",
+      "op_id": "(ram, 0x1011bd, 53, 5)",
+      "op_key": "1053107:(ram, 0x1011bd, 53, 5):5",
       "opcode": "CALL",
       "plan_class": "call_site_abi_plan",
-      "plan_id": "call_site:1053093:(ram, 0x1011af, 47, 5):5",
+      "plan_id": "call_site:1053107:(ram, 0x1011bd, 53, 5):5",
       "result_contract": {
         "authority": "PALlibrary_function_signature_return_storage",
         "carrier_pieces": [],
@@ -2430,7 +2430,7 @@
           "mode": "mask_to_output_width",
           "width_bits": 32
         },
-        "output_sid": "v_3975",
+        "output_sid": "v_4440",
         "output_width_bits": 32,
         "return_storage": {
           "flags": {
@@ -2473,7 +2473,7 @@
           "mode": "mask_to_output_width",
           "width_bits": 32
         },
-        "output_sid": "v_3975",
+        "output_sid": "v_4440",
         "output_width_bits": 32,
         "return_storage": {
           "flags": {
@@ -2531,7 +2531,7 @@
               "storage_key": "register:0:4"
             },
             "parameter_region": "prototype_unresolved",
-            "sid": "v_94",
+            "sid": "v_110",
             "storage": {
               "flags": {
                 "address": false,
@@ -2561,7 +2561,7 @@
         "arity_authority": "observation_only",
         "arity_status": "target_prototype_unresolved",
         "authority": "HighFunction_CALL_inputs_plus_target_Function_prototype",
-        "block_addr": 1053093,
+        "block_addr": 1053107,
         "caller": "main",
         "caller_entry": 1053053,
         "carrier_allocation": {
@@ -2596,7 +2596,7 @@
                 "storage_key": "register:0:4"
               },
               "parameter_region": "prototype_unresolved",
-              "sid": "v_94",
+              "sid": "v_110",
               "storage": {
                 "flags": {
                   "address": false,
@@ -2639,7 +2639,7 @@
         "kind": "lifter_call_site_abi_contract_v23b",
         "logical_argument_count": 1,
         "observed_argument_count": 1,
-        "op_id": "(ram, 0x1011af, 47, 5)",
+        "op_id": "(ram, 0x1011bd, 53, 5)",
         "opcode": "CALL",
         "target_calling_convention": "unknown",
         "target_entry": 1053001,
@@ -2809,7 +2809,7 @@
       "version": "v23b_abi_thunk_compatibility_return_reconciliation",
       "xmm_registers_used": 0
     },
-    "call_site:1053123:(ram, 0x1011cd, 237, 0):0": {
+    "call_site:1053137:(ram, 0x1011db, 268, 0):0": {
       "abi_backend": {
         "name": "sysv_amd64",
         "reason": "x86_64 target plus ELF/GCC compiler evidence",
@@ -2832,7 +2832,7 @@
           "parameter_region": "prototype_unresolved",
           "runtime_helper": null,
           "source_name": null,
-          "source_sid": "v_4384",
+          "source_sid": "v_4880",
           "source_width_bits": 32,
           "stack_slot": null,
           "version": "v23b_abi_thunk_compatibility_return_reconciliation"
@@ -2851,7 +2851,7 @@
           "parameter_region": "prototype_unresolved",
           "runtime_helper": null,
           "source_name": null,
-          "source_sid": "v_4534",
+          "source_sid": "v_5030",
           "source_width_bits": 32,
           "stack_slot": null,
           "version": "v23b_abi_thunk_compatibility_return_reconciliation"
@@ -2860,7 +2860,7 @@
       "arity_authority": "observation_only",
       "arity_status": "target_prototype_unresolved",
       "authority": "PALlibrary_call_site_ABI_contract_only",
-      "block_addr": 1053123,
+      "block_addr": 1053137,
       "caller_variadic_al": {
         "authority": "PALlibrary_carrier_allocation",
         "destination": "abi_context.variadic_xmm_count",
@@ -2904,14 +2904,14 @@
       },
       "no_return": false,
       "observed_argument_sids": [
-        "v_4384",
-        "v_4534"
+        "v_4880",
+        "v_5030"
       ],
-      "op_id": "(ram, 0x1011cd, 237, 0)",
-      "op_key": "1053123:(ram, 0x1011cd, 237, 0):0",
+      "op_id": "(ram, 0x1011db, 268, 0)",
+      "op_key": "1053137:(ram, 0x1011db, 268, 0):0",
       "opcode": "CALL",
       "plan_class": "call_site_abi_plan",
-      "plan_id": "call_site:1053123:(ram, 0x1011cd, 237, 0):0",
+      "plan_id": "call_site:1053137:(ram, 0x1011db, 268, 0):0",
       "result_contract": {
         "authority": "PALlibrary_function_signature_return_storage",
         "carrier_pieces": [],
@@ -2933,7 +2933,7 @@
           "mode": "mask_to_output_width",
           "width_bits": 32
         },
-        "output_sid": "v_3988",
+        "output_sid": "v_4453",
         "output_width_bits": 32,
         "return_storage": {
           "flags": {
@@ -2976,7 +2976,7 @@
           "mode": "mask_to_output_width",
           "width_bits": 32
         },
-        "output_sid": "v_3988",
+        "output_sid": "v_4453",
         "output_width_bits": 32,
         "return_storage": {
           "flags": {
@@ -3031,10 +3031,10 @@
               "index": null,
               "register_name": null,
               "role": "stack_argument_or_local_storage",
-              "storage_key": "stack:-32:4"
+              "storage_key": "stack:-44:4"
             },
             "parameter_region": "prototype_unresolved",
-            "sid": "v_4384",
+            "sid": "v_4880",
             "storage": {
               "flags": {
                 "address": false,
@@ -3045,12 +3045,12 @@
                 "unique": false
               },
               "kind": "stack",
-              "offset": -32,
+              "offset": -44,
               "register": null,
-              "repr": "(stack, 0xffffffffffffffe0, 4)",
+              "repr": "(stack, 0xffffffffffffffd4, 4)",
               "size_bytes": 4,
               "space": "stack",
-              "storage_key": "stack:-32:4",
+              "storage_key": "stack:-44:4",
               "width_bits": 32
             },
             "width_bits": 32
@@ -3080,10 +3080,10 @@
               "index": null,
               "register_name": null,
               "role": "stack_argument_or_local_storage",
-              "storage_key": "stack:-16:4"
+              "storage_key": "stack:-28:4"
             },
             "parameter_region": "prototype_unresolved",
-            "sid": "v_4534",
+            "sid": "v_5030",
             "storage": {
               "flags": {
                 "address": false,
@@ -3094,12 +3094,12 @@
                 "unique": false
               },
               "kind": "stack",
-              "offset": -16,
+              "offset": -28,
               "register": null,
-              "repr": "(stack, 0xfffffffffffffff0, 4)",
+              "repr": "(stack, 0xffffffffffffffe4, 4)",
               "size_bytes": 4,
               "space": "stack",
-              "storage_key": "stack:-16:4",
+              "storage_key": "stack:-28:4",
               "width_bits": 32
             },
             "width_bits": 32
@@ -3108,7 +3108,7 @@
         "arity_authority": "observation_only",
         "arity_status": "target_prototype_unresolved",
         "authority": "HighFunction_CALL_inputs_plus_target_Function_prototype",
-        "block_addr": 1053123,
+        "block_addr": 1053137,
         "caller": "main",
         "caller_entry": 1053053,
         "carrier_allocation": {
@@ -3140,10 +3140,10 @@
                 "index": null,
                 "register_name": null,
                 "role": "stack_argument_or_local_storage",
-                "storage_key": "stack:-32:4"
+                "storage_key": "stack:-44:4"
               },
               "parameter_region": "prototype_unresolved",
-              "sid": "v_4384",
+              "sid": "v_4880",
               "storage": {
                 "flags": {
                   "address": false,
@@ -3154,12 +3154,12 @@
                   "unique": false
                 },
                 "kind": "stack",
-                "offset": -32,
+                "offset": -44,
                 "register": null,
-                "repr": "(stack, 0xffffffffffffffe0, 4)",
+                "repr": "(stack, 0xffffffffffffffd4, 4)",
                 "size_bytes": 4,
                 "space": "stack",
-                "storage_key": "stack:-32:4",
+                "storage_key": "stack:-44:4",
                 "width_bits": 32
               },
               "width_bits": 32
@@ -3191,10 +3191,10 @@
                 "index": null,
                 "register_name": null,
                 "role": "stack_argument_or_local_storage",
-                "storage_key": "stack:-16:4"
+                "storage_key": "stack:-28:4"
               },
               "parameter_region": "prototype_unresolved",
-              "sid": "v_4534",
+              "sid": "v_5030",
               "storage": {
                 "flags": {
                   "address": false,
@@ -3205,12 +3205,12 @@
                   "unique": false
                 },
                 "kind": "stack",
-                "offset": -16,
+                "offset": -28,
                 "register": null,
-                "repr": "(stack, 0xfffffffffffffff0, 4)",
+                "repr": "(stack, 0xffffffffffffffe4, 4)",
                 "size_bytes": 4,
                 "space": "stack",
-                "storage_key": "stack:-16:4",
+                "storage_key": "stack:-28:4",
                 "width_bits": 32
               },
               "width_bits": 32
@@ -3232,7 +3232,7 @@
         "kind": "lifter_call_site_abi_contract_v23b",
         "logical_argument_count": 2,
         "observed_argument_count": 2,
-        "op_id": "(ram, 0x1011cd, 237, 0)",
+        "op_id": "(ram, 0x1011db, 268, 0)",
         "opcode": "CALL",
         "target_calling_convention": "unknown",
         "target_entry": 1053022,
@@ -3402,7 +3402,7 @@
       "version": "v23b_abi_thunk_compatibility_return_reconciliation",
       "xmm_registers_used": 0
     },
-    "call_site:1053237:(ram, 0x10123c, 618, 2):2": {
+    "call_site:1053260:(ram, 0x101253, 671, 2):2": {
       "abi_backend": {
         "name": "sysv_amd64",
         "reason": "x86_64 target plus ELF/GCC compiler evidence",
@@ -3425,7 +3425,7 @@
           "parameter_region": "prototype_unresolved",
           "runtime_helper": null,
           "source_name": null,
-          "source_sid": "v_1627",
+          "source_sid": "v_1765",
           "source_width_bits": 32,
           "stack_slot": null,
           "version": "v23b_abi_thunk_compatibility_return_reconciliation"
@@ -3434,7 +3434,7 @@
       "arity_authority": "observation_only",
       "arity_status": "target_prototype_unresolved",
       "authority": "PALlibrary_call_site_ABI_contract_only",
-      "block_addr": 1053237,
+      "block_addr": 1053260,
       "caller_variadic_al": {
         "authority": "PALlibrary_carrier_allocation",
         "destination": "abi_context.variadic_xmm_count",
@@ -3478,13 +3478,13 @@
       },
       "no_return": false,
       "observed_argument_sids": [
-        "v_1627"
+        "v_1765"
       ],
-      "op_id": "(ram, 0x10123c, 618, 2)",
-      "op_key": "1053237:(ram, 0x10123c, 618, 2):2",
+      "op_id": "(ram, 0x101253, 671, 2)",
+      "op_key": "1053260:(ram, 0x101253, 671, 2):2",
       "opcode": "CALL",
       "plan_class": "call_site_abi_plan",
-      "plan_id": "call_site:1053237:(ram, 0x10123c, 618, 2):2",
+      "plan_id": "call_site:1053260:(ram, 0x101253, 671, 2):2",
       "result_contract": {
         "authority": "PALlibrary_function_signature_return_storage",
         "carrier_pieces": [],
@@ -3506,7 +3506,7 @@
           "mode": "mask_to_output_width",
           "width_bits": 32
         },
-        "output_sid": "v_4082",
+        "output_sid": "v_4548",
         "output_width_bits": 32,
         "return_storage": {
           "flags": {
@@ -3549,7 +3549,7 @@
           "mode": "mask_to_output_width",
           "width_bits": 32
         },
-        "output_sid": "v_4082",
+        "output_sid": "v_4548",
         "output_width_bits": 32,
         "return_storage": {
           "flags": {
@@ -3607,7 +3607,7 @@
               "storage_key": "register:0:4"
             },
             "parameter_region": "prototype_unresolved",
-            "sid": "v_1627",
+            "sid": "v_1765",
             "storage": {
               "flags": {
                 "address": false,
@@ -3637,7 +3637,7 @@
         "arity_authority": "observation_only",
         "arity_status": "target_prototype_unresolved",
         "authority": "HighFunction_CALL_inputs_plus_target_Function_prototype",
-        "block_addr": 1053237,
+        "block_addr": 1053260,
         "caller": "main",
         "caller_entry": 1053053,
         "carrier_allocation": {
@@ -3672,7 +3672,7 @@
                 "storage_key": "register:0:4"
               },
               "parameter_region": "prototype_unresolved",
-              "sid": "v_1627",
+              "sid": "v_1765",
               "storage": {
                 "flags": {
                   "address": false,
@@ -3715,7 +3715,7 @@
         "kind": "lifter_call_site_abi_contract_v23b",
         "logical_argument_count": 1,
         "observed_argument_count": 1,
-        "op_id": "(ram, 0x10123c, 618, 2)",
+        "op_id": "(ram, 0x101253, 671, 2)",
         "opcode": "CALL",
         "target_calling_convention": "unknown",
         "target_entry": 1053001,
@@ -3885,13 +3885,13 @@
       "version": "v23b_abi_thunk_compatibility_return_reconciliation",
       "xmm_registers_used": 0
     },
-    "call_site:1053363:(ram, 0x1012cd, 198, 4):4": {
+    "call_site:1053404:(ram, 0x1012fc, 229, 5):5": {
       "abi_backend": {
         "name": "sysv_amd64",
         "reason": "x86_64 target plus ELF/GCC compiler evidence",
         "status": "evidence_selected"
       },
-      "argument_count": 4,
+      "argument_count": 5,
       "argument_sid_match": true,
       "arguments": [
         {
@@ -3908,7 +3908,7 @@
           "parameter_region": "fixed",
           "runtime_helper": null,
           "source_name": null,
-          "source_sid": "v_4648",
+          "source_sid": "v_5260",
           "source_width_bits": 64,
           "stack_slot": null,
           "version": "v23b_abi_thunk_compatibility_return_reconciliation"
@@ -3927,7 +3927,7 @@
           "parameter_region": "variadic",
           "runtime_helper": null,
           "source_name": null,
-          "source_sid": "v_3408",
+          "source_sid": "v_3765",
           "source_width_bits": 64,
           "stack_slot": null,
           "version": "v23b_abi_thunk_compatibility_return_reconciliation"
@@ -3946,7 +3946,7 @@
           "parameter_region": "variadic",
           "runtime_helper": null,
           "source_name": null,
-          "source_sid": "v_3331",
+          "source_sid": "v_3680",
           "source_width_bits": 64,
           "stack_slot": null,
           "version": "v23b_abi_thunk_compatibility_return_reconciliation"
@@ -3965,7 +3965,26 @@
           "parameter_region": "variadic",
           "runtime_helper": null,
           "source_name": null,
-          "source_sid": "v_3247",
+          "source_sid": "v_3596",
+          "source_width_bits": 64,
+          "stack_slot": null,
+          "version": "v23b_abi_thunk_compatibility_return_reconciliation"
+        },
+        {
+          "argument_class": "integer",
+          "authority": "datatype_class_plus_SysV_AMD64_scalar_register_order",
+          "carrier": "R8",
+          "carrier_kind": "gp_register",
+          "classification_authority": "physical_argument_register_storage",
+          "constant": false,
+          "constant_value": null,
+          "index": 4,
+          "kind": "pal_compute_call_argument_plan_abi_d",
+          "materialization": "write_abi_gp_register",
+          "parameter_region": "variadic",
+          "runtime_helper": null,
+          "source_name": null,
+          "source_sid": "v_3864",
           "source_width_bits": 64,
           "stack_slot": null,
           "version": "v23b_abi_thunk_compatibility_return_reconciliation"
@@ -3974,7 +3993,7 @@
       "arity_authority": "authoritative_target_prototype",
       "arity_status": "valid_variadic_arity",
       "authority": "PALlibrary_call_site_ABI_contract_only",
-      "block_addr": 1053363,
+      "block_addr": 1053404,
       "caller_variadic_al": {
         "authority": "PALlibrary_carrier_allocation",
         "destination": "abi_context.variadic_xmm_count",
@@ -3997,7 +4016,7 @@
         "semantic_endpoint_status": "imported_thunk_endpoint_proven",
         "target_resolved": true
       },
-      "gp_registers_used": 4,
+      "gp_registers_used": 5,
       "kind": "pal_compute_call_site_abi_plan_v23",
       "linkage_contract": {
         "authority": "PALlibrary_Function_thunk_plus_imported_signature_source",
@@ -4018,16 +4037,17 @@
       },
       "no_return": false,
       "observed_argument_sids": [
-        "v_4648",
-        "v_3408",
-        "v_3331",
-        "v_3247"
+        "v_5260",
+        "v_3765",
+        "v_3680",
+        "v_3596",
+        "v_3864"
       ],
-      "op_id": "(ram, 0x1012cd, 198, 4)",
-      "op_key": "1053363:(ram, 0x1012cd, 198, 4):4",
+      "op_id": "(ram, 0x1012fc, 229, 5)",
+      "op_key": "1053404:(ram, 0x1012fc, 229, 5):5",
       "opcode": "CALL",
       "plan_class": "call_site_abi_plan",
-      "plan_id": "call_site:1053363:(ram, 0x1012cd, 198, 4):4",
+      "plan_id": "call_site:1053404:(ram, 0x1012fc, 229, 5):5",
       "result_contract": {
         "authority": "PALlibrary_function_signature_return_storage",
         "carrier_pieces": [
@@ -4248,10 +4268,10 @@
               "index": null,
               "register_name": null,
               "role": "unclassified_storage",
-              "storage_key": "unique:268435661:8"
+              "storage_key": "unique:268435669:8"
             },
             "parameter_region": "fixed",
-            "sid": "v_4648",
+            "sid": "v_5260",
             "storage": {
               "flags": {
                 "address": false,
@@ -4262,12 +4282,12 @@
                 "unique": true
               },
               "kind": "unique",
-              "offset": 268435661,
+              "offset": 268435669,
               "register": null,
-              "repr": "(unique, 0x100000cd, 8)",
+              "repr": "(unique, 0x100000d5, 8)",
               "size_bytes": 8,
               "space": "unique",
-              "storage_key": "unique:268435661:8",
+              "storage_key": "unique:268435669:8",
               "width_bits": 64
             },
             "width_bits": 64
@@ -4300,7 +4320,7 @@
               "storage_key": "register:48:8"
             },
             "parameter_region": "variadic",
-            "sid": "v_3408",
+            "sid": "v_3765",
             "storage": {
               "flags": {
                 "address": false,
@@ -4354,7 +4374,7 @@
               "storage_key": "register:16:8"
             },
             "parameter_region": "variadic",
-            "sid": "v_3331",
+            "sid": "v_3680",
             "storage": {
               "flags": {
                 "address": false,
@@ -4408,7 +4428,7 @@
               "storage_key": "register:8:8"
             },
             "parameter_region": "variadic",
-            "sid": "v_3247",
+            "sid": "v_3596",
             "storage": {
               "flags": {
                 "address": false,
@@ -4433,12 +4453,66 @@
               "width_bits": 64
             },
             "width_bits": 64
+          },
+          {
+            "argument_class": "integer",
+            "class_authority": "physical_argument_register_storage",
+            "constant": false,
+            "constant_value": null,
+            "datatype": {
+              "class_name": "UnsignedLongDataType",
+              "display_name": "ulong",
+              "kind_hint": null,
+              "length_bytes": 8,
+              "name": "ulong",
+              "signed": false,
+              "width_bits": 64
+            },
+            "datatype_class": "unknown_scalar",
+            "index": 4,
+            "name": null,
+            "observed_carrier": {
+              "authority": "physical_register_storage",
+              "bank": "gp",
+              "base_register_name": "R8",
+              "class": "integer",
+              "index": 4,
+              "register_name": "R8",
+              "role": "integer_argument_register",
+              "storage_key": "register:128:8"
+            },
+            "parameter_region": "variadic",
+            "sid": "v_3864",
+            "storage": {
+              "flags": {
+                "address": false,
+                "constant": false,
+                "input": false,
+                "register": true,
+                "unaffected": false,
+                "unique": false
+              },
+              "kind": "register",
+              "offset": 128,
+              "register": {
+                "base_name": "R8",
+                "name": "R8",
+                "repr": "R8",
+                "size_bytes": 8
+              },
+              "repr": "(register, 0x80, 8)",
+              "size_bytes": 8,
+              "space": "register",
+              "storage_key": "register:128:8",
+              "width_bits": 64
+            },
+            "width_bits": 64
           }
         ],
         "arity_authority": "authoritative_target_prototype",
         "arity_status": "valid_variadic_arity",
         "authority": "HighFunction_CALL_inputs_plus_target_Function_prototype",
-        "block_addr": 1053363,
+        "block_addr": 1053404,
         "caller": "main",
         "caller_entry": 1053053,
         "carrier_allocation": {
@@ -4479,10 +4553,10 @@
                 "index": null,
                 "register_name": null,
                 "role": "unclassified_storage",
-                "storage_key": "unique:268435661:8"
+                "storage_key": "unique:268435669:8"
               },
               "parameter_region": "fixed",
-              "sid": "v_4648",
+              "sid": "v_5260",
               "storage": {
                 "flags": {
                   "address": false,
@@ -4493,12 +4567,12 @@
                   "unique": true
                 },
                 "kind": "unique",
-                "offset": 268435661,
+                "offset": 268435669,
                 "register": null,
-                "repr": "(unique, 0x100000cd, 8)",
+                "repr": "(unique, 0x100000d5, 8)",
                 "size_bytes": 8,
                 "space": "unique",
-                "storage_key": "unique:268435661:8",
+                "storage_key": "unique:268435669:8",
                 "width_bits": 64
               },
               "width_bits": 64
@@ -4533,7 +4607,7 @@
                 "storage_key": "register:48:8"
               },
               "parameter_region": "variadic",
-              "sid": "v_3408",
+              "sid": "v_3765",
               "storage": {
                 "flags": {
                   "address": false,
@@ -4589,7 +4663,7 @@
                 "storage_key": "register:16:8"
               },
               "parameter_region": "variadic",
-              "sid": "v_3331",
+              "sid": "v_3680",
               "storage": {
                 "flags": {
                   "address": false,
@@ -4645,7 +4719,7 @@
                 "storage_key": "register:8:8"
               },
               "parameter_region": "variadic",
-              "sid": "v_3247",
+              "sid": "v_3596",
               "storage": {
                 "flags": {
                   "address": false,
@@ -4670,11 +4744,67 @@
                 "width_bits": 64
               },
               "width_bits": 64
+            },
+            {
+              "argument_class": "integer",
+              "carrier": "R8",
+              "carrier_kind": "gp_register",
+              "class_authority": "physical_argument_register_storage",
+              "constant": false,
+              "constant_value": null,
+              "datatype": {
+                "class_name": "UnsignedLongDataType",
+                "display_name": "ulong",
+                "kind_hint": null,
+                "length_bytes": 8,
+                "name": "ulong",
+                "signed": false,
+                "width_bits": 64
+              },
+              "datatype_class": "unknown_scalar",
+              "index": 4,
+              "name": null,
+              "observed_carrier": {
+                "authority": "physical_register_storage",
+                "bank": "gp",
+                "base_register_name": "R8",
+                "class": "integer",
+                "index": 4,
+                "register_name": "R8",
+                "role": "integer_argument_register",
+                "storage_key": "register:128:8"
+              },
+              "parameter_region": "variadic",
+              "sid": "v_3864",
+              "storage": {
+                "flags": {
+                  "address": false,
+                  "constant": false,
+                  "input": false,
+                  "register": true,
+                  "unaffected": false,
+                  "unique": false
+                },
+                "kind": "register",
+                "offset": 128,
+                "register": {
+                  "base_name": "R8",
+                  "name": "R8",
+                  "repr": "R8",
+                  "size_bytes": 8
+                },
+                "repr": "(register, 0x80, 8)",
+                "size_bytes": 8,
+                "space": "register",
+                "storage_key": "register:128:8",
+                "width_bits": 64
+              },
+              "width_bits": 64
             }
           ],
           "authority": "datatype_class_plus_SysV_AMD64_scalar_register_order",
           "deferred_complex_arguments": 0,
-          "gp_registers_used": 4,
+          "gp_registers_used": 5,
           "kind": "sysv_amd64_scalar_argument_allocation_v23b",
           "limitations": [
             "aggregate_eightbyte_classification_deferred",
@@ -4686,9 +4816,9 @@
         },
         "direct": true,
         "kind": "lifter_call_site_abi_contract_v23b",
-        "logical_argument_count": 4,
-        "observed_argument_count": 4,
-        "op_id": "(ram, 0x1012cd, 198, 4)",
+        "logical_argument_count": 5,
+        "observed_argument_count": 5,
+        "op_id": "(ram, 0x1012fc, 229, 5)",
         "opcode": "CALL",
         "target_calling_convention": "unknown",
         "target_entry": 1052752,
@@ -4898,7 +5028,7 @@
           ]
         },
         "target_variadic": true,
-        "variadic_argument_count": 3,
+        "variadic_argument_count": 4,
         "version": "v23b_authoritative_prototypes_and_carriers"
       },
       "stack_slots_used": 0,
@@ -7448,7 +7578,7 @@
       },
       "reachable_return_boundaries": [
         {
-          "block_addr": 1053363,
+          "block_addr": 1053404,
           "cut_by_no_return_blocks": [],
           "cut_by_no_return_call_op_keys": [],
           "emission_policy": "emit_reachable_return_boundary",
@@ -7459,14 +7589,14 @@
           "return_logical_width_bits": 32,
           "return_reachability": "reachable",
           "return_transport_width_bits": 32,
-          "return_value_sid": "v_4639",
+          "return_value_sid": "v_5247",
           "return_value_width_bits": 32
         }
       ],
       "reachable_return_boundary_count": 1,
       "return_boundaries": [
         {
-          "block_addr": 1053363,
+          "block_addr": 1053404,
           "cut_by_no_return_blocks": [],
           "cut_by_no_return_call_op_keys": [],
           "emission_policy": "emit_reachable_return_boundary",
@@ -7477,7 +7607,7 @@
           "return_logical_width_bits": 32,
           "return_reachability": "reachable",
           "return_transport_width_bits": 32,
-          "return_value_sid": "v_4639",
+          "return_value_sid": "v_5247",
           "return_value_width_bits": 32
         }
       ],
@@ -7568,7 +7698,7 @@
       },
       "version": "v23b_abi_thunk_compatibility_return_reconciliation"
     },
-    "function_entry:1053404": {
+    "function_entry:1053452": {
       "abi_backend": {
         "name": "sysv_amd64",
         "reason": "x86_64 target plus ELF/GCC compiler evidence",
@@ -7579,7 +7709,7 @@
       "deferred_return_boundaries": [],
       "deferred_return_boundary_count": 0,
       "downstream_reinference_allowed": false,
-      "entry": 1053404,
+      "entry": 1053452,
       "fixed_argument_count": 0,
       "fixed_argument_materialization": "bind_positional_arguments_in_callable_order",
       "fixed_arguments": [],
@@ -7606,7 +7736,7 @@
         "status": "not_required"
       },
       "plan_class": "function_entry_abi_plan",
-      "plan_id": "function_entry:1053404",
+      "plan_id": "function_entry:1053452",
       "prototype_authority": {
         "authority": "Ghidra_Function_signature_source_plus_explicit_C_arity",
         "conflicts": [],
@@ -7626,7 +7756,7 @@
       },
       "reachable_return_boundaries": [
         {
-          "block_addr": 1053408,
+          "block_addr": 1053456,
           "cut_by_no_return_blocks": [],
           "cut_by_no_return_call_op_keys": [],
           "emission_policy": "emit_reachable_return_boundary",
@@ -7644,7 +7774,7 @@
       "reachable_return_boundary_count": 1,
       "return_boundaries": [
         {
-          "block_addr": 1053408,
+          "block_addr": 1053456,
           "cut_by_no_return_blocks": [],
           "cut_by_no_return_call_op_keys": [],
           "emission_policy": "emit_reachable_return_boundary",

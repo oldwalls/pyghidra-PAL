@@ -3,9 +3,10 @@
     "dispatch": "PAL_dispatch.py",
     "jump_table": "PAL_jump_table.json",
     "manifest": "PAL_function_manifest.json",
-    "name_registry": "PAL_ONCS.json"
+    "name_registry": "PAL_ONCS.json",
+    "stdio_strings": "PAL_stdio_strings.json"
   },
-  "build": "batch_v2_project_global_function_name_registry",
+  "build": "batch_v2d_explicit_stdio_overlay_authority",
   "call_graph": {
     "edges": [],
     "status": "deferred_to_inter_function_relation_layer"
@@ -18,7 +19,7 @@
     "remaining_unprocessed": 0,
     "skipped_external": 0
   },
-  "directory_policy": "non_destructive_manifest_authoritative",
+  "directory_policy": "portable_relative_non_destructive_manifest_authoritative",
   "format": "pal_function_bundle",
   "functions": [
     {
@@ -27,15 +28,15 @@
       "artifacts": {
         "executable": {
           "path": "functions/f_0000000000101000_init.exec.py",
-          "sha256": "440707731cee0d29230916a28730ba1eac2c095a4dea13476517ed546458db4d"
+          "sha256": "9326fce74bb966269661fd944d78c737b207680be7554b864bee82dcc02e66e8"
         },
         "icecube": {
           "path": "functions/f_0000000000101000_init.icecube.json.gz",
-          "sha256": "9f951fe9f061fceecb519f83a2c0b0ed5d0ab9f7b3765116afe37a37380b4e2c"
+          "sha256": "af3539d2d9b2957b286ce2054f47a776a41e167289e9245ff06eefbb62878187"
         },
         "readable": {
           "path": "functions/f_0000000000101000_init.read.py",
-          "sha256": "0208effd600c4c488ce8c77710de37b4703fd1f2752640f28b2656b03e9a7d6f"
+          "sha256": "6fe9c60ec99647e33ec1680d1177fef300bcb14903e26ba1391029fee8f66063"
         }
       },
       "body_max": 1052698,
@@ -65,20 +66,20 @@
       "warnings": []
     },
     {
-      "active_name": "f_alder",
+      "active_name": "f_grass",
       "active_name_source": "generated",
       "artifacts": {
         "executable": {
           "path": "functions/f_0000000000101020_FUN_00101020.exec.py",
-          "sha256": "b4c450f76f99608366128933f2c63586b7417b86a9a6ba286468cc268792e362"
+          "sha256": "82a3d5df6b689f37fb589e81a1044292b353c635c036d75fe4e5474f12c2eaea"
         },
         "icecube": {
           "path": "functions/f_0000000000101020_FUN_00101020.icecube.json.gz",
-          "sha256": "fe127801218c990b64762d1f0a8085a5331bfd7978f7d314b7e34ce49f57e3bb"
+          "sha256": "1712ad9087d49d6c9531acb1b4e8151dc9985b616378276a301b2ae7cb34dfa5"
         },
         "readable": {
           "path": "functions/f_0000000000101020_FUN_00101020.read.py",
-          "sha256": "d444e5e1a314b02ae42a4c0fb6e588e543d01f928a6cd1cfc771fff7a01d5644"
+          "sha256": "ab09ab8cbddfbd8d7cebf2c599e772c33813727d6ac15748037cfcf987ba77dd"
         }
       },
       "body_max": 1052716,
@@ -90,7 +91,7 @@
       "entry_hex": "0x101020",
       "external": false,
       "function_id": "function:0x101020",
-      "generated_name": "f_alder",
+      "generated_name": "f_grass",
       "inline": false,
       "module": "functions.f_0000000000101020_FUN_00101020",
       "module_stem": "f_0000000000101020_FUN_00101020",
@@ -113,15 +114,15 @@
       "artifacts": {
         "executable": {
           "path": "functions/f_0000000000101030_cxa_finalize.exec.py",
-          "sha256": "9507ff2ef0584d55666e7a69cf597642ceb35435626c49c0f5bf521cf64cfab6"
+          "sha256": "8a2615fb509ce81e05d67c027d29bd99f93e049cbfca4e09d9495e01dba2565e"
         },
         "icecube": {
           "path": "functions/f_0000000000101030_cxa_finalize.icecube.json.gz",
-          "sha256": "697b8ebc89c88edc0e89d454310213fe8995be869c86f29b58227b15e192070d"
+          "sha256": "13299f05b8a77925c035658ea08b6a7bb37c441262234116ced1a83d55673a36"
         },
         "readable": {
           "path": "functions/f_0000000000101030_cxa_finalize.read.py",
-          "sha256": "ae38932b3331dfa063c3ce35398b9081d80f6e6e69f88cd2ee0fef3edfb196b3"
+          "sha256": "bbd8cb6a01f823fcb3d660a78cf50961e2ad9a49ba177e9d1bc1d02d2bb10577"
         }
       },
       "body_max": 1052730,
@@ -156,15 +157,15 @@
       "artifacts": {
         "executable": {
           "path": "functions/f_0000000000101040_start.exec.py",
-          "sha256": "784cae6bb1641642c469c8ac9ca1297a03629698a90027f2630c1093b4217c03"
+          "sha256": "7c3b7da394991fab7d8cfb5899837e9b07e8e50e58620577c4ef4307330a2e18"
         },
         "icecube": {
           "path": "functions/f_0000000000101040_start.icecube.json.gz",
-          "sha256": "82fff6b7006da55d22c75f0f6d8bdebd729b51bae43c2351b17f8f9c4c88e24a"
+          "sha256": "ef13d6f1ac70a88c426ee8bd71fc158dda2803443a8f791b439f41d2660edf7a"
         },
         "readable": {
           "path": "functions/f_0000000000101040_start.read.py",
-          "sha256": "3d6bc7d6e0f3f19e2192380bb7f1f767c517f87588b7eb555be3284f2ea46f28"
+          "sha256": "08869a96d13f0a24058e6a18c727f03b6cdd2fefca36173698f1b3739be126ae"
         }
       },
       "body_max": 1052773,
@@ -199,15 +200,15 @@
       "artifacts": {
         "executable": {
           "path": "functions/f_0000000000101070_deregister_tm_clones.exec.py",
-          "sha256": "5064db46245c14b94f96ef11dd728262ab4cfd386b8a27ff52f4ed09e2e2f58d"
+          "sha256": "6bc33b3c3400d52e19f42f6e4ec3ab6a578796bdf18bc540534d9b53cb990d45"
         },
         "icecube": {
           "path": "functions/f_0000000000101070_deregister_tm_clones.icecube.json.gz",
-          "sha256": "1dda43ddbe09da4648d89adb41722b5bbc6a99687c699e6ff356cf3a651852a2"
+          "sha256": "fdb99b5b12986a90e9e79014709327a8ab774e38c456aa4c0adb2735d0529388"
         },
         "readable": {
           "path": "functions/f_0000000000101070_deregister_tm_clones.read.py",
-          "sha256": "d22a720919db0097fc3263eb02781bc5b7daa246dba83c959edb5cc11a324463"
+          "sha256": "b8f313e2c64fd016d19663d873f4eb99b994a9c620ba20faf105a1d7b7eeacaa"
         }
       },
       "body_max": 1052824,
@@ -242,15 +243,15 @@
       "artifacts": {
         "executable": {
           "path": "functions/f_00000000001010a0_register_tm_clones.exec.py",
-          "sha256": "da208efd1b9061cc2e18d852956754f4b3d35e14ff5282ceb99ba79093433924"
+          "sha256": "cf96e77bb3abea3a3a66f2d6ede77775b1d207bbb54d532cca7308e4a70bdd8a"
         },
         "icecube": {
           "path": "functions/f_00000000001010a0_register_tm_clones.icecube.json.gz",
-          "sha256": "de90d5449b48d0e50d4ef8129c27305dee2c280df0028520f0db0a019dda64ae"
+          "sha256": "2834489c9d97a1e3a2375e33be212db560e2c99ab0a31b92c19c0038d381b4d6"
         },
         "readable": {
           "path": "functions/f_00000000001010a0_register_tm_clones.read.py",
-          "sha256": "e5ddd9835165158a0a72bec5f0a7762483737e0e27e8482d36879f585f529dfd"
+          "sha256": "9375b47ac79e0a1a1b954bfaa72c6a136c1147e0bb471a39a00b758aa63e5944"
         }
       },
       "body_max": 1052888,
@@ -285,7 +286,7 @@
       "artifacts": {
         "pipeline_log": {
           "path": "functions/f_00000000001010e0_do_global_dtors_aux.pipeline.log",
-          "sha256": "ed92e79382849fc01737bbbef4d1ce2868d84ecbde6aed9183edaae5fffa8afd"
+          "sha256": "be9e1422c131ef4a6d17910757a69a70dc30a39f1c72880f35cd186ec4dd9490"
         }
       },
       "body_max": 1052952,
@@ -296,13 +297,13 @@
       "entry": 1052896,
       "entry_hex": "0x1010e0",
       "error": {
-        "message": "invalid syntax (f_00000000001010e0_do_global_dtors_aux.exec.py, line 11)",
+        "message": "invalid syntax (f_00000000001010e0_do_global_dtors_aux.exec.py, line 28)",
         "traceback": [
           "Traceback (most recent call last):",
-          "  File \"/home/rem/gh/PAL/PALBatchDecompiler.py\", line 716, in _decompile_one",
+          "  File \"PALBatchDecompiler.py\", line 906, in _decompile_one",
           "    compile(executable_text, executable_path, \"exec\")",
           "    ~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^",
-          "  File \"/home/rem/gh/PAL/project/PALexec.exe/functions/f_00000000001010e0_do_global_dtors_aux.exec.py\", line 11",
+          "  File \"project/PALexec.exe/functions/f_00000000001010e0_do_global_dtors_aux.exec.py\", line 28",
           "    if completed.0 != 0:",
           "                ^^",
           "SyntaxError: invalid syntax"
@@ -334,15 +335,15 @@
       "artifacts": {
         "executable": {
           "path": "functions/f_0000000000101120_frame_dummy.exec.py",
-          "sha256": "32c5cacab81b5ef21963d72418e26a58601d1c8e04be865ed397ba85e0d216eb"
+          "sha256": "2dbf1308c7eb64ca2f4ef9e0d2050c37d3180188c0d29e0e98fe00f5e4c5af95"
         },
         "icecube": {
           "path": "functions/f_0000000000101120_frame_dummy.icecube.json.gz",
-          "sha256": "57b87f055c917b28c464e26681e460a0fe556dc8c2c3665f4ec4ae30df27bc35"
+          "sha256": "4227c2d6d9ad4d119a9a26332b6f817607e211cbee2084e5eeafe69a71b5aa35"
         },
         "readable": {
           "path": "functions/f_0000000000101120_frame_dummy.read.py",
-          "sha256": "cdd4033cca056f499ba78ad404be84891aa712aea0c60cfa15134d76bca374f3"
+          "sha256": "d793aaf831a9e6660945ddaf59ff63ba49c7efee30a3b2c38d0433e95970ab80"
         }
       },
       "body_max": 1052968,
@@ -377,15 +378,15 @@
       "artifacts": {
         "executable": {
           "path": "functions/f_0000000000101129_PALexec.exec.py",
-          "sha256": "e5ea53352f7b93f86ae3a2624ce6c88e276f8226b4932fdc360fb0059cd4119b"
+          "sha256": "03708c5ac9f8b66c432add9d7ee024fb77336788d4a0149b897ddcfa2f8cff64"
         },
         "icecube": {
           "path": "functions/f_0000000000101129_PALexec.icecube.json.gz",
-          "sha256": "d5f4455fa1450f63040759953a03d337e9c3b053c9ee95d74577f1fd0b272f2d"
+          "sha256": "05bf00e315155a9f24512007ba7964e8b306727319a83b82eab306fb65747d99"
         },
         "readable": {
           "path": "functions/f_0000000000101129_PALexec.read.py",
-          "sha256": "0790708ff03f2f1d8ad6e8f854d98cf256adad00f9849ee42a66d523b461ee20"
+          "sha256": "1b15dcf2a90e9e089d17dd38945388e6d805a5d0088cd36f74e90e6f2fdec66e"
         }
       },
       "body_max": 1053298,
@@ -420,15 +421,15 @@
       "artifacts": {
         "executable": {
           "path": "functions/f_0000000000101273_main.exec.py",
-          "sha256": "959559f74dce3abd275137250794c1e37ae8999d901d4c46b30e54b293cd4baf"
+          "sha256": "17dd7138323f2f998260d005eedc279dc43f77d46d2b9a467c43438750cfb1ea"
         },
         "icecube": {
           "path": "functions/f_0000000000101273_main.icecube.json.gz",
-          "sha256": "9a77b6169b4e54bf63768885b5a4b2070e96077397e131467ae9b2f6cde3d467"
+          "sha256": "44a94e4fb4c620077bb7288a1a7530913aada85787302d08c61b2c0d305ae38d"
         },
         "readable": {
           "path": "functions/f_0000000000101273_main.read.py",
-          "sha256": "7f9ffaf73977344685500caf04db26a6185f4d871ec9b564ca6fd626f878871a"
+          "sha256": "b780c5341071ece2f009669b80fc05ee94bbac9e99dda9420ce04bd72ccb3435"
         }
       },
       "body_max": 1053357,
@@ -463,15 +464,15 @@
       "artifacts": {
         "executable": {
           "path": "functions/f_00000000001012b0_fini.exec.py",
-          "sha256": "233bc48d3ecfb63df68a5ac47554532dad7616d97603f899d26083d175ba6000"
+          "sha256": "4ce91980a7284ceac1e6274fc584e6ca879ab1138844eb8c2d9de56d30d0d343"
         },
         "icecube": {
           "path": "functions/f_00000000001012b0_fini.icecube.json.gz",
-          "sha256": "aa1a63e7cd175f22de24efe4d460d4b2a1f443f3a6e173a10517999e24585cd0"
+          "sha256": "696abc4ed1f00ed89163d9f5cfbeb272e5e6dd5612e7814e4cab7e42a929bb38"
         },
         "readable": {
           "path": "functions/f_00000000001012b0_fini.read.py",
-          "sha256": "2de199f38af8a7ff1f2a1b446e0dce69245fd7ed16a01c3f418865520cbaba64"
+          "sha256": "0a51e15d839ac1c55cabc09580b5efb0218560c426bfa727a2e62f6ad98592b8"
         }
       },
       "body_max": 1053372,
@@ -506,15 +507,15 @@
       "artifacts": {
         "executable": {
           "path": "functions/f_0000000000105000_libc_start_main.exec.py",
-          "sha256": "2f8256f4636ff0aaf7846c42fc243534990d93255cd4d78c7a0d53c177d94d5f"
+          "sha256": "a701f9117968fbc325cd775c8e0138dbb6694d3aba5293cf39c4da67993d143d"
         },
         "icecube": {
           "path": "functions/f_0000000000105000_libc_start_main.icecube.json.gz",
-          "sha256": "6f3ff9242dc622562f4f6740e0a06752f29d37d78fdeb96d01df666bf961ab33"
+          "sha256": "5420948d94304d551b8408f9b095047816e05182f30677fdd97df077a624a2cb"
         },
         "readable": {
           "path": "functions/f_0000000000105000_libc_start_main.read.py",
-          "sha256": "abae18a2a7f752aabdab7106721fe48d302ee011f4ff84c070fd9220423fe6d1"
+          "sha256": "388d26b107defa21a5ee2c0e3752a2c7080e5e46f296ebd530e785922d702584"
         }
       },
       "body_max": 1069056,
@@ -549,15 +550,15 @@
       "artifacts": {
         "executable": {
           "path": "functions/f_0000000000105008_ITM_deregisterTMCloneTable.exec.py",
-          "sha256": "c15ae6c607182509daea23ce71e3d542dced081c9ce6f7cd2884799972f4c8b2"
+          "sha256": "0672d7e711638b653dcb09839430ed87b061604b7106e800546e33b930a5abef"
         },
         "icecube": {
           "path": "functions/f_0000000000105008_ITM_deregisterTMCloneTable.icecube.json.gz",
-          "sha256": "bf3e1df177961c7ad941e4a29f1be69be662fa1d4554331b6094502ecd1a16bc"
+          "sha256": "83d6865e2bba1dc05790c0c02d3e516c7a2e3eeafb98a8f02530b769c1d50936"
         },
         "readable": {
           "path": "functions/f_0000000000105008_ITM_deregisterTMCloneTable.read.py",
-          "sha256": "b0825a54bdb7d5de1d6a270392ef749a091e3e8521f125715e3db2f65b0d6e32"
+          "sha256": "4c01045f658d90953908c22b70fc50fcc964e35e1b3f0b8851c313434f757b1f"
         }
       },
       "body_max": 1069064,
@@ -592,15 +593,15 @@
       "artifacts": {
         "executable": {
           "path": "functions/f_0000000000105010_gmon_start.exec.py",
-          "sha256": "4967a15298a5c26ccb39e23ef76b1f15a47293a4e089b23e46f73e11cc27f132"
+          "sha256": "7c7ef3ba0d2405fd828f1a0d50b9cd8f222c34aac7cbd91130f9f5ef5f85b292"
         },
         "icecube": {
           "path": "functions/f_0000000000105010_gmon_start.icecube.json.gz",
-          "sha256": "19a714545c2bc90e5d45d42119b8090802afdc903be125ef77ee80638c5e5fac"
+          "sha256": "57cbddde2d47ad797da4d56cd2b47a290fc3e017ebf1d033aff83d5c3d904337"
         },
         "readable": {
           "path": "functions/f_0000000000105010_gmon_start.read.py",
-          "sha256": "9a624fc2a2911c63f3de015e1ed8af6558908ee3e16014efbbb3359462f77eba"
+          "sha256": "1050dcaea2442d9ab7b1aa4e0b56115b2cbc6d64f40807bd23613190db289790"
         }
       },
       "body_max": 1069072,
@@ -635,15 +636,15 @@
       "artifacts": {
         "executable": {
           "path": "functions/f_0000000000105018_ITM_registerTMCloneTable.exec.py",
-          "sha256": "215bcb7fb9696b2fe720a450cdfbdc5050db9ef3c641b36e50cbfb0a25551b3b"
+          "sha256": "5ea6c51a34f8683d63cddfdd9a0e90fd56c1f2b340d071de806d30c9c6c73246"
         },
         "icecube": {
           "path": "functions/f_0000000000105018_ITM_registerTMCloneTable.icecube.json.gz",
-          "sha256": "f89acdd75d6a5e755541ec5e52846be62da20a4fb551e965d96abd5ec442e3f3"
+          "sha256": "0e574e38d98e04157c26dbc7dbc6425029afc9e45abc08fdc25cb323bb676b99"
         },
         "readable": {
           "path": "functions/f_0000000000105018_ITM_registerTMCloneTable.read.py",
-          "sha256": "392bab74a02bf06b1e28739222e8e73e504595c6dbd3a62bfddbced599af599f"
+          "sha256": "4619c6bae2ede3fab5fede19da8a50cb99a5fd67c4dbf9cd1d9bf99a2ea7770a"
         }
       },
       "body_max": 1069080,
@@ -678,15 +679,15 @@
       "artifacts": {
         "executable": {
           "path": "functions/f_0000000000105020_cxa_finalize.exec.py",
-          "sha256": "0d53da58715476498d91d24d1249c23a5859c7364ed8cb1c7c1122e073b750b7"
+          "sha256": "9bcdf34c5c26c8719cc81374cb14b90c260428e431d099aeaa62e851826de25b"
         },
         "icecube": {
           "path": "functions/f_0000000000105020_cxa_finalize.icecube.json.gz",
-          "sha256": "7132a40e499a3eb554c2883b16e5a087058142a6f19f8d85149d2c828e4a5577"
+          "sha256": "3b78d358e0c3eca1a48ecd9b509370970aa9050cfa21c5f1dbba3df582b9ab46"
         },
         "readable": {
           "path": "functions/f_0000000000105020_cxa_finalize.read.py",
-          "sha256": "acec721374d80b1b93ea76d60f4c3780b3f9845b21790a39aa91ad40534ab3c1"
+          "sha256": "d4f765541a6f2b0c5422d184abc93986d7320fe53974b1cb1bc469d323ff7de9"
         }
       },
       "body_max": 1069088,
@@ -719,20 +720,40 @@
   "functions_directory": "functions",
   "name_registry": {
     "identity_authority": "function_entry_address_or_stable_manifest_identity",
-    "revision": 4,
+    "revision": 0,
     "version": "humanizer_v2_oncs_varnames_recovery"
   },
-  "output_root": "/home/rem/gh/PAL/project/PALexec.exe",
+  "output_root": "project/PALexec.exe",
+  "output_root_base": "PAL_repository_root",
   "pipeline_entrypoint": "run_all",
   "program": {
     "compiler_spec_id": "gcc",
     "executable_format": "Executable and Linking Format (ELF)",
-    "executable_path": "/home/rem/gh/PAL/PALexec.exe",
+    "executable_path": "PALexec.exe",
+    "executable_path_policy": "relative_to_pal_repository_root_or_basename",
     "image_base": 1048576,
     "image_base_hex": "0x100000",
     "language_id": "x86:LE:64:default",
     "name": "PALexec.exe"
   },
   "schema_version": 1,
+  "static_string_emitter_authority": {
+    "cross_project_discovery_allowed": false,
+    "key": "PAL_STDIO_STRINGS",
+    "restoration": "restore_prior_environment_after_run",
+    "scope": "single_function_pipeline_run",
+    "transport": "scoped_environment",
+    "value_policy": "absolute_internal_path_to_current_project_overlay"
+  },
+  "static_strings": {
+    "artifact": "PAL_stdio_strings.json",
+    "path": "project/PALexec.exe/PAL_stdio_strings.json",
+    "producer": "PALStaticStringPublisher",
+    "producer_build": "static_strings_v1_defined_ghidra_data",
+    "rejected_string_records": 0,
+    "source_policy": "ghidra_defined_string_data_only",
+    "status": "published",
+    "strings": 63
+  },
   "status": "partial"
 }

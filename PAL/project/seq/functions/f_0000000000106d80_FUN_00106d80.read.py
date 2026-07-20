@@ -2,7 +2,25 @@
 # Ghidra function: Global::FUN_00106d80
 # Entry address: 0x106d80
 
+#======= PAL stack versioning ======
+# PALStaticStringPublisher = static_strings_v1_defined_ghidra_data
+# PALBatchDecompiler = batch_v2d_explicit_stdio_overlay_authority
+# PALHumanizer = humanizer_v2_oncs_varnames_recovery
+# PALDecompilerPipeline = unknown
+# PALlibrary.PALLifter = unknown
+# PALlibrary.FunctionCFG = unknown
+# PALSymbolResolver = unknown
+# PALRawAudit = unknown
+# PALCompute = v23b_abi_thunk_compatibility_return_reconciliation
+# PALSemanticGraphBuilder = unknown
+# PALSGLdecomp = unknown
+# PALPHIfolder = v23_abi_f_entry_state_convergence_custody
+# PALemitter = v46p_immutable_abi_context_continuity
+# PALCodeDocument = im_d_v1_projection_alias_edit_sidecars
+#====================================
+
 # PAL readable projection (non-executable)
+# Static C-string call arguments projected from PAL_stdio_strings.json
 # Width/sign contracts remain available in PAL provenance metadata
 
 def FUN_00106d80():
@@ -46,7 +64,6 @@ def FUN_00106d80():
     v_1986 = FUN_00104c80(0, v_253, abi_rsi, v_243)
     if v_1986 == 0:
         v_628 = 0xffffffff
-        abi_tls_base = in_FS_OFFSET
     else:
         if local_e0 >= 2147483648:
             free(v_1986)
@@ -55,7 +72,6 @@ def FUN_00106d80():
             v_628 = 0xffffffff
         else:
             MEM64[abi_rdi] <- v_1986
-            abi_tls_base = in_FS_OFFSET
             v_628 = local_e0
     v_387 = MEM64[(abi_tls_base + 0x28)]
     if local_c0 != v_387:

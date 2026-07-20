@@ -802,9 +802,9 @@
       "module": "functions.f_0000000000102740_FUN_00102740",
       "name": "FUN_00102740",
       "operator_name": null,
-      "python_symbol": "FUN_00102740",
+      "python_symbol": null,
       "qualified_name": "Global::FUN_00102740",
-      "status": "decompiled"
+      "status": "failed"
     },
     {
       "active_name": "f_entry",
@@ -893,9 +893,9 @@
       "module": "functions.f_00000000001038a0_FUN_001038a0",
       "name": "FUN_001038a0",
       "operator_name": null,
-      "python_symbol": "FUN_001038a0",
+      "python_symbol": null,
       "qualified_name": "Global::FUN_001038a0",
-      "status": "decompiled"
+      "status": "failed"
     },
     {
       "active_name": "f_oak",
@@ -971,9 +971,9 @@
       "module": "functions.f_0000000000103f60_FUN_00103f60",
       "name": "FUN_00103f60",
       "operator_name": null,
-      "python_symbol": "FUN_00103f60",
+      "python_symbol": null,
       "qualified_name": "Global::FUN_00103f60",
-      "status": "decompiled"
+      "status": "failed"
     },
     {
       "active_name": "f_lilac",
@@ -1036,9 +1036,9 @@
       "module": "functions.f_0000000000104560_FUN_00104560",
       "name": "FUN_00104560",
       "operator_name": null,
-      "python_symbol": "FUN_00104560",
+      "python_symbol": null,
       "qualified_name": "Global::FUN_00104560",
-      "status": "decompiled"
+      "status": "failed"
     },
     {
       "active_name": "f_button",
@@ -1955,7 +1955,8 @@
   "program": {
     "compiler_spec_id": "gcc",
     "executable_format": "Executable and Linking Format (ELF)",
-    "executable_path": "/home/rem/gh/PAL/seq",
+    "executable_path": "seq",
+    "executable_path_policy": "relative_to_pal_repository_root_or_basename",
     "image_base": 1048576,
     "image_base_hex": "0x100000",
     "language_id": "x86:LE:64:default",

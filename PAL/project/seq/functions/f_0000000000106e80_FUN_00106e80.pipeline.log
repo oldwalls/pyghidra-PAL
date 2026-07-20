@@ -3266,64 +3266,64 @@ HF/PAL ops :
 
 === PAL BATCH FAILURE ===
 Traceback (most recent call last):
-  File "/home/rem/gh/PAL/PALBatchDecompiler.py", line 698, in _decompile_one
+  File "PALBatchDecompiler.py", line 884, in _decompile_one
     result = pipeline_run()
-  File "/home/rem/gh/PAL/PALDecompilerPipeline.py", line 701, in run_all
+  File "PALDecompilerPipeline.py", line 701, in run_all
     self.run_structurer()
     ~~~~~~~~~~~~~~~~~~~^^
-  File "/home/rem/gh/PAL/PALDecompilerPipeline.py", line 555, in run_structurer
+  File "PALDecompilerPipeline.py", line 555, in run_structurer
     root = structurer.build()
-  File "/home/rem/gh/PAL/PALSGLdecomp.py", line 213, in build
+  File "PALSGLdecomp.py", line 213, in build
     self._emit_node(entry, self.root, stop_nodes=set())
     ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/home/rem/gh/PAL/PALSGLdecomp.py", line 6197, in _emit_node
+  File "PALSGLdecomp.py", line 6197, in _emit_node
     self._emit_linear_sequence(node, parent, stop_nodes)
     ~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/home/rem/gh/PAL/PALSGLdecomp.py", line 6256, in _emit_linear_sequence
+  File "PALSGLdecomp.py", line 6256, in _emit_linear_sequence
     self._emit_node(nxt, parent, stop_nodes=stop_nodes)
     ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/home/rem/gh/PAL/PALSGLdecomp.py", line 6098, in _emit_node
+  File "PALSGLdecomp.py", line 6098, in _emit_node
     self._emit_node(body, loop.body, stop_nodes=local_stops)
     ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/home/rem/gh/PAL/PALSGLdecomp.py", line 6197, in _emit_node
+  File "PALSGLdecomp.py", line 6197, in _emit_node
     self._emit_linear_sequence(node, parent, stop_nodes)
     ~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/home/rem/gh/PAL/PALSGLdecomp.py", line 6256, in _emit_linear_sequence
+  File "PALSGLdecomp.py", line 6256, in _emit_linear_sequence
     self._emit_node(nxt, parent, stop_nodes=stop_nodes)
     ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/home/rem/gh/PAL/PALSGLdecomp.py", line 6113, in _emit_node
+  File "PALSGLdecomp.py", line 6113, in _emit_node
     self._emit_node(exit_node, parent, stop_nodes=stop_nodes)
     ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/home/rem/gh/PAL/PALSGLdecomp.py", line 6187, in _emit_node
+  File "PALSGLdecomp.py", line 6187, in _emit_node
     self._emit_branch_arm(node, else_node, if_node.else_branch, branch_stops)
     ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/home/rem/gh/PAL/PALSGLdecomp.py", line 4515, in _emit_branch_arm
+  File "PALSGLdecomp.py", line 4515, in _emit_branch_arm
     self._emit_node(target_node, parent, stop_nodes=stop_nodes)
     ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/home/rem/gh/PAL/PALSGLdecomp.py", line 6187, in _emit_node
+  File "PALSGLdecomp.py", line 6187, in _emit_node
     self._emit_branch_arm(node, else_node, if_node.else_branch, branch_stops)
     ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/home/rem/gh/PAL/PALSGLdecomp.py", line 4515, in _emit_branch_arm
+  File "PALSGLdecomp.py", line 4515, in _emit_branch_arm
     self._emit_node(target_node, parent, stop_nodes=stop_nodes)
     ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/home/rem/gh/PAL/PALSGLdecomp.py", line 6187, in _emit_node
+  File "PALSGLdecomp.py", line 6187, in _emit_node
     self._emit_branch_arm(node, else_node, if_node.else_branch, branch_stops)
     ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/home/rem/gh/PAL/PALSGLdecomp.py", line 4515, in _emit_branch_arm
+  File "PALSGLdecomp.py", line 4515, in _emit_branch_arm
     self._emit_node(target_node, parent, stop_nodes=stop_nodes)
     ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/home/rem/gh/PAL/PALSGLdecomp.py", line 6197, in _emit_node
+  File "PALSGLdecomp.py", line 6197, in _emit_node
     self._emit_linear_sequence(node, parent, stop_nodes)
     ~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/home/rem/gh/PAL/PALSGLdecomp.py", line 6256, in _emit_linear_sequence
+  File "PALSGLdecomp.py", line 6256, in _emit_linear_sequence
     self._emit_node(nxt, parent, stop_nodes=stop_nodes)
     ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/home/rem/gh/PAL/PALSGLdecomp.py", line 6060, in _emit_node
+  File "PALSGLdecomp.py", line 6060, in _emit_node
     cond, cond_role = self._get_loop_condition_and_role_for_header(node)
                       ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^
-  File "/home/rem/gh/PAL/PALSGLdecomp.py", line 7258, in _get_loop_condition_and_role_for_header
+  File "PALSGLdecomp.py", line 7258, in _get_loop_condition_and_role_for_header
     body_node = self._first_body_node_for_header_v19b(header)
-  File "/home/rem/gh/PAL/PALSGLdecomp.py", line 7278, in _first_body_node_for_header_v19b
+  File "PALSGLdecomp.py", line 7278, in _first_body_node_for_header_v19b
     for succ in list(getattr(header, "successors", []) or []):
                 ~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 TypeError: 'method' object is not iterable

@@ -1,0 +1,581 @@
+
+===== CFG DEBUG =====
+
+[EDGES]
+0x1011a4 -> 0x1011d8  true raw=true role=raw_true_explicit_target pol=fallthrough inv=True
+0x1011a4 -> 0x1011ad  false raw=false role=raw_false_fallthrough pol=fallthrough inv=False
+0x1011ad -> 0x1011c7  true raw=true role=raw_true_explicit_target pol=fallthrough inv=True
+0x1011ad -> 0x1011bb  false raw=false role=raw_false_fallthrough pol=fallthrough inv=False
+0x1011bb -> 0x1011c7  uncond raw=uncond role=uncond pol=unknown inv=None
+0x1011c7 -> EXIT  uncond raw=uncond role=uncond pol=unknown inv=None
+0x1011d8 -> EXIT  uncond raw=uncond role=uncond pol=unknown inv=None
+
+[BRANCH RESOLUTION EVENTS]
+{'kind': 'binary_branch_truth_bound_by_evidence_class_v21d', 'src': 1053092, 'first_dst': 1053144, 'second_dst': 1053101, 'hf_target': 1053144, 'hf_normalized_target': 1053144, 'direct_dst': 1053101, 'first_invert': True, 'second_invert': False, 'condition_truth_authority': 'raw_jcc_hf_relation_direct_flags', 'reason': 'branch_truth_evidence_v21d hf_target=0x1011d8 raw_target=0x1011d8 raw_fallthrough=0x1011ad legacy_hint=(mnemonic=JNZ hf_cond_opcode=INT_EQUAL) class=direct_flags'}
+{'kind': 'binary_branch_truth_bound_by_evidence_class_v21d', 'src': 1053101, 'first_dst': 1053127, 'second_dst': 1053115, 'hf_target': 1053127, 'hf_normalized_target': 1053127, 'direct_dst': 1053115, 'first_invert': True, 'second_invert': False, 'condition_truth_authority': 'raw_jcc_hf_relation_direct_flags', 'reason': 'branch_truth_evidence_v21d hf_target=0x1011c7 raw_target=0x1011c7 raw_fallthrough=0x1011bb legacy_hint=(mnemonic=JZ hf_cond_opcode=INT_NOTEQUAL) class=direct_flags'}
+
+[IPDOM]
+0x1011a4 -> ipdom: EXIT
+0x1011ad -> ipdom: 0x1011c7
+0x1011bb -> ipdom: 0x1011c7
+0x1011c7 -> ipdom: EXIT
+0x1011d8 -> ipdom: EXIT
+
+=====================
+
+===== PAL RESOLVER INDIRECT STORAGE v22c =====
+
+[INVENTORY]
+{'active': True,
+ 'address_tied_families': 3,
+ 'custody_transitions': 6,
+ 'effect_owner_groups': 2,
+ 'escape_barrier_sids': 12,
+ 'input_contracts': 6,
+ 'kind': 'resolver_indirect_storage_inventory_v22c',
+ 'machine_state_families': 0,
+ 'machine_state_sids': 0,
+ 'owner_categories': {'call_boundary': 6},
+ 'parameter_initializers': 0,
+ 'persistent_families': 3,
+ 'rule': 'HighVariable_identity_families_plus_address_escape_alias_barrier',
+ 'runtime_order': 'CFG_governed_not_linearized',
+ 'storage_families': 3,
+ 'version': 'v22c_indirect_storage_families',
+ 'warnings': 0}
+
+[STORAGE FAMILIES]
+{'address_tied': True,
+ 'classification': 'persistent_address_tied_storage',
+ 'entry_sids': ['v_312', 'v_289'],
+ 'family_id': 'storage_family:high_rep:312',
+ 'high_identity_key': 'high_rep:312',
+ 'high_name': 'completed.0',
+ 'member_sids': ['v_312', 'v_280', 'v_289', 'v_283'],
+ 'parameter_initializers': 0,
+ 'persistent': True,
+ 'transitions': 2}
+{'address_tied': True,
+ 'classification': 'persistent_address_tied_storage',
+ 'entry_sids': ['v_313', 'v_263'],
+ 'family_id': 'storage_family:high_rep:313',
+ 'high_identity_key': 'high_rep:313',
+ 'high_name': 'PTR___cxa_finalize_00103ff8',
+ 'member_sids': ['v_313', 'v_254', 'v_263', 'v_257'],
+ 'parameter_initializers': 0,
+ 'persistent': True,
+ 'transitions': 2}
+{'address_tied': True,
+ 'classification': 'persistent_address_tied_storage',
+ 'entry_sids': ['v_314', 'v_276'],
+ 'family_id': 'storage_family:high_rep:314',
+ 'high_identity_key': 'high_rep:314',
+ 'high_name': '__dso_handle',
+ 'member_sids': ['v_314', 'v_267', 'v_276', 'v_270'],
+ 'parameter_initializers': 0,
+ 'persistent': True,
+ 'transitions': 2}
+
+[PARAMETER INITIALIZERS / STORAGE WRITES]
+[]
+
+[WARNINGS]
+[]
+===== END PAL RESOLVER INDIRECT STORAGE =====
+
+========================================================================
+PALRAW AUDIT v0.3 :: raw instruction BLOCK p-code vs HF/PAL CFG
+========================================================================
+
+--- 0x10127f ---
+Raw block  : 0x1011d8 -> next None
+Instr count: 1
+Terminal   : 0x1011d8 RET
+Raw succs  : []
+Norm succs : []
+HF block   : 0x1011d8
+CFG edges  : ['EXIT role=uncond raw=uncond']
+STATUS     : successors_differ
+NOTE       : HF/PAL successor(s) not seen in raw terminal successors: ['EXIT']
+Raw instructions:
+   0x1011d8  RET
+Terminal raw p-code:
+    (register, 0x288, 8) LOAD (const, 0x1b1, 8) , (register, 0x20, 8)
+    (register, 0x20, 8) INT_ADD (register, 0x20, 8) , (const, 0x8, 8)
+     ---  RETURN (register, 0x288, 8)
+HF/PAL ops :
+    COPY [PTR___cxa_finalize_00103ff8] -> PTR___cxa_finalize_00103ff8
+    COPY [__dso_handle] -> __dso_handle
+    COPY [completed.0] -> completed.0
+HF/PAL term:
+    RETURN [0x0] -> None
+
+--- 0x1011b6 ---
+Raw block  : 0x1011ad -> next 0x1011bb
+Instr count: 4
+Terminal   : 0x1011b9 JZ 0x001011c7
+Raw succs  : ['0x1011c7', '0x1011bb']
+Norm succs : ['0x1011bb', '0x1011c7']
+HF block   : 0x1011ad
+CFG edges  : ['0x1011c7 role=raw_true_explicit_target raw=true', '0x1011bb role=raw_false_fallthrough raw=false']
+STATUS     : successors_match
+Raw instructions:
+   0x1011ad  PUSH RBP
+   0x1011ae  CMP qword ptr [0x00103ff8],0x0
+   0x1011b6  MOV RBP,RSP
+   0x1011b9  JZ 0x001011c7
+Terminal raw p-code:
+     ---  CBRANCH (ram, 0x1011c7, 8) , (register, 0x206, 1)
+HF/PAL ops :
+    INT_NOTEQUAL [PTR___cxa_finalize_00103ff8, 0x0] -> v_54
+HF/PAL term:
+    CBRANCH [LAB_001011c7, v_54] -> None cond=v_54
+
+--- 0x101219 ---
+Raw block  : 0x1011d8 -> next None
+Instr count: 1
+Terminal   : 0x1011d8 RET
+Raw succs  : []
+Norm succs : []
+HF block   : 0x1011d8
+CFG edges  : ['EXIT role=uncond raw=uncond']
+STATUS     : successors_differ
+NOTE       : HF/PAL successor(s) not seen in raw terminal successors: ['EXIT']
+Raw instructions:
+   0x1011d8  RET
+Terminal raw p-code:
+    (register, 0x288, 8) LOAD (const, 0x1b1, 8) , (register, 0x20, 8)
+    (register, 0x20, 8) INT_ADD (register, 0x20, 8) , (const, 0x8, 8)
+     ---  RETURN (register, 0x288, 8)
+HF/PAL ops :
+    COPY [PTR___cxa_finalize_00103ff8] -> PTR___cxa_finalize_00103ff8
+    COPY [__dso_handle] -> __dso_handle
+    COPY [completed.0] -> completed.0
+HF/PAL term:
+    RETURN [0x0] -> None
+
+--- 0x10120f ---
+Raw block  : 0x1011d8 -> next None
+Instr count: 1
+Terminal   : 0x1011d8 RET
+Raw succs  : []
+Norm succs : []
+HF block   : 0x1011d8
+CFG edges  : ['EXIT role=uncond raw=uncond']
+STATUS     : successors_differ
+NOTE       : HF/PAL successor(s) not seen in raw terminal successors: ['EXIT']
+Raw instructions:
+   0x1011d8  RET
+Terminal raw p-code:
+    (register, 0x288, 8) LOAD (const, 0x1b1, 8) , (register, 0x20, 8)
+    (register, 0x20, 8) INT_ADD (register, 0x20, 8) , (const, 0x8, 8)
+     ---  RETURN (register, 0x288, 8)
+HF/PAL ops :
+    COPY [PTR___cxa_finalize_00103ff8] -> PTR___cxa_finalize_00103ff8
+    COPY [__dso_handle] -> __dso_handle
+    COPY [completed.0] -> completed.0
+HF/PAL term:
+    RETURN [0x0] -> None
+
+--- 0x101221 ---
+Raw block  : 0x1011d8 -> next None
+Instr count: 1
+Terminal   : 0x1011d8 RET
+Raw succs  : []
+Norm succs : []
+HF block   : 0x1011d8
+CFG edges  : ['EXIT role=uncond raw=uncond']
+STATUS     : successors_differ
+NOTE       : HF/PAL successor(s) not seen in raw terminal successors: ['EXIT']
+Raw instructions:
+   0x1011d8  RET
+Terminal raw p-code:
+    (register, 0x288, 8) LOAD (const, 0x1b1, 8) , (register, 0x20, 8)
+    (register, 0x20, 8) INT_ADD (register, 0x20, 8) , (const, 0x8, 8)
+     ---  RETURN (register, 0x288, 8)
+HF/PAL ops :
+    COPY [PTR___cxa_finalize_00103ff8] -> PTR___cxa_finalize_00103ff8
+    COPY [__dso_handle] -> __dso_handle
+    COPY [completed.0] -> completed.0
+HF/PAL term:
+    RETURN [0x0] -> None
+
+--- 0x101284 ---
+Raw block  : 0x1011d8 -> next None
+Instr count: 1
+Terminal   : 0x1011d8 RET
+Raw succs  : []
+Norm succs : []
+HF block   : 0x1011d8
+CFG edges  : ['EXIT role=uncond raw=uncond']
+STATUS     : successors_differ
+NOTE       : HF/PAL successor(s) not seen in raw terminal successors: ['EXIT']
+Raw instructions:
+   0x1011d8  RET
+Terminal raw p-code:
+    (register, 0x288, 8) LOAD (const, 0x1b1, 8) , (register, 0x20, 8)
+    (register, 0x20, 8) INT_ADD (register, 0x20, 8) , (const, 0x8, 8)
+     ---  RETURN (register, 0x288, 8)
+HF/PAL ops :
+    COPY [PTR___cxa_finalize_00103ff8] -> PTR___cxa_finalize_00103ff8
+    COPY [__dso_handle] -> __dso_handle
+    COPY [completed.0] -> completed.0
+HF/PAL term:
+    RETURN [0x0] -> None
+
+--- 0x10127f ---
+Raw block  : 0x1011d8 -> next None
+Instr count: 1
+Terminal   : 0x1011d8 RET
+Raw succs  : []
+Norm succs : []
+HF block   : 0x1011d8
+CFG edges  : ['EXIT role=uncond raw=uncond']
+STATUS     : successors_differ
+NOTE       : HF/PAL successor(s) not seen in raw terminal successors: ['EXIT']
+Raw instructions:
+   0x1011d8  RET
+Terminal raw p-code:
+    (register, 0x288, 8) LOAD (const, 0x1b1, 8) , (register, 0x20, 8)
+    (register, 0x20, 8) INT_ADD (register, 0x20, 8) , (const, 0x8, 8)
+     ---  RETURN (register, 0x288, 8)
+HF/PAL ops :
+    COPY [PTR___cxa_finalize_00103ff8] -> PTR___cxa_finalize_00103ff8
+    COPY [__dso_handle] -> __dso_handle
+    COPY [completed.0] -> completed.0
+HF/PAL term:
+    RETURN [0x0] -> None
+
+========================================================================
+
+===== PAL COMPUTE ANALYZER =====
+{'kind': 'pal_compute_inventory_v22',
+ 'version': 'v23b_abi_thunk_compatibility_return_reconciliation',
+ 'runtime_representation': 'raw_unsigned_bitvector_at_ssa_boundaries',
+ 'operations': 20,
+ 'output_plans': 18,
+ 'control_contracts': 4,
+ 'c_compute_filtered': 19,
+ 'use_site_overrides': 0,
+ 'return_observation_view_mismatches': 0,
+ 'storage_custody_related_ops': 18,
+ 'indirect_custody_contracts': 6,
+ 'indirect_custody_resolved': 6,
+ 'indirect_custody_deferred': 0,
+ 'indirect_effect_owner_compute_ops': 2,
+ 'storage_family_bindings': 12,
+ 'function_entry_abi_plan': True,
+ 'call_site_abi_plans': 2,
+ 'internal_call_plan_failures': 1,
+ 'unsupported_implicit_inputs': 0,
+ 'abi_runtime_helper_assignments': 0,
+ 'no_return_calls': 0,
+ 'reachable_return_boundaries': 2,
+ 'unreachable_return_boundaries': 0,
+ 'synthetic_no_return_continuations_suppressed': 0,
+ 'statuses': {'helper_required': 2,
+              'metadata_only': 16,
+              'deferred_external': 2},
+ 'categories': {'comparison': 2,
+                'transport': 7,
+                'storage_custody': 6,
+                'call_boundary': 2,
+                'phi_merge': 3},
+ 'helpers': {'c_eq': 1, 'c_ne': 1},
+ 'opcodes': {'INT_EQUAL': 1,
+             'COPY': 7,
+             'INT_NOTEQUAL': 1,
+             'INDIRECT': 6,
+             'CALL': 2,
+             'MULTIEQUAL': 3},
+ 'warnings': 0}
+
+[WARNINGS]
+[]
+
+[METADATA-ONLY COMPUTE BOUNDARIES]
+0x1011d8 COPY ['v_313'] -> v_261 classification=bit_preserving_copy
+0x1011d8 COPY ['v_314'] -> v_274 classification=bit_preserving_copy
+0x1011d8 COPY ['v_312'] -> v_287 classification=bit_preserving_copy
+0x1011bb INDIRECT ['v_313', 'c_30_4'] -> v_254 classification=None
+0x1011bb INDIRECT ['v_314', 'c_30_4'] -> v_267 classification=None
+0x1011bb INDIRECT ['v_312', 'c_30_4'] -> v_280 classification=None
+0x1011c7 MULTIEQUAL ['v_312', 'v_280'] -> v_289 classification=None
+0x1011c7 MULTIEQUAL ['v_314', 'v_267'] -> v_276 classification=None
+0x1011c7 MULTIEQUAL ['v_313', 'v_254'] -> v_263 classification=None
+0x1011c7 INDIRECT ['v_263', 'c_33_4'] -> v_257 classification=None
+0x1011c7 INDIRECT ['v_276', 'c_33_4'] -> v_270 classification=None
+0x1011c7 INDIRECT ['v_289', 'c_33_4'] -> v_283 classification=None
+0x1011c7 COPY ['c_1_1'] -> v_90 classification=same_width_copy_recast
+0x1011c7 COPY ['v_257'] -> v_259 classification=bit_preserving_copy
+0x1011c7 COPY ['v_270'] -> v_272 classification=bit_preserving_copy
+
+[HELPER-REQUIRED CONTRACTS]
+0x1011a4 INT_EQUAL v_14 helper=c_eq widths=[8, 8]->8 overrides=0
+0x1011ad INT_NOTEQUAL v_54 helper=c_ne widths=[64, 64]->8 overrides=0
+
+[INDIRECT STORAGE-CUSTODY CONTRACTS]
+0x1011bb v_313 -> v_254 family=storage_family:high_rep:313 owner=CALL/0x1e owner_compute=1053115:(ram, 0x1011c2, 30, 3):3 status=metadata_only
+0x1011bb v_314 -> v_267 family=storage_family:high_rep:314 owner=CALL/0x1e owner_compute=1053115:(ram, 0x1011c2, 30, 3):3 status=metadata_only
+0x1011bb v_312 -> v_280 family=storage_family:high_rep:312 owner=CALL/0x1e owner_compute=1053115:(ram, 0x1011c2, 30, 3):3 status=metadata_only
+0x1011c7 v_263 -> v_257 family=storage_family:high_rep:313 owner=CALL/0x21 owner_compute=1053127:(ram, 0x1011c7, 33, 6):6 status=metadata_only
+0x1011c7 v_276 -> v_270 family=storage_family:high_rep:314 owner=CALL/0x21 owner_compute=1053127:(ram, 0x1011c7, 33, 6):6 status=metadata_only
+0x1011c7 v_289 -> v_283 family=storage_family:high_rep:312 owner=CALL/0x21 owner_compute=1053127:(ram, 0x1011c7, 33, 6):6 status=metadata_only
+
+[INDIRECT CUSTODY INVENTORY]
+{'kind': 'pal_compute_indirect_custody_inventory_v22d',
+ 'version': 'v23b_abi_thunk_compatibility_return_reconciliation',
+ 'resolver_transitions': 6,
+ 'compute_indirect_contracts': 6,
+ 'resolved_custody': 6,
+ 'deferred_custody': 0,
+ 'effect_owner_compute_bindings': 6,
+ 'effect_owner_compute_ops': 2,
+ 'owner_categories': {'call_boundary': 6},
+ 'storage_families': 3,
+ 'storage_sid_bindings': 12,
+ 'address_escape_barrier_sids': 12,
+ 'parameter_storage_initializers': 0,
+ 'runtime_helpers': 0,
+ 'warnings': 0,
+ 'rule': 'INDIRECT_is_metadata_only_owner_bound_storage_transition'}
+
+[ABI-D ENTRY/CALL PLAN INVENTORY]
+{'kind': 'pal_compute_abi_plan_inventory_v23',
+ 'version': 'v23b_abi_thunk_compatibility_return_reconciliation',
+ 'function': '__do_global_dtors_aux',
+ 'entry_plan_present': True,
+ 'entry_plan_status': 'ready',
+ 'fixed_arguments': 0,
+ 'implicit_inputs': 0,
+ 'implicit_inputs_unsupported': 0,
+ 'call_compute_contracts': 2,
+ 'call_site_plans': 2,
+ 'call_sites_without_plan': 0,
+ 'call_statuses': {'deferred_target_dispatch': 1, 'ready': 1},
+ 'dispatch_classes': {'resolved_thunk_endpoint_deferred': 1,
+                      'internal_resolved': 1},
+ 'internal_calls': 1,
+ 'internal_calls_with_target_compatible_plan': 0,
+ 'internal_calls_without_target_compatible_plan': 1,
+ 'internal_calls_with_deferred_target_compatibility': 1,
+ 'internal_calls_with_incompatible_target': 0,
+ 'internal_calls_without_transport_plan': 0,
+ 'external_calls': 0,
+ 'thunk_calls': 1,
+ 'external_via_thunk_calls': 0,
+ 'thunk_endpoint_deferred_calls': 1,
+ 'thunk_calls_misclassified_internal': 0,
+ 'target_compatibility_overclaims': 0,
+ 'no_return_calls': 0,
+ 'result_carrier_contracts': 2,
+ 'abi_runtime_helper_assignments': 0,
+ 'warnings': 0,
+ 'acceptance_gates': {'every_emitted_function_has_entry_plan': True,
+                      'every_call_has_call_site_plan': True,
+                      'every_internal_call_has_target_compatible_plan': False,
+                      'every_internal_call_has_carrier_transport_plan': True,
+                      'no_resolved_thunk_misclassified_internal': True,
+                      'no_target_compatibility_overclaim': True,
+                      'no_implicit_input_is_unsupported': True,
+                      'no_runtime_helper_assigned_by_ABI_guesswork': True},
+ 'return_boundary_reconciliation': {'kind': 'pal_compute_return_boundary_reconciliation_v23b',
+                                    'version': 'v23b_abi_thunk_compatibility_return_reconciliation',
+                                    'function': '__do_global_dtors_aux',
+                                    'entry_block_addr': 1053092,
+                                    'cfg_evidence_available': True,
+                                    'no_return_terminating_blocks': [],
+                                    'no_return_call_op_keys': [],
+                                    'return_boundaries': 2,
+                                    'reachable_return_boundaries': 2,
+                                    'unreachable_return_boundaries': 0,
+                                    'deferred_return_boundaries': 0,
+                                    'reachable_return_widths': [64],
+                                    'width_reconciled': True,
+                                    'synthetic_no_return_continuations_suppressed': 0,
+                                    'rule': 'traverse_CFG_with_no_return_blocks_as_terminal_then_reconcile_reachable_raw_return_transports_only'},
+ 'rule': 'ABI_A_B_C_authority_only_thunk_endpoint_and_compatibility_tri_state_no_downstream_argument_reinference'}
+
+[FUNCTION ENTRY ABI PLAN]
+{'plan_id': 'function_entry:1053088',
+ 'status': 'ready',
+ 'callable_signature_status': 'legacy_non_variadic_fallback',
+ 'fixed_argument_count': 0,
+ 'implicit_input_count': 0,
+ 'variadic_register_save_area': {'required': False,
+                                 'status': 'not_required',
+                                 'slots': [],
+                                 'gp_slots': [],
+                                 'sse_slots': [],
+                                 'fixed_variadic_partition_status': 'deferred_to_entry_protocol_analysis',
+                                 'source': 'abi_context.registers',
+                                 'authority': 'ABI_C_carriers_plus_variadic_contract'},
+ 'overflow_argument_area': {'required': False,
+                            'status': 'not_required',
+                            'source': 'abi_context.overflow_argument_area',
+                            'observed_stack_carriers': [],
+                            'materialization': 'consume_preclassified_overflow_slots',
+                            'offset_inference_allowed': False,
+                            'authority': 'ABI_C_stack_carriers_or_variadic_protocol'},
+ 'variadic_al': {'required': False,
+                 'status': 'not_required',
+                 'source': 'abi_context.variadic_xmm_count',
+                 'inputs': [],
+                 'default_allowed': False,
+                 'authority': 'ABI_C_variadic_xmm_count_contract'},
+ 'frame_base': {'required': False,
+                'status': 'not_observed',
+                'source': 'abi_context.frame_base',
+                'inputs': [],
+                'derive_from_parameter_names': False,
+                'authority': 'ABI_C_frame_state_custody'},
+ 'tls_base': {'required': False,
+              'status': 'not_observed',
+              'source': 'abi_context.tls_base',
+              'inputs': [],
+              'derive_from_expression_names': False,
+              'authority': 'ABI_C_tls_state_custody'},
+ 'return_contract': {'kind': 'pal_compute_return_carrier_contract_abi_d',
+                     'version': 'v23b_abi_thunk_compatibility_return_reconciliation',
+                     'status': 'return_width_proven_carrier_deferred',
+                     'no_return': False,
+                     'output_sid': None,
+                     'output_width_bits': None,
+                     'declared_width_bits': None,
+                     'effective_result_width_bits': 64,
+                     'declared_return': {'name': 'undefined',
+                                         'display_name': 'undefined',
+                                         'class_name': 'DefaultDataType',
+                                         'length_bytes': 1,
+                                         'width_bits': 8,
+                                         'signed': None,
+                                         'kind_hint': None},
+                     'return_storage': {'repr': '<UNASSIGNED>',
+                                        'size_bytes': 0,
+                                        'flags': {'register': False,
+                                                  'stack': False,
+                                                  'memory': False,
+                                                  'unassigned': True,
+                                                  'void': False,
+                                                  'auto': False},
+                                        'pieces': [],
+                                        'storage_keys': []},
+                     'carrier_pieces': [],
+                     'normalization': {'mode': 'mask_to_output_width',
+                                       'width_bits': 64,
+                                       'mask': 18446744073709551615},
+                     'runtime_helper': None,
+                     'runtime_helper_authority': 'no_ABI_runtime_helper_assigned',
+                     'authority': 'reachable_raw_return_transport',
+                     'reported_declared_width_bits': 8,
+                     'declared_width_authoritative': False,
+                     'declared_return_evidence_status': 'non_authoritative_default_or_unresolved_prototype',
+                     'transport_width_bits': 64,
+                     'logical_result_width_bits': 64,
+                     'reachable_return_widths': [64],
+                     'reachable_return_boundary_count': 2,
+                     'unreachable_return_boundary_count': 0,
+                     'deferred_return_boundary_count': 0},
+ 'reachable_return_boundaries': [{'block_addr': 1053144,
+                                  'return_value_sid': 'c_0_8',
+                                  'return_value_width_bits': 64,
+                                  'return_transport_width_bits': 64,
+                                  'return_logical_width_bits': 64,
+                                  'return_declared_view': None,
+                                  'return_boundary_authority': 'raw_return_register_transport',
+                                  'return_reachability': 'reachable',
+                                  'reachable_return': True,
+                                  'execution_suppressed': False,
+                                  'emission_policy': 'emit_reachable_return_boundary',
+                                  'cut_by_no_return_blocks': [],
+                                  'cut_by_no_return_call_op_keys': []},
+                                 {'block_addr': 1053127,
+                                  'return_value_sid': 'c_0_8',
+                                  'return_value_width_bits': 64,
+                                  'return_transport_width_bits': 64,
+                                  'return_logical_width_bits': 64,
+                                  'return_declared_view': None,
+                                  'return_boundary_authority': 'raw_return_register_transport',
+                                  'return_reachability': 'reachable',
+                                  'reachable_return': True,
+                                  'execution_suppressed': False,
+                                  'emission_policy': 'emit_reachable_return_boundary',
+                                  'cut_by_no_return_blocks': [],
+                                  'cut_by_no_return_call_op_keys': []}],
+ 'unreachable_return_boundaries': []}
+
+[RETURN BOUNDARY RECONCILIATION]
+{'kind': 'pal_compute_return_boundary_reconciliation_v23b',
+ 'version': 'v23b_abi_thunk_compatibility_return_reconciliation',
+ 'function': '__do_global_dtors_aux',
+ 'entry_block_addr': 1053092,
+ 'cfg_evidence_available': True,
+ 'no_return_terminating_blocks': [],
+ 'no_return_call_op_keys': [],
+ 'return_boundaries': 2,
+ 'reachable_return_boundaries': 2,
+ 'unreachable_return_boundaries': 0,
+ 'deferred_return_boundaries': 0,
+ 'reachable_return_widths': [64],
+ 'width_reconciled': True,
+ 'synthetic_no_return_continuations_suppressed': 0,
+ 'rule': 'traverse_CFG_with_no_return_blocks_as_terminal_then_reconcile_reachable_raw_return_transports_only'}
+
+[CALL SITE ABI PLANS]
+{'op_key': '1053115:(ram, 0x1011c2, 30, 3):3',
+ 'target': '__cxa_finalize',
+ 'dispatch_class': 'resolved_thunk_endpoint_deferred',
+ 'status': 'deferred_target_dispatch',
+ 'argument_count': 1,
+ 'carrier_allocation_status': 'complete',
+ 'target_compatibility_status': 'deferred',
+ 'target_compatible': None,
+ 'no_return': False,
+ 'result_width_bits': 8}
+{'op_key': '1053127:(ram, 0x1011c7, 33, 6):6',
+ 'target': 'deregister_tm_clones',
+ 'dispatch_class': 'internal_resolved',
+ 'status': 'ready',
+ 'argument_count': 0,
+ 'carrier_allocation_status': 'complete',
+ 'target_compatibility_status': 'deferred',
+ 'target_compatible': None,
+ 'no_return': False,
+ 'result_width_bits': 8}
+===== END PAL COMPUTE ANALYZER =====
+
+
+[PHI DROP-INS]
+------------------------------------------------------------
+------------------------------------------------------------
+{'active': True,
+ 'bound_plans': 18,
+ 'control_contracts_forwarded': 4,
+ 'input_op_contracts': 20,
+ 'input_plans': 18,
+ 'kind': 'phi_compute_consumer_inventory_v21',
+ 'outputless_contracts_forwarded': 2,
+ 'phi_merge_contracts': 3,
+ 'phi_transition_contracts': 0,
+ 'preserved_compute_boundaries': 17,
+ 'preserved_deferred_contracts': 0,
+ 'preserved_outputless_boundaries': 2,
+ 'preserved_outputless_deferred_contracts': 2,
+ 'preserved_outputless_helpers': 0,
+ 'preserved_runtime_helpers': 2,
+ 'rule': 'preserve_PALCompute_authority_remap_execution_destination_only',
+ 'state_alias_bindings': 0,
+ 'transition_owners': {},
+ 'version': 'v21_compute_contract_consumers',
+ 'warnings': 0}
+[]
+
+=== PAL BATCH FAILURE ===
+Traceback (most recent call last):
+  File "PALBatchDecompiler.py", line 906, in _decompile_one
+    compile(executable_text, executable_path, "exec")
+    ~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "project/drop_axe.exe/functions/f_00000000001011a0_do_global_dtors_aux.exec.py", line 28
+    if completed.0 != 0:
+                ^^
+SyntaxError: invalid syntax

@@ -8,6 +8,7 @@
   },
   "collisions": [],
   "format": "pal_function_name_registry",
+  "function_surface_fingerprint": "surface:sha256:0c49050b17ad8cd01321890c",
   "functions": {
     "function:0x102000": {
       "active_name": "f_DT_INIT",
@@ -4510,7 +4511,17 @@
       "version": "humanizer_v2_oncs_varnames_recovery"
     }
   },
-  "program_identity": "program:sha256:2057be882351bd7c7fbb",
+  "program_descriptor": {
+    "compiler_spec_id": "gcc",
+    "executable_format": "Executable and Linking Format (ELF)",
+    "executable_name": "seq",
+    "image_base": "0x100000",
+    "language_id": "x86:LE:64:default",
+    "name": "seq"
+  },
+  "program_identity": "program:sha256:3e39572c04fa454c5e16",
+  "program_identity_policy": "portable_descriptor_identity_with_reconcilable_function_surface_v5",
+  "registry_continuity_mode": "recompiled_surface_rebased",
   "revision": 3,
   "revisions": [
     {
@@ -4531,6 +4542,25 @@
       "kind": "pal_oncs_project_revision_v1",
       "revision": 3,
       "scope": "variables"
+    },
+    {
+      "batch_fatal": false,
+      "carried_exact_identity": 150,
+      "carried_unique_semantic_identity": 0,
+      "current_function_surface_fingerprint": "surface:sha256:0c49050b17ad8cd01321890c",
+      "current_program_identity": "program:sha256:3e39572c04fa454c5e16",
+      "current_records": 150,
+      "descriptor_match": null,
+      "discarded_stale_records": 0,
+      "existing_records": 150,
+      "generated_aliases_preserved_when_proven": true,
+      "kind": "pal_function_registry_recompiled_surface_rebased_v5",
+      "operator_aliases_preserved_when_proven": true,
+      "previous_function_surface_fingerprint": null,
+      "previous_program_identity": "program:sha256:2057be882351bd7c7fbb",
+      "reason": "same_project_recompiled_or_legacy_identity_migrated",
+      "rejected_ambiguous": 0,
+      "rejected_incompatible": 0
     }
   ],
   "rule": "project-global f_ metadata views over immutable entry identity",

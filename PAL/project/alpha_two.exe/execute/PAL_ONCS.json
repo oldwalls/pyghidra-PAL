@@ -8,6 +8,7 @@
   },
   "collisions": [],
   "format": "pal_function_name_registry",
+  "function_surface_fingerprint": "surface:sha256:98d6e00be1316ae0094de0c0",
   "functions": {
     "function:0x101000": {
       "active_name": "f_init",
@@ -40,21 +41,21 @@
       "version": "humanizer_v2_oncs_varnames_recovery"
     },
     "function:0x101020": {
-      "active_name": "f_gauge",
+      "active_name": "f_pond",
       "active_name_source": "generated",
       "entry": 1052704,
       "entry_hex": "0x101020",
       "external": false,
       "function_id": "function:0x101020",
-      "generated_name": "f_gauge",
+      "generated_name": "f_pond",
       "humanization_eligible": true,
       "humanization_exclusion_reason": null,
       "identity_mutated": false,
       "kind": "pal_function_name_contract_v2_oncs",
       "module": "functions.f_0000000000101020_FUN_00101020",
       "oncs": {
-        "active": "f_gauge",
-        "humanizer": "f_gauge",
+        "active": "f_pond",
+        "humanizer": "f_pond",
         "operator": null,
         "pal": "f_FUN_00101020",
         "ssa": "FUN_00101020"
@@ -610,7 +611,17 @@
       "version": "humanizer_v2_oncs_varnames_recovery"
     }
   },
-  "program_identity": "program:sha256:6fda5b3cd6162b82b9de",
+  "program_descriptor": {
+    "compiler_spec_id": "gcc",
+    "executable_format": "Executable and Linking Format (ELF)",
+    "executable_name": "alpha_two.exe",
+    "image_base": "0x100000",
+    "language_id": "x86:LE:64:default",
+    "name": "alpha_two.exe"
+  },
+  "program_identity": "program:sha256:a6b5344548fcd21adfb7",
+  "program_identity_policy": "portable_descriptor_identity_with_reconcilable_function_surface_v5",
+  "registry_continuity_mode": "new_registry",
   "revision": 0,
   "revisions": [],
   "rule": "project-global f_ metadata views over immutable entry identity",

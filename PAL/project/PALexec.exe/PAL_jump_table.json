@@ -14,11 +14,11 @@
       "status": "decompiled"
     },
     {
-      "active_name": "f_alder",
+      "active_name": "f_grass",
       "address": 1052704,
       "address_hex": "0x101020",
       "function_id": "function:0x101020",
-      "generated_name": "f_alder",
+      "generated_name": "f_grass",
       "module": "functions.f_0000000000101020_FUN_00101020",
       "name": "FUN_00101020",
       "operator_name": null,
@@ -213,7 +213,8 @@
   "program": {
     "compiler_spec_id": "gcc",
     "executable_format": "Executable and Linking Format (ELF)",
-    "executable_path": "/home/rem/gh/PAL/PALexec.exe",
+    "executable_path": "PALexec.exe",
+    "executable_path_policy": "relative_to_pal_repository_root_or_basename",
     "image_base": 1048576,
     "image_base_hex": "0x100000",
     "language_id": "x86:LE:64:default",

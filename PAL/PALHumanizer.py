@@ -1,6 +1,6 @@
 # ============================================================
 # PAL HUMANIZER / ONCS
-# BUILD: humanizer_v3_project_global_oncs_augmented_names
+# BUILD: humanizer_v5_recompile_safe_registry_rebase
 #
 # Surgical scope:
 #   - immutable SSA/PAL names;
@@ -164,12 +164,194 @@ def function_identity(record, program_identity=None):
     return "function:sha256:%s" % hashlib.sha256(seed.encode()).hexdigest()[:16]
 
 
-def program_identity(program):
+def _normalized_program_scalar(value):
+    if value is None:
+        return ""
+    if isinstance(value, int):
+        return "0x%x" % value
+    text = str(value).strip()
+    if not text:
+        return ""
+    try:
+        if text.lower().startswith("0x"):
+            return "0x%x" % int(text, 16)
+    except Exception:
+        pass
+    return text
+
+
+def program_descriptor(program):
+    """
+    Return the path-independent program identity contract.
+
+    ``executable_path`` is deliberately excluded.  It is deployment metadata,
+    not binary identity, and changes when the same PAL project moves between a
+    development tree, a public checkout, or another machine.
+    """
     program = dict(program or {})
-    seed = "|".join(str(program.get(key) or "") for key in (
-        "name", "image_base", "language_id", "compiler_spec_id", "executable_path"
-    ))
-    return "program:sha256:%s" % hashlib.sha256(seed.encode()).hexdigest()[:20]
+
+    name = str(program.get("name") or "").strip()
+    executable_path = str(
+        program.get("executable_path") or ""
+    ).strip()
+    executable_name = os.path.basename(
+        executable_path.replace("\\\\", "/")
+    ) if executable_path else ""
+
+    descriptor = {
+        "name": name or executable_name,
+        "executable_name": executable_name or name,
+        "image_base": _normalized_program_scalar(
+            program.get("image_base")
+        ),
+        "language_id": _normalized_program_scalar(
+            program.get("language_id")
+        ),
+        "compiler_spec_id": _normalized_program_scalar(
+            program.get("compiler_spec_id")
+        ),
+        "executable_format": _normalized_program_scalar(
+            program.get("executable_format")
+        ),
+    }
+
+    # A future loader may publish a content digest.  Consume it immediately
+    # when available without making it mandatory for current Ghidra programs.
+    executable_sha256 = str(
+        program.get("executable_sha256") or ""
+    ).strip().lower()
+    if executable_sha256:
+        descriptor["executable_sha256"] = executable_sha256
+
+    return descriptor
+
+
+def _manifest_surface_rows(records):
+    rows = []
+
+    values = (
+        list(records.values())
+        if isinstance(records, dict)
+        else list(records or [])
+    )
+
+    for value in values:
+        record = dict(value or {})
+
+        # Historical registries retain absent functions.  They must not poison
+        # comparison with the current manifest surface.
+        if record.get("present_in_manifest") is False:
+            continue
+
+        entry = record.get("entry")
+        if not isinstance(entry, int):
+            entry_hex = record.get("entry_hex")
+            try:
+                if entry_hex is not None:
+                    entry = int(str(entry_hex), 0)
+            except Exception:
+                entry = None
+
+        name = (
+            record.get("ssa_name")
+            or record.get("original_name")
+            or record.get("name")
+            or ""
+        )
+
+        rows.append({
+            "entry": (
+                "0x%x" % entry
+                if isinstance(entry, int)
+                else ""
+            ),
+            "name": str(name),
+            "qualified_name": str(
+                record.get("qualified_name") or ""
+            ),
+            "external": bool(record.get("external")),
+            "thunk": bool(record.get("thunk")),
+        })
+
+    rows.sort(
+        key=lambda item: (
+            item["entry"],
+            item["qualified_name"],
+            item["name"],
+            item["external"],
+            item["thunk"],
+        )
+    )
+    return rows
+
+
+def manifest_surface_fingerprint(records):
+    payload = json.dumps(
+        _manifest_surface_rows(records),
+        sort_keys=True,
+        separators=(",", ":"),
+        ensure_ascii=True,
+    )
+    return "surface:sha256:%s" % hashlib.sha256(
+        payload.encode("utf-8")
+    ).hexdigest()[:24]
+
+
+def program_identity(program, records=None):
+    """
+    Stable project/program identity over portable descriptor metadata.
+
+    The function surface is intentionally *not* part of this hash. PAL project
+    directories survive recompiles, so adding/removing/moving functions must
+    trigger registry reconciliation rather than a foreign-program exception.
+
+    ``records`` remains accepted for source compatibility with v4 callers.
+    """
+    payload = {
+        "descriptor": program_descriptor(program),
+        "policy": "portable_descriptor_identity_v5",
+    }
+    seed = json.dumps(
+        payload,
+        sort_keys=True,
+        separators=(",", ":"),
+        ensure_ascii=True,
+    )
+    return "program:sha256:%s" % hashlib.sha256(
+        seed.encode("utf-8")
+    ).hexdigest()[:20]
+
+
+def _program_descriptors_compatible(existing, current):
+    existing = dict(existing or {})
+    current = dict(current or {})
+
+    if not existing:
+        return None
+
+    existing_digest = str(
+        existing.get("executable_sha256") or ""
+    ).lower()
+    current_digest = str(
+        current.get("executable_sha256") or ""
+    ).lower()
+
+    if existing_digest and current_digest:
+        return existing_digest == current_digest
+
+    keys = (
+        "name",
+        "executable_name",
+        "image_base",
+        "language_id",
+        "compiler_spec_id",
+        "executable_format",
+    )
+    return all(
+        str(existing.get(key) or "")
+        == str(current.get(key) or "")
+        for key in keys
+    )
 
 
 class CognitiveNameAllocator:
@@ -468,19 +650,340 @@ class PALFunctionNameRegistry:
 
     def __init__(self, payload=None):
         payload = dict(payload or {})
-        self.program_identity = str(payload.get("program_identity") or "program:unknown")
-        self.records = {str(k): dict(v) for k, v in dict(payload.get("functions", {}) or {}).items()}
-        self.revisions = list(payload.get("revisions", []) or [])
-        self.collisions = list(payload.get("collisions", []) or [])
-        self.revision = int(payload.get("revision", 0) or 0)
+        self.program_identity = str(
+            payload.get("program_identity") or "program:unknown"
+        )
+        self.program_descriptor = dict(
+            payload.get("program_descriptor") or {}
+        )
+        self.function_surface_fingerprint = str(
+            payload.get("function_surface_fingerprint") or ""
+        )
+        self.program_identity_policy = str(
+            payload.get("program_identity_policy")
+            or "legacy_path_sensitive_identity"
+        )
+        self.registry_continuity_mode = str(
+            payload.get("registry_continuity_mode")
+            or "loaded"
+        )
+        self.records = {
+            str(k): dict(v)
+            for k, v in dict(
+                payload.get("functions", {}) or {}
+            ).items()
+        }
+        self.revisions = list(
+            payload.get("revisions", []) or []
+        )
+        self.collisions = list(
+            payload.get("collisions", []) or []
+        )
+        self.revision = int(
+            payload.get("revision", 0) or 0
+        )
+
+    @staticmethod
+    def _record_name_v5(record):
+        record = dict(record or {})
+        return str(
+            record.get("ssa_name")
+            or record.get("original_name")
+            or record.get("name")
+            or ""
+        )
+
+    @staticmethod
+    def _record_qualified_name_v5(record):
+        return str(
+            dict(record or {}).get("qualified_name") or ""
+        )
+
+    @classmethod
+    def _records_compatible_v5(cls, old_record, new_record):
+        """
+        Decide whether ONCS aliases may safely cross one recompile boundary.
+
+        Exact entry identity alone is insufficient because a substantially
+        changed binary can place a different function at the same address.
+        Require compatible names and ABI-facing classification as well.
+        """
+        old_record = dict(old_record or {})
+        new_record = dict(new_record or {})
+
+        old_name = cls._record_name_v5(old_record)
+        new_name = cls._record_name_v5(new_record)
+        old_qualified = cls._record_qualified_name_v5(old_record)
+        new_qualified = cls._record_qualified_name_v5(new_record)
+
+        if old_name and new_name and old_name != new_name:
+            return False
+
+        if (
+            old_qualified
+            and new_qualified
+            and old_qualified != new_qualified
+        ):
+            return False
+
+        if bool(old_record.get("external")) != bool(
+            new_record.get("external")
+        ):
+            return False
+
+        if bool(old_record.get("thunk")) != bool(
+            new_record.get("thunk")
+        ):
+            return False
+
+        return True
+
+    @classmethod
+    def _meaningful_record_key_v5(cls, record):
+        """
+        Return a recompile-stable semantic key for uniquely named functions.
+
+        Generic Ghidra labels are excluded because FUN_<address> is an address
+        identity in textual clothing and must not be used to follow a moved
+        function.
+        """
+        record = dict(record or {})
+        name = cls._record_name_v5(record)
+        if not name or is_generic_function_name(name):
+            return None
+
+        qualified = cls._record_qualified_name_v5(record)
+        return (
+            qualified or name,
+            bool(record.get("external")),
+            bool(record.get("thunk")),
+        )
+
+    @staticmethod
+    def _alias_payload_v5(record):
+        """
+        Carry only user/cognitive projections across registry rebasing.
+
+        Structural fields are rebuilt from the current manifest.
+        """
+        record = dict(record or {})
+        carried = {}
+
+        for key in (
+            "generated_name",
+            "operator_name",
+        ):
+            value = record.get(key)
+            if value:
+                carried[key] = value
+
+        return carried
+
+    @classmethod
+    def _rebase_records_v5(
+        cls,
+        existing_records,
+        manifest_records,
+        current_identity,
+    ):
+        """
+        Rebase aliases onto the current function surface.
+
+        Priority:
+          1. exact function identity plus compatible function metadata;
+          2. unique meaningful qualified/name match for moved functions.
+
+        Stale and ambiguous records are discarded rather than allowed to
+        poison a new binary snapshot.
+        """
+        existing_records = {
+            str(key): dict(value)
+            for key, value in dict(
+                existing_records or {}
+            ).items()
+        }
+        manifest_records = [
+            dict(value)
+            for value in list(manifest_records or [])
+        ]
+
+        current_by_fid = {}
+        for record in manifest_records:
+            fid = function_identity(record, current_identity)
+            current_by_fid[str(fid)] = record
+
+        old_semantic = {}
+        for old_fid, old_record in existing_records.items():
+            key = cls._meaningful_record_key_v5(old_record)
+            if key is not None:
+                old_semantic.setdefault(key, []).append(
+                    (old_fid, old_record)
+                )
+
+        rebased = {}
+        carried_exact = 0
+        carried_semantic = 0
+        rejected_incompatible = 0
+        rejected_ambiguous = 0
+
+        for fid, current_record in current_by_fid.items():
+            old_record = existing_records.get(fid)
+
+            if old_record is not None:
+                if cls._records_compatible_v5(
+                    old_record,
+                    current_record,
+                ):
+                    carried = dict(old_record)
+                    carried.update(cls._alias_payload_v5(old_record))
+                    rebased[fid] = carried
+                    carried_exact += 1
+                    continue
+
+                rejected_incompatible += 1
+
+            key = cls._meaningful_record_key_v5(current_record)
+            candidates = (
+                old_semantic.get(key, [])
+                if key is not None
+                else []
+            )
+
+            compatible = [
+                (old_fid, candidate)
+                for old_fid, candidate in candidates
+                if cls._records_compatible_v5(
+                    candidate,
+                    current_record,
+                )
+            ]
+
+            if len(compatible) == 1:
+                old_fid, candidate = compatible[0]
+                carried = cls._alias_payload_v5(candidate)
+                if carried:
+                    rebased[fid] = carried
+                carried_semantic += 1
+            elif len(compatible) > 1:
+                rejected_ambiguous += 1
+
+        return rebased, {
+            "existing_records": len(existing_records),
+            "current_records": len(current_by_fid),
+            "carried_exact_identity": carried_exact,
+            "carried_unique_semantic_identity": carried_semantic,
+            "rejected_incompatible": rejected_incompatible,
+            "rejected_ambiguous": rejected_ambiguous,
+            "discarded_stale_records": max(
+                0,
+                len(existing_records)
+                - carried_exact
+                - carried_semantic,
+            ),
+        }
 
     @classmethod
     def from_manifest(cls, records, program=None, existing=None):
         obj = cls(existing)
-        identity = program_identity(program)
-        if obj.records and obj.program_identity not in ("program:unknown", identity):
-            raise ValueError("function name registry belongs to another program")
-        obj.program_identity = identity
+
+        records = [
+            dict(value)
+            for value in list(records or [])
+        ]
+        current_descriptor = program_descriptor(program)
+        current_surface = manifest_surface_fingerprint(records)
+        current_identity = program_identity(program)
+
+        previous_identity = obj.program_identity
+        previous_surface = obj.function_surface_fingerprint
+        descriptor_match = _program_descriptors_compatible(
+            obj.program_descriptor,
+            current_descriptor,
+        )
+
+        identity_matches = previous_identity in (
+            "program:unknown",
+            current_identity,
+        )
+        surface_matches = (
+            not previous_surface
+            or previous_surface == current_surface
+        )
+
+        continuity_mode = "new_registry"
+
+        if obj.records:
+            if identity_matches and surface_matches:
+                continuity_mode = "unchanged_surface"
+
+            elif descriptor_match is False:
+                # Foreign/stale registry data must never terminate Batch.
+                # Start clean and retain only an audit event.
+                foreign_identity = previous_identity
+                foreign_record_count = len(obj.records)
+
+                obj.records = {}
+                obj.collisions = []
+                obj.revisions = [{
+                    "kind": (
+                        "pal_function_registry_foreign_metadata_reset_v5"
+                    ),
+                    "previous_program_identity": foreign_identity,
+                    "current_program_identity": current_identity,
+                    "discarded_records": foreign_record_count,
+                    "reason": "portable_program_descriptor_mismatch",
+                    "batch_fatal": False,
+                }]
+                obj.revision = 0
+                continuity_mode = "foreign_registry_reset"
+
+            else:
+                # Same project/program descriptor, but a legacy identity or a
+                # legitimately changed function surface. Rebase safe aliases.
+                previous_records = obj.records
+                rebased, stats = cls._rebase_records_v5(
+                    previous_records,
+                    records,
+                    current_identity,
+                )
+                obj.records = rebased
+                obj.collisions = []
+
+                event = {
+                    "kind": (
+                        "pal_function_registry_recompiled_surface_rebased_v5"
+                    ),
+                    "previous_program_identity": previous_identity,
+                    "current_program_identity": current_identity,
+                    "previous_function_surface_fingerprint": (
+                        previous_surface or None
+                    ),
+                    "current_function_surface_fingerprint": (
+                        current_surface
+                    ),
+                    "descriptor_match": descriptor_match,
+                    "reason": (
+                        "same_project_recompiled_or_legacy_identity_migrated"
+                    ),
+                    "operator_aliases_preserved_when_proven": True,
+                    "generated_aliases_preserved_when_proven": True,
+                    "batch_fatal": False,
+                    **stats,
+                }
+                if event not in obj.revisions:
+                    obj.revisions.append(event)
+
+                continuity_mode = "recompiled_surface_rebased"
+
+        obj.program_identity = current_identity
+        obj.program_descriptor = current_descriptor
+        obj.function_surface_fingerprint = current_surface
+        obj.program_identity_policy = (
+            "portable_descriptor_identity_with_"
+            "reconcilable_function_surface_v5"
+        )
+        obj.registry_continuity_mode = continuity_mode
+
         return obj.reconcile(records)
 
     def _claimed(self, exclude=None):
@@ -656,6 +1159,18 @@ class PALFunctionNameRegistry:
             "schema_version": FUNCTION_REGISTRY_SCHEMA,
             "version": HUMANIZER_VERSION,
             "program_identity": self.program_identity,
+            "program_descriptor": dict(
+                self.program_descriptor
+            ),
+            "function_surface_fingerprint": (
+                self.function_surface_fingerprint
+            ),
+            "program_identity_policy": (
+                self.program_identity_policy
+            ),
+            "registry_continuity_mode": (
+                self.registry_continuity_mode
+            ),
             "revision": self.revision,
             "vocabulary_size": len(COGNITIVE_WORDS),
             "functions": {key: dict(self.records[key]) for key in sorted(self.records)},
@@ -1003,7 +1518,8 @@ __all__ = [
     "COGNITIVE_CODE_STOPWORDS", "PYTHON_RESERVED_NAMES", "CognitiveNameAllocator",
     "PALFunctionNameRegistry", "ProjectONCSStore", "PALHumanize",
     "build_variable_alias_contracts", "classify_variable_humanization",
-    "function_identity", "program_identity", "function_surface_name",
+    "function_identity", "program_identity", "program_descriptor",
+    "manifest_surface_fingerprint", "function_surface_name",
     "augmented_function_name", "augmented_variable_name",
     "is_generic_variable_name", "is_generic_function_name", "safe_identifier",
     "validate_operator_name", "validate_variable_operator_name",

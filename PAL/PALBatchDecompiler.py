@@ -1,6 +1,6 @@
 # ============================================================
 # PAL BATCH DECOMPILER
-# BUILD: batch_v2_project_global_function_name_registry
+# BUILD: batch_v2d_explicit_stdio_overlay_authority
 #
 # Live PyGhidra orchestration layer.  The single-function PAL pipeline remains
 # authoritative; this module only enumerates Ghidra functions, invokes that
@@ -25,7 +25,7 @@ from PALHumanizer import (
 
 BATCH_FORMAT = "pal_function_bundle"
 BATCH_SCHEMA_VERSION = 1
-BATCH_BUILD = "batch_v2_project_global_function_name_registry"
+BATCH_BUILD = "batch_v2d_explicit_stdio_overlay_authority"
 
 
 def _safe_call(obj, method, default=None, *args):
@@ -58,6 +58,43 @@ def _safe_text(value, default=None):
         return str(value)
     except Exception:
         return default
+
+
+def _portable_relpath(path, root):
+    """
+    Return a slash-normalized path relative to the PAL repository root.
+
+    Absolute paths remain an internal file-I/O detail and must not cross the
+    generated artifact boundary.
+    """
+    path = os.path.abspath(os.fspath(path))
+    root = os.path.abspath(os.fspath(root))
+    try:
+        relative = os.path.relpath(path, root)
+    except Exception:
+        relative = os.path.basename(path)
+    if relative == os.pardir or relative.startswith(os.pardir + os.sep):
+        relative = os.path.basename(path)
+    return relative.replace(os.sep, "/")
+
+
+def _portable_text(text, root):
+    """
+    Rewrite PAL-root absolute paths embedded in diagnostics as repository-
+    relative paths. Other text is preserved verbatim.
+    """
+    if text is None:
+        return text
+    value = str(text)
+    root = os.path.abspath(os.fspath(root))
+    prefixes = {
+        root.rstrip("/\\") + os.sep,
+        root.rstrip("/\\") + "/",
+        root.rstrip("/\\") + "\\",
+    }
+    for prefix in sorted(prefixes, key=len, reverse=True):
+        value = value.replace(prefix, "")
+    return value
 
 
 def _sha256_bytes(data):
@@ -138,17 +175,30 @@ def _normalize_lines(value):
         return None
 
 
-def _program_info(program):
+def _program_info(program, path_root=None):
     image_base = _safe_int(_safe_call(program, "getImageBase"))
     language = _safe_call(program, "getLanguage")
     compiler = _safe_call(program, "getCompilerSpec")
     language_id = _safe_call(language, "getLanguageID")
     compiler_id = _safe_call(compiler, "getCompilerSpecID")
-    executable_path = _safe_call(program, "getExecutablePath")
+    executable_path = _safe_text(
+        _safe_call(program, "getExecutablePath")
+    )
+    if executable_path:
+        if path_root:
+            executable_path = _portable_relpath(
+                executable_path, path_root
+            )
+        elif os.path.isabs(executable_path):
+            executable_path = os.path.basename(executable_path)
+        executable_path = executable_path.replace(os.sep, "/")
     executable_format = _safe_call(program, "getExecutableFormat")
     return {
         "name": _safe_text(_safe_call(program, "getName"), "unknown"),
-        "executable_path": _safe_text(executable_path),
+        "executable_path": executable_path,
+        "executable_path_policy": (
+            "relative_to_pal_repository_root_or_basename"
+        ),
         "executable_format": _safe_text(executable_format),
         "image_base": image_base,
         "image_base_hex": hex(image_base) if isinstance(image_base, int) else None,
@@ -444,8 +494,13 @@ class PALBatchDecompiler:
         ).strip() or "unknown"
         project_name = os.path.basename(project_name)
         pal_root = os.path.abspath(output_root or os.getcwd())
+        self.pal_root = pal_root
+        self.project_name = project_name
         self.output_root = os.path.join(
             pal_root, "project", project_name
+        )
+        self.output_root_relative = _portable_relpath(
+            self.output_root, self.pal_root
         )
         self.functions_root = os.path.join(self.output_root, "functions")
         self.manifest_path = os.path.join(
@@ -458,6 +513,14 @@ class PALBatchDecompiler:
         self.name_registry_path = os.path.join(
             self.output_root, "PAL_ONCS.json"
         )
+        self.stdio_strings_path = os.path.join(
+            self.output_root, "PAL_stdio_strings.json"
+        )
+        self.static_string_report = {
+            "status": "not_run",
+            "artifact": os.path.basename(self.stdio_strings_path),
+            "strings": 0,
+        }
 
         self.pipeline_class = pipeline_class or _pipeline_class()
         self.decompiler_interface = decompiler_interface
@@ -481,6 +544,102 @@ class PALBatchDecompiler:
     def _print(self, message):
         if self.progress:
             print(str(message))
+
+    def _public_path(self, path):
+        return _portable_relpath(path, self.pal_root)
+
+    def _public_text(self, text):
+        return _portable_text(text, self.pal_root)
+
+    def _program_info_public(self):
+        return _program_info(self.program, self.pal_root)
+
+    def _preserve_pipeline_log(self, source_path, destination_path):
+        """
+        Persist pipeline diagnostics after removing the machine-local PAL root.
+        """
+        with open(source_path, "rt", encoding="utf-8", errors="replace") as handle:
+            text = handle.read()
+        return _atomic_write_text(
+            destination_path,
+            self._public_text(text),
+        )
+
+    def _publish_static_strings(self):
+        """
+        Publish initialized Ghidra string data before any function emitter runs.
+
+        This is a program-level artifact boundary. The emitter and execution
+        publisher remain consumers and never inspect the live Ghidra Program.
+        """
+        try:
+            from PALStaticStringPublisher import publish_static_strings
+
+            report = publish_static_strings(
+                self.program,
+                self.stdio_strings_path,
+            )
+            self.static_string_report = dict(report or {})
+            self.static_string_report["artifact"] = os.path.basename(
+                self.stdio_strings_path
+            )
+            self.static_string_report["path"] = self._public_path(
+                self.stdio_strings_path
+            )
+            self._print(
+                "PAL strings: %d published -> %s"
+                % (
+                    int(self.static_string_report.get("strings") or 0),
+                    self._public_path(self.stdio_strings_path),
+                )
+            )
+        except Exception as exc:
+            self.static_string_report = {
+                "status": "failed",
+                "artifact": os.path.basename(self.stdio_strings_path),
+                "path": self._public_path(self.stdio_strings_path),
+                "strings": 0,
+                "error": {
+                    "type": type(exc).__name__,
+                    "message": self._public_text(str(exc)),
+                },
+                "policy": (
+                    "nonfatal_readable_projection_retains_pointer_arguments"
+                ),
+            }
+            self._print(
+                "PAL strings: FAILED (%s: %s)"
+                % (
+                    type(exc).__name__,
+                    self._public_text(str(exc)),
+                )
+            )
+
+    @contextlib.contextmanager
+    def _stdio_overlay_environment(self):
+        """
+        Bind the exact current-project overlay while one function pipeline runs.
+
+        PALemitter treats PAL_STDIO_STRINGS as explicit authority.  Scoping the
+        value here prevents cross-project address collisions while preserving
+        the caller's prior environment in a long-lived PyGhidra interpreter.
+        """
+        key = "PAL_STDIO_STRINGS"
+        previous_present = key in os.environ
+        previous_value = os.environ.get(key)
+
+        if os.path.isfile(self.stdio_strings_path):
+            os.environ[key] = self.stdio_strings_path
+        else:
+            os.environ.pop(key, None)
+
+        try:
+            yield
+        finally:
+            if previous_present:
+                os.environ[key] = previous_value
+            else:
+                os.environ.pop(key, None)
 
     def _cancelled(self):
         return bool(_safe_call(self.monitor, "isCancelled", False))
@@ -521,10 +680,13 @@ class PALBatchDecompiler:
             "schema_version": BATCH_SCHEMA_VERSION,
             "build": BATCH_BUILD,
             "status": self.status,
-            "program": _program_info(self.program),
-            "output_root": self.output_root,
+            "program": self._program_info_public(),
+            "output_root": self.output_root_relative,
+            "output_root_base": "PAL_repository_root",
             "functions_directory": "functions",
-            "directory_policy": "non_destructive_manifest_authoritative",
+            "directory_policy": (
+                "portable_relative_non_destructive_manifest_authoritative"
+            ),
             "pipeline_entrypoint": self.pipeline_entrypoint,
             "counts": {
                 "discovered": self.discovered_count,
@@ -545,11 +707,27 @@ class PALBatchDecompiler:
                 "status": "deferred_to_inter_function_relation_layer",
                 "edges": [],
             },
+            "static_strings": dict(self.static_string_report or {}),
+            "static_string_emitter_authority": {
+                "transport": "scoped_environment",
+                "key": "PAL_STDIO_STRINGS",
+                "value_policy": (
+                    "absolute_internal_path_to_current_project_overlay"
+                ),
+                "scope": "single_function_pipeline_run",
+                "restoration": "restore_prior_environment_after_run",
+                "cross_project_discovery_allowed": False,
+            },
             "artifacts": {
                 "dispatch": os.path.basename(self.dispatch_path),
                 "jump_table": os.path.basename(self.jump_table_path),
                 "manifest": os.path.basename(self.manifest_path),
                 "name_registry": os.path.basename(self.name_registry_path),
+                "stdio_strings": (
+                    os.path.basename(self.stdio_strings_path)
+                    if os.path.isfile(self.stdio_strings_path)
+                    else None
+                ),
             },
             "name_registry": {
                 "version": HUMANIZER_VERSION,
@@ -593,7 +771,7 @@ class PALBatchDecompiler:
             })
         payload = {
             "kind": "pal_function_jump_table_v1",
-            "program": _program_info(self.program),
+            "program": self._program_info_public(),
             "functions": table,
         }
         return _atomic_write_json(self.jump_table_path, payload)
@@ -617,7 +795,9 @@ class PALBatchDecompiler:
         return _atomic_write_text(path, text)
 
     def _record_artifact(self, record, key, path):
-        rel = os.path.relpath(path, self.output_root)
+        rel = os.path.relpath(path, self.output_root).replace(
+            os.sep, "/"
+        )
         record["artifacts"][key] = {
             "path": rel,
             "sha256": _sha256_file(path),
@@ -679,30 +859,40 @@ class PALBatchDecompiler:
         dispatcher = None
 
         try:
-            with open(temp_log, "wt", encoding="utf-8", newline="\n") as log:
-                with contextlib.redirect_stdout(log), contextlib.redirect_stderr(log):
-                    dispatcher = self.pipeline_class(
-                        function,
-                        self.program,
-                        self.decompiler_interface,
-                        self.monitor,
-                    )
-                    pipeline_run = getattr(
-                        dispatcher, self.pipeline_entrypoint, None
-                    )
-                    if not callable(pipeline_run):
-                        raise AttributeError(
-                            "PAL pipeline has no callable entrypoint %r"
-                            % self.pipeline_entrypoint
+            with self._stdio_overlay_environment():
+                with open(
+                    temp_log, "wt", encoding="utf-8", newline="\n"
+                ) as log:
+                    with (
+                        contextlib.redirect_stdout(log),
+                        contextlib.redirect_stderr(log),
+                    ):
+                        dispatcher = self.pipeline_class(
+                            function,
+                            self.program,
+                            self.decompiler_interface,
+                            self.monitor,
                         )
-                    result = pipeline_run()
-                    pal, readable, executable = _extract_projection_lines(
-                        dispatcher, result
-                    )
-                    if self.ensure_projection_pair:
-                        readable, executable = _ensure_projection_pair(
-                            pal, readable, executable
+                        pipeline_run = getattr(
+                            dispatcher, self.pipeline_entrypoint, None
                         )
+                        if not callable(pipeline_run):
+                            raise AttributeError(
+                                "PAL pipeline has no callable entrypoint %r"
+                                % self.pipeline_entrypoint
+                            )
+                        result = pipeline_run()
+                        pal, readable, executable = (
+                            _extract_projection_lines(
+                                dispatcher, result
+                            )
+                        )
+                        if self.ensure_projection_pair:
+                            readable, executable = (
+                                _ensure_projection_pair(
+                                    pal, readable, executable
+                                )
+                            )
 
             if not executable:
                 raise ValueError("PAL pipeline emitted no executable Python")
@@ -733,10 +923,16 @@ class PALBatchDecompiler:
             self._freeze_icecube(dispatcher, getattr(dispatcher, "PAL", None), record)
 
             if self.keep_success_logs:
-                os.replace(temp_log, log_path)
+                self._preserve_pipeline_log(temp_log, log_path)
                 self._record_artifact(record, "pipeline_log", log_path)
-            elif os.path.exists(temp_log):
-                os.unlink(temp_log)
+            else:
+                if os.path.exists(temp_log):
+                    os.unlink(temp_log)
+                # Remove a stale failure log left by an earlier batch run.
+                # A successful public snapshot must not retain obsolete local
+                # traceback paths merely because the function now decompiles.
+                if os.path.exists(log_path):
+                    os.unlink(log_path)
 
             record["status"] = "decompiled"
             return True
@@ -745,18 +941,22 @@ class PALBatchDecompiler:
             record["status"] = "failed"
             record["error"] = {
                 "type": type(exc).__name__,
-                "message": str(exc),
-                "traceback": traceback.format_exc().splitlines(),
+                "message": self._public_text(str(exc)),
+                "traceback": [
+                    self._public_text(line)
+                    for line in traceback.format_exc().splitlines()
+                ],
             }
             try:
                 with open(temp_log, "at", encoding="utf-8", newline="\n") as log:
                     log.write("\n=== PAL BATCH FAILURE ===\n")
                     traceback.print_exc(file=log)
-                os.replace(temp_log, log_path)
+                self._preserve_pipeline_log(temp_log, log_path)
                 self._record_artifact(record, "pipeline_log", log_path)
             except Exception as log_exc:
                 record["warnings"].append(
-                    "could not preserve pipeline log: %s" % log_exc
+                    "could not preserve pipeline log: %s"
+                    % self._public_text(log_exc)
                 )
             return False
 
@@ -771,6 +971,10 @@ class PALBatchDecompiler:
         os.makedirs(self.output_root, exist_ok=True)
         os.makedirs(self.functions_root, exist_ok=True)
         self._write_package_init()
+
+        # Program-wide static-data publication must precede the first
+        # per-function pipeline/emitter pass.
+        self._publish_static_strings()
 
         if self.decompiler_interface is None:
             self.decompiler_interface = _make_decompiler_interface()
@@ -798,14 +1002,14 @@ class PALBatchDecompiler:
                 )
         self.name_registry = PALFunctionNameRegistry.from_manifest(
             self.records,
-            program=_program_info(self.program),
+            program=self._program_info_public(),
             existing=existing_registry,
         )
         self._write_name_registry()
         self.status = "running"
         self._print(
             "PAL batch: %d Ghidra functions discovered in %s"
-            % (len(functions), _program_info(self.program).get("name"))
+            % (len(functions), self._program_info_public().get("name"))
         )
 
         interrupted = False
@@ -878,8 +1082,8 @@ class PALBatchDecompiler:
                 manifest["counts"]["skipped_external"],
             )
         )
-        self._print("Manifest: %s" % self.manifest_path)
-        self._print("Dispatch: %s" % self.dispatch_path)
+        self._print("Manifest: %s" % self._public_path(self.manifest_path))
+        self._print("Dispatch: %s" % self._public_path(self.dispatch_path))
         return manifest
 
 

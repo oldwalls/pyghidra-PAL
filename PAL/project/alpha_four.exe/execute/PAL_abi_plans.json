@@ -2326,7 +2326,7 @@
       "version": "v23b_abi_thunk_compatibility_return_reconciliation",
       "xmm_registers_used": 0
     },
-    "call_site:1053093:(ram, 0x1011af, 47, 5):5": {
+    "call_site:1053107:(ram, 0x1011bd, 53, 5):5": {
       "abi_backend": {
         "name": "sysv_amd64",
         "reason": "x86_64 target plus ELF/GCC compiler evidence",
@@ -2340,25 +2340,25 @@
           "authority": "datatype_class_plus_SysV_AMD64_scalar_register_order",
           "carrier": "RDI",
           "carrier_kind": "gp_register",
-          "classification_authority": "target_logical_parameter_datatype",
+          "classification_authority": "argument_high_variable_datatype",
           "constant": false,
           "constant_value": null,
           "index": 0,
           "kind": "pal_compute_call_argument_plan_abi_d",
           "materialization": "write_abi_gp_register",
-          "parameter_region": "fixed",
+          "parameter_region": "prototype_unresolved",
           "runtime_helper": null,
           "source_name": null,
-          "source_sid": "v_94",
+          "source_sid": "v_110",
           "source_width_bits": 32,
           "stack_slot": null,
           "version": "v23b_abi_thunk_compatibility_return_reconciliation"
         }
       ],
-      "arity_authority": "authoritative_target_prototype",
-      "arity_status": "valid_fixed_arity",
+      "arity_authority": "observation_only",
+      "arity_status": "target_prototype_unresolved",
       "authority": "PALlibrary_call_site_ABI_contract_only",
-      "block_addr": 1053093,
+      "block_addr": 1053107,
       "caller_variadic_al": {
         "authority": "PALlibrary_carrier_allocation",
         "destination": "abi_context.variadic_xmm_count",
@@ -2397,55 +2397,31 @@
         "semantic_endpoint_status": "physical_non_thunk_internal_target",
         "semantic_external": false,
         "semantic_internal": true,
-        "signature_source_class": "imported",
+        "signature_source_class": "default",
         "version": "v23b_abi_thunk_compatibility_return_reconciliation"
       },
       "no_return": false,
       "observed_argument_sids": [
-        "v_94"
+        "v_110"
       ],
-      "op_id": "(ram, 0x1011af, 47, 5)",
-      "op_key": "1053093:(ram, 0x1011af, 47, 5):5",
+      "op_id": "(ram, 0x1011bd, 53, 5)",
+      "op_key": "1053107:(ram, 0x1011bd, 53, 5):5",
       "opcode": "CALL",
       "plan_class": "call_site_abi_plan",
-      "plan_id": "call_site:1053093:(ram, 0x1011af, 47, 5):5",
+      "plan_id": "call_site:1053107:(ram, 0x1011bd, 53, 5):5",
       "result_contract": {
         "authority": "PALlibrary_function_signature_return_storage",
-        "carrier_pieces": [
-          {
-            "flags": {
-              "address": false,
-              "constant": false,
-              "input": false,
-              "register": true,
-              "unaffected": false,
-              "unique": false
-            },
-            "kind": "register",
-            "offset": 0,
-            "register": {
-              "base_name": "RAX",
-              "name": "EAX",
-              "repr": "EAX",
-              "size_bytes": 4
-            },
-            "repr": "(register, 0x0, 4)",
-            "size_bytes": 4,
-            "space": "register",
-            "storage_key": "register:0:4",
-            "width_bits": 32
-          }
-        ],
+        "carrier_pieces": [],
         "declared_return": {
-          "class_name": "IntegerDataType",
-          "display_name": "int",
-          "kind_hint": "integer",
-          "length_bytes": 4,
-          "name": "int",
-          "signed": true,
-          "width_bits": 32
+          "class_name": "DefaultDataType",
+          "display_name": "undefined",
+          "kind_hint": null,
+          "length_bytes": 1,
+          "name": "undefined",
+          "signed": null,
+          "width_bits": 8
         },
-        "declared_width_bits": 32,
+        "declared_width_bits": 8,
         "effective_result_width_bits": 32,
         "kind": "pal_compute_return_carrier_contract_abi_d",
         "no_return": false,
@@ -2454,91 +2430,41 @@
           "mode": "mask_to_output_width",
           "width_bits": 32
         },
-        "output_sid": "v_1728",
+        "output_sid": "v_4440",
         "output_width_bits": 32,
         "return_storage": {
           "flags": {
             "auto": false,
             "memory": false,
-            "register": true,
+            "register": false,
             "stack": false,
-            "unassigned": false,
+            "unassigned": true,
             "void": false
           },
-          "pieces": [
-            {
-              "flags": {
-                "address": false,
-                "constant": false,
-                "input": false,
-                "register": true,
-                "unaffected": false,
-                "unique": false
-              },
-              "kind": "register",
-              "offset": 0,
-              "register": {
-                "base_name": "RAX",
-                "name": "EAX",
-                "repr": "EAX",
-                "size_bytes": 4
-              },
-              "repr": "(register, 0x0, 4)",
-              "size_bytes": 4,
-              "space": "register",
-              "storage_key": "register:0:4",
-              "width_bits": 32
-            }
-          ],
-          "repr": "EAX:4",
-          "size_bytes": 4,
-          "storage_keys": [
-            "register:0:4"
-          ]
+          "pieces": [],
+          "repr": "<UNASSIGNED>",
+          "size_bytes": 0,
+          "storage_keys": []
         },
         "runtime_helper": null,
         "runtime_helper_authority": "no_ABI_runtime_helper_assigned",
-        "status": "physical_return_carrier_proven",
+        "status": "return_carrier_deferred",
         "version": "v23b_abi_thunk_compatibility_return_reconciliation"
       },
       "result_width_bits": 32,
       "return_carrier_contract": {
         "authority": "PALlibrary_function_signature_return_storage",
-        "carrier_pieces": [
-          {
-            "flags": {
-              "address": false,
-              "constant": false,
-              "input": false,
-              "register": true,
-              "unaffected": false,
-              "unique": false
-            },
-            "kind": "register",
-            "offset": 0,
-            "register": {
-              "base_name": "RAX",
-              "name": "EAX",
-              "repr": "EAX",
-              "size_bytes": 4
-            },
-            "repr": "(register, 0x0, 4)",
-            "size_bytes": 4,
-            "space": "register",
-            "storage_key": "register:0:4",
-            "width_bits": 32
-          }
-        ],
+        "carrier_pieces": [],
         "declared_return": {
-          "class_name": "IntegerDataType",
-          "display_name": "int",
-          "kind_hint": "integer",
-          "length_bytes": 4,
-          "name": "int",
-          "signed": true,
-          "width_bits": 32
+          "class_name": "DefaultDataType",
+          "display_name": "undefined",
+          "kind_hint": null,
+          "length_bytes": 1,
+          "name": "undefined",
+          "signed": null,
+          "width_bits": 8
         },
-        "declared_width_bits": 32,
+        "declared_width_bits": 8,
         "effective_result_width_bits": 32,
         "kind": "pal_compute_return_carrier_contract_abi_d",
         "no_return": false,
@@ -2547,51 +2473,25 @@
           "mode": "mask_to_output_width",
           "width_bits": 32
         },
-        "output_sid": "v_1728",
+        "output_sid": "v_4440",
         "output_width_bits": 32,
         "return_storage": {
           "flags": {
             "auto": false,
             "memory": false,
-            "register": true,
+            "register": false,
             "stack": false,
-            "unassigned": false,
+            "unassigned": true,
             "void": false
           },
-          "pieces": [
-            {
-              "flags": {
-                "address": false,
-                "constant": false,
-                "input": false,
-                "register": true,
-                "unaffected": false,
-                "unique": false
-              },
-              "kind": "register",
-              "offset": 0,
-              "register": {
-                "base_name": "RAX",
-                "name": "EAX",
-                "repr": "EAX",
-                "size_bytes": 4
-              },
-              "repr": "(register, 0x0, 4)",
-              "size_bytes": 4,
-              "space": "register",
-              "storage_key": "register:0:4",
-              "width_bits": 32
-            }
-          ],
-          "repr": "EAX:4",
-          "size_bytes": 4,
-          "storage_keys": [
-            "register:0:4"
-          ]
+          "pieces": [],
+          "repr": "<UNASSIGNED>",
+          "size_bytes": 0,
+          "storage_keys": []
         },
         "runtime_helper": null,
         "runtime_helper_authority": "no_ABI_runtime_helper_assigned",
-        "status": "physical_return_carrier_proven",
+        "status": "return_carrier_deferred",
         "version": "v23b_abi_thunk_compatibility_return_reconciliation"
       },
       "runtime_helper": null,
@@ -2605,16 +2505,16 @@
         "arguments": [
           {
             "argument_class": "integer",
-            "class_authority": "target_logical_parameter_datatype",
+            "class_authority": "argument_high_variable_datatype",
             "constant": false,
             "constant_value": null,
             "datatype": {
-              "class_name": "IntegerDataType",
-              "display_name": "int",
+              "class_name": "UnsignedIntegerDataType",
+              "display_name": "uint",
               "kind_hint": "integer",
               "length_bytes": 4,
-              "name": "int",
-              "signed": true,
+              "name": "uint",
+              "signed": false,
               "width_bits": 32
             },
             "datatype_class": "integer",
@@ -2630,8 +2530,8 @@
               "role": "non_argument_register",
               "storage_key": "register:0:4"
             },
-            "parameter_region": "fixed",
-            "sid": "v_94",
+            "parameter_region": "prototype_unresolved",
+            "sid": "v_110",
             "storage": {
               "flags": {
                 "address": false,
@@ -2658,10 +2558,10 @@
             "width_bits": 32
           }
         ],
-        "arity_authority": "authoritative_target_prototype",
-        "arity_status": "valid_fixed_arity",
+        "arity_authority": "observation_only",
+        "arity_status": "target_prototype_unresolved",
         "authority": "HighFunction_CALL_inputs_plus_target_Function_prototype",
-        "block_addr": 1053093,
+        "block_addr": 1053107,
         "caller": "main",
         "caller_entry": 1053053,
         "carrier_allocation": {
@@ -2670,16 +2570,16 @@
               "argument_class": "integer",
               "carrier": "RDI",
               "carrier_kind": "gp_register",
-              "class_authority": "target_logical_parameter_datatype",
+              "class_authority": "argument_high_variable_datatype",
               "constant": false,
               "constant_value": null,
               "datatype": {
-                "class_name": "IntegerDataType",
-                "display_name": "int",
+                "class_name": "UnsignedIntegerDataType",
+                "display_name": "uint",
                 "kind_hint": "integer",
                 "length_bytes": 4,
-                "name": "int",
-                "signed": true,
+                "name": "uint",
+                "signed": false,
                 "width_bits": 32
               },
               "datatype_class": "integer",
@@ -2695,8 +2595,8 @@
                 "role": "non_argument_register",
                 "storage_key": "register:0:4"
               },
-              "parameter_region": "fixed",
-              "sid": "v_94",
+              "parameter_region": "prototype_unresolved",
+              "sid": "v_110",
               "storage": {
                 "flags": {
                   "address": false,
@@ -2739,12 +2639,12 @@
         "kind": "lifter_call_site_abi_contract_v23b",
         "logical_argument_count": 1,
         "observed_argument_count": 1,
-        "op_id": "(ram, 0x1011af, 47, 5)",
+        "op_id": "(ram, 0x1011bd, 53, 5)",
         "opcode": "CALL",
-        "target_calling_convention": "__stdcall",
+        "target_calling_convention": "unknown",
         "target_entry": 1053001,
         "target_external": false,
-        "target_fixed_parameter_count": 1,
+        "target_fixed_parameter_count": null,
         "target_name": "mutate",
         "target_no_return": false,
         "target_operand": {
@@ -2769,84 +2669,28 @@
           "authority": "Ghidra_Function_signature_source_plus_explicit_C_arity",
           "conflicts": [],
           "declared_variadic": false,
-          "fixed_parameter_count": 1,
+          "fixed_parameter_count": null,
           "high_prototype_parameter_count": null,
           "kind": "function_prototype_authority_v23b",
-          "observed_parameter_count": 1,
-          "prototype_text": "int __stdcall mutate(int v)",
-          "prototype_text_arity_hint": "nonempty_text",
-          "reason": "Function parameter objects enumerate fixed parameters",
-          "reported_parameter_count": 1,
-          "signature_source": "IMPORTED",
-          "signature_source_class": "imported",
-          "status": "authoritative_n",
+          "observed_parameter_count": 0,
+          "prototype_text": "undefined mutate()",
+          "prototype_text_arity_hint": "empty_unspecified",
+          "reason": "empty parameter enumeration lacks explicit void or strong signature-source authority",
+          "reported_parameter_count": 0,
+          "signature_source": "DEFAULT",
+          "signature_source_class": "default",
+          "status": "unresolved",
           "version": "v23b_authoritative_prototypes_and_carriers"
         },
         "target_resolved": true,
         "target_signature": {
-          "calling_convention": "__stdcall",
+          "calling_convention": "unknown",
           "entry": 1053001,
           "external": false,
           "name": "mutate",
           "no_return": false,
-          "parameter_count": 1,
-          "parameters": [
-            {
-              "auto_parameter": false,
-              "datatype": {
-                "class_name": "IntegerDataType",
-                "display_name": "int",
-                "kind_hint": "integer",
-                "length_bytes": 4,
-                "name": "int",
-                "signed": true,
-                "width_bits": 32
-              },
-              "name": "v",
-              "ordinal": 0,
-              "storage": "EDI:4",
-              "storage_image": {
-                "flags": {
-                  "auto": false,
-                  "memory": false,
-                  "register": true,
-                  "stack": false,
-                  "unassigned": false,
-                  "void": false
-                },
-                "pieces": [
-                  {
-                    "flags": {
-                      "address": false,
-                      "constant": false,
-                      "input": false,
-                      "register": true,
-                      "unaffected": false,
-                      "unique": false
-                    },
-                    "kind": "register",
-                    "offset": 56,
-                    "register": {
-                      "base_name": "RDI",
-                      "name": "EDI",
-                      "repr": "EDI",
-                      "size_bytes": 4
-                    },
-                    "repr": "(register, 0x38, 4)",
-                    "size_bytes": 4,
-                    "space": "register",
-                    "storage_key": "register:56:4",
-                    "width_bits": 32
-                  }
-                ],
-                "repr": "EDI:4",
-                "size_bytes": 4,
-                "storage_keys": [
-                  "register:56:4"
-                ]
-              }
-            }
-          ],
+          "parameter_count": 0,
+          "parameters": [],
           "prototype": {
             "model_name": null,
             "parameter_count": null,
@@ -2864,72 +2708,46 @@
             "authority": "Ghidra_Function_signature_source_plus_explicit_C_arity",
             "conflicts": [],
             "declared_variadic": false,
-            "fixed_parameter_count": 1,
+            "fixed_parameter_count": null,
             "high_prototype_parameter_count": null,
             "kind": "function_prototype_authority_v23b",
-            "observed_parameter_count": 1,
-            "prototype_text": "int __stdcall mutate(int v)",
-            "prototype_text_arity_hint": "nonempty_text",
-            "reason": "Function parameter objects enumerate fixed parameters",
-            "reported_parameter_count": 1,
-            "signature_source": "IMPORTED",
-            "signature_source_class": "imported",
-            "status": "authoritative_n",
+            "observed_parameter_count": 0,
+            "prototype_text": "undefined mutate()",
+            "prototype_text_arity_hint": "empty_unspecified",
+            "reason": "empty parameter enumeration lacks explicit void or strong signature-source authority",
+            "reported_parameter_count": 0,
+            "signature_source": "DEFAULT",
+            "signature_source_class": "default",
+            "status": "unresolved",
             "version": "v23b_authoritative_prototypes_and_carriers"
           },
-          "prototype_text": "int __stdcall mutate(int v)",
-          "prototype_text_arity_hint": "nonempty_text",
-          "reported_parameter_count": 1,
+          "prototype_text": "undefined mutate()",
+          "prototype_text_arity_hint": "empty_unspecified",
+          "reported_parameter_count": 0,
           "return": {
-            "class_name": "IntegerDataType",
-            "display_name": "int",
-            "kind_hint": "integer",
-            "length_bytes": 4,
-            "name": "int",
-            "signed": true,
-            "width_bits": 32
+            "class_name": "DefaultDataType",
+            "display_name": "undefined",
+            "kind_hint": null,
+            "length_bytes": 1,
+            "name": "undefined",
+            "signed": null,
+            "width_bits": 8
           },
           "return_storage": {
             "flags": {
               "auto": false,
               "memory": false,
-              "register": true,
+              "register": false,
               "stack": false,
-              "unassigned": false,
+              "unassigned": true,
               "void": false
             },
-            "pieces": [
-              {
-                "flags": {
-                  "address": false,
-                  "constant": false,
-                  "input": false,
-                  "register": true,
-                  "unaffected": false,
-                  "unique": false
-                },
-                "kind": "register",
-                "offset": 0,
-                "register": {
-                  "base_name": "RAX",
-                  "name": "EAX",
-                  "repr": "EAX",
-                  "size_bytes": 4
-                },
-                "repr": "(register, 0x0, 4)",
-                "size_bytes": 4,
-                "space": "register",
-                "storage_key": "register:0:4",
-                "width_bits": 32
-              }
-            ],
-            "repr": "EAX:4",
-            "size_bytes": 4,
-            "storage_keys": [
-              "register:0:4"
-            ]
+            "pieces": [],
+            "repr": "<UNASSIGNED>",
+            "size_bytes": 0,
+            "storage_keys": []
           },
-          "signature_source": "IMPORTED",
+          "signature_source": "DEFAULT",
           "thunk": false,
           "variadic": false,
           "variadic_evidence": [
@@ -2940,34 +2758,34 @@
           ]
         },
         "target_variadic": false,
-        "variadic_argument_count": 0,
+        "variadic_argument_count": null,
         "version": "v23b_authoritative_prototypes_and_carriers"
       },
       "stack_slots_used": 0,
       "status": "ready",
       "target": {
-        "calling_convention": "__stdcall",
+        "calling_convention": "unknown",
         "entry": 1053001,
         "entry_plan_lookup_key": "function_entry:1053001",
         "external": false,
-        "fixed_parameter_count": 1,
+        "fixed_parameter_count": null,
         "name": "mutate",
         "physical_external": false,
         "prototype_authority": {
           "authority": "Ghidra_Function_signature_source_plus_explicit_C_arity",
           "conflicts": [],
           "declared_variadic": false,
-          "fixed_parameter_count": 1,
+          "fixed_parameter_count": null,
           "high_prototype_parameter_count": null,
           "kind": "function_prototype_authority_v23b",
-          "observed_parameter_count": 1,
-          "prototype_text": "int __stdcall mutate(int v)",
-          "prototype_text_arity_hint": "nonempty_text",
-          "reason": "Function parameter objects enumerate fixed parameters",
-          "reported_parameter_count": 1,
-          "signature_source": "IMPORTED",
-          "signature_source_class": "imported",
-          "status": "authoritative_n",
+          "observed_parameter_count": 0,
+          "prototype_text": "undefined mutate()",
+          "prototype_text_arity_hint": "empty_unspecified",
+          "reason": "empty parameter enumeration lacks explicit void or strong signature-source authority",
+          "reported_parameter_count": 0,
+          "signature_source": "DEFAULT",
+          "signature_source_class": "default",
+          "status": "unresolved",
           "version": "v23b_authoritative_prototypes_and_carriers"
         },
         "resolved": true,
@@ -2978,20 +2796,20 @@
         "variadic": false
       },
       "target_compatibility": {
-        "aggregate_status": "compatible",
+        "aggregate_status": "deferred",
         "authority": "lifter_carrier_allocation_plus_target_arity_contract",
         "carrier_transport_compatible": true,
         "entry_plan_lookup_key": "function_entry:1053001",
         "entry_plan_lookup_required": true,
         "internal_target": true,
-        "prototype_compatibility": "compatible"
+        "prototype_compatibility": "deferred"
       },
-      "target_compatibility_status": "compatible",
-      "target_compatible": true,
+      "target_compatibility_status": "deferred",
+      "target_compatible": null,
       "version": "v23b_abi_thunk_compatibility_return_reconciliation",
       "xmm_registers_used": 0
     },
-    "call_site:1053123:(ram, 0x1011cd, 237, 0):0": {
+    "call_site:1053137:(ram, 0x1011db, 268, 0):0": {
       "abi_backend": {
         "name": "sysv_amd64",
         "reason": "x86_64 target plus ELF/GCC compiler evidence",
@@ -3005,16 +2823,16 @@
           "authority": "datatype_class_plus_SysV_AMD64_scalar_register_order",
           "carrier": "RDI",
           "carrier_kind": "gp_register",
-          "classification_authority": "target_logical_parameter_datatype",
+          "classification_authority": "argument_high_variable_datatype",
           "constant": false,
           "constant_value": null,
           "index": 0,
           "kind": "pal_compute_call_argument_plan_abi_d",
           "materialization": "write_abi_gp_register",
-          "parameter_region": "fixed",
+          "parameter_region": "prototype_unresolved",
           "runtime_helper": null,
           "source_name": null,
-          "source_sid": "v_4409",
+          "source_sid": "v_4880",
           "source_width_bits": 32,
           "stack_slot": null,
           "version": "v23b_abi_thunk_compatibility_return_reconciliation"
@@ -3024,25 +2842,25 @@
           "authority": "datatype_class_plus_SysV_AMD64_scalar_register_order",
           "carrier": "RSI",
           "carrier_kind": "gp_register",
-          "classification_authority": "target_logical_parameter_datatype",
+          "classification_authority": "argument_high_variable_datatype",
           "constant": false,
           "constant_value": null,
           "index": 1,
           "kind": "pal_compute_call_argument_plan_abi_d",
           "materialization": "write_abi_gp_register",
-          "parameter_region": "fixed",
+          "parameter_region": "prototype_unresolved",
           "runtime_helper": null,
           "source_name": null,
-          "source_sid": "v_4553",
+          "source_sid": "v_5030",
           "source_width_bits": 32,
           "stack_slot": null,
           "version": "v23b_abi_thunk_compatibility_return_reconciliation"
         }
       ],
-      "arity_authority": "authoritative_target_prototype",
-      "arity_status": "valid_fixed_arity",
+      "arity_authority": "observation_only",
+      "arity_status": "target_prototype_unresolved",
       "authority": "PALlibrary_call_site_ABI_contract_only",
-      "block_addr": 1053123,
+      "block_addr": 1053137,
       "caller_variadic_al": {
         "authority": "PALlibrary_carrier_allocation",
         "destination": "abi_context.variadic_xmm_count",
@@ -3081,56 +2899,32 @@
         "semantic_endpoint_status": "physical_non_thunk_internal_target",
         "semantic_external": false,
         "semantic_internal": true,
-        "signature_source_class": "imported",
+        "signature_source_class": "default",
         "version": "v23b_abi_thunk_compatibility_return_reconciliation"
       },
       "no_return": false,
       "observed_argument_sids": [
-        "v_4409",
-        "v_4553"
+        "v_4880",
+        "v_5030"
       ],
-      "op_id": "(ram, 0x1011cd, 237, 0)",
-      "op_key": "1053123:(ram, 0x1011cd, 237, 0):0",
+      "op_id": "(ram, 0x1011db, 268, 0)",
+      "op_key": "1053137:(ram, 0x1011db, 268, 0):0",
       "opcode": "CALL",
       "plan_class": "call_site_abi_plan",
-      "plan_id": "call_site:1053123:(ram, 0x1011cd, 237, 0):0",
+      "plan_id": "call_site:1053137:(ram, 0x1011db, 268, 0):0",
       "result_contract": {
         "authority": "PALlibrary_function_signature_return_storage",
-        "carrier_pieces": [
-          {
-            "flags": {
-              "address": false,
-              "constant": false,
-              "input": false,
-              "register": true,
-              "unaffected": false,
-              "unique": false
-            },
-            "kind": "register",
-            "offset": 0,
-            "register": {
-              "base_name": "RAX",
-              "name": "EAX",
-              "repr": "EAX",
-              "size_bytes": 4
-            },
-            "repr": "(register, 0x0, 4)",
-            "size_bytes": 4,
-            "space": "register",
-            "storage_key": "register:0:4",
-            "width_bits": 32
-          }
-        ],
+        "carrier_pieces": [],
         "declared_return": {
-          "class_name": "IntegerDataType",
-          "display_name": "int",
-          "kind_hint": "integer",
-          "length_bytes": 4,
-          "name": "int",
-          "signed": true,
-          "width_bits": 32
+          "class_name": "DefaultDataType",
+          "display_name": "undefined",
+          "kind_hint": null,
+          "length_bytes": 1,
+          "name": "undefined",
+          "signed": null,
+          "width_bits": 8
         },
-        "declared_width_bits": 32,
+        "declared_width_bits": 8,
         "effective_result_width_bits": 32,
         "kind": "pal_compute_return_carrier_contract_abi_d",
         "no_return": false,
@@ -3139,91 +2933,41 @@
           "mode": "mask_to_output_width",
           "width_bits": 32
         },
-        "output_sid": "v_1736",
+        "output_sid": "v_4453",
         "output_width_bits": 32,
         "return_storage": {
           "flags": {
             "auto": false,
             "memory": false,
-            "register": true,
+            "register": false,
             "stack": false,
-            "unassigned": false,
+            "unassigned": true,
             "void": false
           },
-          "pieces": [
-            {
-              "flags": {
-                "address": false,
-                "constant": false,
-                "input": false,
-                "register": true,
-                "unaffected": false,
-                "unique": false
-              },
-              "kind": "register",
-              "offset": 0,
-              "register": {
-                "base_name": "RAX",
-                "name": "EAX",
-                "repr": "EAX",
-                "size_bytes": 4
-              },
-              "repr": "(register, 0x0, 4)",
-              "size_bytes": 4,
-              "space": "register",
-              "storage_key": "register:0:4",
-              "width_bits": 32
-            }
-          ],
-          "repr": "EAX:4",
-          "size_bytes": 4,
-          "storage_keys": [
-            "register:0:4"
-          ]
+          "pieces": [],
+          "repr": "<UNASSIGNED>",
+          "size_bytes": 0,
+          "storage_keys": []
         },
         "runtime_helper": null,
         "runtime_helper_authority": "no_ABI_runtime_helper_assigned",
-        "status": "physical_return_carrier_proven",
+        "status": "return_carrier_deferred",
         "version": "v23b_abi_thunk_compatibility_return_reconciliation"
       },
       "result_width_bits": 32,
       "return_carrier_contract": {
         "authority": "PALlibrary_function_signature_return_storage",
-        "carrier_pieces": [
-          {
-            "flags": {
-              "address": false,
-              "constant": false,
-              "input": false,
-              "register": true,
-              "unaffected": false,
-              "unique": false
-            },
-            "kind": "register",
-            "offset": 0,
-            "register": {
-              "base_name": "RAX",
-              "name": "EAX",
-              "repr": "EAX",
-              "size_bytes": 4
-            },
-            "repr": "(register, 0x0, 4)",
-            "size_bytes": 4,
-            "space": "register",
-            "storage_key": "register:0:4",
-            "width_bits": 32
-          }
-        ],
+        "carrier_pieces": [],
         "declared_return": {
-          "class_name": "IntegerDataType",
-          "display_name": "int",
-          "kind_hint": "integer",
-          "length_bytes": 4,
-          "name": "int",
-          "signed": true,
-          "width_bits": 32
+          "class_name": "DefaultDataType",
+          "display_name": "undefined",
+          "kind_hint": null,
+          "length_bytes": 1,
+          "name": "undefined",
+          "signed": null,
+          "width_bits": 8
         },
-        "declared_width_bits": 32,
+        "declared_width_bits": 8,
         "effective_result_width_bits": 32,
         "kind": "pal_compute_return_carrier_contract_abi_d",
         "no_return": false,
@@ -3232,51 +2976,25 @@
           "mode": "mask_to_output_width",
           "width_bits": 32
         },
-        "output_sid": "v_1736",
+        "output_sid": "v_4453",
         "output_width_bits": 32,
         "return_storage": {
           "flags": {
             "auto": false,
             "memory": false,
-            "register": true,
+            "register": false,
             "stack": false,
-            "unassigned": false,
+            "unassigned": true,
             "void": false
           },
-          "pieces": [
-            {
-              "flags": {
-                "address": false,
-                "constant": false,
-                "input": false,
-                "register": true,
-                "unaffected": false,
-                "unique": false
-              },
-              "kind": "register",
-              "offset": 0,
-              "register": {
-                "base_name": "RAX",
-                "name": "EAX",
-                "repr": "EAX",
-                "size_bytes": 4
-              },
-              "repr": "(register, 0x0, 4)",
-              "size_bytes": 4,
-              "space": "register",
-              "storage_key": "register:0:4",
-              "width_bits": 32
-            }
-          ],
-          "repr": "EAX:4",
-          "size_bytes": 4,
-          "storage_keys": [
-            "register:0:4"
-          ]
+          "pieces": [],
+          "repr": "<UNASSIGNED>",
+          "size_bytes": 0,
+          "storage_keys": []
         },
         "runtime_helper": null,
         "runtime_helper_authority": "no_ABI_runtime_helper_assigned",
-        "status": "physical_return_carrier_proven",
+        "status": "return_carrier_deferred",
         "version": "v23b_abi_thunk_compatibility_return_reconciliation"
       },
       "runtime_helper": null,
@@ -3290,16 +3008,16 @@
         "arguments": [
           {
             "argument_class": "integer",
-            "class_authority": "target_logical_parameter_datatype",
+            "class_authority": "argument_high_variable_datatype",
             "constant": false,
             "constant_value": null,
             "datatype": {
-              "class_name": "IntegerDataType",
-              "display_name": "int",
+              "class_name": "UnsignedIntegerDataType",
+              "display_name": "uint",
               "kind_hint": "integer",
               "length_bytes": 4,
-              "name": "int",
-              "signed": true,
+              "name": "uint",
+              "signed": false,
               "width_bits": 32
             },
             "datatype_class": "integer",
@@ -3313,10 +3031,10 @@
               "index": null,
               "register_name": null,
               "role": "stack_argument_or_local_storage",
-              "storage_key": "stack:-32:4"
+              "storage_key": "stack:-44:4"
             },
-            "parameter_region": "fixed",
-            "sid": "v_4409",
+            "parameter_region": "prototype_unresolved",
+            "sid": "v_4880",
             "storage": {
               "flags": {
                 "address": false,
@@ -3327,19 +3045,19 @@
                 "unique": false
               },
               "kind": "stack",
-              "offset": -32,
+              "offset": -44,
               "register": null,
-              "repr": "(stack, 0xffffffffffffffe0, 4)",
+              "repr": "(stack, 0xffffffffffffffd4, 4)",
               "size_bytes": 4,
               "space": "stack",
-              "storage_key": "stack:-32:4",
+              "storage_key": "stack:-44:4",
               "width_bits": 32
             },
             "width_bits": 32
           },
           {
             "argument_class": "integer",
-            "class_authority": "target_logical_parameter_datatype",
+            "class_authority": "argument_high_variable_datatype",
             "constant": false,
             "constant_value": null,
             "datatype": {
@@ -3362,10 +3080,10 @@
               "index": null,
               "register_name": null,
               "role": "stack_argument_or_local_storage",
-              "storage_key": "stack:-16:4"
+              "storage_key": "stack:-28:4"
             },
-            "parameter_region": "fixed",
-            "sid": "v_4553",
+            "parameter_region": "prototype_unresolved",
+            "sid": "v_5030",
             "storage": {
               "flags": {
                 "address": false,
@@ -3376,21 +3094,21 @@
                 "unique": false
               },
               "kind": "stack",
-              "offset": -16,
+              "offset": -28,
               "register": null,
-              "repr": "(stack, 0xfffffffffffffff0, 4)",
+              "repr": "(stack, 0xffffffffffffffe4, 4)",
               "size_bytes": 4,
               "space": "stack",
-              "storage_key": "stack:-16:4",
+              "storage_key": "stack:-28:4",
               "width_bits": 32
             },
             "width_bits": 32
           }
         ],
-        "arity_authority": "authoritative_target_prototype",
-        "arity_status": "valid_fixed_arity",
+        "arity_authority": "observation_only",
+        "arity_status": "target_prototype_unresolved",
         "authority": "HighFunction_CALL_inputs_plus_target_Function_prototype",
-        "block_addr": 1053123,
+        "block_addr": 1053137,
         "caller": "main",
         "caller_entry": 1053053,
         "carrier_allocation": {
@@ -3399,16 +3117,16 @@
               "argument_class": "integer",
               "carrier": "RDI",
               "carrier_kind": "gp_register",
-              "class_authority": "target_logical_parameter_datatype",
+              "class_authority": "argument_high_variable_datatype",
               "constant": false,
               "constant_value": null,
               "datatype": {
-                "class_name": "IntegerDataType",
-                "display_name": "int",
+                "class_name": "UnsignedIntegerDataType",
+                "display_name": "uint",
                 "kind_hint": "integer",
                 "length_bytes": 4,
-                "name": "int",
-                "signed": true,
+                "name": "uint",
+                "signed": false,
                 "width_bits": 32
               },
               "datatype_class": "integer",
@@ -3422,10 +3140,10 @@
                 "index": null,
                 "register_name": null,
                 "role": "stack_argument_or_local_storage",
-                "storage_key": "stack:-32:4"
+                "storage_key": "stack:-44:4"
               },
-              "parameter_region": "fixed",
-              "sid": "v_4409",
+              "parameter_region": "prototype_unresolved",
+              "sid": "v_4880",
               "storage": {
                 "flags": {
                   "address": false,
@@ -3436,12 +3154,12 @@
                   "unique": false
                 },
                 "kind": "stack",
-                "offset": -32,
+                "offset": -44,
                 "register": null,
-                "repr": "(stack, 0xffffffffffffffe0, 4)",
+                "repr": "(stack, 0xffffffffffffffd4, 4)",
                 "size_bytes": 4,
                 "space": "stack",
-                "storage_key": "stack:-32:4",
+                "storage_key": "stack:-44:4",
                 "width_bits": 32
               },
               "width_bits": 32
@@ -3450,7 +3168,7 @@
               "argument_class": "integer",
               "carrier": "RSI",
               "carrier_kind": "gp_register",
-              "class_authority": "target_logical_parameter_datatype",
+              "class_authority": "argument_high_variable_datatype",
               "constant": false,
               "constant_value": null,
               "datatype": {
@@ -3473,10 +3191,10 @@
                 "index": null,
                 "register_name": null,
                 "role": "stack_argument_or_local_storage",
-                "storage_key": "stack:-16:4"
+                "storage_key": "stack:-28:4"
               },
-              "parameter_region": "fixed",
-              "sid": "v_4553",
+              "parameter_region": "prototype_unresolved",
+              "sid": "v_5030",
               "storage": {
                 "flags": {
                   "address": false,
@@ -3487,12 +3205,12 @@
                   "unique": false
                 },
                 "kind": "stack",
-                "offset": -16,
+                "offset": -28,
                 "register": null,
-                "repr": "(stack, 0xfffffffffffffff0, 4)",
+                "repr": "(stack, 0xffffffffffffffe4, 4)",
                 "size_bytes": 4,
                 "space": "stack",
-                "storage_key": "stack:-16:4",
+                "storage_key": "stack:-28:4",
                 "width_bits": 32
               },
               "width_bits": 32
@@ -3514,12 +3232,12 @@
         "kind": "lifter_call_site_abi_contract_v23b",
         "logical_argument_count": 2,
         "observed_argument_count": 2,
-        "op_id": "(ram, 0x1011cd, 237, 0)",
+        "op_id": "(ram, 0x1011db, 268, 0)",
         "opcode": "CALL",
-        "target_calling_convention": "__stdcall",
+        "target_calling_convention": "unknown",
         "target_entry": 1053022,
         "target_external": false,
-        "target_fixed_parameter_count": 2,
+        "target_fixed_parameter_count": null,
         "target_name": "feedback",
         "target_no_return": false,
         "target_operand": {
@@ -3544,139 +3262,28 @@
           "authority": "Ghidra_Function_signature_source_plus_explicit_C_arity",
           "conflicts": [],
           "declared_variadic": false,
-          "fixed_parameter_count": 2,
+          "fixed_parameter_count": null,
           "high_prototype_parameter_count": null,
           "kind": "function_prototype_authority_v23b",
-          "observed_parameter_count": 2,
-          "prototype_text": "int __stdcall feedback(int x, int y)",
-          "prototype_text_arity_hint": "nonempty_text",
-          "reason": "Function parameter objects enumerate fixed parameters",
-          "reported_parameter_count": 2,
-          "signature_source": "IMPORTED",
-          "signature_source_class": "imported",
-          "status": "authoritative_n",
+          "observed_parameter_count": 0,
+          "prototype_text": "undefined feedback()",
+          "prototype_text_arity_hint": "empty_unspecified",
+          "reason": "empty parameter enumeration lacks explicit void or strong signature-source authority",
+          "reported_parameter_count": 0,
+          "signature_source": "DEFAULT",
+          "signature_source_class": "default",
+          "status": "unresolved",
           "version": "v23b_authoritative_prototypes_and_carriers"
         },
         "target_resolved": true,
         "target_signature": {
-          "calling_convention": "__stdcall",
+          "calling_convention": "unknown",
           "entry": 1053022,
           "external": false,
           "name": "feedback",
           "no_return": false,
-          "parameter_count": 2,
-          "parameters": [
-            {
-              "auto_parameter": false,
-              "datatype": {
-                "class_name": "IntegerDataType",
-                "display_name": "int",
-                "kind_hint": "integer",
-                "length_bytes": 4,
-                "name": "int",
-                "signed": true,
-                "width_bits": 32
-              },
-              "name": "x",
-              "ordinal": 0,
-              "storage": "EDI:4",
-              "storage_image": {
-                "flags": {
-                  "auto": false,
-                  "memory": false,
-                  "register": true,
-                  "stack": false,
-                  "unassigned": false,
-                  "void": false
-                },
-                "pieces": [
-                  {
-                    "flags": {
-                      "address": false,
-                      "constant": false,
-                      "input": false,
-                      "register": true,
-                      "unaffected": false,
-                      "unique": false
-                    },
-                    "kind": "register",
-                    "offset": 56,
-                    "register": {
-                      "base_name": "RDI",
-                      "name": "EDI",
-                      "repr": "EDI",
-                      "size_bytes": 4
-                    },
-                    "repr": "(register, 0x38, 4)",
-                    "size_bytes": 4,
-                    "space": "register",
-                    "storage_key": "register:56:4",
-                    "width_bits": 32
-                  }
-                ],
-                "repr": "EDI:4",
-                "size_bytes": 4,
-                "storage_keys": [
-                  "register:56:4"
-                ]
-              }
-            },
-            {
-              "auto_parameter": false,
-              "datatype": {
-                "class_name": "IntegerDataType",
-                "display_name": "int",
-                "kind_hint": "integer",
-                "length_bytes": 4,
-                "name": "int",
-                "signed": true,
-                "width_bits": 32
-              },
-              "name": "y",
-              "ordinal": 1,
-              "storage": "ESI:4",
-              "storage_image": {
-                "flags": {
-                  "auto": false,
-                  "memory": false,
-                  "register": true,
-                  "stack": false,
-                  "unassigned": false,
-                  "void": false
-                },
-                "pieces": [
-                  {
-                    "flags": {
-                      "address": false,
-                      "constant": false,
-                      "input": false,
-                      "register": true,
-                      "unaffected": false,
-                      "unique": false
-                    },
-                    "kind": "register",
-                    "offset": 48,
-                    "register": {
-                      "base_name": "RSI",
-                      "name": "ESI",
-                      "repr": "ESI",
-                      "size_bytes": 4
-                    },
-                    "repr": "(register, 0x30, 4)",
-                    "size_bytes": 4,
-                    "space": "register",
-                    "storage_key": "register:48:4",
-                    "width_bits": 32
-                  }
-                ],
-                "repr": "ESI:4",
-                "size_bytes": 4,
-                "storage_keys": [
-                  "register:48:4"
-                ]
-              }
-            }
-          ],
+          "parameter_count": 0,
+          "parameters": [],
           "prototype": {
             "model_name": null,
             "parameter_count": null,
@@ -3694,72 +3301,46 @@
             "authority": "Ghidra_Function_signature_source_plus_explicit_C_arity",
             "conflicts": [],
             "declared_variadic": false,
-            "fixed_parameter_count": 2,
+            "fixed_parameter_count": null,
             "high_prototype_parameter_count": null,
             "kind": "function_prototype_authority_v23b",
-            "observed_parameter_count": 2,
-            "prototype_text": "int __stdcall feedback(int x, int y)",
-            "prototype_text_arity_hint": "nonempty_text",
-            "reason": "Function parameter objects enumerate fixed parameters",
-            "reported_parameter_count": 2,
-            "signature_source": "IMPORTED",
-            "signature_source_class": "imported",
-            "status": "authoritative_n",
+            "observed_parameter_count": 0,
+            "prototype_text": "undefined feedback()",
+            "prototype_text_arity_hint": "empty_unspecified",
+            "reason": "empty parameter enumeration lacks explicit void or strong signature-source authority",
+            "reported_parameter_count": 0,
+            "signature_source": "DEFAULT",
+            "signature_source_class": "default",
+            "status": "unresolved",
             "version": "v23b_authoritative_prototypes_and_carriers"
           },
-          "prototype_text": "int __stdcall feedback(int x, int y)",
-          "prototype_text_arity_hint": "nonempty_text",
-          "reported_parameter_count": 2,
+          "prototype_text": "undefined feedback()",
+          "prototype_text_arity_hint": "empty_unspecified",
+          "reported_parameter_count": 0,
           "return": {
-            "class_name": "IntegerDataType",
-            "display_name": "int",
-            "kind_hint": "integer",
-            "length_bytes": 4,
-            "name": "int",
-            "signed": true,
-            "width_bits": 32
+            "class_name": "DefaultDataType",
+            "display_name": "undefined",
+            "kind_hint": null,
+            "length_bytes": 1,
+            "name": "undefined",
+            "signed": null,
+            "width_bits": 8
           },
           "return_storage": {
             "flags": {
               "auto": false,
               "memory": false,
-              "register": true,
+              "register": false,
               "stack": false,
-              "unassigned": false,
+              "unassigned": true,
               "void": false
             },
-            "pieces": [
-              {
-                "flags": {
-                  "address": false,
-                  "constant": false,
-                  "input": false,
-                  "register": true,
-                  "unaffected": false,
-                  "unique": false
-                },
-                "kind": "register",
-                "offset": 0,
-                "register": {
-                  "base_name": "RAX",
-                  "name": "EAX",
-                  "repr": "EAX",
-                  "size_bytes": 4
-                },
-                "repr": "(register, 0x0, 4)",
-                "size_bytes": 4,
-                "space": "register",
-                "storage_key": "register:0:4",
-                "width_bits": 32
-              }
-            ],
-            "repr": "EAX:4",
-            "size_bytes": 4,
-            "storage_keys": [
-              "register:0:4"
-            ]
+            "pieces": [],
+            "repr": "<UNASSIGNED>",
+            "size_bytes": 0,
+            "storage_keys": []
           },
-          "signature_source": "IMPORTED",
+          "signature_source": "DEFAULT",
           "thunk": false,
           "variadic": false,
           "variadic_evidence": [
@@ -3770,34 +3351,34 @@
           ]
         },
         "target_variadic": false,
-        "variadic_argument_count": 0,
+        "variadic_argument_count": null,
         "version": "v23b_authoritative_prototypes_and_carriers"
       },
       "stack_slots_used": 0,
       "status": "ready",
       "target": {
-        "calling_convention": "__stdcall",
+        "calling_convention": "unknown",
         "entry": 1053022,
         "entry_plan_lookup_key": "function_entry:1053022",
         "external": false,
-        "fixed_parameter_count": 2,
+        "fixed_parameter_count": null,
         "name": "feedback",
         "physical_external": false,
         "prototype_authority": {
           "authority": "Ghidra_Function_signature_source_plus_explicit_C_arity",
           "conflicts": [],
           "declared_variadic": false,
-          "fixed_parameter_count": 2,
+          "fixed_parameter_count": null,
           "high_prototype_parameter_count": null,
           "kind": "function_prototype_authority_v23b",
-          "observed_parameter_count": 2,
-          "prototype_text": "int __stdcall feedback(int x, int y)",
-          "prototype_text_arity_hint": "nonempty_text",
-          "reason": "Function parameter objects enumerate fixed parameters",
-          "reported_parameter_count": 2,
-          "signature_source": "IMPORTED",
-          "signature_source_class": "imported",
-          "status": "authoritative_n",
+          "observed_parameter_count": 0,
+          "prototype_text": "undefined feedback()",
+          "prototype_text_arity_hint": "empty_unspecified",
+          "reason": "empty parameter enumeration lacks explicit void or strong signature-source authority",
+          "reported_parameter_count": 0,
+          "signature_source": "DEFAULT",
+          "signature_source_class": "default",
+          "status": "unresolved",
           "version": "v23b_authoritative_prototypes_and_carriers"
         },
         "resolved": true,
@@ -3808,20 +3389,20 @@
         "variadic": false
       },
       "target_compatibility": {
-        "aggregate_status": "compatible",
+        "aggregate_status": "deferred",
         "authority": "lifter_carrier_allocation_plus_target_arity_contract",
         "carrier_transport_compatible": true,
         "entry_plan_lookup_key": "function_entry:1053022",
         "entry_plan_lookup_required": true,
         "internal_target": true,
-        "prototype_compatibility": "compatible"
+        "prototype_compatibility": "deferred"
       },
-      "target_compatibility_status": "compatible",
-      "target_compatible": true,
+      "target_compatibility_status": "deferred",
+      "target_compatible": null,
       "version": "v23b_abi_thunk_compatibility_return_reconciliation",
       "xmm_registers_used": 0
     },
-    "call_site:1053237:(ram, 0x10123c, 618, 1):1": {
+    "call_site:1053260:(ram, 0x101253, 671, 2):2": {
       "abi_backend": {
         "name": "sysv_amd64",
         "reason": "x86_64 target plus ELF/GCC compiler evidence",
@@ -3835,25 +3416,25 @@
           "authority": "datatype_class_plus_SysV_AMD64_scalar_register_order",
           "carrier": "RDI",
           "carrier_kind": "gp_register",
-          "classification_authority": "target_logical_parameter_datatype",
+          "classification_authority": "argument_high_variable_datatype",
           "constant": false,
           "constant_value": null,
           "index": 0,
           "kind": "pal_compute_call_argument_plan_abi_d",
           "materialization": "write_abi_gp_register",
-          "parameter_region": "fixed",
+          "parameter_region": "prototype_unresolved",
           "runtime_helper": null,
           "source_name": null,
-          "source_sid": "v_1627",
+          "source_sid": "v_1765",
           "source_width_bits": 32,
           "stack_slot": null,
           "version": "v23b_abi_thunk_compatibility_return_reconciliation"
         }
       ],
-      "arity_authority": "authoritative_target_prototype",
-      "arity_status": "valid_fixed_arity",
+      "arity_authority": "observation_only",
+      "arity_status": "target_prototype_unresolved",
       "authority": "PALlibrary_call_site_ABI_contract_only",
-      "block_addr": 1053237,
+      "block_addr": 1053260,
       "caller_variadic_al": {
         "authority": "PALlibrary_carrier_allocation",
         "destination": "abi_context.variadic_xmm_count",
@@ -3892,55 +3473,31 @@
         "semantic_endpoint_status": "physical_non_thunk_internal_target",
         "semantic_external": false,
         "semantic_internal": true,
-        "signature_source_class": "imported",
+        "signature_source_class": "default",
         "version": "v23b_abi_thunk_compatibility_return_reconciliation"
       },
       "no_return": false,
       "observed_argument_sids": [
-        "v_1627"
+        "v_1765"
       ],
-      "op_id": "(ram, 0x10123c, 618, 1)",
-      "op_key": "1053237:(ram, 0x10123c, 618, 1):1",
+      "op_id": "(ram, 0x101253, 671, 2)",
+      "op_key": "1053260:(ram, 0x101253, 671, 2):2",
       "opcode": "CALL",
       "plan_class": "call_site_abi_plan",
-      "plan_id": "call_site:1053237:(ram, 0x10123c, 618, 1):1",
+      "plan_id": "call_site:1053260:(ram, 0x101253, 671, 2):2",
       "result_contract": {
         "authority": "PALlibrary_function_signature_return_storage",
-        "carrier_pieces": [
-          {
-            "flags": {
-              "address": false,
-              "constant": false,
-              "input": false,
-              "register": true,
-              "unaffected": false,
-              "unique": false
-            },
-            "kind": "register",
-            "offset": 0,
-            "register": {
-              "base_name": "RAX",
-              "name": "EAX",
-              "repr": "EAX",
-              "size_bytes": 4
-            },
-            "repr": "(register, 0x0, 4)",
-            "size_bytes": 4,
-            "space": "register",
-            "storage_key": "register:0:4",
-            "width_bits": 32
-          }
-        ],
+        "carrier_pieces": [],
         "declared_return": {
-          "class_name": "IntegerDataType",
-          "display_name": "int",
-          "kind_hint": "integer",
-          "length_bytes": 4,
-          "name": "int",
-          "signed": true,
-          "width_bits": 32
+          "class_name": "DefaultDataType",
+          "display_name": "undefined",
+          "kind_hint": null,
+          "length_bytes": 1,
+          "name": "undefined",
+          "signed": null,
+          "width_bits": 8
         },
-        "declared_width_bits": 32,
+        "declared_width_bits": 8,
         "effective_result_width_bits": 32,
         "kind": "pal_compute_return_carrier_contract_abi_d",
         "no_return": false,
@@ -3949,91 +3506,41 @@
           "mode": "mask_to_output_width",
           "width_bits": 32
         },
-        "output_sid": "v_1743",
+        "output_sid": "v_4548",
         "output_width_bits": 32,
         "return_storage": {
           "flags": {
             "auto": false,
             "memory": false,
-            "register": true,
+            "register": false,
             "stack": false,
-            "unassigned": false,
+            "unassigned": true,
             "void": false
           },
-          "pieces": [
-            {
-              "flags": {
-                "address": false,
-                "constant": false,
-                "input": false,
-                "register": true,
-                "unaffected": false,
-                "unique": false
-              },
-              "kind": "register",
-              "offset": 0,
-              "register": {
-                "base_name": "RAX",
-                "name": "EAX",
-                "repr": "EAX",
-                "size_bytes": 4
-              },
-              "repr": "(register, 0x0, 4)",
-              "size_bytes": 4,
-              "space": "register",
-              "storage_key": "register:0:4",
-              "width_bits": 32
-            }
-          ],
-          "repr": "EAX:4",
-          "size_bytes": 4,
-          "storage_keys": [
-            "register:0:4"
-          ]
+          "pieces": [],
+          "repr": "<UNASSIGNED>",
+          "size_bytes": 0,
+          "storage_keys": []
         },
         "runtime_helper": null,
         "runtime_helper_authority": "no_ABI_runtime_helper_assigned",
-        "status": "physical_return_carrier_proven",
+        "status": "return_carrier_deferred",
         "version": "v23b_abi_thunk_compatibility_return_reconciliation"
       },
       "result_width_bits": 32,
       "return_carrier_contract": {
         "authority": "PALlibrary_function_signature_return_storage",
-        "carrier_pieces": [
-          {
-            "flags": {
-              "address": false,
-              "constant": false,
-              "input": false,
-              "register": true,
-              "unaffected": false,
-              "unique": false
-            },
-            "kind": "register",
-            "offset": 0,
-            "register": {
-              "base_name": "RAX",
-              "name": "EAX",
-              "repr": "EAX",
-              "size_bytes": 4
-            },
-            "repr": "(register, 0x0, 4)",
-            "size_bytes": 4,
-            "space": "register",
-            "storage_key": "register:0:4",
-            "width_bits": 32
-          }
-        ],
+        "carrier_pieces": [],
         "declared_return": {
-          "class_name": "IntegerDataType",
-          "display_name": "int",
-          "kind_hint": "integer",
-          "length_bytes": 4,
-          "name": "int",
-          "signed": true,
-          "width_bits": 32
+          "class_name": "DefaultDataType",
+          "display_name": "undefined",
+          "kind_hint": null,
+          "length_bytes": 1,
+          "name": "undefined",
+          "signed": null,
+          "width_bits": 8
         },
-        "declared_width_bits": 32,
+        "declared_width_bits": 8,
         "effective_result_width_bits": 32,
         "kind": "pal_compute_return_carrier_contract_abi_d",
         "no_return": false,
@@ -4042,51 +3549,25 @@
           "mode": "mask_to_output_width",
           "width_bits": 32
         },
-        "output_sid": "v_1743",
+        "output_sid": "v_4548",
         "output_width_bits": 32,
         "return_storage": {
           "flags": {
             "auto": false,
             "memory": false,
-            "register": true,
+            "register": false,
             "stack": false,
-            "unassigned": false,
+            "unassigned": true,
             "void": false
           },
-          "pieces": [
-            {
-              "flags": {
-                "address": false,
-                "constant": false,
-                "input": false,
-                "register": true,
-                "unaffected": false,
-                "unique": false
-              },
-              "kind": "register",
-              "offset": 0,
-              "register": {
-                "base_name": "RAX",
-                "name": "EAX",
-                "repr": "EAX",
-                "size_bytes": 4
-              },
-              "repr": "(register, 0x0, 4)",
-              "size_bytes": 4,
-              "space": "register",
-              "storage_key": "register:0:4",
-              "width_bits": 32
-            }
-          ],
-          "repr": "EAX:4",
-          "size_bytes": 4,
-          "storage_keys": [
-            "register:0:4"
-          ]
+          "pieces": [],
+          "repr": "<UNASSIGNED>",
+          "size_bytes": 0,
+          "storage_keys": []
         },
         "runtime_helper": null,
         "runtime_helper_authority": "no_ABI_runtime_helper_assigned",
-        "status": "physical_return_carrier_proven",
+        "status": "return_carrier_deferred",
         "version": "v23b_abi_thunk_compatibility_return_reconciliation"
       },
       "runtime_helper": null,
@@ -4100,7 +3581,7 @@
         "arguments": [
           {
             "argument_class": "integer",
-            "class_authority": "target_logical_parameter_datatype",
+            "class_authority": "argument_high_variable_datatype",
             "constant": false,
             "constant_value": null,
             "datatype": {
@@ -4125,8 +3606,8 @@
               "role": "non_argument_register",
               "storage_key": "register:0:4"
             },
-            "parameter_region": "fixed",
-            "sid": "v_1627",
+            "parameter_region": "prototype_unresolved",
+            "sid": "v_1765",
             "storage": {
               "flags": {
                 "address": false,
@@ -4153,10 +3634,10 @@
             "width_bits": 32
           }
         ],
-        "arity_authority": "authoritative_target_prototype",
-        "arity_status": "valid_fixed_arity",
+        "arity_authority": "observation_only",
+        "arity_status": "target_prototype_unresolved",
         "authority": "HighFunction_CALL_inputs_plus_target_Function_prototype",
-        "block_addr": 1053237,
+        "block_addr": 1053260,
         "caller": "main",
         "caller_entry": 1053053,
         "carrier_allocation": {
@@ -4165,7 +3646,7 @@
               "argument_class": "integer",
               "carrier": "RDI",
               "carrier_kind": "gp_register",
-              "class_authority": "target_logical_parameter_datatype",
+              "class_authority": "argument_high_variable_datatype",
               "constant": false,
               "constant_value": null,
               "datatype": {
@@ -4190,8 +3671,8 @@
                 "role": "non_argument_register",
                 "storage_key": "register:0:4"
               },
-              "parameter_region": "fixed",
-              "sid": "v_1627",
+              "parameter_region": "prototype_unresolved",
+              "sid": "v_1765",
               "storage": {
                 "flags": {
                   "address": false,
@@ -4234,12 +3715,12 @@
         "kind": "lifter_call_site_abi_contract_v23b",
         "logical_argument_count": 1,
         "observed_argument_count": 1,
-        "op_id": "(ram, 0x10123c, 618, 1)",
+        "op_id": "(ram, 0x101253, 671, 2)",
         "opcode": "CALL",
-        "target_calling_convention": "__stdcall",
+        "target_calling_convention": "unknown",
         "target_entry": 1053001,
         "target_external": false,
-        "target_fixed_parameter_count": 1,
+        "target_fixed_parameter_count": null,
         "target_name": "mutate",
         "target_no_return": false,
         "target_operand": {
@@ -4264,84 +3745,28 @@
           "authority": "Ghidra_Function_signature_source_plus_explicit_C_arity",
           "conflicts": [],
           "declared_variadic": false,
-          "fixed_parameter_count": 1,
+          "fixed_parameter_count": null,
           "high_prototype_parameter_count": null,
           "kind": "function_prototype_authority_v23b",
-          "observed_parameter_count": 1,
-          "prototype_text": "int __stdcall mutate(int v)",
-          "prototype_text_arity_hint": "nonempty_text",
-          "reason": "Function parameter objects enumerate fixed parameters",
-          "reported_parameter_count": 1,
-          "signature_source": "IMPORTED",
-          "signature_source_class": "imported",
-          "status": "authoritative_n",
+          "observed_parameter_count": 0,
+          "prototype_text": "undefined mutate()",
+          "prototype_text_arity_hint": "empty_unspecified",
+          "reason": "empty parameter enumeration lacks explicit void or strong signature-source authority",
+          "reported_parameter_count": 0,
+          "signature_source": "DEFAULT",
+          "signature_source_class": "default",
+          "status": "unresolved",
           "version": "v23b_authoritative_prototypes_and_carriers"
         },
         "target_resolved": true,
         "target_signature": {
-          "calling_convention": "__stdcall",
+          "calling_convention": "unknown",
           "entry": 1053001,
           "external": false,
           "name": "mutate",
           "no_return": false,
-          "parameter_count": 1,
-          "parameters": [
-            {
-              "auto_parameter": false,
-              "datatype": {
-                "class_name": "IntegerDataType",
-                "display_name": "int",
-                "kind_hint": "integer",
-                "length_bytes": 4,
-                "name": "int",
-                "signed": true,
-                "width_bits": 32
-              },
-              "name": "v",
-              "ordinal": 0,
-              "storage": "EDI:4",
-              "storage_image": {
-                "flags": {
-                  "auto": false,
-                  "memory": false,
-                  "register": true,
-                  "stack": false,
-                  "unassigned": false,
-                  "void": false
-                },
-                "pieces": [
-                  {
-                    "flags": {
-                      "address": false,
-                      "constant": false,
-                      "input": false,
-                      "register": true,
-                      "unaffected": false,
-                      "unique": false
-                    },
-                    "kind": "register",
-                    "offset": 56,
-                    "register": {
-                      "base_name": "RDI",
-                      "name": "EDI",
-                      "repr": "EDI",
-                      "size_bytes": 4
-                    },
-                    "repr": "(register, 0x38, 4)",
-                    "size_bytes": 4,
-                    "space": "register",
-                    "storage_key": "register:56:4",
-                    "width_bits": 32
-                  }
-                ],
-                "repr": "EDI:4",
-                "size_bytes": 4,
-                "storage_keys": [
-                  "register:56:4"
-                ]
-              }
-            }
-          ],
+          "parameter_count": 0,
+          "parameters": [],
           "prototype": {
             "model_name": null,
             "parameter_count": null,
@@ -4359,72 +3784,46 @@
             "authority": "Ghidra_Function_signature_source_plus_explicit_C_arity",
             "conflicts": [],
             "declared_variadic": false,
-            "fixed_parameter_count": 1,
+            "fixed_parameter_count": null,
             "high_prototype_parameter_count": null,
             "kind": "function_prototype_authority_v23b",
-            "observed_parameter_count": 1,
-            "prototype_text": "int __stdcall mutate(int v)",
-            "prototype_text_arity_hint": "nonempty_text",
-            "reason": "Function parameter objects enumerate fixed parameters",
-            "reported_parameter_count": 1,
-            "signature_source": "IMPORTED",
-            "signature_source_class": "imported",
-            "status": "authoritative_n",
+            "observed_parameter_count": 0,
+            "prototype_text": "undefined mutate()",
+            "prototype_text_arity_hint": "empty_unspecified",
+            "reason": "empty parameter enumeration lacks explicit void or strong signature-source authority",
+            "reported_parameter_count": 0,
+            "signature_source": "DEFAULT",
+            "signature_source_class": "default",
+            "status": "unresolved",
             "version": "v23b_authoritative_prototypes_and_carriers"
           },
-          "prototype_text": "int __stdcall mutate(int v)",
-          "prototype_text_arity_hint": "nonempty_text",
-          "reported_parameter_count": 1,
+          "prototype_text": "undefined mutate()",
+          "prototype_text_arity_hint": "empty_unspecified",
+          "reported_parameter_count": 0,
           "return": {
-            "class_name": "IntegerDataType",
-            "display_name": "int",
-            "kind_hint": "integer",
-            "length_bytes": 4,
-            "name": "int",
-            "signed": true,
-            "width_bits": 32
+            "class_name": "DefaultDataType",
+            "display_name": "undefined",
+            "kind_hint": null,
+            "length_bytes": 1,
+            "name": "undefined",
+            "signed": null,
+            "width_bits": 8
           },
           "return_storage": {
             "flags": {
               "auto": false,
               "memory": false,
-              "register": true,
+              "register": false,
               "stack": false,
-              "unassigned": false,
+              "unassigned": true,
               "void": false
             },
-            "pieces": [
-              {
-                "flags": {
-                  "address": false,
-                  "constant": false,
-                  "input": false,
-                  "register": true,
-                  "unaffected": false,
-                  "unique": false
-                },
-                "kind": "register",
-                "offset": 0,
-                "register": {
-                  "base_name": "RAX",
-                  "name": "EAX",
-                  "repr": "EAX",
-                  "size_bytes": 4
-                },
-                "repr": "(register, 0x0, 4)",
-                "size_bytes": 4,
-                "space": "register",
-                "storage_key": "register:0:4",
-                "width_bits": 32
-              }
-            ],
-            "repr": "EAX:4",
-            "size_bytes": 4,
-            "storage_keys": [
-              "register:0:4"
-            ]
+            "pieces": [],
+            "repr": "<UNASSIGNED>",
+            "size_bytes": 0,
+            "storage_keys": []
           },
-          "signature_source": "IMPORTED",
+          "signature_source": "DEFAULT",
           "thunk": false,
           "variadic": false,
           "variadic_evidence": [
@@ -4435,34 +3834,34 @@
           ]
         },
         "target_variadic": false,
-        "variadic_argument_count": 0,
+        "variadic_argument_count": null,
         "version": "v23b_authoritative_prototypes_and_carriers"
       },
       "stack_slots_used": 0,
       "status": "ready",
       "target": {
-        "calling_convention": "__stdcall",
+        "calling_convention": "unknown",
         "entry": 1053001,
         "entry_plan_lookup_key": "function_entry:1053001",
         "external": false,
-        "fixed_parameter_count": 1,
+        "fixed_parameter_count": null,
         "name": "mutate",
         "physical_external": false,
         "prototype_authority": {
           "authority": "Ghidra_Function_signature_source_plus_explicit_C_arity",
           "conflicts": [],
           "declared_variadic": false,
-          "fixed_parameter_count": 1,
+          "fixed_parameter_count": null,
           "high_prototype_parameter_count": null,
           "kind": "function_prototype_authority_v23b",
-          "observed_parameter_count": 1,
-          "prototype_text": "int __stdcall mutate(int v)",
-          "prototype_text_arity_hint": "nonempty_text",
-          "reason": "Function parameter objects enumerate fixed parameters",
-          "reported_parameter_count": 1,
-          "signature_source": "IMPORTED",
-          "signature_source_class": "imported",
-          "status": "authoritative_n",
+          "observed_parameter_count": 0,
+          "prototype_text": "undefined mutate()",
+          "prototype_text_arity_hint": "empty_unspecified",
+          "reason": "empty parameter enumeration lacks explicit void or strong signature-source authority",
+          "reported_parameter_count": 0,
+          "signature_source": "DEFAULT",
+          "signature_source_class": "default",
+          "status": "unresolved",
           "version": "v23b_authoritative_prototypes_and_carriers"
         },
         "resolved": true,
@@ -4473,26 +3872,26 @@
         "variadic": false
       },
       "target_compatibility": {
-        "aggregate_status": "compatible",
+        "aggregate_status": "deferred",
         "authority": "lifter_carrier_allocation_plus_target_arity_contract",
         "carrier_transport_compatible": true,
         "entry_plan_lookup_key": "function_entry:1053001",
         "entry_plan_lookup_required": true,
         "internal_target": true,
-        "prototype_compatibility": "compatible"
+        "prototype_compatibility": "deferred"
       },
-      "target_compatibility_status": "compatible",
-      "target_compatible": true,
+      "target_compatibility_status": "deferred",
+      "target_compatible": null,
       "version": "v23b_abi_thunk_compatibility_return_reconciliation",
       "xmm_registers_used": 0
     },
-    "call_site:1053363:(ram, 0x1012cd, 198, 7):7": {
+    "call_site:1053404:(ram, 0x1012fc, 229, 5):5": {
       "abi_backend": {
         "name": "sysv_amd64",
         "reason": "x86_64 target plus ELF/GCC compiler evidence",
         "status": "evidence_selected"
       },
-      "argument_count": 4,
+      "argument_count": 5,
       "argument_sid_match": true,
       "arguments": [
         {
@@ -4509,7 +3908,7 @@
           "parameter_region": "fixed",
           "runtime_helper": null,
           "source_name": null,
-          "source_sid": "v_4654",
+          "source_sid": "v_5260",
           "source_width_bits": 64,
           "stack_slot": null,
           "version": "v23b_abi_thunk_compatibility_return_reconciliation"
@@ -4528,7 +3927,7 @@
           "parameter_region": "variadic",
           "runtime_helper": null,
           "source_name": null,
-          "source_sid": "v_3424",
+          "source_sid": "v_3765",
           "source_width_bits": 64,
           "stack_slot": null,
           "version": "v23b_abi_thunk_compatibility_return_reconciliation"
@@ -4547,7 +3946,7 @@
           "parameter_region": "variadic",
           "runtime_helper": null,
           "source_name": null,
-          "source_sid": "v_3349",
+          "source_sid": "v_3680",
           "source_width_bits": 64,
           "stack_slot": null,
           "version": "v23b_abi_thunk_compatibility_return_reconciliation"
@@ -4566,7 +3965,26 @@
           "parameter_region": "variadic",
           "runtime_helper": null,
           "source_name": null,
-          "source_sid": "v_3268",
+          "source_sid": "v_3596",
+          "source_width_bits": 64,
+          "stack_slot": null,
+          "version": "v23b_abi_thunk_compatibility_return_reconciliation"
+        },
+        {
+          "argument_class": "integer",
+          "authority": "datatype_class_plus_SysV_AMD64_scalar_register_order",
+          "carrier": "R8",
+          "carrier_kind": "gp_register",
+          "classification_authority": "physical_argument_register_storage",
+          "constant": false,
+          "constant_value": null,
+          "index": 4,
+          "kind": "pal_compute_call_argument_plan_abi_d",
+          "materialization": "write_abi_gp_register",
+          "parameter_region": "variadic",
+          "runtime_helper": null,
+          "source_name": null,
+          "source_sid": "v_3864",
           "source_width_bits": 64,
           "stack_slot": null,
           "version": "v23b_abi_thunk_compatibility_return_reconciliation"
@@ -4575,7 +3993,7 @@
       "arity_authority": "authoritative_target_prototype",
       "arity_status": "valid_variadic_arity",
       "authority": "PALlibrary_call_site_ABI_contract_only",
-      "block_addr": 1053363,
+      "block_addr": 1053404,
       "caller_variadic_al": {
         "authority": "PALlibrary_carrier_allocation",
         "destination": "abi_context.variadic_xmm_count",
@@ -4598,7 +4016,7 @@
         "semantic_endpoint_status": "imported_thunk_endpoint_proven",
         "target_resolved": true
       },
-      "gp_registers_used": 4,
+      "gp_registers_used": 5,
       "kind": "pal_compute_call_site_abi_plan_v23",
       "linkage_contract": {
         "authority": "PALlibrary_Function_thunk_plus_imported_signature_source",
@@ -4619,16 +4037,17 @@
       },
       "no_return": false,
       "observed_argument_sids": [
-        "v_4654",
-        "v_3424",
-        "v_3349",
-        "v_3268"
+        "v_5260",
+        "v_3765",
+        "v_3680",
+        "v_3596",
+        "v_3864"
       ],
-      "op_id": "(ram, 0x1012cd, 198, 7)",
-      "op_key": "1053363:(ram, 0x1012cd, 198, 7):7",
+      "op_id": "(ram, 0x1012fc, 229, 5)",
+      "op_key": "1053404:(ram, 0x1012fc, 229, 5):5",
       "opcode": "CALL",
       "plan_class": "call_site_abi_plan",
-      "plan_id": "call_site:1053363:(ram, 0x1012cd, 198, 7):7",
+      "plan_id": "call_site:1053404:(ram, 0x1012fc, 229, 5):5",
       "result_contract": {
         "authority": "PALlibrary_function_signature_return_storage",
         "carrier_pieces": [
@@ -4849,10 +4268,10 @@
               "index": null,
               "register_name": null,
               "role": "unclassified_storage",
-              "storage_key": "unique:268435661:8"
+              "storage_key": "unique:268435669:8"
             },
             "parameter_region": "fixed",
-            "sid": "v_4654",
+            "sid": "v_5260",
             "storage": {
               "flags": {
                 "address": false,
@@ -4863,12 +4282,12 @@
                 "unique": true
               },
               "kind": "unique",
-              "offset": 268435661,
+              "offset": 268435669,
               "register": null,
-              "repr": "(unique, 0x100000cd, 8)",
+              "repr": "(unique, 0x100000d5, 8)",
               "size_bytes": 8,
               "space": "unique",
-              "storage_key": "unique:268435661:8",
+              "storage_key": "unique:268435669:8",
               "width_bits": 64
             },
             "width_bits": 64
@@ -4901,7 +4320,7 @@
               "storage_key": "register:48:8"
             },
             "parameter_region": "variadic",
-            "sid": "v_3424",
+            "sid": "v_3765",
             "storage": {
               "flags": {
                 "address": false,
@@ -4955,7 +4374,7 @@
               "storage_key": "register:16:8"
             },
             "parameter_region": "variadic",
-            "sid": "v_3349",
+            "sid": "v_3680",
             "storage": {
               "flags": {
                 "address": false,
@@ -5009,7 +4428,7 @@
               "storage_key": "register:8:8"
             },
             "parameter_region": "variadic",
-            "sid": "v_3268",
+            "sid": "v_3596",
             "storage": {
               "flags": {
                 "address": false,
@@ -5034,12 +4453,66 @@
               "width_bits": 64
             },
             "width_bits": 64
+          },
+          {
+            "argument_class": "integer",
+            "class_authority": "physical_argument_register_storage",
+            "constant": false,
+            "constant_value": null,
+            "datatype": {
+              "class_name": "UnsignedLongDataType",
+              "display_name": "ulong",
+              "kind_hint": null,
+              "length_bytes": 8,
+              "name": "ulong",
+              "signed": false,
+              "width_bits": 64
+            },
+            "datatype_class": "unknown_scalar",
+            "index": 4,
+            "name": null,
+            "observed_carrier": {
+              "authority": "physical_register_storage",
+              "bank": "gp",
+              "base_register_name": "R8",
+              "class": "integer",
+              "index": 4,
+              "register_name": "R8",
+              "role": "integer_argument_register",
+              "storage_key": "register:128:8"
+            },
+            "parameter_region": "variadic",
+            "sid": "v_3864",
+            "storage": {
+              "flags": {
+                "address": false,
+                "constant": false,
+                "input": false,
+                "register": true,
+                "unaffected": false,
+                "unique": false
+              },
+              "kind": "register",
+              "offset": 128,
+              "register": {
+                "base_name": "R8",
+                "name": "R8",
+                "repr": "R8",
+                "size_bytes": 8
+              },
+              "repr": "(register, 0x80, 8)",
+              "size_bytes": 8,
+              "space": "register",
+              "storage_key": "register:128:8",
+              "width_bits": 64
+            },
+            "width_bits": 64
           }
         ],
         "arity_authority": "authoritative_target_prototype",
         "arity_status": "valid_variadic_arity",
         "authority": "HighFunction_CALL_inputs_plus_target_Function_prototype",
-        "block_addr": 1053363,
+        "block_addr": 1053404,
         "caller": "main",
         "caller_entry": 1053053,
         "carrier_allocation": {
@@ -5080,10 +4553,10 @@
                 "index": null,
                 "register_name": null,
                 "role": "unclassified_storage",
-                "storage_key": "unique:268435661:8"
+                "storage_key": "unique:268435669:8"
               },
               "parameter_region": "fixed",
-              "sid": "v_4654",
+              "sid": "v_5260",
               "storage": {
                 "flags": {
                   "address": false,
@@ -5094,12 +4567,12 @@
                   "unique": true
                 },
                 "kind": "unique",
-                "offset": 268435661,
+                "offset": 268435669,
                 "register": null,
-                "repr": "(unique, 0x100000cd, 8)",
+                "repr": "(unique, 0x100000d5, 8)",
                 "size_bytes": 8,
                 "space": "unique",
-                "storage_key": "unique:268435661:8",
+                "storage_key": "unique:268435669:8",
                 "width_bits": 64
               },
               "width_bits": 64
@@ -5134,7 +4607,7 @@
                 "storage_key": "register:48:8"
               },
               "parameter_region": "variadic",
-              "sid": "v_3424",
+              "sid": "v_3765",
               "storage": {
                 "flags": {
                   "address": false,
@@ -5190,7 +4663,7 @@
                 "storage_key": "register:16:8"
               },
               "parameter_region": "variadic",
-              "sid": "v_3349",
+              "sid": "v_3680",
               "storage": {
                 "flags": {
                   "address": false,
@@ -5246,7 +4719,7 @@
                 "storage_key": "register:8:8"
               },
               "parameter_region": "variadic",
-              "sid": "v_3268",
+              "sid": "v_3596",
               "storage": {
                 "flags": {
                   "address": false,
@@ -5271,11 +4744,67 @@
                 "width_bits": 64
               },
               "width_bits": 64
+            },
+            {
+              "argument_class": "integer",
+              "carrier": "R8",
+              "carrier_kind": "gp_register",
+              "class_authority": "physical_argument_register_storage",
+              "constant": false,
+              "constant_value": null,
+              "datatype": {
+                "class_name": "UnsignedLongDataType",
+                "display_name": "ulong",
+                "kind_hint": null,
+                "length_bytes": 8,
+                "name": "ulong",
+                "signed": false,
+                "width_bits": 64
+              },
+              "datatype_class": "unknown_scalar",
+              "index": 4,
+              "name": null,
+              "observed_carrier": {
+                "authority": "physical_register_storage",
+                "bank": "gp",
+                "base_register_name": "R8",
+                "class": "integer",
+                "index": 4,
+                "register_name": "R8",
+                "role": "integer_argument_register",
+                "storage_key": "register:128:8"
+              },
+              "parameter_region": "variadic",
+              "sid": "v_3864",
+              "storage": {
+                "flags": {
+                  "address": false,
+                  "constant": false,
+                  "input": false,
+                  "register": true,
+                  "unaffected": false,
+                  "unique": false
+                },
+                "kind": "register",
+                "offset": 128,
+                "register": {
+                  "base_name": "R8",
+                  "name": "R8",
+                  "repr": "R8",
+                  "size_bytes": 8
+                },
+                "repr": "(register, 0x80, 8)",
+                "size_bytes": 8,
+                "space": "register",
+                "storage_key": "register:128:8",
+                "width_bits": 64
+              },
+              "width_bits": 64
             }
           ],
           "authority": "datatype_class_plus_SysV_AMD64_scalar_register_order",
           "deferred_complex_arguments": 0,
-          "gp_registers_used": 4,
+          "gp_registers_used": 5,
           "kind": "sysv_amd64_scalar_argument_allocation_v23b",
           "limitations": [
             "aggregate_eightbyte_classification_deferred",
@@ -5287,9 +4816,9 @@
         },
         "direct": true,
         "kind": "lifter_call_site_abi_contract_v23b",
-        "logical_argument_count": 4,
-        "observed_argument_count": 4,
-        "op_id": "(ram, 0x1012cd, 198, 7)",
+        "logical_argument_count": 5,
+        "observed_argument_count": 5,
+        "op_id": "(ram, 0x1012fc, 229, 5)",
         "opcode": "CALL",
         "target_calling_convention": "unknown",
         "target_entry": 1052752,
@@ -5499,7 +5028,7 @@
           ]
         },
         "target_variadic": true,
-        "variadic_argument_count": 3,
+        "variadic_argument_count": 4,
         "version": "v23b_authoritative_prototypes_and_carriers"
       },
       "stack_slots_used": 0,
@@ -7414,7 +6943,7 @@
         "status": "evidence_selected"
       },
       "authority": "PALlibrary_ABI_A_B_plus_PALSymbolResolver_ABI_C",
-      "callable_signature_status": "authoritative_logical_parameter_order",
+      "callable_signature_status": "legacy_non_variadic_fallback",
       "deferred_return_boundaries": [],
       "deferred_return_boundary_count": 0,
       "downstream_reinference_allowed": false,
@@ -7423,10 +6952,10 @@
       "fixed_argument_materialization": "bind_positional_arguments_in_callable_order",
       "fixed_arguments": [
         {
-          "authority": "authoritative_logical_prototype",
+          "authority": "legacy_non_variadic_fallback",
           "kind": "pal_compute_fixed_argument_entry_plan_abi_d",
-          "logical_name": "v",
-          "logical_ordinal": 0,
+          "logical_name": null,
+          "logical_ordinal": null,
           "materialization": "bind_argument_bits_to_logical_identity",
           "name": "param_0",
           "ordinal": 0,
@@ -7438,25 +6967,25 @@
               "carrier_bank": "gp",
               "carrier_class": "integer",
               "carrier_index": 0,
-              "high_name": "v",
+              "high_name": "param_1",
               "high_ordinal": 0,
               "kind": "resolver_physical_carrier_binding_abi_c",
               "legacy_emitted_name": "param_0",
               "owner": {
-                "authority": "authoritative_logical_prototype",
+                "authority": "legacy_non_variadic_fallback",
                 "namespace": "logical_parameter",
                 "owner_id": "logical:0",
                 "resolved": true,
                 "role": "callable_parameter_carrier"
               },
               "register": "EDI",
-              "sid": "v_103",
+              "sid": "v_149",
               "storage_key": "register:56:4",
               "version": "v24_logical_physical_implicit_namespaces"
             }
           ],
           "physical_sids": [
-            "v_103"
+            "v_149"
           ],
           "python_source": {
             "index": 0,
@@ -7464,7 +6993,7 @@
             "name": "param_0"
           },
           "runtime_helper": null,
-          "source_sid": "v_103",
+          "source_sid": "v_149",
           "status": "ready",
           "version": "v23b_abi_thunk_compatibility_return_reconciliation"
         }
@@ -7497,17 +7026,17 @@
         "authority": "Ghidra_Function_signature_source_plus_explicit_C_arity",
         "conflicts": [],
         "declared_variadic": false,
-        "fixed_parameter_count": 1,
+        "fixed_parameter_count": null,
         "high_prototype_parameter_count": 1,
         "kind": "function_prototype_authority_v23b",
-        "observed_parameter_count": 1,
-        "prototype_text": "int __stdcall mutate(int v)",
-        "prototype_text_arity_hint": "nonempty_text",
-        "reason": "Function parameter objects enumerate fixed parameters",
-        "reported_parameter_count": 1,
-        "signature_source": "IMPORTED",
-        "signature_source_class": "imported",
-        "status": "authoritative_n",
+        "observed_parameter_count": 0,
+        "prototype_text": "undefined mutate()",
+        "prototype_text_arity_hint": "empty_unspecified",
+        "reason": "empty parameter enumeration lacks explicit void or strong signature-source authority",
+        "reported_parameter_count": 0,
+        "signature_source": "DEFAULT",
+        "signature_source_class": "default",
+        "status": "unresolved",
         "version": "v23b_authoritative_prototypes_and_carriers"
       },
       "reachable_return_boundaries": [
@@ -7518,18 +7047,12 @@
           "emission_policy": "emit_reachable_return_boundary",
           "execution_suppressed": false,
           "reachable_return": true,
-          "return_boundary_authority": "function_signature_logical_width_plus_raw_transport",
-          "return_declared_view": {
-            "canonical_type": "s32",
-            "domain": "integer",
-            "sid": "v_102",
-            "signedness": "signed",
-            "width_bits": 32
-          },
+          "return_boundary_authority": "raw_return_register_transport",
+          "return_declared_view": null,
           "return_logical_width_bits": 32,
           "return_reachability": "reachable",
           "return_transport_width_bits": 32,
-          "return_value_sid": "v_102",
+          "return_value_sid": "v_174",
           "return_value_width_bits": 32
         }
       ],
@@ -7542,61 +7065,31 @@
           "emission_policy": "emit_reachable_return_boundary",
           "execution_suppressed": false,
           "reachable_return": true,
-          "return_boundary_authority": "function_signature_logical_width_plus_raw_transport",
-          "return_declared_view": {
-            "canonical_type": "s32",
-            "domain": "integer",
-            "sid": "v_102",
-            "signedness": "signed",
-            "width_bits": 32
-          },
+          "return_boundary_authority": "raw_return_register_transport",
+          "return_declared_view": null,
           "return_logical_width_bits": 32,
           "return_reachability": "reachable",
           "return_transport_width_bits": 32,
-          "return_value_sid": "v_102",
+          "return_value_sid": "v_174",
           "return_value_width_bits": 32
         }
       ],
       "return_boundary_count": 1,
       "return_contract": {
-        "authority": "reachable_raw_return_transport_plus_authoritative_prototype",
-        "carrier_pieces": [
-          {
-            "flags": {
-              "address": false,
-              "constant": false,
-              "input": false,
-              "register": true,
-              "unaffected": false,
-              "unique": false
-            },
-            "kind": "register",
-            "offset": 0,
-            "register": {
-              "base_name": "RAX",
-              "name": "EAX",
-              "repr": "EAX",
-              "size_bytes": 4
-            },
-            "repr": "(register, 0x0, 4)",
-            "size_bytes": 4,
-            "space": "register",
-            "storage_key": "register:0:4",
-            "width_bits": 32
-          }
-        ],
+        "authority": "reachable_raw_return_transport",
+        "carrier_pieces": [],
         "declared_return": {
-          "class_name": "IntegerDataType",
-          "display_name": "int",
-          "kind_hint": "integer",
-          "length_bytes": 4,
-          "name": "int",
-          "signed": true,
-          "width_bits": 32
+          "class_name": "DefaultDataType",
+          "display_name": "undefined",
+          "kind_hint": null,
+          "length_bytes": 1,
+          "name": "undefined",
+          "signed": null,
+          "width_bits": 8
         },
-        "declared_return_evidence_status": "authoritative_function_prototype",
-        "declared_width_authoritative": true,
-        "declared_width_bits": 32,
+        "declared_return_evidence_status": "non_authoritative_default_or_unresolved_prototype",
+        "declared_width_authoritative": false,
+        "declared_width_bits": null,
         "deferred_return_boundary_count": 0,
         "effective_result_width_bits": 32,
         "kind": "pal_compute_return_carrier_contract_abi_d",
@@ -7613,50 +7106,24 @@
         "reachable_return_widths": [
           32
         ],
-        "reported_declared_width_bits": 32,
+        "reported_declared_width_bits": 8,
         "return_storage": {
           "flags": {
             "auto": false,
             "memory": false,
-            "register": true,
+            "register": false,
             "stack": false,
-            "unassigned": false,
+            "unassigned": true,
             "void": false
           },
-          "pieces": [
-            {
-              "flags": {
-                "address": false,
-                "constant": false,
-                "input": false,
-                "register": true,
-                "unaffected": false,
-                "unique": false
-              },
-              "kind": "register",
-              "offset": 0,
-              "register": {
-                "base_name": "RAX",
-                "name": "EAX",
-                "repr": "EAX",
-                "size_bytes": 4
-              },
-              "repr": "(register, 0x0, 4)",
-              "size_bytes": 4,
-              "space": "register",
-              "storage_key": "register:0:4",
-              "width_bits": 32
-            }
-          ],
-          "repr": "EAX:4",
-          "size_bytes": 4,
-          "storage_keys": [
-            "register:0:4"
-          ]
+          "pieces": [],
+          "repr": "<UNASSIGNED>",
+          "size_bytes": 0,
+          "storage_keys": []
         },
         "runtime_helper": null,
         "runtime_helper_authority": "no_ABI_runtime_helper_assigned",
-        "status": "physical_return_carrier_proven",
+        "status": "return_width_proven_carrier_deferred",
         "transport_width_bits": 32,
         "unreachable_return_boundary_count": 0,
         "version": "v23b_abi_thunk_compatibility_return_reconciliation"
@@ -7696,7 +7163,7 @@
             "owner_role": "callable_parameter_carrier",
             "register": "EDI",
             "runtime_helper": null,
-            "sid": "v_103",
+            "sid": "v_149",
             "source": "abi_context.registers",
             "width_bits": 32
           }
@@ -7713,7 +7180,7 @@
             "owner_role": "callable_parameter_carrier",
             "register": "EDI",
             "runtime_helper": null,
-            "sid": "v_103",
+            "sid": "v_149",
             "source": "abi_context.registers",
             "width_bits": 32
           }
@@ -7731,7 +7198,7 @@
         "status": "evidence_selected"
       },
       "authority": "PALlibrary_ABI_A_B_plus_PALSymbolResolver_ABI_C",
-      "callable_signature_status": "authoritative_logical_parameter_order",
+      "callable_signature_status": "legacy_non_variadic_fallback",
       "deferred_return_boundaries": [],
       "deferred_return_boundary_count": 0,
       "downstream_reinference_allowed": false,
@@ -7740,10 +7207,10 @@
       "fixed_argument_materialization": "bind_positional_arguments_in_callable_order",
       "fixed_arguments": [
         {
-          "authority": "authoritative_logical_prototype",
+          "authority": "legacy_non_variadic_fallback",
           "kind": "pal_compute_fixed_argument_entry_plan_abi_d",
-          "logical_name": "x",
-          "logical_ordinal": 0,
+          "logical_name": null,
+          "logical_ordinal": null,
           "materialization": "bind_argument_bits_to_logical_identity",
           "name": "param_0",
           "ordinal": 0,
@@ -7755,25 +7222,25 @@
               "carrier_bank": "gp",
               "carrier_class": "integer",
               "carrier_index": 0,
-              "high_name": "x",
+              "high_name": "param_1",
               "high_ordinal": 0,
               "kind": "resolver_physical_carrier_binding_abi_c",
               "legacy_emitted_name": "param_0",
               "owner": {
-                "authority": "authoritative_logical_prototype",
+                "authority": "legacy_non_variadic_fallback",
                 "namespace": "logical_parameter",
                 "owner_id": "logical:0",
                 "resolved": true,
                 "role": "callable_parameter_carrier"
               },
               "register": "EDI",
-              "sid": "v_233",
+              "sid": "v_322",
               "storage_key": "register:56:4",
               "version": "v24_logical_physical_implicit_namespaces"
             }
           ],
           "physical_sids": [
-            "v_233"
+            "v_322"
           ],
           "python_source": {
             "index": 0,
@@ -7781,15 +7248,15 @@
             "name": "param_0"
           },
           "runtime_helper": null,
-          "source_sid": "v_233",
+          "source_sid": "v_322",
           "status": "ready",
           "version": "v23b_abi_thunk_compatibility_return_reconciliation"
         },
         {
-          "authority": "authoritative_logical_prototype",
+          "authority": "legacy_non_variadic_fallback",
           "kind": "pal_compute_fixed_argument_entry_plan_abi_d",
-          "logical_name": "y",
-          "logical_ordinal": 1,
+          "logical_name": null,
+          "logical_ordinal": null,
           "materialization": "bind_argument_bits_to_logical_identity",
           "name": "param_1",
           "ordinal": 1,
@@ -7801,25 +7268,25 @@
               "carrier_bank": "gp",
               "carrier_class": "integer",
               "carrier_index": 1,
-              "high_name": "y",
+              "high_name": "param_2",
               "high_ordinal": 1,
               "kind": "resolver_physical_carrier_binding_abi_c",
               "legacy_emitted_name": "param_1",
               "owner": {
-                "authority": "authoritative_logical_prototype",
+                "authority": "legacy_non_variadic_fallback",
                 "namespace": "logical_parameter",
                 "owner_id": "logical:1",
                 "resolved": true,
                 "role": "callable_parameter_carrier"
               },
               "register": "ESI",
-              "sid": "v_234",
+              "sid": "v_323",
               "storage_key": "register:48:4",
               "version": "v24_logical_physical_implicit_namespaces"
             }
           ],
           "physical_sids": [
-            "v_234"
+            "v_323"
           ],
           "python_source": {
             "index": 1,
@@ -7827,7 +7294,7 @@
             "name": "param_1"
           },
           "runtime_helper": null,
-          "source_sid": "v_234",
+          "source_sid": "v_323",
           "status": "ready",
           "version": "v23b_abi_thunk_compatibility_return_reconciliation"
         }
@@ -7860,17 +7327,17 @@
         "authority": "Ghidra_Function_signature_source_plus_explicit_C_arity",
         "conflicts": [],
         "declared_variadic": false,
-        "fixed_parameter_count": 2,
+        "fixed_parameter_count": null,
         "high_prototype_parameter_count": 2,
         "kind": "function_prototype_authority_v23b",
-        "observed_parameter_count": 2,
-        "prototype_text": "int __stdcall feedback(int x, int y)",
-        "prototype_text_arity_hint": "nonempty_text",
-        "reason": "Function parameter objects enumerate fixed parameters",
-        "reported_parameter_count": 2,
-        "signature_source": "IMPORTED",
-        "signature_source_class": "imported",
-        "status": "authoritative_n",
+        "observed_parameter_count": 0,
+        "prototype_text": "undefined feedback()",
+        "prototype_text_arity_hint": "empty_unspecified",
+        "reason": "empty parameter enumeration lacks explicit void or strong signature-source authority",
+        "reported_parameter_count": 0,
+        "signature_source": "DEFAULT",
+        "signature_source_class": "default",
+        "status": "unresolved",
         "version": "v23b_authoritative_prototypes_and_carriers"
       },
       "reachable_return_boundaries": [
@@ -7881,18 +7348,12 @@
           "emission_policy": "emit_reachable_return_boundary",
           "execution_suppressed": false,
           "reachable_return": true,
-          "return_boundary_authority": "function_signature_logical_width_plus_raw_transport",
-          "return_declared_view": {
-            "canonical_type": "s32",
-            "domain": "integer",
-            "sid": "v_232",
-            "signedness": "signed",
-            "width_bits": 32
-          },
+          "return_boundary_authority": "raw_return_register_transport",
+          "return_declared_view": null,
           "return_logical_width_bits": 32,
           "return_reachability": "reachable",
           "return_transport_width_bits": 32,
-          "return_value_sid": "v_232",
+          "return_value_sid": "v_375",
           "return_value_width_bits": 32
         }
       ],
@@ -7905,61 +7366,31 @@
           "emission_policy": "emit_reachable_return_boundary",
           "execution_suppressed": false,
           "reachable_return": true,
-          "return_boundary_authority": "function_signature_logical_width_plus_raw_transport",
-          "return_declared_view": {
-            "canonical_type": "s32",
-            "domain": "integer",
-            "sid": "v_232",
-            "signedness": "signed",
-            "width_bits": 32
-          },
+          "return_boundary_authority": "raw_return_register_transport",
+          "return_declared_view": null,
           "return_logical_width_bits": 32,
           "return_reachability": "reachable",
           "return_transport_width_bits": 32,
-          "return_value_sid": "v_232",
+          "return_value_sid": "v_375",
           "return_value_width_bits": 32
         }
       ],
       "return_boundary_count": 1,
       "return_contract": {
-        "authority": "reachable_raw_return_transport_plus_authoritative_prototype",
-        "carrier_pieces": [
-          {
-            "flags": {
-              "address": false,
-              "constant": false,
-              "input": false,
-              "register": true,
-              "unaffected": false,
-              "unique": false
-            },
-            "kind": "register",
-            "offset": 0,
-            "register": {
-              "base_name": "RAX",
-              "name": "EAX",
-              "repr": "EAX",
-              "size_bytes": 4
-            },
-            "repr": "(register, 0x0, 4)",
-            "size_bytes": 4,
-            "space": "register",
-            "storage_key": "register:0:4",
-            "width_bits": 32
-          }
-        ],
+        "authority": "reachable_raw_return_transport",
+        "carrier_pieces": [],
         "declared_return": {
-          "class_name": "IntegerDataType",
-          "display_name": "int",
-          "kind_hint": "integer",
-          "length_bytes": 4,
-          "name": "int",
-          "signed": true,
-          "width_bits": 32
+          "class_name": "DefaultDataType",
+          "display_name": "undefined",
+          "kind_hint": null,
+          "length_bytes": 1,
+          "name": "undefined",
+          "signed": null,
+          "width_bits": 8
         },
-        "declared_return_evidence_status": "authoritative_function_prototype",
-        "declared_width_authoritative": true,
-        "declared_width_bits": 32,
+        "declared_return_evidence_status": "non_authoritative_default_or_unresolved_prototype",
+        "declared_width_authoritative": false,
+        "declared_width_bits": null,
         "deferred_return_boundary_count": 0,
         "effective_result_width_bits": 32,
         "kind": "pal_compute_return_carrier_contract_abi_d",
@@ -7976,50 +7407,24 @@
         "reachable_return_widths": [
           32
         ],
-        "reported_declared_width_bits": 32,
+        "reported_declared_width_bits": 8,
         "return_storage": {
           "flags": {
             "auto": false,
             "memory": false,
-            "register": true,
+            "register": false,
             "stack": false,
-            "unassigned": false,
+            "unassigned": true,
             "void": false
           },
-          "pieces": [
-            {
-              "flags": {
-                "address": false,
-                "constant": false,
-                "input": false,
-                "register": true,
-                "unaffected": false,
-                "unique": false
-              },
-              "kind": "register",
-              "offset": 0,
-              "register": {
-                "base_name": "RAX",
-                "name": "EAX",
-                "repr": "EAX",
-                "size_bytes": 4
-              },
-              "repr": "(register, 0x0, 4)",
-              "size_bytes": 4,
-              "space": "register",
-              "storage_key": "register:0:4",
-              "width_bits": 32
-            }
-          ],
-          "repr": "EAX:4",
-          "size_bytes": 4,
-          "storage_keys": [
-            "register:0:4"
-          ]
+          "pieces": [],
+          "repr": "<UNASSIGNED>",
+          "size_bytes": 0,
+          "storage_keys": []
         },
         "runtime_helper": null,
         "runtime_helper_authority": "no_ABI_runtime_helper_assigned",
-        "status": "physical_return_carrier_proven",
+        "status": "return_width_proven_carrier_deferred",
         "transport_width_bits": 32,
         "unreachable_return_boundary_count": 0,
         "version": "v23b_abi_thunk_compatibility_return_reconciliation"
@@ -8059,7 +7464,7 @@
             "owner_role": "callable_parameter_carrier",
             "register": "EDI",
             "runtime_helper": null,
-            "sid": "v_233",
+            "sid": "v_322",
             "source": "abi_context.registers",
             "width_bits": 32
           },
@@ -8073,7 +7478,7 @@
             "owner_role": "callable_parameter_carrier",
             "register": "ESI",
             "runtime_helper": null,
-            "sid": "v_234",
+            "sid": "v_323",
             "source": "abi_context.registers",
             "width_bits": 32
           }
@@ -8090,7 +7495,7 @@
             "owner_role": "callable_parameter_carrier",
             "register": "EDI",
             "runtime_helper": null,
-            "sid": "v_233",
+            "sid": "v_322",
             "source": "abi_context.registers",
             "width_bits": 32
           },
@@ -8104,7 +7509,7 @@
             "owner_role": "callable_parameter_carrier",
             "register": "ESI",
             "runtime_helper": null,
-            "sid": "v_234",
+            "sid": "v_323",
             "source": "abi_context.registers",
             "width_bits": 32
           }
@@ -8122,7 +7527,7 @@
         "status": "evidence_selected"
       },
       "authority": "PALlibrary_ABI_A_B_plus_PALSymbolResolver_ABI_C",
-      "callable_signature_status": "authoritative_zero_parameter_signature",
+      "callable_signature_status": "legacy_non_variadic_fallback",
       "deferred_return_boundaries": [],
       "deferred_return_boundary_count": 0,
       "downstream_reinference_allowed": false,
@@ -8158,106 +7563,70 @@
         "authority": "Ghidra_Function_signature_source_plus_explicit_C_arity",
         "conflicts": [],
         "declared_variadic": false,
-        "fixed_parameter_count": 0,
+        "fixed_parameter_count": null,
         "high_prototype_parameter_count": 0,
         "kind": "function_prototype_authority_v23b",
         "observed_parameter_count": 0,
-        "prototype_text": "int main(void)",
-        "prototype_text_arity_hint": "explicit_void",
-        "reason": "prototype text explicitly declares (void)",
+        "prototype_text": "undefined main()",
+        "prototype_text_arity_hint": "empty_unspecified",
+        "reason": "empty parameter enumeration lacks explicit void or strong signature-source authority",
         "reported_parameter_count": 0,
-        "signature_source": "IMPORTED",
-        "signature_source_class": "imported",
-        "status": "authoritative_zero",
+        "signature_source": "DEFAULT",
+        "signature_source_class": "default",
+        "status": "unresolved",
         "version": "v23b_authoritative_prototypes_and_carriers"
       },
       "reachable_return_boundaries": [
         {
-          "block_addr": 1053363,
+          "block_addr": 1053404,
           "cut_by_no_return_blocks": [],
           "cut_by_no_return_call_op_keys": [],
           "emission_policy": "emit_reachable_return_boundary",
           "execution_suppressed": false,
           "reachable_return": true,
-          "return_boundary_authority": "function_signature_logical_width_plus_raw_transport",
-          "return_declared_view": {
-            "canonical_type": "s32",
-            "domain": "integer",
-            "sid": "v_1721",
-            "signedness": "signed",
-            "width_bits": 32
-          },
+          "return_boundary_authority": "raw_return_register_transport",
+          "return_declared_view": null,
           "return_logical_width_bits": 32,
           "return_reachability": "reachable",
           "return_transport_width_bits": 32,
-          "return_value_sid": "v_1721",
+          "return_value_sid": "v_5247",
           "return_value_width_bits": 32
         }
       ],
       "reachable_return_boundary_count": 1,
       "return_boundaries": [
         {
-          "block_addr": 1053363,
+          "block_addr": 1053404,
           "cut_by_no_return_blocks": [],
           "cut_by_no_return_call_op_keys": [],
           "emission_policy": "emit_reachable_return_boundary",
           "execution_suppressed": false,
           "reachable_return": true,
-          "return_boundary_authority": "function_signature_logical_width_plus_raw_transport",
-          "return_declared_view": {
-            "canonical_type": "s32",
-            "domain": "integer",
-            "sid": "v_1721",
-            "signedness": "signed",
-            "width_bits": 32
-          },
+          "return_boundary_authority": "raw_return_register_transport",
+          "return_declared_view": null,
           "return_logical_width_bits": 32,
           "return_reachability": "reachable",
           "return_transport_width_bits": 32,
-          "return_value_sid": "v_1721",
+          "return_value_sid": "v_5247",
           "return_value_width_bits": 32
         }
       ],
       "return_boundary_count": 1,
       "return_contract": {
-        "authority": "reachable_raw_return_transport_plus_authoritative_prototype",
-        "carrier_pieces": [
-          {
-            "flags": {
-              "address": false,
-              "constant": false,
-              "input": false,
-              "register": true,
-              "unaffected": false,
-              "unique": false
-            },
-            "kind": "register",
-            "offset": 0,
-            "register": {
-              "base_name": "RAX",
-              "name": "EAX",
-              "repr": "EAX",
-              "size_bytes": 4
-            },
-            "repr": "(register, 0x0, 4)",
-            "size_bytes": 4,
-            "space": "register",
-            "storage_key": "register:0:4",
-            "width_bits": 32
-          }
-        ],
+        "authority": "reachable_raw_return_transport",
+        "carrier_pieces": [],
         "declared_return": {
-          "class_name": "IntegerDataType",
-          "display_name": "int",
-          "kind_hint": "integer",
-          "length_bytes": 4,
-          "name": "int",
-          "signed": true,
-          "width_bits": 32
+          "class_name": "DefaultDataType",
+          "display_name": "undefined",
+          "kind_hint": null,
+          "length_bytes": 1,
+          "name": "undefined",
+          "signed": null,
+          "width_bits": 8
         },
-        "declared_return_evidence_status": "authoritative_function_prototype",
-        "declared_width_authoritative": true,
-        "declared_width_bits": 32,
+        "declared_return_evidence_status": "non_authoritative_default_or_unresolved_prototype",
+        "declared_width_authoritative": false,
+        "declared_width_bits": null,
         "deferred_return_boundary_count": 0,
         "effective_result_width_bits": 32,
         "kind": "pal_compute_return_carrier_contract_abi_d",
@@ -8274,50 +7643,24 @@
         "reachable_return_widths": [
           32
         ],
-        "reported_declared_width_bits": 32,
+        "reported_declared_width_bits": 8,
         "return_storage": {
           "flags": {
             "auto": false,
             "memory": false,
-            "register": true,
+            "register": false,
             "stack": false,
-            "unassigned": false,
+            "unassigned": true,
             "void": false
           },
-          "pieces": [
-            {
-              "flags": {
-                "address": false,
-                "constant": false,
-                "input": false,
-                "register": true,
-                "unaffected": false,
-                "unique": false
-              },
-              "kind": "register",
-              "offset": 0,
-              "register": {
-                "base_name": "RAX",
-                "name": "EAX",
-                "repr": "EAX",
-                "size_bytes": 4
-              },
-              "repr": "(register, 0x0, 4)",
-              "size_bytes": 4,
-              "space": "register",
-              "storage_key": "register:0:4",
-              "width_bits": 32
-            }
-          ],
-          "repr": "EAX:4",
-          "size_bytes": 4,
-          "storage_keys": [
-            "register:0:4"
-          ]
+          "pieces": [],
+          "repr": "<UNASSIGNED>",
+          "size_bytes": 0,
+          "storage_keys": []
         },
         "runtime_helper": null,
         "runtime_helper_authority": "no_ABI_runtime_helper_assigned",
-        "status": "physical_return_carrier_proven",
+        "status": "return_width_proven_carrier_deferred",
         "transport_width_bits": 32,
         "unreachable_return_boundary_count": 0,
         "version": "v23b_abi_thunk_compatibility_return_reconciliation"
@@ -8355,7 +7698,7 @@
       },
       "version": "v23b_abi_thunk_compatibility_return_reconciliation"
     },
-    "function_entry:1053404": {
+    "function_entry:1053452": {
       "abi_backend": {
         "name": "sysv_amd64",
         "reason": "x86_64 target plus ELF/GCC compiler evidence",
@@ -8366,7 +7709,7 @@
       "deferred_return_boundaries": [],
       "deferred_return_boundary_count": 0,
       "downstream_reinference_allowed": false,
-      "entry": 1053404,
+      "entry": 1053452,
       "fixed_argument_count": 0,
       "fixed_argument_materialization": "bind_positional_arguments_in_callable_order",
       "fixed_arguments": [],
@@ -8393,7 +7736,7 @@
         "status": "not_required"
       },
       "plan_class": "function_entry_abi_plan",
-      "plan_id": "function_entry:1053404",
+      "plan_id": "function_entry:1053452",
       "prototype_authority": {
         "authority": "Ghidra_Function_signature_source_plus_explicit_C_arity",
         "conflicts": [],
@@ -8413,7 +7756,7 @@
       },
       "reachable_return_boundaries": [
         {
-          "block_addr": 1053408,
+          "block_addr": 1053456,
           "cut_by_no_return_blocks": [],
           "cut_by_no_return_call_op_keys": [],
           "emission_policy": "emit_reachable_return_boundary",
@@ -8431,7 +7774,7 @@
       "reachable_return_boundary_count": 1,
       "return_boundaries": [
         {
-          "block_addr": 1053408,
+          "block_addr": 1053456,
           "cut_by_no_return_blocks": [],
           "cut_by_no_return_call_op_keys": [],
           "emission_policy": "emit_reachable_return_boundary",

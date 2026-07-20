@@ -1,0 +1,1575 @@
+{
+  "build": "pal_exec_interface_v1g_stdio_game_io",
+  "counts": {
+    "call_plans": 59,
+    "entry_plans": 27,
+    "manifest_functions": 28,
+    "published_functions": 27
+  },
+  "default_entry": "function:0x10121c",
+  "external_targets": [
+    "__stack_chk_fail",
+    "fgets",
+    "printf",
+    "puts",
+    "strcmp",
+    "strcspn"
+  ],
+  "format": "pal_execution_publish",
+  "functions": [
+    {
+      "active_name": "f_init",
+      "active_name_source": "pal",
+      "artifacts": {
+        "executable": {
+          "path": "functions/f_0000000000101000_init.exec.py",
+          "sha256": "9326fce74bb966269661fd944d78c737b207680be7554b864bee82dcc02e66e8"
+        },
+        "icecube": {
+          "path": "functions/f_0000000000101000_init.icecube.json.gz",
+          "sha256": "e4ca4b044d559682fd1f47ea5f2d24c65cb7b8919f0060bdeef88c5828a94407"
+        },
+        "readable": {
+          "path": "functions/f_0000000000101000_init.read.py",
+          "sha256": "6fe9c60ec99647e33ec1680d1177fef300bcb14903e26ba1391029fee8f66063"
+        }
+      },
+      "body_max": 1052698,
+      "body_max_hex": "0x10101a",
+      "body_min": 1052672,
+      "body_min_hex": "0x101000",
+      "calling_convention": "__stdcall",
+      "entry": 1052672,
+      "entry_hex": "0x101000",
+      "entry_plan_id": "function_entry:1052672",
+      "external": false,
+      "function_id": "function:0x101000",
+      "generated_name": null,
+      "inline": false,
+      "is_shim_boundary": false,
+      "module": "functions.f_0000000000101000_init",
+      "module_stem": "f_0000000000101000_init",
+      "name": "_init",
+      "namespace": "Global",
+      "no_return": false,
+      "operator_name": null,
+      "ordinal": 0,
+      "pal_name": "f_init",
+      "published_icecube": "icecubes/f_0000000000101000_init.icecube.json.gz",
+      "published_module": "functions/f_0000000000101000_init.py",
+      "published_sha256": "9326fce74bb966269661fd944d78c737b207680be7554b864bee82dcc02e66e8",
+      "python_parameter_count": 1,
+      "python_symbol": "_init",
+      "qualified_name": "Global::_init",
+      "runtime_imports": [
+        "PALABI",
+        "PALhelpers"
+      ],
+      "runtime_mode": "abi_context",
+      "ssa_name": "_init",
+      "status": "decompiled",
+      "thunk": false,
+      "warnings": []
+    },
+    {
+      "active_name": "f_ring",
+      "active_name_source": "generated",
+      "artifacts": {
+        "executable": {
+          "path": "functions/f_0000000000101020_FUN_00101020.exec.py",
+          "sha256": "ef62aeffe05f0d3f9a09244933b545d084eb33d7dab49a9950ff85693e32c04d"
+        },
+        "icecube": {
+          "path": "functions/f_0000000000101020_FUN_00101020.icecube.json.gz",
+          "sha256": "5afd968bd4cc49082b09e03d0a0044b06db1bde51ec71ea20677be560336631c"
+        },
+        "readable": {
+          "path": "functions/f_0000000000101020_FUN_00101020.read.py",
+          "sha256": "978c13ffa1aeb8a3c853745225d8e60ed775f98735eb718aeb7cab5f7c3c480c"
+        }
+      },
+      "body_max": 1052716,
+      "body_max_hex": "0x10102c",
+      "body_min": 1052704,
+      "body_min_hex": "0x101020",
+      "calling_convention": "unknown",
+      "entry": 1052704,
+      "entry_hex": "0x101020",
+      "entry_plan_id": "function_entry:1052704",
+      "external": false,
+      "function_id": "function:0x101020",
+      "generated_name": "f_ring",
+      "inline": false,
+      "is_shim_boundary": false,
+      "module": "functions.f_0000000000101020_FUN_00101020",
+      "module_stem": "f_0000000000101020_FUN_00101020",
+      "name": "FUN_00101020",
+      "namespace": "Global",
+      "no_return": false,
+      "operator_name": null,
+      "ordinal": 1,
+      "pal_name": "f_FUN_00101020",
+      "published_icecube": "icecubes/f_0000000000101020_FUN_00101020.icecube.json.gz",
+      "published_module": "functions/f_0000000000101020_FUN_00101020.py",
+      "published_sha256": "ef62aeffe05f0d3f9a09244933b545d084eb33d7dab49a9950ff85693e32c04d",
+      "python_parameter_count": 0,
+      "python_symbol": "FUN_00101020",
+      "qualified_name": "Global::FUN_00101020",
+      "runtime_imports": [
+        "PALABI",
+        "PALhelpers"
+      ],
+      "runtime_mode": "abi_context",
+      "ssa_name": "FUN_00101020",
+      "status": "decompiled",
+      "thunk": false,
+      "warnings": []
+    },
+    {
+      "active_name": "f_cxa_finalize",
+      "active_name_source": "pal",
+      "artifacts": {
+        "executable": {
+          "path": "functions/f_0000000000101090_cxa_finalize.exec.py",
+          "sha256": "62733db5aeb1807d9647036385da1f9380bd3ca9cfc7db8d2842ea55b0129d40"
+        },
+        "icecube": {
+          "path": "functions/f_0000000000101090_cxa_finalize.icecube.json.gz",
+          "sha256": "3d30b91ec7468c288e1938499e1a197d90c6ef4abc455bf6ee0453208d856ba5"
+        },
+        "readable": {
+          "path": "functions/f_0000000000101090_cxa_finalize.read.py",
+          "sha256": "3d6d887113aaa55d13ce1aca46919fc3d42f8e5f83e0c43161c6a4ff7e4b7250"
+        }
+      },
+      "body_max": 1052826,
+      "body_max_hex": "0x10109a",
+      "body_min": 1052816,
+      "body_min_hex": "0x101090",
+      "calling_convention": "unknown",
+      "entry": 1052816,
+      "entry_hex": "0x101090",
+      "entry_plan_id": "function_entry:1052816",
+      "external": false,
+      "function_id": "function:0x101090",
+      "generated_name": null,
+      "inline": false,
+      "is_shim_boundary": true,
+      "module": "functions.f_0000000000101090_cxa_finalize",
+      "module_stem": "f_0000000000101090_cxa_finalize",
+      "name": "__cxa_finalize",
+      "namespace": "<EXTERNAL>",
+      "no_return": false,
+      "operator_name": null,
+      "ordinal": 2,
+      "pal_name": "f_cxa_finalize",
+      "published_icecube": "icecubes/f_0000000000101090_cxa_finalize.icecube.json.gz",
+      "published_module": "functions/f_0000000000101090_cxa_finalize.py",
+      "published_sha256": "62733db5aeb1807d9647036385da1f9380bd3ca9cfc7db8d2842ea55b0129d40",
+      "python_parameter_count": 0,
+      "python_symbol": "__cxa_finalize",
+      "qualified_name": "<EXTERNAL>::__cxa_finalize",
+      "runtime_imports": [
+        "PALABI",
+        "PALhelpers"
+      ],
+      "runtime_mode": "abi_context",
+      "ssa_name": "__cxa_finalize",
+      "status": "decompiled",
+      "thunk": true,
+      "warnings": []
+    },
+    {
+      "active_name": "f_puts",
+      "active_name_source": "pal",
+      "artifacts": {
+        "executable": {
+          "path": "functions/f_00000000001010a0_puts.exec.py",
+          "sha256": "372730abb9410fe25b75c153c91da5d7e933f150698e5d85ce4d23bdc209bc28"
+        },
+        "icecube": {
+          "path": "functions/f_00000000001010a0_puts.icecube.json.gz",
+          "sha256": "a36363c62f3182e4adf6fc157aeaa67b0fcafe725e5e9102bd45233bce6c9a8d"
+        },
+        "readable": {
+          "path": "functions/f_00000000001010a0_puts.read.py",
+          "sha256": "0d0f05ec34da0a0271a6fe8e849f01d21ef71775115c8c80471375c248e83913"
+        }
+      },
+      "body_max": 1052842,
+      "body_max_hex": "0x1010aa",
+      "body_min": 1052832,
+      "body_min_hex": "0x1010a0",
+      "calling_convention": "unknown",
+      "entry": 1052832,
+      "entry_hex": "0x1010a0",
+      "entry_plan_id": "function_entry:1052832",
+      "external": false,
+      "function_id": "function:0x1010a0",
+      "generated_name": null,
+      "inline": false,
+      "is_shim_boundary": true,
+      "module": "functions.f_00000000001010a0_puts",
+      "module_stem": "f_00000000001010a0_puts",
+      "name": "puts",
+      "namespace": "<EXTERNAL>",
+      "no_return": false,
+      "operator_name": null,
+      "ordinal": 3,
+      "pal_name": "f_puts",
+      "published_icecube": "icecubes/f_00000000001010a0_puts.icecube.json.gz",
+      "published_module": "functions/f_00000000001010a0_puts.py",
+      "published_sha256": "372730abb9410fe25b75c153c91da5d7e933f150698e5d85ce4d23bdc209bc28",
+      "python_parameter_count": 1,
+      "python_symbol": "puts",
+      "qualified_name": "<EXTERNAL>::puts",
+      "runtime_imports": [
+        "PALABI",
+        "PALhelpers"
+      ],
+      "runtime_mode": "abi_context",
+      "ssa_name": "puts",
+      "status": "decompiled",
+      "thunk": true,
+      "warnings": []
+    },
+    {
+      "active_name": "f_stack_chk_fail",
+      "active_name_source": "pal",
+      "artifacts": {
+        "executable": {
+          "path": "functions/f_00000000001010b0_stack_chk_fail.exec.py",
+          "sha256": "c2218a813acd2c1cfdecbc5c6e1c30d772589d3ce7dffb0af8155765fa33de8d"
+        },
+        "icecube": {
+          "path": "functions/f_00000000001010b0_stack_chk_fail.icecube.json.gz",
+          "sha256": "cbcbc0e38fa9aa1c11e224078f826a8e601e144b01fa344e34f931f321222026"
+        },
+        "readable": {
+          "path": "functions/f_00000000001010b0_stack_chk_fail.read.py",
+          "sha256": "b91428e828858cf323fa193b91e6e1d750a6d83d001de128e6f99b5d402cfe80"
+        }
+      },
+      "body_max": 1052858,
+      "body_max_hex": "0x1010ba",
+      "body_min": 1052848,
+      "body_min_hex": "0x1010b0",
+      "calling_convention": "unknown",
+      "entry": 1052848,
+      "entry_hex": "0x1010b0",
+      "entry_plan_id": "function_entry:1052848",
+      "external": false,
+      "function_id": "function:0x1010b0",
+      "generated_name": null,
+      "inline": false,
+      "is_shim_boundary": true,
+      "module": "functions.f_00000000001010b0_stack_chk_fail",
+      "module_stem": "f_00000000001010b0_stack_chk_fail",
+      "name": "__stack_chk_fail",
+      "namespace": "<EXTERNAL>",
+      "no_return": true,
+      "operator_name": null,
+      "ordinal": 4,
+      "pal_name": "f_stack_chk_fail",
+      "published_icecube": "icecubes/f_00000000001010b0_stack_chk_fail.icecube.json.gz",
+      "published_module": "functions/f_00000000001010b0_stack_chk_fail.py",
+      "published_sha256": "c2218a813acd2c1cfdecbc5c6e1c30d772589d3ce7dffb0af8155765fa33de8d",
+      "python_parameter_count": 0,
+      "python_symbol": "__stack_chk_fail",
+      "qualified_name": "<EXTERNAL>::__stack_chk_fail",
+      "runtime_imports": [
+        "PALABI",
+        "PALhelpers"
+      ],
+      "runtime_mode": "abi_context",
+      "ssa_name": "__stack_chk_fail",
+      "status": "decompiled",
+      "thunk": true,
+      "warnings": []
+    },
+    {
+      "active_name": "f_printf",
+      "active_name_source": "pal",
+      "artifacts": {
+        "executable": {
+          "path": "functions/f_00000000001010c0_printf.exec.py",
+          "sha256": "464605a7eb07aba0eaba1060b5686815126814267108936114b3a2db6de7158b"
+        },
+        "icecube": {
+          "path": "functions/f_00000000001010c0_printf.icecube.json.gz",
+          "sha256": "af728d2f19fe44f20817ad3fe340fcab4926b58bbd56ac95660929313f9ddb3d"
+        },
+        "readable": {
+          "path": "functions/f_00000000001010c0_printf.read.py",
+          "sha256": "867b306362a4ec9243aa657dda352de46e7340b7b224f7f9c51cfe4806995776"
+        }
+      },
+      "body_max": 1052874,
+      "body_max_hex": "0x1010ca",
+      "body_min": 1052864,
+      "body_min_hex": "0x1010c0",
+      "calling_convention": "unknown",
+      "entry": 1052864,
+      "entry_hex": "0x1010c0",
+      "entry_plan_id": "function_entry:1052864",
+      "external": false,
+      "function_id": "function:0x1010c0",
+      "generated_name": null,
+      "inline": false,
+      "is_shim_boundary": true,
+      "module": "functions.f_00000000001010c0_printf",
+      "module_stem": "f_00000000001010c0_printf",
+      "name": "printf",
+      "namespace": "<EXTERNAL>",
+      "no_return": false,
+      "operator_name": null,
+      "ordinal": 5,
+      "pal_name": "f_printf",
+      "published_icecube": "icecubes/f_00000000001010c0_printf.icecube.json.gz",
+      "published_module": "functions/f_00000000001010c0_printf.py",
+      "published_sha256": "464605a7eb07aba0eaba1060b5686815126814267108936114b3a2db6de7158b",
+      "python_parameter_count": 1,
+      "python_symbol": "printf",
+      "qualified_name": "<EXTERNAL>::printf",
+      "runtime_imports": [
+        "PALABI",
+        "PALhelpers"
+      ],
+      "runtime_mode": "abi_context",
+      "ssa_name": "printf",
+      "status": "decompiled",
+      "thunk": true,
+      "warnings": []
+    },
+    {
+      "active_name": "f_strcspn",
+      "active_name_source": "pal",
+      "artifacts": {
+        "executable": {
+          "path": "functions/f_00000000001010d0_strcspn.exec.py",
+          "sha256": "8f14a08ee259e4bf63b0a10e3a8953150fdd9fadaaaf5ca0458579dfe9eff6b9"
+        },
+        "icecube": {
+          "path": "functions/f_00000000001010d0_strcspn.icecube.json.gz",
+          "sha256": "a5d3d5158679a07fa104905c92a5f995edc99ab6e6dcbb51a0659637fb4337f4"
+        },
+        "readable": {
+          "path": "functions/f_00000000001010d0_strcspn.read.py",
+          "sha256": "516a19b01afd24dca73a606f36e1216d176e3f25ac986d8452644e7cbffd517a"
+        }
+      },
+      "body_max": 1052890,
+      "body_max_hex": "0x1010da",
+      "body_min": 1052880,
+      "body_min_hex": "0x1010d0",
+      "calling_convention": "unknown",
+      "entry": 1052880,
+      "entry_hex": "0x1010d0",
+      "entry_plan_id": "function_entry:1052880",
+      "external": false,
+      "function_id": "function:0x1010d0",
+      "generated_name": null,
+      "inline": false,
+      "is_shim_boundary": true,
+      "module": "functions.f_00000000001010d0_strcspn",
+      "module_stem": "f_00000000001010d0_strcspn",
+      "name": "strcspn",
+      "namespace": "<EXTERNAL>",
+      "no_return": false,
+      "operator_name": null,
+      "ordinal": 6,
+      "pal_name": "f_strcspn",
+      "published_icecube": "icecubes/f_00000000001010d0_strcspn.icecube.json.gz",
+      "published_module": "functions/f_00000000001010d0_strcspn.py",
+      "published_sha256": "8f14a08ee259e4bf63b0a10e3a8953150fdd9fadaaaf5ca0458579dfe9eff6b9",
+      "python_parameter_count": 2,
+      "python_symbol": "strcspn",
+      "qualified_name": "<EXTERNAL>::strcspn",
+      "runtime_imports": [
+        "PALABI",
+        "PALhelpers"
+      ],
+      "runtime_mode": "abi_context",
+      "ssa_name": "strcspn",
+      "status": "decompiled",
+      "thunk": true,
+      "warnings": []
+    },
+    {
+      "active_name": "f_fgets",
+      "active_name_source": "pal",
+      "artifacts": {
+        "executable": {
+          "path": "functions/f_00000000001010e0_fgets.exec.py",
+          "sha256": "8d787ae9ba765de4e7962cbbf41deacf7d40fa47924f5f21dbc1e60b5cde2763"
+        },
+        "icecube": {
+          "path": "functions/f_00000000001010e0_fgets.icecube.json.gz",
+          "sha256": "0d188ea8c2fff1f7821c1961536cc28d31406bb6d26397321ab15c23e3707afc"
+        },
+        "readable": {
+          "path": "functions/f_00000000001010e0_fgets.read.py",
+          "sha256": "87779a9ac9e0ecc35e1dbe8606e461e7bae955f5ca4406bb1e5da63f8cb55d34"
+        }
+      },
+      "body_max": 1052906,
+      "body_max_hex": "0x1010ea",
+      "body_min": 1052896,
+      "body_min_hex": "0x1010e0",
+      "calling_convention": "unknown",
+      "entry": 1052896,
+      "entry_hex": "0x1010e0",
+      "entry_plan_id": "function_entry:1052896",
+      "external": false,
+      "function_id": "function:0x1010e0",
+      "generated_name": null,
+      "inline": false,
+      "is_shim_boundary": true,
+      "module": "functions.f_00000000001010e0_fgets",
+      "module_stem": "f_00000000001010e0_fgets",
+      "name": "fgets",
+      "namespace": "<EXTERNAL>",
+      "no_return": false,
+      "operator_name": null,
+      "ordinal": 7,
+      "pal_name": "f_fgets",
+      "published_icecube": "icecubes/f_00000000001010e0_fgets.icecube.json.gz",
+      "published_module": "functions/f_00000000001010e0_fgets.py",
+      "published_sha256": "8d787ae9ba765de4e7962cbbf41deacf7d40fa47924f5f21dbc1e60b5cde2763",
+      "python_parameter_count": 3,
+      "python_symbol": "fgets",
+      "qualified_name": "<EXTERNAL>::fgets",
+      "runtime_imports": [
+        "PALABI",
+        "PALhelpers"
+      ],
+      "runtime_mode": "abi_context",
+      "ssa_name": "fgets",
+      "status": "decompiled",
+      "thunk": true,
+      "warnings": []
+    },
+    {
+      "active_name": "f_strcmp",
+      "active_name_source": "pal",
+      "artifacts": {
+        "executable": {
+          "path": "functions/f_00000000001010f0_strcmp.exec.py",
+          "sha256": "9e923c082909d3811652e6fa65983411bec33b1e516b8f558c8b4b04af048669"
+        },
+        "icecube": {
+          "path": "functions/f_00000000001010f0_strcmp.icecube.json.gz",
+          "sha256": "8729dfe426703124890b3ca84a84c1d3e7f4e354699154a64b3ef2e230849e11"
+        },
+        "readable": {
+          "path": "functions/f_00000000001010f0_strcmp.read.py",
+          "sha256": "b592d34b8734bf50314e97966714d6ef00cb5d8f07a60aba8222e3fa64dbb176"
+        }
+      },
+      "body_max": 1052922,
+      "body_max_hex": "0x1010fa",
+      "body_min": 1052912,
+      "body_min_hex": "0x1010f0",
+      "calling_convention": "unknown",
+      "entry": 1052912,
+      "entry_hex": "0x1010f0",
+      "entry_plan_id": "function_entry:1052912",
+      "external": false,
+      "function_id": "function:0x1010f0",
+      "generated_name": null,
+      "inline": false,
+      "is_shim_boundary": true,
+      "module": "functions.f_00000000001010f0_strcmp",
+      "module_stem": "f_00000000001010f0_strcmp",
+      "name": "strcmp",
+      "namespace": "<EXTERNAL>",
+      "no_return": false,
+      "operator_name": null,
+      "ordinal": 8,
+      "pal_name": "f_strcmp",
+      "published_icecube": "icecubes/f_00000000001010f0_strcmp.icecube.json.gz",
+      "published_module": "functions/f_00000000001010f0_strcmp.py",
+      "published_sha256": "9e923c082909d3811652e6fa65983411bec33b1e516b8f558c8b4b04af048669",
+      "python_parameter_count": 2,
+      "python_symbol": "strcmp",
+      "qualified_name": "<EXTERNAL>::strcmp",
+      "runtime_imports": [
+        "PALABI",
+        "PALhelpers"
+      ],
+      "runtime_mode": "abi_context",
+      "ssa_name": "strcmp",
+      "status": "decompiled",
+      "thunk": true,
+      "warnings": []
+    },
+    {
+      "active_name": "f_start",
+      "active_name_source": "pal",
+      "artifacts": {
+        "executable": {
+          "path": "functions/f_0000000000101100_start.exec.py",
+          "sha256": "c54924b9b5253808b5e126d1b49ae97b0e2e78d9881cb76cb80cc15d10d55dfc"
+        },
+        "icecube": {
+          "path": "functions/f_0000000000101100_start.icecube.json.gz",
+          "sha256": "73b800c82e78e98cde192d83b2567e0ab36289fd7f5ed06dd00bbc082d850874"
+        },
+        "readable": {
+          "path": "functions/f_0000000000101100_start.read.py",
+          "sha256": "9f5d0452a58aeaaa73333fb3fcbf1c5ec8821583e03d8e6a3ed8595689989c80"
+        }
+      },
+      "body_max": 1052965,
+      "body_max_hex": "0x101125",
+      "body_min": 1052928,
+      "body_min_hex": "0x101100",
+      "calling_convention": "processEntry",
+      "entry": 1052928,
+      "entry_hex": "0x101100",
+      "entry_plan_id": "function_entry:1052928",
+      "external": false,
+      "function_id": "function:0x101100",
+      "generated_name": null,
+      "inline": false,
+      "is_shim_boundary": false,
+      "module": "functions.f_0000000000101100_start",
+      "module_stem": "f_0000000000101100_start",
+      "name": "_start",
+      "namespace": "Global",
+      "no_return": false,
+      "operator_name": null,
+      "ordinal": 9,
+      "pal_name": "f_start",
+      "published_icecube": "icecubes/f_0000000000101100_start.icecube.json.gz",
+      "published_module": "functions/f_0000000000101100_start.py",
+      "published_sha256": "c54924b9b5253808b5e126d1b49ae97b0e2e78d9881cb76cb80cc15d10d55dfc",
+      "python_parameter_count": 2,
+      "python_symbol": "_start",
+      "qualified_name": "Global::_start",
+      "runtime_imports": [
+        "PALABI",
+        "PALhelpers"
+      ],
+      "runtime_mode": "abi_context",
+      "ssa_name": "_start",
+      "status": "decompiled",
+      "thunk": false,
+      "warnings": []
+    },
+    {
+      "active_name": "f_deregister_tm_clones",
+      "active_name_source": "pal",
+      "artifacts": {
+        "executable": {
+          "path": "functions/f_0000000000101130_deregister_tm_clones.exec.py",
+          "sha256": "99149d82bcd5acd48afac10d4474147fec30cf3adefd3dd5c803af5673596433"
+        },
+        "icecube": {
+          "path": "functions/f_0000000000101130_deregister_tm_clones.icecube.json.gz",
+          "sha256": "1c1f53a14ba03299c5d989c555b92f1d9760c92e6a50fce5faa2895384027bab"
+        },
+        "readable": {
+          "path": "functions/f_0000000000101130_deregister_tm_clones.read.py",
+          "sha256": "446e2a59a5d91133b78b262e66338d04d7a2a6be9c0d6ee7a83bfa3ead9c7271"
+        }
+      },
+      "body_max": 1053016,
+      "body_max_hex": "0x101158",
+      "body_min": 1052976,
+      "body_min_hex": "0x101130",
+      "calling_convention": "unknown",
+      "entry": 1052976,
+      "entry_hex": "0x101130",
+      "entry_plan_id": "function_entry:1052976",
+      "external": false,
+      "function_id": "function:0x101130",
+      "generated_name": null,
+      "inline": false,
+      "is_shim_boundary": false,
+      "module": "functions.f_0000000000101130_deregister_tm_clones",
+      "module_stem": "f_0000000000101130_deregister_tm_clones",
+      "name": "deregister_tm_clones",
+      "namespace": "Global",
+      "no_return": false,
+      "operator_name": null,
+      "ordinal": 10,
+      "pal_name": "f_deregister_tm_clones",
+      "published_icecube": "icecubes/f_0000000000101130_deregister_tm_clones.icecube.json.gz",
+      "published_module": "functions/f_0000000000101130_deregister_tm_clones.py",
+      "published_sha256": "99149d82bcd5acd48afac10d4474147fec30cf3adefd3dd5c803af5673596433",
+      "python_parameter_count": 0,
+      "python_symbol": "deregister_tm_clones",
+      "qualified_name": "Global::deregister_tm_clones",
+      "runtime_imports": [
+        "PALhelpers"
+      ],
+      "runtime_mode": "legacy_direct",
+      "ssa_name": "deregister_tm_clones",
+      "status": "decompiled",
+      "thunk": false,
+      "warnings": []
+    },
+    {
+      "active_name": "f_register_tm_clones",
+      "active_name_source": "pal",
+      "artifacts": {
+        "executable": {
+          "path": "functions/f_0000000000101160_register_tm_clones.exec.py",
+          "sha256": "c1fc4a567b9e6e272f9ee4d7726fcf57462dfd46d6f09ce61c2eddc13f320dbc"
+        },
+        "icecube": {
+          "path": "functions/f_0000000000101160_register_tm_clones.icecube.json.gz",
+          "sha256": "505bea364a0a1c4dc9d7f3f60fa760388bc9138b7c7eac4ea63ab64d508a91f7"
+        },
+        "readable": {
+          "path": "functions/f_0000000000101160_register_tm_clones.read.py",
+          "sha256": "4cbd8e1341afa17cac5f1d6e2d3ad8f2229d064cf720cd7fc11fd5e5812946e0"
+        }
+      },
+      "body_max": 1053080,
+      "body_max_hex": "0x101198",
+      "body_min": 1053024,
+      "body_min_hex": "0x101160",
+      "calling_convention": "unknown",
+      "entry": 1053024,
+      "entry_hex": "0x101160",
+      "entry_plan_id": "function_entry:1053024",
+      "external": false,
+      "function_id": "function:0x101160",
+      "generated_name": null,
+      "inline": false,
+      "is_shim_boundary": false,
+      "module": "functions.f_0000000000101160_register_tm_clones",
+      "module_stem": "f_0000000000101160_register_tm_clones",
+      "name": "register_tm_clones",
+      "namespace": "Global",
+      "no_return": false,
+      "operator_name": null,
+      "ordinal": 11,
+      "pal_name": "f_register_tm_clones",
+      "published_icecube": "icecubes/f_0000000000101160_register_tm_clones.icecube.json.gz",
+      "published_module": "functions/f_0000000000101160_register_tm_clones.py",
+      "published_sha256": "c1fc4a567b9e6e272f9ee4d7726fcf57462dfd46d6f09ce61c2eddc13f320dbc",
+      "python_parameter_count": 0,
+      "python_symbol": "register_tm_clones",
+      "qualified_name": "Global::register_tm_clones",
+      "runtime_imports": [
+        "PALhelpers"
+      ],
+      "runtime_mode": "legacy_direct",
+      "ssa_name": "register_tm_clones",
+      "status": "decompiled",
+      "thunk": false,
+      "warnings": []
+    },
+    {
+      "active_name": "f_frame_dummy",
+      "active_name_source": "pal",
+      "artifacts": {
+        "executable": {
+          "path": "functions/f_00000000001011e0_frame_dummy.exec.py",
+          "sha256": "2d097b50634a5704e4947724694fd3008885398afa1eb0eea151866a36132cde"
+        },
+        "icecube": {
+          "path": "functions/f_00000000001011e0_frame_dummy.icecube.json.gz",
+          "sha256": "000dfef2a1c3fbc99b8488d7c5954c5641434e93ca3a13054fd9573c9ad01f6c"
+        },
+        "readable": {
+          "path": "functions/f_00000000001011e0_frame_dummy.read.py",
+          "sha256": "51d7e092f47a088f251006cbd4dce3f51d127891a401b05851f313d26ce15d09"
+        }
+      },
+      "body_max": 1053160,
+      "body_max_hex": "0x1011e8",
+      "body_min": 1053152,
+      "body_min_hex": "0x1011e0",
+      "calling_convention": "unknown",
+      "entry": 1053152,
+      "entry_hex": "0x1011e0",
+      "entry_plan_id": "function_entry:1053152",
+      "external": false,
+      "function_id": "function:0x1011e0",
+      "generated_name": null,
+      "inline": false,
+      "is_shim_boundary": true,
+      "module": "functions.f_00000000001011e0_frame_dummy",
+      "module_stem": "f_00000000001011e0_frame_dummy",
+      "name": "frame_dummy",
+      "namespace": "Global",
+      "no_return": false,
+      "operator_name": null,
+      "ordinal": 13,
+      "pal_name": "f_frame_dummy",
+      "published_icecube": "icecubes/f_00000000001011e0_frame_dummy.icecube.json.gz",
+      "published_module": "functions/f_00000000001011e0_frame_dummy.py",
+      "published_sha256": "2d097b50634a5704e4947724694fd3008885398afa1eb0eea151866a36132cde",
+      "python_parameter_count": 0,
+      "python_symbol": "frame_dummy",
+      "qualified_name": "Global::frame_dummy",
+      "runtime_imports": [
+        "PALABI",
+        "PALhelpers"
+      ],
+      "runtime_mode": "abi_context",
+      "ssa_name": "frame_dummy",
+      "status": "decompiled",
+      "thunk": true,
+      "warnings": []
+    },
+    {
+      "active_name": "f_clean_input",
+      "active_name_source": "pal",
+      "artifacts": {
+        "executable": {
+          "path": "functions/f_00000000001011e9_clean_input.exec.py",
+          "sha256": "513d3b92f7d5bc1315c245c26f77bfd3166004e1932e345f3dfe71145e2f4acc"
+        },
+        "icecube": {
+          "path": "functions/f_00000000001011e9_clean_input.icecube.json.gz",
+          "sha256": "4ab1ff65fe72b08ac5b63569918c88f4a599716ad62132d16249cfaadfcb657c"
+        },
+        "readable": {
+          "path": "functions/f_00000000001011e9_clean_input.read.py",
+          "sha256": "ea8e359654858c65bd7a2cb64af295059eb4a08ac2d3aba35521e0faf4a593bf"
+        }
+      },
+      "body_max": 1053211,
+      "body_max_hex": "0x10121b",
+      "body_min": 1053161,
+      "body_min_hex": "0x1011e9",
+      "calling_convention": "unknown",
+      "entry": 1053161,
+      "entry_hex": "0x1011e9",
+      "entry_plan_id": "function_entry:1053161",
+      "external": false,
+      "function_id": "function:0x1011e9",
+      "generated_name": null,
+      "inline": false,
+      "is_shim_boundary": false,
+      "module": "functions.f_00000000001011e9_clean_input",
+      "module_stem": "f_00000000001011e9_clean_input",
+      "name": "clean_input",
+      "namespace": "Global",
+      "no_return": false,
+      "operator_name": null,
+      "ordinal": 14,
+      "pal_name": "f_clean_input",
+      "published_icecube": "icecubes/f_00000000001011e9_clean_input.icecube.json.gz",
+      "published_module": "functions/f_00000000001011e9_clean_input.py",
+      "published_sha256": "513d3b92f7d5bc1315c245c26f77bfd3166004e1932e345f3dfe71145e2f4acc",
+      "python_parameter_count": 1,
+      "python_symbol": "clean_input",
+      "qualified_name": "Global::clean_input",
+      "runtime_imports": [
+        "PALABI",
+        "PALhelpers"
+      ],
+      "runtime_mode": "abi_context",
+      "ssa_name": "clean_input",
+      "status": "decompiled",
+      "thunk": false,
+      "warnings": []
+    },
+    {
+      "active_name": "f_main",
+      "active_name_source": "pal",
+      "artifacts": {
+        "executable": {
+          "path": "functions/f_000000000010121c_main.exec.py",
+          "sha256": "760a6e3838e7639f20d29fffdce96cf8386d7276938520cc68eb181fcb5f9942"
+        },
+        "icecube": {
+          "path": "functions/f_000000000010121c_main.icecube.json.gz",
+          "sha256": "153049ba744ccec703bad8946e4891c755306e9921f272f9e5e58f3c6d6b22c8"
+        },
+        "readable": {
+          "path": "functions/f_000000000010121c_main.read.py",
+          "sha256": "042a53c7706757f27cd5ead12efc60ed3014011bb94c46ef34b38d5179971981"
+        }
+      },
+      "body_max": 1054052,
+      "body_max_hex": "0x101564",
+      "body_min": 1053212,
+      "body_min_hex": "0x10121c",
+      "calling_convention": "unknown",
+      "entry": 1053212,
+      "entry_hex": "0x10121c",
+      "entry_plan_id": "function_entry:1053212",
+      "external": false,
+      "function_id": "function:0x10121c",
+      "generated_name": null,
+      "inline": false,
+      "is_shim_boundary": false,
+      "module": "functions.f_000000000010121c_main",
+      "module_stem": "f_000000000010121c_main",
+      "name": "main",
+      "namespace": "Global",
+      "no_return": false,
+      "operator_name": null,
+      "ordinal": 15,
+      "pal_name": "f_main",
+      "published_icecube": "icecubes/f_000000000010121c_main.icecube.json.gz",
+      "published_module": "functions/f_000000000010121c_main.py",
+      "published_sha256": "760a6e3838e7639f20d29fffdce96cf8386d7276938520cc68eb181fcb5f9942",
+      "python_parameter_count": 0,
+      "python_symbol": "main",
+      "qualified_name": "Global::main",
+      "runtime_imports": [
+        "PALABI",
+        "PALhelpers"
+      ],
+      "runtime_mode": "abi_context",
+      "ssa_name": "main",
+      "status": "decompiled",
+      "thunk": false,
+      "warnings": []
+    },
+    {
+      "active_name": "f_fini",
+      "active_name_source": "pal",
+      "artifacts": {
+        "executable": {
+          "path": "functions/f_0000000000101568_fini.exec.py",
+          "sha256": "136a137a681b9cfa124ff28479ca5710352923f08c756bc98d8ed56c0a26cd10"
+        },
+        "icecube": {
+          "path": "functions/f_0000000000101568_fini.icecube.json.gz",
+          "sha256": "c777e4bef5211ccdeca0acc1788fd38191bfc5bb314146cc7d25a690bd7dc38c"
+        },
+        "readable": {
+          "path": "functions/f_0000000000101568_fini.read.py",
+          "sha256": "361ac19c48159dac2e21215fa11aad31901caf18acea66c68a36c75659b2c3b7"
+        }
+      },
+      "body_max": 1054068,
+      "body_max_hex": "0x101574",
+      "body_min": 1054056,
+      "body_min_hex": "0x101568",
+      "calling_convention": "unknown",
+      "entry": 1054056,
+      "entry_hex": "0x101568",
+      "entry_plan_id": "function_entry:1054056",
+      "external": false,
+      "function_id": "function:0x101568",
+      "generated_name": null,
+      "inline": false,
+      "is_shim_boundary": false,
+      "module": "functions.f_0000000000101568_fini",
+      "module_stem": "f_0000000000101568_fini",
+      "name": "_fini",
+      "namespace": "Global",
+      "no_return": false,
+      "operator_name": null,
+      "ordinal": 16,
+      "pal_name": "f_fini",
+      "published_icecube": "icecubes/f_0000000000101568_fini.icecube.json.gz",
+      "published_module": "functions/f_0000000000101568_fini.py",
+      "published_sha256": "136a137a681b9cfa124ff28479ca5710352923f08c756bc98d8ed56c0a26cd10",
+      "python_parameter_count": 0,
+      "python_symbol": "_fini",
+      "qualified_name": "Global::_fini",
+      "runtime_imports": [
+        "PALhelpers"
+      ],
+      "runtime_mode": "legacy_direct",
+      "ssa_name": "_fini",
+      "status": "decompiled",
+      "thunk": false,
+      "warnings": []
+    },
+    {
+      "active_name": "f_libc_start_main",
+      "active_name_source": "pal",
+      "artifacts": {
+        "executable": {
+          "path": "functions/f_0000000000105000_libc_start_main.exec.py",
+          "sha256": "a701f9117968fbc325cd775c8e0138dbb6694d3aba5293cf39c4da67993d143d"
+        },
+        "icecube": {
+          "path": "functions/f_0000000000105000_libc_start_main.icecube.json.gz",
+          "sha256": "f62c657d5c779b6dbd7ab51a98794d7ec3a951f82fb55f67fbe51f690e4d744b"
+        },
+        "readable": {
+          "path": "functions/f_0000000000105000_libc_start_main.read.py",
+          "sha256": "388d26b107defa21a5ee2c0e3752a2c7080e5e46f296ebd530e785922d702584"
+        }
+      },
+      "body_max": 1069056,
+      "body_max_hex": "0x105000",
+      "body_min": 1069056,
+      "body_min_hex": "0x105000",
+      "calling_convention": "unknown",
+      "entry": 1069056,
+      "entry_hex": "0x105000",
+      "entry_plan_id": "function_entry:1069056",
+      "external": false,
+      "function_id": "function:0x105000",
+      "generated_name": null,
+      "inline": false,
+      "is_shim_boundary": true,
+      "module": "functions.f_0000000000105000_libc_start_main",
+      "module_stem": "f_0000000000105000_libc_start_main",
+      "name": "__libc_start_main",
+      "namespace": "<EXTERNAL>",
+      "no_return": false,
+      "operator_name": null,
+      "ordinal": 17,
+      "pal_name": "f_libc_start_main",
+      "published_icecube": "icecubes/f_0000000000105000_libc_start_main.icecube.json.gz",
+      "published_module": "functions/f_0000000000105000_libc_start_main.py",
+      "published_sha256": "a701f9117968fbc325cd775c8e0138dbb6694d3aba5293cf39c4da67993d143d",
+      "python_parameter_count": 0,
+      "python_symbol": "__libc_start_main",
+      "qualified_name": "<EXTERNAL>::__libc_start_main",
+      "runtime_imports": [
+        "PALhelpers"
+      ],
+      "runtime_mode": "legacy_direct",
+      "ssa_name": "__libc_start_main",
+      "status": "decompiled",
+      "thunk": true,
+      "warnings": []
+    },
+    {
+      "active_name": "f_ITM_deregisterTMCloneTable",
+      "active_name_source": "pal",
+      "artifacts": {
+        "executable": {
+          "path": "functions/f_0000000000105008_ITM_deregisterTMCloneTable.exec.py",
+          "sha256": "0672d7e711638b653dcb09839430ed87b061604b7106e800546e33b930a5abef"
+        },
+        "icecube": {
+          "path": "functions/f_0000000000105008_ITM_deregisterTMCloneTable.icecube.json.gz",
+          "sha256": "3a0a40587151d2b93280dbd8d8fe49375a84836b7f43bc80b3754666ed3bc4b8"
+        },
+        "readable": {
+          "path": "functions/f_0000000000105008_ITM_deregisterTMCloneTable.read.py",
+          "sha256": "4c01045f658d90953908c22b70fc50fcc964e35e1b3f0b8851c313434f757b1f"
+        }
+      },
+      "body_max": 1069064,
+      "body_max_hex": "0x105008",
+      "body_min": 1069064,
+      "body_min_hex": "0x105008",
+      "calling_convention": "unknown",
+      "entry": 1069064,
+      "entry_hex": "0x105008",
+      "entry_plan_id": "function_entry:1069064",
+      "external": false,
+      "function_id": "function:0x105008",
+      "generated_name": null,
+      "inline": false,
+      "is_shim_boundary": true,
+      "module": "functions.f_0000000000105008_ITM_deregisterTMCloneTable",
+      "module_stem": "f_0000000000105008_ITM_deregisterTMCloneTable",
+      "name": "_ITM_deregisterTMCloneTable",
+      "namespace": "<EXTERNAL>",
+      "no_return": false,
+      "operator_name": null,
+      "ordinal": 18,
+      "pal_name": "f_ITM_deregisterTMCloneTable",
+      "published_icecube": "icecubes/f_0000000000105008_ITM_deregisterTMCloneTable.icecube.json.gz",
+      "published_module": "functions/f_0000000000105008_ITM_deregisterTMCloneTable.py",
+      "published_sha256": "0672d7e711638b653dcb09839430ed87b061604b7106e800546e33b930a5abef",
+      "python_parameter_count": 0,
+      "python_symbol": "_ITM_deregisterTMCloneTable",
+      "qualified_name": "<EXTERNAL>::_ITM_deregisterTMCloneTable",
+      "runtime_imports": [
+        "PALhelpers"
+      ],
+      "runtime_mode": "legacy_direct",
+      "ssa_name": "_ITM_deregisterTMCloneTable",
+      "status": "decompiled",
+      "thunk": true,
+      "warnings": []
+    },
+    {
+      "active_name": "f_puts",
+      "active_name_source": "pal",
+      "artifacts": {
+        "executable": {
+          "path": "functions/f_0000000000105010_puts.exec.py",
+          "sha256": "42ca309655be67aa83f2ebabb3dac25b88ed79277f594e356c90cd6698309f89"
+        },
+        "icecube": {
+          "path": "functions/f_0000000000105010_puts.icecube.json.gz",
+          "sha256": "76bcd77f56f2d722566cf03f7904899eddbe5e17f912710343e337d5fc3e43eb"
+        },
+        "readable": {
+          "path": "functions/f_0000000000105010_puts.read.py",
+          "sha256": "0d8ed05fb70882e6c0863e701558d2b30239e5f58271f0af113d64f688740f1f"
+        }
+      },
+      "body_max": 1069072,
+      "body_max_hex": "0x105010",
+      "body_min": 1069072,
+      "body_min_hex": "0x105010",
+      "calling_convention": "unknown",
+      "entry": 1069072,
+      "entry_hex": "0x105010",
+      "entry_plan_id": "function_entry:1069072",
+      "external": false,
+      "function_id": "function:0x105010",
+      "generated_name": null,
+      "inline": false,
+      "is_shim_boundary": true,
+      "module": "functions.f_0000000000105010_puts",
+      "module_stem": "f_0000000000105010_puts",
+      "name": "puts",
+      "namespace": "<EXTERNAL>",
+      "no_return": false,
+      "operator_name": null,
+      "ordinal": 19,
+      "pal_name": "f_puts",
+      "published_icecube": "icecubes/f_0000000000105010_puts.icecube.json.gz",
+      "published_module": "functions/f_0000000000105010_puts.py",
+      "published_sha256": "42ca309655be67aa83f2ebabb3dac25b88ed79277f594e356c90cd6698309f89",
+      "python_parameter_count": 1,
+      "python_symbol": "puts",
+      "qualified_name": "<EXTERNAL>::puts",
+      "runtime_imports": [
+        "PALABI",
+        "PALhelpers"
+      ],
+      "runtime_mode": "abi_context",
+      "ssa_name": "puts",
+      "status": "decompiled",
+      "thunk": true,
+      "warnings": []
+    },
+    {
+      "active_name": "f_stack_chk_fail",
+      "active_name_source": "pal",
+      "artifacts": {
+        "executable": {
+          "path": "functions/f_0000000000105018_stack_chk_fail.exec.py",
+          "sha256": "5811b323cba310b03f37b38fa7d51e4e0ec50b305fc04f537456ea702e425b48"
+        },
+        "icecube": {
+          "path": "functions/f_0000000000105018_stack_chk_fail.icecube.json.gz",
+          "sha256": "d6cf091321531752f2e7b8a68edd390a881eb79c9c1dabd861ec5726933a6d3b"
+        },
+        "readable": {
+          "path": "functions/f_0000000000105018_stack_chk_fail.read.py",
+          "sha256": "64fdf3447ae3dc2f38fb3ecc10460d1ee4931f5c661698c560dbc8b45fe1a8c2"
+        }
+      },
+      "body_max": 1069080,
+      "body_max_hex": "0x105018",
+      "body_min": 1069080,
+      "body_min_hex": "0x105018",
+      "calling_convention": "unknown",
+      "entry": 1069080,
+      "entry_hex": "0x105018",
+      "entry_plan_id": "function_entry:1069080",
+      "external": false,
+      "function_id": "function:0x105018",
+      "generated_name": null,
+      "inline": false,
+      "is_shim_boundary": true,
+      "module": "functions.f_0000000000105018_stack_chk_fail",
+      "module_stem": "f_0000000000105018_stack_chk_fail",
+      "name": "__stack_chk_fail",
+      "namespace": "<EXTERNAL>",
+      "no_return": true,
+      "operator_name": null,
+      "ordinal": 20,
+      "pal_name": "f_stack_chk_fail",
+      "published_icecube": "icecubes/f_0000000000105018_stack_chk_fail.icecube.json.gz",
+      "published_module": "functions/f_0000000000105018_stack_chk_fail.py",
+      "published_sha256": "5811b323cba310b03f37b38fa7d51e4e0ec50b305fc04f537456ea702e425b48",
+      "python_parameter_count": 0,
+      "python_symbol": "__stack_chk_fail",
+      "qualified_name": "<EXTERNAL>::__stack_chk_fail",
+      "runtime_imports": [
+        "PALhelpers"
+      ],
+      "runtime_mode": "legacy_direct",
+      "ssa_name": "__stack_chk_fail",
+      "status": "decompiled",
+      "thunk": true,
+      "warnings": []
+    },
+    {
+      "active_name": "f_printf",
+      "active_name_source": "pal",
+      "artifacts": {
+        "executable": {
+          "path": "functions/f_0000000000105020_printf.exec.py",
+          "sha256": "a21b4fe97799bdc09ffe32aa9d57859f3382fbe964076e00504efb425e893608"
+        },
+        "icecube": {
+          "path": "functions/f_0000000000105020_printf.icecube.json.gz",
+          "sha256": "901ff03b8a862a5fa7caee67bbe42a84db60ae3c13aad87f473b8825c375be1f"
+        },
+        "readable": {
+          "path": "functions/f_0000000000105020_printf.read.py",
+          "sha256": "c99029007279df69974b2a3ee199a353bcc8af6056212b110185707d9386bb66"
+        }
+      },
+      "body_max": 1069088,
+      "body_max_hex": "0x105020",
+      "body_min": 1069088,
+      "body_min_hex": "0x105020",
+      "calling_convention": "unknown",
+      "entry": 1069088,
+      "entry_hex": "0x105020",
+      "entry_plan_id": "function_entry:1069088",
+      "external": false,
+      "function_id": "function:0x105020",
+      "generated_name": null,
+      "inline": false,
+      "is_shim_boundary": true,
+      "module": "functions.f_0000000000105020_printf",
+      "module_stem": "f_0000000000105020_printf",
+      "name": "printf",
+      "namespace": "<EXTERNAL>",
+      "no_return": false,
+      "operator_name": null,
+      "ordinal": 21,
+      "pal_name": "f_printf",
+      "published_icecube": "icecubes/f_0000000000105020_printf.icecube.json.gz",
+      "published_module": "functions/f_0000000000105020_printf.py",
+      "published_sha256": "a21b4fe97799bdc09ffe32aa9d57859f3382fbe964076e00504efb425e893608",
+      "python_parameter_count": 1,
+      "python_symbol": "printf",
+      "qualified_name": "<EXTERNAL>::printf",
+      "runtime_imports": [
+        "PALABI",
+        "PALhelpers"
+      ],
+      "runtime_mode": "abi_context",
+      "ssa_name": "printf",
+      "status": "decompiled",
+      "thunk": true,
+      "warnings": []
+    },
+    {
+      "active_name": "f_strcspn",
+      "active_name_source": "pal",
+      "artifacts": {
+        "executable": {
+          "path": "functions/f_0000000000105028_strcspn.exec.py",
+          "sha256": "ed723ea7afff3f14d64dd23067416ae8c1bd80dd17f39599fe6e6a5e4d7a26ab"
+        },
+        "icecube": {
+          "path": "functions/f_0000000000105028_strcspn.icecube.json.gz",
+          "sha256": "a69ca1ac61d2f997763fc6b5c6451db52453b4a418a7740f225b7cd77e8c363b"
+        },
+        "readable": {
+          "path": "functions/f_0000000000105028_strcspn.read.py",
+          "sha256": "85bdeafe925741e50fdf76b54ebcc41c7c728679f27c453fd41c38dc7192de51"
+        }
+      },
+      "body_max": 1069096,
+      "body_max_hex": "0x105028",
+      "body_min": 1069096,
+      "body_min_hex": "0x105028",
+      "calling_convention": "unknown",
+      "entry": 1069096,
+      "entry_hex": "0x105028",
+      "entry_plan_id": "function_entry:1069096",
+      "external": false,
+      "function_id": "function:0x105028",
+      "generated_name": null,
+      "inline": false,
+      "is_shim_boundary": true,
+      "module": "functions.f_0000000000105028_strcspn",
+      "module_stem": "f_0000000000105028_strcspn",
+      "name": "strcspn",
+      "namespace": "<EXTERNAL>",
+      "no_return": false,
+      "operator_name": null,
+      "ordinal": 22,
+      "pal_name": "f_strcspn",
+      "published_icecube": "icecubes/f_0000000000105028_strcspn.icecube.json.gz",
+      "published_module": "functions/f_0000000000105028_strcspn.py",
+      "published_sha256": "ed723ea7afff3f14d64dd23067416ae8c1bd80dd17f39599fe6e6a5e4d7a26ab",
+      "python_parameter_count": 2,
+      "python_symbol": "strcspn",
+      "qualified_name": "<EXTERNAL>::strcspn",
+      "runtime_imports": [
+        "PALABI",
+        "PALhelpers"
+      ],
+      "runtime_mode": "abi_context",
+      "ssa_name": "strcspn",
+      "status": "decompiled",
+      "thunk": true,
+      "warnings": []
+    },
+    {
+      "active_name": "f_fgets",
+      "active_name_source": "pal",
+      "artifacts": {
+        "executable": {
+          "path": "functions/f_0000000000105030_fgets.exec.py",
+          "sha256": "0489ad7e7d5d250e2616c13aad43f889bab719ab0c38c6787d8632e3891420ff"
+        },
+        "icecube": {
+          "path": "functions/f_0000000000105030_fgets.icecube.json.gz",
+          "sha256": "6f9f97d091b04f1ee375e16eb30a3682b30bb4cc6538551e17ac013fc3e2c678"
+        },
+        "readable": {
+          "path": "functions/f_0000000000105030_fgets.read.py",
+          "sha256": "72013e08353590547d7f162b4bb10ad93d03a7ff0e255f53334fe849fcdc7168"
+        }
+      },
+      "body_max": 1069104,
+      "body_max_hex": "0x105030",
+      "body_min": 1069104,
+      "body_min_hex": "0x105030",
+      "calling_convention": "unknown",
+      "entry": 1069104,
+      "entry_hex": "0x105030",
+      "entry_plan_id": "function_entry:1069104",
+      "external": false,
+      "function_id": "function:0x105030",
+      "generated_name": null,
+      "inline": false,
+      "is_shim_boundary": true,
+      "module": "functions.f_0000000000105030_fgets",
+      "module_stem": "f_0000000000105030_fgets",
+      "name": "fgets",
+      "namespace": "<EXTERNAL>",
+      "no_return": false,
+      "operator_name": null,
+      "ordinal": 23,
+      "pal_name": "f_fgets",
+      "published_icecube": "icecubes/f_0000000000105030_fgets.icecube.json.gz",
+      "published_module": "functions/f_0000000000105030_fgets.py",
+      "published_sha256": "0489ad7e7d5d250e2616c13aad43f889bab719ab0c38c6787d8632e3891420ff",
+      "python_parameter_count": 3,
+      "python_symbol": "fgets",
+      "qualified_name": "<EXTERNAL>::fgets",
+      "runtime_imports": [
+        "PALABI",
+        "PALhelpers"
+      ],
+      "runtime_mode": "abi_context",
+      "ssa_name": "fgets",
+      "status": "decompiled",
+      "thunk": true,
+      "warnings": []
+    },
+    {
+      "active_name": "f_strcmp",
+      "active_name_source": "pal",
+      "artifacts": {
+        "executable": {
+          "path": "functions/f_0000000000105038_strcmp.exec.py",
+          "sha256": "0859d8438b54e2845ed2c6a6de4bd8e896da342b1fbbf1ead204851d91f2a7e8"
+        },
+        "icecube": {
+          "path": "functions/f_0000000000105038_strcmp.icecube.json.gz",
+          "sha256": "c3902ba294cb1dab4422b8d3f1730f4c9c7331fb333516587c7f35d349eeac4d"
+        },
+        "readable": {
+          "path": "functions/f_0000000000105038_strcmp.read.py",
+          "sha256": "e448308e0fa8ab1efc3fceea9d8cfda8a8738623164b0f86b8674177d1716001"
+        }
+      },
+      "body_max": 1069112,
+      "body_max_hex": "0x105038",
+      "body_min": 1069112,
+      "body_min_hex": "0x105038",
+      "calling_convention": "unknown",
+      "entry": 1069112,
+      "entry_hex": "0x105038",
+      "entry_plan_id": "function_entry:1069112",
+      "external": false,
+      "function_id": "function:0x105038",
+      "generated_name": null,
+      "inline": false,
+      "is_shim_boundary": true,
+      "module": "functions.f_0000000000105038_strcmp",
+      "module_stem": "f_0000000000105038_strcmp",
+      "name": "strcmp",
+      "namespace": "<EXTERNAL>",
+      "no_return": false,
+      "operator_name": null,
+      "ordinal": 24,
+      "pal_name": "f_strcmp",
+      "published_icecube": "icecubes/f_0000000000105038_strcmp.icecube.json.gz",
+      "published_module": "functions/f_0000000000105038_strcmp.py",
+      "published_sha256": "0859d8438b54e2845ed2c6a6de4bd8e896da342b1fbbf1ead204851d91f2a7e8",
+      "python_parameter_count": 2,
+      "python_symbol": "strcmp",
+      "qualified_name": "<EXTERNAL>::strcmp",
+      "runtime_imports": [
+        "PALABI",
+        "PALhelpers"
+      ],
+      "runtime_mode": "abi_context",
+      "ssa_name": "strcmp",
+      "status": "decompiled",
+      "thunk": true,
+      "warnings": []
+    },
+    {
+      "active_name": "f_gmon_start",
+      "active_name_source": "pal",
+      "artifacts": {
+        "executable": {
+          "path": "functions/f_0000000000105040_gmon_start.exec.py",
+          "sha256": "caf69072b8ba4eadaf391c457a75f92c71b83206e6b23dc6a410ad94c177ccb2"
+        },
+        "icecube": {
+          "path": "functions/f_0000000000105040_gmon_start.icecube.json.gz",
+          "sha256": "25764f5efdfa8f74b809e760d52a09d9cc5253340e0c5c5ae98892224d32066f"
+        },
+        "readable": {
+          "path": "functions/f_0000000000105040_gmon_start.read.py",
+          "sha256": "392a285ae1219c4ba87bd89baa1100cb9383b470164d5636e6a850b92adccc8e"
+        }
+      },
+      "body_max": 1069120,
+      "body_max_hex": "0x105040",
+      "body_min": 1069120,
+      "body_min_hex": "0x105040",
+      "calling_convention": "unknown",
+      "entry": 1069120,
+      "entry_hex": "0x105040",
+      "entry_plan_id": "function_entry:1069120",
+      "external": false,
+      "function_id": "function:0x105040",
+      "generated_name": null,
+      "inline": false,
+      "is_shim_boundary": true,
+      "module": "functions.f_0000000000105040_gmon_start",
+      "module_stem": "f_0000000000105040_gmon_start",
+      "name": "__gmon_start__",
+      "namespace": "<EXTERNAL>",
+      "no_return": false,
+      "operator_name": null,
+      "ordinal": 25,
+      "pal_name": "f_gmon_start",
+      "published_icecube": "icecubes/f_0000000000105040_gmon_start.icecube.json.gz",
+      "published_module": "functions/f_0000000000105040_gmon_start.py",
+      "published_sha256": "caf69072b8ba4eadaf391c457a75f92c71b83206e6b23dc6a410ad94c177ccb2",
+      "python_parameter_count": 0,
+      "python_symbol": "__gmon_start__",
+      "qualified_name": "<EXTERNAL>::__gmon_start__",
+      "runtime_imports": [
+        "PALhelpers"
+      ],
+      "runtime_mode": "legacy_direct",
+      "ssa_name": "__gmon_start__",
+      "status": "decompiled",
+      "thunk": true,
+      "warnings": []
+    },
+    {
+      "active_name": "f_ITM_registerTMCloneTable",
+      "active_name_source": "pal",
+      "artifacts": {
+        "executable": {
+          "path": "functions/f_0000000000105048_ITM_registerTMCloneTable.exec.py",
+          "sha256": "00bbe11fd363c9d05e62c0e4f81ba4aaedbd0ad38e90264955fbe318b2b0675e"
+        },
+        "icecube": {
+          "path": "functions/f_0000000000105048_ITM_registerTMCloneTable.icecube.json.gz",
+          "sha256": "e67122ff64565502535c3353fa733ff99ddd3196a7687bf2ec273b8c7d6d6639"
+        },
+        "readable": {
+          "path": "functions/f_0000000000105048_ITM_registerTMCloneTable.read.py",
+          "sha256": "2b51e035c6572073bcb73087be780ccbb54c473c5b6f31fe73a7091dddf008ba"
+        }
+      },
+      "body_max": 1069128,
+      "body_max_hex": "0x105048",
+      "body_min": 1069128,
+      "body_min_hex": "0x105048",
+      "calling_convention": "unknown",
+      "entry": 1069128,
+      "entry_hex": "0x105048",
+      "entry_plan_id": "function_entry:1069128",
+      "external": false,
+      "function_id": "function:0x105048",
+      "generated_name": null,
+      "inline": false,
+      "is_shim_boundary": true,
+      "module": "functions.f_0000000000105048_ITM_registerTMCloneTable",
+      "module_stem": "f_0000000000105048_ITM_registerTMCloneTable",
+      "name": "_ITM_registerTMCloneTable",
+      "namespace": "<EXTERNAL>",
+      "no_return": false,
+      "operator_name": null,
+      "ordinal": 26,
+      "pal_name": "f_ITM_registerTMCloneTable",
+      "published_icecube": "icecubes/f_0000000000105048_ITM_registerTMCloneTable.icecube.json.gz",
+      "published_module": "functions/f_0000000000105048_ITM_registerTMCloneTable.py",
+      "published_sha256": "00bbe11fd363c9d05e62c0e4f81ba4aaedbd0ad38e90264955fbe318b2b0675e",
+      "python_parameter_count": 0,
+      "python_symbol": "_ITM_registerTMCloneTable",
+      "qualified_name": "<EXTERNAL>::_ITM_registerTMCloneTable",
+      "runtime_imports": [
+        "PALhelpers"
+      ],
+      "runtime_mode": "legacy_direct",
+      "ssa_name": "_ITM_registerTMCloneTable",
+      "status": "decompiled",
+      "thunk": true,
+      "warnings": []
+    },
+    {
+      "active_name": "f_cxa_finalize",
+      "active_name_source": "pal",
+      "artifacts": {
+        "executable": {
+          "path": "functions/f_0000000000105050_cxa_finalize.exec.py",
+          "sha256": "76f85449d8aed9534205417248cb1f2a99f0c1ae696c471223084021338cafd8"
+        },
+        "icecube": {
+          "path": "functions/f_0000000000105050_cxa_finalize.icecube.json.gz",
+          "sha256": "807e7bcbd92786debbd2c0ba2177a7e5794c0f9991152ebf697789c0f1312155"
+        },
+        "readable": {
+          "path": "functions/f_0000000000105050_cxa_finalize.read.py",
+          "sha256": "3fdf2942732d3d16abf719123cdae386944acba17183321cea1815de1d97225d"
+        }
+      },
+      "body_max": 1069136,
+      "body_max_hex": "0x105050",
+      "body_min": 1069136,
+      "body_min_hex": "0x105050",
+      "calling_convention": "unknown",
+      "entry": 1069136,
+      "entry_hex": "0x105050",
+      "entry_plan_id": "function_entry:1069136",
+      "external": false,
+      "function_id": "function:0x105050",
+      "generated_name": null,
+      "inline": false,
+      "is_shim_boundary": true,
+      "module": "functions.f_0000000000105050_cxa_finalize",
+      "module_stem": "f_0000000000105050_cxa_finalize",
+      "name": "__cxa_finalize",
+      "namespace": "<EXTERNAL>",
+      "no_return": false,
+      "operator_name": null,
+      "ordinal": 27,
+      "pal_name": "f_cxa_finalize",
+      "published_icecube": "icecubes/f_0000000000105050_cxa_finalize.icecube.json.gz",
+      "published_module": "functions/f_0000000000105050_cxa_finalize.py",
+      "published_sha256": "76f85449d8aed9534205417248cb1f2a99f0c1ae696c471223084021338cafd8",
+      "python_parameter_count": 0,
+      "python_symbol": "__cxa_finalize",
+      "qualified_name": "<EXTERNAL>::__cxa_finalize",
+      "runtime_imports": [
+        "PALhelpers"
+      ],
+      "runtime_mode": "legacy_direct",
+      "ssa_name": "__cxa_finalize",
+      "status": "decompiled",
+      "thunk": true,
+      "warnings": []
+    }
+  ],
+  "internal_call_targets": [
+    "clean_input",
+    "register_tm_clones"
+  ],
+  "known_limitations": [
+    "clear-case proof-of-concept runtime, not native process emulation",
+    "SysV AMD64 is the only ABI backend currently expected",
+    "ELF data sections, relocations, globals, heap, TLS, and permissions are not fully mapped",
+    "indirect calls and unresolved dynamic-linker behavior fail closed",
+    "threads, signals, exceptions, and dynamic code generation are unsupported",
+    "stdio formatting and line input are bounded Python shims, not full libc",
+    "static C strings require an optional PAL_stdio_strings.json overlay until ELF data publication lands",
+    "a published function may still fail when its frozen ABI plan is deferred"
+  ],
+  "program": {
+    "compiler_spec_id": "gcc",
+    "executable_format": "Executable and Linking Format (ELF)",
+    "executable_path": "drop_axe.exe",
+    "executable_path_policy": "relative_to_pal_repository_root_or_basename",
+    "image_base": 1048576,
+    "image_base_hex": "0x100000",
+    "language_id": "x86:LE:64:default",
+    "name": "drop_axe.exe"
+  },
+  "published_at_utc": "2026-07-20T15:22:36Z",
+  "runtime_modules": [
+    "PALABI",
+    "PALMEM",
+    "PALhelpers"
+  ],
+  "schema_version": 1,
+  "shim_policy": {
+    "no_return_family": "python_system_exit_v1",
+    "print_family": "python_stream_io_v2",
+    "shimmed_names": [
+      "__fprintf_chk",
+      "__printf_chk",
+      "__stack_chk_fail",
+      "_exit",
+      "abort",
+      "exit",
+      "fgets",
+      "fprintf",
+      "fputc",
+      "fputc_unlocked",
+      "fputs",
+      "fputs_unlocked",
+      "printf",
+      "putchar",
+      "puts",
+      "strcmp",
+      "strcspn"
+    ],
+    "stdio_family": "python_fgets_string_v1",
+    "unknown_external": "closed_runtime_trap",
+    "unresolved_known_targets": [
+      "_ITM_deregisterTMCloneTable",
+      "_ITM_registerTMCloneTable",
+      "__cxa_finalize",
+      "__gmon_start__",
+      "__libc_start_main",
+      "f_ITM_deregisterTMCloneTable",
+      "f_ITM_registerTMCloneTable",
+      "f_cxa_finalize",
+      "f_fgets",
+      "f_frame_dummy",
+      "f_gmon_start",
+      "f_libc_start_main",
+      "f_printf",
+      "f_puts",
+      "f_stack_chk_fail",
+      "f_strcmp",
+      "f_strcspn",
+      "frame_dummy"
+    ]
+  },
+  "source_manifest_sha256": "01eb41f9ffba268646e50744f016678cb4dccbe304b926acf0c9f58eadefa939",
+  "source_project": "/home/rem/gh/PAL/pyghidra-PAL/PAL/project/drop_axe.exe",
+  "thunk_targets": [
+    "_ITM_deregisterTMCloneTable",
+    "_ITM_registerTMCloneTable",
+    "__cxa_finalize",
+    "__gmon_start__",
+    "__libc_start_main",
+    "__stack_chk_fail",
+    "f_ITM_deregisterTMCloneTable",
+    "f_ITM_registerTMCloneTable",
+    "f_cxa_finalize",
+    "f_fgets",
+    "f_frame_dummy",
+    "f_gmon_start",
+    "f_libc_start_main",
+    "f_printf",
+    "f_puts",
+    "f_stack_chk_fail",
+    "f_strcmp",
+    "f_strcspn",
+    "fgets",
+    "frame_dummy",
+    "printf",
+    "puts",
+    "strcmp",
+    "strcspn"
+  ],
+  "warnings": []
+}

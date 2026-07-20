@@ -1,0 +1,2789 @@
+
+===== CFG DEBUG =====
+
+[EDGES]
+0x1038a0 -> 0x103904  true raw=true role=raw_true_explicit_target pol=fallthrough inv=True
+0x1038a0 -> 0x1038d3  false raw=false role=raw_false_fallthrough pol=fallthrough inv=False
+0x1038d3 -> 0x1038fd  uncond raw=uncond role=uncond pol=unknown inv=None
+0x103904 -> 0x103ab8  uncond raw=uncond role=uncond pol=unknown inv=None
+0x103ab8 -> 0x103ad1  true raw=true role=raw_true_explicit_target pol=target inv=False
+0x103ab8 -> 0x103ac5  false raw=false role=raw_false_fallthrough pol=target inv=True
+0x103ac5 -> 0x103ab8  backedge raw=true role=latch_to_header pol=target inv=False
+0x103ac5 -> 0x103ad1  false raw=false role=raw_false_fallthrough pol=target inv=True
+0x103ad1 -> 0x103ba8  true raw=true role=raw_true_explicit_target pol=target inv=False
+0x103ad1 -> 0x103aec  false raw=false role=raw_false_fallthrough pol=target inv=True
+0x103aec -> 0x103b3e  true raw=true role=raw_true_explicit_target pol=fallthrough inv=True
+0x103aec -> 0x103b25  false raw=false role=raw_false_fallthrough pol=fallthrough inv=False
+0x103b25 -> 0x103c38  true raw=true role=raw_true_explicit_target pol=target inv=False
+0x103b25 -> 0x103b3e  false raw=false role=raw_false_fallthrough pol=target inv=True
+0x103b3e -> 0x103b7b  true raw=true role=raw_true_explicit_target pol=unknown inv=None
+0x103b3e -> 0x103b77  false raw=false role=raw_false_fallthrough pol=unknown inv=None
+0x103b77 -> 0x103b7b  uncond raw=uncond role=uncond pol=unknown inv=None
+0x103b7b -> 0x1038fd  uncond raw=uncond role=uncond pol=unknown inv=None
+0x103ba8 -> 0x103bf6  true raw=true role=raw_true_explicit_target pol=fallthrough inv=True
+0x103ba8 -> 0x103be1  false raw=false role=raw_false_fallthrough pol=fallthrough inv=False
+0x103be1 -> 0x103c31  true raw=true role=raw_true_explicit_target pol=target inv=False
+0x103be1 -> 0x103bf6  false raw=false role=raw_false_fallthrough pol=target inv=True
+0x103bf6 -> 0x103b7b  uncond raw=uncond role=uncond pol=unknown inv=None
+0x103c31 -> 0x103c38  uncond raw=uncond role=uncond pol=unknown inv=None
+0x103c38 -> 0x103b3e  uncond raw=uncond role=uncond pol=unknown inv=None
+
+[BRANCH RESOLUTION EVENTS]
+{'kind': 'binary_branch_truth_bound_by_evidence_class_v21d', 'src': 1063072, 'first_dst': 1063172, 'second_dst': 1063123, 'hf_target': 1063172, 'hf_normalized_target': 1063172, 'direct_dst': 1063123, 'first_invert': True, 'second_invert': False, 'condition_truth_authority': 'raw_jcc_hf_relation_direct_flags', 'reason': 'branch_truth_evidence_v21d hf_target=0x103904 raw_target=0x103904 raw_fallthrough=0x1038d3 legacy_hint=(mnemonic=JZ hf_cond_opcode=INT_NOTEQUAL) class=direct_flags'}
+{'kind': 'binary_branch_truth_bound_by_evidence_class_v21d', 'src': 1063608, 'first_dst': 1063633, 'second_dst': 1063621, 'hf_target': 1063633, 'hf_normalized_target': 1063633, 'direct_dst': 1063633, 'first_invert': False, 'second_invert': True, 'condition_truth_authority': 'raw_jcc_hf_relation_direct_flags', 'reason': 'branch_truth_evidence_v21d hf_target=0x103ad1 raw_target=0x103ad1 raw_fallthrough=0x103ac5 legacy_hint=(mnemonic=JZ hf_cond_opcode=INT_EQUAL) class=direct_flags'}
+{'kind': 'binary_branch_truth_bound_by_evidence_class_v21d', 'src': 1063621, 'first_dst': 1063608, 'second_dst': 1063633, 'hf_target': 1063608, 'hf_normalized_target': 1063608, 'direct_dst': 1063608, 'first_invert': False, 'second_invert': True, 'condition_truth_authority': 'raw_jcc_hf_relation_direct_flags', 'reason': 'branch_truth_evidence_v21d hf_target=0x103ab8 raw_target=0x103ab8 raw_fallthrough=0x103ad1 legacy_hint=(mnemonic=JNZ hf_cond_opcode=INT_NOTEQUAL) class=direct_flags'}
+{'kind': 'binary_branch_truth_bound_by_evidence_class_v21d', 'src': 1063633, 'first_dst': 1063848, 'second_dst': 1063660, 'hf_target': 1063848, 'hf_normalized_target': 1063848, 'direct_dst': 1063848, 'first_invert': False, 'second_invert': True, 'condition_truth_authority': 'raw_jcc_hf_relation_direct_flags', 'reason': 'branch_truth_evidence_v21d hf_target=0x103ba8 raw_target=0x103ba8 raw_fallthrough=0x103aec legacy_hint=(mnemonic=JZ hf_cond_opcode=INT_EQUAL) class=direct_flags'}
+{'kind': 'binary_branch_truth_bound_by_evidence_class_v21d', 'src': 1063848, 'first_dst': 1063926, 'second_dst': 1063905, 'hf_target': 1063926, 'hf_normalized_target': 1063926, 'direct_dst': 1063905, 'first_invert': True, 'second_invert': False, 'condition_truth_authority': 'raw_jcc_hf_relation_direct_flags', 'reason': 'branch_truth_evidence_v21d hf_target=0x103bf6 raw_target=0x103bf6 raw_fallthrough=0x103be1 legacy_hint=(mnemonic=JZ hf_cond_opcode=INT_NOTEQUAL) class=direct_flags'}
+{'kind': 'binary_branch_truth_bound_by_evidence_class_v21d', 'src': 1063905, 'first_dst': 1063985, 'second_dst': 1063926, 'hf_target': 1063985, 'hf_normalized_target': 1063985, 'direct_dst': 1063985, 'first_invert': False, 'second_invert': True, 'condition_truth_authority': 'raw_jcc_hf_relation_direct_flags', 'reason': 'branch_truth_evidence_v21d hf_target=0x103c31 raw_target=0x103c31 raw_fallthrough=0x103bf6 legacy_hint=(mnemonic=JNZ hf_cond_opcode=INT_NOTEQUAL) class=direct_flags'}
+{'kind': 'binary_branch_truth_bound_by_evidence_class_v21d', 'src': 1063660, 'first_dst': 1063742, 'second_dst': 1063717, 'hf_target': 1063742, 'hf_normalized_target': 1063742, 'direct_dst': 1063717, 'first_invert': True, 'second_invert': False, 'condition_truth_authority': 'raw_jcc_hf_relation_direct_flags', 'reason': 'branch_truth_evidence_v21d hf_target=0x103b3e raw_target=0x103b3e raw_fallthrough=0x103b25 legacy_hint=(mnemonic=JZ hf_cond_opcode=INT_NOTEQUAL) class=direct_flags'}
+{'kind': 'binary_branch_truth_bound_by_evidence_class_v21d', 'src': 1063717, 'first_dst': 1063992, 'second_dst': 1063742, 'hf_target': 1063992, 'hf_normalized_target': 1063992, 'direct_dst': 1063992, 'first_invert': False, 'second_invert': True, 'condition_truth_authority': 'raw_jcc_hf_relation_direct_flags', 'reason': 'branch_truth_evidence_v21d hf_target=0x103c38 raw_target=0x103c38 raw_fallthrough=0x103b3e legacy_hint=(mnemonic=JNZ hf_cond_opcode=INT_NOTEQUAL) class=direct_flags'}
+{'kind': 'binary_branch_truth_unresolved_v21d', 'src': 1063742, 'first_dst': 1063803, 'second_dst': 1063799, 'hf_target': 1063803, 'hf_normalized_target': 1063803, 'direct_dst': None, 'first_invert': None, 'second_invert': None, 'condition_truth_authority': 'unresolved_cfg_edge_custody', 'reason': 'branch_truth_evidence_v21d hf_target=0x103b7b raw_target=None raw_fallthrough=0x103b77 legacy_hint=(mnemonic=LEA hf_cond_opcode=INT_NOTEQUAL) class=direct_flags binding=unresolved cfg_binding=unresolved'}
+
+[IPDOM]
+0x1038a0 -> ipdom: 0x1038fd
+0x1038d3 -> ipdom: 0x1038fd
+0x1038fd -> ipdom: None
+0x103904 -> ipdom: 0x103ab8
+0x103ab8 -> ipdom: 0x103ad1
+0x103ac5 -> ipdom: 0x103ad1
+0x103ad1 -> ipdom: 0x103b7b
+0x103aec -> ipdom: 0x103b3e
+0x103b25 -> ipdom: 0x103b3e
+0x103b3e -> ipdom: 0x103b7b
+0x103b77 -> ipdom: 0x103b7b
+0x103b7b -> ipdom: 0x1038fd
+0x103ba8 -> ipdom: 0x103b7b
+0x103be1 -> ipdom: 0x103b7b
+0x103bf6 -> ipdom: 0x103b7b
+0x103c31 -> ipdom: 0x103c38
+0x103c38 -> ipdom: 0x103b3e
+
+[BACKEDGES]
+0x103ac5 -> 0x103ab8
+
+=====================
+
+===== PAL RESOLVER INDIRECT STORAGE v22c =====
+
+[INVENTORY]
+{'active': True,
+ 'address_tied_families': 18,
+ 'custody_transitions': 424,
+ 'effect_owner_groups': 36,
+ 'escape_barrier_sids': 568,
+ 'input_contracts': 424,
+ 'kind': 'resolver_indirect_storage_inventory_v22c',
+ 'machine_state_families': 0,
+ 'machine_state_sids': 0,
+ 'owner_categories': {'call_boundary': 424},
+ 'parameter_initializers': 0,
+ 'persistent_families': 3,
+ 'rule': 'HighVariable_identity_families_plus_address_escape_alias_barrier',
+ 'runtime_order': 'CFG_governed_not_linearized',
+ 'storage_families': 18,
+ 'version': 'v22c_indirect_storage_families',
+ 'warnings': 0}
+
+[STORAGE FAMILIES]
+{'address_tied': True,
+ 'classification': 'address_tied_c_storage',
+ 'entry_sids': ['v_85',
+                'v_8284',
+                'v_8287',
+                'v_8278',
+                'v_8267',
+                'v_8270',
+                'v_8274',
+                'v_8281'],
+ 'family_id': 'storage_family:high_rep:8254',
+ 'high_identity_key': 'high_rep:8254',
+ 'high_name': 'local_40',
+ 'member_sids': ['v_85',
+                 'v_8135',
+                 'v_8139',
+                 'v_8143',
+                 'v_8146',
+                 'v_8150',
+                 'v_8153',
+                 'v_8157',
+                 'v_8160',
+                 'v_8164',
+                 'v_8167',
+                 'v_8171',
+                 'v_8174',
+                 'v_8178',
+                 'v_8181',
+                 'v_8185',
+                 'v_8188',
+                 'v_8284',
+                 'v_8191',
+                 'v_8287',
+                 'v_8195',
+                 'v_8199',
+                 'v_8202',
+                 'v_8205',
+                 'v_8278',
+                 'v_8209',
+                 'v_8213',
+                 'v_8217',
+                 'v_8221',
+                 'v_8224',
+                 'v_8227',
+                 'v_8267',
+                 'v_8231',
+                 'v_8234',
+                 'v_8270',
+                 'v_8238',
+                 'v_8242',
+                 'v_8274',
+                 'v_8246',
+                 'v_8250',
+                 'v_8254',
+                 'v_8258',
+                 'v_8281',
+                 'v_8261'],
+ 'parameter_initializers': 0,
+ 'persistent': False,
+ 'transitions': 36}
+{'address_tied': True,
+ 'classification': 'persistent_address_tied_storage',
+ 'entry_sids': ['v_9232',
+                'v_5794',
+                'v_5797',
+                'v_5788',
+                'v_5777',
+                'v_5780',
+                'v_5784',
+                'v_5791'],
+ 'family_id': 'storage_family:high_rep:9232',
+ 'high_identity_key': 'high_rep:9232',
+ 'high_name': 'DAT_0010c1f8',
+ 'member_sids': ['v_9232',
+                 'v_5668',
+                 'v_5671',
+                 'v_5674',
+                 'v_5677',
+                 'v_5680',
+                 'v_5683',
+                 'v_5686',
+                 'v_5689',
+                 'v_5692',
+                 'v_5695',
+                 'v_5698',
+                 'v_5701',
+                 'v_5704',
+                 'v_5707',
+                 'v_5710',
+                 'v_5713',
+                 'v_5794',
+                 'v_5716',
+                 'v_5797',
+                 'v_5719',
+                 'v_5722',
+                 'v_5725',
+                 'v_5728',
+                 'v_5788',
+                 'v_5731',
+                 'v_5734',
+                 'v_5737',
+                 'v_5740',
+                 'v_5743',
+                 'v_5746',
+                 'v_5777',
+                 'v_5749',
+                 'v_5752',
+                 'v_5780',
+                 'v_5755',
+                 'v_5758',
+                 'v_5784',
+                 'v_5761',
+                 'v_5764',
+                 'v_5767',
+                 'v_5770',
+                 'v_5791',
+                 'v_5773'],
+ 'parameter_initializers': 0,
+ 'persistent': True,
+ 'transitions': 36}
+{'address_tied': True,
+ 'classification': 'persistent_address_tied_storage',
+ 'entry_sids': ['v_9233',
+                'v_5528',
+                'v_5531',
+                'v_5522',
+                'v_5511',
+                'v_5514',
+                'v_5518',
+                'v_5525'],
+ 'family_id': 'storage_family:high_rep:9233',
+ 'high_identity_key': 'high_rep:9233',
+ 'high_name': 'PTR_stdout_0010bfb0',
+ 'member_sids': ['v_9233',
+                 'v_5402',
+                 'v_5405',
+                 'v_5408',
+                 'v_5411',
+                 'v_5414',
+                 'v_5417',
+                 'v_5420',
+                 'v_5423',
+                 'v_5426',
+                 'v_5429',
+                 'v_5432',
+                 'v_5435',
+                 'v_5438',
+                 'v_5441',
+                 'v_5444',
+                 'v_5447',
+                 'v_5528',
+                 'v_5450',
+                 'v_5531',
+                 'v_5453',
+                 'v_5456',
+                 'v_5459',
+                 'v_5462',
+                 'v_5522',
+                 'v_5465',
+                 'v_5468',
+                 'v_5471',
+                 'v_5474',
+                 'v_5477',
+                 'v_5480',
+                 'v_5511',
+                 'v_5483',
+                 'v_5486',
+                 'v_5514',
+                 'v_5489',
+                 'v_5492',
+                 'v_5518',
+                 'v_5495',
+                 'v_5498',
+                 'v_5501',
+                 'v_5504',
+                 'v_5525',
+                 'v_5507'],
+ 'parameter_initializers': 0,
+ 'persistent': True,
+ 'transitions': 36}
+{'address_tied': True,
+ 'classification': 'persistent_address_tied_storage',
+ 'entry_sids': ['v_9234',
+                'v_5661',
+                'v_5664',
+                'v_5655',
+                'v_5644',
+                'v_5647',
+                'v_5651',
+                'v_5658'],
+ 'family_id': 'storage_family:high_rep:9234',
+ 'high_identity_key': 'high_rep:9234',
+ 'high_name': 'PTR_stderr_0010bff0',
+ 'member_sids': ['v_9234',
+                 'v_5535',
+                 'v_5538',
+                 'v_5541',
+                 'v_5544',
+                 'v_5547',
+                 'v_5550',
+                 'v_5553',
+                 'v_5556',
+                 'v_5559',
+                 'v_5562',
+                 'v_5565',
+                 'v_5568',
+                 'v_5571',
+                 'v_5574',
+                 'v_5577',
+                 'v_5580',
+                 'v_5661',
+                 'v_5583',
+                 'v_5664',
+                 'v_5586',
+                 'v_5589',
+                 'v_5592',
+                 'v_5595',
+                 'v_5655',
+                 'v_5598',
+                 'v_5601',
+                 'v_5604',
+                 'v_5607',
+                 'v_5610',
+                 'v_5613',
+                 'v_5644',
+                 'v_5616',
+                 'v_5619',
+                 'v_5647',
+                 'v_5622',
+                 'v_5625',
+                 'v_5651',
+                 'v_5628',
+                 'v_5631',
+                 'v_5634',
+                 'v_5637',
+                 'v_5658',
+                 'v_5640'],
+ 'parameter_initializers': 0,
+ 'persistent': True,
+ 'transitions': 36}
+{'address_tied': True,
+ 'classification': 'address_tied_c_storage',
+ 'entry_sids': ['v_6086',
+                'v_6089',
+                'v_6080',
+                'v_6069',
+                'v_6072',
+                'v_6076',
+                'v_9235',
+                'v_6083'],
+ 'family_id': 'storage_family:high_rep:9235',
+ 'high_identity_key': 'high_rep:9235',
+ 'high_name': 'local_b8',
+ 'member_sids': ['v_6086',
+                 'v_5993',
+                 'v_6089',
+                 'v_5997',
+                 'v_6001',
+                 'v_6004',
+                 'v_6007',
+                 'v_6080',
+                 'v_6011',
+                 'v_6015',
+                 'v_6019',
+                 'v_6023',
+                 'v_6026',
+                 'v_6029',
+                 'v_6069',
+                 'v_6033',
+                 'v_6036',
+                 'v_6072',
+                 'v_6040',
+                 'v_6044',
+                 'v_6076',
+                 'v_6048',
+                 'v_6052',
+                 'v_9235',
+                 'v_6056',
+                 'v_6060',
+                 'v_6083',
+                 'v_6063'],
+ 'parameter_initializers': 0,
+ 'persistent': False,
+ 'transitions': 20}
+{'address_tied': True,
+ 'classification': 'address_tied_c_storage',
+ 'entry_sids': ['v_6243',
+                'v_6246',
+                'v_6237',
+                'v_6226',
+                'v_6229',
+                'v_6233',
+                'v_9236',
+                'v_6240'],
+ 'family_id': 'storage_family:high_rep:9236',
+ 'high_identity_key': 'high_rep:9236',
+ 'high_name': 'local_b0',
+ 'member_sids': ['v_6243',
+                 'v_6150',
+                 'v_6246',
+                 'v_6154',
+                 'v_6158',
+                 'v_6161',
+                 'v_6164',
+                 'v_6237',
+                 'v_6168',
+                 'v_6172',
+                 'v_6176',
+                 'v_6180',
+                 'v_6183',
+                 'v_6186',
+                 'v_6226',
+                 'v_6190',
+                 'v_6193',
+                 'v_6229',
+                 'v_6197',
+                 'v_6201',
+                 'v_6233',
+                 'v_6205',
+                 'v_6209',
+                 'v_9236',
+                 'v_6213',
+                 'v_6217',
+                 'v_6240',
+                 'v_6220'],
+ 'parameter_initializers': 0,
+ 'persistent': False,
+ 'transitions': 20}
+{'address_tied': True,
+ 'classification': 'address_tied_c_storage',
+ 'entry_sids': ['v_6400',
+                'v_6403',
+                'v_6394',
+                'v_6383',
+                'v_6386',
+                'v_6390',
+                'v_9237',
+                'v_6397'],
+ 'family_id': 'storage_family:high_rep:9237',
+ 'high_identity_key': 'high_rep:9237',
+ 'high_name': 'UNNAMED',
+ 'member_sids': ['v_6400',
+                 'v_6307',
+                 'v_6403',
+                 'v_6311',
+                 'v_6315',
+                 'v_6318',
+                 'v_6321',
+                 'v_6394',
+                 'v_6325',
+                 'v_6329',
+                 'v_6333',
+                 'v_6337',
+                 'v_6340',
+                 'v_6343',
+                 'v_6383',
+                 'v_6347',
+                 'v_6350',
+                 'v_6386',
+                 'v_6354',
+                 'v_6358',
+                 'v_6390',
+                 'v_6362',
+                 'v_6366',
+                 'v_9237',
+                 'v_6370',
+                 'v_6374',
+                 'v_6397',
+                 'v_6377'],
+ 'parameter_initializers': 0,
+ 'persistent': False,
+ 'transitions': 20}
+{'address_tied': True,
+ 'classification': 'address_tied_c_storage',
+ 'entry_sids': ['v_6557',
+                'v_6560',
+                'v_6551',
+                'v_6540',
+                'v_6543',
+                'v_6547',
+                'v_9238',
+                'v_6554'],
+ 'family_id': 'storage_family:high_rep:9238',
+ 'high_identity_key': 'high_rep:9238',
+ 'high_name': 'UNNAMED',
+ 'member_sids': ['v_6557',
+                 'v_6464',
+                 'v_6560',
+                 'v_6468',
+                 'v_6472',
+                 'v_6475',
+                 'v_6478',
+                 'v_6551',
+                 'v_6482',
+                 'v_6486',
+                 'v_6490',
+                 'v_6494',
+                 'v_6497',
+                 'v_6500',
+                 'v_6540',
+                 'v_6504',
+                 'v_6507',
+                 'v_6543',
+                 'v_6511',
+                 'v_6515',
+                 'v_6547',
+                 'v_6519',
+                 'v_6523',
+                 'v_9238',
+                 'v_6527',
+                 'v_6531',
+                 'v_6554',
+                 'v_6534'],
+ 'parameter_initializers': 0,
+ 'persistent': False,
+ 'transitions': 20}
+{'address_tied': True,
+ 'classification': 'address_tied_c_storage',
+ 'entry_sids': ['v_6714',
+                'v_6717',
+                'v_6708',
+                'v_6697',
+                'v_6700',
+                'v_6704',
+                'v_9239',
+                'v_6711'],
+ 'family_id': 'storage_family:high_rep:9239',
+ 'high_identity_key': 'high_rep:9239',
+ 'high_name': 'UNNAMED',
+ 'member_sids': ['v_6714',
+                 'v_6621',
+                 'v_6717',
+                 'v_6625',
+                 'v_6629',
+                 'v_6632',
+                 'v_6635',
+                 'v_6708',
+                 'v_6639',
+                 'v_6643',
+                 'v_6647',
+                 'v_6651',
+                 'v_6654',
+                 'v_6657',
+                 'v_6697',
+                 'v_6661',
+                 'v_6664',
+                 'v_6700',
+                 'v_6668',
+                 'v_6672',
+                 'v_6704',
+                 'v_6676',
+                 'v_6680',
+                 'v_9239',
+                 'v_6684',
+                 'v_6688',
+                 'v_6711',
+                 'v_6691'],
+ 'parameter_initializers': 0,
+ 'persistent': False,
+ 'transitions': 20}
+{'address_tied': True,
+ 'classification': 'address_tied_c_storage',
+ 'entry_sids': ['v_6871',
+                'v_6874',
+                'v_6865',
+                'v_6854',
+                'v_6857',
+                'v_6861',
+                'v_9240',
+                'v_6868'],
+ 'family_id': 'storage_family:high_rep:9240',
+ 'high_identity_key': 'high_rep:9240',
+ 'high_name': 'UNNAMED',
+ 'member_sids': ['v_6871',
+                 'v_6778',
+                 'v_6874',
+                 'v_6782',
+                 'v_6786',
+                 'v_6789',
+                 'v_6792',
+                 'v_6865',
+                 'v_6796',
+                 'v_6800',
+                 'v_6804',
+                 'v_6808',
+                 'v_6811',
+                 'v_6814',
+                 'v_6854',
+                 'v_6818',
+                 'v_6821',
+                 'v_6857',
+                 'v_6825',
+                 'v_6829',
+                 'v_6861',
+                 'v_6833',
+                 'v_6837',
+                 'v_9240',
+                 'v_6841',
+                 'v_6845',
+                 'v_6868',
+                 'v_6848'],
+ 'parameter_initializers': 0,
+ 'persistent': False,
+ 'transitions': 20}
+{'address_tied': True,
+ 'classification': 'address_tied_c_storage',
+ 'entry_sids': ['v_7028',
+                'v_7031',
+                'v_7022',
+                'v_7011',
+                'v_7014',
+                'v_7018',
+                'v_9241',
+                'v_7025'],
+ 'family_id': 'storage_family:high_rep:9241',
+ 'high_identity_key': 'high_rep:9241',
+ 'high_name': 'UNNAMED',
+ 'member_sids': ['v_7028',
+                 'v_6935',
+                 'v_7031',
+                 'v_6939',
+                 'v_6943',
+                 'v_6946',
+                 'v_6949',
+                 'v_7022',
+                 'v_6953',
+                 'v_6957',
+                 'v_6961',
+                 'v_6965',
+                 'v_6968',
+                 'v_6971',
+                 'v_7011',
+                 'v_6975',
+                 'v_6978',
+                 'v_7014',
+                 'v_6982',
+                 'v_6986',
+                 'v_7018',
+                 'v_6990',
+                 'v_6994',
+                 'v_9241',
+                 'v_6998',
+                 'v_7002',
+                 'v_7025',
+                 'v_7005'],
+ 'parameter_initializers': 0,
+ 'persistent': False,
+ 'transitions': 20}
+{'address_tied': True,
+ 'classification': 'address_tied_c_storage',
+ 'entry_sids': ['v_7185',
+                'v_7188',
+                'v_7179',
+                'v_7168',
+                'v_7171',
+                'v_7175',
+                'v_9242',
+                'v_7182'],
+ 'family_id': 'storage_family:high_rep:9242',
+ 'high_identity_key': 'high_rep:9242',
+ 'high_name': 'local_80',
+ 'member_sids': ['v_7185',
+                 'v_7092',
+                 'v_7188',
+                 'v_7096',
+                 'v_7100',
+                 'v_7103',
+                 'v_7106',
+                 'v_7179',
+                 'v_7110',
+                 'v_7114',
+                 'v_7118',
+                 'v_7122',
+                 'v_7125',
+                 'v_7128',
+                 'v_7168',
+                 'v_7132',
+                 'v_7135',
+                 'v_7171',
+                 'v_7139',
+                 'v_7143',
+                 'v_7175',
+                 'v_7147',
+                 'v_7151',
+                 'v_9242',
+                 'v_7155',
+                 'v_7159',
+                 'v_7182',
+                 'v_7162'],
+ 'parameter_initializers': 0,
+ 'persistent': False,
+ 'transitions': 20}
+{'address_tied': True,
+ 'classification': 'address_tied_c_storage',
+ 'entry_sids': ['v_7342',
+                'v_7345',
+                'v_7336',
+                'v_7325',
+                'v_7328',
+                'v_7332',
+                'v_9243',
+                'v_7339'],
+ 'family_id': 'storage_family:high_rep:9243',
+ 'high_identity_key': 'high_rep:9243',
+ 'high_name': 'local_78',
+ 'member_sids': ['v_7342',
+                 'v_7249',
+                 'v_7345',
+                 'v_7253',
+                 'v_7257',
+                 'v_7260',
+                 'v_7263',
+                 'v_7336',
+                 'v_7267',
+                 'v_7271',
+                 'v_7275',
+                 'v_7279',
+                 'v_7282',
+                 'v_7285',
+                 'v_7325',
+                 'v_7289',
+                 'v_7292',
+                 'v_7328',
+                 'v_7296',
+                 'v_7300',
+                 'v_7332',
+                 'v_7304',
+                 'v_7308',
+                 'v_9243',
+                 'v_7312',
+                 'v_7316',
+                 'v_7339',
+                 'v_7319'],
+ 'parameter_initializers': 0,
+ 'persistent': False,
+ 'transitions': 20}
+{'address_tied': True,
+ 'classification': 'address_tied_c_storage',
+ 'entry_sids': ['v_7499',
+                'v_7502',
+                'v_7493',
+                'v_7482',
+                'v_7485',
+                'v_7489',
+                'v_9244',
+                'v_7496'],
+ 'family_id': 'storage_family:high_rep:9244',
+ 'high_identity_key': 'high_rep:9244',
+ 'high_name': 'local_70',
+ 'member_sids': ['v_7499',
+                 'v_7406',
+                 'v_7502',
+                 'v_7410',
+                 'v_7414',
+                 'v_7417',
+                 'v_7420',
+                 'v_7493',
+                 'v_7424',
+                 'v_7428',
+                 'v_7432',
+                 'v_7436',
+                 'v_7439',
+                 'v_7442',
+                 'v_7482',
+                 'v_7446',
+                 'v_7449',
+                 'v_7485',
+                 'v_7453',
+                 'v_7457',
+                 'v_7489',
+                 'v_7461',
+                 'v_7465',
+                 'v_9244',
+                 'v_7469',
+                 'v_7473',
+                 'v_7496',
+                 'v_7476'],
+ 'parameter_initializers': 0,
+ 'persistent': False,
+ 'transitions': 20}
+{'address_tied': True,
+ 'classification': 'address_tied_c_storage',
+ 'entry_sids': ['v_7656',
+                'v_7659',
+                'v_7650',
+                'v_7639',
+                'v_7642',
+                'v_7646',
+                'v_9245',
+                'v_7653'],
+ 'family_id': 'storage_family:high_rep:9245',
+ 'high_identity_key': 'high_rep:9245',
+ 'high_name': 'local_68',
+ 'member_sids': ['v_7656',
+                 'v_7563',
+                 'v_7659',
+                 'v_7567',
+                 'v_7571',
+                 'v_7574',
+                 'v_7577',
+                 'v_7650',
+                 'v_7581',
+                 'v_7585',
+                 'v_7589',
+                 'v_7593',
+                 'v_7596',
+                 'v_7599',
+                 'v_7639',
+                 'v_7603',
+                 'v_7606',
+                 'v_7642',
+                 'v_7610',
+                 'v_7614',
+                 'v_7646',
+                 'v_7618',
+                 'v_7622',
+                 'v_9245',
+                 'v_7626',
+                 'v_7630',
+                 'v_7653',
+                 'v_7633'],
+ 'parameter_initializers': 0,
+ 'persistent': False,
+ 'transitions': 20}
+{'address_tied': True,
+ 'classification': 'address_tied_c_storage',
+ 'entry_sids': ['v_7813',
+                'v_7816',
+                'v_7807',
+                'v_7796',
+                'v_7799',
+                'v_7803',
+                'v_9246',
+                'v_7810'],
+ 'family_id': 'storage_family:high_rep:9246',
+ 'high_identity_key': 'high_rep:9246',
+ 'high_name': 'local_60',
+ 'member_sids': ['v_7813',
+                 'v_7720',
+                 'v_7816',
+                 'v_7724',
+                 'v_7728',
+                 'v_7731',
+                 'v_7734',
+                 'v_7807',
+                 'v_7738',
+                 'v_7742',
+                 'v_7746',
+                 'v_7750',
+                 'v_7753',
+                 'v_7756',
+                 'v_7796',
+                 'v_7760',
+                 'v_7763',
+                 'v_7799',
+                 'v_7767',
+                 'v_7771',
+                 'v_7803',
+                 'v_7775',
+                 'v_7779',
+                 'v_9246',
+                 'v_7783',
+                 'v_7787',
+                 'v_7810',
+                 'v_7790'],
+ 'parameter_initializers': 0,
+ 'persistent': False,
+ 'transitions': 20}
+{'address_tied': True,
+ 'classification': 'address_tied_c_storage',
+ 'entry_sids': ['v_7970',
+                'v_7973',
+                'v_7964',
+                'v_7953',
+                'v_7956',
+                'v_7960',
+                'v_9247',
+                'v_7967'],
+ 'family_id': 'storage_family:high_rep:9247',
+ 'high_identity_key': 'high_rep:9247',
+ 'high_name': 'local_58',
+ 'member_sids': ['v_7970',
+                 'v_7877',
+                 'v_7973',
+                 'v_7881',
+                 'v_7885',
+                 'v_7888',
+                 'v_7891',
+                 'v_7964',
+                 'v_7895',
+                 'v_7899',
+                 'v_7903',
+                 'v_7907',
+                 'v_7910',
+                 'v_7913',
+                 'v_7953',
+                 'v_7917',
+                 'v_7920',
+                 'v_7956',
+                 'v_7924',
+                 'v_7928',
+                 'v_7960',
+                 'v_7932',
+                 'v_7936',
+                 'v_9247',
+                 'v_7940',
+                 'v_7944',
+                 'v_7967',
+                 'v_7947'],
+ 'parameter_initializers': 0,
+ 'persistent': False,
+ 'transitions': 20}
+{'address_tied': True,
+ 'classification': 'address_tied_c_storage',
+ 'entry_sids': ['v_8127',
+                'v_8130',
+                'v_8121',
+                'v_8110',
+                'v_8113',
+                'v_8117',
+                'v_9248',
+                'v_8124'],
+ 'family_id': 'storage_family:high_rep:9248',
+ 'high_identity_key': 'high_rep:9248',
+ 'high_name': 'local_50',
+ 'member_sids': ['v_8127',
+                 'v_8034',
+                 'v_8130',
+                 'v_8038',
+                 'v_8042',
+                 'v_8045',
+                 'v_8048',
+                 'v_8121',
+                 'v_8052',
+                 'v_8056',
+                 'v_8060',
+                 'v_8064',
+                 'v_8067',
+                 'v_8070',
+                 'v_8110',
+                 'v_8074',
+                 'v_8077',
+                 'v_8113',
+                 'v_8081',
+                 'v_8085',
+                 'v_8117',
+                 'v_8089',
+                 'v_8093',
+                 'v_9248',
+                 'v_8097',
+                 'v_8101',
+                 'v_8124',
+                 'v_8104'],
+ 'parameter_initializers': 0,
+ 'persistent': False,
+ 'transitions': 20}
+
+[PARAMETER INITIALIZERS / STORAGE WRITES]
+[]
+
+[WARNINGS]
+[]
+===== END PAL RESOLVER INDIRECT STORAGE =====
+
+========================================================================
+PALRAW AUDIT v0.3 :: raw instruction BLOCK p-code vs HF/PAL CFG
+========================================================================
+
+--- 0x10127f ---
+Raw block  : 0x10127f -> next 0x1038a0
+Instr count: 0
+Terminal   : None None
+Raw succs  : []
+Norm succs : None
+HF block   : None
+CFG edges  : []
+STATUS     : no_hf_block
+NOTE       : No PAL/HighFunction block mapped to this address.
+Raw instructions:
+Terminal raw p-code:
+HF/PAL ops :
+
+--- 0x1011b6 ---
+Raw block  : 0x1011b6 -> next 0x1038a0
+Instr count: 0
+Terminal   : None None
+Raw succs  : []
+Norm succs : None
+HF block   : None
+CFG edges  : []
+STATUS     : no_hf_block
+NOTE       : No PAL/HighFunction block mapped to this address.
+Raw instructions:
+Terminal raw p-code:
+HF/PAL ops :
+
+--- 0x101219 ---
+Raw block  : 0x101219 -> next 0x1038a0
+Instr count: 0
+Terminal   : None None
+Raw succs  : []
+Norm succs : None
+HF block   : None
+CFG edges  : []
+STATUS     : no_hf_block
+NOTE       : No PAL/HighFunction block mapped to this address.
+Raw instructions:
+Terminal raw p-code:
+HF/PAL ops :
+
+--- 0x10120f ---
+Raw block  : 0x10120f -> next 0x1038a0
+Instr count: 0
+Terminal   : None None
+Raw succs  : []
+Norm succs : None
+HF block   : None
+CFG edges  : []
+STATUS     : no_hf_block
+NOTE       : No PAL/HighFunction block mapped to this address.
+Raw instructions:
+Terminal raw p-code:
+HF/PAL ops :
+
+--- 0x101221 ---
+Raw block  : 0x101221 -> next 0x1038a0
+Instr count: 0
+Terminal   : None None
+Raw succs  : []
+Norm succs : None
+HF block   : None
+CFG edges  : []
+STATUS     : no_hf_block
+NOTE       : No PAL/HighFunction block mapped to this address.
+Raw instructions:
+Terminal raw p-code:
+HF/PAL ops :
+
+--- 0x101284 ---
+Raw block  : 0x101284 -> next 0x1038a0
+Instr count: 0
+Terminal   : None None
+Raw succs  : []
+Norm succs : None
+HF block   : None
+CFG edges  : []
+STATUS     : no_hf_block
+NOTE       : No PAL/HighFunction block mapped to this address.
+Raw instructions:
+Terminal raw p-code:
+HF/PAL ops :
+
+--- 0x10127f ---
+Raw block  : 0x10127f -> next 0x1038a0
+Instr count: 0
+Terminal   : None None
+Raw succs  : []
+Norm succs : None
+HF block   : None
+CFG edges  : []
+STATUS     : no_hf_block
+NOTE       : No PAL/HighFunction block mapped to this address.
+Raw instructions:
+Terminal raw p-code:
+HF/PAL ops :
+
+========================================================================
+
+===== PAL COMPUTE ANALYZER =====
+{'kind': 'pal_compute_inventory_v22',
+ 'version': 'v23b_abi_thunk_compatibility_return_reconciliation',
+ 'runtime_representation': 'raw_unsigned_bitvector_at_ssa_boundaries',
+ 'operations': 693,
+ 'output_plans': 677,
+ 'control_contracts': 13,
+ 'c_compute_filtered': 640,
+ 'use_site_overrides': 6,
+ 'return_observation_view_mismatches': 0,
+ 'storage_custody_related_ops': 594,
+ 'indirect_custody_contracts': 424,
+ 'indirect_custody_resolved': 424,
+ 'indirect_custody_deferred': 0,
+ 'indirect_effect_owner_compute_ops': 36,
+ 'storage_family_bindings': 568,
+ 'function_entry_abi_plan': True,
+ 'call_site_abi_plans': 36,
+ 'internal_call_plan_failures': 0,
+ 'unsupported_implicit_inputs': 0,
+ 'abi_runtime_helper_assignments': 0,
+ 'no_return_calls': 1,
+ 'reachable_return_boundaries': 0,
+ 'unreachable_return_boundaries': 1,
+ 'synthetic_no_return_continuations_suppressed': 1,
+ 'statuses': {'metadata_only': 625,
+              'deferred_memory': 22,
+              'helper_required': 10,
+              'deferred_external': 36},
+ 'categories': {'transport': 48,
+                'pointer_arithmetic': 10,
+                'integer_arithmetic': 1,
+                'conversion': 22,
+                'memory': 12,
+                'comparison': 9,
+                'storage_custody': 424,
+                'call_boundary': 36,
+                'phi_merge': 131},
+ 'helpers': {'c_ptrsub': 7,
+             'c_add': 1,
+             'c_load': 12,
+             'c_ne': 7,
+             'c_ptradd': 3,
+             'c_eq': 2},
+ 'opcodes': {'COPY': 48,
+             'PTRSUB': 7,
+             'INT_ADD': 1,
+             'CAST': 22,
+             'LOAD': 12,
+             'INT_NOTEQUAL': 7,
+             'INDIRECT': 424,
+             'CALL': 36,
+             'MULTIEQUAL': 131,
+             'PTRADD': 3,
+             'INT_EQUAL': 2},
+ 'warnings': 0}
+
+[WARNINGS]
+[]
+
+[METADATA-ONLY COMPUTE BOUNDARIES]
+0x1038a0 COPY ['v_9232'] -> v_9886 classification=bit_preserving_copy
+0x1038a0 CAST ['v_9890'] -> v_82 classification=same_width_explicit_recast
+0x103904 INDIRECT ['v_9233', 'c_111_4'] -> v_5402 classification=None
+0x103904 INDIRECT ['v_9234', 'c_111_4'] -> v_5535 classification=None
+0x103904 INDIRECT ['v_9232', 'c_111_4'] -> v_5668 classification=None
+0x103904 INDIRECT ['v_85', 'c_111_4'] -> v_8135 classification=None
+0x103904 INDIRECT ['v_5402', 'c_129_4'] -> v_5405 classification=None
+0x103904 INDIRECT ['v_5535', 'c_129_4'] -> v_5538 classification=None
+0x103904 INDIRECT ['v_5668', 'c_129_4'] -> v_5671 classification=None
+0x103904 INDIRECT ['v_8135', 'c_129_4'] -> v_8139 classification=None
+0x103904 COPY ['v_5405'] -> v_9885 classification=bit_preserving_copy
+0x103904 CAST ['v_5405'] -> v_9891 classification=same_width_explicit_view_boundary
+0x103904 INDIRECT ['v_5405', 'c_147_4'] -> v_5408 classification=None
+0x103904 INDIRECT ['v_5538', 'c_147_4'] -> v_5541 classification=None
+0x103904 INDIRECT ['v_5671', 'c_147_4'] -> v_5674 classification=None
+0x103904 INDIRECT ['v_8139', 'c_147_4'] -> v_8143 classification=None
+0x103904 CAST ['v_9892'] -> v_2542 classification=same_width_explicit_recast
+0x103904 INDIRECT ['v_5408', 'c_152_4'] -> v_5411 classification=None
+0x103904 INDIRECT ['v_5541', 'c_152_4'] -> v_5544 classification=None
+0x103904 INDIRECT ['v_5674', 'c_152_4'] -> v_5677 classification=None
+0x103904 INDIRECT ['v_8143', 'c_152_4'] -> v_8146 classification=None
+0x103904 INDIRECT ['v_5411', 'c_169_4'] -> v_5414 classification=None
+0x103904 INDIRECT ['v_5544', 'c_169_4'] -> v_5547 classification=None
+0x103904 INDIRECT ['v_5677', 'c_169_4'] -> v_5680 classification=None
+0x103904 INDIRECT ['v_8146', 'c_169_4'] -> v_8150 classification=None
+0x103904 CAST ['v_9894'] -> v_2548 classification=same_width_explicit_recast
+0x103904 INDIRECT ['v_5414', 'c_174_4'] -> v_5417 classification=None
+0x103904 INDIRECT ['v_5547', 'c_174_4'] -> v_5550 classification=None
+0x103904 INDIRECT ['v_5680', 'c_174_4'] -> v_5683 classification=None
+0x103904 INDIRECT ['v_8150', 'c_174_4'] -> v_8153 classification=None
+0x103904 INDIRECT ['v_5417', 'c_191_4'] -> v_5420 classification=None
+0x103904 INDIRECT ['v_5550', 'c_191_4'] -> v_5553 classification=None
+0x103904 INDIRECT ['v_5683', 'c_191_4'] -> v_5686 classification=None
+0x103904 INDIRECT ['v_8153', 'c_191_4'] -> v_8157 classification=None
+0x103904 CAST ['v_9896'] -> v_2554 classification=same_width_explicit_recast
+0x103904 INDIRECT ['v_5420', 'c_196_4'] -> v_5423 classification=None
+0x103904 INDIRECT ['v_5553', 'c_196_4'] -> v_5556 classification=None
+0x103904 INDIRECT ['v_5686', 'c_196_4'] -> v_5689 classification=None
+0x103904 INDIRECT ['v_8157', 'c_196_4'] -> v_8160 classification=None
+0x103904 INDIRECT ['v_5423', 'c_213_4'] -> v_5426 classification=None
+0x103904 INDIRECT ['v_5556', 'c_213_4'] -> v_5559 classification=None
+0x103904 INDIRECT ['v_5689', 'c_213_4'] -> v_5692 classification=None
+0x103904 INDIRECT ['v_8160', 'c_213_4'] -> v_8164 classification=None
+0x103904 CAST ['v_9898'] -> v_2560 classification=same_width_explicit_recast
+0x103904 INDIRECT ['v_5426', 'c_218_4'] -> v_5429 classification=None
+0x103904 INDIRECT ['v_5559', 'c_218_4'] -> v_5562 classification=None
+0x103904 INDIRECT ['v_5692', 'c_218_4'] -> v_5695 classification=None
+0x103904 INDIRECT ['v_8164', 'c_218_4'] -> v_8167 classification=None
+0x103904 INDIRECT ['v_5429', 'c_235_4'] -> v_5432 classification=None
+0x103904 INDIRECT ['v_5562', 'c_235_4'] -> v_5565 classification=None
+0x103904 INDIRECT ['v_5695', 'c_235_4'] -> v_5698 classification=None
+0x103904 INDIRECT ['v_8167', 'c_235_4'] -> v_8171 classification=None
+0x103904 CAST ['v_9900'] -> v_2566 classification=same_width_explicit_recast
+0x103904 INDIRECT ['v_5432', 'c_240_4'] -> v_5435 classification=None
+0x103904 INDIRECT ['v_5565', 'c_240_4'] -> v_5568 classification=None
+0x103904 INDIRECT ['v_5698', 'c_240_4'] -> v_5701 classification=None
+0x103904 INDIRECT ['v_8171', 'c_240_4'] -> v_8174 classification=None
+0x103904 INDIRECT ['v_5435', 'c_257_4'] -> v_5438 classification=None
+0x103904 INDIRECT ['v_5568', 'c_257_4'] -> v_5571 classification=None
+0x103904 INDIRECT ['v_5701', 'c_257_4'] -> v_5704 classification=None
+0x103904 INDIRECT ['v_8174', 'c_257_4'] -> v_8178 classification=None
+0x103904 CAST ['v_9902'] -> v_2572 classification=same_width_explicit_recast
+0x103904 INDIRECT ['v_5438', 'c_262_4'] -> v_5441 classification=None
+0x103904 INDIRECT ['v_5571', 'c_262_4'] -> v_5574 classification=None
+0x103904 INDIRECT ['v_5704', 'c_262_4'] -> v_5707 classification=None
+0x103904 INDIRECT ['v_8178', 'c_262_4'] -> v_8181 classification=None
+0x103904 INDIRECT ['v_5441', 'c_279_4'] -> v_5444 classification=None
+0x103904 INDIRECT ['v_5574', 'c_279_4'] -> v_5577 classification=None
+0x103904 INDIRECT ['v_5707', 'c_279_4'] -> v_5710 classification=None
+0x103904 INDIRECT ['v_8181', 'c_279_4'] -> v_8185 classification=None
+0x103904 CAST ['v_9904'] -> v_2578 classification=same_width_explicit_recast
+0x103904 INDIRECT ['v_5444', 'c_285_4'] -> v_5447 classification=None
+0x103904 INDIRECT ['v_5577', 'c_285_4'] -> v_5580 classification=None
+0x103904 INDIRECT ['v_5710', 'c_285_4'] -> v_5713 classification=None
+0x103904 INDIRECT ['v_8185', 'c_285_4'] -> v_8188 classification=None
+0x103ab8 MULTIEQUAL ['v_8188', 'v_8191'] -> v_8284 classification=None
+0x103ab8 MULTIEQUAL ['v_5366', 'v_8034'] -> v_8127 classification=None
+0x103ab8 MULTIEQUAL ['v_5353', 'v_7877'] -> v_7970 classification=None
+0x103ab8 MULTIEQUAL ['v_5365', 'v_7720'] -> v_7813 classification=None
+0x103ab8 MULTIEQUAL ['v_5364', 'v_7563'] -> v_7656 classification=None
+0x103ab8 MULTIEQUAL ['v_5363', 'v_7406'] -> v_7499 classification=None
+0x103ab8 MULTIEQUAL ['v_5360', 'v_7249'] -> v_7342 classification=None
+0x103ab8 MULTIEQUAL ['v_5362', 'v_7092'] -> v_7185 classification=None
+0x103ab8 MULTIEQUAL ['v_5358', 'v_6935'] -> v_7028 classification=None
+0x103ab8 MULTIEQUAL ['v_5361', 'v_6778'] -> v_6871 classification=None
+0x103ab8 MULTIEQUAL ['v_5359', 'v_6621'] -> v_6714 classification=None
+0x103ab8 MULTIEQUAL ['v_5357', 'v_6464'] -> v_6557 classification=None
+0x103ab8 MULTIEQUAL ['v_5356', 'v_6307'] -> v_6400 classification=None
+0x103ab8 MULTIEQUAL ['v_5355', 'v_6150'] -> v_6243 classification=None
+0x103ab8 MULTIEQUAL ['v_5354', 'v_5993'] -> v_6086 classification=None
+0x103ab8 MULTIEQUAL ['v_5713', 'v_5716'] -> v_5794 classification=None
+0x103ab8 MULTIEQUAL ['v_5580', 'v_5583'] -> v_5661 classification=None
+0x103ab8 MULTIEQUAL ['v_5447', 'v_5450'] -> v_5528 classification=None
+0x103ab8 MULTIEQUAL ['v_9887', 'v_9888'] -> v_9889 classification=None
+0x103ac5 COPY ['c_1085444_8'] -> v_9720 classification=same_width_copy_recast
+0x103ac5 INDIRECT ['v_5528', 'c_361_4'] -> v_5450 classification=None
+0x103ac5 INDIRECT ['v_5661', 'c_361_4'] -> v_5583 classification=None
+0x103ac5 INDIRECT ['v_5794', 'c_361_4'] -> v_5716 classification=None
+0x103ac5 INDIRECT ['v_6086', 'c_361_4'] -> v_5993 classification=None
+0x103ac5 INDIRECT ['v_6243', 'c_361_4'] -> v_6150 classification=None
+0x103ac5 INDIRECT ['v_6400', 'c_361_4'] -> v_6307 classification=None
+0x103ac5 INDIRECT ['v_6557', 'c_361_4'] -> v_6464 classification=None
+0x103ac5 INDIRECT ['v_6714', 'c_361_4'] -> v_6621 classification=None
+0x103ac5 INDIRECT ['v_6871', 'c_361_4'] -> v_6778 classification=None
+0x103ac5 INDIRECT ['v_7028', 'c_361_4'] -> v_6935 classification=None
+0x103ac5 INDIRECT ['v_7185', 'c_361_4'] -> v_7092 classification=None
+0x103ac5 INDIRECT ['v_7342', 'c_361_4'] -> v_7249 classification=None
+0x103ac5 INDIRECT ['v_7499', 'c_361_4'] -> v_7406 classification=None
+0x103ac5 INDIRECT ['v_7656', 'c_361_4'] -> v_7563 classification=None
+0x103ac5 INDIRECT ['v_7813', 'c_361_4'] -> v_7720 classification=None
+0x103ac5 INDIRECT ['v_7970', 'c_361_4'] -> v_7877 classification=None
+0x103ac5 INDIRECT ['v_8127', 'c_361_4'] -> v_8034 classification=None
+0x103ac5 INDIRECT ['v_8284', 'c_361_4'] -> v_8191 classification=None
+0x103ad1 MULTIEQUAL ['v_8284', 'v_8191'] -> v_8287 classification=None
+0x103ad1 MULTIEQUAL ['v_8127', 'v_8034'] -> v_8130 classification=None
+0x103ad1 MULTIEQUAL ['v_7970', 'v_7877'] -> v_7973 classification=None
+0x103ad1 MULTIEQUAL ['v_7813', 'v_7720'] -> v_7816 classification=None
+0x103ad1 MULTIEQUAL ['v_7656', 'v_7563'] -> v_7659 classification=None
+0x103ad1 MULTIEQUAL ['v_7499', 'v_7406'] -> v_7502 classification=None
+0x103ad1 MULTIEQUAL ['v_7342', 'v_7249'] -> v_7345 classification=None
+0x103ad1 MULTIEQUAL ['v_7185', 'v_7092'] -> v_7188 classification=None
+0x103ad1 MULTIEQUAL ['v_7028', 'v_6935'] -> v_7031 classification=None
+0x103ad1 MULTIEQUAL ['v_6871', 'v_6778'] -> v_6874 classification=None
+0x103ad1 MULTIEQUAL ['v_6714', 'v_6621'] -> v_6717 classification=None
+0x103ad1 MULTIEQUAL ['v_6557', 'v_6464'] -> v_6560 classification=None
+0x103ad1 MULTIEQUAL ['v_6400', 'v_6307'] -> v_6403 classification=None
+0x103ad1 MULTIEQUAL ['v_6243', 'v_6150'] -> v_6246 classification=None
+0x103ad1 MULTIEQUAL ['v_6086', 'v_5993'] -> v_6089 classification=None
+0x103ad1 MULTIEQUAL ['v_5794', 'v_5716'] -> v_5797 classification=None
+0x103ad1 MULTIEQUAL ['v_5661', 'v_5583'] -> v_5664 classification=None
+0x103ad1 MULTIEQUAL ['v_5528', 'v_5450'] -> v_5531 classification=None
+0x103ba8 INDIRECT ['v_5531', 'c_567_4'] -> v_5453 classification=None
+0x103ba8 INDIRECT ['v_5664', 'c_567_4'] -> v_5586 classification=None
+0x103ba8 INDIRECT ['v_5797', 'c_567_4'] -> v_5719 classification=None
+0x103ba8 INDIRECT ['v_6089', 'c_567_4'] -> v_5997 classification=None
+0x103ba8 INDIRECT ['v_6246', 'c_567_4'] -> v_6154 classification=None
+0x103ba8 INDIRECT ['v_6403', 'c_567_4'] -> v_6311 classification=None
+0x103ba8 INDIRECT ['v_6560', 'c_567_4'] -> v_6468 classification=None
+0x103ba8 INDIRECT ['v_6717', 'c_567_4'] -> v_6625 classification=None
+0x103ba8 INDIRECT ['v_6874', 'c_567_4'] -> v_6782 classification=None
+0x103ba8 INDIRECT ['v_7031', 'c_567_4'] -> v_6939 classification=None
+0x103ba8 INDIRECT ['v_7188', 'c_567_4'] -> v_7096 classification=None
+0x103ba8 INDIRECT ['v_7345', 'c_567_4'] -> v_7253 classification=None
+0x103ba8 INDIRECT ['v_7502', 'c_567_4'] -> v_7410 classification=None
+0x103ba8 INDIRECT ['v_7659', 'c_567_4'] -> v_7567 classification=None
+0x103ba8 INDIRECT ['v_7816', 'c_567_4'] -> v_7724 classification=None
+0x103ba8 INDIRECT ['v_7973', 'c_567_4'] -> v_7881 classification=None
+0x103ba8 INDIRECT ['v_8130', 'c_567_4'] -> v_8038 classification=None
+0x103ba8 INDIRECT ['v_8287', 'c_567_4'] -> v_8195 classification=None
+0x103ba8 INDIRECT ['v_5453', 'c_585_4'] -> v_5456 classification=None
+0x103ba8 INDIRECT ['v_5586', 'c_585_4'] -> v_5589 classification=None
+0x103ba8 INDIRECT ['v_5719', 'c_585_4'] -> v_5722 classification=None
+0x103ba8 INDIRECT ['v_5997', 'c_585_4'] -> v_6001 classification=None
+0x103ba8 INDIRECT ['v_6154', 'c_585_4'] -> v_6158 classification=None
+0x103ba8 INDIRECT ['v_6311', 'c_585_4'] -> v_6315 classification=None
+0x103ba8 INDIRECT ['v_6468', 'c_585_4'] -> v_6472 classification=None
+0x103ba8 INDIRECT ['v_6625', 'c_585_4'] -> v_6629 classification=None
+0x103ba8 INDIRECT ['v_6782', 'c_585_4'] -> v_6786 classification=None
+0x103ba8 INDIRECT ['v_6939', 'c_585_4'] -> v_6943 classification=None
+0x103ba8 INDIRECT ['v_7096', 'c_585_4'] -> v_7100 classification=None
+0x103ba8 INDIRECT ['v_7253', 'c_585_4'] -> v_7257 classification=None
+0x103ba8 INDIRECT ['v_7410', 'c_585_4'] -> v_7414 classification=None
+0x103ba8 INDIRECT ['v_7567', 'c_585_4'] -> v_7571 classification=None
+0x103ba8 INDIRECT ['v_7724', 'c_585_4'] -> v_7728 classification=None
+0x103ba8 INDIRECT ['v_7881', 'c_585_4'] -> v_7885 classification=None
+0x103ba8 INDIRECT ['v_8038', 'c_585_4'] -> v_8042 classification=None
+0x103ba8 INDIRECT ['v_8195', 'c_585_4'] -> v_8199 classification=None
+0x103ba8 INDIRECT ['v_5456', 'c_599_4'] -> v_5459 classification=None
+0x103ba8 INDIRECT ['v_5589', 'c_599_4'] -> v_5592 classification=None
+0x103ba8 INDIRECT ['v_5722', 'c_599_4'] -> v_5725 classification=None
+0x103ba8 INDIRECT ['v_6001', 'c_599_4'] -> v_6004 classification=None
+0x103ba8 INDIRECT ['v_6158', 'c_599_4'] -> v_6161 classification=None
+0x103ba8 INDIRECT ['v_6315', 'c_599_4'] -> v_6318 classification=None
+0x103ba8 INDIRECT ['v_6472', 'c_599_4'] -> v_6475 classification=None
+0x103ba8 INDIRECT ['v_6629', 'c_599_4'] -> v_6632 classification=None
+0x103ba8 INDIRECT ['v_6786', 'c_599_4'] -> v_6789 classification=None
+0x103ba8 INDIRECT ['v_6943', 'c_599_4'] -> v_6946 classification=None
+0x103ba8 INDIRECT ['v_7100', 'c_599_4'] -> v_7103 classification=None
+0x103ba8 INDIRECT ['v_7257', 'c_599_4'] -> v_7260 classification=None
+0x103ba8 INDIRECT ['v_7414', 'c_599_4'] -> v_7417 classification=None
+0x103ba8 INDIRECT ['v_7571', 'c_599_4'] -> v_7574 classification=None
+0x103ba8 INDIRECT ['v_7728', 'c_599_4'] -> v_7731 classification=None
+0x103ba8 INDIRECT ['v_7885', 'c_599_4'] -> v_7888 classification=None
+0x103ba8 INDIRECT ['v_8042', 'c_599_4'] -> v_8045 classification=None
+0x103ba8 INDIRECT ['v_8199', 'c_599_4'] -> v_8202 classification=None
+0x103be1 INDIRECT ['v_5459', 'c_615_4'] -> v_5462 classification=None
+0x103be1 INDIRECT ['v_5592', 'c_615_4'] -> v_5595 classification=None
+0x103be1 INDIRECT ['v_5725', 'c_615_4'] -> v_5728 classification=None
+0x103be1 INDIRECT ['v_6004', 'c_615_4'] -> v_6007 classification=None
+0x103be1 INDIRECT ['v_6161', 'c_615_4'] -> v_6164 classification=None
+0x103be1 INDIRECT ['v_6318', 'c_615_4'] -> v_6321 classification=None
+0x103be1 INDIRECT ['v_6475', 'c_615_4'] -> v_6478 classification=None
+0x103be1 INDIRECT ['v_6632', 'c_615_4'] -> v_6635 classification=None
+0x103be1 INDIRECT ['v_6789', 'c_615_4'] -> v_6792 classification=None
+0x103be1 INDIRECT ['v_6946', 'c_615_4'] -> v_6949 classification=None
+0x103be1 INDIRECT ['v_7103', 'c_615_4'] -> v_7106 classification=None
+0x103be1 INDIRECT ['v_7260', 'c_615_4'] -> v_7263 classification=None
+0x103be1 INDIRECT ['v_7417', 'c_615_4'] -> v_7420 classification=None
+0x103be1 INDIRECT ['v_7574', 'c_615_4'] -> v_7577 classification=None
+0x103be1 INDIRECT ['v_7731', 'c_615_4'] -> v_7734 classification=None
+0x103be1 INDIRECT ['v_7888', 'c_615_4'] -> v_7891 classification=None
+0x103be1 INDIRECT ['v_8045', 'c_615_4'] -> v_8048 classification=None
+0x103be1 INDIRECT ['v_8202', 'c_615_4'] -> v_8205 classification=None
+0x103bf6 MULTIEQUAL ['v_8202', 'v_8205'] -> v_8278 classification=None
+0x103bf6 MULTIEQUAL ['v_8045', 'v_8048'] -> v_8121 classification=None
+0x103bf6 MULTIEQUAL ['v_7888', 'v_7891'] -> v_7964 classification=None
+0x103bf6 MULTIEQUAL ['v_7731', 'v_7734'] -> v_7807 classification=None
+0x103bf6 MULTIEQUAL ['v_7574', 'v_7577'] -> v_7650 classification=None
+0x103bf6 MULTIEQUAL ['v_7417', 'v_7420'] -> v_7493 classification=None
+0x103bf6 MULTIEQUAL ['v_7260', 'v_7263'] -> v_7336 classification=None
+0x103bf6 MULTIEQUAL ['v_7103', 'v_7106'] -> v_7179 classification=None
+0x103bf6 MULTIEQUAL ['v_6946', 'v_6949'] -> v_7022 classification=None
+0x103bf6 MULTIEQUAL ['v_6789', 'v_6792'] -> v_6865 classification=None
+0x103bf6 MULTIEQUAL ['v_6632', 'v_6635'] -> v_6708 classification=None
+0x103bf6 MULTIEQUAL ['v_6475', 'v_6478'] -> v_6551 classification=None
+0x103bf6 MULTIEQUAL ['v_6318', 'v_6321'] -> v_6394 classification=None
+0x103bf6 MULTIEQUAL ['v_6161', 'v_6164'] -> v_6237 classification=None
+0x103bf6 MULTIEQUAL ['v_6004', 'v_6007'] -> v_6080 classification=None
+0x103bf6 MULTIEQUAL ['v_5725', 'v_5728'] -> v_5788 classification=None
+0x103bf6 MULTIEQUAL ['v_5592', 'v_5595'] -> v_5655 classification=None
+0x103bf6 MULTIEQUAL ['v_5459', 'v_5462'] -> v_5522 classification=None
+0x103bf6 INDIRECT ['v_5522', 'c_641_4'] -> v_5465 classification=None
+0x103bf6 INDIRECT ['v_5655', 'c_641_4'] -> v_5598 classification=None
+0x103bf6 INDIRECT ['v_5788', 'c_641_4'] -> v_5731 classification=None
+0x103bf6 INDIRECT ['v_6080', 'c_641_4'] -> v_6011 classification=None
+0x103bf6 INDIRECT ['v_6237', 'c_641_4'] -> v_6168 classification=None
+0x103bf6 INDIRECT ['v_6394', 'c_641_4'] -> v_6325 classification=None
+0x103bf6 INDIRECT ['v_6551', 'c_641_4'] -> v_6482 classification=None
+0x103bf6 INDIRECT ['v_6708', 'c_641_4'] -> v_6639 classification=None
+0x103bf6 INDIRECT ['v_6865', 'c_641_4'] -> v_6796 classification=None
+0x103bf6 INDIRECT ['v_7022', 'c_641_4'] -> v_6953 classification=None
+0x103bf6 INDIRECT ['v_7179', 'c_641_4'] -> v_7110 classification=None
+0x103bf6 INDIRECT ['v_7336', 'c_641_4'] -> v_7267 classification=None
+0x103bf6 INDIRECT ['v_7493', 'c_641_4'] -> v_7424 classification=None
+0x103bf6 INDIRECT ['v_7650', 'c_641_4'] -> v_7581 classification=None
+0x103bf6 INDIRECT ['v_7807', 'c_641_4'] -> v_7738 classification=None
+0x103bf6 INDIRECT ['v_7964', 'c_641_4'] -> v_7895 classification=None
+0x103bf6 INDIRECT ['v_8121', 'c_641_4'] -> v_8052 classification=None
+0x103bf6 INDIRECT ['v_8278', 'c_641_4'] -> v_8209 classification=None
+0x103bf6 INDIRECT ['v_5465', 'c_659_4'] -> v_5468 classification=None
+0x103bf6 INDIRECT ['v_5598', 'c_659_4'] -> v_5601 classification=None
+0x103bf6 INDIRECT ['v_5731', 'c_659_4'] -> v_5734 classification=None
+0x103bf6 INDIRECT ['v_6011', 'c_659_4'] -> v_6015 classification=None
+0x103bf6 INDIRECT ['v_6168', 'c_659_4'] -> v_6172 classification=None
+0x103bf6 INDIRECT ['v_6325', 'c_659_4'] -> v_6329 classification=None
+0x103bf6 INDIRECT ['v_6482', 'c_659_4'] -> v_6486 classification=None
+0x103bf6 INDIRECT ['v_6639', 'c_659_4'] -> v_6643 classification=None
+0x103bf6 INDIRECT ['v_6796', 'c_659_4'] -> v_6800 classification=None
+0x103bf6 INDIRECT ['v_6953', 'c_659_4'] -> v_6957 classification=None
+0x103bf6 INDIRECT ['v_7110', 'c_659_4'] -> v_7114 classification=None
+0x103bf6 INDIRECT ['v_7267', 'c_659_4'] -> v_7271 classification=None
+0x103bf6 INDIRECT ['v_7424', 'c_659_4'] -> v_7428 classification=None
+0x103bf6 INDIRECT ['v_7581', 'c_659_4'] -> v_7585 classification=None
+0x103bf6 INDIRECT ['v_7738', 'c_659_4'] -> v_7742 classification=None
+0x103bf6 INDIRECT ['v_7895', 'c_659_4'] -> v_7899 classification=None
+0x103bf6 INDIRECT ['v_8052', 'c_659_4'] -> v_8056 classification=None
+0x103bf6 INDIRECT ['v_8209', 'c_659_4'] -> v_8213 classification=None
+0x103aec INDIRECT ['v_5531', 'c_400_4'] -> v_5471 classification=None
+0x103aec INDIRECT ['v_5664', 'c_400_4'] -> v_5604 classification=None
+0x103aec INDIRECT ['v_5797', 'c_400_4'] -> v_5737 classification=None
+0x103aec INDIRECT ['v_6089', 'c_400_4'] -> v_6019 classification=None
+0x103aec INDIRECT ['v_6246', 'c_400_4'] -> v_6176 classification=None
+0x103aec INDIRECT ['v_6403', 'c_400_4'] -> v_6333 classification=None
+0x103aec INDIRECT ['v_6560', 'c_400_4'] -> v_6490 classification=None
+0x103aec INDIRECT ['v_6717', 'c_400_4'] -> v_6647 classification=None
+0x103aec INDIRECT ['v_6874', 'c_400_4'] -> v_6804 classification=None
+0x103aec INDIRECT ['v_7031', 'c_400_4'] -> v_6961 classification=None
+0x103aec INDIRECT ['v_7188', 'c_400_4'] -> v_7118 classification=None
+0x103aec INDIRECT ['v_7345', 'c_400_4'] -> v_7275 classification=None
+0x103aec INDIRECT ['v_7502', 'c_400_4'] -> v_7432 classification=None
+0x103aec INDIRECT ['v_7659', 'c_400_4'] -> v_7589 classification=None
+0x103aec INDIRECT ['v_7816', 'c_400_4'] -> v_7746 classification=None
+0x103aec INDIRECT ['v_7973', 'c_400_4'] -> v_7903 classification=None
+0x103aec INDIRECT ['v_8130', 'c_400_4'] -> v_8060 classification=None
+0x103aec INDIRECT ['v_8287', 'c_400_4'] -> v_8217 classification=None
+0x103aec INDIRECT ['v_5471', 'c_418_4'] -> v_5474 classification=None
+0x103aec INDIRECT ['v_5604', 'c_418_4'] -> v_5607 classification=None
+0x103aec INDIRECT ['v_5737', 'c_418_4'] -> v_5740 classification=None
+0x103aec INDIRECT ['v_6019', 'c_418_4'] -> v_6023 classification=None
+0x103aec INDIRECT ['v_6176', 'c_418_4'] -> v_6180 classification=None
+0x103aec INDIRECT ['v_6333', 'c_418_4'] -> v_6337 classification=None
+0x103aec INDIRECT ['v_6490', 'c_418_4'] -> v_6494 classification=None
+0x103aec INDIRECT ['v_6647', 'c_418_4'] -> v_6651 classification=None
+0x103aec INDIRECT ['v_6804', 'c_418_4'] -> v_6808 classification=None
+0x103aec INDIRECT ['v_6961', 'c_418_4'] -> v_6965 classification=None
+0x103aec INDIRECT ['v_7118', 'c_418_4'] -> v_7122 classification=None
+0x103aec INDIRECT ['v_7275', 'c_418_4'] -> v_7279 classification=None
+0x103aec INDIRECT ['v_7432', 'c_418_4'] -> v_7436 classification=None
+0x103aec INDIRECT ['v_7589', 'c_418_4'] -> v_7593 classification=None
+0x103aec INDIRECT ['v_7746', 'c_418_4'] -> v_7750 classification=None
+0x103aec INDIRECT ['v_7903', 'c_418_4'] -> v_7907 classification=None
+0x103aec INDIRECT ['v_8060', 'c_418_4'] -> v_8064 classification=None
+0x103aec INDIRECT ['v_8217', 'c_418_4'] -> v_8221 classification=None
+0x103aec INDIRECT ['v_5474', 'c_432_4'] -> v_5477 classification=None
+0x103aec INDIRECT ['v_5607', 'c_432_4'] -> v_5610 classification=None
+0x103aec INDIRECT ['v_5740', 'c_432_4'] -> v_5743 classification=None
+0x103aec INDIRECT ['v_6023', 'c_432_4'] -> v_6026 classification=None
+0x103aec INDIRECT ['v_6180', 'c_432_4'] -> v_6183 classification=None
+0x103aec INDIRECT ['v_6337', 'c_432_4'] -> v_6340 classification=None
+0x103aec INDIRECT ['v_6494', 'c_432_4'] -> v_6497 classification=None
+0x103aec INDIRECT ['v_6651', 'c_432_4'] -> v_6654 classification=None
+0x103aec INDIRECT ['v_6808', 'c_432_4'] -> v_6811 classification=None
+0x103aec INDIRECT ['v_6965', 'c_432_4'] -> v_6968 classification=None
+0x103aec INDIRECT ['v_7122', 'c_432_4'] -> v_7125 classification=None
+0x103aec INDIRECT ['v_7279', 'c_432_4'] -> v_7282 classification=None
+0x103aec INDIRECT ['v_7436', 'c_432_4'] -> v_7439 classification=None
+0x103aec INDIRECT ['v_7593', 'c_432_4'] -> v_7596 classification=None
+0x103aec INDIRECT ['v_7750', 'c_432_4'] -> v_7753 classification=None
+0x103aec INDIRECT ['v_7907', 'c_432_4'] -> v_7910 classification=None
+0x103aec INDIRECT ['v_8064', 'c_432_4'] -> v_8067 classification=None
+0x103aec INDIRECT ['v_8221', 'c_432_4'] -> v_8224 classification=None
+0x103b25 INDIRECT ['v_5477', 'c_448_4'] -> v_5480 classification=None
+0x103b25 INDIRECT ['v_5610', 'c_448_4'] -> v_5613 classification=None
+0x103b25 INDIRECT ['v_5743', 'c_448_4'] -> v_5746 classification=None
+0x103b25 INDIRECT ['v_6026', 'c_448_4'] -> v_6029 classification=None
+0x103b25 INDIRECT ['v_6183', 'c_448_4'] -> v_6186 classification=None
+0x103b25 INDIRECT ['v_6340', 'c_448_4'] -> v_6343 classification=None
+0x103b25 INDIRECT ['v_6497', 'c_448_4'] -> v_6500 classification=None
+0x103b25 INDIRECT ['v_6654', 'c_448_4'] -> v_6657 classification=None
+0x103b25 INDIRECT ['v_6811', 'c_448_4'] -> v_6814 classification=None
+0x103b25 INDIRECT ['v_6968', 'c_448_4'] -> v_6971 classification=None
+0x103b25 INDIRECT ['v_7125', 'c_448_4'] -> v_7128 classification=None
+0x103b25 INDIRECT ['v_7282', 'c_448_4'] -> v_7285 classification=None
+0x103b25 INDIRECT ['v_7439', 'c_448_4'] -> v_7442 classification=None
+0x103b25 INDIRECT ['v_7596', 'c_448_4'] -> v_7599 classification=None
+0x103b25 INDIRECT ['v_7753', 'c_448_4'] -> v_7756 classification=None
+0x103b25 INDIRECT ['v_7910', 'c_448_4'] -> v_7913 classification=None
+0x103b25 INDIRECT ['v_8067', 'c_448_4'] -> v_8070 classification=None
+0x103b25 INDIRECT ['v_8224', 'c_448_4'] -> v_8227 classification=None
+0x103c38 MULTIEQUAL ['v_8227', 'v_8205'] -> v_8267 classification=None
+0x103c38 MULTIEQUAL ['v_8070', 'v_8048'] -> v_8110 classification=None
+0x103c38 MULTIEQUAL ['v_7913', 'v_7891'] -> v_7953 classification=None
+0x103c38 MULTIEQUAL ['v_7756', 'v_7734'] -> v_7796 classification=None
+0x103c38 MULTIEQUAL ['v_7599', 'v_7577'] -> v_7639 classification=None
+0x103c38 MULTIEQUAL ['v_7442', 'v_7420'] -> v_7482 classification=None
+0x103c38 MULTIEQUAL ['v_7285', 'v_7263'] -> v_7325 classification=None
+0x103c38 MULTIEQUAL ['v_7128', 'v_7106'] -> v_7168 classification=None
+0x103c38 MULTIEQUAL ['v_6971', 'v_6949'] -> v_7011 classification=None
+0x103c38 MULTIEQUAL ['v_6814', 'v_6792'] -> v_6854 classification=None
+0x103c38 MULTIEQUAL ['v_6657', 'v_6635'] -> v_6697 classification=None
+0x103c38 MULTIEQUAL ['v_6500', 'v_6478'] -> v_6540 classification=None
+0x103c38 MULTIEQUAL ['v_6343', 'v_6321'] -> v_6383 classification=None
+0x103c38 MULTIEQUAL ['v_6186', 'v_6164'] -> v_6226 classification=None
+0x103c38 MULTIEQUAL ['v_6029', 'v_6007'] -> v_6069 classification=None
+0x103c38 MULTIEQUAL ['v_5746', 'v_5728'] -> v_5777 classification=None
+0x103c38 MULTIEQUAL ['v_5613', 'v_5595'] -> v_5644 classification=None
+0x103c38 MULTIEQUAL ['v_5480', 'v_5462'] -> v_5511 classification=None
+0x103c38 MULTIEQUAL ['v_946', 'v_1663'] -> v_3754 classification=None
+0x103c38 INDIRECT ['v_5511', 'c_558_4'] -> v_5483 classification=None
+0x103c38 INDIRECT ['v_5644', 'c_558_4'] -> v_5616 classification=None
+0x103c38 INDIRECT ['v_5777', 'c_558_4'] -> v_5749 classification=None
+0x103c38 INDIRECT ['v_6069', 'c_558_4'] -> v_6033 classification=None
+0x103c38 INDIRECT ['v_6226', 'c_558_4'] -> v_6190 classification=None
+0x103c38 INDIRECT ['v_6383', 'c_558_4'] -> v_6347 classification=None
+0x103c38 INDIRECT ['v_6540', 'c_558_4'] -> v_6504 classification=None
+0x103c38 INDIRECT ['v_6697', 'c_558_4'] -> v_6661 classification=None
+0x103c38 INDIRECT ['v_6854', 'c_558_4'] -> v_6818 classification=None
+0x103c38 INDIRECT ['v_7011', 'c_558_4'] -> v_6975 classification=None
+0x103c38 INDIRECT ['v_7168', 'c_558_4'] -> v_7132 classification=None
+0x103c38 INDIRECT ['v_7325', 'c_558_4'] -> v_7289 classification=None
+0x103c38 INDIRECT ['v_7482', 'c_558_4'] -> v_7446 classification=None
+0x103c38 INDIRECT ['v_7639', 'c_558_4'] -> v_7603 classification=None
+0x103c38 INDIRECT ['v_7796', 'c_558_4'] -> v_7760 classification=None
+0x103c38 INDIRECT ['v_7953', 'c_558_4'] -> v_7917 classification=None
+0x103c38 INDIRECT ['v_8110', 'c_558_4'] -> v_8074 classification=None
+0x103c38 INDIRECT ['v_8267', 'c_558_4'] -> v_8231 classification=None
+0x103c38 CAST ['v_9910'] -> v_2611 classification=same_width_explicit_recast
+0x103c38 INDIRECT ['v_5483', 'c_563_4'] -> v_5486 classification=None
+0x103c38 INDIRECT ['v_5616', 'c_563_4'] -> v_5619 classification=None
+0x103c38 INDIRECT ['v_5749', 'c_563_4'] -> v_5752 classification=None
+0x103c38 INDIRECT ['v_6033', 'c_563_4'] -> v_6036 classification=None
+0x103c38 INDIRECT ['v_6190', 'c_563_4'] -> v_6193 classification=None
+0x103c38 INDIRECT ['v_6347', 'c_563_4'] -> v_6350 classification=None
+0x103c38 INDIRECT ['v_6504', 'c_563_4'] -> v_6507 classification=None
+0x103c38 INDIRECT ['v_6661', 'c_563_4'] -> v_6664 classification=None
+0x103c38 INDIRECT ['v_6818', 'c_563_4'] -> v_6821 classification=None
+0x103c38 INDIRECT ['v_6975', 'c_563_4'] -> v_6978 classification=None
+0x103c38 INDIRECT ['v_7132', 'c_563_4'] -> v_7135 classification=None
+0x103c38 INDIRECT ['v_7289', 'c_563_4'] -> v_7292 classification=None
+0x103c38 INDIRECT ['v_7446', 'c_563_4'] -> v_7449 classification=None
+0x103c38 INDIRECT ['v_7603', 'c_563_4'] -> v_7606 classification=None
+0x103c38 INDIRECT ['v_7760', 'c_563_4'] -> v_7763 classification=None
+0x103c38 INDIRECT ['v_7917', 'c_563_4'] -> v_7920 classification=None
+0x103c38 INDIRECT ['v_8074', 'c_563_4'] -> v_8077 classification=None
+0x103c38 INDIRECT ['v_8231', 'c_563_4'] -> v_8234 classification=None
+0x103b3e MULTIEQUAL ['v_8224', 'v_8227', 'v_8234'] -> v_8270 classification=None
+0x103b3e MULTIEQUAL ['v_8067', 'v_8070', 'v_8077'] -> v_8113 classification=None
+0x103b3e MULTIEQUAL ['v_7910', 'v_7913', 'v_7920'] -> v_7956 classification=None
+0x103b3e MULTIEQUAL ['v_7753', 'v_7756', 'v_7763'] -> v_7799 classification=None
+0x103b3e MULTIEQUAL ['v_7596', 'v_7599', 'v_7606'] -> v_7642 classification=None
+0x103b3e MULTIEQUAL ['v_7439', 'v_7442', 'v_7449'] -> v_7485 classification=None
+0x103b3e MULTIEQUAL ['v_7282', 'v_7285', 'v_7292'] -> v_7328 classification=None
+0x103b3e MULTIEQUAL ['v_7125', 'v_7128', 'v_7135'] -> v_7171 classification=None
+0x103b3e MULTIEQUAL ['v_6968', 'v_6971', 'v_6978'] -> v_7014 classification=None
+0x103b3e MULTIEQUAL ['v_6811', 'v_6814', 'v_6821'] -> v_6857 classification=None
+0x103b3e MULTIEQUAL ['v_6654', 'v_6657', 'v_6664'] -> v_6700 classification=None
+0x103b3e MULTIEQUAL ['v_6497', 'v_6500', 'v_6507'] -> v_6543 classification=None
+0x103b3e MULTIEQUAL ['v_6340', 'v_6343', 'v_6350'] -> v_6386 classification=None
+0x103b3e MULTIEQUAL ['v_6183', 'v_6186', 'v_6193'] -> v_6229 classification=None
+0x103b3e MULTIEQUAL ['v_6026', 'v_6029', 'v_6036'] -> v_6072 classification=None
+0x103b3e MULTIEQUAL ['v_5743', 'v_5746', 'v_5752'] -> v_5780 classification=None
+0x103b3e MULTIEQUAL ['v_5610', 'v_5613', 'v_5619'] -> v_5647 classification=None
+0x103b3e MULTIEQUAL ['v_5477', 'v_5480', 'v_5486'] -> v_5514 classification=None
+0x103b3e MULTIEQUAL ['v_946', 'v_946', 'v_3754'] -> v_3764 classification=None
+0x103b3e INDIRECT ['v_5514', 'c_474_4'] -> v_5489 classification=None
+0x103b3e INDIRECT ['v_5647', 'c_474_4'] -> v_5622 classification=None
+0x103b3e INDIRECT ['v_5780', 'c_474_4'] -> v_5755 classification=None
+0x103b3e INDIRECT ['v_6072', 'c_474_4'] -> v_6040 classification=None
+0x103b3e INDIRECT ['v_6229', 'c_474_4'] -> v_6197 classification=None
+0x103b3e INDIRECT ['v_6386', 'c_474_4'] -> v_6354 classification=None
+0x103b3e INDIRECT ['v_6543', 'c_474_4'] -> v_6511 classification=None
+0x103b3e INDIRECT ['v_6700', 'c_474_4'] -> v_6668 classification=None
+0x103b3e INDIRECT ['v_6857', 'c_474_4'] -> v_6825 classification=None
+0x103b3e INDIRECT ['v_7014', 'c_474_4'] -> v_6982 classification=None
+0x103b3e INDIRECT ['v_7171', 'c_474_4'] -> v_7139 classification=None
+0x103b3e INDIRECT ['v_7328', 'c_474_4'] -> v_7296 classification=None
+0x103b3e INDIRECT ['v_7485', 'c_474_4'] -> v_7453 classification=None
+0x103b3e INDIRECT ['v_7642', 'c_474_4'] -> v_7610 classification=None
+0x103b3e INDIRECT ['v_7799', 'c_474_4'] -> v_7767 classification=None
+0x103b3e INDIRECT ['v_7956', 'c_474_4'] -> v_7924 classification=None
+0x103b3e INDIRECT ['v_8113', 'c_474_4'] -> v_8081 classification=None
+0x103b3e INDIRECT ['v_8270', 'c_474_4'] -> v_8238 classification=None
+0x103b3e INDIRECT ['v_5489', 'c_491_4'] -> v_5492 classification=None
+0x103b3e INDIRECT ['v_5622', 'c_491_4'] -> v_5625 classification=None
+0x103b3e INDIRECT ['v_5755', 'c_491_4'] -> v_5758 classification=None
+0x103b3e INDIRECT ['v_6040', 'c_491_4'] -> v_6044 classification=None
+0x103b3e INDIRECT ['v_6197', 'c_491_4'] -> v_6201 classification=None
+0x103b3e INDIRECT ['v_6354', 'c_491_4'] -> v_6358 classification=None
+0x103b3e INDIRECT ['v_6511', 'c_491_4'] -> v_6515 classification=None
+0x103b3e INDIRECT ['v_6668', 'c_491_4'] -> v_6672 classification=None
+0x103b3e INDIRECT ['v_6825', 'c_491_4'] -> v_6829 classification=None
+0x103b3e INDIRECT ['v_6982', 'c_491_4'] -> v_6986 classification=None
+0x103b3e INDIRECT ['v_7139', 'c_491_4'] -> v_7143 classification=None
+0x103b3e INDIRECT ['v_7296', 'c_491_4'] -> v_7300 classification=None
+0x103b3e INDIRECT ['v_7453', 'c_491_4'] -> v_7457 classification=None
+0x103b3e INDIRECT ['v_7610', 'c_491_4'] -> v_7614 classification=None
+0x103b3e INDIRECT ['v_7767', 'c_491_4'] -> v_7771 classification=None
+0x103b3e INDIRECT ['v_7924', 'c_491_4'] -> v_7928 classification=None
+0x103b3e INDIRECT ['v_8081', 'c_491_4'] -> v_8085 classification=None
+0x103b3e INDIRECT ['v_8238', 'c_491_4'] -> v_8242 classification=None
+0x103b7b MULTIEQUAL ['v_8242', 'v_8242', 'v_8213'] -> v_8274 classification=None
+0x103b7b MULTIEQUAL ['v_8085', 'v_8085', 'v_8056'] -> v_8117 classification=None
+0x103b7b MULTIEQUAL ['v_7928', 'v_7928', 'v_7899'] -> v_7960 classification=None
+0x103b7b MULTIEQUAL ['v_7771', 'v_7771', 'v_7742'] -> v_7803 classification=None
+0x103b7b MULTIEQUAL ['v_7614', 'v_7614', 'v_7585'] -> v_7646 classification=None
+0x103b7b MULTIEQUAL ['v_7457', 'v_7457', 'v_7428'] -> v_7489 classification=None
+0x103b7b MULTIEQUAL ['v_7300', 'v_7300', 'v_7271'] -> v_7332 classification=None
+0x103b7b MULTIEQUAL ['v_7143', 'v_7143', 'v_7114'] -> v_7175 classification=None
+0x103b7b MULTIEQUAL ['v_6986', 'v_6986', 'v_6957'] -> v_7018 classification=None
+0x103b7b MULTIEQUAL ['v_6829', 'v_6829', 'v_6800'] -> v_6861 classification=None
+0x103b7b MULTIEQUAL ['v_6672', 'v_6672', 'v_6643'] -> v_6704 classification=None
+0x103b7b MULTIEQUAL ['v_6515', 'v_6515', 'v_6486'] -> v_6547 classification=None
+0x103b7b MULTIEQUAL ['v_6358', 'v_6358', 'v_6329'] -> v_6390 classification=None
+0x103b7b MULTIEQUAL ['v_6201', 'v_6201', 'v_6172'] -> v_6233 classification=None
+0x103b7b MULTIEQUAL ['v_6044', 'v_6044', 'v_6015'] -> v_6076 classification=None
+0x103b7b MULTIEQUAL ['v_5758', 'v_5758', 'v_5734'] -> v_5784 classification=None
+0x103b7b MULTIEQUAL ['v_5625', 'v_5625', 'v_5601'] -> v_5651 classification=None
+0x103b7b MULTIEQUAL ['v_5492', 'v_5492', 'v_5468'] -> v_5518 classification=None
+0x103b7b MULTIEQUAL ['v_3764', 'v_3764', 'v_1650'] -> v_3757 classification=None
+0x103b7b MULTIEQUAL ['v_1273', 'v_1283', 'v_1660'] -> v_3736 classification=None
+0x103b7b INDIRECT ['v_5518', 'c_523_4'] -> v_5495 classification=None
+0x103b7b INDIRECT ['v_5651', 'c_523_4'] -> v_5628 classification=None
+0x103b7b INDIRECT ['v_5784', 'c_523_4'] -> v_5761 classification=None
+0x103b7b INDIRECT ['v_6076', 'c_523_4'] -> v_6048 classification=None
+0x103b7b INDIRECT ['v_6233', 'c_523_4'] -> v_6205 classification=None
+0x103b7b INDIRECT ['v_6390', 'c_523_4'] -> v_6362 classification=None
+0x103b7b INDIRECT ['v_6547', 'c_523_4'] -> v_6519 classification=None
+0x103b7b INDIRECT ['v_6704', 'c_523_4'] -> v_6676 classification=None
+0x103b7b INDIRECT ['v_6861', 'c_523_4'] -> v_6833 classification=None
+0x103b7b INDIRECT ['v_7018', 'c_523_4'] -> v_6990 classification=None
+0x103b7b INDIRECT ['v_7175', 'c_523_4'] -> v_7147 classification=None
+0x103b7b INDIRECT ['v_7332', 'c_523_4'] -> v_7304 classification=None
+0x103b7b INDIRECT ['v_7489', 'c_523_4'] -> v_7461 classification=None
+0x103b7b INDIRECT ['v_7646', 'c_523_4'] -> v_7618 classification=None
+0x103b7b INDIRECT ['v_7803', 'c_523_4'] -> v_7775 classification=None
+0x103b7b INDIRECT ['v_7960', 'c_523_4'] -> v_7932 classification=None
+0x103b7b INDIRECT ['v_8117', 'c_523_4'] -> v_8089 classification=None
+0x103b7b INDIRECT ['v_8274', 'c_523_4'] -> v_8246 classification=None
+0x103b7b INDIRECT ['v_5495', 'c_540_4'] -> v_5498 classification=None
+0x103b7b INDIRECT ['v_5628', 'c_540_4'] -> v_5631 classification=None
+0x103b7b INDIRECT ['v_5761', 'c_540_4'] -> v_5764 classification=None
+0x103b7b INDIRECT ['v_6048', 'c_540_4'] -> v_6052 classification=None
+0x103b7b INDIRECT ['v_6205', 'c_540_4'] -> v_6209 classification=None
+0x103b7b INDIRECT ['v_6362', 'c_540_4'] -> v_6366 classification=None
+0x103b7b INDIRECT ['v_6519', 'c_540_4'] -> v_6523 classification=None
+0x103b7b INDIRECT ['v_6676', 'c_540_4'] -> v_6680 classification=None
+0x103b7b INDIRECT ['v_6833', 'c_540_4'] -> v_6837 classification=None
+0x103b7b INDIRECT ['v_6990', 'c_540_4'] -> v_6994 classification=None
+0x103b7b INDIRECT ['v_7147', 'c_540_4'] -> v_7151 classification=None
+0x103b7b INDIRECT ['v_7304', 'c_540_4'] -> v_7308 classification=None
+0x103b7b INDIRECT ['v_7461', 'c_540_4'] -> v_7465 classification=None
+0x103b7b INDIRECT ['v_7618', 'c_540_4'] -> v_7622 classification=None
+0x103b7b INDIRECT ['v_7775', 'c_540_4'] -> v_7779 classification=None
+0x103b7b INDIRECT ['v_7932', 'c_540_4'] -> v_7936 classification=None
+0x103b7b INDIRECT ['v_8089', 'c_540_4'] -> v_8093 classification=None
+0x103b7b INDIRECT ['v_8246', 'c_540_4'] -> v_8250 classification=None
+0x1038d3 INDIRECT ['v_9233', 'c_70_4'] -> v_5501 classification=None
+0x1038d3 INDIRECT ['v_9234', 'c_70_4'] -> v_5634 classification=None
+0x1038d3 INDIRECT ['v_9232', 'c_70_4'] -> v_5767 classification=None
+0x1038d3 INDIRECT ['v_9235', 'c_70_4'] -> v_6056 classification=None
+0x1038d3 INDIRECT ['v_9236', 'c_70_4'] -> v_6213 classification=None
+0x1038d3 INDIRECT ['v_9237', 'c_70_4'] -> v_6370 classification=None
+0x1038d3 INDIRECT ['v_9238', 'c_70_4'] -> v_6527 classification=None
+0x1038d3 INDIRECT ['v_9239', 'c_70_4'] -> v_6684 classification=None
+0x1038d3 INDIRECT ['v_9240', 'c_70_4'] -> v_6841 classification=None
+0x1038d3 INDIRECT ['v_9241', 'c_70_4'] -> v_6998 classification=None
+0x1038d3 INDIRECT ['v_9242', 'c_70_4'] -> v_7155 classification=None
+0x1038d3 INDIRECT ['v_9243', 'c_70_4'] -> v_7312 classification=None
+0x1038d3 INDIRECT ['v_9244', 'c_70_4'] -> v_7469 classification=None
+0x1038d3 INDIRECT ['v_9245', 'c_70_4'] -> v_7626 classification=None
+0x1038d3 INDIRECT ['v_9246', 'c_70_4'] -> v_7783 classification=None
+0x1038d3 INDIRECT ['v_9247', 'c_70_4'] -> v_7940 classification=None
+0x1038d3 INDIRECT ['v_9248', 'c_70_4'] -> v_8097 classification=None
+0x1038d3 INDIRECT ['v_85', 'c_70_4'] -> v_8254 classification=None
+0x1038d3 CAST ['v_5634'] -> v_9911 classification=same_width_explicit_view_boundary
+0x1038d3 INDIRECT ['v_5501', 'c_89_4'] -> v_5504 classification=None
+0x1038d3 INDIRECT ['v_5634', 'c_89_4'] -> v_5637 classification=None
+0x1038d3 INDIRECT ['v_5767', 'c_89_4'] -> v_5770 classification=None
+0x1038d3 INDIRECT ['v_6056', 'c_89_4'] -> v_6060 classification=None
+0x1038d3 INDIRECT ['v_6213', 'c_89_4'] -> v_6217 classification=None
+0x1038d3 INDIRECT ['v_6370', 'c_89_4'] -> v_6374 classification=None
+0x1038d3 INDIRECT ['v_6527', 'c_89_4'] -> v_6531 classification=None
+0x1038d3 INDIRECT ['v_6684', 'c_89_4'] -> v_6688 classification=None
+0x1038d3 INDIRECT ['v_6841', 'c_89_4'] -> v_6845 classification=None
+0x1038d3 INDIRECT ['v_6998', 'c_89_4'] -> v_7002 classification=None
+0x1038d3 INDIRECT ['v_7155', 'c_89_4'] -> v_7159 classification=None
+0x1038d3 INDIRECT ['v_7312', 'c_89_4'] -> v_7316 classification=None
+0x1038d3 INDIRECT ['v_7469', 'c_89_4'] -> v_7473 classification=None
+0x1038d3 INDIRECT ['v_7626', 'c_89_4'] -> v_7630 classification=None
+0x1038d3 INDIRECT ['v_7783', 'c_89_4'] -> v_7787 classification=None
+0x1038d3 INDIRECT ['v_7940', 'c_89_4'] -> v_7944 classification=None
+0x1038d3 INDIRECT ['v_8097', 'c_89_4'] -> v_8101 classification=None
+0x1038d3 INDIRECT ['v_8254', 'c_89_4'] -> v_8258 classification=None
+0x1038fd MULTIEQUAL ['v_8258', 'v_8250'] -> v_8281 classification=None
+0x1038fd MULTIEQUAL ['v_8101', 'v_8093'] -> v_8124 classification=None
+0x1038fd MULTIEQUAL ['v_7944', 'v_7936'] -> v_7967 classification=None
+0x1038fd MULTIEQUAL ['v_7787', 'v_7779'] -> v_7810 classification=None
+0x1038fd MULTIEQUAL ['v_7630', 'v_7622'] -> v_7653 classification=None
+0x1038fd MULTIEQUAL ['v_7473', 'v_7465'] -> v_7496 classification=None
+0x1038fd MULTIEQUAL ['v_7316', 'v_7308'] -> v_7339 classification=None
+0x1038fd MULTIEQUAL ['v_7159', 'v_7151'] -> v_7182 classification=None
+0x1038fd MULTIEQUAL ['v_7002', 'v_6994'] -> v_7025 classification=None
+0x1038fd MULTIEQUAL ['v_6845', 'v_6837'] -> v_6868 classification=None
+0x1038fd MULTIEQUAL ['v_6688', 'v_6680'] -> v_6711 classification=None
+0x1038fd MULTIEQUAL ['v_6531', 'v_6523'] -> v_6554 classification=None
+0x1038fd MULTIEQUAL ['v_6374', 'v_6366'] -> v_6397 classification=None
+0x1038fd MULTIEQUAL ['v_6217', 'v_6209'] -> v_6240 classification=None
+0x1038fd MULTIEQUAL ['v_6060', 'v_6052'] -> v_6083 classification=None
+0x1038fd MULTIEQUAL ['v_5770', 'v_5764'] -> v_5791 classification=None
+0x1038fd MULTIEQUAL ['v_5637', 'v_5631'] -> v_5658 classification=None
+0x1038fd MULTIEQUAL ['v_5504', 'v_5498'] -> v_5525 classification=None
+0x1038fd INDIRECT ['v_5525', 'c_94_4'] -> v_5507 classification=None
+0x1038fd INDIRECT ['v_5658', 'c_94_4'] -> v_5640 classification=None
+0x1038fd INDIRECT ['v_5791', 'c_94_4'] -> v_5773 classification=None
+0x1038fd INDIRECT ['v_6083', 'c_94_4'] -> v_6063 classification=None
+0x1038fd INDIRECT ['v_6240', 'c_94_4'] -> v_6220 classification=None
+0x1038fd INDIRECT ['v_6397', 'c_94_4'] -> v_6377 classification=None
+0x1038fd INDIRECT ['v_6554', 'c_94_4'] -> v_6534 classification=None
+0x1038fd INDIRECT ['v_6711', 'c_94_4'] -> v_6691 classification=None
+0x1038fd INDIRECT ['v_6868', 'c_94_4'] -> v_6848 classification=None
+0x1038fd INDIRECT ['v_7025', 'c_94_4'] -> v_7005 classification=None
+0x1038fd INDIRECT ['v_7182', 'c_94_4'] -> v_7162 classification=None
+0x1038fd INDIRECT ['v_7339', 'c_94_4'] -> v_7319 classification=None
+0x1038fd INDIRECT ['v_7496', 'c_94_4'] -> v_7476 classification=None
+0x1038fd INDIRECT ['v_7653', 'c_94_4'] -> v_7633 classification=None
+0x1038fd INDIRECT ['v_7810', 'c_94_4'] -> v_7790 classification=None
+0x1038fd INDIRECT ['v_7967', 'c_94_4'] -> v_7947 classification=None
+0x1038fd INDIRECT ['v_8124', 'c_94_4'] -> v_8104 classification=None
+0x1038fd INDIRECT ['v_8281', 'c_94_4'] -> v_8261 classification=None
+0x1038fd COPY ['v_5507'] -> v_5509 classification=bit_preserving_copy
+0x1038fd COPY ['v_5640'] -> v_5642 classification=bit_preserving_copy
+0x1038fd COPY ['v_5773'] -> v_5775 classification=bit_preserving_copy
+
+[HELPER-REQUIRED CONTRACTS]
+0x1038a0 INT_ADD v_9890 helper=c_add widths=[64, 64]->64 overrides=0
+0x1038a0 INT_NOTEQUAL v_134 helper=c_ne widths=[32, 32]->8 overrides=0
+0x103ab8 INT_EQUAL v_889 helper=c_eq widths=[64, 64]->8 overrides=0
+0x103ac5 INT_NOTEQUAL v_925 helper=c_ne widths=[32, 32]->8 overrides=0
+0x103ad1 INT_EQUAL v_991 helper=c_eq widths=[64, 64]->8 overrides=0
+0x103ba8 INT_NOTEQUAL v_1522 helper=c_ne widths=[64, 64]->8 overrides=0
+0x103be1 INT_NOTEQUAL v_1560 helper=c_ne widths=[32, 32]->8 overrides=0
+0x103aec INT_NOTEQUAL v_1107 helper=c_ne widths=[64, 64]->8 overrides=0
+0x103b25 INT_NOTEQUAL v_1145 helper=c_ne widths=[32, 32]->8 overrides=0
+0x103b3e INT_NOTEQUAL v_1257 helper=c_ne widths=[64, 64]->8 overrides=0
+
+[INDIRECT STORAGE-CUSTODY CONTRACTS]
+0x103904 v_9233 -> v_5402 family=storage_family:high_rep:9233 owner=CALL/0x6f owner_compute=1063172:(ram, 0x103910, 111, 5):5 status=metadata_only
+0x103904 v_9234 -> v_5535 family=storage_family:high_rep:9234 owner=CALL/0x6f owner_compute=1063172:(ram, 0x103910, 111, 5):5 status=metadata_only
+0x103904 v_9232 -> v_5668 family=storage_family:high_rep:9232 owner=CALL/0x6f owner_compute=1063172:(ram, 0x103910, 111, 5):5 status=metadata_only
+0x103904 v_85 -> v_8135 family=storage_family:high_rep:8254 owner=CALL/0x6f owner_compute=1063172:(ram, 0x103910, 111, 5):5 status=metadata_only
+0x103904 v_5402 -> v_5405 family=storage_family:high_rep:9233 owner=CALL/0x81 owner_compute=1063172:(ram, 0x103928, 129, 10):10 status=metadata_only
+0x103904 v_5535 -> v_5538 family=storage_family:high_rep:9234 owner=CALL/0x81 owner_compute=1063172:(ram, 0x103928, 129, 10):10 status=metadata_only
+0x103904 v_5668 -> v_5671 family=storage_family:high_rep:9232 owner=CALL/0x81 owner_compute=1063172:(ram, 0x103928, 129, 10):10 status=metadata_only
+0x103904 v_8135 -> v_8139 family=storage_family:high_rep:8254 owner=CALL/0x81 owner_compute=1063172:(ram, 0x103928, 129, 10):10 status=metadata_only
+0x103904 v_5405 -> v_5408 family=storage_family:high_rep:9233 owner=CALL/0x93 owner_compute=1063172:(ram, 0x103946, 147, 19):19 status=metadata_only
+0x103904 v_5538 -> v_5541 family=storage_family:high_rep:9234 owner=CALL/0x93 owner_compute=1063172:(ram, 0x103946, 147, 19):19 status=metadata_only
+0x103904 v_5671 -> v_5674 family=storage_family:high_rep:9232 owner=CALL/0x93 owner_compute=1063172:(ram, 0x103946, 147, 19):19 status=metadata_only
+0x103904 v_8139 -> v_8143 family=storage_family:high_rep:8254 owner=CALL/0x93 owner_compute=1063172:(ram, 0x103946, 147, 19):19 status=metadata_only
+0x103904 v_5408 -> v_5411 family=storage_family:high_rep:9233 owner=CALL/0x98 owner_compute=1063172:(ram, 0x103951, 152, 25):25 status=metadata_only
+0x103904 v_5541 -> v_5544 family=storage_family:high_rep:9234 owner=CALL/0x98 owner_compute=1063172:(ram, 0x103951, 152, 25):25 status=metadata_only
+0x103904 v_5674 -> v_5677 family=storage_family:high_rep:9232 owner=CALL/0x98 owner_compute=1063172:(ram, 0x103951, 152, 25):25 status=metadata_only
+0x103904 v_8143 -> v_8146 family=storage_family:high_rep:8254 owner=CALL/0x98 owner_compute=1063172:(ram, 0x103951, 152, 25):25 status=metadata_only
+0x103904 v_5411 -> v_5414 family=storage_family:high_rep:9233 owner=CALL/0xa9 owner_compute=1063172:(ram, 0x103968, 169, 33):33 status=metadata_only
+0x103904 v_5544 -> v_5547 family=storage_family:high_rep:9234 owner=CALL/0xa9 owner_compute=1063172:(ram, 0x103968, 169, 33):33 status=metadata_only
+0x103904 v_5677 -> v_5680 family=storage_family:high_rep:9232 owner=CALL/0xa9 owner_compute=1063172:(ram, 0x103968, 169, 33):33 status=metadata_only
+0x103904 v_8146 -> v_8150 family=storage_family:high_rep:8254 owner=CALL/0xa9 owner_compute=1063172:(ram, 0x103968, 169, 33):33 status=metadata_only
+0x103904 v_5414 -> v_5417 family=storage_family:high_rep:9233 owner=CALL/0xae owner_compute=1063172:(ram, 0x103973, 174, 39):39 status=metadata_only
+0x103904 v_5547 -> v_5550 family=storage_family:high_rep:9234 owner=CALL/0xae owner_compute=1063172:(ram, 0x103973, 174, 39):39 status=metadata_only
+0x103904 v_5680 -> v_5683 family=storage_family:high_rep:9232 owner=CALL/0xae owner_compute=1063172:(ram, 0x103973, 174, 39):39 status=metadata_only
+0x103904 v_8150 -> v_8153 family=storage_family:high_rep:8254 owner=CALL/0xae owner_compute=1063172:(ram, 0x103973, 174, 39):39 status=metadata_only
+0x103904 v_5417 -> v_5420 family=storage_family:high_rep:9233 owner=CALL/0xbf owner_compute=1063172:(ram, 0x10398a, 191, 47):47 status=metadata_only
+0x103904 v_5550 -> v_5553 family=storage_family:high_rep:9234 owner=CALL/0xbf owner_compute=1063172:(ram, 0x10398a, 191, 47):47 status=metadata_only
+0x103904 v_5683 -> v_5686 family=storage_family:high_rep:9232 owner=CALL/0xbf owner_compute=1063172:(ram, 0x10398a, 191, 47):47 status=metadata_only
+0x103904 v_8153 -> v_8157 family=storage_family:high_rep:8254 owner=CALL/0xbf owner_compute=1063172:(ram, 0x10398a, 191, 47):47 status=metadata_only
+0x103904 v_5420 -> v_5423 family=storage_family:high_rep:9233 owner=CALL/0xc4 owner_compute=1063172:(ram, 0x103995, 196, 53):53 status=metadata_only
+0x103904 v_5553 -> v_5556 family=storage_family:high_rep:9234 owner=CALL/0xc4 owner_compute=1063172:(ram, 0x103995, 196, 53):53 status=metadata_only
+0x103904 v_5686 -> v_5689 family=storage_family:high_rep:9232 owner=CALL/0xc4 owner_compute=1063172:(ram, 0x103995, 196, 53):53 status=metadata_only
+0x103904 v_8157 -> v_8160 family=storage_family:high_rep:8254 owner=CALL/0xc4 owner_compute=1063172:(ram, 0x103995, 196, 53):53 status=metadata_only
+0x103904 v_5423 -> v_5426 family=storage_family:high_rep:9233 owner=CALL/0xd5 owner_compute=1063172:(ram, 0x1039ac, 213, 61):61 status=metadata_only
+0x103904 v_5556 -> v_5559 family=storage_family:high_rep:9234 owner=CALL/0xd5 owner_compute=1063172:(ram, 0x1039ac, 213, 61):61 status=metadata_only
+0x103904 v_5689 -> v_5692 family=storage_family:high_rep:9232 owner=CALL/0xd5 owner_compute=1063172:(ram, 0x1039ac, 213, 61):61 status=metadata_only
+0x103904 v_8160 -> v_8164 family=storage_family:high_rep:8254 owner=CALL/0xd5 owner_compute=1063172:(ram, 0x1039ac, 213, 61):61 status=metadata_only
+0x103904 v_5426 -> v_5429 family=storage_family:high_rep:9233 owner=CALL/0xda owner_compute=1063172:(ram, 0x1039b7, 218, 67):67 status=metadata_only
+0x103904 v_5559 -> v_5562 family=storage_family:high_rep:9234 owner=CALL/0xda owner_compute=1063172:(ram, 0x1039b7, 218, 67):67 status=metadata_only
+0x103904 v_5692 -> v_5695 family=storage_family:high_rep:9232 owner=CALL/0xda owner_compute=1063172:(ram, 0x1039b7, 218, 67):67 status=metadata_only
+0x103904 v_8164 -> v_8167 family=storage_family:high_rep:8254 owner=CALL/0xda owner_compute=1063172:(ram, 0x1039b7, 218, 67):67 status=metadata_only
+0x103904 v_5429 -> v_5432 family=storage_family:high_rep:9233 owner=CALL/0xeb owner_compute=1063172:(ram, 0x1039ce, 235, 75):75 status=metadata_only
+0x103904 v_5562 -> v_5565 family=storage_family:high_rep:9234 owner=CALL/0xeb owner_compute=1063172:(ram, 0x1039ce, 235, 75):75 status=metadata_only
+0x103904 v_5695 -> v_5698 family=storage_family:high_rep:9232 owner=CALL/0xeb owner_compute=1063172:(ram, 0x1039ce, 235, 75):75 status=metadata_only
+0x103904 v_8167 -> v_8171 family=storage_family:high_rep:8254 owner=CALL/0xeb owner_compute=1063172:(ram, 0x1039ce, 235, 75):75 status=metadata_only
+0x103904 v_5432 -> v_5435 family=storage_family:high_rep:9233 owner=CALL/0xf0 owner_compute=1063172:(ram, 0x1039d9, 240, 81):81 status=metadata_only
+0x103904 v_5565 -> v_5568 family=storage_family:high_rep:9234 owner=CALL/0xf0 owner_compute=1063172:(ram, 0x1039d9, 240, 81):81 status=metadata_only
+0x103904 v_5698 -> v_5701 family=storage_family:high_rep:9232 owner=CALL/0xf0 owner_compute=1063172:(ram, 0x1039d9, 240, 81):81 status=metadata_only
+0x103904 v_8171 -> v_8174 family=storage_family:high_rep:8254 owner=CALL/0xf0 owner_compute=1063172:(ram, 0x1039d9, 240, 81):81 status=metadata_only
+0x103904 v_5435 -> v_5438 family=storage_family:high_rep:9233 owner=CALL/0x101 owner_compute=1063172:(ram, 0x1039f0, 257, 89):89 status=metadata_only
+0x103904 v_5568 -> v_5571 family=storage_family:high_rep:9234 owner=CALL/0x101 owner_compute=1063172:(ram, 0x1039f0, 257, 89):89 status=metadata_only
+0x103904 v_5701 -> v_5704 family=storage_family:high_rep:9232 owner=CALL/0x101 owner_compute=1063172:(ram, 0x1039f0, 257, 89):89 status=metadata_only
+0x103904 v_8174 -> v_8178 family=storage_family:high_rep:8254 owner=CALL/0x101 owner_compute=1063172:(ram, 0x1039f0, 257, 89):89 status=metadata_only
+0x103904 v_5438 -> v_5441 family=storage_family:high_rep:9233 owner=CALL/0x106 owner_compute=1063172:(ram, 0x1039fb, 262, 95):95 status=metadata_only
+0x103904 v_5571 -> v_5574 family=storage_family:high_rep:9234 owner=CALL/0x106 owner_compute=1063172:(ram, 0x1039fb, 262, 95):95 status=metadata_only
+0x103904 v_5704 -> v_5707 family=storage_family:high_rep:9232 owner=CALL/0x106 owner_compute=1063172:(ram, 0x1039fb, 262, 95):95 status=metadata_only
+0x103904 v_8178 -> v_8181 family=storage_family:high_rep:8254 owner=CALL/0x106 owner_compute=1063172:(ram, 0x1039fb, 262, 95):95 status=metadata_only
+0x103904 v_5441 -> v_5444 family=storage_family:high_rep:9233 owner=CALL/0x117 owner_compute=1063172:(ram, 0x103a12, 279, 103):103 status=metadata_only
+0x103904 v_5574 -> v_5577 family=storage_family:high_rep:9234 owner=CALL/0x117 owner_compute=1063172:(ram, 0x103a12, 279, 103):103 status=metadata_only
+0x103904 v_5707 -> v_5710 family=storage_family:high_rep:9232 owner=CALL/0x117 owner_compute=1063172:(ram, 0x103a12, 279, 103):103 status=metadata_only
+0x103904 v_8181 -> v_8185 family=storage_family:high_rep:8254 owner=CALL/0x117 owner_compute=1063172:(ram, 0x103a12, 279, 103):103 status=metadata_only
+0x103904 v_5444 -> v_5447 family=storage_family:high_rep:9233 owner=CALL/0x11d owner_compute=1063172:(ram, 0x103a24, 285, 109):109 status=metadata_only
+0x103904 v_5577 -> v_5580 family=storage_family:high_rep:9234 owner=CALL/0x11d owner_compute=1063172:(ram, 0x103a24, 285, 109):109 status=metadata_only
+0x103904 v_5710 -> v_5713 family=storage_family:high_rep:9232 owner=CALL/0x11d owner_compute=1063172:(ram, 0x103a24, 285, 109):109 status=metadata_only
+0x103904 v_8185 -> v_8188 family=storage_family:high_rep:8254 owner=CALL/0x11d owner_compute=1063172:(ram, 0x103a24, 285, 109):109 status=metadata_only
+0x103ac5 v_5528 -> v_5450 family=storage_family:high_rep:9233 owner=CALL/0x169 owner_compute=1063621:(ram, 0x103ac8, 361, 19):19 status=metadata_only
+0x103ac5 v_5661 -> v_5583 family=storage_family:high_rep:9234 owner=CALL/0x169 owner_compute=1063621:(ram, 0x103ac8, 361, 19):19 status=metadata_only
+0x103ac5 v_5794 -> v_5716 family=storage_family:high_rep:9232 owner=CALL/0x169 owner_compute=1063621:(ram, 0x103ac8, 361, 19):19 status=metadata_only
+0x103ac5 v_6086 -> v_5993 family=storage_family:high_rep:9235 owner=CALL/0x169 owner_compute=1063621:(ram, 0x103ac8, 361, 19):19 status=metadata_only
+0x103ac5 v_6243 -> v_6150 family=storage_family:high_rep:9236 owner=CALL/0x169 owner_compute=1063621:(ram, 0x103ac8, 361, 19):19 status=metadata_only
+0x103ac5 v_6400 -> v_6307 family=storage_family:high_rep:9237 owner=CALL/0x169 owner_compute=1063621:(ram, 0x103ac8, 361, 19):19 status=metadata_only
+0x103ac5 v_6557 -> v_6464 family=storage_family:high_rep:9238 owner=CALL/0x169 owner_compute=1063621:(ram, 0x103ac8, 361, 19):19 status=metadata_only
+0x103ac5 v_6714 -> v_6621 family=storage_family:high_rep:9239 owner=CALL/0x169 owner_compute=1063621:(ram, 0x103ac8, 361, 19):19 status=metadata_only
+0x103ac5 v_6871 -> v_6778 family=storage_family:high_rep:9240 owner=CALL/0x169 owner_compute=1063621:(ram, 0x103ac8, 361, 19):19 status=metadata_only
+0x103ac5 v_7028 -> v_6935 family=storage_family:high_rep:9241 owner=CALL/0x169 owner_compute=1063621:(ram, 0x103ac8, 361, 19):19 status=metadata_only
+0x103ac5 v_7185 -> v_7092 family=storage_family:high_rep:9242 owner=CALL/0x169 owner_compute=1063621:(ram, 0x103ac8, 361, 19):19 status=metadata_only
+0x103ac5 v_7342 -> v_7249 family=storage_family:high_rep:9243 owner=CALL/0x169 owner_compute=1063621:(ram, 0x103ac8, 361, 19):19 status=metadata_only
+0x103ac5 v_7499 -> v_7406 family=storage_family:high_rep:9244 owner=CALL/0x169 owner_compute=1063621:(ram, 0x103ac8, 361, 19):19 status=metadata_only
+0x103ac5 v_7656 -> v_7563 family=storage_family:high_rep:9245 owner=CALL/0x169 owner_compute=1063621:(ram, 0x103ac8, 361, 19):19 status=metadata_only
+0x103ac5 v_7813 -> v_7720 family=storage_family:high_rep:9246 owner=CALL/0x169 owner_compute=1063621:(ram, 0x103ac8, 361, 19):19 status=metadata_only
+0x103ac5 v_7970 -> v_7877 family=storage_family:high_rep:9247 owner=CALL/0x169 owner_compute=1063621:(ram, 0x103ac8, 361, 19):19 status=metadata_only
+0x103ac5 v_8127 -> v_8034 family=storage_family:high_rep:9248 owner=CALL/0x169 owner_compute=1063621:(ram, 0x103ac8, 361, 19):19 status=metadata_only
+0x103ac5 v_8284 -> v_8191 family=storage_family:high_rep:8254 owner=CALL/0x169 owner_compute=1063621:(ram, 0x103ac8, 361, 19):19 status=metadata_only
+0x103ba8 v_5531 -> v_5453 family=storage_family:high_rep:9233 owner=CALL/0x237 owner_compute=1063848:(ram, 0x103ba8, 567, 19):19 status=metadata_only
+0x103ba8 v_5664 -> v_5586 family=storage_family:high_rep:9234 owner=CALL/0x237 owner_compute=1063848:(ram, 0x103ba8, 567, 19):19 status=metadata_only
+0x103ba8 v_5797 -> v_5719 family=storage_family:high_rep:9232 owner=CALL/0x237 owner_compute=1063848:(ram, 0x103ba8, 567, 19):19 status=metadata_only
+0x103ba8 v_6089 -> v_5997 family=storage_family:high_rep:9235 owner=CALL/0x237 owner_compute=1063848:(ram, 0x103ba8, 567, 19):19 status=metadata_only
+0x103ba8 v_6246 -> v_6154 family=storage_family:high_rep:9236 owner=CALL/0x237 owner_compute=1063848:(ram, 0x103ba8, 567, 19):19 status=metadata_only
+0x103ba8 v_6403 -> v_6311 family=storage_family:high_rep:9237 owner=CALL/0x237 owner_compute=1063848:(ram, 0x103ba8, 567, 19):19 status=metadata_only
+0x103ba8 v_6560 -> v_6468 family=storage_family:high_rep:9238 owner=CALL/0x237 owner_compute=1063848:(ram, 0x103ba8, 567, 19):19 status=metadata_only
+0x103ba8 v_6717 -> v_6625 family=storage_family:high_rep:9239 owner=CALL/0x237 owner_compute=1063848:(ram, 0x103ba8, 567, 19):19 status=metadata_only
+0x103ba8 v_6874 -> v_6782 family=storage_family:high_rep:9240 owner=CALL/0x237 owner_compute=1063848:(ram, 0x103ba8, 567, 19):19 status=metadata_only
+0x103ba8 v_7031 -> v_6939 family=storage_family:high_rep:9241 owner=CALL/0x237 owner_compute=1063848:(ram, 0x103ba8, 567, 19):19 status=metadata_only
+0x103ba8 v_7188 -> v_7096 family=storage_family:high_rep:9242 owner=CALL/0x237 owner_compute=1063848:(ram, 0x103ba8, 567, 19):19 status=metadata_only
+0x103ba8 v_7345 -> v_7253 family=storage_family:high_rep:9243 owner=CALL/0x237 owner_compute=1063848:(ram, 0x103ba8, 567, 19):19 status=metadata_only
+0x103ba8 v_7502 -> v_7410 family=storage_family:high_rep:9244 owner=CALL/0x237 owner_compute=1063848:(ram, 0x103ba8, 567, 19):19 status=metadata_only
+0x103ba8 v_7659 -> v_7567 family=storage_family:high_rep:9245 owner=CALL/0x237 owner_compute=1063848:(ram, 0x103ba8, 567, 19):19 status=metadata_only
+0x103ba8 v_7816 -> v_7724 family=storage_family:high_rep:9246 owner=CALL/0x237 owner_compute=1063848:(ram, 0x103ba8, 567, 19):19 status=metadata_only
+0x103ba8 v_7973 -> v_7881 family=storage_family:high_rep:9247 owner=CALL/0x237 owner_compute=1063848:(ram, 0x103ba8, 567, 19):19 status=metadata_only
+0x103ba8 v_8130 -> v_8038 family=storage_family:high_rep:9248 owner=CALL/0x237 owner_compute=1063848:(ram, 0x103ba8, 567, 19):19 status=metadata_only
+0x103ba8 v_8287 -> v_8195 family=storage_family:high_rep:8254 owner=CALL/0x237 owner_compute=1063848:(ram, 0x103ba8, 567, 19):19 status=metadata_only
+0x103ba8 v_5453 -> v_5456 family=storage_family:high_rep:9233 owner=CALL/0x249 owner_compute=1063848:(ram, 0x103bc8, 585, 40):40 status=metadata_only
+0x103ba8 v_5586 -> v_5589 family=storage_family:high_rep:9234 owner=CALL/0x249 owner_compute=1063848:(ram, 0x103bc8, 585, 40):40 status=metadata_only
+0x103ba8 v_5719 -> v_5722 family=storage_family:high_rep:9232 owner=CALL/0x249 owner_compute=1063848:(ram, 0x103bc8, 585, 40):40 status=metadata_only
+0x103ba8 v_5997 -> v_6001 family=storage_family:high_rep:9235 owner=CALL/0x249 owner_compute=1063848:(ram, 0x103bc8, 585, 40):40 status=metadata_only
+0x103ba8 v_6154 -> v_6158 family=storage_family:high_rep:9236 owner=CALL/0x249 owner_compute=1063848:(ram, 0x103bc8, 585, 40):40 status=metadata_only
+0x103ba8 v_6311 -> v_6315 family=storage_family:high_rep:9237 owner=CALL/0x249 owner_compute=1063848:(ram, 0x103bc8, 585, 40):40 status=metadata_only
+0x103ba8 v_6468 -> v_6472 family=storage_family:high_rep:9238 owner=CALL/0x249 owner_compute=1063848:(ram, 0x103bc8, 585, 40):40 status=metadata_only
+0x103ba8 v_6625 -> v_6629 family=storage_family:high_rep:9239 owner=CALL/0x249 owner_compute=1063848:(ram, 0x103bc8, 585, 40):40 status=metadata_only
+0x103ba8 v_6782 -> v_6786 family=storage_family:high_rep:9240 owner=CALL/0x249 owner_compute=1063848:(ram, 0x103bc8, 585, 40):40 status=metadata_only
+0x103ba8 v_6939 -> v_6943 family=storage_family:high_rep:9241 owner=CALL/0x249 owner_compute=1063848:(ram, 0x103bc8, 585, 40):40 status=metadata_only
+0x103ba8 v_7096 -> v_7100 family=storage_family:high_rep:9242 owner=CALL/0x249 owner_compute=1063848:(ram, 0x103bc8, 585, 40):40 status=metadata_only
+0x103ba8 v_7253 -> v_7257 family=storage_family:high_rep:9243 owner=CALL/0x249 owner_compute=1063848:(ram, 0x103bc8, 585, 40):40 status=metadata_only
+0x103ba8 v_7410 -> v_7414 family=storage_family:high_rep:9244 owner=CALL/0x249 owner_compute=1063848:(ram, 0x103bc8, 585, 40):40 status=metadata_only
+0x103ba8 v_7567 -> v_7571 family=storage_family:high_rep:9245 owner=CALL/0x249 owner_compute=1063848:(ram, 0x103bc8, 585, 40):40 status=metadata_only
+0x103ba8 v_7724 -> v_7728 family=storage_family:high_rep:9246 owner=CALL/0x249 owner_compute=1063848:(ram, 0x103bc8, 585, 40):40 status=metadata_only
+0x103ba8 v_7881 -> v_7885 family=storage_family:high_rep:9247 owner=CALL/0x249 owner_compute=1063848:(ram, 0x103bc8, 585, 40):40 status=metadata_only
+0x103ba8 v_8038 -> v_8042 family=storage_family:high_rep:9248 owner=CALL/0x249 owner_compute=1063848:(ram, 0x103bc8, 585, 40):40 status=metadata_only
+0x103ba8 v_8195 -> v_8199 family=storage_family:high_rep:8254 owner=CALL/0x249 owner_compute=1063848:(ram, 0x103bc8, 585, 40):40 status=metadata_only
+0x103ba8 v_5456 -> v_5459 family=storage_family:high_rep:9233 owner=CALL/0x257 owner_compute=1063848:(ram, 0x103bd4, 599, 59):59 status=metadata_only
+0x103ba8 v_5589 -> v_5592 family=storage_family:high_rep:9234 owner=CALL/0x257 owner_compute=1063848:(ram, 0x103bd4, 599, 59):59 status=metadata_only
+0x103ba8 v_5722 -> v_5725 family=storage_family:high_rep:9232 owner=CALL/0x257 owner_compute=1063848:(ram, 0x103bd4, 599, 59):59 status=metadata_only
+0x103ba8 v_6001 -> v_6004 family=storage_family:high_rep:9235 owner=CALL/0x257 owner_compute=1063848:(ram, 0x103bd4, 599, 59):59 status=metadata_only
+0x103ba8 v_6158 -> v_6161 family=storage_family:high_rep:9236 owner=CALL/0x257 owner_compute=1063848:(ram, 0x103bd4, 599, 59):59 status=metadata_only
+0x103ba8 v_6315 -> v_6318 family=storage_family:high_rep:9237 owner=CALL/0x257 owner_compute=1063848:(ram, 0x103bd4, 599, 59):59 status=metadata_only
+0x103ba8 v_6472 -> v_6475 family=storage_family:high_rep:9238 owner=CALL/0x257 owner_compute=1063848:(ram, 0x103bd4, 599, 59):59 status=metadata_only
+0x103ba8 v_6629 -> v_6632 family=storage_family:high_rep:9239 owner=CALL/0x257 owner_compute=1063848:(ram, 0x103bd4, 599, 59):59 status=metadata_only
+0x103ba8 v_6786 -> v_6789 family=storage_family:high_rep:9240 owner=CALL/0x257 owner_compute=1063848:(ram, 0x103bd4, 599, 59):59 status=metadata_only
+0x103ba8 v_6943 -> v_6946 family=storage_family:high_rep:9241 owner=CALL/0x257 owner_compute=1063848:(ram, 0x103bd4, 599, 59):59 status=metadata_only
+0x103ba8 v_7100 -> v_7103 family=storage_family:high_rep:9242 owner=CALL/0x257 owner_compute=1063848:(ram, 0x103bd4, 599, 59):59 status=metadata_only
+0x103ba8 v_7257 -> v_7260 family=storage_family:high_rep:9243 owner=CALL/0x257 owner_compute=1063848:(ram, 0x103bd4, 599, 59):59 status=metadata_only
+0x103ba8 v_7414 -> v_7417 family=storage_family:high_rep:9244 owner=CALL/0x257 owner_compute=1063848:(ram, 0x103bd4, 599, 59):59 status=metadata_only
+0x103ba8 v_7571 -> v_7574 family=storage_family:high_rep:9245 owner=CALL/0x257 owner_compute=1063848:(ram, 0x103bd4, 599, 59):59 status=metadata_only
+0x103ba8 v_7728 -> v_7731 family=storage_family:high_rep:9246 owner=CALL/0x257 owner_compute=1063848:(ram, 0x103bd4, 599, 59):59 status=metadata_only
+0x103ba8 v_7885 -> v_7888 family=storage_family:high_rep:9247 owner=CALL/0x257 owner_compute=1063848:(ram, 0x103bd4, 599, 59):59 status=metadata_only
+0x103ba8 v_8042 -> v_8045 family=storage_family:high_rep:9248 owner=CALL/0x257 owner_compute=1063848:(ram, 0x103bd4, 599, 59):59 status=metadata_only
+0x103ba8 v_8199 -> v_8202 family=storage_family:high_rep:8254 owner=CALL/0x257 owner_compute=1063848:(ram, 0x103bd4, 599, 59):59 status=metadata_only
+0x103be1 v_5459 -> v_5462 family=storage_family:high_rep:9233 owner=CALL/0x267 owner_compute=1063905:(ram, 0x103bed, 615, 19):19 status=metadata_only
+0x103be1 v_5592 -> v_5595 family=storage_family:high_rep:9234 owner=CALL/0x267 owner_compute=1063905:(ram, 0x103bed, 615, 19):19 status=metadata_only
+0x103be1 v_5725 -> v_5728 family=storage_family:high_rep:9232 owner=CALL/0x267 owner_compute=1063905:(ram, 0x103bed, 615, 19):19 status=metadata_only
+0x103be1 v_6004 -> v_6007 family=storage_family:high_rep:9235 owner=CALL/0x267 owner_compute=1063905:(ram, 0x103bed, 615, 19):19 status=metadata_only
+0x103be1 v_6161 -> v_6164 family=storage_family:high_rep:9236 owner=CALL/0x267 owner_compute=1063905:(ram, 0x103bed, 615, 19):19 status=metadata_only
+0x103be1 v_6318 -> v_6321 family=storage_family:high_rep:9237 owner=CALL/0x267 owner_compute=1063905:(ram, 0x103bed, 615, 19):19 status=metadata_only
+0x103be1 v_6475 -> v_6478 family=storage_family:high_rep:9238 owner=CALL/0x267 owner_compute=1063905:(ram, 0x103bed, 615, 19):19 status=metadata_only
+0x103be1 v_6632 -> v_6635 family=storage_family:high_rep:9239 owner=CALL/0x267 owner_compute=1063905:(ram, 0x103bed, 615, 19):19 status=metadata_only
+0x103be1 v_6789 -> v_6792 family=storage_family:high_rep:9240 owner=CALL/0x267 owner_compute=1063905:(ram, 0x103bed, 615, 19):19 status=metadata_only
+0x103be1 v_6946 -> v_6949 family=storage_family:high_rep:9241 owner=CALL/0x267 owner_compute=1063905:(ram, 0x103bed, 615, 19):19 status=metadata_only
+0x103be1 v_7103 -> v_7106 family=storage_family:high_rep:9242 owner=CALL/0x267 owner_compute=1063905:(ram, 0x103bed, 615, 19):19 status=metadata_only
+0x103be1 v_7260 -> v_7263 family=storage_family:high_rep:9243 owner=CALL/0x267 owner_compute=1063905:(ram, 0x103bed, 615, 19):19 status=metadata_only
+0x103be1 v_7417 -> v_7420 family=storage_family:high_rep:9244 owner=CALL/0x267 owner_compute=1063905:(ram, 0x103bed, 615, 19):19 status=metadata_only
+0x103be1 v_7574 -> v_7577 family=storage_family:high_rep:9245 owner=CALL/0x267 owner_compute=1063905:(ram, 0x103bed, 615, 19):19 status=metadata_only
+0x103be1 v_7731 -> v_7734 family=storage_family:high_rep:9246 owner=CALL/0x267 owner_compute=1063905:(ram, 0x103bed, 615, 19):19 status=metadata_only
+0x103be1 v_7888 -> v_7891 family=storage_family:high_rep:9247 owner=CALL/0x267 owner_compute=1063905:(ram, 0x103bed, 615, 19):19 status=metadata_only
+0x103be1 v_8045 -> v_8048 family=storage_family:high_rep:9248 owner=CALL/0x267 owner_compute=1063905:(ram, 0x103bed, 615, 19):19 status=metadata_only
+0x103be1 v_8202 -> v_8205 family=storage_family:high_rep:8254 owner=CALL/0x267 owner_compute=1063905:(ram, 0x103bed, 615, 19):19 status=metadata_only
+0x103bf6 v_5522 -> v_5465 family=storage_family:high_rep:9233 owner=CALL/0x281 owner_compute=1063926:(ram, 0x103c04, 641, 37):37 status=metadata_only
+0x103bf6 v_5655 -> v_5598 family=storage_family:high_rep:9234 owner=CALL/0x281 owner_compute=1063926:(ram, 0x103c04, 641, 37):37 status=metadata_only
+0x103bf6 v_5788 -> v_5731 family=storage_family:high_rep:9232 owner=CALL/0x281 owner_compute=1063926:(ram, 0x103c04, 641, 37):37 status=metadata_only
+0x103bf6 v_6080 -> v_6011 family=storage_family:high_rep:9235 owner=CALL/0x281 owner_compute=1063926:(ram, 0x103c04, 641, 37):37 status=metadata_only
+0x103bf6 v_6237 -> v_6168 family=storage_family:high_rep:9236 owner=CALL/0x281 owner_compute=1063926:(ram, 0x103c04, 641, 37):37 status=metadata_only
+0x103bf6 v_6394 -> v_6325 family=storage_family:high_rep:9237 owner=CALL/0x281 owner_compute=1063926:(ram, 0x103c04, 641, 37):37 status=metadata_only
+0x103bf6 v_6551 -> v_6482 family=storage_family:high_rep:9238 owner=CALL/0x281 owner_compute=1063926:(ram, 0x103c04, 641, 37):37 status=metadata_only
+0x103bf6 v_6708 -> v_6639 family=storage_family:high_rep:9239 owner=CALL/0x281 owner_compute=1063926:(ram, 0x103c04, 641, 37):37 status=metadata_only
+0x103bf6 v_6865 -> v_6796 family=storage_family:high_rep:9240 owner=CALL/0x281 owner_compute=1063926:(ram, 0x103c04, 641, 37):37 status=metadata_only
+0x103bf6 v_7022 -> v_6953 family=storage_family:high_rep:9241 owner=CALL/0x281 owner_compute=1063926:(ram, 0x103c04, 641, 37):37 status=metadata_only
+0x103bf6 v_7179 -> v_7110 family=storage_family:high_rep:9242 owner=CALL/0x281 owner_compute=1063926:(ram, 0x103c04, 641, 37):37 status=metadata_only
+0x103bf6 v_7336 -> v_7267 family=storage_family:high_rep:9243 owner=CALL/0x281 owner_compute=1063926:(ram, 0x103c04, 641, 37):37 status=metadata_only
+0x103bf6 v_7493 -> v_7424 family=storage_family:high_rep:9244 owner=CALL/0x281 owner_compute=1063926:(ram, 0x103c04, 641, 37):37 status=metadata_only
+0x103bf6 v_7650 -> v_7581 family=storage_family:high_rep:9245 owner=CALL/0x281 owner_compute=1063926:(ram, 0x103c04, 641, 37):37 status=metadata_only
+0x103bf6 v_7807 -> v_7738 family=storage_family:high_rep:9246 owner=CALL/0x281 owner_compute=1063926:(ram, 0x103c04, 641, 37):37 status=metadata_only
+0x103bf6 v_7964 -> v_7895 family=storage_family:high_rep:9247 owner=CALL/0x281 owner_compute=1063926:(ram, 0x103c04, 641, 37):37 status=metadata_only
+0x103bf6 v_8121 -> v_8052 family=storage_family:high_rep:9248 owner=CALL/0x281 owner_compute=1063926:(ram, 0x103c04, 641, 37):37 status=metadata_only
+0x103bf6 v_8278 -> v_8209 family=storage_family:high_rep:8254 owner=CALL/0x281 owner_compute=1063926:(ram, 0x103c04, 641, 37):37 status=metadata_only
+0x103bf6 v_5465 -> v_5468 family=storage_family:high_rep:9233 owner=CALL/0x293 owner_compute=1063926:(ram, 0x103c20, 659, 59):59 status=metadata_only
+0x103bf6 v_5598 -> v_5601 family=storage_family:high_rep:9234 owner=CALL/0x293 owner_compute=1063926:(ram, 0x103c20, 659, 59):59 status=metadata_only
+0x103bf6 v_5731 -> v_5734 family=storage_family:high_rep:9232 owner=CALL/0x293 owner_compute=1063926:(ram, 0x103c20, 659, 59):59 status=metadata_only
+0x103bf6 v_6011 -> v_6015 family=storage_family:high_rep:9235 owner=CALL/0x293 owner_compute=1063926:(ram, 0x103c20, 659, 59):59 status=metadata_only
+0x103bf6 v_6168 -> v_6172 family=storage_family:high_rep:9236 owner=CALL/0x293 owner_compute=1063926:(ram, 0x103c20, 659, 59):59 status=metadata_only
+0x103bf6 v_6325 -> v_6329 family=storage_family:high_rep:9237 owner=CALL/0x293 owner_compute=1063926:(ram, 0x103c20, 659, 59):59 status=metadata_only
+0x103bf6 v_6482 -> v_6486 family=storage_family:high_rep:9238 owner=CALL/0x293 owner_compute=1063926:(ram, 0x103c20, 659, 59):59 status=metadata_only
+0x103bf6 v_6639 -> v_6643 family=storage_family:high_rep:9239 owner=CALL/0x293 owner_compute=1063926:(ram, 0x103c20, 659, 59):59 status=metadata_only
+0x103bf6 v_6796 -> v_6800 family=storage_family:high_rep:9240 owner=CALL/0x293 owner_compute=1063926:(ram, 0x103c20, 659, 59):59 status=metadata_only
+0x103bf6 v_6953 -> v_6957 family=storage_family:high_rep:9241 owner=CALL/0x293 owner_compute=1063926:(ram, 0x103c20, 659, 59):59 status=metadata_only
+0x103bf6 v_7110 -> v_7114 family=storage_family:high_rep:9242 owner=CALL/0x293 owner_compute=1063926:(ram, 0x103c20, 659, 59):59 status=metadata_only
+0x103bf6 v_7267 -> v_7271 family=storage_family:high_rep:9243 owner=CALL/0x293 owner_compute=1063926:(ram, 0x103c20, 659, 59):59 status=metadata_only
+0x103bf6 v_7424 -> v_7428 family=storage_family:high_rep:9244 owner=CALL/0x293 owner_compute=1063926:(ram, 0x103c20, 659, 59):59 status=metadata_only
+0x103bf6 v_7581 -> v_7585 family=storage_family:high_rep:9245 owner=CALL/0x293 owner_compute=1063926:(ram, 0x103c20, 659, 59):59 status=metadata_only
+0x103bf6 v_7738 -> v_7742 family=storage_family:high_rep:9246 owner=CALL/0x293 owner_compute=1063926:(ram, 0x103c20, 659, 59):59 status=metadata_only
+0x103bf6 v_7895 -> v_7899 family=storage_family:high_rep:9247 owner=CALL/0x293 owner_compute=1063926:(ram, 0x103c20, 659, 59):59 status=metadata_only
+0x103bf6 v_8052 -> v_8056 family=storage_family:high_rep:9248 owner=CALL/0x293 owner_compute=1063926:(ram, 0x103c20, 659, 59):59 status=metadata_only
+0x103bf6 v_8209 -> v_8213 family=storage_family:high_rep:8254 owner=CALL/0x293 owner_compute=1063926:(ram, 0x103c20, 659, 59):59 status=metadata_only
+0x103aec v_5531 -> v_5471 family=storage_family:high_rep:9233 owner=CALL/0x190 owner_compute=1063660:(ram, 0x103aec, 400, 19):19 status=metadata_only
+0x103aec v_5664 -> v_5604 family=storage_family:high_rep:9234 owner=CALL/0x190 owner_compute=1063660:(ram, 0x103aec, 400, 19):19 status=metadata_only
+0x103aec v_5797 -> v_5737 family=storage_family:high_rep:9232 owner=CALL/0x190 owner_compute=1063660:(ram, 0x103aec, 400, 19):19 status=metadata_only
+0x103aec v_6089 -> v_6019 family=storage_family:high_rep:9235 owner=CALL/0x190 owner_compute=1063660:(ram, 0x103aec, 400, 19):19 status=metadata_only
+0x103aec v_6246 -> v_6176 family=storage_family:high_rep:9236 owner=CALL/0x190 owner_compute=1063660:(ram, 0x103aec, 400, 19):19 status=metadata_only
+0x103aec v_6403 -> v_6333 family=storage_family:high_rep:9237 owner=CALL/0x190 owner_compute=1063660:(ram, 0x103aec, 400, 19):19 status=metadata_only
+0x103aec v_6560 -> v_6490 family=storage_family:high_rep:9238 owner=CALL/0x190 owner_compute=1063660:(ram, 0x103aec, 400, 19):19 status=metadata_only
+0x103aec v_6717 -> v_6647 family=storage_family:high_rep:9239 owner=CALL/0x190 owner_compute=1063660:(ram, 0x103aec, 400, 19):19 status=metadata_only
+0x103aec v_6874 -> v_6804 family=storage_family:high_rep:9240 owner=CALL/0x190 owner_compute=1063660:(ram, 0x103aec, 400, 19):19 status=metadata_only
+0x103aec v_7031 -> v_6961 family=storage_family:high_rep:9241 owner=CALL/0x190 owner_compute=1063660:(ram, 0x103aec, 400, 19):19 status=metadata_only
+0x103aec v_7188 -> v_7118 family=storage_family:high_rep:9242 owner=CALL/0x190 owner_compute=1063660:(ram, 0x103aec, 400, 19):19 status=metadata_only
+0x103aec v_7345 -> v_7275 family=storage_family:high_rep:9243 owner=CALL/0x190 owner_compute=1063660:(ram, 0x103aec, 400, 19):19 status=metadata_only
+0x103aec v_7502 -> v_7432 family=storage_family:high_rep:9244 owner=CALL/0x190 owner_compute=1063660:(ram, 0x103aec, 400, 19):19 status=metadata_only
+0x103aec v_7659 -> v_7589 family=storage_family:high_rep:9245 owner=CALL/0x190 owner_compute=1063660:(ram, 0x103aec, 400, 19):19 status=metadata_only
+0x103aec v_7816 -> v_7746 family=storage_family:high_rep:9246 owner=CALL/0x190 owner_compute=1063660:(ram, 0x103aec, 400, 19):19 status=metadata_only
+0x103aec v_7973 -> v_7903 family=storage_family:high_rep:9247 owner=CALL/0x190 owner_compute=1063660:(ram, 0x103aec, 400, 19):19 status=metadata_only
+0x103aec v_8130 -> v_8060 family=storage_family:high_rep:9248 owner=CALL/0x190 owner_compute=1063660:(ram, 0x103aec, 400, 19):19 status=metadata_only
+0x103aec v_8287 -> v_8217 family=storage_family:high_rep:8254 owner=CALL/0x190 owner_compute=1063660:(ram, 0x103aec, 400, 19):19 status=metadata_only
+0x103aec v_5471 -> v_5474 family=storage_family:high_rep:9233 owner=CALL/0x1a2 owner_compute=1063660:(ram, 0x103b0c, 418, 40):40 status=metadata_only
+0x103aec v_5604 -> v_5607 family=storage_family:high_rep:9234 owner=CALL/0x1a2 owner_compute=1063660:(ram, 0x103b0c, 418, 40):40 status=metadata_only
+0x103aec v_5737 -> v_5740 family=storage_family:high_rep:9232 owner=CALL/0x1a2 owner_compute=1063660:(ram, 0x103b0c, 418, 40):40 status=metadata_only
+0x103aec v_6019 -> v_6023 family=storage_family:high_rep:9235 owner=CALL/0x1a2 owner_compute=1063660:(ram, 0x103b0c, 418, 40):40 status=metadata_only
+0x103aec v_6176 -> v_6180 family=storage_family:high_rep:9236 owner=CALL/0x1a2 owner_compute=1063660:(ram, 0x103b0c, 418, 40):40 status=metadata_only
+0x103aec v_6333 -> v_6337 family=storage_family:high_rep:9237 owner=CALL/0x1a2 owner_compute=1063660:(ram, 0x103b0c, 418, 40):40 status=metadata_only
+0x103aec v_6490 -> v_6494 family=storage_family:high_rep:9238 owner=CALL/0x1a2 owner_compute=1063660:(ram, 0x103b0c, 418, 40):40 status=metadata_only
+0x103aec v_6647 -> v_6651 family=storage_family:high_rep:9239 owner=CALL/0x1a2 owner_compute=1063660:(ram, 0x103b0c, 418, 40):40 status=metadata_only
+0x103aec v_6804 -> v_6808 family=storage_family:high_rep:9240 owner=CALL/0x1a2 owner_compute=1063660:(ram, 0x103b0c, 418, 40):40 status=metadata_only
+0x103aec v_6961 -> v_6965 family=storage_family:high_rep:9241 owner=CALL/0x1a2 owner_compute=1063660:(ram, 0x103b0c, 418, 40):40 status=metadata_only
+0x103aec v_7118 -> v_7122 family=storage_family:high_rep:9242 owner=CALL/0x1a2 owner_compute=1063660:(ram, 0x103b0c, 418, 40):40 status=metadata_only
+0x103aec v_7275 -> v_7279 family=storage_family:high_rep:9243 owner=CALL/0x1a2 owner_compute=1063660:(ram, 0x103b0c, 418, 40):40 status=metadata_only
+0x103aec v_7432 -> v_7436 family=storage_family:high_rep:9244 owner=CALL/0x1a2 owner_compute=1063660:(ram, 0x103b0c, 418, 40):40 status=metadata_only
+0x103aec v_7589 -> v_7593 family=storage_family:high_rep:9245 owner=CALL/0x1a2 owner_compute=1063660:(ram, 0x103b0c, 418, 40):40 status=metadata_only
+0x103aec v_7746 -> v_7750 family=storage_family:high_rep:9246 owner=CALL/0x1a2 owner_compute=1063660:(ram, 0x103b0c, 418, 40):40 status=metadata_only
+0x103aec v_7903 -> v_7907 family=storage_family:high_rep:9247 owner=CALL/0x1a2 owner_compute=1063660:(ram, 0x103b0c, 418, 40):40 status=metadata_only
+0x103aec v_8060 -> v_8064 family=storage_family:high_rep:9248 owner=CALL/0x1a2 owner_compute=1063660:(ram, 0x103b0c, 418, 40):40 status=metadata_only
+0x103aec v_8217 -> v_8221 family=storage_family:high_rep:8254 owner=CALL/0x1a2 owner_compute=1063660:(ram, 0x103b0c, 418, 40):40 status=metadata_only
+0x103aec v_5474 -> v_5477 family=storage_family:high_rep:9233 owner=CALL/0x1b0 owner_compute=1063660:(ram, 0x103b18, 432, 59):59 status=metadata_only
+0x103aec v_5607 -> v_5610 family=storage_family:high_rep:9234 owner=CALL/0x1b0 owner_compute=1063660:(ram, 0x103b18, 432, 59):59 status=metadata_only
+0x103aec v_5740 -> v_5743 family=storage_family:high_rep:9232 owner=CALL/0x1b0 owner_compute=1063660:(ram, 0x103b18, 432, 59):59 status=metadata_only
+0x103aec v_6023 -> v_6026 family=storage_family:high_rep:9235 owner=CALL/0x1b0 owner_compute=1063660:(ram, 0x103b18, 432, 59):59 status=metadata_only
+0x103aec v_6180 -> v_6183 family=storage_family:high_rep:9236 owner=CALL/0x1b0 owner_compute=1063660:(ram, 0x103b18, 432, 59):59 status=metadata_only
+0x103aec v_6337 -> v_6340 family=storage_family:high_rep:9237 owner=CALL/0x1b0 owner_compute=1063660:(ram, 0x103b18, 432, 59):59 status=metadata_only
+0x103aec v_6494 -> v_6497 family=storage_family:high_rep:9238 owner=CALL/0x1b0 owner_compute=1063660:(ram, 0x103b18, 432, 59):59 status=metadata_only
+0x103aec v_6651 -> v_6654 family=storage_family:high_rep:9239 owner=CALL/0x1b0 owner_compute=1063660:(ram, 0x103b18, 432, 59):59 status=metadata_only
+0x103aec v_6808 -> v_6811 family=storage_family:high_rep:9240 owner=CALL/0x1b0 owner_compute=1063660:(ram, 0x103b18, 432, 59):59 status=metadata_only
+0x103aec v_6965 -> v_6968 family=storage_family:high_rep:9241 owner=CALL/0x1b0 owner_compute=1063660:(ram, 0x103b18, 432, 59):59 status=metadata_only
+0x103aec v_7122 -> v_7125 family=storage_family:high_rep:9242 owner=CALL/0x1b0 owner_compute=1063660:(ram, 0x103b18, 432, 59):59 status=metadata_only
+0x103aec v_7279 -> v_7282 family=storage_family:high_rep:9243 owner=CALL/0x1b0 owner_compute=1063660:(ram, 0x103b18, 432, 59):59 status=metadata_only
+0x103aec v_7436 -> v_7439 family=storage_family:high_rep:9244 owner=CALL/0x1b0 owner_compute=1063660:(ram, 0x103b18, 432, 59):59 status=metadata_only
+0x103aec v_7593 -> v_7596 family=storage_family:high_rep:9245 owner=CALL/0x1b0 owner_compute=1063660:(ram, 0x103b18, 432, 59):59 status=metadata_only
+0x103aec v_7750 -> v_7753 family=storage_family:high_rep:9246 owner=CALL/0x1b0 owner_compute=1063660:(ram, 0x103b18, 432, 59):59 status=metadata_only
+0x103aec v_7907 -> v_7910 family=storage_family:high_rep:9247 owner=CALL/0x1b0 owner_compute=1063660:(ram, 0x103b18, 432, 59):59 status=metadata_only
+0x103aec v_8064 -> v_8067 family=storage_family:high_rep:9248 owner=CALL/0x1b0 owner_compute=1063660:(ram, 0x103b18, 432, 59):59 status=metadata_only
+0x103aec v_8221 -> v_8224 family=storage_family:high_rep:8254 owner=CALL/0x1b0 owner_compute=1063660:(ram, 0x103b18, 432, 59):59 status=metadata_only
+0x103b25 v_5477 -> v_5480 family=storage_family:high_rep:9233 owner=CALL/0x1c0 owner_compute=1063717:(ram, 0x103b31, 448, 19):19 status=metadata_only
+0x103b25 v_5610 -> v_5613 family=storage_family:high_rep:9234 owner=CALL/0x1c0 owner_compute=1063717:(ram, 0x103b31, 448, 19):19 status=metadata_only
+0x103b25 v_5743 -> v_5746 family=storage_family:high_rep:9232 owner=CALL/0x1c0 owner_compute=1063717:(ram, 0x103b31, 448, 19):19 status=metadata_only
+0x103b25 v_6026 -> v_6029 family=storage_family:high_rep:9235 owner=CALL/0x1c0 owner_compute=1063717:(ram, 0x103b31, 448, 19):19 status=metadata_only
+0x103b25 v_6183 -> v_6186 family=storage_family:high_rep:9236 owner=CALL/0x1c0 owner_compute=1063717:(ram, 0x103b31, 448, 19):19 status=metadata_only
+0x103b25 v_6340 -> v_6343 family=storage_family:high_rep:9237 owner=CALL/0x1c0 owner_compute=1063717:(ram, 0x103b31, 448, 19):19 status=metadata_only
+0x103b25 v_6497 -> v_6500 family=storage_family:high_rep:9238 owner=CALL/0x1c0 owner_compute=1063717:(ram, 0x103b31, 448, 19):19 status=metadata_only
+0x103b25 v_6654 -> v_6657 family=storage_family:high_rep:9239 owner=CALL/0x1c0 owner_compute=1063717:(ram, 0x103b31, 448, 19):19 status=metadata_only
+0x103b25 v_6811 -> v_6814 family=storage_family:high_rep:9240 owner=CALL/0x1c0 owner_compute=1063717:(ram, 0x103b31, 448, 19):19 status=metadata_only
+0x103b25 v_6968 -> v_6971 family=storage_family:high_rep:9241 owner=CALL/0x1c0 owner_compute=1063717:(ram, 0x103b31, 448, 19):19 status=metadata_only
+0x103b25 v_7125 -> v_7128 family=storage_family:high_rep:9242 owner=CALL/0x1c0 owner_compute=1063717:(ram, 0x103b31, 448, 19):19 status=metadata_only
+0x103b25 v_7282 -> v_7285 family=storage_family:high_rep:9243 owner=CALL/0x1c0 owner_compute=1063717:(ram, 0x103b31, 448, 19):19 status=metadata_only
+0x103b25 v_7439 -> v_7442 family=storage_family:high_rep:9244 owner=CALL/0x1c0 owner_compute=1063717:(ram, 0x103b31, 448, 19):19 status=metadata_only
+0x103b25 v_7596 -> v_7599 family=storage_family:high_rep:9245 owner=CALL/0x1c0 owner_compute=1063717:(ram, 0x103b31, 448, 19):19 status=metadata_only
+0x103b25 v_7753 -> v_7756 family=storage_family:high_rep:9246 owner=CALL/0x1c0 owner_compute=1063717:(ram, 0x103b31, 448, 19):19 status=metadata_only
+0x103b25 v_7910 -> v_7913 family=storage_family:high_rep:9247 owner=CALL/0x1c0 owner_compute=1063717:(ram, 0x103b31, 448, 19):19 status=metadata_only
+0x103b25 v_8067 -> v_8070 family=storage_family:high_rep:9248 owner=CALL/0x1c0 owner_compute=1063717:(ram, 0x103b31, 448, 19):19 status=metadata_only
+0x103b25 v_8224 -> v_8227 family=storage_family:high_rep:8254 owner=CALL/0x1c0 owner_compute=1063717:(ram, 0x103b31, 448, 19):19 status=metadata_only
+0x103c38 v_5511 -> v_5483 family=storage_family:high_rep:9233 owner=CALL/0x22e owner_compute=1063992:(ram, 0x103c4a, 558, 40):40 status=metadata_only
+0x103c38 v_5644 -> v_5616 family=storage_family:high_rep:9234 owner=CALL/0x22e owner_compute=1063992:(ram, 0x103c4a, 558, 40):40 status=metadata_only
+0x103c38 v_5777 -> v_5749 family=storage_family:high_rep:9232 owner=CALL/0x22e owner_compute=1063992:(ram, 0x103c4a, 558, 40):40 status=metadata_only
+0x103c38 v_6069 -> v_6033 family=storage_family:high_rep:9235 owner=CALL/0x22e owner_compute=1063992:(ram, 0x103c4a, 558, 40):40 status=metadata_only
+0x103c38 v_6226 -> v_6190 family=storage_family:high_rep:9236 owner=CALL/0x22e owner_compute=1063992:(ram, 0x103c4a, 558, 40):40 status=metadata_only
+0x103c38 v_6383 -> v_6347 family=storage_family:high_rep:9237 owner=CALL/0x22e owner_compute=1063992:(ram, 0x103c4a, 558, 40):40 status=metadata_only
+0x103c38 v_6540 -> v_6504 family=storage_family:high_rep:9238 owner=CALL/0x22e owner_compute=1063992:(ram, 0x103c4a, 558, 40):40 status=metadata_only
+0x103c38 v_6697 -> v_6661 family=storage_family:high_rep:9239 owner=CALL/0x22e owner_compute=1063992:(ram, 0x103c4a, 558, 40):40 status=metadata_only
+0x103c38 v_6854 -> v_6818 family=storage_family:high_rep:9240 owner=CALL/0x22e owner_compute=1063992:(ram, 0x103c4a, 558, 40):40 status=metadata_only
+0x103c38 v_7011 -> v_6975 family=storage_family:high_rep:9241 owner=CALL/0x22e owner_compute=1063992:(ram, 0x103c4a, 558, 40):40 status=metadata_only
+0x103c38 v_7168 -> v_7132 family=storage_family:high_rep:9242 owner=CALL/0x22e owner_compute=1063992:(ram, 0x103c4a, 558, 40):40 status=metadata_only
+0x103c38 v_7325 -> v_7289 family=storage_family:high_rep:9243 owner=CALL/0x22e owner_compute=1063992:(ram, 0x103c4a, 558, 40):40 status=metadata_only
+0x103c38 v_7482 -> v_7446 family=storage_family:high_rep:9244 owner=CALL/0x22e owner_compute=1063992:(ram, 0x103c4a, 558, 40):40 status=metadata_only
+0x103c38 v_7639 -> v_7603 family=storage_family:high_rep:9245 owner=CALL/0x22e owner_compute=1063992:(ram, 0x103c4a, 558, 40):40 status=metadata_only
+0x103c38 v_7796 -> v_7760 family=storage_family:high_rep:9246 owner=CALL/0x22e owner_compute=1063992:(ram, 0x103c4a, 558, 40):40 status=metadata_only
+0x103c38 v_7953 -> v_7917 family=storage_family:high_rep:9247 owner=CALL/0x22e owner_compute=1063992:(ram, 0x103c4a, 558, 40):40 status=metadata_only
+0x103c38 v_8110 -> v_8074 family=storage_family:high_rep:9248 owner=CALL/0x22e owner_compute=1063992:(ram, 0x103c4a, 558, 40):40 status=metadata_only
+0x103c38 v_8267 -> v_8231 family=storage_family:high_rep:8254 owner=CALL/0x22e owner_compute=1063992:(ram, 0x103c4a, 558, 40):40 status=metadata_only
+0x103c38 v_5483 -> v_5486 family=storage_family:high_rep:9233 owner=CALL/0x233 owner_compute=1063992:(ram, 0x103c55, 563, 60):60 status=metadata_only
+0x103c38 v_5616 -> v_5619 family=storage_family:high_rep:9234 owner=CALL/0x233 owner_compute=1063992:(ram, 0x103c55, 563, 60):60 status=metadata_only
+0x103c38 v_5749 -> v_5752 family=storage_family:high_rep:9232 owner=CALL/0x233 owner_compute=1063992:(ram, 0x103c55, 563, 60):60 status=metadata_only
+0x103c38 v_6033 -> v_6036 family=storage_family:high_rep:9235 owner=CALL/0x233 owner_compute=1063992:(ram, 0x103c55, 563, 60):60 status=metadata_only
+0x103c38 v_6190 -> v_6193 family=storage_family:high_rep:9236 owner=CALL/0x233 owner_compute=1063992:(ram, 0x103c55, 563, 60):60 status=metadata_only
+0x103c38 v_6347 -> v_6350 family=storage_family:high_rep:9237 owner=CALL/0x233 owner_compute=1063992:(ram, 0x103c55, 563, 60):60 status=metadata_only
+0x103c38 v_6504 -> v_6507 family=storage_family:high_rep:9238 owner=CALL/0x233 owner_compute=1063992:(ram, 0x103c55, 563, 60):60 status=metadata_only
+0x103c38 v_6661 -> v_6664 family=storage_family:high_rep:9239 owner=CALL/0x233 owner_compute=1063992:(ram, 0x103c55, 563, 60):60 status=metadata_only
+0x103c38 v_6818 -> v_6821 family=storage_family:high_rep:9240 owner=CALL/0x233 owner_compute=1063992:(ram, 0x103c55, 563, 60):60 status=metadata_only
+0x103c38 v_6975 -> v_6978 family=storage_family:high_rep:9241 owner=CALL/0x233 owner_compute=1063992:(ram, 0x103c55, 563, 60):60 status=metadata_only
+0x103c38 v_7132 -> v_7135 family=storage_family:high_rep:9242 owner=CALL/0x233 owner_compute=1063992:(ram, 0x103c55, 563, 60):60 status=metadata_only
+0x103c38 v_7289 -> v_7292 family=storage_family:high_rep:9243 owner=CALL/0x233 owner_compute=1063992:(ram, 0x103c55, 563, 60):60 status=metadata_only
+0x103c38 v_7446 -> v_7449 family=storage_family:high_rep:9244 owner=CALL/0x233 owner_compute=1063992:(ram, 0x103c55, 563, 60):60 status=metadata_only
+0x103c38 v_7603 -> v_7606 family=storage_family:high_rep:9245 owner=CALL/0x233 owner_compute=1063992:(ram, 0x103c55, 563, 60):60 status=metadata_only
+0x103c38 v_7760 -> v_7763 family=storage_family:high_rep:9246 owner=CALL/0x233 owner_compute=1063992:(ram, 0x103c55, 563, 60):60 status=metadata_only
+0x103c38 v_7917 -> v_7920 family=storage_family:high_rep:9247 owner=CALL/0x233 owner_compute=1063992:(ram, 0x103c55, 563, 60):60 status=metadata_only
+0x103c38 v_8074 -> v_8077 family=storage_family:high_rep:9248 owner=CALL/0x233 owner_compute=1063992:(ram, 0x103c55, 563, 60):60 status=metadata_only
+0x103c38 v_8231 -> v_8234 family=storage_family:high_rep:8254 owner=CALL/0x233 owner_compute=1063992:(ram, 0x103c55, 563, 60):60 status=metadata_only
+0x103b3e v_5514 -> v_5489 family=storage_family:high_rep:9233 owner=CALL/0x1da owner_compute=1063742:(ram, 0x103b4c, 474, 38):38 status=metadata_only
+0x103b3e v_5647 -> v_5622 family=storage_family:high_rep:9234 owner=CALL/0x1da owner_compute=1063742:(ram, 0x103b4c, 474, 38):38 status=metadata_only
+0x103b3e v_5780 -> v_5755 family=storage_family:high_rep:9232 owner=CALL/0x1da owner_compute=1063742:(ram, 0x103b4c, 474, 38):38 status=metadata_only
+0x103b3e v_6072 -> v_6040 family=storage_family:high_rep:9235 owner=CALL/0x1da owner_compute=1063742:(ram, 0x103b4c, 474, 38):38 status=metadata_only
+0x103b3e v_6229 -> v_6197 family=storage_family:high_rep:9236 owner=CALL/0x1da owner_compute=1063742:(ram, 0x103b4c, 474, 38):38 status=metadata_only
+0x103b3e v_6386 -> v_6354 family=storage_family:high_rep:9237 owner=CALL/0x1da owner_compute=1063742:(ram, 0x103b4c, 474, 38):38 status=metadata_only
+0x103b3e v_6543 -> v_6511 family=storage_family:high_rep:9238 owner=CALL/0x1da owner_compute=1063742:(ram, 0x103b4c, 474, 38):38 status=metadata_only
+0x103b3e v_6700 -> v_6668 family=storage_family:high_rep:9239 owner=CALL/0x1da owner_compute=1063742:(ram, 0x103b4c, 474, 38):38 status=metadata_only
+0x103b3e v_6857 -> v_6825 family=storage_family:high_rep:9240 owner=CALL/0x1da owner_compute=1063742:(ram, 0x103b4c, 474, 38):38 status=metadata_only
+0x103b3e v_7014 -> v_6982 family=storage_family:high_rep:9241 owner=CALL/0x1da owner_compute=1063742:(ram, 0x103b4c, 474, 38):38 status=metadata_only
+0x103b3e v_7171 -> v_7139 family=storage_family:high_rep:9242 owner=CALL/0x1da owner_compute=1063742:(ram, 0x103b4c, 474, 38):38 status=metadata_only
+0x103b3e v_7328 -> v_7296 family=storage_family:high_rep:9243 owner=CALL/0x1da owner_compute=1063742:(ram, 0x103b4c, 474, 38):38 status=metadata_only
+0x103b3e v_7485 -> v_7453 family=storage_family:high_rep:9244 owner=CALL/0x1da owner_compute=1063742:(ram, 0x103b4c, 474, 38):38 status=metadata_only
+0x103b3e v_7642 -> v_7610 family=storage_family:high_rep:9245 owner=CALL/0x1da owner_compute=1063742:(ram, 0x103b4c, 474, 38):38 status=metadata_only
+0x103b3e v_7799 -> v_7767 family=storage_family:high_rep:9246 owner=CALL/0x1da owner_compute=1063742:(ram, 0x103b4c, 474, 38):38 status=metadata_only
+0x103b3e v_7956 -> v_7924 family=storage_family:high_rep:9247 owner=CALL/0x1da owner_compute=1063742:(ram, 0x103b4c, 474, 38):38 status=metadata_only
+0x103b3e v_8113 -> v_8081 family=storage_family:high_rep:9248 owner=CALL/0x1da owner_compute=1063742:(ram, 0x103b4c, 474, 38):38 status=metadata_only
+0x103b3e v_8270 -> v_8238 family=storage_family:high_rep:8254 owner=CALL/0x1da owner_compute=1063742:(ram, 0x103b4c, 474, 38):38 status=metadata_only
+0x103b3e v_5489 -> v_5492 family=storage_family:high_rep:9233 owner=CALL/0x1eb owner_compute=1063742:(ram, 0x103b61, 491, 59):59 status=metadata_only
+0x103b3e v_5622 -> v_5625 family=storage_family:high_rep:9234 owner=CALL/0x1eb owner_compute=1063742:(ram, 0x103b61, 491, 59):59 status=metadata_only
+0x103b3e v_5755 -> v_5758 family=storage_family:high_rep:9232 owner=CALL/0x1eb owner_compute=1063742:(ram, 0x103b61, 491, 59):59 status=metadata_only
+0x103b3e v_6040 -> v_6044 family=storage_family:high_rep:9235 owner=CALL/0x1eb owner_compute=1063742:(ram, 0x103b61, 491, 59):59 status=metadata_only
+0x103b3e v_6197 -> v_6201 family=storage_family:high_rep:9236 owner=CALL/0x1eb owner_compute=1063742:(ram, 0x103b61, 491, 59):59 status=metadata_only
+0x103b3e v_6354 -> v_6358 family=storage_family:high_rep:9237 owner=CALL/0x1eb owner_compute=1063742:(ram, 0x103b61, 491, 59):59 status=metadata_only
+0x103b3e v_6511 -> v_6515 family=storage_family:high_rep:9238 owner=CALL/0x1eb owner_compute=1063742:(ram, 0x103b61, 491, 59):59 status=metadata_only
+0x103b3e v_6668 -> v_6672 family=storage_family:high_rep:9239 owner=CALL/0x1eb owner_compute=1063742:(ram, 0x103b61, 491, 59):59 status=metadata_only
+0x103b3e v_6825 -> v_6829 family=storage_family:high_rep:9240 owner=CALL/0x1eb owner_compute=1063742:(ram, 0x103b61, 491, 59):59 status=metadata_only
+0x103b3e v_6982 -> v_6986 family=storage_family:high_rep:9241 owner=CALL/0x1eb owner_compute=1063742:(ram, 0x103b61, 491, 59):59 status=metadata_only
+0x103b3e v_7139 -> v_7143 family=storage_family:high_rep:9242 owner=CALL/0x1eb owner_compute=1063742:(ram, 0x103b61, 491, 59):59 status=metadata_only
+0x103b3e v_7296 -> v_7300 family=storage_family:high_rep:9243 owner=CALL/0x1eb owner_compute=1063742:(ram, 0x103b61, 491, 59):59 status=metadata_only
+0x103b3e v_7453 -> v_7457 family=storage_family:high_rep:9244 owner=CALL/0x1eb owner_compute=1063742:(ram, 0x103b61, 491, 59):59 status=metadata_only
+0x103b3e v_7610 -> v_7614 family=storage_family:high_rep:9245 owner=CALL/0x1eb owner_compute=1063742:(ram, 0x103b61, 491, 59):59 status=metadata_only
+0x103b3e v_7767 -> v_7771 family=storage_family:high_rep:9246 owner=CALL/0x1eb owner_compute=1063742:(ram, 0x103b61, 491, 59):59 status=metadata_only
+0x103b3e v_7924 -> v_7928 family=storage_family:high_rep:9247 owner=CALL/0x1eb owner_compute=1063742:(ram, 0x103b61, 491, 59):59 status=metadata_only
+0x103b3e v_8081 -> v_8085 family=storage_family:high_rep:9248 owner=CALL/0x1eb owner_compute=1063742:(ram, 0x103b61, 491, 59):59 status=metadata_only
+0x103b3e v_8238 -> v_8242 family=storage_family:high_rep:8254 owner=CALL/0x1eb owner_compute=1063742:(ram, 0x103b61, 491, 59):59 status=metadata_only
+0x103b7b v_5518 -> v_5495 family=storage_family:high_rep:9233 owner=CALL/0x20b owner_compute=1063803:(ram, 0x103b89, 523, 39):39 status=metadata_only
+0x103b7b v_5651 -> v_5628 family=storage_family:high_rep:9234 owner=CALL/0x20b owner_compute=1063803:(ram, 0x103b89, 523, 39):39 status=metadata_only
+0x103b7b v_5784 -> v_5761 family=storage_family:high_rep:9232 owner=CALL/0x20b owner_compute=1063803:(ram, 0x103b89, 523, 39):39 status=metadata_only
+0x103b7b v_6076 -> v_6048 family=storage_family:high_rep:9235 owner=CALL/0x20b owner_compute=1063803:(ram, 0x103b89, 523, 39):39 status=metadata_only
+0x103b7b v_6233 -> v_6205 family=storage_family:high_rep:9236 owner=CALL/0x20b owner_compute=1063803:(ram, 0x103b89, 523, 39):39 status=metadata_only
+0x103b7b v_6390 -> v_6362 family=storage_family:high_rep:9237 owner=CALL/0x20b owner_compute=1063803:(ram, 0x103b89, 523, 39):39 status=metadata_only
+0x103b7b v_6547 -> v_6519 family=storage_family:high_rep:9238 owner=CALL/0x20b owner_compute=1063803:(ram, 0x103b89, 523, 39):39 status=metadata_only
+0x103b7b v_6704 -> v_6676 family=storage_family:high_rep:9239 owner=CALL/0x20b owner_compute=1063803:(ram, 0x103b89, 523, 39):39 status=metadata_only
+0x103b7b v_6861 -> v_6833 family=storage_family:high_rep:9240 owner=CALL/0x20b owner_compute=1063803:(ram, 0x103b89, 523, 39):39 status=metadata_only
+0x103b7b v_7018 -> v_6990 family=storage_family:high_rep:9241 owner=CALL/0x20b owner_compute=1063803:(ram, 0x103b89, 523, 39):39 status=metadata_only
+0x103b7b v_7175 -> v_7147 family=storage_family:high_rep:9242 owner=CALL/0x20b owner_compute=1063803:(ram, 0x103b89, 523, 39):39 status=metadata_only
+0x103b7b v_7332 -> v_7304 family=storage_family:high_rep:9243 owner=CALL/0x20b owner_compute=1063803:(ram, 0x103b89, 523, 39):39 status=metadata_only
+0x103b7b v_7489 -> v_7461 family=storage_family:high_rep:9244 owner=CALL/0x20b owner_compute=1063803:(ram, 0x103b89, 523, 39):39 status=metadata_only
+0x103b7b v_7646 -> v_7618 family=storage_family:high_rep:9245 owner=CALL/0x20b owner_compute=1063803:(ram, 0x103b89, 523, 39):39 status=metadata_only
+0x103b7b v_7803 -> v_7775 family=storage_family:high_rep:9246 owner=CALL/0x20b owner_compute=1063803:(ram, 0x103b89, 523, 39):39 status=metadata_only
+0x103b7b v_7960 -> v_7932 family=storage_family:high_rep:9247 owner=CALL/0x20b owner_compute=1063803:(ram, 0x103b89, 523, 39):39 status=metadata_only
+0x103b7b v_8117 -> v_8089 family=storage_family:high_rep:9248 owner=CALL/0x20b owner_compute=1063803:(ram, 0x103b89, 523, 39):39 status=metadata_only
+0x103b7b v_8274 -> v_8246 family=storage_family:high_rep:8254 owner=CALL/0x20b owner_compute=1063803:(ram, 0x103b89, 523, 39):39 status=metadata_only
+0x103b7b v_5495 -> v_5498 family=storage_family:high_rep:9233 owner=CALL/0x21c owner_compute=1063803:(ram, 0x103b9e, 540, 58):58 status=metadata_only
+0x103b7b v_5628 -> v_5631 family=storage_family:high_rep:9234 owner=CALL/0x21c owner_compute=1063803:(ram, 0x103b9e, 540, 58):58 status=metadata_only
+0x103b7b v_5761 -> v_5764 family=storage_family:high_rep:9232 owner=CALL/0x21c owner_compute=1063803:(ram, 0x103b9e, 540, 58):58 status=metadata_only
+0x103b7b v_6048 -> v_6052 family=storage_family:high_rep:9235 owner=CALL/0x21c owner_compute=1063803:(ram, 0x103b9e, 540, 58):58 status=metadata_only
+0x103b7b v_6205 -> v_6209 family=storage_family:high_rep:9236 owner=CALL/0x21c owner_compute=1063803:(ram, 0x103b9e, 540, 58):58 status=metadata_only
+0x103b7b v_6362 -> v_6366 family=storage_family:high_rep:9237 owner=CALL/0x21c owner_compute=1063803:(ram, 0x103b9e, 540, 58):58 status=metadata_only
+0x103b7b v_6519 -> v_6523 family=storage_family:high_rep:9238 owner=CALL/0x21c owner_compute=1063803:(ram, 0x103b9e, 540, 58):58 status=metadata_only
+0x103b7b v_6676 -> v_6680 family=storage_family:high_rep:9239 owner=CALL/0x21c owner_compute=1063803:(ram, 0x103b9e, 540, 58):58 status=metadata_only
+0x103b7b v_6833 -> v_6837 family=storage_family:high_rep:9240 owner=CALL/0x21c owner_compute=1063803:(ram, 0x103b9e, 540, 58):58 status=metadata_only
+0x103b7b v_6990 -> v_6994 family=storage_family:high_rep:9241 owner=CALL/0x21c owner_compute=1063803:(ram, 0x103b9e, 540, 58):58 status=metadata_only
+0x103b7b v_7147 -> v_7151 family=storage_family:high_rep:9242 owner=CALL/0x21c owner_compute=1063803:(ram, 0x103b9e, 540, 58):58 status=metadata_only
+0x103b7b v_7304 -> v_7308 family=storage_family:high_rep:9243 owner=CALL/0x21c owner_compute=1063803:(ram, 0x103b9e, 540, 58):58 status=metadata_only
+0x103b7b v_7461 -> v_7465 family=storage_family:high_rep:9244 owner=CALL/0x21c owner_compute=1063803:(ram, 0x103b9e, 540, 58):58 status=metadata_only
+0x103b7b v_7618 -> v_7622 family=storage_family:high_rep:9245 owner=CALL/0x21c owner_compute=1063803:(ram, 0x103b9e, 540, 58):58 status=metadata_only
+0x103b7b v_7775 -> v_7779 family=storage_family:high_rep:9246 owner=CALL/0x21c owner_compute=1063803:(ram, 0x103b9e, 540, 58):58 status=metadata_only
+0x103b7b v_7932 -> v_7936 family=storage_family:high_rep:9247 owner=CALL/0x21c owner_compute=1063803:(ram, 0x103b9e, 540, 58):58 status=metadata_only
+0x103b7b v_8089 -> v_8093 family=storage_family:high_rep:9248 owner=CALL/0x21c owner_compute=1063803:(ram, 0x103b9e, 540, 58):58 status=metadata_only
+0x103b7b v_8246 -> v_8250 family=storage_family:high_rep:8254 owner=CALL/0x21c owner_compute=1063803:(ram, 0x103b9e, 540, 58):58 status=metadata_only
+0x1038d3 v_9233 -> v_5501 family=storage_family:high_rep:9233 owner=CALL/0x46 owner_compute=1063123:(ram, 0x1038dc, 70, 19):19 status=metadata_only
+0x1038d3 v_9234 -> v_5634 family=storage_family:high_rep:9234 owner=CALL/0x46 owner_compute=1063123:(ram, 0x1038dc, 70, 19):19 status=metadata_only
+0x1038d3 v_9232 -> v_5767 family=storage_family:high_rep:9232 owner=CALL/0x46 owner_compute=1063123:(ram, 0x1038dc, 70, 19):19 status=metadata_only
+0x1038d3 v_9235 -> v_6056 family=storage_family:high_rep:9235 owner=CALL/0x46 owner_compute=1063123:(ram, 0x1038dc, 70, 19):19 status=metadata_only
+0x1038d3 v_9236 -> v_6213 family=storage_family:high_rep:9236 owner=CALL/0x46 owner_compute=1063123:(ram, 0x1038dc, 70, 19):19 status=metadata_only
+0x1038d3 v_9237 -> v_6370 family=storage_family:high_rep:9237 owner=CALL/0x46 owner_compute=1063123:(ram, 0x1038dc, 70, 19):19 status=metadata_only
+0x1038d3 v_9238 -> v_6527 family=storage_family:high_rep:9238 owner=CALL/0x46 owner_compute=1063123:(ram, 0x1038dc, 70, 19):19 status=metadata_only
+0x1038d3 v_9239 -> v_6684 family=storage_family:high_rep:9239 owner=CALL/0x46 owner_compute=1063123:(ram, 0x1038dc, 70, 19):19 status=metadata_only
+0x1038d3 v_9240 -> v_6841 family=storage_family:high_rep:9240 owner=CALL/0x46 owner_compute=1063123:(ram, 0x1038dc, 70, 19):19 status=metadata_only
+0x1038d3 v_9241 -> v_6998 family=storage_family:high_rep:9241 owner=CALL/0x46 owner_compute=1063123:(ram, 0x1038dc, 70, 19):19 status=metadata_only
+0x1038d3 v_9242 -> v_7155 family=storage_family:high_rep:9242 owner=CALL/0x46 owner_compute=1063123:(ram, 0x1038dc, 70, 19):19 status=metadata_only
+0x1038d3 v_9243 -> v_7312 family=storage_family:high_rep:9243 owner=CALL/0x46 owner_compute=1063123:(ram, 0x1038dc, 70, 19):19 status=metadata_only
+0x1038d3 v_9244 -> v_7469 family=storage_family:high_rep:9244 owner=CALL/0x46 owner_compute=1063123:(ram, 0x1038dc, 70, 19):19 status=metadata_only
+0x1038d3 v_9245 -> v_7626 family=storage_family:high_rep:9245 owner=CALL/0x46 owner_compute=1063123:(ram, 0x1038dc, 70, 19):19 status=metadata_only
+0x1038d3 v_9246 -> v_7783 family=storage_family:high_rep:9246 owner=CALL/0x46 owner_compute=1063123:(ram, 0x1038dc, 70, 19):19 status=metadata_only
+0x1038d3 v_9247 -> v_7940 family=storage_family:high_rep:9247 owner=CALL/0x46 owner_compute=1063123:(ram, 0x1038dc, 70, 19):19 status=metadata_only
+0x1038d3 v_9248 -> v_8097 family=storage_family:high_rep:9248 owner=CALL/0x46 owner_compute=1063123:(ram, 0x1038dc, 70, 19):19 status=metadata_only
+0x1038d3 v_85 -> v_8254 family=storage_family:high_rep:8254 owner=CALL/0x46 owner_compute=1063123:(ram, 0x1038dc, 70, 19):19 status=metadata_only
+0x1038d3 v_5501 -> v_5504 family=storage_family:high_rep:9233 owner=CALL/0x59 owner_compute=1063123:(ram, 0x1038f8, 89, 40):40 status=metadata_only
+0x1038d3 v_5634 -> v_5637 family=storage_family:high_rep:9234 owner=CALL/0x59 owner_compute=1063123:(ram, 0x1038f8, 89, 40):40 status=metadata_only
+0x1038d3 v_5767 -> v_5770 family=storage_family:high_rep:9232 owner=CALL/0x59 owner_compute=1063123:(ram, 0x1038f8, 89, 40):40 status=metadata_only
+0x1038d3 v_6056 -> v_6060 family=storage_family:high_rep:9235 owner=CALL/0x59 owner_compute=1063123:(ram, 0x1038f8, 89, 40):40 status=metadata_only
+0x1038d3 v_6213 -> v_6217 family=storage_family:high_rep:9236 owner=CALL/0x59 owner_compute=1063123:(ram, 0x1038f8, 89, 40):40 status=metadata_only
+0x1038d3 v_6370 -> v_6374 family=storage_family:high_rep:9237 owner=CALL/0x59 owner_compute=1063123:(ram, 0x1038f8, 89, 40):40 status=metadata_only
+0x1038d3 v_6527 -> v_6531 family=storage_family:high_rep:9238 owner=CALL/0x59 owner_compute=1063123:(ram, 0x1038f8, 89, 40):40 status=metadata_only
+0x1038d3 v_6684 -> v_6688 family=storage_family:high_rep:9239 owner=CALL/0x59 owner_compute=1063123:(ram, 0x1038f8, 89, 40):40 status=metadata_only
+0x1038d3 v_6841 -> v_6845 family=storage_family:high_rep:9240 owner=CALL/0x59 owner_compute=1063123:(ram, 0x1038f8, 89, 40):40 status=metadata_only
+0x1038d3 v_6998 -> v_7002 family=storage_family:high_rep:9241 owner=CALL/0x59 owner_compute=1063123:(ram, 0x1038f8, 89, 40):40 status=metadata_only
+0x1038d3 v_7155 -> v_7159 family=storage_family:high_rep:9242 owner=CALL/0x59 owner_compute=1063123:(ram, 0x1038f8, 89, 40):40 status=metadata_only
+0x1038d3 v_7312 -> v_7316 family=storage_family:high_rep:9243 owner=CALL/0x59 owner_compute=1063123:(ram, 0x1038f8, 89, 40):40 status=metadata_only
+0x1038d3 v_7469 -> v_7473 family=storage_family:high_rep:9244 owner=CALL/0x59 owner_compute=1063123:(ram, 0x1038f8, 89, 40):40 status=metadata_only
+0x1038d3 v_7626 -> v_7630 family=storage_family:high_rep:9245 owner=CALL/0x59 owner_compute=1063123:(ram, 0x1038f8, 89, 40):40 status=metadata_only
+0x1038d3 v_7783 -> v_7787 family=storage_family:high_rep:9246 owner=CALL/0x59 owner_compute=1063123:(ram, 0x1038f8, 89, 40):40 status=metadata_only
+0x1038d3 v_7940 -> v_7944 family=storage_family:high_rep:9247 owner=CALL/0x59 owner_compute=1063123:(ram, 0x1038f8, 89, 40):40 status=metadata_only
+0x1038d3 v_8097 -> v_8101 family=storage_family:high_rep:9248 owner=CALL/0x59 owner_compute=1063123:(ram, 0x1038f8, 89, 40):40 status=metadata_only
+0x1038d3 v_8254 -> v_8258 family=storage_family:high_rep:8254 owner=CALL/0x59 owner_compute=1063123:(ram, 0x1038f8, 89, 40):40 status=metadata_only
+0x1038fd v_5525 -> v_5507 family=storage_family:high_rep:9233 owner=CALL/0x5e owner_compute=1063165:(ram, 0x1038ff, 94, 36):36 status=metadata_only
+0x1038fd v_5658 -> v_5640 family=storage_family:high_rep:9234 owner=CALL/0x5e owner_compute=1063165:(ram, 0x1038ff, 94, 36):36 status=metadata_only
+0x1038fd v_5791 -> v_5773 family=storage_family:high_rep:9232 owner=CALL/0x5e owner_compute=1063165:(ram, 0x1038ff, 94, 36):36 status=metadata_only
+0x1038fd v_6083 -> v_6063 family=storage_family:high_rep:9235 owner=CALL/0x5e owner_compute=1063165:(ram, 0x1038ff, 94, 36):36 status=metadata_only
+0x1038fd v_6240 -> v_6220 family=storage_family:high_rep:9236 owner=CALL/0x5e owner_compute=1063165:(ram, 0x1038ff, 94, 36):36 status=metadata_only
+0x1038fd v_6397 -> v_6377 family=storage_family:high_rep:9237 owner=CALL/0x5e owner_compute=1063165:(ram, 0x1038ff, 94, 36):36 status=metadata_only
+0x1038fd v_6554 -> v_6534 family=storage_family:high_rep:9238 owner=CALL/0x5e owner_compute=1063165:(ram, 0x1038ff, 94, 36):36 status=metadata_only
+0x1038fd v_6711 -> v_6691 family=storage_family:high_rep:9239 owner=CALL/0x5e owner_compute=1063165:(ram, 0x1038ff, 94, 36):36 status=metadata_only
+0x1038fd v_6868 -> v_6848 family=storage_family:high_rep:9240 owner=CALL/0x5e owner_compute=1063165:(ram, 0x1038ff, 94, 36):36 status=metadata_only
+0x1038fd v_7025 -> v_7005 family=storage_family:high_rep:9241 owner=CALL/0x5e owner_compute=1063165:(ram, 0x1038ff, 94, 36):36 status=metadata_only
+0x1038fd v_7182 -> v_7162 family=storage_family:high_rep:9242 owner=CALL/0x5e owner_compute=1063165:(ram, 0x1038ff, 94, 36):36 status=metadata_only
+0x1038fd v_7339 -> v_7319 family=storage_family:high_rep:9243 owner=CALL/0x5e owner_compute=1063165:(ram, 0x1038ff, 94, 36):36 status=metadata_only
+0x1038fd v_7496 -> v_7476 family=storage_family:high_rep:9244 owner=CALL/0x5e owner_compute=1063165:(ram, 0x1038ff, 94, 36):36 status=metadata_only
+0x1038fd v_7653 -> v_7633 family=storage_family:high_rep:9245 owner=CALL/0x5e owner_compute=1063165:(ram, 0x1038ff, 94, 36):36 status=metadata_only
+0x1038fd v_7810 -> v_7790 family=storage_family:high_rep:9246 owner=CALL/0x5e owner_compute=1063165:(ram, 0x1038ff, 94, 36):36 status=metadata_only
+0x1038fd v_7967 -> v_7947 family=storage_family:high_rep:9247 owner=CALL/0x5e owner_compute=1063165:(ram, 0x1038ff, 94, 36):36 status=metadata_only
+0x1038fd v_8124 -> v_8104 family=storage_family:high_rep:9248 owner=CALL/0x5e owner_compute=1063165:(ram, 0x1038ff, 94, 36):36 status=metadata_only
+0x1038fd v_8281 -> v_8261 family=storage_family:high_rep:8254 owner=CALL/0x5e owner_compute=1063165:(ram, 0x1038ff, 94, 36):36 status=metadata_only
+
+[INDIRECT CUSTODY INVENTORY]
+{'kind': 'pal_compute_indirect_custody_inventory_v22d',
+ 'version': 'v23b_abi_thunk_compatibility_return_reconciliation',
+ 'resolver_transitions': 424,
+ 'compute_indirect_contracts': 424,
+ 'resolved_custody': 424,
+ 'deferred_custody': 0,
+ 'effect_owner_compute_bindings': 424,
+ 'effect_owner_compute_ops': 36,
+ 'owner_categories': {'call_boundary': 424},
+ 'storage_families': 18,
+ 'storage_sid_bindings': 568,
+ 'address_escape_barrier_sids': 568,
+ 'parameter_storage_initializers': 0,
+ 'runtime_helpers': 0,
+ 'warnings': 0,
+ 'rule': 'INDIRECT_is_metadata_only_owner_bound_storage_transition'}
+
+[ABI-D ENTRY/CALL PLAN INVENTORY]
+{'kind': 'pal_compute_abi_plan_inventory_v23',
+ 'version': 'v23b_abi_thunk_compatibility_return_reconciliation',
+ 'function': 'FUN_001038a0',
+ 'entry_plan_present': True,
+ 'entry_plan_status': 'ready',
+ 'fixed_arguments': 1,
+ 'implicit_inputs': 2,
+ 'implicit_inputs_unsupported': 0,
+ 'call_compute_contracts': 36,
+ 'call_site_plans': 36,
+ 'call_sites_without_plan': 0,
+ 'call_statuses': {'deferred_target_dispatch': 22, 'ready': 14},
+ 'dispatch_classes': {'resolved_thunk_endpoint_deferred': 22,
+                      'external_via_import_thunk': 14},
+ 'internal_calls': 0,
+ 'internal_calls_with_target_compatible_plan': 0,
+ 'internal_calls_without_target_compatible_plan': 0,
+ 'internal_calls_with_deferred_target_compatibility': 0,
+ 'internal_calls_with_incompatible_target': 0,
+ 'internal_calls_without_transport_plan': 0,
+ 'external_calls': 14,
+ 'thunk_calls': 36,
+ 'external_via_thunk_calls': 14,
+ 'thunk_endpoint_deferred_calls': 22,
+ 'thunk_calls_misclassified_internal': 0,
+ 'target_compatibility_overclaims': 0,
+ 'no_return_calls': 1,
+ 'result_carrier_contracts': 36,
+ 'abi_runtime_helper_assignments': 0,
+ 'warnings': 0,
+ 'acceptance_gates': {'every_emitted_function_has_entry_plan': True,
+                      'every_call_has_call_site_plan': True,
+                      'every_internal_call_has_target_compatible_plan': True,
+                      'every_internal_call_has_carrier_transport_plan': True,
+                      'no_resolved_thunk_misclassified_internal': True,
+                      'no_target_compatibility_overclaim': True,
+                      'no_implicit_input_is_unsupported': True,
+                      'no_runtime_helper_assigned_by_ABI_guesswork': True},
+ 'return_boundary_reconciliation': {'kind': 'pal_compute_return_boundary_reconciliation_v23b',
+                                    'version': 'v23b_abi_thunk_compatibility_return_reconciliation',
+                                    'function': 'FUN_001038a0',
+                                    'entry_block_addr': 1063072,
+                                    'cfg_evidence_available': True,
+                                    'no_return_terminating_blocks': [1063165],
+                                    'no_return_call_op_keys': ['1063165:(ram, '
+                                                               '0x1038ff, 94, '
+                                                               '36):36'],
+                                    'return_boundaries': 1,
+                                    'reachable_return_boundaries': 0,
+                                    'unreachable_return_boundaries': 1,
+                                    'deferred_return_boundaries': 0,
+                                    'reachable_return_widths': [],
+                                    'width_reconciled': True,
+                                    'synthetic_no_return_continuations_suppressed': 1,
+                                    'rule': 'traverse_CFG_with_no_return_blocks_as_terminal_then_reconcile_reachable_raw_return_transports_only'},
+ 'rule': 'ABI_A_B_C_authority_only_thunk_endpoint_and_compatibility_tri_state_no_downstream_argument_reinference'}
+
+[FUNCTION ENTRY ABI PLAN]
+{'plan_id': 'function_entry:1063072',
+ 'status': 'ready',
+ 'callable_signature_status': 'legacy_non_variadic_fallback',
+ 'fixed_argument_count': 1,
+ 'implicit_input_count': 2,
+ 'variadic_register_save_area': {'required': False,
+                                 'status': 'not_required',
+                                 'slots': [{'sid': 'v_4792',
+                                            'bank': 'gp',
+                                            'index': 0,
+                                            'register': 'EDI',
+                                            'width_bits': 32,
+                                            'canonical_alias': 'param_0',
+                                            'owner_namespace': 'logical_parameter',
+                                            'owner_role': 'callable_parameter_carrier',
+                                            'materialization': 'capture_entry_register_bits',
+                                            'source': 'abi_context.registers',
+                                            'runtime_helper': None,
+                                            'authority': 'PALSymbolResolver_ABI_C_physical_carrier_binding'}],
+                                 'gp_slots': [{'sid': 'v_4792',
+                                               'bank': 'gp',
+                                               'index': 0,
+                                               'register': 'EDI',
+                                               'width_bits': 32,
+                                               'canonical_alias': 'param_0',
+                                               'owner_namespace': 'logical_parameter',
+                                               'owner_role': 'callable_parameter_carrier',
+                                               'materialization': 'capture_entry_register_bits',
+                                               'source': 'abi_context.registers',
+                                               'runtime_helper': None,
+                                               'authority': 'PALSymbolResolver_ABI_C_physical_carrier_binding'}],
+                                 'sse_slots': [],
+                                 'fixed_variadic_partition_status': 'deferred_to_entry_protocol_analysis',
+                                 'source': 'abi_context.registers',
+                                 'authority': 'ABI_C_carriers_plus_variadic_contract'},
+ 'overflow_argument_area': {'required': False,
+                            'status': 'not_required',
+                            'source': 'abi_context.overflow_argument_area',
+                            'observed_stack_carriers': [],
+                            'materialization': 'consume_preclassified_overflow_slots',
+                            'offset_inference_allowed': False,
+                            'authority': 'ABI_C_stack_carriers_or_variadic_protocol'},
+ 'variadic_al': {'required': False,
+                 'status': 'not_required',
+                 'source': 'abi_context.variadic_xmm_count',
+                 'inputs': [],
+                 'default_allowed': False,
+                 'authority': 'ABI_C_variadic_xmm_count_contract'},
+ 'frame_base': {'required': True,
+                'status': 'runtime_abi_context_required',
+                'source': 'abi_context.frame_base',
+                'inputs': [{'kind': 'pal_compute_implicit_input_materialization_abi_d',
+                            'version': 'v23b_abi_thunk_compatibility_return_reconciliation',
+                            'sid': 'v_4700',
+                            'canonical_alias': 'abi_stack_pointer',
+                            'role': 'stack_pointer',
+                            'custody_class': 'frame_state',
+                            'width_bits': 64,
+                            'register': {'name': 'RSP',
+                                         'base_name': 'RSP',
+                                         'size_bytes': 8,
+                                         'repr': 'RSP'},
+                            'destination': 'abi_context.stack_pointer',
+                            'materialization': 'read_from_runtime_abi_context',
+                            'status': 'runtime_context_required',
+                            'unsupported': False,
+                            'runtime_helper': None,
+                            'authority': 'PALSymbolResolver_ABI_C_implicit_input_contract'}],
+                'derive_from_parameter_names': False,
+                'authority': 'ABI_C_frame_state_custody'},
+ 'tls_base': {'required': True,
+              'status': 'runtime_abi_context_required',
+              'source': 'abi_context.tls_base',
+              'inputs': [{'kind': 'pal_compute_implicit_input_materialization_abi_d',
+                          'version': 'v23b_abi_thunk_compatibility_return_reconciliation',
+                          'sid': 'v_4707',
+                          'canonical_alias': 'abi_tls_base',
+                          'role': 'thread_local_storage_base',
+                          'custody_class': 'tls_state',
+                          'width_bits': 64,
+                          'register': {'name': 'FS_OFFSET',
+                                       'base_name': 'FS_OFFSET',
+                                       'size_bytes': 8,
+                                       'repr': 'FS_OFFSET'},
+                          'destination': 'abi_context.tls_base',
+                          'materialization': 'read_from_runtime_abi_context',
+                          'status': 'runtime_context_required',
+                          'unsupported': False,
+                          'runtime_helper': None,
+                          'authority': 'PALSymbolResolver_ABI_C_implicit_input_contract'}],
+              'derive_from_expression_names': False,
+              'authority': 'ABI_C_tls_state_custody'},
+ 'return_contract': {'kind': 'pal_compute_return_carrier_contract_abi_d',
+                     'version': 'v23b_abi_thunk_compatibility_return_reconciliation',
+                     'status': 'no_reachable_return_boundary',
+                     'no_return': False,
+                     'output_sid': None,
+                     'output_width_bits': None,
+                     'declared_width_bits': None,
+                     'effective_result_width_bits': None,
+                     'declared_return': {'name': 'undefined',
+                                         'display_name': 'undefined',
+                                         'class_name': 'DefaultDataType',
+                                         'length_bytes': 1,
+                                         'width_bits': 8,
+                                         'signed': None,
+                                         'kind_hint': None},
+                     'return_storage': {'repr': '<UNASSIGNED>',
+                                        'size_bytes': 0,
+                                        'flags': {'register': False,
+                                                  'stack': False,
+                                                  'memory': False,
+                                                  'unassigned': True,
+                                                  'void': False,
+                                                  'auto': False},
+                                        'pieces': [],
+                                        'storage_keys': []},
+                     'carrier_pieces': [],
+                     'normalization': None,
+                     'runtime_helper': None,
+                     'runtime_helper_authority': 'no_ABI_runtime_helper_assigned',
+                     'authority': 'PALlibrary_function_signature_return_storage',
+                     'reported_declared_width_bits': 8,
+                     'declared_width_authoritative': False,
+                     'declared_return_evidence_status': 'non_authoritative_default_or_unresolved_prototype',
+                     'transport_width_bits': None,
+                     'logical_result_width_bits': None,
+                     'reachable_return_widths': [],
+                     'reachable_return_boundary_count': 0,
+                     'unreachable_return_boundary_count': 1,
+                     'deferred_return_boundary_count': 0},
+ 'reachable_return_boundaries': [],
+ 'unreachable_return_boundaries': [{'block_addr': 1063165,
+                                    'return_value_sid': 'c_1_4',
+                                    'return_value_width_bits': 32,
+                                    'return_transport_width_bits': 32,
+                                    'return_logical_width_bits': 32,
+                                    'return_declared_view': None,
+                                    'return_boundary_authority': 'raw_return_register_transport',
+                                    'return_reachability': 'unreachable_after_no_return_in_same_block',
+                                    'reachable_return': False,
+                                    'execution_suppressed': True,
+                                    'emission_policy': 'suppress_unreachable_return_after_no_return',
+                                    'cut_by_no_return_blocks': [1063165],
+                                    'cut_by_no_return_call_op_keys': ['1063165:(ram, '
+                                                                      '0x1038ff, '
+                                                                      '94, '
+                                                                      '36):36']}]}
+
+[RETURN BOUNDARY RECONCILIATION]
+{'kind': 'pal_compute_return_boundary_reconciliation_v23b',
+ 'version': 'v23b_abi_thunk_compatibility_return_reconciliation',
+ 'function': 'FUN_001038a0',
+ 'entry_block_addr': 1063072,
+ 'cfg_evidence_available': True,
+ 'no_return_terminating_blocks': [1063165],
+ 'no_return_call_op_keys': ['1063165:(ram, 0x1038ff, 94, 36):36'],
+ 'return_boundaries': 1,
+ 'reachable_return_boundaries': 0,
+ 'unreachable_return_boundaries': 1,
+ 'deferred_return_boundaries': 0,
+ 'reachable_return_widths': [],
+ 'width_reconciled': True,
+ 'synthetic_no_return_continuations_suppressed': 1,
+ 'rule': 'traverse_CFG_with_no_return_blocks_as_terminal_then_reconcile_reachable_raw_return_transports_only'}
+
+[CALL SITE ABI PLANS]
+{'op_key': '1063172:(ram, 0x103910, 111, 5):5',
+ 'target': 'dcgettext',
+ 'dispatch_class': 'resolved_thunk_endpoint_deferred',
+ 'status': 'deferred_target_dispatch',
+ 'argument_count': 3,
+ 'carrier_allocation_status': 'complete',
+ 'target_compatibility_status': 'deferred',
+ 'target_compatible': None,
+ 'no_return': False,
+ 'result_width_bits': 64}
+{'op_key': '1063172:(ram, 0x103928, 129, 10):10',
+ 'target': '__printf_chk',
+ 'dispatch_class': 'resolved_thunk_endpoint_deferred',
+ 'status': 'deferred_target_dispatch',
+ 'argument_count': 5,
+ 'carrier_allocation_status': 'complete',
+ 'target_compatibility_status': 'deferred',
+ 'target_compatible': None,
+ 'no_return': False,
+ 'result_width_bits': 8}
+{'op_key': '1063172:(ram, 0x103946, 147, 19):19',
+ 'target': 'dcgettext',
+ 'dispatch_class': 'resolved_thunk_endpoint_deferred',
+ 'status': 'deferred_target_dispatch',
+ 'argument_count': 3,
+ 'carrier_allocation_status': 'complete',
+ 'target_compatibility_status': 'deferred',
+ 'target_compatible': None,
+ 'no_return': False,
+ 'result_width_bits': 64}
+{'op_key': '1063172:(ram, 0x103951, 152, 25):25',
+ 'target': 'fputs_unlocked',
+ 'dispatch_class': 'external_via_import_thunk',
+ 'status': 'ready',
+ 'argument_count': 2,
+ 'carrier_allocation_status': 'complete',
+ 'target_compatibility_status': 'compatible',
+ 'target_compatible': True,
+ 'no_return': False,
+ 'result_width_bits': 32}
+{'op_key': '1063172:(ram, 0x103968, 169, 33):33',
+ 'target': 'dcgettext',
+ 'dispatch_class': 'resolved_thunk_endpoint_deferred',
+ 'status': 'deferred_target_dispatch',
+ 'argument_count': 3,
+ 'carrier_allocation_status': 'complete',
+ 'target_compatibility_status': 'deferred',
+ 'target_compatible': None,
+ 'no_return': False,
+ 'result_width_bits': 64}
+{'op_key': '1063172:(ram, 0x103973, 174, 39):39',
+ 'target': 'fputs_unlocked',
+ 'dispatch_class': 'external_via_import_thunk',
+ 'status': 'ready',
+ 'argument_count': 2,
+ 'carrier_allocation_status': 'complete',
+ 'target_compatibility_status': 'compatible',
+ 'target_compatible': True,
+ 'no_return': False,
+ 'result_width_bits': 32}
+{'op_key': '1063172:(ram, 0x10398a, 191, 47):47',
+ 'target': 'dcgettext',
+ 'dispatch_class': 'resolved_thunk_endpoint_deferred',
+ 'status': 'deferred_target_dispatch',
+ 'argument_count': 3,
+ 'carrier_allocation_status': 'complete',
+ 'target_compatibility_status': 'deferred',
+ 'target_compatible': None,
+ 'no_return': False,
+ 'result_width_bits': 64}
+{'op_key': '1063172:(ram, 0x103995, 196, 53):53',
+ 'target': 'fputs_unlocked',
+ 'dispatch_class': 'external_via_import_thunk',
+ 'status': 'ready',
+ 'argument_count': 2,
+ 'carrier_allocation_status': 'complete',
+ 'target_compatibility_status': 'compatible',
+ 'target_compatible': True,
+ 'no_return': False,
+ 'result_width_bits': 32}
+{'op_key': '1063172:(ram, 0x1039ac, 213, 61):61',
+ 'target': 'dcgettext',
+ 'dispatch_class': 'resolved_thunk_endpoint_deferred',
+ 'status': 'deferred_target_dispatch',
+ 'argument_count': 3,
+ 'carrier_allocation_status': 'complete',
+ 'target_compatibility_status': 'deferred',
+ 'target_compatible': None,
+ 'no_return': False,
+ 'result_width_bits': 64}
+{'op_key': '1063172:(ram, 0x1039b7, 218, 67):67',
+ 'target': 'fputs_unlocked',
+ 'dispatch_class': 'external_via_import_thunk',
+ 'status': 'ready',
+ 'argument_count': 2,
+ 'carrier_allocation_status': 'complete',
+ 'target_compatibility_status': 'compatible',
+ 'target_compatible': True,
+ 'no_return': False,
+ 'result_width_bits': 32}
+{'op_key': '1063172:(ram, 0x1039ce, 235, 75):75',
+ 'target': 'dcgettext',
+ 'dispatch_class': 'resolved_thunk_endpoint_deferred',
+ 'status': 'deferred_target_dispatch',
+ 'argument_count': 3,
+ 'carrier_allocation_status': 'complete',
+ 'target_compatibility_status': 'deferred',
+ 'target_compatible': None,
+ 'no_return': False,
+ 'result_width_bits': 64}
+{'op_key': '1063172:(ram, 0x1039d9, 240, 81):81',
+ 'target': 'fputs_unlocked',
+ 'dispatch_class': 'external_via_import_thunk',
+ 'status': 'ready',
+ 'argument_count': 2,
+ 'carrier_allocation_status': 'complete',
+ 'target_compatibility_status': 'compatible',
+ 'target_compatible': True,
+ 'no_return': False,
+ 'result_width_bits': 32}
+{'op_key': '1063172:(ram, 0x1039f0, 257, 89):89',
+ 'target': 'dcgettext',
+ 'dispatch_class': 'resolved_thunk_endpoint_deferred',
+ 'status': 'deferred_target_dispatch',
+ 'argument_count': 3,
+ 'carrier_allocation_status': 'complete',
+ 'target_compatibility_status': 'deferred',
+ 'target_compatible': None,
+ 'no_return': False,
+ 'result_width_bits': 64}
+{'op_key': '1063172:(ram, 0x1039fb, 262, 95):95',
+ 'target': 'fputs_unlocked',
+ 'dispatch_class': 'external_via_import_thunk',
+ 'status': 'ready',
+ 'argument_count': 2,
+ 'carrier_allocation_status': 'complete',
+ 'target_compatibility_status': 'compatible',
+ 'target_compatible': True,
+ 'no_return': False,
+ 'result_width_bits': 32}
+{'op_key': '1063172:(ram, 0x103a12, 279, 103):103',
+ 'target': 'dcgettext',
+ 'dispatch_class': 'resolved_thunk_endpoint_deferred',
+ 'status': 'deferred_target_dispatch',
+ 'argument_count': 3,
+ 'carrier_allocation_status': 'complete',
+ 'target_compatibility_status': 'deferred',
+ 'target_compatible': None,
+ 'no_return': False,
+ 'result_width_bits': 64}
+{'op_key': '1063172:(ram, 0x103a24, 285, 109):109',
+ 'target': 'fputs_unlocked',
+ 'dispatch_class': 'external_via_import_thunk',
+ 'status': 'ready',
+ 'argument_count': 2,
+ 'carrier_allocation_status': 'complete',
+ 'target_compatibility_status': 'compatible',
+ 'target_compatible': True,
+ 'no_return': False,
+ 'result_width_bits': 32}
+{'op_key': '1063621:(ram, 0x103ac8, 361, 19):19',
+ 'target': 'strcmp',
+ 'dispatch_class': 'external_via_import_thunk',
+ 'status': 'ready',
+ 'argument_count': 2,
+ 'carrier_allocation_status': 'complete',
+ 'target_compatibility_status': 'compatible',
+ 'target_compatible': True,
+ 'no_return': False,
+ 'result_width_bits': 32}
+{'op_key': '1063848:(ram, 0x103ba8, 567, 19):19',
+ 'target': 'dcgettext',
+ 'dispatch_class': 'resolved_thunk_endpoint_deferred',
+ 'status': 'deferred_target_dispatch',
+ 'argument_count': 3,
+ 'carrier_allocation_status': 'complete',
+ 'target_compatibility_status': 'deferred',
+ 'target_compatible': None,
+ 'no_return': False,
+ 'result_width_bits': 64}
+{'op_key': '1063848:(ram, 0x103bc8, 585, 40):40',
+ 'target': '__printf_chk',
+ 'dispatch_class': 'resolved_thunk_endpoint_deferred',
+ 'status': 'deferred_target_dispatch',
+ 'argument_count': 4,
+ 'carrier_allocation_status': 'complete',
+ 'target_compatibility_status': 'deferred',
+ 'target_compatible': None,
+ 'no_return': False,
+ 'result_width_bits': 8}
+{'op_key': '1063848:(ram, 0x103bd4, 599, 59):59',
+ 'target': 'setlocale',
+ 'dispatch_class': 'external_via_import_thunk',
+ 'status': 'ready',
+ 'argument_count': 2,
+ 'carrier_allocation_status': 'complete',
+ 'target_compatibility_status': 'compatible',
+ 'target_compatible': True,
+ 'no_return': False,
+ 'result_width_bits': 64}
+{'op_key': '1063905:(ram, 0x103bed, 615, 19):19',
+ 'target': 'strncmp',
+ 'dispatch_class': 'external_via_import_thunk',
+ 'status': 'ready',
+ 'argument_count': 3,
+ 'carrier_allocation_status': 'complete',
+ 'target_compatibility_status': 'compatible',
+ 'target_compatible': True,
+ 'no_return': False,
+ 'result_width_bits': 32}
+{'op_key': '1063926:(ram, 0x103c04, 641, 37):37',
+ 'target': 'dcgettext',
+ 'dispatch_class': 'resolved_thunk_endpoint_deferred',
+ 'status': 'deferred_target_dispatch',
+ 'argument_count': 3,
+ 'carrier_allocation_status': 'complete',
+ 'target_compatibility_status': 'deferred',
+ 'target_compatible': None,
+ 'no_return': False,
+ 'result_width_bits': 64}
+{'op_key': '1063926:(ram, 0x103c20, 659, 59):59',
+ 'target': '__printf_chk',
+ 'dispatch_class': 'resolved_thunk_endpoint_deferred',
+ 'status': 'deferred_target_dispatch',
+ 'argument_count': 4,
+ 'carrier_allocation_status': 'complete',
+ 'target_compatibility_status': 'deferred',
+ 'target_compatible': None,
+ 'no_return': False,
+ 'result_width_bits': 8}
+{'op_key': '1063660:(ram, 0x103aec, 400, 19):19',
+ 'target': 'dcgettext',
+ 'dispatch_class': 'resolved_thunk_endpoint_deferred',
+ 'status': 'deferred_target_dispatch',
+ 'argument_count': 3,
+ 'carrier_allocation_status': 'complete',
+ 'target_compatibility_status': 'deferred',
+ 'target_compatible': None,
+ 'no_return': False,
+ 'result_width_bits': 64}
+{'op_key': '1063660:(ram, 0x103b0c, 418, 40):40',
+ 'target': '__printf_chk',
+ 'dispatch_class': 'resolved_thunk_endpoint_deferred',
+ 'status': 'deferred_target_dispatch',
+ 'argument_count': 4,
+ 'carrier_allocation_status': 'complete',
+ 'target_compatibility_status': 'deferred',
+ 'target_compatible': None,
+ 'no_return': False,
+ 'result_width_bits': 8}
+{'op_key': '1063660:(ram, 0x103b18, 432, 59):59',
+ 'target': 'setlocale',
+ 'dispatch_class': 'external_via_import_thunk',
+ 'status': 'ready',
+ 'argument_count': 2,
+ 'carrier_allocation_status': 'complete',
+ 'target_compatibility_status': 'compatible',
+ 'target_compatible': True,
+ 'no_return': False,
+ 'result_width_bits': 64}
+{'op_key': '1063717:(ram, 0x103b31, 448, 19):19',
+ 'target': 'strncmp',
+ 'dispatch_class': 'external_via_import_thunk',
+ 'status': 'ready',
+ 'argument_count': 3,
+ 'carrier_allocation_status': 'complete',
+ 'target_compatibility_status': 'compatible',
+ 'target_compatible': True,
+ 'no_return': False,
+ 'result_width_bits': 32}
+{'op_key': '1063992:(ram, 0x103c4a, 558, 40):40',
+ 'target': 'dcgettext',
+ 'dispatch_class': 'resolved_thunk_endpoint_deferred',
+ 'status': 'deferred_target_dispatch',
+ 'argument_count': 3,
+ 'carrier_allocation_status': 'complete',
+ 'target_compatibility_status': 'deferred',
+ 'target_compatible': None,
+ 'no_return': False,
+ 'result_width_bits': 64}
+{'op_key': '1063992:(ram, 0x103c55, 563, 60):60',
+ 'target': 'fputs_unlocked',
+ 'dispatch_class': 'external_via_import_thunk',
+ 'status': 'ready',
+ 'argument_count': 2,
+ 'carrier_allocation_status': 'complete',
+ 'target_compatibility_status': 'compatible',
+ 'target_compatible': True,
+ 'no_return': False,
+ 'result_width_bits': 32}
+{'op_key': '1063742:(ram, 0x103b4c, 474, 38):38',
+ 'target': 'dcgettext',
+ 'dispatch_class': 'resolved_thunk_endpoint_deferred',
+ 'status': 'deferred_target_dispatch',
+ 'argument_count': 3,
+ 'carrier_allocation_status': 'complete',
+ 'target_compatibility_status': 'deferred',
+ 'target_compatible': None,
+ 'no_return': False,
+ 'result_width_bits': 64}
+{'op_key': '1063742:(ram, 0x103b61, 491, 59):59',
+ 'target': '__printf_chk',
+ 'dispatch_class': 'resolved_thunk_endpoint_deferred',
+ 'status': 'deferred_target_dispatch',
+ 'argument_count': 4,
+ 'carrier_allocation_status': 'complete',
+ 'target_compatibility_status': 'deferred',
+ 'target_compatible': None,
+ 'no_return': False,
+ 'result_width_bits': 8}
+{'op_key': '1063803:(ram, 0x103b89, 523, 39):39',
+ 'target': 'dcgettext',
+ 'dispatch_class': 'resolved_thunk_endpoint_deferred',
+ 'status': 'deferred_target_dispatch',
+ 'argument_count': 3,
+ 'carrier_allocation_status': 'complete',
+ 'target_compatibility_status': 'deferred',
+ 'target_compatible': None,
+ 'no_return': False,
+ 'result_width_bits': 64}
+{'op_key': '1063803:(ram, 0x103b9e, 540, 58):58',
+ 'target': '__printf_chk',
+ 'dispatch_class': 'resolved_thunk_endpoint_deferred',
+ 'status': 'deferred_target_dispatch',
+ 'argument_count': 4,
+ 'carrier_allocation_status': 'complete',
+ 'target_compatibility_status': 'deferred',
+ 'target_compatible': None,
+ 'no_return': False,
+ 'result_width_bits': 8}
+{'op_key': '1063123:(ram, 0x1038dc, 70, 19):19',
+ 'target': 'dcgettext',
+ 'dispatch_class': 'resolved_thunk_endpoint_deferred',
+ 'status': 'deferred_target_dispatch',
+ 'argument_count': 3,
+ 'carrier_allocation_status': 'complete',
+ 'target_compatibility_status': 'deferred',
+ 'target_compatible': None,
+ 'no_return': False,
+ 'result_width_bits': 64}
+{'op_key': '1063123:(ram, 0x1038f8, 89, 40):40',
+ 'target': '__fprintf_chk',
+ 'dispatch_class': 'resolved_thunk_endpoint_deferred',
+ 'status': 'deferred_target_dispatch',
+ 'argument_count': 4,
+ 'carrier_allocation_status': 'complete',
+ 'target_compatibility_status': 'deferred',
+ 'target_compatible': None,
+ 'no_return': False,
+ 'result_width_bits': 8}
+{'op_key': '1063165:(ram, 0x1038ff, 94, 36):36',
+ 'target': 'exit',
+ 'dispatch_class': 'external_via_import_thunk',
+ 'status': 'ready',
+ 'argument_count': 1,
+ 'carrier_allocation_status': 'complete',
+ 'target_compatibility_status': 'compatible',
+ 'target_compatible': True,
+ 'no_return': True,
+ 'result_width_bits': None}
+===== END PAL COMPUTE ANALYZER =====
+
+
+[PHI DROP-INS]
+------------------------------------------------------------
+pred=0x103904 -> join=0x103ab8 :: v_9889 = v_9887
+pred=0x103ac5 -> join=0x103ab8 :: v_9889 = v_9888
+pred=0x103b25 -> join=0x103c38 :: v_3754 = v_946
+pred=0x103c38 -> join=0x103b3e :: v_3764 = v_3754
+pred=0x103aec -> join=0x103b3e :: v_3764 = v_946
+pred=0x103b25 -> join=0x103b3e :: v_3764 = v_946
+------------------------------------------------------------
+{'active': True,
+ 'bound_plans': 677,
+ 'control_contracts_forwarded': 13,
+ 'input_op_contracts': 693,
+ 'input_plans': 677,
+ 'kind': 'phi_compute_consumer_inventory_v21',
+ 'outputless_contracts_forwarded': 16,
+ 'phi_merge_contracts': 131,
+ 'phi_transition_contracts': 6,
+ 'preserved_compute_boundaries': 624,
+ 'preserved_deferred_contracts': 42,
+ 'preserved_outputless_boundaries': 16,
+ 'preserved_outputless_deferred_contracts': 16,
+ 'preserved_outputless_helpers': 0,
+ 'preserved_runtime_helpers': 32,
+ 'rule': 'preserve_PALCompute_authority_remap_execution_destination_only',
+ 'state_alias_bindings': 3,
+ 'transition_owners': {'predecessor_phi_dropin': 3, 'source_state_alias': 3},
+ 'version': 'v21_compute_contract_consumers',
+ 'warnings': 0}
+[]
+
+=== PAL BATCH FAILURE ===
+Traceback (most recent call last):
+  File "PALBatchDecompiler.py", line 884, in _decompile_one
+    result = pipeline_run()
+  File "PALDecompilerPipeline.py", line 708, in run_all
+    self.run_emitter()
+    ~~~~~~~~~~~~~~~~^^
+  File "PALDecompilerPipeline.py", line 620, in run_emitter
+    views = emitter.emit_function_pair()
+  File "PALemitter.py", line 7843, in emit_function_pair
+    executable_lines = list(self.emit_function(self.RENDER_EXECUTABLE))
+                            ~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^
+  File "PALemitter.py", line 7670, in emit_function
+    self._enforce_executable_identity_gate_v46p(
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        rendered_lines
+        ^^^^^^^^^^^^^^
+    )
+    ^
+  File "PALemitter.py", line 7568, in _enforce_executable_identity_gate_v46p
+    raise RuntimeError(
+    ...<3 lines>...
+    )
+RuntimeError: PAL emitter refused executable output with unbound identities: v_3736, v_3757

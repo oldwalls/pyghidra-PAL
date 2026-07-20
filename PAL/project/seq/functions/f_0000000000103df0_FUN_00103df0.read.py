@@ -2,7 +2,25 @@
 # Ghidra function: Global::FUN_00103df0
 # Entry address: 0x103df0
 
+#======= PAL stack versioning ======
+# PALStaticStringPublisher = static_strings_v1_defined_ghidra_data
+# PALBatchDecompiler = batch_v2d_explicit_stdio_overlay_authority
+# PALHumanizer = humanizer_v2_oncs_varnames_recovery
+# PALDecompilerPipeline = unknown
+# PALlibrary.PALLifter = unknown
+# PALlibrary.FunctionCFG = unknown
+# PALSymbolResolver = unknown
+# PALRawAudit = unknown
+# PALCompute = v23b_abi_thunk_compatibility_return_reconciliation
+# PALSemanticGraphBuilder = unknown
+# PALSGLdecomp = unknown
+# PALPHIfolder = v23_abi_f_entry_state_convergence_custody
+# PALemitter = v46p_immutable_abi_context_continuity
+# PALCodeDocument = im_d_v1_projection_alias_edit_sidecars
+#====================================
+
 # PAL readable projection (non-executable)
+# Static C-string call arguments projected from PAL_stdio_strings.json
 # Width/sign contracts remain available in PAL provenance metadata
 
 def FUN_00103df0(param_0, param_1):
@@ -14,11 +32,9 @@ def FUN_00103df0(param_0, param_1):
     strtold(param_0, v_112)
     v_151 = MEM8[local_40]
     v_3043 = local_40
-    abi_tls_base = in_FS_OFFSET
     if v_151 != 0:
         v_1097 = __errno_location()
         v_472 = MEM32[v_1097]
-        abi_tls_base = in_FS_OFFSET
         if DAT_0010c1c0 == 0:
             DAT_0010c1c0 = newlocale(0x1fbf, 0x1090d9, 0)
         if DAT_0010c1c0 == 0:
@@ -51,6 +67,5 @@ def FUN_00103df0(param_0, param_1):
                 else:
                     MEM32[v_1097] <- v_656
                     v_3043 = local_38
-                    abi_tls_base = in_FS_OFFSET
                     if local_40 >= local_38:
                         pass

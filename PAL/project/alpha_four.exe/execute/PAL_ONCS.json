@@ -8,6 +8,7 @@
   },
   "collisions": [],
   "format": "pal_function_name_registry",
+  "function_surface_fingerprint": "surface:sha256:fc7e45574d4b7bb5e4297ccc",
   "functions": {
     "function:0x101000": {
       "active_name": "f_init",
@@ -40,21 +41,21 @@
       "version": "humanizer_v2_oncs_varnames_recovery"
     },
     "function:0x101020": {
-      "active_name": "f_yew",
+      "active_name": "f_pennant",
       "active_name_source": "generated",
       "entry": 1052704,
       "entry_hex": "0x101020",
       "external": false,
       "function_id": "function:0x101020",
-      "generated_name": "f_yew",
+      "generated_name": "f_pennant",
       "humanization_eligible": true,
       "humanization_exclusion_reason": null,
       "identity_mutated": false,
       "kind": "pal_function_name_contract_v2_oncs",
       "module": "functions.f_0000000000101020_FUN_00101020",
       "oncs": {
-        "active": "f_yew",
-        "humanizer": "f_yew",
+        "active": "f_pennant",
+        "humanizer": "f_pennant",
         "operator": null,
         "pal": "f_FUN_00101020",
         "ssa": "FUN_00101020"
@@ -369,19 +370,19 @@
       "thunk": false,
       "version": "humanizer_v2_oncs_varnames_recovery"
     },
-    "function:0x1012dc": {
+    "function:0x10130c": {
       "active_name": "f_fini",
       "active_name_source": "pal",
-      "entry": 1053404,
-      "entry_hex": "0x1012dc",
+      "entry": 1053452,
+      "entry_hex": "0x10130c",
       "external": false,
-      "function_id": "function:0x1012dc",
+      "function_id": "function:0x10130c",
       "generated_name": null,
       "humanization_eligible": false,
       "humanization_exclusion_reason": "meaningful_function_name",
       "identity_mutated": false,
       "kind": "pal_function_name_contract_v2_oncs",
-      "module": "functions.f_00000000001012dc_fini",
+      "module": "functions.f_000000000010130c_fini",
       "oncs": {
         "active": "f_fini",
         "humanizer": null,
@@ -580,7 +581,17 @@
       "version": "humanizer_v2_oncs_varnames_recovery"
     }
   },
-  "program_identity": "program:sha256:961149958ed4776fcf4e",
+  "program_descriptor": {
+    "compiler_spec_id": "gcc",
+    "executable_format": "Executable and Linking Format (ELF)",
+    "executable_name": "alpha_four.exe",
+    "image_base": "0x100000",
+    "language_id": "x86:LE:64:default",
+    "name": "alpha_four.exe"
+  },
+  "program_identity": "program:sha256:f3b57aae2af3faf6d3e3",
+  "program_identity_policy": "portable_descriptor_identity_with_reconcilable_function_surface_v5",
+  "registry_continuity_mode": "new_registry",
   "revision": 0,
   "revisions": [],
   "rule": "project-global f_ metadata views over immutable entry identity",

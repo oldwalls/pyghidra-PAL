@@ -1,15 +1,15 @@
 
 === PAL BATCH FAILURE ===
 Traceback (most recent call last):
-  File "/home/rem/gh/PAL/PALBatchDecompiler.py", line 698, in _decompile_one
+  File "PALBatchDecompiler.py", line 884, in _decompile_one
     result = pipeline_run()
-  File "/home/rem/gh/PAL/PALDecompilerPipeline.py", line 690, in run_all
+  File "PALDecompilerPipeline.py", line 690, in run_all
     self.run_lift()
     ~~~~~~~~~~~~~^^
-  File "/home/rem/gh/PAL/PALDecompilerPipeline.py", line 498, in run_lift
+  File "PALDecompilerPipeline.py", line 498, in run_lift
     self.PAL = self.PAL.lift()
                ~~~~~~~~~~~~~^^
-  File "/home/rem/gh/PAL/PALlibrary.py", line 2443, in lift
+  File "PALlibrary.py", line 2443, in lift
     vn = high_var.getRepresentative()
          ^^^^^^^^^^^^^^^^^^^^^^^^^^
 AttributeError: 'NoneType' object has no attribute 'getRepresentative'

@@ -6,12 +6,17 @@ int feedback(int x, int y) { return x - (y * 3); }
 
 int main(void) {
     int alpha = 0x10;
-    int beta = 0x20;
+    int beta = 0x0;
     int gamma = 0;
     int counter = 0;
 
+    // Hard safety limits: preserve the original control-flow traps while
+    // guaranteeing that neither the nested loop nor the outer loop can run
+    // indefinitely.
+    const int max_outer_loops = 12;
+    const int max_inner_loops = 16;
+
     // TRAP 1: The Do-While Loop
-    // Decompilers often incorrectly translate this into a 'while(true)' with a break at the end.
     do {
         alpha = mutate(alpha + counter);
 
@@ -20,10 +25,9 @@ int main(void) {
             gamma = feedback(alpha, i);
 
             // TRAP 3: The 'continue' statement
-            // AST recovery often struggles to place 'continue' vs wrapping the rest in an 'else'
             if ((gamma ^ beta) % 3 == 0) {
                 beta -= 2;
-                continue; 
+                continue;
             }
 
             // TRAP 4: Switch Fallthrough
@@ -35,14 +39,29 @@ int main(void) {
                 case 2:
                     beta += 5;
                     break;
-                case 3:
-                    // TRAP 5: Loop inside a switch case
-                    // The 'break' here escapes the while, but NOT the switch!
-                    while (gamma > 0) {
+
+                case 3: {
+                    // TRAP 5: Loop inside a switch case.
+                    //
+                    // The original specimen can enter the cycle:
+                    //
+                    //     75 -> 31 -> 75 -> 31 -> ...
+                    //
+                    // so this loop now has an independent hard iteration cap.
+                    int inner_steps = 0;
+
+                    while (gamma > 0 &&
+                           inner_steps < max_inner_loops) {
                         gamma = mutate(gamma >> 1);
-                        if (gamma == 15) break; 
+                        inner_steps++;
+
+                        if (gamma == 15) {
+                            break;
+                        }
                     }
                     break;
+                }
+
                 default:
                     alpha -= beta;
                     break;
@@ -63,10 +82,19 @@ int main(void) {
         }
 
         counter++;
-        
-    // Complex tail condition
-    } while (counter < 5 || alpha < 100);
 
-    printf("Final: %d, %d, %d\n", alpha, beta, gamma);
+    // Preserve the original complex tail condition, but add a definitive
+    // outer-loop ceiling.
+    } while ((counter < 5 || alpha < 100) &&
+             counter < max_outer_loops);
+
+    printf(
+        "Final after %d outer loops: %d, %d, %d\n",
+        counter,
+        alpha,
+        beta,
+        gamma
+    );
+
     return alpha + beta;
 }
