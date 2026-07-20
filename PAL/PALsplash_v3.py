@@ -44,7 +44,7 @@ LOGO_LINES: Tuple[str, ...] = (
 NOISE_RAMP = " .:-=+*#%@"
 LOGO_RAMP = " .:-=+*#%@"
 COMET_TRAIL = "@*+=-:."
-DEFAULT_SUBTITLE = "PyGhidra / Python Abstraction Layer / pre-Alpha v0.21"
+DEFAULT_SUBTITLE = "PyGhidra / Python Abstraction Layer / pre-Alpha v0.23"
 DEFAULT_FOOTER = "PAL is an execution analysis oriented binary forensics reconstructive platform."
 DEFAULT_PROMPT = "PRESS ANY KEY TO START"
 
