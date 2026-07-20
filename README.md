@@ -1,4 +1,4 @@
-# 🛠️ UPDATE — PRE-ALPHA DEPLOYMENT FIX
+# 🛠️ v0.23 UPDATE — PRE-ALPHA DEPLOYMENT FIX
 
 This update fixes several major initial-release errors which directly impacted PAL functionality, generated-code fidelity, project portability and actual EXEC execution.
 
