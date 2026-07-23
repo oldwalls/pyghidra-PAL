@@ -1,25 +1,15 @@
-# 🛠️ v0.23 UPDATE — PRE-ALPHA DEPLOYMENT FIX
 
-This update fixes several major initial-release errors which directly impacted PAL functionality, generated-code fidelity, project portability and actual EXEC execution.
+# 🚀 PALTermUI neptune — v0.23r Pre-Alpha Preview
 
-The important thing: the full 9-specimen O0/O3 + `drop_axe` matrix now imports, publishes and executes successfully.
+A new opt-in PAL interface is available under /neptune: PALTermUI neptune, a synchronized PHI–ASM–Python workbench for inspecting generated Python state machines against their machine-code and state-custody evidence.
 
-Very terse damage report / repairs:
+neptune introduces STATIC DEBUG, branchable static ASM history, conditional fork inspection, PHI custody tracing, active naming overlays, search-driven Python-to-machine navigation, and the four-pane OVERVIEW evidence matrix. Human testing against the existing repository and newly generated PAL data has produced no known crashes, and the interface has already exposed previously hidden semantic-lifting defects such as an unlifted loop condition behind a generated while True: construct.
 
-- portable PAL project paths; removed private absolute-path dependence
-- hardened PyGhidra import and fresh-project handling
-- fixed stale/recompiled ONCS function-name registry migration
-- restored static string extraction and READ string materialization
-- fixed missing ABI argument-to-local initialization
-- fixed PHI-entry local-state seeding
-- stopped mutable locals collapsing back into ABI parameters
-- restored exact machine-carrier aliases such as `in_FS_OFFSET -> abi_tls_base`
-- preserved immutable TLS/stack context through later SSA state
-- added unbound EXEC identity rejection before runtime
-- stabilized generated EXEC publication and shared runtime layout
-- added PAL stack-version stamps to generated READ/EXEC files
-- added portable full-matrix regeneration and publication scripts
-- verified all nine current matrix specimens through import and execution
+The preview is intentionally isolated: PALTermUI_neptune.py does not replace the repository's current default PALTermUI.py.
+
+Status: usable pre-alpha preview; search/highlight behavior and semantic edge cases remain under active testing.
+
+https://github.com/oldwalls/pyghidra-PAL/tree/main/neptune
 
 PAL is still pre-alpha. It will still find walls, termites, strange compiler fossils and functions which invent a new category of trouble. But this update removes the major first-release execution blockers and gives the project a much cleaner deployment baseline.
 
@@ -27,6 +17,12 @@ I wanna personally thank you for your interest in this project.
 
 ---
 
+### new static debug feature
+
+<img width="3840" height="1998" alt="image" src="https://github.com/user-attachments/assets/02632314-28db-4630-a6ba-a60015d68a31" />
+
+
+---
 
 <img width="2186" height="1221" alt="PAL_ghidra_spatial" src="https://github.com/user-attachments/assets/fed079f1-cb10-4733-868d-436d60e429b1" />
 
