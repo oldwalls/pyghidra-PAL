@@ -40,7 +40,7 @@ from PALUIDigest import (
     percentage_document_position,
     projection_hotspots,
 )
-from PALsplash_v3 import draw_splash, logo_print
+from PALsplash_v4 import draw_splash, logo_print
 
 PROJECTS_DIRECTORY = "project"
 PROJECT_MANIFEST = "PAL_function_manifest.json"
