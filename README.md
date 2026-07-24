@@ -1,5 +1,7 @@
-<img width="1024" height="694" alt="image" src="https://github.com/user-attachments/assets/af12821a-101b-45fc-b666-871ffa93817b" />
+<img width="1024" height="694" alt="image" src="https://github.com/user-attachments/assets/b050d1f0-7f7c-4356-9926-02d6ce0cc51e" />
+..oO( ... working on a full piepline and termUI release v0.24 (mars) = 13 binary specimens fully executing, automated debug and publish PALTermUI neptune update rolled in .... )Oo...
 
+----
 
 # 🚀 PALTermUI neptune — v0.23r Pre-Alpha Preview
 
