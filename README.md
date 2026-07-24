@@ -1,3 +1,5 @@
+<img width="1024" height="694" alt="image" src="https://github.com/user-attachments/assets/af12821a-101b-45fc-b666-871ffa93817b" />
+
 
 # 🚀 PALTermUI neptune — v0.23r Pre-Alpha Preview
 
@@ -24,9 +26,6 @@ I wanna personally thank you for your interest in this project.
 
 ---
 
-<img width="2186" height="1221" alt="PAL_ghidra_spatial" src="https://github.com/user-attachments/assets/fed079f1-cb10-4733-868d-436d60e429b1" />
-
----
 
 ### pre-Alpha v0.23 (work in progress)
 
