@@ -23,7 +23,8 @@ I wanna personally thank you for your interest in this project.
 
 ### new static debug feature
 
-<img width="3840" height="1998" alt="image" src="https://github.com/user-attachments/assets/02632314-28db-4630-a6ba-a60015d68a31" />
+<img width="3840" height="1998" alt="image" src="https://github.com/user-attachments/assets/6533d5d0-8369-45e1-9b12-40247cc3e593" />
+
 
 
 ---
