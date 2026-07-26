@@ -35,7 +35,7 @@ I wanna personally thank you for your interest in this project.
 
 **Document role:** architecture starter and custody map  
 **Status:** living experimental alpha design  
-**AI analysis stack:** code: GPT SOL high & max / adversarial: GEMINI Flash extended / Sonnet 5 extra 
+**AI analysis stack:** code: GPT SOL high & max / adversarial: GEMINI Flash extended / CLAUDE Sonnet 5 extra 
 
 ---
 
@@ -99,6 +99,12 @@ flowchart TD
     PHI --> EM["Dual-path Emitter"]
     EM --> DOC["CodeDocument / Icecube"]
 ```
+
+#### AI generated conceputal stack overview based on README.md
+
+<img width="1280" height="720" alt="visual-0-1784932252175" src="https://github.com/user-attachments/assets/8e00c4fe-e137-4abc-9a7d-b24f795605cc" />
+
+## Topology of the PAL ecosystem
 
 ### 1. Lifter / `PALlibrary`
 
