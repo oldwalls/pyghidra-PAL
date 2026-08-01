@@ -1,0 +1,884 @@
+
+===== CFG DEBUG =====
+
+[EDGES]
+0x1011a1 -> 0x10133e  uncond raw=uncond role=uncond pol=unknown inv=None edge=cfg-edge-v1:0x1011a1->0x10133e direct_join=False
+0x1011ca -> 0x1011fd  true raw=true role=raw_true_explicit_target pol=target inv=False edge=cfg-edge-v1:0x1011ca->0x1011fd direct_join=False
+0x1011ca -> 0x1011e6  false raw=false role=raw_false_fallthrough pol=target inv=True edge=cfg-edge-v1:0x1011ca->0x1011e6 direct_join=False
+0x1011e6 -> 0x1012a1  true raw=true role=raw_true_explicit_target pol=fallthrough inv=True edge=cfg-edge-v1:0x1011e6->0x1012a1 direct_join=False
+0x1011e6 -> 0x1011f0  false raw=false role=raw_false_fallthrough pol=fallthrough inv=False edge=cfg-edge-v1:0x1011e6->0x1011f0 direct_join=False
+0x1011f0 -> 0x1012a1  true raw=true role=raw_true_explicit_target pol=fallthrough inv=True edge=cfg-edge-v1:0x1011f0->0x1012a1 direct_join=False
+0x1011f0 -> 0x1011fd  false raw=false role=raw_false_fallthrough pol=fallthrough inv=False edge=cfg-edge-v1:0x1011f0->0x1011fd direct_join=False
+0x1011fd -> 0x101295  uncond raw=uncond role=uncond pol=unknown inv=None edge=cfg-edge-v1:0x1011fd->0x101295 direct_join=False
+0x101209 -> 0x101271  true raw=true role=raw_true_explicit_target pol=target inv=False edge=cfg-edge-v1:0x101209->0x101271 direct_join=False
+0x101209 -> 0x10122e  false raw=false role=raw_false_fallthrough pol=target inv=True edge=cfg-edge-v1:0x101209->0x10122e direct_join=False
+0x10122e -> 0x10128d  true raw=true role=raw_true_explicit_target pol=fallthrough inv=True edge=cfg-edge-v1:0x10122e->0x10128d direct_join=False
+0x10122e -> 0x101233  false raw=false role=raw_false_fallthrough pol=fallthrough inv=False edge=cfg-edge-v1:0x10122e->0x101233 direct_join=False
+0x101233 -> 0x10123e  true raw=true role=raw_true_explicit_target pol=target inv=False edge=cfg-edge-v1:0x101233->0x10123e direct_join=False
+0x101233 -> 0x101237  false raw=false role=raw_false_fallthrough pol=target inv=True edge=cfg-edge-v1:0x101233->0x101237 direct_join=False
+0x101237 -> 0x101249  true raw=true role=raw_true_explicit_target pol=fallthrough inv=True edge=cfg-edge-v1:0x101237->0x101249 direct_join=False
+0x101237 -> 0x10128d  false raw=false role=raw_false_fallthrough pol=fallthrough inv=False edge=cfg-edge-v1:0x101237->0x10128d direct_join=False
+0x10123e -> 0x101291  uncond raw=uncond role=uncond pol=unknown inv=None edge=cfg-edge-v1:0x10123e->0x101291 direct_join=False
+0x101249 -> 0x101262  true raw=true role=raw_true_explicit_target pol=target inv=False edge=cfg-edge-v1:0x101249->0x101262 direct_join=False
+0x101249 -> 0x10125c  false raw=false role=raw_false_fallthrough pol=target inv=True edge=cfg-edge-v1:0x101249->0x10125c direct_join=False
+0x10125c -> 0x101291  uncond raw=uncond role=uncond pol=unknown inv=None edge=cfg-edge-v1:0x10125c->0x101291 direct_join=False
+0x101262 -> 0x101291  uncond raw=uncond role=uncond pol=unknown inv=None edge=cfg-edge-v1:0x101262->0x101291 direct_join=False
+0x101271 -> 0x101282  true raw=true role=raw_true_explicit_target pol=fallthrough inv=True edge=cfg-edge-v1:0x101271->0x101282 direct_join=False
+0x101271 -> 0x10127a  false raw=false role=raw_false_fallthrough pol=fallthrough inv=False edge=cfg-edge-v1:0x101271->0x10127a direct_join=False
+0x10127a -> 0x101291  uncond raw=uncond role=uncond pol=unknown inv=None edge=cfg-edge-v1:0x10127a->0x101291 direct_join=False
+0x101282 -> 0x101291  uncond raw=uncond role=uncond pol=unknown inv=None edge=cfg-edge-v1:0x101282->0x101291 direct_join=False
+0x10128d -> 0x101291  uncond raw=uncond role=uncond pol=unknown inv=None edge=cfg-edge-v1:0x10128d->0x101291 direct_join=False
+0x101291 -> 0x101295  backedge raw=uncond role=latch_to_header pol=unknown inv=None edge=cfg-edge-v1:0x101291->0x101295 direct_join=False
+0x101295 -> 0x101209  true raw=true role=raw_true_explicit_target pol=fallthrough inv=True edge=cfg-edge-v1:0x101295->0x101209 direct_join=False
+0x101295 -> 0x1012fc  false raw=false role=raw_false_fallthrough pol=fallthrough inv=False edge=cfg-edge-v1:0x101295->0x1012fc direct_join=True
+0x1012a1 -> 0x1012b7  true raw=true role=raw_true_explicit_target pol=fallthrough inv=True edge=cfg-edge-v1:0x1012a1->0x1012b7 direct_join=False
+0x1012a1 -> 0x1012ab  false raw=false role=raw_false_fallthrough pol=fallthrough inv=False edge=cfg-edge-v1:0x1012a1->0x1012ab direct_join=False
+0x1012ab -> 0x1012c1  uncond raw=uncond role=uncond pol=unknown inv=None edge=cfg-edge-v1:0x1012ab->0x1012c1 direct_join=False
+0x1012b7 -> 0x1012c1  uncond raw=uncond role=uncond pol=unknown inv=None edge=cfg-edge-v1:0x1012b7->0x1012c1 direct_join=False
+0x1012c1 -> 0x1012f6  uncond raw=uncond role=uncond pol=unknown inv=None edge=cfg-edge-v1:0x1012c1->0x1012f6 direct_join=False
+0x1012cd -> 0x1012e9  true raw=true role=raw_true_explicit_target pol=target inv=False edge=cfg-edge-v1:0x1012cd->0x1012e9 direct_join=False
+0x1012cd -> 0x1012e0  false raw=false role=raw_false_fallthrough pol=target inv=True edge=cfg-edge-v1:0x1012cd->0x1012e0 direct_join=False
+0x1012e0 -> 0x1012f2  uncond raw=uncond role=uncond pol=unknown inv=None edge=cfg-edge-v1:0x1012e0->0x1012f2 direct_join=False
+0x1012e9 -> 0x1012f2  uncond raw=uncond role=uncond pol=unknown inv=None edge=cfg-edge-v1:0x1012e9->0x1012f2 direct_join=False
+0x1012f2 -> 0x1012f6  backedge raw=uncond role=latch_to_header pol=unknown inv=None edge=cfg-edge-v1:0x1012f2->0x1012f6 direct_join=False
+0x1012f6 -> 0x1012cd  true raw=true role=raw_true_explicit_target pol=fallthrough inv=True edge=cfg-edge-v1:0x1012f6->0x1012cd direct_join=False
+0x1012f6 -> 0x1012fc  false raw=false role=raw_false_fallthrough pol=fallthrough inv=False edge=cfg-edge-v1:0x1012f6->0x1012fc direct_join=True
+0x1012fc -> 0x10133a  true raw=true role=raw_true_explicit_target pol=fallthrough inv=True edge=cfg-edge-v1:0x1012fc->0x10133a direct_join=True
+0x1012fc -> 0x101336  false raw=false role=raw_false_fallthrough pol=fallthrough inv=False edge=cfg-edge-v1:0x1012fc->0x101336 direct_join=False
+0x101336 -> 0x10133a  uncond raw=uncond role=uncond pol=unknown inv=None edge=cfg-edge-v1:0x101336->0x10133a direct_join=False
+0x10133a -> 0x10133e  backedge raw=uncond role=latch_to_header pol=unknown inv=None edge=cfg-edge-v1:0x10133a->0x10133e direct_join=False
+0x10133e -> 0x1011ca  true raw=true role=raw_true_explicit_target pol=target inv=False edge=cfg-edge-v1:0x10133e->0x1011ca direct_join=False
+0x10133e -> 0x10134a  false raw=false role=raw_false_fallthrough pol=target inv=True edge=cfg-edge-v1:0x10133e->0x10134a direct_join=True
+
+[BRANCH RESOLUTION EVENTS]
+{'kind': 'binary_branch_truth_bound_by_evidence_class_v21d', 'src': 1053502, 'first_dst': 1053130, 'second_dst': 1053514, 'hf_target': 1053130, 'hf_normalized_target': 1053130, 'direct_dst': 1053130, 'first_invert': False, 'second_invert': True, 'condition_truth_authority': 'raw_jcc_hf_relation_direct_flags', 'reason': 'branch_truth_evidence_v21d hf_target=0x1011ca raw_target=0x1011ca raw_fallthrough=0x10134a legacy_hint=(mnemonic=JL hf_cond_opcode=INT_SLESS) class=direct_flags', 'relation_evidence': {'version': 'ordered_relation_algebra_v23e', 'status': 'unresolved', 'mnemonic': 'JL', 'raw_relation': 'LT', 'raw_domain': 'signed', 'hf_opcode': 'INT_SLESS', 'hf_relation': 'LT', 'hf_domain': 'signed', 'operand_profile': {'status': 'unresolved', 'reason': 'constant_threshold_requires_exact_value_custody', 'operand_count': 2, 'left_sid': 'c_4_4', 'right_sid': 'v_6660', 'left_identity': ('constant', 32, 4), 'right_identity': ('high', 'high_rep:6660'), 'left_width_bits': 32, 'right_width_bits': 32, 'left_constant': True, 'right_constant': False}, 'operand_orientation': None, 'relation_to_hf': None, 'invert_for_target': None, 'invert_for_fallthrough': None, 'reason': 'constant_threshold_requires_exact_value_custody', 'legacy_hint_resolved': True, 'selected_as_authority': False}, 'boolean_carrier_evidence': {'status': 'proven_boolean', 'reason': 'comparison_result_is_boolean', 'root_opcode': 'INT_SLESS', 'contains_multiequal': False, 'depth': 0}}
+{'kind': 'binary_branch_truth_bound_by_evidence_class_v21d', 'src': 1053130, 'first_dst': 1053181, 'second_dst': 1053158, 'hf_target': 1053181, 'hf_normalized_target': 1053181, 'direct_dst': 1053181, 'first_invert': False, 'second_invert': True, 'condition_truth_authority': 'raw_jcc_hf_relation_direct_flags', 'reason': 'branch_truth_evidence_v21d hf_target=0x1011fd raw_target=0x1011fd raw_fallthrough=0x1011e6 legacy_hint=(mnemonic=JZ hf_cond_opcode=INT_EQUAL) class=direct_flags', 'relation_evidence': {'version': 'ordered_relation_algebra_v23e', 'status': 'unresolved', 'mnemonic': 'JZ', 'raw_relation': None, 'raw_domain': None, 'hf_opcode': 'INT_EQUAL', 'hf_relation': None, 'hf_domain': None, 'operand_profile': {'status': 'unresolved', 'reason': 'constant_threshold_requires_exact_value_custody', 'operand_count': 2, 'left_sid': 'v_263', 'right_sid': 'c_0_4', 'left_identity': ('high', 'high_rep:263'), 'right_identity': ('constant', 32, 0), 'left_width_bits': 32, 'right_width_bits': 32, 'left_constant': False, 'right_constant': True}, 'operand_orientation': None, 'relation_to_hf': None, 'invert_for_target': None, 'invert_for_fallthrough': None, 'reason': 'ordered_relation_family_not_applicable', 'legacy_hint_resolved': True, 'selected_as_authority': False}, 'boolean_carrier_evidence': {'status': 'proven_boolean', 'reason': 'comparison_result_is_boolean', 'root_opcode': 'INT_EQUAL', 'contains_multiequal': False, 'depth': 0}}
+{'kind': 'binary_branch_truth_bound_by_evidence_class_v21d', 'src': 1053158, 'first_dst': 1053345, 'second_dst': 1053168, 'hf_target': 1053345, 'hf_normalized_target': 1053345, 'direct_dst': 1053168, 'first_invert': True, 'second_invert': False, 'condition_truth_authority': 'raw_jcc_hf_relation_direct_flags', 'reason': 'branch_truth_evidence_v21d hf_target=0x1012a1 raw_target=0x1012a1 raw_fallthrough=0x1011f0 legacy_hint=(mnemonic=JLE hf_cond_opcode=INT_SLESS) class=direct_flags', 'relation_evidence': {'version': 'ordered_relation_algebra_v23e', 'status': 'unresolved', 'mnemonic': 'JLE', 'raw_relation': 'LE', 'raw_domain': 'signed', 'hf_opcode': 'INT_SLESS', 'hf_relation': 'LT', 'hf_domain': 'signed', 'operand_profile': {'status': 'unresolved', 'reason': 'constant_threshold_requires_exact_value_custody', 'operand_count': 2, 'left_sid': 'c_1_4', 'right_sid': 'v_6661', 'left_identity': ('constant', 32, 1), 'right_identity': ('high', 'high_rep:6661'), 'left_width_bits': 32, 'right_width_bits': 32, 'left_constant': True, 'right_constant': False}, 'operand_orientation': None, 'relation_to_hf': None, 'invert_for_target': None, 'invert_for_fallthrough': None, 'reason': 'constant_threshold_requires_exact_value_custody', 'legacy_hint_resolved': True, 'selected_as_authority': False}, 'boolean_carrier_evidence': {'status': 'proven_boolean', 'reason': 'comparison_result_is_boolean', 'root_opcode': 'INT_SLESS', 'contains_multiequal': False, 'depth': 0}}
+{'kind': 'binary_branch_truth_bound_by_evidence_class_v21d', 'src': 1053168, 'first_dst': 1053345, 'second_dst': 1053181, 'hf_target': 1053345, 'hf_normalized_target': 1053345, 'direct_dst': 1053181, 'first_invert': True, 'second_invert': False, 'condition_truth_authority': 'raw_jcc_hf_relation_direct_flags', 'reason': 'branch_truth_evidence_v21d hf_target=0x1012a1 raw_target=0x1012a1 raw_fallthrough=0x1011fd legacy_hint=(mnemonic=JG hf_cond_opcode=INT_SLESS) class=direct_flags', 'relation_evidence': {'version': 'ordered_relation_algebra_v23e', 'status': 'unresolved', 'mnemonic': 'JG', 'raw_relation': 'GT', 'raw_domain': 'signed', 'hf_opcode': 'INT_SLESS', 'hf_relation': 'LT', 'hf_domain': 'signed', 'operand_profile': {'status': 'unresolved', 'reason': 'constant_threshold_requires_exact_value_custody', 'operand_count': 2, 'left_sid': 'v_6662', 'right_sid': 'c_500_4', 'left_identity': ('high', 'high_rep:6662'), 'right_identity': ('constant', 32, 500), 'left_width_bits': 32, 'right_width_bits': 32, 'left_constant': False, 'right_constant': True}, 'operand_orientation': None, 'relation_to_hf': None, 'invert_for_target': None, 'invert_for_fallthrough': None, 'reason': 'constant_threshold_requires_exact_value_custody', 'legacy_hint_resolved': True, 'selected_as_authority': False}, 'boolean_carrier_evidence': {'status': 'proven_boolean', 'reason': 'comparison_result_is_boolean', 'root_opcode': 'INT_SLESS', 'contains_multiequal': False, 'depth': 0}}
+{'kind': 'binary_branch_truth_bound_by_evidence_class_v21d', 'src': 1053333, 'first_dst': 1053193, 'second_dst': 1053436, 'hf_target': 1053193, 'hf_normalized_target': 1053193, 'direct_dst': 1053436, 'first_invert': True, 'second_invert': False, 'condition_truth_authority': 'raw_jcc_hf_relation_direct_flags', 'reason': 'branch_truth_evidence_v21d hf_target=0x101209 raw_target=0x101209 raw_fallthrough=0x1012fc legacy_hint=(mnemonic=JLE hf_cond_opcode=INT_SLESS) class=direct_flags', 'relation_evidence': {'version': 'ordered_relation_algebra_v23e', 'status': 'unresolved', 'mnemonic': 'JLE', 'raw_relation': 'LE', 'raw_domain': 'signed', 'hf_opcode': 'INT_SLESS', 'hf_relation': 'LT', 'hf_domain': 'signed', 'operand_profile': {'status': 'unresolved', 'reason': 'constant_threshold_requires_exact_value_custody', 'operand_count': 2, 'left_sid': 'v_6337', 'right_sid': 'c_3_4', 'left_identity': ('high', 'high_rep:6067'), 'right_identity': ('constant', 32, 3), 'left_width_bits': 32, 'right_width_bits': 32, 'left_constant': False, 'right_constant': True}, 'operand_orientation': None, 'relation_to_hf': None, 'invert_for_target': None, 'invert_for_fallthrough': None, 'reason': 'constant_threshold_requires_exact_value_custody', 'legacy_hint_resolved': True, 'selected_as_authority': False}, 'boolean_carrier_evidence': {'status': 'proven_boolean', 'reason': 'comparison_result_is_boolean', 'root_opcode': 'INT_SLESS', 'contains_multiequal': False, 'depth': 0}}
+{'kind': 'binary_branch_truth_bound_by_evidence_class_v21d', 'src': 1053193, 'first_dst': 1053297, 'second_dst': 1053230, 'hf_target': 1053297, 'hf_normalized_target': 1053297, 'direct_dst': 1053297, 'first_invert': False, 'second_invert': True, 'condition_truth_authority': 'raw_jcc_hf_relation_direct_flags', 'reason': 'branch_truth_evidence_v21d hf_target=0x101271 raw_target=0x101271 raw_fallthrough=0x10122e legacy_hint=(mnemonic=JZ hf_cond_opcode=INT_EQUAL) class=direct_flags', 'relation_evidence': {'version': 'ordered_relation_algebra_v23e', 'status': 'unresolved', 'mnemonic': 'JZ', 'raw_relation': None, 'raw_domain': None, 'hf_opcode': 'INT_EQUAL', 'hf_relation': None, 'hf_domain': None, 'operand_profile': {'status': 'unresolved', 'reason': 'constant_threshold_requires_exact_value_custody', 'operand_count': 2, 'left_sid': 'v_1460', 'right_sid': 'c_2_4', 'left_identity': ('high', 'high_rep:1460'), 'right_identity': ('constant', 32, 2), 'left_width_bits': 32, 'right_width_bits': 32, 'left_constant': False, 'right_constant': True}, 'operand_orientation': None, 'relation_to_hf': None, 'invert_for_target': None, 'invert_for_fallthrough': None, 'reason': 'ordered_relation_family_not_applicable', 'legacy_hint_resolved': True, 'selected_as_authority': False}, 'boolean_carrier_evidence': {'status': 'proven_boolean', 'reason': 'comparison_result_is_boolean', 'root_opcode': 'INT_EQUAL', 'contains_multiequal': False, 'depth': 0}}
+{'kind': 'binary_branch_truth_bound_by_evidence_class_v21d', 'src': 1053297, 'first_dst': 1053314, 'second_dst': 1053306, 'hf_target': 1053314, 'hf_normalized_target': 1053314, 'direct_dst': 1053306, 'first_invert': True, 'second_invert': False, 'condition_truth_authority': 'raw_jcc_hf_relation_direct_flags', 'reason': 'branch_truth_evidence_v21d hf_target=0x101282 raw_target=0x101282 raw_fallthrough=0x10127a legacy_hint=(mnemonic=JLE hf_cond_opcode=INT_SLESS) class=direct_flags', 'relation_evidence': {'version': 'ordered_relation_algebra_v23e', 'status': 'unresolved', 'mnemonic': 'JLE', 'raw_relation': 'LE', 'raw_domain': 'signed', 'hf_opcode': 'INT_SLESS', 'hf_relation': 'LT', 'hf_domain': 'signed', 'operand_profile': {'status': 'unresolved', 'reason': 'constant_threshold_requires_exact_value_custody', 'operand_count': 2, 'left_sid': 'v_6664', 'right_sid': 'c_201_4', 'left_identity': ('high', 'high_rep:6664'), 'right_identity': ('constant', 32, 201), 'left_width_bits': 32, 'right_width_bits': 32, 'left_constant': False, 'right_constant': True}, 'operand_orientation': None, 'relation_to_hf': None, 'invert_for_target': None, 'invert_for_fallthrough': None, 'reason': 'constant_threshold_requires_exact_value_custody', 'legacy_hint_resolved': True, 'selected_as_authority': False}, 'boolean_carrier_evidence': {'status': 'proven_boolean', 'reason': 'comparison_result_is_boolean', 'root_opcode': 'INT_SLESS', 'contains_multiequal': False, 'depth': 0}}
+{'kind': 'binary_branch_truth_bound_by_evidence_class_v21d', 'src': 1053230, 'first_dst': 1053325, 'second_dst': 1053235, 'hf_target': 1053325, 'hf_normalized_target': 1053325, 'direct_dst': 1053235, 'first_invert': True, 'second_invert': False, 'condition_truth_authority': 'raw_jcc_hf_relation_direct_flags', 'reason': 'branch_truth_evidence_v21d hf_target=0x10128d raw_target=0x10128d raw_fallthrough=0x101233 legacy_hint=(mnemonic=JG hf_cond_opcode=INT_SLESS) class=direct_flags', 'relation_evidence': {'version': 'ordered_relation_algebra_v23e', 'status': 'unresolved', 'mnemonic': 'JG', 'raw_relation': 'GT', 'raw_domain': 'signed', 'hf_opcode': 'INT_SLESS', 'hf_relation': 'LT', 'hf_domain': 'signed', 'operand_profile': {'status': 'unresolved', 'reason': 'constant_threshold_requires_exact_value_custody', 'operand_count': 2, 'left_sid': 'v_1460', 'right_sid': 'c_3_4', 'left_identity': ('high', 'high_rep:1460'), 'right_identity': ('constant', 32, 3), 'left_width_bits': 32, 'right_width_bits': 32, 'left_constant': False, 'right_constant': True}, 'operand_orientation': None, 'relation_to_hf': None, 'invert_for_target': None, 'invert_for_fallthrough': None, 'reason': 'constant_threshold_requires_exact_value_custody', 'legacy_hint_resolved': True, 'selected_as_authority': False}, 'boolean_carrier_evidence': {'status': 'proven_boolean', 'reason': 'comparison_result_is_boolean', 'root_opcode': 'INT_SLESS', 'contains_multiequal': False, 'depth': 0}}
+{'kind': 'binary_branch_truth_bound_by_evidence_class_v21d', 'src': 1053235, 'first_dst': 1053246, 'second_dst': 1053239, 'hf_target': 1053246, 'hf_normalized_target': 1053246, 'direct_dst': 1053246, 'first_invert': False, 'second_invert': True, 'condition_truth_authority': 'raw_jcc_hf_relation_direct_flags', 'reason': 'branch_truth_evidence_v21d hf_target=0x10123e raw_target=0x10123e raw_fallthrough=0x101237 legacy_hint=(mnemonic=JZ hf_cond_opcode=INT_EQUAL) class=direct_flags', 'relation_evidence': {'version': 'ordered_relation_algebra_v23e', 'status': 'unresolved', 'mnemonic': 'JZ', 'raw_relation': None, 'raw_domain': None, 'hf_opcode': 'INT_EQUAL', 'hf_relation': None, 'hf_domain': None, 'operand_profile': {'status': 'unresolved', 'reason': 'constant_threshold_requires_exact_value_custody', 'operand_count': 2, 'left_sid': 'v_1460', 'right_sid': 'c_0_4', 'left_identity': ('high', 'high_rep:1460'), 'right_identity': ('constant', 32, 0), 'left_width_bits': 32, 'right_width_bits': 32, 'left_constant': False, 'right_constant': True}, 'operand_orientation': None, 'relation_to_hf': None, 'invert_for_target': None, 'invert_for_fallthrough': None, 'reason': 'ordered_relation_family_not_applicable', 'legacy_hint_resolved': True, 'selected_as_authority': False}, 'boolean_carrier_evidence': {'status': 'proven_boolean', 'reason': 'comparison_result_is_boolean', 'root_opcode': 'INT_EQUAL', 'contains_multiequal': False, 'depth': 0}}
+{'kind': 'binary_branch_truth_bound_by_evidence_class_v21d', 'src': 1053239, 'first_dst': 1053257, 'second_dst': 1053325, 'hf_target': 1053257, 'hf_normalized_target': 1053257, 'direct_dst': 1053325, 'first_invert': True, 'second_invert': False, 'condition_truth_authority': 'raw_jcc_hf_relation_direct_flags', 'reason': 'branch_truth_evidence_v21d hf_target=0x101249 raw_target=0x101249 raw_fallthrough=0x10128d legacy_hint=(mnemonic=JZ hf_cond_opcode=INT_NOTEQUAL) class=direct_flags', 'relation_evidence': {'version': 'ordered_relation_algebra_v23e', 'status': 'unresolved', 'mnemonic': 'JZ', 'raw_relation': None, 'raw_domain': None, 'hf_opcode': 'INT_NOTEQUAL', 'hf_relation': None, 'hf_domain': None, 'operand_profile': {'status': 'unresolved', 'reason': 'constant_threshold_requires_exact_value_custody', 'operand_count': 2, 'left_sid': 'v_1460', 'right_sid': 'c_1_4', 'left_identity': ('high', 'high_rep:1460'), 'right_identity': ('constant', 32, 1), 'left_width_bits': 32, 'right_width_bits': 32, 'left_constant': False, 'right_constant': True}, 'operand_orientation': None, 'relation_to_hf': None, 'invert_for_target': None, 'invert_for_fallthrough': None, 'reason': 'ordered_relation_family_not_applicable', 'legacy_hint_resolved': True, 'selected_as_authority': False}, 'boolean_carrier_evidence': {'status': 'proven_boolean', 'reason': 'comparison_result_is_boolean', 'root_opcode': 'INT_NOTEQUAL', 'contains_multiequal': False, 'depth': 0}}
+{'kind': 'binary_branch_truth_bound_by_evidence_class_v21d', 'src': 1053257, 'first_dst': 1053282, 'second_dst': 1053276, 'hf_target': 1053282, 'hf_normalized_target': 1053282, 'direct_dst': 1053282, 'first_invert': False, 'second_invert': True, 'condition_truth_authority': 'raw_jcc_hf_relation_direct_flags', 'reason': 'branch_truth_evidence_v21d hf_target=0x101262 raw_target=0x101262 raw_fallthrough=0x10125c legacy_hint=(mnemonic=JZ hf_cond_opcode=INT_EQUAL) class=direct_flags', 'relation_evidence': {'version': 'ordered_relation_algebra_v23e', 'status': 'unresolved', 'mnemonic': 'JZ', 'raw_relation': None, 'raw_domain': None, 'hf_opcode': 'INT_EQUAL', 'hf_relation': None, 'hf_domain': None, 'operand_profile': {'status': 'unresolved', 'reason': 'constant_threshold_requires_exact_value_custody', 'operand_count': 2, 'left_sid': 'v_5760', 'right_sid': 'c_0_4', 'left_identity': ('high', 'high_rep:1460'), 'right_identity': ('constant', 32, 0), 'left_width_bits': 32, 'right_width_bits': 32, 'left_constant': False, 'right_constant': True}, 'operand_orientation': None, 'relation_to_hf': None, 'invert_for_target': None, 'invert_for_fallthrough': None, 'reason': 'ordered_relation_family_not_applicable', 'legacy_hint_resolved': True, 'selected_as_authority': False}, 'boolean_carrier_evidence': {'status': 'proven_boolean', 'reason': 'comparison_result_is_boolean', 'root_opcode': 'INT_EQUAL', 'contains_multiequal': False, 'depth': 0}}
+{'kind': 'binary_branch_truth_bound_by_evidence_class_v21d', 'src': 1053345, 'first_dst': 1053367, 'second_dst': 1053355, 'hf_target': 1053367, 'hf_normalized_target': 1053367, 'direct_dst': 1053355, 'first_invert': True, 'second_invert': False, 'condition_truth_authority': 'raw_jcc_hf_relation_direct_flags', 'reason': 'branch_truth_evidence_v21d hf_target=0x1012b7 raw_target=0x1012b7 raw_fallthrough=0x1012ab legacy_hint=(mnemonic=JNZ hf_cond_opcode=INT_EQUAL) class=direct_flags', 'relation_evidence': {'version': 'ordered_relation_algebra_v23e', 'status': 'unresolved', 'mnemonic': 'JNZ', 'raw_relation': None, 'raw_domain': None, 'hf_opcode': 'INT_EQUAL', 'hf_relation': None, 'hf_domain': None, 'operand_profile': {'status': 'unresolved', 'reason': 'constant_threshold_requires_exact_value_custody', 'operand_count': 2, 'left_sid': 'v_2071', 'right_sid': 'c_0_4', 'left_identity': ('high', 'high_rep:2071'), 'right_identity': ('constant', 32, 0), 'left_width_bits': 32, 'right_width_bits': 32, 'left_constant': False, 'right_constant': True}, 'operand_orientation': None, 'relation_to_hf': None, 'invert_for_target': None, 'invert_for_fallthrough': None, 'reason': 'ordered_relation_family_not_applicable', 'legacy_hint_resolved': True, 'selected_as_authority': False}, 'boolean_carrier_evidence': {'status': 'proven_boolean', 'reason': 'comparison_result_is_boolean', 'root_opcode': 'INT_EQUAL', 'contains_multiequal': False, 'depth': 0}}
+{'kind': 'binary_branch_truth_bound_by_evidence_class_v21d', 'src': 1053430, 'first_dst': 1053389, 'second_dst': 1053436, 'hf_target': 1053389, 'hf_normalized_target': 1053389, 'direct_dst': 1053436, 'first_invert': True, 'second_invert': False, 'condition_truth_authority': 'raw_jcc_hf_relation_direct_flags', 'reason': 'branch_truth_evidence_v21d hf_target=0x1012cd raw_target=0x1012cd raw_fallthrough=0x1012fc legacy_hint=(mnemonic=JLE hf_cond_opcode=INT_SLESS) class=direct_flags', 'relation_evidence': {'version': 'ordered_relation_algebra_v23e', 'status': 'unresolved', 'mnemonic': 'JLE', 'raw_relation': 'LE', 'raw_domain': 'signed', 'hf_opcode': 'INT_SLESS', 'hf_relation': 'LT', 'hf_domain': 'signed', 'operand_profile': {'status': 'unresolved', 'reason': 'constant_threshold_requires_exact_value_custody', 'operand_count': 2, 'left_sid': 'v_6376', 'right_sid': 'c_2_4', 'left_identity': ('high', 'high_rep:6103'), 'right_identity': ('constant', 32, 2), 'left_width_bits': 32, 'right_width_bits': 32, 'left_constant': False, 'right_constant': True}, 'operand_orientation': None, 'relation_to_hf': None, 'invert_for_target': None, 'invert_for_fallthrough': None, 'reason': 'constant_threshold_requires_exact_value_custody', 'legacy_hint_resolved': True, 'selected_as_authority': False}, 'boolean_carrier_evidence': {'status': 'proven_boolean', 'reason': 'comparison_result_is_boolean', 'root_opcode': 'INT_SLESS', 'contains_multiequal': False, 'depth': 0}}
+{'kind': 'binary_branch_truth_bound_by_evidence_class_v21d', 'src': 1053389, 'first_dst': 1053417, 'second_dst': 1053408, 'hf_target': 1053417, 'hf_normalized_target': 1053417, 'direct_dst': 1053417, 'first_invert': False, 'second_invert': True, 'condition_truth_authority': 'raw_jcc_hf_relation_direct_flags', 'reason': 'branch_truth_evidence_v21d hf_target=0x1012e9 raw_target=0x1012e9 raw_fallthrough=0x1012e0 legacy_hint=(mnemonic=JZ hf_cond_opcode=INT_EQUAL) class=direct_flags', 'relation_evidence': {'version': 'ordered_relation_algebra_v23e', 'status': 'unresolved', 'mnemonic': 'JZ', 'raw_relation': None, 'raw_domain': None, 'hf_opcode': 'INT_EQUAL', 'hf_relation': None, 'hf_domain': None, 'operand_profile': {'status': 'unresolved', 'reason': 'constant_threshold_requires_exact_value_custody', 'operand_count': 2, 'left_sid': 'v_2332', 'right_sid': 'c_0_4', 'left_identity': ('high', 'high_rep:2332'), 'right_identity': ('constant', 32, 0), 'left_width_bits': 32, 'right_width_bits': 32, 'left_constant': False, 'right_constant': True}, 'operand_orientation': None, 'relation_to_hf': None, 'invert_for_target': None, 'invert_for_fallthrough': None, 'reason': 'ordered_relation_family_not_applicable', 'legacy_hint_resolved': True, 'selected_as_authority': False}, 'boolean_carrier_evidence': {'status': 'proven_boolean', 'reason': 'comparison_result_is_boolean', 'root_opcode': 'INT_EQUAL', 'contains_multiequal': False, 'depth': 0}}
+{'kind': 'binary_branch_truth_bound_by_evidence_class_v21d', 'src': 1053436, 'first_dst': 1053498, 'second_dst': 1053494, 'hf_target': 1053498, 'hf_normalized_target': 1053498, 'direct_dst': 1053494, 'first_invert': True, 'second_invert': False, 'condition_truth_authority': 'raw_jcc_hf_relation_direct_flags', 'reason': 'branch_truth_evidence_v21d hf_target=0x10133a raw_target=0x10133a raw_fallthrough=0x101336 legacy_hint=(mnemonic=JNZ hf_cond_opcode=INT_EQUAL) class=direct_flags', 'relation_evidence': {'version': 'ordered_relation_algebra_v23e', 'status': 'unresolved', 'mnemonic': 'JNZ', 'raw_relation': None, 'raw_domain': None, 'hf_opcode': 'INT_EQUAL', 'hf_relation': None, 'hf_domain': None, 'operand_profile': {'status': 'unresolved', 'reason': 'constant_threshold_requires_exact_value_custody', 'operand_count': 2, 'left_sid': 'v_1041', 'right_sid': 'c_7_4', 'left_identity': ('high', 'high_rep:6056'), 'right_identity': ('constant', 32, 7), 'left_width_bits': 32, 'right_width_bits': 32, 'left_constant': False, 'right_constant': True}, 'operand_orientation': None, 'relation_to_hf': None, 'invert_for_target': None, 'invert_for_fallthrough': None, 'reason': 'ordered_relation_family_not_applicable', 'legacy_hint_resolved': True, 'selected_as_authority': False}, 'boolean_carrier_evidence': {'status': 'proven_boolean', 'reason': 'comparison_result_is_boolean', 'root_opcode': 'INT_EQUAL', 'contains_multiequal': False, 'depth': 0}}
+
+[EDGE IDENTITY v23 / BOHDI EMPEROR]
+{'kind': 'cfg_edge_identity_inventory_v23', 'version': 'FunctionCFG_v23e_clothed_emperor_cfg_truth', 'id_schema': 'cfg_edge_identity_v1', 'canonical_identity': '(src_addr,dst_addr)', 'edges': 47, 'unique_edge_keys': 47, 'binary_cbranch_edges': 30, 'direct_join_edges': 4, 'direct_join_branch_arm_edges': 1, 'direct_join_loop_exit_edges': 3, 'direct_join_empty_arm_candidates': 1, 'warnings': 0, 'topology_mutations': 0, 'polarity_mutations': 0, 'rule': 'freeze_repaired_CFG_edge_identity_then_mark_exact_binary_CBRANCH_edge_to_IPDOM'}
+{'edge_id': [1053333, 1053436], 'edge_key': 'cfg-edge-v1:0x101295->0x1012fc', 'branch_owner_addr': 1053333, 'join_addr': 1053436, 'branch_role': 'false', 'authority': 'FunctionCFG_repaired_topology_plus_IPDOM_v23'}
+{'edge_id': [1053430, 1053436], 'edge_key': 'cfg-edge-v1:0x1012f6->0x1012fc', 'branch_owner_addr': 1053430, 'join_addr': 1053436, 'branch_role': 'false', 'authority': 'FunctionCFG_repaired_topology_plus_IPDOM_v23'}
+{'edge_id': [1053436, 1053498], 'edge_key': 'cfg-edge-v1:0x1012fc->0x10133a', 'branch_owner_addr': 1053436, 'join_addr': 1053498, 'branch_role': 'true', 'authority': 'FunctionCFG_repaired_topology_plus_IPDOM_v23'}
+{'edge_id': [1053502, 1053514], 'edge_key': 'cfg-edge-v1:0x10133e->0x10134a', 'branch_owner_addr': 1053502, 'join_addr': 1053514, 'branch_role': 'false', 'authority': 'FunctionCFG_repaired_topology_plus_IPDOM_v23'}
+
+[IPDOM]
+0x1011a1 -> ipdom: 0x10133e
+0x1011ca -> ipdom: 0x1012fc
+0x1011e6 -> ipdom: 0x1012fc
+0x1011f0 -> ipdom: 0x1012fc
+0x1011fd -> ipdom: 0x101295
+0x101209 -> ipdom: 0x101291
+0x10122e -> ipdom: 0x101291
+0x101233 -> ipdom: 0x101291
+0x101237 -> ipdom: 0x101291
+0x10123e -> ipdom: 0x101291
+0x101249 -> ipdom: 0x101291
+0x10125c -> ipdom: 0x101291
+0x101262 -> ipdom: 0x101291
+0x101271 -> ipdom: 0x101291
+0x10127a -> ipdom: 0x101291
+0x101282 -> ipdom: 0x101291
+0x10128d -> ipdom: 0x101291
+0x101291 -> ipdom: 0x101295
+0x101295 -> ipdom: 0x1012fc
+0x1012a1 -> ipdom: 0x1012c1
+0x1012ab -> ipdom: 0x1012c1
+0x1012b7 -> ipdom: 0x1012c1
+0x1012c1 -> ipdom: 0x1012f6
+0x1012cd -> ipdom: 0x1012f2
+0x1012e0 -> ipdom: 0x1012f2
+0x1012e9 -> ipdom: 0x1012f2
+0x1012f2 -> ipdom: 0x1012f6
+0x1012f6 -> ipdom: 0x1012fc
+0x1012fc -> ipdom: 0x10133a
+0x101336 -> ipdom: 0x10133a
+0x10133a -> ipdom: 0x10133e
+0x10133e -> ipdom: 0x10134a
+0x10134a -> ipdom: None
+
+[BACKEDGES]
+0x101291 -> 0x101295
+0x1012f2 -> 0x1012f6
+0x10133a -> 0x10133e
+
+=====================
+
+===== PAL RESOLVER INDIRECT STORAGE v22c =====
+
+[INVENTORY]
+{'active': False,
+ 'address_tied_families': 0,
+ 'custody_transitions': 0,
+ 'effect_owner_groups': 0,
+ 'escape_barrier_sids': 0,
+ 'input_contracts': 0,
+ 'kind': 'resolver_indirect_storage_inventory_v22c',
+ 'machine_state_families': 0,
+ 'machine_state_sids': 0,
+ 'owner_categories': {},
+ 'parameter_initializers': 0,
+ 'persistent_families': 0,
+ 'rule': 'HighVariable_identity_families_plus_address_escape_alias_barrier',
+ 'runtime_order': 'CFG_governed_not_linearized',
+ 'storage_families': 0,
+ 'version': 'v22c_indirect_storage_families',
+ 'warnings': 0}
+
+[STORAGE FAMILIES]
+
+[PARAMETER INITIALIZERS / STORAGE WRITES]
+[]
+
+[WARNINGS]
+[]
+===== END PAL RESOLVER INDIRECT STORAGE =====
+
+========================================================================
+PALRAW AUDIT v0.3 :: raw instruction BLOCK p-code vs HF/PAL CFG
+========================================================================
+
+--- 0x10127f ---
+Raw block  : 0x10127a -> next 0x101282
+Instr count: 3
+Terminal   : 0x101280 JMP 0x00101288
+Raw succs  : ['0x101288']
+Norm succs : ['0x101282']
+HF block   : 0x10127a
+CFG edges  : ['0x101291 role=uncond raw=uncond']
+STATUS     : successors_differ
+NOTE       : Raw successor(s) missing from HF/PAL CFG: ['0x101282']
+NOTE       : HF/PAL successor(s) not seen in raw terminal successors: ['0x101291']
+Raw instructions:
+   0x10127a  MOV EAX,dword ptr [RBP + -0x24]
+   0x10127d  SUB EAX,0x14
+   0x101280  JMP 0x00101288
+Terminal raw p-code:
+     ---  BRANCH (ram, 0x101288, 8)
+HF/PAL ops :
+    INT_SUB [local_2c, 0x14] -> v_1987
+HF/PAL term:
+    BRANCH [LAB_00101288] -> None
+
+--- 0x1011b6 ---
+Raw block  : 0x1011a1 -> next 0x1011ca
+Instr count: 8
+Terminal   : 0x1011c5 JMP 0x0010133e
+Raw succs  : ['0x10133e']
+Norm succs : ['0x10133e']
+HF block   : 0x1011a1
+CFG edges  : ['0x10133e role=uncond raw=uncond']
+STATUS     : successors_match
+Raw instructions:
+   0x1011a1  PUSH RBP
+   0x1011a2  MOV RBP,RSP
+   0x1011a5  SUB RSP,0x30
+   0x1011a9  MOV dword ptr [RBP + -0x24],0x64
+   0x1011b0  MOV dword ptr [RBP + -0x20],0x0
+   0x1011b7  MOV dword ptr [RBP + -0x10],0x5
+   0x1011be  MOV dword ptr [RBP + -0x1c],0x0
+   0x1011c5  JMP 0x0010133e
+Terminal raw p-code:
+     ---  BRANCH (ram, 0x10133e, 8)
+HF/PAL ops :
+    COPY [0x64] -> local_2c
+    COPY [0x0] -> local_28
+    COPY [0x0] -> local_24
+HF/PAL term:
+    BRANCH [LAB_0010133e] -> None
+
+--- 0x101219 ---
+Raw block  : 0x101209 -> next 0x10122e
+Instr count: 14
+Terminal   : 0x10122c JZ 0x00101271
+Raw succs  : ['0x101271', '0x10122e']
+Norm succs : ['0x10122e', '0x101271']
+HF block   : 0x101209
+CFG edges  : ['0x101271 role=raw_true_explicit_target raw=true', '0x10122e role=raw_false_fallthrough raw=false']
+STATUS     : successors_match
+Raw instructions:
+   0x101209  MOV EDX,dword ptr [RBP + -0x18]
+   0x10120c  MOV EAX,dword ptr [RBP + -0x1c]
+   0x10120f  ADD EAX,EDX
+   0x101211  MOV EDI,EAX
+   0x101213  CALL 0x0010115e
+   0x101218  MOV dword ptr [RBP + -0x4],EAX
+   0x10121b  MOV EAX,dword ptr [RBP + -0x4]
+   0x10121e  CDQ
+   0x10121f  SHR EDX,0x1e
+   0x101222  ADD EAX,EDX
+   0x101224  AND EAX,0x3
+   0x101227  SUB EAX,EDX
+   0x101229  CMP EAX,0x2
+   0x10122c  JZ 0x00101271
+Terminal raw p-code:
+     ---  CBRANCH (ram, 0x101271, 8) , (register, 0x206, 1)
+HF/PAL ops :
+    INT_ADD [local_24, local_20] -> v_1235
+    CALL [transform_b, v_1235] -> v_5713
+    CAST [v_5713] -> v_6663
+    INT_SREM [v_6663, 0x4] -> v_1460
+    INT_EQUAL [v_1460, 0x2] -> v_1496
+HF/PAL term:
+    CBRANCH [LAB_00101271, v_1496] -> None cond=v_1496
+
+--- 0x10120f ---
+Raw block  : 0x101209 -> next 0x10122e
+Instr count: 14
+Terminal   : 0x10122c JZ 0x00101271
+Raw succs  : ['0x101271', '0x10122e']
+Norm succs : ['0x10122e', '0x101271']
+HF block   : 0x101209
+CFG edges  : ['0x101271 role=raw_true_explicit_target raw=true', '0x10122e role=raw_false_fallthrough raw=false']
+STATUS     : successors_match
+Raw instructions:
+   0x101209  MOV EDX,dword ptr [RBP + -0x18]
+   0x10120c  MOV EAX,dword ptr [RBP + -0x1c]
+   0x10120f  ADD EAX,EDX
+   0x101211  MOV EDI,EAX
+   0x101213  CALL 0x0010115e
+   0x101218  MOV dword ptr [RBP + -0x4],EAX
+   0x10121b  MOV EAX,dword ptr [RBP + -0x4]
+   0x10121e  CDQ
+   0x10121f  SHR EDX,0x1e
+   0x101222  ADD EAX,EDX
+   0x101224  AND EAX,0x3
+   0x101227  SUB EAX,EDX
+   0x101229  CMP EAX,0x2
+   0x10122c  JZ 0x00101271
+Terminal raw p-code:
+     ---  CBRANCH (ram, 0x101271, 8) , (register, 0x206, 1)
+HF/PAL ops :
+    INT_ADD [local_24, local_20] -> v_1235
+    CALL [transform_b, v_1235] -> v_5713
+    CAST [v_5713] -> v_6663
+    INT_SREM [v_6663, 0x4] -> v_1460
+    INT_EQUAL [v_1460, 0x2] -> v_1496
+HF/PAL term:
+    CBRANCH [LAB_00101271, v_1496] -> None cond=v_1496
+
+--- 0x101221 ---
+Raw block  : 0x101209 -> next 0x10122e
+Instr count: 14
+Terminal   : 0x10122c JZ 0x00101271
+Raw succs  : ['0x101271', '0x10122e']
+Norm succs : ['0x10122e', '0x101271']
+HF block   : 0x101209
+CFG edges  : ['0x101271 role=raw_true_explicit_target raw=true', '0x10122e role=raw_false_fallthrough raw=false']
+STATUS     : successors_match
+Raw instructions:
+   0x101209  MOV EDX,dword ptr [RBP + -0x18]
+   0x10120c  MOV EAX,dword ptr [RBP + -0x1c]
+   0x10120f  ADD EAX,EDX
+   0x101211  MOV EDI,EAX
+   0x101213  CALL 0x0010115e
+   0x101218  MOV dword ptr [RBP + -0x4],EAX
+   0x10121b  MOV EAX,dword ptr [RBP + -0x4]
+   0x10121e  CDQ
+   0x10121f  SHR EDX,0x1e
+   0x101222  ADD EAX,EDX
+   0x101224  AND EAX,0x3
+   0x101227  SUB EAX,EDX
+   0x101229  CMP EAX,0x2
+   0x10122c  JZ 0x00101271
+Terminal raw p-code:
+     ---  CBRANCH (ram, 0x101271, 8) , (register, 0x206, 1)
+HF/PAL ops :
+    INT_ADD [local_24, local_20] -> v_1235
+    CALL [transform_b, v_1235] -> v_5713
+    CAST [v_5713] -> v_6663
+    INT_SREM [v_6663, 0x4] -> v_1460
+    INT_EQUAL [v_1460, 0x2] -> v_1496
+HF/PAL term:
+    CBRANCH [LAB_00101271, v_1496] -> None cond=v_1496
+
+--- 0x101284 ---
+Raw block  : 0x101282 -> next 0x10128d
+Instr count: 4
+Terminal   : 0x10128b JMP 0x00101291
+Raw succs  : ['0x101291']
+Norm succs : ['0x101291']
+HF block   : 0x101282
+CFG edges  : ['0x101291 role=uncond raw=uncond']
+STATUS     : successors_match
+Raw instructions:
+   0x101282  MOV EAX,dword ptr [RBP + -0x24]
+   0x101285  ADD EAX,0x32
+   0x101288  MOV dword ptr [RBP + -0x24],EAX
+   0x10128b  JMP 0x00101291
+Terminal raw p-code:
+     ---  BRANCH (ram, 0x101291, 8)
+HF/PAL ops :
+    INT_ADD [local_2c, 0x32] -> v_2035
+
+--- 0x10127f ---
+Raw block  : 0x10127a -> next 0x101282
+Instr count: 3
+Terminal   : 0x101280 JMP 0x00101288
+Raw succs  : ['0x101288']
+Norm succs : ['0x101282']
+HF block   : 0x10127a
+CFG edges  : ['0x101291 role=uncond raw=uncond']
+STATUS     : successors_differ
+NOTE       : Raw successor(s) missing from HF/PAL CFG: ['0x101282']
+NOTE       : HF/PAL successor(s) not seen in raw terminal successors: ['0x101291']
+Raw instructions:
+   0x10127a  MOV EAX,dword ptr [RBP + -0x24]
+   0x10127d  SUB EAX,0x14
+   0x101280  JMP 0x00101288
+Terminal raw p-code:
+     ---  BRANCH (ram, 0x101288, 8)
+HF/PAL ops :
+    INT_SUB [local_2c, 0x14] -> v_1987
+HF/PAL term:
+    BRANCH [LAB_00101288] -> None
+
+========================================================================
+
+===== PAL COMPUTE ANALYZER =====
+{'kind': 'pal_compute_inventory_v22',
+ 'version': 'v23b_abi_thunk_compatibility_return_reconciliation',
+ 'runtime_representation': 'raw_unsigned_bitvector_at_ssa_boundaries',
+ 'operations': 73,
+ 'output_plans': 72,
+ 'control_contracts': 25,
+ 'c_compute_filtered': 68,
+ 'use_site_overrides': 1,
+ 'return_observation_view_mismatches': 0,
+ 'storage_custody_related_ops': 0,
+ 'indirect_custody_contracts': 0,
+ 'indirect_custody_resolved': 0,
+ 'indirect_custody_deferred': 0,
+ 'indirect_effect_owner_compute_ops': 0,
+ 'storage_family_bindings': 0,
+ 'function_entry_abi_plan': True,
+ 'call_site_abi_plans': 7,
+ 'internal_call_plan_failures': 6,
+ 'unsupported_implicit_inputs': 0,
+ 'abi_runtime_helper_assignments': 0,
+ 'no_return_calls': 0,
+ 'reachable_return_boundaries': 1,
+ 'unreachable_return_boundaries': 0,
+ 'synthetic_no_return_continuations_suppressed': 0,
+ 'statuses': {'metadata_only': 25,
+              'helper_required': 41,
+              'deferred_external': 7},
+ 'categories': {'transport': 7,
+                'phi_merge': 12,
+                'conversion': 9,
+                'comparison': 15,
+                'call_boundary': 7,
+                'integer_arithmetic': 14,
+                'integer_bitwise': 6,
+                'integer_shift': 3},
+ 'helpers': {'c_slt': 7,
+             'c_zext': 2,
+             'c_add': 9,
+             'c_and': 4,
+             'c_eq': 7,
+             'c_srem': 2,
+             'c_sub': 3,
+             'c_xor': 2,
+             'c_ne': 1,
+             'c_shl': 1,
+             'c_subpiece': 1,
+             'c_ashr': 2},
+ 'opcodes': {'COPY': 7,
+             'MULTIEQUAL': 12,
+             'CAST': 6,
+             'INT_SLESS': 7,
+             'INT_ZEXT': 2,
+             'CALL': 7,
+             'INT_ADD': 9,
+             'INT_AND': 4,
+             'INT_EQUAL': 7,
+             'INT_SREM': 2,
+             'INT_SUB': 3,
+             'INT_XOR': 2,
+             'INT_NOTEQUAL': 1,
+             'INT_LEFT': 1,
+             'SUBPIECE': 1,
+             'INT_SRIGHT': 2},
+ 'warnings': 0}
+
+[WARNINGS]
+[]
+
+[METADATA-ONLY COMPUTE BOUNDARIES]
+0x10133e MULTIEQUAL ['v_6058', 'v_1177'] -> v_6300 classification=None
+0x10133e MULTIEQUAL ['v_6056', 'v_1041'] -> v_6261 classification=None
+0x10133e MULTIEQUAL ['v_6055', 'v_6212'] -> v_6215 classification=None
+0x10133e CAST ['v_6300'] -> v_6660 classification=same_width_explicit_recast
+0x1011e6 CAST ['v_6300'] -> v_6661 classification=same_width_explicit_recast
+0x1011f0 CAST ['v_5684'] -> v_6662 classification=same_width_explicit_recast
+0x1011fd COPY ['c_0_4'] -> v_6067 classification=same_width_copy_recast
+0x101295 MULTIEQUAL ['v_6067', 'v_1678'] -> v_6337 classification=None
+0x101295 MULTIEQUAL ['v_6215', 'v_6191'] -> v_6206 classification=None
+0x101209 CAST ['v_5713'] -> v_6663 classification=same_width_explicit_recast
+0x101271 CAST ['v_6206'] -> v_6664 classification=same_width_explicit_recast
+0x101291 MULTIEQUAL ['v_1619', 'v_1778', 'v_5773', 'v_1896', 'v_1987', 'v_2035'] -> v_6191 classification=None
+0x1012c1 MULTIEQUAL ['v_5970', 'v_5976'] -> v_5822 classification=None
+0x1012c1 COPY ['c_0_4'] -> v_6103 classification=same_width_copy_recast
+0x1012f6 MULTIEQUAL ['v_6103', 'v_2441'] -> v_6376 classification=None
+0x1012f6 MULTIEQUAL ['v_6215', 'v_6197'] -> v_6200 classification=None
+0x1012f2 MULTIEQUAL ['v_2390', 'v_2598'] -> v_6197 classification=None
+0x1012fc MULTIEQUAL ['v_6200', 'v_6206'] -> v_6203 classification=None
+0x1012fc CAST ['v_475'] -> v_6665 classification=same_width_explicit_recast
+0x10133a MULTIEQUAL ['v_6203', 'v_1127'] -> v_6212 classification=None
+
+[HELPER-REQUIRED CONTRACTS]
+0x10133e INT_SLESS v_113 helper=c_slt widths=[32, 32]->8 overrides=0
+0x10134a INT_ZEXT v_4847 helper=c_zext widths=[32]->64 overrides=0
+0x10134a INT_ZEXT v_4921 helper=c_zext widths=[32]->64 overrides=0
+0x1011ca INT_ADD v_207 helper=c_add widths=[32, 32]->32 overrides=0
+0x1011ca INT_AND v_263 helper=c_and widths=[32, 32]->32 overrides=0
+0x1011ca INT_EQUAL v_295 helper=c_eq widths=[32, 32]->8 overrides=0
+0x1011e6 INT_SLESS v_348 helper=c_slt widths=[32, 32]->8 overrides=1
+0x1011f0 INT_SLESS v_392 helper=c_slt widths=[32, 32]->8 overrides=0
+0x101295 INT_SLESS v_443 helper=c_slt widths=[32, 32]->8 overrides=0
+0x101209 INT_ADD v_1235 helper=c_add widths=[32, 32]->32 overrides=0
+0x101209 INT_SREM v_1460 helper=c_srem widths=[32, 32]->32 overrides=0
+0x101209 INT_EQUAL v_1496 helper=c_eq widths=[32, 32]->8 overrides=0
+0x101271 INT_SLESS v_1966 helper=c_slt widths=[32, 32]->8 overrides=0
+0x101282 INT_ADD v_2035 helper=c_add widths=[32, 32]->32 overrides=0
+0x10127a INT_SUB v_1987 helper=c_sub widths=[32, 32]->32 overrides=0
+0x10122e INT_SLESS v_1545 helper=c_slt widths=[32, 32]->8 overrides=0
+0x101233 INT_EQUAL v_1560 helper=c_eq widths=[32, 32]->8 overrides=0
+0x10123e INT_XOR v_1856 helper=c_xor widths=[32, 32]->32 overrides=0
+0x10123e INT_ADD v_1896 helper=c_add widths=[32, 32]->32 overrides=0
+0x101237 INT_NOTEQUAL v_1590 helper=c_ne widths=[32, 32]->8 overrides=0
+0x10128d INT_LEFT v_1619 helper=c_shl widths=[32, 32]->32 overrides=0
+0x101249 INT_EQUAL v_1744 helper=c_eq widths=[32, 32]->8 overrides=0
+0x10125c INT_SUB v_1778 helper=c_sub widths=[32, 32]->32 overrides=0
+0x101291 INT_ADD v_1678 helper=c_add widths=[32, 32]->32 overrides=0
+0x1012a1 INT_AND v_2071 helper=c_and widths=[32, 32]->32 overrides=0
+0x1012a1 INT_EQUAL v_2103 helper=c_eq widths=[32, 32]->8 overrides=0
+0x1012f6 INT_SLESS v_2198 helper=c_slt widths=[32, 32]->8 overrides=0
+0x1012cd SUBPIECE v_2228 helper=c_subpiece widths=[32, 32]->8 overrides=0
+0x1012cd INT_AND v_2227 helper=c_and widths=[8, 8]->8 overrides=0
+0x1012cd INT_SRIGHT v_2232 helper=c_ashr widths=[32, 8]->32 overrides=0
+0x1012cd INT_AND v_2332 helper=c_and widths=[32, 32]->32 overrides=0
+0x1012cd INT_EQUAL v_2364 helper=c_eq widths=[32, 32]->8 overrides=0
+0x1012e9 INT_SRIGHT v_2488 helper=c_ashr widths=[32, 32]->32 overrides=0
+0x1012e9 INT_ADD v_2598 helper=c_add widths=[32, 32]->32 overrides=0
+0x1012e0 INT_XOR v_2390 helper=c_xor widths=[32, 32]->32 overrides=0
+0x1012f2 INT_ADD v_2441 helper=c_add widths=[32, 32]->32 overrides=0
+0x1012fc INT_ADD v_475 helper=c_add widths=[32, 32]->32 overrides=0
+0x1012fc INT_SREM v_1041 helper=c_srem widths=[32, 32]->32 overrides=0
+0x1012fc INT_EQUAL v_1091 helper=c_eq widths=[32, 32]->8 overrides=0
+0x101336 INT_SUB v_1127 helper=c_sub widths=[32, 32]->32 overrides=0
+0x10133a INT_ADD v_1177 helper=c_add widths=[32, 32]->32 overrides=0
+
+[INDIRECT STORAGE-CUSTODY CONTRACTS]
+
+[INDIRECT CUSTODY INVENTORY]
+{'kind': 'pal_compute_indirect_custody_inventory_v22d',
+ 'version': 'v23b_abi_thunk_compatibility_return_reconciliation',
+ 'resolver_transitions': 0,
+ 'compute_indirect_contracts': 0,
+ 'resolved_custody': 0,
+ 'deferred_custody': 0,
+ 'effect_owner_compute_bindings': 0,
+ 'effect_owner_compute_ops': 0,
+ 'owner_categories': {},
+ 'storage_families': 0,
+ 'storage_sid_bindings': 0,
+ 'address_escape_barrier_sids': 0,
+ 'parameter_storage_initializers': 0,
+ 'runtime_helpers': 0,
+ 'warnings': 0,
+ 'rule': 'INDIRECT_is_metadata_only_owner_bound_storage_transition'}
+
+[ABI-D ENTRY/CALL PLAN INVENTORY]
+{'kind': 'pal_compute_abi_plan_inventory_v23',
+ 'version': 'v23b_abi_thunk_compatibility_return_reconciliation',
+ 'function': 'main',
+ 'entry_plan_present': True,
+ 'entry_plan_status': 'ready',
+ 'fixed_arguments': 0,
+ 'implicit_inputs': 0,
+ 'implicit_inputs_unsupported': 0,
+ 'call_compute_contracts': 7,
+ 'call_site_plans': 7,
+ 'call_sites_without_plan': 0,
+ 'call_statuses': {'ready': 7},
+ 'dispatch_classes': {'external_via_import_thunk': 1, 'internal_resolved': 6},
+ 'internal_calls': 6,
+ 'internal_calls_with_target_compatible_plan': 0,
+ 'internal_calls_without_target_compatible_plan': 6,
+ 'internal_calls_with_deferred_target_compatibility': 6,
+ 'internal_calls_with_incompatible_target': 0,
+ 'internal_calls_without_transport_plan': 0,
+ 'external_calls': 1,
+ 'thunk_calls': 1,
+ 'external_via_thunk_calls': 1,
+ 'thunk_endpoint_deferred_calls': 0,
+ 'thunk_calls_misclassified_internal': 0,
+ 'target_compatibility_overclaims': 0,
+ 'no_return_calls': 0,
+ 'result_carrier_contracts': 7,
+ 'abi_runtime_helper_assignments': 0,
+ 'warnings': 0,
+ 'acceptance_gates': {'every_emitted_function_has_entry_plan': True,
+                      'every_call_has_call_site_plan': True,
+                      'every_internal_call_has_target_compatible_plan': False,
+                      'every_internal_call_has_carrier_transport_plan': True,
+                      'no_resolved_thunk_misclassified_internal': True,
+                      'no_target_compatibility_overclaim': True,
+                      'no_implicit_input_is_unsupported': True,
+                      'no_runtime_helper_assigned_by_ABI_guesswork': True},
+ 'return_boundary_reconciliation': {'kind': 'pal_compute_return_boundary_reconciliation_v23b',
+                                    'version': 'v23b_abi_thunk_compatibility_return_reconciliation',
+                                    'function': 'main',
+                                    'entry_block_addr': 1053089,
+                                    'cfg_evidence_available': True,
+                                    'no_return_terminating_blocks': [],
+                                    'no_return_call_op_keys': [],
+                                    'return_boundaries': 1,
+                                    'reachable_return_boundaries': 1,
+                                    'unreachable_return_boundaries': 0,
+                                    'deferred_return_boundaries': 0,
+                                    'reachable_return_widths': [32],
+                                    'width_reconciled': True,
+                                    'synthetic_no_return_continuations_suppressed': 0,
+                                    'rule': 'traverse_CFG_with_no_return_blocks_as_terminal_then_reconcile_reachable_raw_return_transports_only'},
+ 'rule': 'ABI_A_B_C_authority_only_thunk_endpoint_and_compatibility_tri_state_no_downstream_argument_reinference'}
+
+[FUNCTION ENTRY ABI PLAN]
+{'plan_id': 'function_entry:1053085',
+ 'status': 'ready',
+ 'callable_signature_status': 'legacy_non_variadic_fallback',
+ 'fixed_argument_count': 0,
+ 'implicit_input_count': 0,
+ 'variadic_register_save_area': {'required': False,
+                                 'status': 'not_required',
+                                 'slots': [],
+                                 'gp_slots': [],
+                                 'sse_slots': [],
+                                 'fixed_variadic_partition_status': 'deferred_to_entry_protocol_analysis',
+                                 'source': 'abi_context.registers',
+                                 'authority': 'ABI_C_carriers_plus_variadic_contract'},
+ 'overflow_argument_area': {'required': False,
+                            'status': 'not_required',
+                            'source': 'abi_context.overflow_argument_area',
+                            'observed_stack_carriers': [],
+                            'materialization': 'consume_preclassified_overflow_slots',
+                            'offset_inference_allowed': False,
+                            'authority': 'ABI_C_stack_carriers_or_variadic_protocol'},
+ 'variadic_al': {'required': False,
+                 'status': 'not_required',
+                 'source': 'abi_context.variadic_xmm_count',
+                 'inputs': [],
+                 'default_allowed': False,
+                 'authority': 'ABI_C_variadic_xmm_count_contract'},
+ 'frame_base': {'required': False,
+                'status': 'not_observed',
+                'source': 'abi_context.frame_base',
+                'inputs': [],
+                'derive_from_parameter_names': False,
+                'authority': 'ABI_C_frame_state_custody'},
+ 'tls_base': {'required': False,
+              'status': 'not_observed',
+              'source': 'abi_context.tls_base',
+              'inputs': [],
+              'derive_from_expression_names': False,
+              'authority': 'ABI_C_tls_state_custody'},
+ 'return_contract': {'kind': 'pal_compute_return_carrier_contract_abi_d',
+                     'version': 'v23b_abi_thunk_compatibility_return_reconciliation',
+                     'status': 'return_width_proven_carrier_deferred',
+                     'no_return': False,
+                     'output_sid': None,
+                     'output_width_bits': None,
+                     'declared_width_bits': None,
+                     'effective_result_width_bits': 32,
+                     'declared_return': {'name': 'undefined',
+                                         'display_name': 'undefined',
+                                         'class_name': 'DefaultDataType',
+                                         'length_bytes': 1,
+                                         'width_bits': 8,
+                                         'signed': None,
+                                         'kind_hint': None},
+                     'return_storage': {'repr': '<UNASSIGNED>',
+                                        'size_bytes': 0,
+                                        'flags': {'register': False,
+                                                  'stack': False,
+                                                  'memory': False,
+                                                  'unassigned': True,
+                                                  'void': False,
+                                                  'auto': False},
+                                        'pieces': [],
+                                        'storage_keys': []},
+                     'carrier_pieces': [],
+                     'normalization': {'mode': 'mask_to_output_width',
+                                       'width_bits': 32,
+                                       'mask': 4294967295},
+                     'runtime_helper': None,
+                     'runtime_helper_authority': 'no_ABI_runtime_helper_assigned',
+                     'authority': 'reachable_raw_return_transport',
+                     'reported_declared_width_bits': 8,
+                     'declared_width_authoritative': False,
+                     'declared_return_evidence_status': 'non_authoritative_default_or_unresolved_prototype',
+                     'transport_width_bits': 32,
+                     'logical_result_width_bits': 32,
+                     'reachable_return_widths': [32],
+                     'reachable_return_boundary_count': 1,
+                     'unreachable_return_boundary_count': 0,
+                     'deferred_return_boundary_count': 0},
+ 'reachable_return_boundaries': [{'block_addr': 1053514,
+                                  'return_value_sid': 'v_6646',
+                                  'return_value_width_bits': 32,
+                                  'return_transport_width_bits': 32,
+                                  'return_logical_width_bits': 32,
+                                  'return_declared_view': None,
+                                  'return_boundary_authority': 'raw_return_register_transport',
+                                  'return_reachability': 'reachable',
+                                  'reachable_return': True,
+                                  'execution_suppressed': False,
+                                  'emission_policy': 'emit_reachable_return_boundary',
+                                  'cut_by_no_return_blocks': [],
+                                  'cut_by_no_return_call_op_keys': []}],
+ 'unreachable_return_boundaries': []}
+
+[RETURN BOUNDARY RECONCILIATION]
+{'kind': 'pal_compute_return_boundary_reconciliation_v23b',
+ 'version': 'v23b_abi_thunk_compatibility_return_reconciliation',
+ 'function': 'main',
+ 'entry_block_addr': 1053089,
+ 'cfg_evidence_available': True,
+ 'no_return_terminating_blocks': [],
+ 'no_return_call_op_keys': [],
+ 'return_boundaries': 1,
+ 'reachable_return_boundaries': 1,
+ 'unreachable_return_boundaries': 0,
+ 'deferred_return_boundaries': 0,
+ 'reachable_return_widths': [32],
+ 'width_reconciled': True,
+ 'synthetic_no_return_continuations_suppressed': 0,
+ 'rule': 'traverse_CFG_with_no_return_blocks_as_terminal_then_reconcile_reachable_raw_return_transports_only'}
+
+[CALL SITE ABI PLANS]
+{'op_key': '1053514:(ram, 0x101361, 59, 3):3',
+ 'target': 'printf',
+ 'dispatch_class': 'external_via_import_thunk',
+ 'status': 'ready',
+ 'argument_count': 3,
+ 'carrier_allocation_status': 'complete',
+ 'target_compatibility_status': 'compatible',
+ 'target_compatible': True,
+ 'no_return': False,
+ 'result_width_bits': 32}
+{'op_key': '1053130:(ram, 0x1011d4, 92, 1):1',
+ 'target': 'transform_a',
+ 'dispatch_class': 'internal_resolved',
+ 'status': 'ready',
+ 'argument_count': 1,
+ 'carrier_allocation_status': 'complete',
+ 'target_compatibility_status': 'deferred',
+ 'target_compatible': None,
+ 'no_return': False,
+ 'result_width_bits': 32}
+{'op_key': '1053193:(ram, 0x101213, 468, 1):1',
+ 'target': 'transform_b',
+ 'dispatch_class': 'internal_resolved',
+ 'status': 'ready',
+ 'argument_count': 1,
+ 'carrier_allocation_status': 'complete',
+ 'target_compatibility_status': 'deferred',
+ 'target_compatible': None,
+ 'no_return': False,
+ 'result_width_bits': 32}
+{'op_key': '1053257:(ram, 0x101253, 638, 0):0',
+ 'target': 'check_bit',
+ 'dispatch_class': 'internal_resolved',
+ 'status': 'ready',
+ 'argument_count': 2,
+ 'carrier_allocation_status': 'complete',
+ 'target_compatibility_status': 'deferred',
+ 'target_compatible': None,
+ 'no_return': False,
+ 'result_width_bits': 32}
+{'op_key': '1053282:(ram, 0x101267, 675, 0):0',
+ 'target': 'transform_a',
+ 'dispatch_class': 'internal_resolved',
+ 'status': 'ready',
+ 'argument_count': 1,
+ 'carrier_allocation_status': 'complete',
+ 'target_compatibility_status': 'deferred',
+ 'target_compatible': None,
+ 'no_return': False,
+ 'result_width_bits': 32}
+{'op_key': '1053367:(ram, 0x1012bc, 981, 0):0',
+ 'target': 'transform_a',
+ 'dispatch_class': 'internal_resolved',
+ 'status': 'ready',
+ 'argument_count': 1,
+ 'carrier_allocation_status': 'complete',
+ 'target_compatibility_status': 'deferred',
+ 'target_compatible': None,
+ 'no_return': False,
+ 'result_width_bits': 32}
+{'op_key': '1053355:(ram, 0x1012b0, 793, 0):0',
+ 'target': 'transform_b',
+ 'dispatch_class': 'internal_resolved',
+ 'status': 'ready',
+ 'argument_count': 1,
+ 'carrier_allocation_status': 'complete',
+ 'target_compatibility_status': 'deferred',
+ 'target_compatible': None,
+ 'no_return': False,
+ 'result_width_bits': 32}
+===== END PAL COMPUTE ANALYZER =====
+
+
+=========== SGL EXECUTION TREE ===========
+
+sequence
+  sequence
+    block [0x1011a1]
+  loop [header=0x10133e role=body semantics=continue_when_true cond=(4 < local_24) order=transaction_then_predicate continue_edge=[1053502, 1053130] exit_edge=[1053502, 1053514] selected_invert=False]
+    loop_condition_transaction [header=0x10133e order=before_every_predicate_evaluation]
+      block [0x10133e]
+    loop_body
+      block [0x1011ca]
+      if [cond=((v_5684 & 1) == 0)]
+        then
+          sequence
+            block [0x1011fd]
+          loop [header=0x101295 role=body semantics=continue_when_true cond=(local_20 < 3) order=predicate_only continue_edge=[1053333, 1053193] exit_edge=[1053333, 1053436] selected_invert=False]
+            loop_body
+              block [0x101209]
+              if [cond=((v_5713 % 4) == 2)]
+                then
+                  if [cond=(local_2c < 0xc9)]
+                    then
+                      sequence
+                        block [0x101282]
+                        block [0x101291]
+                    else
+                      sequence
+                        block [0x10127a]
+                        block [0x101291]
+                else
+                  if [cond=not (((v_5713 % 4) < 3))]
+                    then
+                      sequence
+                        block [0x10128d]
+                        block [0x101291]
+                    else
+                      if [cond=((v_5713 % 4) == 0)]
+                        then
+                          sequence
+                            block [0x10123e]
+                            block [0x101291]
+                        else
+                          if [cond=not (((v_5713 % 4) != 1))]
+                            then
+                              block [0x101249]
+                              if [cond=(v_5760 == 0)]
+                                then
+                                  sequence
+                                    block [0x101262]
+                                    block [0x101291]
+                                else
+                                  sequence
+                                    block [0x10125c]
+                                    block [0x101291]
+                            else
+                              sequence
+                                block [0x10128d]
+                                block [0x101291]
+        else
+          if [cond=not ((1 < local_24))]
+            then
+              if [cond=not (((local_24 & 1) == 0))]
+                then
+                  sequence
+                    block [0x1012b7]
+                else
+                  sequence
+                    block [0x1012ab]
+              sequence
+                block [0x1012c1]
+              loop [header=0x1012f6 role=body semantics=continue_when_true cond=(local_1c < 2) order=predicate_only continue_edge=[1053430, 1053389] exit_edge=[1053430, 1053436] selected_invert=False]
+                loop_body
+                  if [cond=(((v_5822 >> (local_1c & 0x1f)) & 1) == 0)]
+                    then
+                      sequence
+                        block [0x1012e9]
+                        block [0x1012f2]
+                    else
+                      sequence
+                        block [0x1012e0]
+                        block [0x1012f2]
+            else
+              if [cond=not ((v_5684 < 0x1f4))]
+                then
+                else
+                  sequence
+                    block [0x1011fd]
+      if [cond=not ((((local_28 + local_2c) % 0xa) == 7))]
+        then
+          sequence
+            block [0x10133a]
+        else
+          sequence
+            block [0x101336]
+            block [0x10133a]
+  sequence
+    block [0x10134a]
+
+=========== END TREE ===========
+
+[SGL EXEC TREE PERSISTED] path=/home/rem/gh/PAL/pyghidra-PAL/PAL/PAL_logs/f_00000000001011a1_main.sgl.exec_tree.log mode=append temporary=False delete_on_completion=False
+
+[PHI DROP-INS]
+------------------------------------------------------------
+pred=0x10133a -> join=0x10133e :: local_24 = v_1177
+pred=0x10133a -> join=0x10133e :: local_28 = v_1041
+pred=0x101291 -> join=0x101295 :: local_20 = v_1678
+pred=0x10123e -> join=0x101291 :: local_2c = v_1896
+pred=0x10125c -> join=0x101291 :: local_2c = v_1778
+pred=0x101262 -> join=0x101291 :: local_2c = v_5773
+pred=0x10127a -> join=0x101291 :: local_2c = v_1987
+pred=0x101282 -> join=0x101291 :: local_2c = v_2035
+pred=0x10128d -> join=0x101291 :: local_2c = v_1619
+pred=0x1012ab -> join=0x1012c1 :: v_5822 = v_5970
+pred=0x1012b7 -> join=0x1012c1 :: v_5822 = v_5976
+pred=0x1012f2 -> join=0x1012f6 :: local_1c = v_2441
+pred=0x1012e0 -> join=0x1012f2 :: local_2c = v_2390
+pred=0x1012e9 -> join=0x1012f2 :: local_2c = v_2598
+pred=0x101336 -> join=0x10133a :: local_2c = v_1127
+------------------------------------------------------------
+{'active': True,
+ 'bound_plans': 72,
+ 'control_contracts_forwarded': 25,
+ 'input_op_contracts': 73,
+ 'input_plans': 72,
+ 'kind': 'phi_compute_consumer_inventory_v21',
+ 'outputless_contracts_forwarded': 1,
+ 'phi_merge_contracts': 12,
+ 'phi_transition_contracts': 15,
+ 'preserved_compute_boundaries': 67,
+ 'preserved_deferred_contracts': 6,
+ 'preserved_outputless_boundaries': 1,
+ 'preserved_outputless_deferred_contracts': 1,
+ 'preserved_outputless_helpers': 0,
+ 'preserved_runtime_helpers': 41,
+ 'rule': 'preserve_PALCompute_authority_remap_execution_destination_only',
+ 'state_alias_bindings': 11,
+ 'transition_owners': {'predecessor_phi_dropin': 4, 'source_state_alias': 11},
+ 'version': 'v21_compute_contract_consumers',
+ 'warnings': 0}
+[]

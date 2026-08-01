@@ -1,0 +1,38 @@
+{
+  "batch_build": "batch_v2h_final_abi_authority_publication",
+  "elapsed_ns": 530448769,
+  "finished_time_ns": 1785564259958772904,
+  "format": "pal_internal_pipeline_stream_capture",
+  "function": {
+    "entry": 1053156,
+    "entry_hex": "0x1011e4",
+    "function_id": "function:0x1011e4",
+    "module_stem": "f_00000000001011e4_main",
+    "name": "main",
+    "qualified_name": "Global::main"
+  },
+  "keep_success_logs": true,
+  "mirrored_to_process_stdio": true,
+  "outcome": "decompiled",
+  "pipeline_entrypoint": "run_all",
+  "raw_text_policy": "exact_python_stdout_stderr_text_before_portability_rewrite",
+  "schema_version": 1,
+  "started_time_ns": 1785564259428324135,
+  "streams": {
+    "combined": {
+      "bytes": 30621,
+      "path": "functions/f_00000000001011e4_main.pipeline.log",
+      "sha256": "bff4dcee3510ffa4020c3c16b6aea6fca76f2f6ee7121a40793a53e5b62f2eae"
+    },
+    "stderr": {
+      "bytes": 0,
+      "path": "functions/f_00000000001011e4_main.pipeline.stderr.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "stdout": {
+      "bytes": 30621,
+      "path": "functions/f_00000000001011e4_main.pipeline.stdout.log",
+      "sha256": "bff4dcee3510ffa4020c3c16b6aea6fca76f2f6ee7121a40793a53e5b62f2eae"
+    }
+  }
+}

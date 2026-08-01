@@ -1,0 +1,86 @@
+{
+  "active": true,
+  "address_translation": {
+    "ambiguous_references": 0,
+    "code_pointer_references": 0,
+    "direct_resolved_references": 0,
+    "elf_link_base": "0x0",
+    "function_pointer_references": 1,
+    "load_bias": "0x100000",
+    "program_image_base": "0x100000",
+    "rebased_resolved_references": 0,
+    "resolution_rule": "accept_exactly_one_valid_direct_or_rebased_readable_ELF_PT_LOAD_C_string_mapping",
+    "unresolved_references": 0
+  },
+  "ambiguous": [],
+  "build": "static_strings_v3_rebased_elf_address_truth",
+  "code_pointer_references": [],
+  "completed": [],
+  "conflicts": [],
+  "counts": {
+    "ambiguous_references": 0,
+    "code_pointer_references": 0,
+    "completed_strings": 0,
+    "direct_resolved_references": 0,
+    "final_strings": 63,
+    "function_pointer_references": 1,
+    "original_strings": 63,
+    "rebased_resolved_references": 0,
+    "required_runtime_strings": 0,
+    "unresolved_ptrsub_references": 0
+  },
+  "executable": "/home/rem/gh/PAL/pyghidra-PAL/PAL/specimens/o0/PALexec.matrix",
+  "executable_sha256": "3b3df9d0c4f574413a2d49c9ffcfd9a4bf30cefd06e2b8a653329cd782896701",
+  "existing": [],
+  "format": "pal_static_string_completion",
+  "function_pointer_references": [
+    {
+      "classification": "manifest_function_entry_pointer",
+      "entry_hex": "0x101273",
+      "function_id": "function:0x101273",
+      "function_name": "main",
+      "generated_address": "0x101273",
+      "reasons": [
+        "f_0000000000101040_start.exec.py:c_ptrsub_zero_base",
+        "f_0000000000101040_start.py:c_ptrsub_zero_base"
+      ]
+    }
+  ],
+  "non_string_reference_classification": {
+    "build": "ptrsub_reference_classifier_v1_manifest_code_authority",
+    "code_pointer_references": 0,
+    "code_pointers": [],
+    "function_pointer_references": 1,
+    "function_pointers": [
+      {
+        "classification": "manifest_function_entry_pointer",
+        "entry_hex": "0x101273",
+        "function_id": "function:0x101273",
+        "function_name": "main",
+        "generated_address": "0x101273",
+        "reasons": [
+          "f_0000000000101040_start.exec.py:c_ptrsub_zero_base",
+          "f_0000000000101040_start.py:c_ptrsub_zero_base"
+        ]
+      }
+    ],
+    "remaining_unresolved_references": 0,
+    "rule": "manifest_function_entry_or_body_ownership_excludes_address_from_static_string_health"
+  },
+  "overlay": "/home/rem/gh/PAL/pyghidra-PAL/PAL/project/PALexec.matrix/.execute.stage.kjtmxght/PAL_stdio_strings.json",
+  "parse_warnings": [],
+  "reference_constants": {
+    "0x101273": [
+      "f_0000000000101040_start.exec.py:c_ptrsub_zero_base",
+      "f_0000000000101040_start.py:c_ptrsub_zero_base"
+    ]
+  },
+  "required_strings": {},
+  "resolutions": [],
+  "schema_version": 2,
+  "source_roots": [
+    "/home/rem/gh/PAL/pyghidra-PAL/PAL/project/PALexec.matrix/functions",
+    "/home/rem/gh/PAL/pyghidra-PAL/PAL/project/PALexec.matrix/.execute.stage.kjtmxght/functions"
+  ],
+  "unresolved": []
+}

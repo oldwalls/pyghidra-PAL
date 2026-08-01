@@ -1,0 +1,38 @@
+{
+  "batch_build": "batch_v2h_final_abi_authority_publication",
+  "elapsed_ns": 389717321,
+  "finished_time_ns": 1785564340779576062,
+  "format": "pal_internal_pipeline_stream_capture",
+  "function": {
+    "entry": 1052880,
+    "entry_hex": "0x1010d0",
+    "function_id": "function:0x1010d0",
+    "module_stem": "f_00000000001010d0_strcspn",
+    "name": "strcspn",
+    "qualified_name": "<EXTERNAL>::strcspn"
+  },
+  "keep_success_logs": true,
+  "mirrored_to_process_stdio": true,
+  "outcome": "decompiled",
+  "pipeline_entrypoint": "run_all",
+  "raw_text_policy": "exact_python_stdout_stderr_text_before_portability_rewrite",
+  "schema_version": 1,
+  "started_time_ns": 1785564340389858741,
+  "streams": {
+    "combined": {
+      "bytes": 25516,
+      "path": "functions/f_00000000001010d0_strcspn.pipeline.log",
+      "sha256": "ef194de82befb4d47a414514e458edd3eaae9d9707aa2443ae42f6d12b13f1ae"
+    },
+    "stderr": {
+      "bytes": 0,
+      "path": "functions/f_00000000001010d0_strcspn.pipeline.stderr.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "stdout": {
+      "bytes": 25516,
+      "path": "functions/f_00000000001010d0_strcspn.pipeline.stdout.log",
+      "sha256": "ef194de82befb4d47a414514e458edd3eaae9d9707aa2443ae42f6d12b13f1ae"
+    }
+  }
+}

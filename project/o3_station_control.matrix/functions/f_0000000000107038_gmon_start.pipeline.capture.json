@@ -1,0 +1,38 @@
+{
+  "batch_build": "batch_v2h_final_abi_authority_publication",
+  "elapsed_ns": 300823565,
+  "finished_time_ns": 1785564655619787432,
+  "format": "pal_internal_pipeline_stream_capture",
+  "function": {
+    "entry": 1077304,
+    "entry_hex": "0x107038",
+    "function_id": "function:0x107038",
+    "module_stem": "f_0000000000107038_gmon_start",
+    "name": "__gmon_start__",
+    "qualified_name": "<EXTERNAL>::__gmon_start__"
+  },
+  "keep_success_logs": true,
+  "mirrored_to_process_stdio": true,
+  "outcome": "decompiled",
+  "pipeline_entrypoint": "run_all",
+  "raw_text_policy": "exact_python_stdout_stderr_text_before_portability_rewrite",
+  "schema_version": 1,
+  "started_time_ns": 1785564655318963867,
+  "streams": {
+    "combined": {
+      "bytes": 14704,
+      "path": "functions/f_0000000000107038_gmon_start.pipeline.log",
+      "sha256": "bed64b0719d1bce74016c15d85ee907aad84ca44e38294a9d6862d009f8a51fd"
+    },
+    "stderr": {
+      "bytes": 0,
+      "path": "functions/f_0000000000107038_gmon_start.pipeline.stderr.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "stdout": {
+      "bytes": 14704,
+      "path": "functions/f_0000000000107038_gmon_start.pipeline.stdout.log",
+      "sha256": "bed64b0719d1bce74016c15d85ee907aad84ca44e38294a9d6862d009f8a51fd"
+    }
+  }
+}

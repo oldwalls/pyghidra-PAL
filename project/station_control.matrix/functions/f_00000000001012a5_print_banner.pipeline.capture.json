@@ -1,0 +1,38 @@
+{
+  "batch_build": "batch_v2h_final_abi_authority_publication",
+  "elapsed_ns": 341836498,
+  "finished_time_ns": 1785564384190161043,
+  "format": "pal_internal_pipeline_stream_capture",
+  "function": {
+    "entry": 1053349,
+    "entry_hex": "0x1012a5",
+    "function_id": "function:0x1012a5",
+    "module_stem": "f_00000000001012a5_print_banner",
+    "name": "print_banner",
+    "qualified_name": "Global::print_banner"
+  },
+  "keep_success_logs": true,
+  "mirrored_to_process_stdio": true,
+  "outcome": "decompiled",
+  "pipeline_entrypoint": "run_all",
+  "raw_text_policy": "exact_python_stdout_stderr_text_before_portability_rewrite",
+  "schema_version": 1,
+  "started_time_ns": 1785564383848324545,
+  "streams": {
+    "combined": {
+      "bytes": 16023,
+      "path": "functions/f_00000000001012a5_print_banner.pipeline.log",
+      "sha256": "29f88b8a44636b66f1d32c5d9dcade211d61fd0ad95fcf5fceeb8ea0891d1314"
+    },
+    "stderr": {
+      "bytes": 0,
+      "path": "functions/f_00000000001012a5_print_banner.pipeline.stderr.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "stdout": {
+      "bytes": 16023,
+      "path": "functions/f_00000000001012a5_print_banner.pipeline.stdout.log",
+      "sha256": "29f88b8a44636b66f1d32c5d9dcade211d61fd0ad95fcf5fceeb8ea0891d1314"
+    }
+  }
+}

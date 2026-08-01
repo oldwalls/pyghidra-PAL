@@ -1,0 +1,38 @@
+{
+  "batch_build": "batch_v2h_final_abi_authority_publication",
+  "elapsed_ns": 379450488,
+  "finished_time_ns": 1785564238469572997,
+  "format": "pal_internal_pipeline_stream_capture",
+  "function": {
+    "entry": 1069080,
+    "entry_hex": "0x105018",
+    "function_id": "function:0x105018",
+    "module_stem": "f_0000000000105018_ITM_registerTMCloneTable",
+    "name": "_ITM_registerTMCloneTable",
+    "qualified_name": "<EXTERNAL>::_ITM_registerTMCloneTable"
+  },
+  "keep_success_logs": true,
+  "mirrored_to_process_stdio": true,
+  "outcome": "decompiled",
+  "pipeline_entrypoint": "run_all",
+  "raw_text_policy": "exact_python_stdout_stderr_text_before_portability_rewrite",
+  "schema_version": 1,
+  "started_time_ns": 1785564238090122509,
+  "streams": {
+    "combined": {
+      "bytes": 15963,
+      "path": "functions/f_0000000000105018_ITM_registerTMCloneTable.pipeline.log",
+      "sha256": "1e582e1c8779694bfd5e765b9493ffece2dd3b1610d56e181898d1a68a26186d"
+    },
+    "stderr": {
+      "bytes": 0,
+      "path": "functions/f_0000000000105018_ITM_registerTMCloneTable.pipeline.stderr.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "stdout": {
+      "bytes": 15963,
+      "path": "functions/f_0000000000105018_ITM_registerTMCloneTable.pipeline.stdout.log",
+      "sha256": "1e582e1c8779694bfd5e765b9493ffece2dd3b1610d56e181898d1a68a26186d"
+    }
+  }
+}

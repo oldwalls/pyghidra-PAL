@@ -1,0 +1,38 @@
+{
+  "batch_build": "batch_v2h_final_abi_authority_publication",
+  "elapsed_ns": 389175352,
+  "finished_time_ns": 1785564618143096491,
+  "format": "pal_internal_pipeline_stream_capture",
+  "function": {
+    "entry": 1052816,
+    "entry_hex": "0x101090",
+    "function_id": "function:0x101090",
+    "module_stem": "f_0000000000101090_putchar",
+    "name": "putchar",
+    "qualified_name": "<EXTERNAL>::putchar"
+  },
+  "keep_success_logs": true,
+  "mirrored_to_process_stdio": true,
+  "outcome": "decompiled",
+  "pipeline_entrypoint": "run_all",
+  "raw_text_policy": "exact_python_stdout_stderr_text_before_portability_rewrite",
+  "schema_version": 1,
+  "started_time_ns": 1785564617753921139,
+  "streams": {
+    "combined": {
+      "bytes": 23505,
+      "path": "functions/f_0000000000101090_putchar.pipeline.log",
+      "sha256": "6972598a8a2a62715c38eaf99e37a845736bc24ff34a91c2cf8fe8bf71ed069b"
+    },
+    "stderr": {
+      "bytes": 0,
+      "path": "functions/f_0000000000101090_putchar.pipeline.stderr.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "stdout": {
+      "bytes": 23505,
+      "path": "functions/f_0000000000101090_putchar.pipeline.stdout.log",
+      "sha256": "6972598a8a2a62715c38eaf99e37a845736bc24ff34a91c2cf8fe8bf71ed069b"
+    }
+  }
+}

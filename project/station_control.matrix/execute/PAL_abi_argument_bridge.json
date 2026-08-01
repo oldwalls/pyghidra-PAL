@@ -1,0 +1,557 @@
+{
+  "active": true,
+  "automatic_exact_subregister_compatibility": true,
+  "bridged_carrier_disagreements": 0,
+  "bridged_contracts": 6,
+  "build": "pal_exec_interface_v1u_exact_integral_subregister_projection",
+  "complete_project": true,
+  "format": "pal_guarded_abi_argument_bridge",
+  "policy": "exact-integral-subregister-auto-v1u",
+  "records": [
+    {
+      "actions": [
+        {
+          "from": 32,
+          "index": 0,
+          "kind": "clamp_argument_width",
+          "to": 8
+        }
+      ],
+      "argument_chain_bridged": 1,
+      "bridge_profile": "exact_same_family_integral_subregister_v1u",
+      "carrier_disagreement_bridged": 0,
+      "complete_project_exact_integral_subregister_bridge_v1u": true,
+      "contract_id": "abi_custody:5ebb20dc3bbb2af713a9bd84",
+      "entry_plan_id": "function_entry:1053892",
+      "exact_integral_subregister_action_proofs_v1u": [
+        {
+          "action": {
+            "from": 32,
+            "index": 0,
+            "kind": "clamp_argument_width",
+            "to": 8
+          },
+          "allowed": true,
+          "reason": "exact_failed_argument_width_projection"
+        }
+      ],
+      "exact_integral_subregister_cardinality_gates_v1u": {
+        "call_and_entry_arity_equal": true,
+        "custody_callee_count_exact": true,
+        "custody_caller_count_exact": true,
+        "entry_fixed_count_exact": true,
+        "entry_plan_identity_exact": true,
+        "no_carrier_disagreement_bridge": true,
+        "no_zero_fill": true
+      },
+      "exact_integral_subregister_proofs_v1u": [
+        {
+          "callee_register": "DIL",
+          "caller_register": "RDI",
+          "constant_value": null,
+          "failed_gates": [],
+          "gates": {
+            "argument_index_exact": true,
+            "byte_aligned_integral_widths": true,
+            "call_argument_present": true,
+            "custody_argument_continuity": true,
+            "custody_argument_present": true,
+            "failure_status_incompatible": true,
+            "gp_register_transport": true,
+            "integral_scalar_class": true,
+            "only_width_disagrees": true,
+            "same_physical_register_family": true,
+            "source_sid_exact": true,
+            "source_width_exact": true,
+            "strict_supported_width_contraction": true,
+            "target_argument_present": true,
+            "target_binding_present": true,
+            "target_ordinal_exact": true,
+            "target_sid_exact": true,
+            "target_width_exact": true
+          },
+          "index": 0,
+          "kind": "pal_exec_exact_integral_subregister_compatibility_v1u",
+          "physical_register_family": "RDI",
+          "runtime_projection": "mask_integral_value_to_exact_callee_subregister_width_modulo_2_pow_n",
+          "source_is_constant": false,
+          "source_sid": "v_138",
+          "source_width_bits": 32,
+          "target_binding_register": "DIL",
+          "target_sid": "v_340",
+          "target_width_bits": 8,
+          "upstream_authority_mutated": false,
+          "value_inference_used": false
+        }
+      ],
+      "plan_id": "call_site:1054279:(ram, 0x10165c, 58, 6):6",
+      "reasons": [],
+      "runtime_call_plan_core_sha256": "19b3b08ec4082d08ce158520c8da4d9a90a8b4263d89ca2c17a751ab3e00e9c7",
+      "runtime_entry_plan_core_sha256": "e30785d2807f4e62f894c8030cee00d2b0bf3a0a5146ab7c055cc4820b8eeae5",
+      "source_call_plan_core_sha256": "78d71c58cbafe34a0ae957df26593f4b3d2cb6b7b0c7236d048e09df1e020cb1",
+      "source_entry_plan_core_sha256": "f48fe9cae0b65f9c8718da79d74edd3866e40381c172fda46c99a54a34a071ce",
+      "status": "bridgeable",
+      "zero_fill_indices": []
+    },
+    {
+      "actions": [
+        {
+          "from": 32,
+          "index": 0,
+          "kind": "clamp_argument_width",
+          "to": 8
+        }
+      ],
+      "argument_chain_bridged": 1,
+      "bridge_profile": "exact_same_family_integral_subregister_v1u",
+      "carrier_disagreement_bridged": 0,
+      "complete_project_exact_integral_subregister_bridge_v1u": true,
+      "contract_id": "abi_custody:a342e8adebe220355e66c8fe",
+      "entry_plan_id": "function_entry:1053892",
+      "exact_integral_subregister_action_proofs_v1u": [
+        {
+          "action": {
+            "from": 32,
+            "index": 0,
+            "kind": "clamp_argument_width",
+            "to": 8
+          },
+          "allowed": true,
+          "reason": "exact_failed_argument_width_projection"
+        }
+      ],
+      "exact_integral_subregister_cardinality_gates_v1u": {
+        "call_and_entry_arity_equal": true,
+        "custody_callee_count_exact": true,
+        "custody_caller_count_exact": true,
+        "entry_fixed_count_exact": true,
+        "entry_plan_identity_exact": true,
+        "no_carrier_disagreement_bridge": true,
+        "no_zero_fill": true
+      },
+      "exact_integral_subregister_proofs_v1u": [
+        {
+          "callee_register": "DIL",
+          "caller_register": "RDI",
+          "constant_value": null,
+          "failed_gates": [],
+          "gates": {
+            "argument_index_exact": true,
+            "byte_aligned_integral_widths": true,
+            "call_argument_present": true,
+            "custody_argument_continuity": true,
+            "custody_argument_present": true,
+            "failure_status_incompatible": true,
+            "gp_register_transport": true,
+            "integral_scalar_class": true,
+            "only_width_disagrees": true,
+            "same_physical_register_family": true,
+            "source_sid_exact": true,
+            "source_width_exact": true,
+            "strict_supported_width_contraction": true,
+            "target_argument_present": true,
+            "target_binding_present": true,
+            "target_ordinal_exact": true,
+            "target_sid_exact": true,
+            "target_width_exact": true
+          },
+          "index": 0,
+          "kind": "pal_exec_exact_integral_subregister_compatibility_v1u",
+          "physical_register_family": "RDI",
+          "runtime_projection": "mask_integral_value_to_exact_callee_subregister_width_modulo_2_pow_n",
+          "source_is_constant": false,
+          "source_sid": "v_552",
+          "source_width_bits": 32,
+          "target_binding_register": "DIL",
+          "target_sid": "v_340",
+          "target_width_bits": 8,
+          "upstream_authority_mutated": false,
+          "value_inference_used": false
+        }
+      ],
+      "plan_id": "call_site:1054488:(ram, 0x10172d, 213, 6):6",
+      "reasons": [],
+      "runtime_call_plan_core_sha256": "93e1ef8bfc22a5896728bb5790f3b1d12a18d3e9cc01e5cee42cf44fccafda39",
+      "runtime_entry_plan_core_sha256": "4cbc802c43e1803b931676ec19c7540514af462dfc0d4b4bc716c0583377e5e7",
+      "source_call_plan_core_sha256": "3692770e7c678db4d5eb1f51d63f5b08462b7475e358f2480764388eea978cf0",
+      "source_entry_plan_core_sha256": "f48fe9cae0b65f9c8718da79d74edd3866e40381c172fda46c99a54a34a071ce",
+      "status": "bridgeable",
+      "zero_fill_indices": []
+    },
+    {
+      "actions": [
+        {
+          "from": 32,
+          "index": 0,
+          "kind": "clamp_argument_width",
+          "to": 8
+        }
+      ],
+      "argument_chain_bridged": 1,
+      "bridge_profile": "exact_same_family_integral_subregister_v1u",
+      "carrier_disagreement_bridged": 0,
+      "complete_project_exact_integral_subregister_bridge_v1u": true,
+      "contract_id": "abi_custody:d5f08fa6eee25593ab843c5a",
+      "entry_plan_id": "function_entry:1053892",
+      "exact_integral_subregister_action_proofs_v1u": [
+        {
+          "action": {
+            "from": 32,
+            "index": 0,
+            "kind": "clamp_argument_width",
+            "to": 8
+          },
+          "allowed": true,
+          "reason": "exact_failed_argument_width_projection"
+        }
+      ],
+      "exact_integral_subregister_cardinality_gates_v1u": {
+        "call_and_entry_arity_equal": true,
+        "custody_callee_count_exact": true,
+        "custody_caller_count_exact": true,
+        "entry_fixed_count_exact": true,
+        "entry_plan_identity_exact": true,
+        "no_carrier_disagreement_bridge": true,
+        "no_zero_fill": true
+      },
+      "exact_integral_subregister_proofs_v1u": [
+        {
+          "callee_register": "DIL",
+          "caller_register": "RDI",
+          "constant_value": null,
+          "failed_gates": [],
+          "gates": {
+            "argument_index_exact": true,
+            "byte_aligned_integral_widths": true,
+            "call_argument_present": true,
+            "custody_argument_continuity": true,
+            "custody_argument_present": true,
+            "failure_status_incompatible": true,
+            "gp_register_transport": true,
+            "integral_scalar_class": true,
+            "only_width_disagrees": true,
+            "same_physical_register_family": true,
+            "source_sid_exact": true,
+            "source_width_exact": true,
+            "strict_supported_width_contraction": true,
+            "target_argument_present": true,
+            "target_binding_present": true,
+            "target_ordinal_exact": true,
+            "target_sid_exact": true,
+            "target_width_exact": true
+          },
+          "index": 0,
+          "kind": "pal_exec_exact_integral_subregister_compatibility_v1u",
+          "physical_register_family": "RDI",
+          "runtime_projection": "mask_integral_value_to_exact_callee_subregister_width_modulo_2_pow_n",
+          "source_is_constant": false,
+          "source_sid": "v_159",
+          "source_width_bits": 32,
+          "target_binding_register": "DIL",
+          "target_sid": "v_340",
+          "target_width_bits": 8,
+          "upstream_authority_mutated": false,
+          "value_inference_used": false
+        }
+      ],
+      "plan_id": "call_site:1054635:(ram, 0x1017c0, 66, 7):7",
+      "reasons": [],
+      "runtime_call_plan_core_sha256": "00355d348cc4829e1818967eb95a94f0c4c65dc77b719d5fddd330ca1dbedb01",
+      "runtime_entry_plan_core_sha256": "3a650fd419f50149710194d41ac0367db462f178d32e0c15cec3183868a7448b",
+      "source_call_plan_core_sha256": "4ae770ee2b0a76c6c7586f913fbed3db9d8ba33c3fe392189cbad498f97f2d89",
+      "source_entry_plan_core_sha256": "f48fe9cae0b65f9c8718da79d74edd3866e40381c172fda46c99a54a34a071ce",
+      "status": "bridgeable",
+      "zero_fill_indices": []
+    },
+    {
+      "actions": [
+        {
+          "from": 32,
+          "index": 0,
+          "kind": "clamp_argument_width",
+          "to": 8
+        }
+      ],
+      "argument_chain_bridged": 1,
+      "bridge_profile": "exact_same_family_integral_subregister_v1u",
+      "carrier_disagreement_bridged": 0,
+      "complete_project_exact_integral_subregister_bridge_v1u": true,
+      "contract_id": "abi_custody:fa4233a6b2a4c85ebe05a659",
+      "entry_plan_id": "function_entry:1053892",
+      "exact_integral_subregister_action_proofs_v1u": [
+        {
+          "action": {
+            "from": 32,
+            "index": 0,
+            "kind": "clamp_argument_width",
+            "to": 8
+          },
+          "allowed": true,
+          "reason": "exact_failed_argument_width_projection"
+        }
+      ],
+      "exact_integral_subregister_cardinality_gates_v1u": {
+        "call_and_entry_arity_equal": true,
+        "custody_callee_count_exact": true,
+        "custody_caller_count_exact": true,
+        "entry_fixed_count_exact": true,
+        "entry_plan_identity_exact": true,
+        "no_carrier_disagreement_bridge": true,
+        "no_zero_fill": true
+      },
+      "exact_integral_subregister_proofs_v1u": [
+        {
+          "callee_register": "DIL",
+          "caller_register": "RDI",
+          "constant_value": null,
+          "failed_gates": [],
+          "gates": {
+            "argument_index_exact": true,
+            "byte_aligned_integral_widths": true,
+            "call_argument_present": true,
+            "custody_argument_continuity": true,
+            "custody_argument_present": true,
+            "failure_status_incompatible": true,
+            "gp_register_transport": true,
+            "integral_scalar_class": true,
+            "only_width_disagrees": true,
+            "same_physical_register_family": true,
+            "source_sid_exact": true,
+            "source_width_exact": true,
+            "strict_supported_width_contraction": true,
+            "target_argument_present": true,
+            "target_binding_present": true,
+            "target_ordinal_exact": true,
+            "target_sid_exact": true,
+            "target_width_exact": true
+          },
+          "index": 0,
+          "kind": "pal_exec_exact_integral_subregister_compatibility_v1u",
+          "physical_register_family": "RDI",
+          "runtime_projection": "mask_integral_value_to_exact_callee_subregister_width_modulo_2_pow_n",
+          "source_is_constant": false,
+          "source_sid": "v_354",
+          "source_width_bits": 32,
+          "target_binding_register": "DIL",
+          "target_sid": "v_340",
+          "target_width_bits": 8,
+          "upstream_authority_mutated": false,
+          "value_inference_used": false
+        }
+      ],
+      "plan_id": "call_site:1054697:(ram, 0x1017fe, 142, 5):5",
+      "reasons": [],
+      "runtime_call_plan_core_sha256": "0f5adc87e3ac4ade011c6099b3ac6477143c64129cc52ecc90777cf8a2a9922f",
+      "runtime_entry_plan_core_sha256": "db6f33a1c7c4e9b763b508d8a672c307089aaa5367a17e1023453ddc01f2f1b0",
+      "source_call_plan_core_sha256": "11fd3ffeb19eb06d65014e33076b7ddb79146d7bac46d5015b7012ff8598c7b1",
+      "source_entry_plan_core_sha256": "f48fe9cae0b65f9c8718da79d74edd3866e40381c172fda46c99a54a34a071ce",
+      "status": "bridgeable",
+      "zero_fill_indices": []
+    },
+    {
+      "actions": [
+        {
+          "from": "unknown_scalar",
+          "index": 1,
+          "kind": "normalize_argument_class",
+          "to": "integer"
+        },
+        {
+          "from": 64,
+          "index": 1,
+          "kind": "clamp_argument_width",
+          "to": 32
+        },
+        {
+          "from": "unknown_scalar",
+          "index": 2,
+          "kind": "normalize_argument_class",
+          "to": "integer"
+        }
+      ],
+      "argument_chain_bridged": 1,
+      "bridge_profile": "exact_same_family_integral_subregister_v1u",
+      "carrier_disagreement_bridged": 0,
+      "complete_project_exact_integral_subregister_bridge_v1u": true,
+      "contract_id": "abi_custody:131e83f323585cf71a25f9da",
+      "entry_plan_id": "function_entry:1054109",
+      "exact_integral_subregister_action_proofs_v1u": [
+        {
+          "action": {
+            "from": "unknown_scalar",
+            "index": 1,
+            "kind": "normalize_argument_class",
+            "to": "integer"
+          },
+          "allowed": true,
+          "reason": "custody_proven_integral_class_alias"
+        },
+        {
+          "action": {
+            "from": 64,
+            "index": 1,
+            "kind": "clamp_argument_width",
+            "to": 32
+          },
+          "allowed": true,
+          "reason": "exact_failed_argument_width_projection"
+        },
+        {
+          "action": {
+            "from": "unknown_scalar",
+            "index": 2,
+            "kind": "normalize_argument_class",
+            "to": "integer"
+          },
+          "allowed": true,
+          "reason": "custody_proven_integral_class_alias"
+        }
+      ],
+      "exact_integral_subregister_cardinality_gates_v1u": {
+        "call_and_entry_arity_equal": true,
+        "custody_callee_count_exact": true,
+        "custody_caller_count_exact": true,
+        "entry_fixed_count_exact": true,
+        "entry_plan_identity_exact": true,
+        "no_carrier_disagreement_bridge": true,
+        "no_zero_fill": true
+      },
+      "exact_integral_subregister_proofs_v1u": [
+        {
+          "callee_register": "ESI",
+          "caller_register": "RSI",
+          "constant_value": 16,
+          "failed_gates": [],
+          "gates": {
+            "argument_index_exact": true,
+            "byte_aligned_integral_widths": true,
+            "call_argument_present": true,
+            "custody_argument_continuity": true,
+            "custody_argument_present": true,
+            "failure_status_incompatible": true,
+            "gp_register_transport": true,
+            "integral_scalar_class": true,
+            "only_width_disagrees": true,
+            "same_physical_register_family": true,
+            "source_sid_exact": true,
+            "source_width_exact": true,
+            "strict_supported_width_contraction": true,
+            "target_argument_present": true,
+            "target_binding_present": true,
+            "target_ordinal_exact": true,
+            "target_sid_exact": true,
+            "target_width_exact": true
+          },
+          "index": 1,
+          "kind": "pal_exec_exact_integral_subregister_compatibility_v1u",
+          "physical_register_family": "RSI",
+          "runtime_projection": "mask_integral_value_to_exact_callee_subregister_width_modulo_2_pow_n",
+          "source_is_constant": true,
+          "source_sid": "c_16_8",
+          "source_width_bits": 64,
+          "target_binding_register": "ESI",
+          "target_sid": "v_655",
+          "target_width_bits": 32,
+          "upstream_authority_mutated": false,
+          "value_inference_used": false
+        }
+      ],
+      "plan_id": "call_site:1054752:(ram, 0x101842, 223, 2):2",
+      "reasons": [],
+      "runtime_call_plan_core_sha256": "a6c15dd9d88fcee70e08ca6ab333a67ec60c8c033e9417b3ec56ce1a1e4232b4",
+      "runtime_entry_plan_core_sha256": "820528c579df7676850d42680b9dba26296c7fad3ffd4d08cfac89a874cdd93b",
+      "source_call_plan_core_sha256": "fa6a30148a634d46268a956bbd7b99d3344144fd558b983d54dd74e4b20959ff",
+      "source_entry_plan_core_sha256": "b80ae69a92703b031cad576885d268a860b59e98450bd193307d4e2becb93cce",
+      "status": "bridgeable",
+      "zero_fill_indices": []
+    },
+    {
+      "actions": [
+        {
+          "from": 32,
+          "index": 0,
+          "kind": "clamp_argument_width",
+          "to": 8
+        }
+      ],
+      "argument_chain_bridged": 1,
+      "bridge_profile": "exact_same_family_integral_subregister_v1u",
+      "carrier_disagreement_bridged": 0,
+      "complete_project_exact_integral_subregister_bridge_v1u": true,
+      "contract_id": "abi_custody:dcf51ee61b295806286f0838",
+      "entry_plan_id": "function_entry:1053892",
+      "exact_integral_subregister_action_proofs_v1u": [
+        {
+          "action": {
+            "from": 32,
+            "index": 0,
+            "kind": "clamp_argument_width",
+            "to": 8
+          },
+          "allowed": true,
+          "reason": "exact_failed_argument_width_projection"
+        }
+      ],
+      "exact_integral_subregister_cardinality_gates_v1u": {
+        "call_and_entry_arity_equal": true,
+        "custody_callee_count_exact": true,
+        "custody_caller_count_exact": true,
+        "entry_fixed_count_exact": true,
+        "entry_plan_identity_exact": true,
+        "no_carrier_disagreement_bridge": true,
+        "no_zero_fill": true
+      },
+      "exact_integral_subregister_proofs_v1u": [
+        {
+          "callee_register": "DIL",
+          "caller_register": "RDI",
+          "constant_value": null,
+          "failed_gates": [],
+          "gates": {
+            "argument_index_exact": true,
+            "byte_aligned_integral_widths": true,
+            "call_argument_present": true,
+            "custody_argument_continuity": true,
+            "custody_argument_present": true,
+            "failure_status_incompatible": true,
+            "gp_register_transport": true,
+            "integral_scalar_class": true,
+            "only_width_disagrees": true,
+            "same_physical_register_family": true,
+            "source_sid_exact": true,
+            "source_width_exact": true,
+            "strict_supported_width_contraction": true,
+            "target_argument_present": true,
+            "target_binding_present": true,
+            "target_ordinal_exact": true,
+            "target_sid_exact": true,
+            "target_width_exact": true
+          },
+          "index": 0,
+          "kind": "pal_exec_exact_integral_subregister_compatibility_v1u",
+          "physical_register_family": "RDI",
+          "runtime_projection": "mask_integral_value_to_exact_callee_subregister_width_modulo_2_pow_n",
+          "source_is_constant": false,
+          "source_sid": "v_634",
+          "source_width_bits": 32,
+          "target_binding_register": "DIL",
+          "target_sid": "v_340",
+          "target_width_bits": 8,
+          "upstream_authority_mutated": false,
+          "value_inference_used": false
+        }
+      ],
+      "plan_id": "call_site:1054797:(ram, 0x101862, 251, 6):6",
+      "reasons": [],
+      "runtime_call_plan_core_sha256": "90f506a8650ef4a90bdd6057b1ad4e2220718adeba96bdb1be8ad51aea665e03",
+      "runtime_entry_plan_core_sha256": "694d3995a7475f26fe15705591300be5b42f912e5e3e6eb9a55d449afd1fed5b",
+      "source_call_plan_core_sha256": "333e775d061e080ece1848f58542a46fc89918551b6bad9e9c8b0e60022e36fb",
+      "source_entry_plan_core_sha256": "f48fe9cae0b65f9c8718da79d74edd3866e40381c172fda46c99a54a34a071ce",
+      "status": "bridgeable",
+      "zero_fill_indices": []
+    }
+  ],
+  "rejected": [],
+  "rule": "same physical GP-register family plus exact call/entry identity and width-only custody permits runtime-only low-bit subregister projection for constants or variables; no value inference, carrier, order, or arity repair",
+  "schema_version": 1
+}

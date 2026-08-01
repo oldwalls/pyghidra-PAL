@@ -1,0 +1,38 @@
+{
+  "batch_build": "batch_v2h_final_abi_authority_publication",
+  "elapsed_ns": 802943728,
+  "finished_time_ns": 1785568091888946672,
+  "format": "pal_internal_pipeline_stream_capture",
+  "function": {
+    "entry": 1053631,
+    "entry_hex": "0x1013bf",
+    "function_id": "function:0x1013bf",
+    "module_stem": "f_00000000001013bf_parse_burn",
+    "name": "parse_burn",
+    "qualified_name": "Global::parse_burn"
+  },
+  "keep_success_logs": true,
+  "mirrored_to_process_stdio": true,
+  "outcome": "decompiled",
+  "pipeline_entrypoint": "run_all",
+  "raw_text_policy": "exact_python_stdout_stderr_text_before_portability_rewrite",
+  "schema_version": 1,
+  "started_time_ns": 1785568091086002944,
+  "streams": {
+    "combined": {
+      "bytes": 30876,
+      "path": "functions/f_00000000001013bf_parse_burn.pipeline.log",
+      "sha256": "13272d563db7ef835c71f914c4593c699310fd582d7747661727583d6ff70f16"
+    },
+    "stderr": {
+      "bytes": 0,
+      "path": "functions/f_00000000001013bf_parse_burn.pipeline.stderr.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "stdout": {
+      "bytes": 30876,
+      "path": "functions/f_00000000001013bf_parse_burn.pipeline.stdout.log",
+      "sha256": "13272d563db7ef835c71f914c4593c699310fd582d7747661727583d6ff70f16"
+    }
+  }
+}

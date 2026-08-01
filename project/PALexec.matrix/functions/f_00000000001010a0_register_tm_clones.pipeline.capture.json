@@ -1,0 +1,38 @@
+{
+  "batch_build": "batch_v2h_final_abi_authority_publication",
+  "elapsed_ns": 364723641,
+  "finished_time_ns": 1785564228197411316,
+  "format": "pal_internal_pipeline_stream_capture",
+  "function": {
+    "entry": 1052832,
+    "entry_hex": "0x1010a0",
+    "function_id": "function:0x1010a0",
+    "module_stem": "f_00000000001010a0_register_tm_clones",
+    "name": "register_tm_clones",
+    "qualified_name": "Global::register_tm_clones"
+  },
+  "keep_success_logs": true,
+  "mirrored_to_process_stdio": true,
+  "outcome": "decompiled",
+  "pipeline_entrypoint": "run_all",
+  "raw_text_policy": "exact_python_stdout_stderr_text_before_portability_rewrite",
+  "schema_version": 1,
+  "started_time_ns": 1785564227832687675,
+  "streams": {
+    "combined": {
+      "bytes": 17540,
+      "path": "functions/f_00000000001010a0_register_tm_clones.pipeline.log",
+      "sha256": "126bae1dd458b03c7a37f9c82fc17054d5c9613c421fc3fe65982a5bfbb7d00e"
+    },
+    "stderr": {
+      "bytes": 0,
+      "path": "functions/f_00000000001010a0_register_tm_clones.pipeline.stderr.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "stdout": {
+      "bytes": 17540,
+      "path": "functions/f_00000000001010a0_register_tm_clones.pipeline.stdout.log",
+      "sha256": "126bae1dd458b03c7a37f9c82fc17054d5c9613c421fc3fe65982a5bfbb7d00e"
+    }
+  }
+}

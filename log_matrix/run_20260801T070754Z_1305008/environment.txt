@@ -1,0 +1,34 @@
+run_started_utc=2026-08-01T07:07:54Z
+script=/home/rem/gh/PAL/pyghidra-PAL/PAL/scripts/PAL_stack_debug.sh
+script_sha256=abfa8e9e01c070c08a79591c722193f480d72aac274878134eedb723ef0dd31d
+pal_root=/home/rem/gh/PAL/pyghidra-PAL/PAL
+caller_pwd=/home/rem/gh/PAL/pyghidra-PAL/PAL
+matrix_process_pwd=/home/rem/gh/PAL/pyghidra-PAL/PAL
+pyghidra_child_cwd=/home/rem/gh/PAL/pyghidra-PAL/PAL
+pythonpath=/home/rem/gh/PAL/pyghidra-PAL/PAL:/home/rem/gh/PAL/pyghidra-PAL/PAL/stack:/home/rem/gh/PAL/pyghidra-PAL/PAL/pipeline:/home/rem/gh/PAL/pyghidra-PAL/PAL/interface:/home/rem/rmg/RMG-Py:/home/rem/rmg/RMG-database
+pyghidra_command=pyghidra
+crystal_batch=/home/rem/gh/PAL/pyghidra-PAL/PAL/pipeline/crystal_batch.py
+crystal_batch_sha256=4f6095e4dc2c816856adedaa12b1155a588a1c70677b779a8adba52652107e0a
+ghidra_project_path=/home/rem/gh/PAL/pyghidra-PAL/PAL/.ghidra_projects
+ghidra_project_name=PAL_ALL_EXE_20260801T070754Z_1305008
+log_matrix_root=/home/rem/gh/PAL/pyghidra-PAL/PAL/log_matrix
+run_directory=/home/rem/gh/PAL/pyghidra-PAL/PAL/log_matrix/run_20260801T070754Z_1305008
+timeout_seconds=0
+failed_report_max_file_bytes=33554432
+failed_report_max_files=512
+failed_report_extra_roots=
+tabloid_enabled=1
+tabloid_viewer=/home/rem/gh/PAL/pyghidra-PAL/PAL/PAL_log_tabloid.sh
+console_mode=progress
+summary_diagnostic_max_chars=32768
+host=exodeus
+kernel=Linux 6.8.0-111-generic x86_64 GNU/Linux
+bash=5.1.16(1)-release
+python=Python 3.13.5
+pyghidra_path=/home/rem/miniconda/bin/pyghidra
+pyghidra_version_begin
+usage: pyghidra [-h] [-v] [-d] [-g] [--install-dir ] [--skip-analysis]
+                [--project-name name] [--project-path path] [-D ] [-X ]
+                [binary_path ...] [script_path ...] ...
+pyghidra: error: unrecognized arguments: --version
+pyghidra_version_end

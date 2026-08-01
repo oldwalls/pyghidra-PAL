@@ -1,0 +1,14 @@
+{
+  "batch_script": "/home/rem/gh/PAL/pyghidra-PAL/PAL/pipeline/crystal_batch.py",
+  "binary": "/home/rem/gh/PAL/pyghidra-PAL/PAL/specimens/o0/lunar_lander.game",
+  "caller_pwd": "/home/rem/gh/PAL/pyghidra-PAL/PAL",
+  "child_cwd": "/home/rem/gh/PAL/pyghidra-PAL/PAL",
+  "cwd_authority_agrees": true,
+  "expected_publish_dir": "/home/rem/gh/PAL/pyghidra-PAL/PAL/project/lunar_lander.game",
+  "matrix_process_pwd": "/home/rem/gh/PAL/pyghidra-PAL/PAL",
+  "pal_root": "/home/rem/gh/PAL/pyghidra-PAL/PAL",
+  "pal_root_export": "/home/rem/gh/PAL/pyghidra-PAL/PAL",
+  "pythonpath": "/home/rem/gh/PAL/pyghidra-PAL/PAL:/home/rem/gh/PAL/pyghidra-PAL/PAL/stack:/home/rem/gh/PAL/pyghidra-PAL/PAL/pipeline:/home/rem/gh/PAL/pyghidra-PAL/PAL/interface:/home/rem/rmg/RMG-Py:/home/rem/rmg/RMG-database",
+  "schema": "pal_matrix_launch_custody_v1",
+  "supervisor_pid": 1305075
+}

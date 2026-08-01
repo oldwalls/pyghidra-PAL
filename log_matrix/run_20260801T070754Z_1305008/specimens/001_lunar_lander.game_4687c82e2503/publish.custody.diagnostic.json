@@ -1,0 +1,20 @@
+{
+  "child_cwd": "/home/rem/gh/PAL/pyghidra-PAL/PAL",
+  "classification": "expected_publish_tree_present",
+  "cwd_agrees_with_pal_root": true,
+  "exception_markers": [],
+  "expected_publish_dir": "/home/rem/gh/PAL/pyghidra-PAL/PAL/project/lunar_lander.game",
+  "expected_publish_exists": true,
+  "launch_cwd_authority_agrees": true,
+  "misplaced_publish_trees": [],
+  "next_evidence": {
+    "full_transcript": "/home/rem/gh/PAL/pyghidra-PAL/PAL/log_matrix/run_20260801T070754Z_1305008/specimens/001_lunar_lander.game_4687c82e2503/pipeline.full.transcript.log",
+    "launch_receipt": "/home/rem/gh/PAL/pyghidra-PAL/PAL/log_matrix/run_20260801T070754Z_1305008/specimens/001_lunar_lander.game_4687c82e2503/launch.custody.json",
+    "transcript_metadata": "/home/rem/gh/PAL/pyghidra-PAL/PAL/log_matrix/run_20260801T070754Z_1305008/specimens/001_lunar_lander.game_4687c82e2503/pipeline.full.transcript.meta.json"
+  },
+  "pal_root": "/home/rem/gh/PAL/pyghidra-PAL/PAL",
+  "pyghidra_exit": 0,
+  "schema": "pal_publish_custody_diagnostic_v1",
+  "specimen": "lunar_lander.game",
+  "transcript_bytes": 723460
+}

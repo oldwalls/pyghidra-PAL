@@ -1,0 +1,1950 @@
+{
+  "abi_argument_bridge": {
+    "active": true,
+    "artifact": "PAL_abi_argument_bridge.json",
+    "automatic_exact_compatibility": false,
+    "bridged_contracts": 1,
+    "complete_project": true,
+    "policy": "exact-integral-subregister-auto-v1u",
+    "rule": "same physical GP-register family plus exact call/entry identity and width-only custody permits runtime-only low-bit subregister projection for constants or variables; no value inference, carrier, order, or arity repair",
+    "sha256": "d1704b574433be090f121fddc40094292524775581e339a6acefb7ed20ffba5f"
+  },
+  "abi_authority_loading": {
+    "acceptance_gates": {
+      "canonical_project_index_consumed": true,
+      "final_authority_receipt_verified": true,
+      "final_phase_verified": true,
+      "immutable_core_hashes_recomputed": true,
+      "recursive_whole_icecube_discovery_used": false,
+      "whole_object_plan_equality_used": false
+    },
+    "artifacts": {
+      "alias_audit": {
+        "name": "PAL_abi_plan_alias_audit.json",
+        "sha256": "1678c6e39060edda4f77c7f5d0c2a6515d44de2fcaab8de29bdea333e0d5fbcd"
+      },
+      "custody_report": {
+        "name": "PAL_abi_custody.json",
+        "sha256": "edbdfcec35b38e184a12fc9ae53e89fc5ae4a5816b0c4414c57c38c632849239"
+      },
+      "final_authority": {
+        "name": "PAL_abi_final_authority.json",
+        "sha256": "1555d2c469bc37d64dfbfa3bea91745a51a5b26b7bee0d331662e853247997ac"
+      },
+      "plan_index": {
+        "name": "PAL_abi_plan_index.json",
+        "sha256": "fba48e08bcb033ae81448df3b522f7163018140a0272fe3f99612f57664ca3b1"
+      }
+    },
+    "phase": "post_emitter_v52_refreeze_and_custody_refresh",
+    "source_mode": "final_project_plan_index",
+    "status": "verified"
+  },
+  "abi_chain_publication": {
+    "acceptance_gates": {
+      "canonical_project_index_consumed": true,
+      "final_authority_receipt_verified": true,
+      "final_phase_verified": true,
+      "immutable_core_hashes_recomputed": true,
+      "recursive_whole_icecube_discovery_used": false,
+      "whole_object_plan_equality_used": false
+    },
+    "active": true,
+    "alias_audit": {
+      "artifact": "PAL_abi_plan_alias_audit.json",
+      "sha256": "1678c6e39060edda4f77c7f5d0c2a6515d44de2fcaab8de29bdea333e0d5fbcd"
+    },
+    "argument_bridge": {
+      "active": true,
+      "automatic_exact_subregister_compatibility": true,
+      "bridged_carrier_disagreements": 0,
+      "bridged_contracts": 1,
+      "build": "pal_exec_interface_v1u_exact_integral_subregister_projection",
+      "complete_project": true,
+      "format": "pal_guarded_abi_argument_bridge",
+      "policy": "exact-integral-subregister-auto-v1u",
+      "records": [
+        {
+          "actions": [
+            {
+              "from": "unknown_scalar",
+              "index": 0,
+              "kind": "normalize_argument_class",
+              "to": "integer"
+            },
+            {
+              "from": "unknown_scalar",
+              "index": 1,
+              "kind": "normalize_argument_class",
+              "to": "integer"
+            },
+            {
+              "from": "unknown_scalar",
+              "index": 2,
+              "kind": "normalize_argument_class",
+              "to": "integer"
+            },
+            {
+              "from": 32,
+              "index": 2,
+              "kind": "clamp_argument_width",
+              "to": 16
+            }
+          ],
+          "argument_chain_bridged": 1,
+          "bridge_profile": "exact_same_family_integral_subregister_v1u",
+          "carrier_disagreement_bridged": 0,
+          "complete_project_exact_integral_subregister_bridge_v1u": true,
+          "contract_id": "abi_custody:dce577f291cc2163edd33e25",
+          "entry_plan_id": "function_entry:1052969",
+          "exact_integral_subregister_action_proofs_v1u": [
+            {
+              "action": {
+                "from": "unknown_scalar",
+                "index": 0,
+                "kind": "normalize_argument_class",
+                "to": "integer"
+              },
+              "allowed": true,
+              "reason": "custody_proven_integral_class_alias"
+            },
+            {
+              "action": {
+                "from": "unknown_scalar",
+                "index": 1,
+                "kind": "normalize_argument_class",
+                "to": "integer"
+              },
+              "allowed": true,
+              "reason": "custody_proven_integral_class_alias"
+            },
+            {
+              "action": {
+                "from": "unknown_scalar",
+                "index": 2,
+                "kind": "normalize_argument_class",
+                "to": "integer"
+              },
+              "allowed": true,
+              "reason": "custody_proven_integral_class_alias"
+            },
+            {
+              "action": {
+                "from": 32,
+                "index": 2,
+                "kind": "clamp_argument_width",
+                "to": 16
+              },
+              "allowed": true,
+              "reason": "exact_failed_argument_width_projection"
+            }
+          ],
+          "exact_integral_subregister_cardinality_gates_v1u": {
+            "call_and_entry_arity_equal": true,
+            "custody_callee_count_exact": true,
+            "custody_caller_count_exact": true,
+            "entry_fixed_count_exact": true,
+            "entry_plan_identity_exact": true,
+            "no_carrier_disagreement_bridge": true,
+            "no_zero_fill": true
+          },
+          "exact_integral_subregister_proofs_v1u": [
+            {
+              "callee_register": "DX",
+              "caller_register": "RDX",
+              "constant_value": 32767,
+              "failed_gates": [],
+              "gates": {
+                "argument_index_exact": true,
+                "byte_aligned_integral_widths": true,
+                "call_argument_present": true,
+                "custody_argument_continuity": true,
+                "custody_argument_present": true,
+                "failure_status_incompatible": true,
+                "gp_register_transport": true,
+                "integral_scalar_class": true,
+                "only_width_disagrees": true,
+                "same_physical_register_family": true,
+                "source_sid_exact": true,
+                "source_width_exact": true,
+                "strict_supported_width_contraction": true,
+                "target_argument_present": true,
+                "target_binding_present": true,
+                "target_ordinal_exact": true,
+                "target_sid_exact": true,
+                "target_width_exact": true
+              },
+              "index": 2,
+              "kind": "pal_exec_exact_integral_subregister_compatibility_v1u",
+              "physical_register_family": "RDX",
+              "runtime_projection": "mask_integral_value_to_exact_callee_subregister_width_modulo_2_pow_n",
+              "source_is_constant": true,
+              "source_sid": "c_32767_4",
+              "source_width_bits": 32,
+              "target_binding_register": "DX",
+              "target_sid": "v_4130",
+              "target_width_bits": 16,
+              "upstream_authority_mutated": false,
+              "value_inference_used": false
+            }
+          ],
+          "plan_id": "call_site:1053303:(ram, 0x1012a1, 40, 0):0",
+          "reasons": [],
+          "runtime_call_plan_core_sha256": "d10afebd2316d131f67033811f4f0b51d41f91f98c1bae7a26a9d76d51c1dad1",
+          "runtime_entry_plan_core_sha256": "3e5a4afe461be5cf9c93aa485620365924bf9bde60c6b40bd5a53f59fa33d1e1",
+          "source_call_plan_core_sha256": "af4d8361152a1f21ce7c6497fe1afaa2d568035c3d8fbd0ecb333f6750d23ed6",
+          "source_entry_plan_core_sha256": "9d814b55dddeab91490af206f934d28a464f9cfd1c9cc6e862c76455600c7093",
+          "status": "bridgeable",
+          "zero_fill_indices": []
+        }
+      ],
+      "rejected": [],
+      "rule": "same physical GP-register family plus exact call/entry identity and width-only custody permits runtime-only low-bit subregister projection for constants or variables; no value inference, carrier, order, or arity repair",
+      "schema_version": 1
+    },
+    "artifact": "PAL_abi_custody.json",
+    "broken_reasons": [],
+    "canonicalizer_version": "v1_immutable_plan_identity",
+    "complete_project_exact_integral_subregister_bridge_v1u": true,
+    "counts": {
+      "argument_chains_incompatible": 0,
+      "argument_chains_incompatible_bridged": 1,
+      "argument_chains_incompatible_raw": 1,
+      "argument_chains_incompatible_waived": 0,
+      "carrier_disagreements": 0,
+      "emitter_repairs_authorized": 0,
+      "emitter_repairs_re_emitted": 0,
+      "ghosts_conflicting": 0,
+      "ghosts_deferred": 0,
+      "ghosts_deferred_raw": 0,
+      "ghosts_deferred_waived": 0,
+      "ghosts_resolved": 0,
+      "internal_calls_linked": 3,
+      "plan_core_conflicts": 0,
+      "result_width_conflicts": 0,
+      "result_widths_deferred": 0,
+      "result_widths_deferred_raw": 0,
+      "result_widths_deferred_waived": 0,
+      "return_carriers_deferred": 0,
+      "return_carriers_deferred_raw": 0,
+      "return_carriers_deferred_waived": 0,
+      "runtime_register_family_conflicts": 0,
+      "unresolved_target_plans": 0,
+      "unresolved_target_plans_raw": 0,
+      "unresolved_target_plans_waived": 0
+    },
+    "degraded_reasons": [
+      "exact_runtime_ABI_integral_subregister_projection"
+    ],
+    "emitter_second_pass_status": "NOT_REQUIRED",
+    "final_authority": {
+      "artifact": "PAL_abi_final_authority.json",
+      "build": "batch_v2h_final_abi_authority_publication",
+      "phase": "post_emitter_v52_refreeze_and_custody_refresh",
+      "sha256": "1555d2c469bc37d64dfbfa3bea91745a51a5b26b7bee0d331662e853247997ac",
+      "status": "complete"
+    },
+    "health": "DEGRADED",
+    "inspector_version": "v1b_canonical_project_plan_index",
+    "partial_publication": {
+      "active": false,
+      "argument_bridge": {
+        "active": true,
+        "automatic_exact_subregister_compatibility": true,
+        "bridged_carrier_disagreements": 0,
+        "bridged_contracts": 1,
+        "build": "pal_exec_interface_v1u_exact_integral_subregister_projection",
+        "complete_project": true,
+        "format": "pal_guarded_abi_argument_bridge",
+        "policy": "exact-integral-subregister-auto-v1u",
+        "records": [
+          {
+            "actions": [
+              {
+                "from": "unknown_scalar",
+                "index": 0,
+                "kind": "normalize_argument_class",
+                "to": "integer"
+              },
+              {
+                "from": "unknown_scalar",
+                "index": 1,
+                "kind": "normalize_argument_class",
+                "to": "integer"
+              },
+              {
+                "from": "unknown_scalar",
+                "index": 2,
+                "kind": "normalize_argument_class",
+                "to": "integer"
+              },
+              {
+                "from": 32,
+                "index": 2,
+                "kind": "clamp_argument_width",
+                "to": 16
+              }
+            ],
+            "argument_chain_bridged": 1,
+            "bridge_profile": "exact_same_family_integral_subregister_v1u",
+            "carrier_disagreement_bridged": 0,
+            "complete_project_exact_integral_subregister_bridge_v1u": true,
+            "contract_id": "abi_custody:dce577f291cc2163edd33e25",
+            "entry_plan_id": "function_entry:1052969",
+            "exact_integral_subregister_action_proofs_v1u": [
+              {
+                "action": {
+                  "from": "unknown_scalar",
+                  "index": 0,
+                  "kind": "normalize_argument_class",
+                  "to": "integer"
+                },
+                "allowed": true,
+                "reason": "custody_proven_integral_class_alias"
+              },
+              {
+                "action": {
+                  "from": "unknown_scalar",
+                  "index": 1,
+                  "kind": "normalize_argument_class",
+                  "to": "integer"
+                },
+                "allowed": true,
+                "reason": "custody_proven_integral_class_alias"
+              },
+              {
+                "action": {
+                  "from": "unknown_scalar",
+                  "index": 2,
+                  "kind": "normalize_argument_class",
+                  "to": "integer"
+                },
+                "allowed": true,
+                "reason": "custody_proven_integral_class_alias"
+              },
+              {
+                "action": {
+                  "from": 32,
+                  "index": 2,
+                  "kind": "clamp_argument_width",
+                  "to": 16
+                },
+                "allowed": true,
+                "reason": "exact_failed_argument_width_projection"
+              }
+            ],
+            "exact_integral_subregister_cardinality_gates_v1u": {
+              "call_and_entry_arity_equal": true,
+              "custody_callee_count_exact": true,
+              "custody_caller_count_exact": true,
+              "entry_fixed_count_exact": true,
+              "entry_plan_identity_exact": true,
+              "no_carrier_disagreement_bridge": true,
+              "no_zero_fill": true
+            },
+            "exact_integral_subregister_proofs_v1u": [
+              {
+                "callee_register": "DX",
+                "caller_register": "RDX",
+                "constant_value": 32767,
+                "failed_gates": [],
+                "gates": {
+                  "argument_index_exact": true,
+                  "byte_aligned_integral_widths": true,
+                  "call_argument_present": true,
+                  "custody_argument_continuity": true,
+                  "custody_argument_present": true,
+                  "failure_status_incompatible": true,
+                  "gp_register_transport": true,
+                  "integral_scalar_class": true,
+                  "only_width_disagrees": true,
+                  "same_physical_register_family": true,
+                  "source_sid_exact": true,
+                  "source_width_exact": true,
+                  "strict_supported_width_contraction": true,
+                  "target_argument_present": true,
+                  "target_binding_present": true,
+                  "target_ordinal_exact": true,
+                  "target_sid_exact": true,
+                  "target_width_exact": true
+                },
+                "index": 2,
+                "kind": "pal_exec_exact_integral_subregister_compatibility_v1u",
+                "physical_register_family": "RDX",
+                "runtime_projection": "mask_integral_value_to_exact_callee_subregister_width_modulo_2_pow_n",
+                "source_is_constant": true,
+                "source_sid": "c_32767_4",
+                "source_width_bits": 32,
+                "target_binding_register": "DX",
+                "target_sid": "v_4130",
+                "target_width_bits": 16,
+                "upstream_authority_mutated": false,
+                "value_inference_used": false
+              }
+            ],
+            "plan_id": "call_site:1053303:(ram, 0x1012a1, 40, 0):0",
+            "reasons": [],
+            "runtime_call_plan_core_sha256": "d10afebd2316d131f67033811f4f0b51d41f91f98c1bae7a26a9d76d51c1dad1",
+            "runtime_entry_plan_core_sha256": "3e5a4afe461be5cf9c93aa485620365924bf9bde60c6b40bd5a53f59fa33d1e1",
+            "source_call_plan_core_sha256": "af4d8361152a1f21ce7c6497fe1afaa2d568035c3d8fbd0ecb333f6750d23ed6",
+            "source_entry_plan_core_sha256": "9d814b55dddeab91490af206f934d28a464f9cfd1c9cc6e862c76455600c7093",
+            "status": "bridgeable",
+            "zero_fill_indices": []
+          }
+        ],
+        "rejected": [],
+        "rule": "same physical GP-register family plus exact call/entry identity and width-only custody permits runtime-only low-bit subregister projection for constants or variables; no value inference, carrier, order, or arity repair",
+        "schema_version": 1
+      },
+      "argument_policy": "exact-integral-subregister-auto-v1u",
+      "bridged_argument_contracts": 1,
+      "policy": "complete_project",
+      "trunked_functions": 0,
+      "unmatched_argument_contracts": 0,
+      "waived_argument_contracts": 0,
+      "waivers": {
+        "argument_chains_incompatible": 0,
+        "ghosts_deferred": 0,
+        "records": [],
+        "result_widths_deferred": 0,
+        "return_carriers_deferred": 0,
+        "unresolved_target_plans": 0,
+        "waived_contract_ids": [],
+        "waived_plan_ids": []
+      }
+    },
+    "plan_index": {
+      "artifact": "PAL_abi_plan_index.json",
+      "call_plans": 8,
+      "entry_plans": 16,
+      "phase": "post_emitter_v52_refreeze_and_custody_refresh",
+      "sha256": "fba48e08bcb033ae81448df3b522f7163018140a0272fe3f99612f57664ca3b1",
+      "status": "ready"
+    },
+    "report_status": "broken",
+    "rule": "trunk waivers and runtime argument compatibility are independent; complete projects may automatically project only exact same-family integral subregister projections with width as the sole disagreement; no value inference, carrier repair, order repair, or arity repair is allowed",
+    "sha256": "edbdfcec35b38e184a12fc9ae53e89fc5ae4a5816b0c4414c57c38c632849239",
+    "source_mode": "final_project_plan_index",
+    "source_report_status": "broken"
+  },
+  "abi_partial_publication": {
+    "active": false,
+    "effective_policy": "complete_project",
+    "publication_class": "complete",
+    "trunked_function_count": 0
+  },
+  "build": "pal_exec_interface_v1u_exact_integral_subregister_projection",
+  "counts": {
+    "abi_argument_chains_incompatible": 0,
+    "abi_carrier_disagreements": 0,
+    "abi_ghosts_conflicting": 0,
+    "abi_ghosts_deferred": 0,
+    "abi_ghosts_resolved": 0,
+    "abi_internal_calls_linked": 3,
+    "abi_plan_core_conflicts": 0,
+    "abi_result_width_conflicts": 0,
+    "abi_unresolved_target_plans": 0,
+    "call_plans": 8,
+    "entry_plans": 16,
+    "manifest_functions": 16,
+    "published_functions": 16,
+    "static_strings_ambiguous": 0,
+    "static_strings_code_pointers": 0,
+    "static_strings_completed": 0,
+    "static_strings_direct_resolved": 0,
+    "static_strings_final": 63,
+    "static_strings_function_pointers": 1,
+    "static_strings_original": 63,
+    "static_strings_rebased_resolved": 0,
+    "static_strings_required": 0,
+    "static_strings_unresolved_ptrsub": 0,
+    "trunked_functions": 0
+  },
+  "default_entry": "function:0x101273",
+  "external_targets": [
+    "__cxa_finalize"
+  ],
+  "format": "pal_execution_publish",
+  "functions": [
+    {
+      "abi_custody": {
+        "contracts": 0,
+        "ghost_repairs_resolved": 0,
+        "status": "ready"
+      },
+      "abi_plan_authority": "final_project_plan_index",
+      "active_name": "f_init",
+      "active_name_source": "pal",
+      "artifacts": {
+        "executable": {
+          "path": "functions/f_0000000000101000_init.exec.py",
+          "sha256": "eca9278b236ae7b7f4b5664da66713b082e36961c8f1b56604bc3fbc85bf7813"
+        },
+        "icecube": {
+          "path": "functions/f_0000000000101000_init.icecube.json.gz",
+          "sha256": "b6aded1dbf70ed089c0beca7df42375af6590fe2396096995763ba51d3138424"
+        },
+        "pipeline_capture": {
+          "path": "functions/f_0000000000101000_init.pipeline.capture.json",
+          "sha256": "c52eac18313e171409a66ea76531fcaf53aedf25dbcd454a942b93400e89b088"
+        },
+        "pipeline_log": {
+          "path": "functions/f_0000000000101000_init.pipeline.log",
+          "sha256": "ef2c9de8a262c9e78a720803a0e1ceab761548632fb5f4ab6b3a95754a1d4138"
+        },
+        "pipeline_stderr_log": {
+          "path": "functions/f_0000000000101000_init.pipeline.stderr.log",
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        "pipeline_stdout_log": {
+          "path": "functions/f_0000000000101000_init.pipeline.stdout.log",
+          "sha256": "ef2c9de8a262c9e78a720803a0e1ceab761548632fb5f4ab6b3a95754a1d4138"
+        },
+        "readable": {
+          "path": "functions/f_0000000000101000_init.read.py",
+          "sha256": "8d6d2ad891474a0b18718fef7a13a3863ef597d12363650c2ed8e8d0c1abe32d"
+        }
+      },
+      "body_max": 1052698,
+      "body_max_hex": "0x10101a",
+      "body_min": 1052672,
+      "body_min_hex": "0x101000",
+      "calling_convention": "__stdcall",
+      "entry": 1052672,
+      "entry_hex": "0x101000",
+      "entry_plan_id": "function_entry:1052672",
+      "external": false,
+      "function_id": "function:0x101000",
+      "generated_name": null,
+      "inline": false,
+      "is_shim_boundary": false,
+      "module": "functions.f_0000000000101000_init",
+      "module_stem": "f_0000000000101000_init",
+      "name": "_init",
+      "namespace": "Global",
+      "no_return": false,
+      "operator_name": null,
+      "ordinal": 0,
+      "pal_name": "f_init",
+      "published_icecube": "icecubes/f_0000000000101000_init.icecube.json.gz",
+      "published_module": "functions/f_0000000000101000_init.py",
+      "published_sha256": "eca9278b236ae7b7f4b5664da66713b082e36961c8f1b56604bc3fbc85bf7813",
+      "python_parameter_count": 1,
+      "python_symbol": "_init",
+      "qualified_name": "Global::_init",
+      "runtime_imports": [
+        "PALABI",
+        "PALhelpers"
+      ],
+      "runtime_mode": "abi_context",
+      "ssa_name": "_init",
+      "status": "decompiled",
+      "thunk": false,
+      "warnings": []
+    },
+    {
+      "abi_custody": {
+        "contracts": 0,
+        "ghost_repairs_resolved": 0,
+        "status": "ready"
+      },
+      "abi_plan_authority": "final_project_plan_index",
+      "active_name": "f_lamp",
+      "active_name_source": "generated",
+      "artifacts": {
+        "executable": {
+          "path": "functions/f_0000000000101020_FUN_00101020.exec.py",
+          "sha256": "aff687af9b5f01d58de6fce22ae7951807f09bf4fa6460ecaa2376260561b839"
+        },
+        "icecube": {
+          "path": "functions/f_0000000000101020_FUN_00101020.icecube.json.gz",
+          "sha256": "db322419c05bf4250fcd856a94f1cf4e40d9ac9d7add8fb516a8b88af24e41e8"
+        },
+        "pipeline_capture": {
+          "path": "functions/f_0000000000101020_FUN_00101020.pipeline.capture.json",
+          "sha256": "7cb9b39d371790bcfdb17a4990ceb711c89c8c0b10a67ec736a27f8936437c24"
+        },
+        "pipeline_log": {
+          "path": "functions/f_0000000000101020_FUN_00101020.pipeline.log",
+          "sha256": "46bd79d968ffd0475f0f7ae05cb72ec9c930dbd89bc52f897cf5c143a2ed2318"
+        },
+        "pipeline_stderr_log": {
+          "path": "functions/f_0000000000101020_FUN_00101020.pipeline.stderr.log",
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        "pipeline_stdout_log": {
+          "path": "functions/f_0000000000101020_FUN_00101020.pipeline.stdout.log",
+          "sha256": "46bd79d968ffd0475f0f7ae05cb72ec9c930dbd89bc52f897cf5c143a2ed2318"
+        },
+        "readable": {
+          "path": "functions/f_0000000000101020_FUN_00101020.read.py",
+          "sha256": "43d2eab9638f4a692685bc231e2f747ddac137b51689575d0b28efa5e1c4fb78"
+        }
+      },
+      "body_max": 1052716,
+      "body_max_hex": "0x10102c",
+      "body_min": 1052704,
+      "body_min_hex": "0x101020",
+      "calling_convention": "unknown",
+      "entry": 1052704,
+      "entry_hex": "0x101020",
+      "entry_plan_id": "function_entry:1052704",
+      "external": false,
+      "function_id": "function:0x101020",
+      "generated_name": "f_lamp",
+      "inline": false,
+      "is_shim_boundary": false,
+      "module": "functions.f_0000000000101020_FUN_00101020",
+      "module_stem": "f_0000000000101020_FUN_00101020",
+      "name": "FUN_00101020",
+      "namespace": "Global",
+      "no_return": false,
+      "operator_name": null,
+      "ordinal": 1,
+      "pal_name": "f_FUN_00101020",
+      "published_icecube": "icecubes/f_0000000000101020_FUN_00101020.icecube.json.gz",
+      "published_module": "functions/f_0000000000101020_FUN_00101020.py",
+      "published_sha256": "aff687af9b5f01d58de6fce22ae7951807f09bf4fa6460ecaa2376260561b839",
+      "python_parameter_count": 0,
+      "python_symbol": "FUN_00101020",
+      "qualified_name": "Global::FUN_00101020",
+      "runtime_imports": [
+        "PALABI",
+        "PALhelpers"
+      ],
+      "runtime_mode": "abi_context",
+      "ssa_name": "FUN_00101020",
+      "status": "decompiled",
+      "thunk": false,
+      "warnings": []
+    },
+    {
+      "abi_custody": {
+        "contracts": 0,
+        "ghost_repairs_resolved": 0,
+        "status": "ready"
+      },
+      "abi_plan_authority": "final_project_plan_index",
+      "active_name": "f_cxa_finalize",
+      "active_name_source": "pal",
+      "artifacts": {
+        "executable": {
+          "path": "functions/f_0000000000101030_cxa_finalize.exec.py",
+          "sha256": "5102d3e0e0ecb74225cbaf57b8a7c7b56f9b7916f58486e4c95b6a5a0da4c788"
+        },
+        "icecube": {
+          "path": "functions/f_0000000000101030_cxa_finalize.icecube.json.gz",
+          "sha256": "2ab4c89d629ce784e5275fc2d7db8bfb61b924c4bc4132d118c1cf0ed2735a0e"
+        },
+        "pipeline_capture": {
+          "path": "functions/f_0000000000101030_cxa_finalize.pipeline.capture.json",
+          "sha256": "f58a7a41e4a166458581bef775cd8e0106bfa0b70332996113127e5b19aaa6f6"
+        },
+        "pipeline_log": {
+          "path": "functions/f_0000000000101030_cxa_finalize.pipeline.log",
+          "sha256": "afe539212ca92405914a8fc2517c34fc8a465a687279b2baa40e81956e63f734"
+        },
+        "pipeline_stderr_log": {
+          "path": "functions/f_0000000000101030_cxa_finalize.pipeline.stderr.log",
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        "pipeline_stdout_log": {
+          "path": "functions/f_0000000000101030_cxa_finalize.pipeline.stdout.log",
+          "sha256": "afe539212ca92405914a8fc2517c34fc8a465a687279b2baa40e81956e63f734"
+        },
+        "readable": {
+          "path": "functions/f_0000000000101030_cxa_finalize.read.py",
+          "sha256": "125a6da2ed296678fe7648b01fc59ca7c5f707828a29cc3a2b73999b300d6203"
+        }
+      },
+      "body_max": 1052730,
+      "body_max_hex": "0x10103a",
+      "body_min": 1052720,
+      "body_min_hex": "0x101030",
+      "calling_convention": "unknown",
+      "entry": 1052720,
+      "entry_hex": "0x101030",
+      "entry_plan_id": "function_entry:1052720",
+      "external": false,
+      "function_id": "function:0x101030",
+      "generated_name": null,
+      "inline": false,
+      "is_shim_boundary": true,
+      "module": "functions.f_0000000000101030_cxa_finalize",
+      "module_stem": "f_0000000000101030_cxa_finalize",
+      "name": "__cxa_finalize",
+      "namespace": "<EXTERNAL>",
+      "no_return": false,
+      "operator_name": null,
+      "ordinal": 2,
+      "pal_name": "f_cxa_finalize",
+      "published_icecube": "icecubes/f_0000000000101030_cxa_finalize.icecube.json.gz",
+      "published_module": "functions/f_0000000000101030_cxa_finalize.py",
+      "published_sha256": "5102d3e0e0ecb74225cbaf57b8a7c7b56f9b7916f58486e4c95b6a5a0da4c788",
+      "python_parameter_count": 0,
+      "python_symbol": "__cxa_finalize",
+      "qualified_name": "<EXTERNAL>::__cxa_finalize",
+      "runtime_imports": [
+        "PALABI",
+        "PALhelpers"
+      ],
+      "runtime_mode": "abi_context",
+      "ssa_name": "__cxa_finalize",
+      "status": "decompiled",
+      "thunk": true,
+      "warnings": []
+    },
+    {
+      "abi_custody": {
+        "contracts": 0,
+        "ghost_repairs_resolved": 0,
+        "status": "ready"
+      },
+      "abi_plan_authority": "final_project_plan_index",
+      "active_name": "f_start",
+      "active_name_source": "pal",
+      "artifacts": {
+        "executable": {
+          "path": "functions/f_0000000000101040_start.exec.py",
+          "sha256": "1f7854e8badb8606c43a73dd7c18b25c807c60ae7b3f4ef92d8aac8a8f9b3891"
+        },
+        "icecube": {
+          "path": "functions/f_0000000000101040_start.icecube.json.gz",
+          "sha256": "d7e3013492fafc27d3007a562e487c55ceb8af71b3083134145b75a46738b042"
+        },
+        "pipeline_capture": {
+          "path": "functions/f_0000000000101040_start.pipeline.capture.json",
+          "sha256": "21bc32313a19e7b4eff5ec8a10c2a57f24640614555557886ae6b37c508d9e3a"
+        },
+        "pipeline_log": {
+          "path": "functions/f_0000000000101040_start.pipeline.log",
+          "sha256": "46bfd2ee5e231a7a9f7013604115be2fe927c9fc68eeaee95ad18093e409d363"
+        },
+        "pipeline_stderr_log": {
+          "path": "functions/f_0000000000101040_start.pipeline.stderr.log",
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        "pipeline_stdout_log": {
+          "path": "functions/f_0000000000101040_start.pipeline.stdout.log",
+          "sha256": "46bfd2ee5e231a7a9f7013604115be2fe927c9fc68eeaee95ad18093e409d363"
+        },
+        "readable": {
+          "path": "functions/f_0000000000101040_start.read.py",
+          "sha256": "d01848da091d2dfcabb09f8ab124be0dc3de297ea1602ac305442357e49f3778"
+        }
+      },
+      "body_max": 1052773,
+      "body_max_hex": "0x101065",
+      "body_min": 1052736,
+      "body_min_hex": "0x101040",
+      "calling_convention": "processEntry",
+      "entry": 1052736,
+      "entry_hex": "0x101040",
+      "entry_plan_id": "function_entry:1052736",
+      "external": false,
+      "function_id": "function:0x101040",
+      "generated_name": null,
+      "inline": false,
+      "is_shim_boundary": false,
+      "module": "functions.f_0000000000101040_start",
+      "module_stem": "f_0000000000101040_start",
+      "name": "_start",
+      "namespace": "Global",
+      "no_return": false,
+      "operator_name": null,
+      "ordinal": 3,
+      "pal_name": "f_start",
+      "published_icecube": "icecubes/f_0000000000101040_start.icecube.json.gz",
+      "published_module": "functions/f_0000000000101040_start.py",
+      "published_sha256": "1f7854e8badb8606c43a73dd7c18b25c807c60ae7b3f4ef92d8aac8a8f9b3891",
+      "python_parameter_count": 2,
+      "python_symbol": "_start",
+      "qualified_name": "Global::_start",
+      "runtime_imports": [
+        "PALABI",
+        "PALhelpers"
+      ],
+      "runtime_mode": "abi_context",
+      "ssa_name": "_start",
+      "status": "decompiled",
+      "thunk": false,
+      "warnings": []
+    },
+    {
+      "abi_custody": {
+        "contracts": 0,
+        "ghost_repairs_resolved": 0,
+        "status": "ready"
+      },
+      "abi_plan_authority": "final_project_plan_index",
+      "active_name": "f_deregister_tm_clones",
+      "active_name_source": "pal",
+      "artifacts": {
+        "executable": {
+          "path": "functions/f_0000000000101070_deregister_tm_clones.exec.py",
+          "sha256": "0509a16cfe1af81f0c301a5e69ddf0356f75de926a0f1662bbdf4fe4ceaebd07"
+        },
+        "icecube": {
+          "path": "functions/f_0000000000101070_deregister_tm_clones.icecube.json.gz",
+          "sha256": "c08d3418a8ac8e8e4b822091ffc201aef862b74f01c14038ad589e9cc82201cb"
+        },
+        "pipeline_capture": {
+          "path": "functions/f_0000000000101070_deregister_tm_clones.pipeline.capture.json",
+          "sha256": "29df93330e4a0c7b578a7b2e99748c76e1d9092298642b0c3916a631a292e444"
+        },
+        "pipeline_log": {
+          "path": "functions/f_0000000000101070_deregister_tm_clones.pipeline.log",
+          "sha256": "bbf0fa82fc8d5591cac549723bae17f0fa3cc7f3e82f5b612c30cd155a5f99ec"
+        },
+        "pipeline_stderr_log": {
+          "path": "functions/f_0000000000101070_deregister_tm_clones.pipeline.stderr.log",
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        "pipeline_stdout_log": {
+          "path": "functions/f_0000000000101070_deregister_tm_clones.pipeline.stdout.log",
+          "sha256": "bbf0fa82fc8d5591cac549723bae17f0fa3cc7f3e82f5b612c30cd155a5f99ec"
+        },
+        "readable": {
+          "path": "functions/f_0000000000101070_deregister_tm_clones.read.py",
+          "sha256": "b1f119406418216fd2c5426745fe64df795ec18bd5c66984b711f5158360c3fc"
+        }
+      },
+      "body_max": 1052824,
+      "body_max_hex": "0x101098",
+      "body_min": 1052784,
+      "body_min_hex": "0x101070",
+      "calling_convention": "unknown",
+      "entry": 1052784,
+      "entry_hex": "0x101070",
+      "entry_plan_id": "function_entry:1052784",
+      "external": false,
+      "function_id": "function:0x101070",
+      "generated_name": null,
+      "inline": false,
+      "is_shim_boundary": false,
+      "module": "functions.f_0000000000101070_deregister_tm_clones",
+      "module_stem": "f_0000000000101070_deregister_tm_clones",
+      "name": "deregister_tm_clones",
+      "namespace": "Global",
+      "no_return": false,
+      "operator_name": null,
+      "ordinal": 4,
+      "pal_name": "f_deregister_tm_clones",
+      "published_icecube": "icecubes/f_0000000000101070_deregister_tm_clones.icecube.json.gz",
+      "published_module": "functions/f_0000000000101070_deregister_tm_clones.py",
+      "published_sha256": "0509a16cfe1af81f0c301a5e69ddf0356f75de926a0f1662bbdf4fe4ceaebd07",
+      "python_parameter_count": 0,
+      "python_symbol": "deregister_tm_clones",
+      "qualified_name": "Global::deregister_tm_clones",
+      "runtime_imports": [
+        "PALhelpers"
+      ],
+      "runtime_mode": "legacy_direct",
+      "ssa_name": "deregister_tm_clones",
+      "status": "decompiled",
+      "thunk": false,
+      "warnings": []
+    },
+    {
+      "abi_custody": {
+        "contracts": 0,
+        "ghost_repairs_resolved": 0,
+        "status": "ready"
+      },
+      "abi_plan_authority": "final_project_plan_index",
+      "active_name": "f_register_tm_clones",
+      "active_name_source": "pal",
+      "artifacts": {
+        "executable": {
+          "path": "functions/f_00000000001010a0_register_tm_clones.exec.py",
+          "sha256": "04e070a94afd542cf33edaa4af0a7db3c5c3c0f1856cfb7c6e303c1c6db62b1f"
+        },
+        "icecube": {
+          "path": "functions/f_00000000001010a0_register_tm_clones.icecube.json.gz",
+          "sha256": "33fe896de513f808702d828b04efdd8ad8e908afc47fc515a13a4ef8fd7310ce"
+        },
+        "pipeline_capture": {
+          "path": "functions/f_00000000001010a0_register_tm_clones.pipeline.capture.json",
+          "sha256": "602d448abe4d5992a273c973b520eb7e22136d79683d3ff1d498a37a35660f1a"
+        },
+        "pipeline_log": {
+          "path": "functions/f_00000000001010a0_register_tm_clones.pipeline.log",
+          "sha256": "126bae1dd458b03c7a37f9c82fc17054d5c9613c421fc3fe65982a5bfbb7d00e"
+        },
+        "pipeline_stderr_log": {
+          "path": "functions/f_00000000001010a0_register_tm_clones.pipeline.stderr.log",
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        "pipeline_stdout_log": {
+          "path": "functions/f_00000000001010a0_register_tm_clones.pipeline.stdout.log",
+          "sha256": "126bae1dd458b03c7a37f9c82fc17054d5c9613c421fc3fe65982a5bfbb7d00e"
+        },
+        "readable": {
+          "path": "functions/f_00000000001010a0_register_tm_clones.read.py",
+          "sha256": "7e481204528bc9799d7412627a229454d9ded427d79743c4bef772b4fd280781"
+        }
+      },
+      "body_max": 1052888,
+      "body_max_hex": "0x1010d8",
+      "body_min": 1052832,
+      "body_min_hex": "0x1010a0",
+      "calling_convention": "unknown",
+      "entry": 1052832,
+      "entry_hex": "0x1010a0",
+      "entry_plan_id": "function_entry:1052832",
+      "external": false,
+      "function_id": "function:0x1010a0",
+      "generated_name": null,
+      "inline": false,
+      "is_shim_boundary": false,
+      "module": "functions.f_00000000001010a0_register_tm_clones",
+      "module_stem": "f_00000000001010a0_register_tm_clones",
+      "name": "register_tm_clones",
+      "namespace": "Global",
+      "no_return": false,
+      "operator_name": null,
+      "ordinal": 5,
+      "pal_name": "f_register_tm_clones",
+      "published_icecube": "icecubes/f_00000000001010a0_register_tm_clones.icecube.json.gz",
+      "published_module": "functions/f_00000000001010a0_register_tm_clones.py",
+      "published_sha256": "04e070a94afd542cf33edaa4af0a7db3c5c3c0f1856cfb7c6e303c1c6db62b1f",
+      "python_parameter_count": 0,
+      "python_symbol": "register_tm_clones",
+      "qualified_name": "Global::register_tm_clones",
+      "runtime_imports": [
+        "PALhelpers"
+      ],
+      "runtime_mode": "legacy_direct",
+      "ssa_name": "register_tm_clones",
+      "status": "decompiled",
+      "thunk": false,
+      "warnings": []
+    },
+    {
+      "abi_custody": {
+        "contracts": 1,
+        "ghost_repairs_resolved": 0,
+        "status": "ready"
+      },
+      "abi_plan_authority": "final_project_plan_index",
+      "active_name": "f_do_global_dtors_aux",
+      "active_name_source": "pal",
+      "artifacts": {
+        "executable": {
+          "path": "functions/f_00000000001010e0_do_global_dtors_aux.exec.py",
+          "sha256": "39c201953e41555fe9c3176c2dfb66d273dd618a7bdaafcde155118d13976546"
+        },
+        "icecube": {
+          "path": "functions/f_00000000001010e0_do_global_dtors_aux.icecube.json.gz",
+          "sha256": "0ddc14ec6d5cec14020dd26ff6c8756706a88446bbf2361a1aa4be062978388d"
+        },
+        "pipeline_capture": {
+          "path": "functions/f_00000000001010e0_do_global_dtors_aux.pipeline.capture.json",
+          "sha256": "551245fe833684ac94c92b13ccb9f04990cbe3ccbbb3e93b80b1e434990378ed"
+        },
+        "pipeline_log": {
+          "path": "functions/f_00000000001010e0_do_global_dtors_aux.pipeline.log",
+          "sha256": "86d7de0c3e3a4ff85bb735fe6b937064925b91a48129598789d7d44a9037fca7"
+        },
+        "pipeline_stderr_log": {
+          "path": "functions/f_00000000001010e0_do_global_dtors_aux.pipeline.stderr.log",
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        "pipeline_stdout_log": {
+          "path": "functions/f_00000000001010e0_do_global_dtors_aux.pipeline.stdout.log",
+          "sha256": "86d7de0c3e3a4ff85bb735fe6b937064925b91a48129598789d7d44a9037fca7"
+        },
+        "readable": {
+          "path": "functions/f_00000000001010e0_do_global_dtors_aux.read.py",
+          "sha256": "245126cfbf87b1eaa0dcd84cc8083d93e8a32244f9696d596a5e1ce4164580fc"
+        }
+      },
+      "body_max": 1052952,
+      "body_max_hex": "0x101118",
+      "body_min": 1052896,
+      "body_min_hex": "0x1010e0",
+      "calling_convention": "unknown",
+      "entry": 1052896,
+      "entry_hex": "0x1010e0",
+      "entry_plan_id": "function_entry:1052896",
+      "external": false,
+      "function_id": "function:0x1010e0",
+      "generated_name": null,
+      "inline": false,
+      "is_shim_boundary": false,
+      "module": "functions.f_00000000001010e0_do_global_dtors_aux",
+      "module_stem": "f_00000000001010e0_do_global_dtors_aux",
+      "name": "__do_global_dtors_aux",
+      "namespace": "Global",
+      "no_return": false,
+      "operator_name": null,
+      "ordinal": 6,
+      "pal_name": "f_do_global_dtors_aux",
+      "published_icecube": "icecubes/f_00000000001010e0_do_global_dtors_aux.icecube.json.gz",
+      "published_module": "functions/f_00000000001010e0_do_global_dtors_aux.py",
+      "published_sha256": "39c201953e41555fe9c3176c2dfb66d273dd618a7bdaafcde155118d13976546",
+      "python_parameter_count": 0,
+      "python_symbol": "__do_global_dtors_aux",
+      "qualified_name": "Global::__do_global_dtors_aux",
+      "runtime_imports": [
+        "PALABI",
+        "PALhelpers"
+      ],
+      "runtime_mode": "abi_context",
+      "ssa_name": "__do_global_dtors_aux",
+      "status": "decompiled",
+      "thunk": false,
+      "warnings": []
+    },
+    {
+      "abi_custody": {
+        "contracts": 1,
+        "ghost_repairs_resolved": 0,
+        "status": "ready"
+      },
+      "abi_plan_authority": "final_project_plan_index",
+      "active_name": "f_frame_dummy",
+      "active_name_source": "pal",
+      "artifacts": {
+        "executable": {
+          "path": "functions/f_0000000000101120_frame_dummy.exec.py",
+          "sha256": "b620765aca6b18755d980f4f73049608ce4faa3f61928d5f6cf6bd24d9c927d4"
+        },
+        "icecube": {
+          "path": "functions/f_0000000000101120_frame_dummy.icecube.json.gz",
+          "sha256": "a97595fb5f78b78c99ee9be3bd3c78478e835f0065c1b104aadca450318aebf1"
+        },
+        "pipeline_capture": {
+          "path": "functions/f_0000000000101120_frame_dummy.pipeline.capture.json",
+          "sha256": "2e70cdf5438a80415eaf19fa0aa7e1e749e05718654471397f6ff7cdcf634948"
+        },
+        "pipeline_log": {
+          "path": "functions/f_0000000000101120_frame_dummy.pipeline.log",
+          "sha256": "a0a9dd35b1275c8a68a81073b21e0b742457ef0aff6415651ccab89a63f06a6f"
+        },
+        "pipeline_stderr_log": {
+          "path": "functions/f_0000000000101120_frame_dummy.pipeline.stderr.log",
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        "pipeline_stdout_log": {
+          "path": "functions/f_0000000000101120_frame_dummy.pipeline.stdout.log",
+          "sha256": "a0a9dd35b1275c8a68a81073b21e0b742457ef0aff6415651ccab89a63f06a6f"
+        },
+        "readable": {
+          "path": "functions/f_0000000000101120_frame_dummy.read.py",
+          "sha256": "7a08543360d64cc3049354d902f6affafa103c09a2a717c7e2ac6993ed55a3ac"
+        }
+      },
+      "body_max": 1052968,
+      "body_max_hex": "0x101128",
+      "body_min": 1052960,
+      "body_min_hex": "0x101120",
+      "calling_convention": "unknown",
+      "entry": 1052960,
+      "entry_hex": "0x101120",
+      "entry_plan_id": "function_entry:1052960",
+      "external": false,
+      "function_id": "function:0x101120",
+      "generated_name": null,
+      "inline": false,
+      "is_shim_boundary": true,
+      "module": "functions.f_0000000000101120_frame_dummy",
+      "module_stem": "f_0000000000101120_frame_dummy",
+      "name": "frame_dummy",
+      "namespace": "Global",
+      "no_return": false,
+      "operator_name": null,
+      "ordinal": 7,
+      "pal_name": "f_frame_dummy",
+      "published_icecube": "icecubes/f_0000000000101120_frame_dummy.icecube.json.gz",
+      "published_module": "functions/f_0000000000101120_frame_dummy.py",
+      "published_sha256": "b620765aca6b18755d980f4f73049608ce4faa3f61928d5f6cf6bd24d9c927d4",
+      "python_parameter_count": 0,
+      "python_symbol": "frame_dummy",
+      "qualified_name": "Global::frame_dummy",
+      "runtime_imports": [
+        "PALABI",
+        "PALhelpers"
+      ],
+      "runtime_mode": "abi_context",
+      "ssa_name": "frame_dummy",
+      "status": "decompiled",
+      "thunk": true,
+      "warnings": []
+    },
+    {
+      "abi_custody": {
+        "contracts": 0,
+        "ghost_repairs_resolved": 0,
+        "status": "ready"
+      },
+      "abi_plan_authority": "final_project_plan_index",
+      "active_name": "f_PALexec",
+      "active_name_source": "pal",
+      "artifacts": {
+        "executable": {
+          "path": "functions/f_0000000000101129_PALexec.exec.py",
+          "sha256": "2075741f4a4f4592eaa698c88b4ac1d0685d80a9a9e5ba1ca40d120231937e3d"
+        },
+        "icecube": {
+          "path": "functions/f_0000000000101129_PALexec.icecube.json.gz",
+          "sha256": "34e8cde824c4307cc7930cb3ae6325ddc28e70b6f04d8dcbdb9d0f1b66617d52"
+        },
+        "pipeline_capture": {
+          "path": "functions/f_0000000000101129_PALexec.pipeline.capture.json",
+          "sha256": "6e44a53fc983f492122b28b6c9e4c5d4821f7576ab803b498d0e217baec9c94b"
+        },
+        "pipeline_log": {
+          "path": "functions/f_0000000000101129_PALexec.pipeline.log",
+          "sha256": "48b938a2e3bc2b3dc2a83f04894a7f5309f8786fb48183158953f4f04a592e87"
+        },
+        "pipeline_stderr_log": {
+          "path": "functions/f_0000000000101129_PALexec.pipeline.stderr.log",
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        "pipeline_stdout_log": {
+          "path": "functions/f_0000000000101129_PALexec.pipeline.stdout.log",
+          "sha256": "48b938a2e3bc2b3dc2a83f04894a7f5309f8786fb48183158953f4f04a592e87"
+        },
+        "readable": {
+          "path": "functions/f_0000000000101129_PALexec.read.py",
+          "sha256": "8c1d38f2261dda741aa192bddb4c89dc44462e7b2650e8eb2719c680157c0392"
+        }
+      },
+      "body_max": 1053298,
+      "body_max_hex": "0x101272",
+      "body_min": 1052969,
+      "body_min_hex": "0x101129",
+      "calling_convention": "unknown",
+      "entry": 1052969,
+      "entry_hex": "0x101129",
+      "entry_plan_id": "function_entry:1052969",
+      "external": false,
+      "function_id": "function:0x101129",
+      "generated_name": null,
+      "inline": false,
+      "is_shim_boundary": false,
+      "module": "functions.f_0000000000101129_PALexec",
+      "module_stem": "f_0000000000101129_PALexec",
+      "name": "PALexec",
+      "namespace": "Global",
+      "no_return": false,
+      "operator_name": null,
+      "ordinal": 8,
+      "pal_name": "f_PALexec",
+      "published_icecube": "icecubes/f_0000000000101129_PALexec.icecube.json.gz",
+      "published_module": "functions/f_0000000000101129_PALexec.py",
+      "published_sha256": "2075741f4a4f4592eaa698c88b4ac1d0685d80a9a9e5ba1ca40d120231937e3d",
+      "python_parameter_count": 3,
+      "python_symbol": "PALexec",
+      "qualified_name": "Global::PALexec",
+      "runtime_imports": [
+        "PALhelpers"
+      ],
+      "runtime_mode": "legacy_direct",
+      "ssa_name": "PALexec",
+      "status": "decompiled",
+      "thunk": false,
+      "warnings": []
+    },
+    {
+      "abi_custody": {
+        "contracts": 1,
+        "ghost_repairs_resolved": 0,
+        "status": "degraded"
+      },
+      "abi_plan_authority": "final_project_plan_index",
+      "active_name": "f_main",
+      "active_name_source": "pal",
+      "artifacts": {
+        "executable": {
+          "path": "functions/f_0000000000101273_main.exec.py",
+          "sha256": "9740a2c859cfecfd1afe5bb6805b8065f3dd98854bcf6edda48021c7fbace6b1"
+        },
+        "icecube": {
+          "path": "functions/f_0000000000101273_main.icecube.json.gz",
+          "sha256": "20226a98feaa8d88594d7ceb6231c1deb0e9b804f9aef33c228802c40d80ca47"
+        },
+        "pipeline_capture": {
+          "path": "functions/f_0000000000101273_main.pipeline.capture.json",
+          "sha256": "0b5c7f0acd6c03515f3e5cc88470dd88442efd64684fc754412144fb19945b8b"
+        },
+        "pipeline_log": {
+          "path": "functions/f_0000000000101273_main.pipeline.log",
+          "sha256": "de6ca54f8bff7fef52157586f0a13d7e5739edc602f86ed58da3d1e1545d469d"
+        },
+        "pipeline_stderr_log": {
+          "path": "functions/f_0000000000101273_main.pipeline.stderr.log",
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        "pipeline_stdout_log": {
+          "path": "functions/f_0000000000101273_main.pipeline.stdout.log",
+          "sha256": "de6ca54f8bff7fef52157586f0a13d7e5739edc602f86ed58da3d1e1545d469d"
+        },
+        "readable": {
+          "path": "functions/f_0000000000101273_main.read.py",
+          "sha256": "d35872619ec3a0aa594317a442624eb17f39db34fab5c2396a23ae1c99529c40"
+        }
+      },
+      "body_max": 1053357,
+      "body_max_hex": "0x1012ad",
+      "body_min": 1053299,
+      "body_min_hex": "0x101273",
+      "calling_convention": "unknown",
+      "entry": 1053299,
+      "entry_hex": "0x101273",
+      "entry_plan_id": "function_entry:1053299",
+      "external": false,
+      "function_id": "function:0x101273",
+      "generated_name": null,
+      "inline": false,
+      "is_shim_boundary": false,
+      "module": "functions.f_0000000000101273_main",
+      "module_stem": "f_0000000000101273_main",
+      "name": "main",
+      "namespace": "Global",
+      "no_return": false,
+      "operator_name": null,
+      "ordinal": 9,
+      "pal_name": "f_main",
+      "published_icecube": "icecubes/f_0000000000101273_main.icecube.json.gz",
+      "published_module": "functions/f_0000000000101273_main.py",
+      "published_sha256": "9740a2c859cfecfd1afe5bb6805b8065f3dd98854bcf6edda48021c7fbace6b1",
+      "python_parameter_count": 0,
+      "python_symbol": "main",
+      "qualified_name": "Global::main",
+      "runtime_imports": [
+        "PALABI",
+        "PALhelpers"
+      ],
+      "runtime_mode": "abi_context",
+      "ssa_name": "main",
+      "status": "decompiled",
+      "thunk": false,
+      "warnings": []
+    },
+    {
+      "abi_custody": {
+        "contracts": 0,
+        "ghost_repairs_resolved": 0,
+        "status": "ready"
+      },
+      "abi_plan_authority": "final_project_plan_index",
+      "active_name": "f_fini",
+      "active_name_source": "pal",
+      "artifacts": {
+        "executable": {
+          "path": "functions/f_00000000001012b0_fini.exec.py",
+          "sha256": "4ffb8e957bb6f378db1d971a1e6063f626c03fca3eb4f3a1cdfe96e07746bdb0"
+        },
+        "icecube": {
+          "path": "functions/f_00000000001012b0_fini.icecube.json.gz",
+          "sha256": "476fd5aeafd049a3affb53ca07c4c71081d59c7d58d3a05f4efd0007438871ca"
+        },
+        "pipeline_capture": {
+          "path": "functions/f_00000000001012b0_fini.pipeline.capture.json",
+          "sha256": "89ecda3161718cf6412c240c15ad3914a4e65377cc8de004fdbd8b6cea538c50"
+        },
+        "pipeline_log": {
+          "path": "functions/f_00000000001012b0_fini.pipeline.log",
+          "sha256": "caf683be13ae2d9c97f90ffe3fd7c5de01a569c6ba7f97ffe8d9bfe3a782a70e"
+        },
+        "pipeline_stderr_log": {
+          "path": "functions/f_00000000001012b0_fini.pipeline.stderr.log",
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        "pipeline_stdout_log": {
+          "path": "functions/f_00000000001012b0_fini.pipeline.stdout.log",
+          "sha256": "caf683be13ae2d9c97f90ffe3fd7c5de01a569c6ba7f97ffe8d9bfe3a782a70e"
+        },
+        "readable": {
+          "path": "functions/f_00000000001012b0_fini.read.py",
+          "sha256": "3422e217b67cac53104b79332272f5126c842375642d25d2ac8dfdc1fd92297d"
+        }
+      },
+      "body_max": 1053372,
+      "body_max_hex": "0x1012bc",
+      "body_min": 1053360,
+      "body_min_hex": "0x1012b0",
+      "calling_convention": "unknown",
+      "entry": 1053360,
+      "entry_hex": "0x1012b0",
+      "entry_plan_id": "function_entry:1053360",
+      "external": false,
+      "function_id": "function:0x1012b0",
+      "generated_name": null,
+      "inline": false,
+      "is_shim_boundary": false,
+      "module": "functions.f_00000000001012b0_fini",
+      "module_stem": "f_00000000001012b0_fini",
+      "name": "_fini",
+      "namespace": "Global",
+      "no_return": false,
+      "operator_name": null,
+      "ordinal": 10,
+      "pal_name": "f_fini",
+      "published_icecube": "icecubes/f_00000000001012b0_fini.icecube.json.gz",
+      "published_module": "functions/f_00000000001012b0_fini.py",
+      "published_sha256": "4ffb8e957bb6f378db1d971a1e6063f626c03fca3eb4f3a1cdfe96e07746bdb0",
+      "python_parameter_count": 0,
+      "python_symbol": "_fini",
+      "qualified_name": "Global::_fini",
+      "runtime_imports": [
+        "PALhelpers"
+      ],
+      "runtime_mode": "legacy_direct",
+      "ssa_name": "_fini",
+      "status": "decompiled",
+      "thunk": false,
+      "warnings": []
+    },
+    {
+      "abi_custody": {
+        "contracts": 0,
+        "ghost_repairs_resolved": 0,
+        "status": "ready"
+      },
+      "abi_plan_authority": "final_project_plan_index",
+      "active_name": "f_libc_start_main",
+      "active_name_source": "pal",
+      "artifacts": {
+        "executable": {
+          "path": "functions/f_0000000000105000_libc_start_main.exec.py",
+          "sha256": "9869421820d14b946792f79bbd84822d138afc23a7a653e9e8c9c2e87a9c8040"
+        },
+        "icecube": {
+          "path": "functions/f_0000000000105000_libc_start_main.icecube.json.gz",
+          "sha256": "92c8986d117ff3d38036155678b59ecd23c7d1d17fea2990bd08e994519bd036"
+        },
+        "pipeline_capture": {
+          "path": "functions/f_0000000000105000_libc_start_main.pipeline.capture.json",
+          "sha256": "6274e5a42b86fb6d2cdae551531673dc779a6428f4ae0eb51759441a9e23aab9"
+        },
+        "pipeline_log": {
+          "path": "functions/f_0000000000105000_libc_start_main.pipeline.log",
+          "sha256": "5ac6e6807b58e046a053d29604a2dfa2c9637aad0e0fb3d5efea7ff7a9e81029"
+        },
+        "pipeline_stderr_log": {
+          "path": "functions/f_0000000000105000_libc_start_main.pipeline.stderr.log",
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        "pipeline_stdout_log": {
+          "path": "functions/f_0000000000105000_libc_start_main.pipeline.stdout.log",
+          "sha256": "5ac6e6807b58e046a053d29604a2dfa2c9637aad0e0fb3d5efea7ff7a9e81029"
+        },
+        "readable": {
+          "path": "functions/f_0000000000105000_libc_start_main.read.py",
+          "sha256": "226ed67eff71c19c5236782777571c56cde626a1f4b823c4c55b7b921ec38dae"
+        }
+      },
+      "body_max": 1069056,
+      "body_max_hex": "0x105000",
+      "body_min": 1069056,
+      "body_min_hex": "0x105000",
+      "calling_convention": "unknown",
+      "entry": 1069056,
+      "entry_hex": "0x105000",
+      "entry_plan_id": "function_entry:1069056",
+      "external": false,
+      "function_id": "function:0x105000",
+      "generated_name": null,
+      "inline": false,
+      "is_shim_boundary": true,
+      "module": "functions.f_0000000000105000_libc_start_main",
+      "module_stem": "f_0000000000105000_libc_start_main",
+      "name": "__libc_start_main",
+      "namespace": "<EXTERNAL>",
+      "no_return": false,
+      "operator_name": null,
+      "ordinal": 11,
+      "pal_name": "f_libc_start_main",
+      "published_icecube": "icecubes/f_0000000000105000_libc_start_main.icecube.json.gz",
+      "published_module": "functions/f_0000000000105000_libc_start_main.py",
+      "published_sha256": "9869421820d14b946792f79bbd84822d138afc23a7a653e9e8c9c2e87a9c8040",
+      "python_parameter_count": 0,
+      "python_symbol": "__libc_start_main",
+      "qualified_name": "<EXTERNAL>::__libc_start_main",
+      "runtime_imports": [
+        "PALhelpers"
+      ],
+      "runtime_mode": "legacy_direct",
+      "ssa_name": "__libc_start_main",
+      "status": "decompiled",
+      "thunk": true,
+      "warnings": []
+    },
+    {
+      "abi_custody": {
+        "contracts": 0,
+        "ghost_repairs_resolved": 0,
+        "status": "ready"
+      },
+      "abi_plan_authority": "final_project_plan_index",
+      "active_name": "f_ITM_deregisterTMCloneTable",
+      "active_name_source": "pal",
+      "artifacts": {
+        "executable": {
+          "path": "functions/f_0000000000105008_ITM_deregisterTMCloneTable.exec.py",
+          "sha256": "656236e74c1aa0ea55106b7e875126d74195a7153487f0a9734c15b87a60487f"
+        },
+        "icecube": {
+          "path": "functions/f_0000000000105008_ITM_deregisterTMCloneTable.icecube.json.gz",
+          "sha256": "17e4b2326a475458937a074f7936bbe96da40cfdd2efa682aac5918c43ff417a"
+        },
+        "pipeline_capture": {
+          "path": "functions/f_0000000000105008_ITM_deregisterTMCloneTable.pipeline.capture.json",
+          "sha256": "765503602d85e49c641531280326479d98992048367331a914a8377ea3761d8e"
+        },
+        "pipeline_log": {
+          "path": "functions/f_0000000000105008_ITM_deregisterTMCloneTable.pipeline.log",
+          "sha256": "7d703f21ffec0e4f05e188eb3aec6ddda776df45c28c3d41f181ae70de0f9380"
+        },
+        "pipeline_stderr_log": {
+          "path": "functions/f_0000000000105008_ITM_deregisterTMCloneTable.pipeline.stderr.log",
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        "pipeline_stdout_log": {
+          "path": "functions/f_0000000000105008_ITM_deregisterTMCloneTable.pipeline.stdout.log",
+          "sha256": "7d703f21ffec0e4f05e188eb3aec6ddda776df45c28c3d41f181ae70de0f9380"
+        },
+        "readable": {
+          "path": "functions/f_0000000000105008_ITM_deregisterTMCloneTable.read.py",
+          "sha256": "6f165076ecc91a2a36ad826f8a2b08d3665501be8ad395aca1aebe89ad15f97c"
+        }
+      },
+      "body_max": 1069064,
+      "body_max_hex": "0x105008",
+      "body_min": 1069064,
+      "body_min_hex": "0x105008",
+      "calling_convention": "unknown",
+      "entry": 1069064,
+      "entry_hex": "0x105008",
+      "entry_plan_id": "function_entry:1069064",
+      "external": false,
+      "function_id": "function:0x105008",
+      "generated_name": null,
+      "inline": false,
+      "is_shim_boundary": true,
+      "module": "functions.f_0000000000105008_ITM_deregisterTMCloneTable",
+      "module_stem": "f_0000000000105008_ITM_deregisterTMCloneTable",
+      "name": "_ITM_deregisterTMCloneTable",
+      "namespace": "<EXTERNAL>",
+      "no_return": false,
+      "operator_name": null,
+      "ordinal": 12,
+      "pal_name": "f_ITM_deregisterTMCloneTable",
+      "published_icecube": "icecubes/f_0000000000105008_ITM_deregisterTMCloneTable.icecube.json.gz",
+      "published_module": "functions/f_0000000000105008_ITM_deregisterTMCloneTable.py",
+      "published_sha256": "656236e74c1aa0ea55106b7e875126d74195a7153487f0a9734c15b87a60487f",
+      "python_parameter_count": 0,
+      "python_symbol": "_ITM_deregisterTMCloneTable",
+      "qualified_name": "<EXTERNAL>::_ITM_deregisterTMCloneTable",
+      "runtime_imports": [
+        "PALhelpers"
+      ],
+      "runtime_mode": "legacy_direct",
+      "ssa_name": "_ITM_deregisterTMCloneTable",
+      "status": "decompiled",
+      "thunk": true,
+      "warnings": []
+    },
+    {
+      "abi_custody": {
+        "contracts": 0,
+        "ghost_repairs_resolved": 0,
+        "status": "ready"
+      },
+      "abi_plan_authority": "final_project_plan_index",
+      "active_name": "f_gmon_start",
+      "active_name_source": "pal",
+      "artifacts": {
+        "executable": {
+          "path": "functions/f_0000000000105010_gmon_start.exec.py",
+          "sha256": "cde2e8d224a53df828b159065ce4dd0142c4ae5935006b19f038926487012793"
+        },
+        "icecube": {
+          "path": "functions/f_0000000000105010_gmon_start.icecube.json.gz",
+          "sha256": "54c0686e2235faaefefdc5a17f1bf7f39583ce78e24c72f95c23e7a5c59356f1"
+        },
+        "pipeline_capture": {
+          "path": "functions/f_0000000000105010_gmon_start.pipeline.capture.json",
+          "sha256": "b12a7f6fb9357c64236e4f1c0c4588a82bea9f3e815a3bb466ef2159fefdd9bc"
+        },
+        "pipeline_log": {
+          "path": "functions/f_0000000000105010_gmon_start.pipeline.log",
+          "sha256": "a5a5a9250544258a4be0c9e19e7913c0d3f7807748e6c0d0c0224d6156d4806d"
+        },
+        "pipeline_stderr_log": {
+          "path": "functions/f_0000000000105010_gmon_start.pipeline.stderr.log",
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        "pipeline_stdout_log": {
+          "path": "functions/f_0000000000105010_gmon_start.pipeline.stdout.log",
+          "sha256": "a5a5a9250544258a4be0c9e19e7913c0d3f7807748e6c0d0c0224d6156d4806d"
+        },
+        "readable": {
+          "path": "functions/f_0000000000105010_gmon_start.read.py",
+          "sha256": "5c7e2593497483cd44a5338289f44bf3a23372cfa0933d57ed7343b2b87064a1"
+        }
+      },
+      "body_max": 1069072,
+      "body_max_hex": "0x105010",
+      "body_min": 1069072,
+      "body_min_hex": "0x105010",
+      "calling_convention": "unknown",
+      "entry": 1069072,
+      "entry_hex": "0x105010",
+      "entry_plan_id": "function_entry:1069072",
+      "external": false,
+      "function_id": "function:0x105010",
+      "generated_name": null,
+      "inline": false,
+      "is_shim_boundary": true,
+      "module": "functions.f_0000000000105010_gmon_start",
+      "module_stem": "f_0000000000105010_gmon_start",
+      "name": "__gmon_start__",
+      "namespace": "<EXTERNAL>",
+      "no_return": false,
+      "operator_name": null,
+      "ordinal": 13,
+      "pal_name": "f_gmon_start",
+      "published_icecube": "icecubes/f_0000000000105010_gmon_start.icecube.json.gz",
+      "published_module": "functions/f_0000000000105010_gmon_start.py",
+      "published_sha256": "cde2e8d224a53df828b159065ce4dd0142c4ae5935006b19f038926487012793",
+      "python_parameter_count": 0,
+      "python_symbol": "__gmon_start__",
+      "qualified_name": "<EXTERNAL>::__gmon_start__",
+      "runtime_imports": [
+        "PALhelpers"
+      ],
+      "runtime_mode": "legacy_direct",
+      "ssa_name": "__gmon_start__",
+      "status": "decompiled",
+      "thunk": true,
+      "warnings": []
+    },
+    {
+      "abi_custody": {
+        "contracts": 0,
+        "ghost_repairs_resolved": 0,
+        "status": "ready"
+      },
+      "abi_plan_authority": "final_project_plan_index",
+      "active_name": "f_ITM_registerTMCloneTable",
+      "active_name_source": "pal",
+      "artifacts": {
+        "executable": {
+          "path": "functions/f_0000000000105018_ITM_registerTMCloneTable.exec.py",
+          "sha256": "4f67be07e524dda8d6bb8d12456392ec2233b3759f1cfeeb2e0bcd870835bc54"
+        },
+        "icecube": {
+          "path": "functions/f_0000000000105018_ITM_registerTMCloneTable.icecube.json.gz",
+          "sha256": "add36579f0be09bf88c2e1471810cbdd88266ca419db871a777343e24ecdda2f"
+        },
+        "pipeline_capture": {
+          "path": "functions/f_0000000000105018_ITM_registerTMCloneTable.pipeline.capture.json",
+          "sha256": "0a4166f6f633b7a2ed6c060c7e57234df310650663d502ce232c8190fbfb2164"
+        },
+        "pipeline_log": {
+          "path": "functions/f_0000000000105018_ITM_registerTMCloneTable.pipeline.log",
+          "sha256": "1e582e1c8779694bfd5e765b9493ffece2dd3b1610d56e181898d1a68a26186d"
+        },
+        "pipeline_stderr_log": {
+          "path": "functions/f_0000000000105018_ITM_registerTMCloneTable.pipeline.stderr.log",
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        "pipeline_stdout_log": {
+          "path": "functions/f_0000000000105018_ITM_registerTMCloneTable.pipeline.stdout.log",
+          "sha256": "1e582e1c8779694bfd5e765b9493ffece2dd3b1610d56e181898d1a68a26186d"
+        },
+        "readable": {
+          "path": "functions/f_0000000000105018_ITM_registerTMCloneTable.read.py",
+          "sha256": "2d70968e3d35b8fb47debd6a07bb9d194b73c105b1abf414cd647726cab1493c"
+        }
+      },
+      "body_max": 1069080,
+      "body_max_hex": "0x105018",
+      "body_min": 1069080,
+      "body_min_hex": "0x105018",
+      "calling_convention": "unknown",
+      "entry": 1069080,
+      "entry_hex": "0x105018",
+      "entry_plan_id": "function_entry:1069080",
+      "external": false,
+      "function_id": "function:0x105018",
+      "generated_name": null,
+      "inline": false,
+      "is_shim_boundary": true,
+      "module": "functions.f_0000000000105018_ITM_registerTMCloneTable",
+      "module_stem": "f_0000000000105018_ITM_registerTMCloneTable",
+      "name": "_ITM_registerTMCloneTable",
+      "namespace": "<EXTERNAL>",
+      "no_return": false,
+      "operator_name": null,
+      "ordinal": 14,
+      "pal_name": "f_ITM_registerTMCloneTable",
+      "published_icecube": "icecubes/f_0000000000105018_ITM_registerTMCloneTable.icecube.json.gz",
+      "published_module": "functions/f_0000000000105018_ITM_registerTMCloneTable.py",
+      "published_sha256": "4f67be07e524dda8d6bb8d12456392ec2233b3759f1cfeeb2e0bcd870835bc54",
+      "python_parameter_count": 0,
+      "python_symbol": "_ITM_registerTMCloneTable",
+      "qualified_name": "<EXTERNAL>::_ITM_registerTMCloneTable",
+      "runtime_imports": [
+        "PALhelpers"
+      ],
+      "runtime_mode": "legacy_direct",
+      "ssa_name": "_ITM_registerTMCloneTable",
+      "status": "decompiled",
+      "thunk": true,
+      "warnings": []
+    },
+    {
+      "abi_custody": {
+        "contracts": 0,
+        "ghost_repairs_resolved": 0,
+        "status": "ready"
+      },
+      "abi_plan_authority": "final_project_plan_index",
+      "active_name": "f_cxa_finalize",
+      "active_name_source": "pal",
+      "artifacts": {
+        "executable": {
+          "path": "functions/f_0000000000105020_cxa_finalize.exec.py",
+          "sha256": "1088e1691af1d3aa60755a8b81fa62557147d3f2e9d3a4a49736346d8df50035"
+        },
+        "icecube": {
+          "path": "functions/f_0000000000105020_cxa_finalize.icecube.json.gz",
+          "sha256": "2148a4bf5bde8ad719681f0ede06bea36d07172048e5ccf8b3b6faafe08a5f15"
+        },
+        "pipeline_capture": {
+          "path": "functions/f_0000000000105020_cxa_finalize.pipeline.capture.json",
+          "sha256": "07c1cc7e0c0710442c2d23019f948a4cb804522e6dc694848b863e890008490c"
+        },
+        "pipeline_log": {
+          "path": "functions/f_0000000000105020_cxa_finalize.pipeline.log",
+          "sha256": "4fbf848a95e366a55ae22cb9ac9d8f2332d915abe65143c6f92b663149231552"
+        },
+        "pipeline_stderr_log": {
+          "path": "functions/f_0000000000105020_cxa_finalize.pipeline.stderr.log",
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        "pipeline_stdout_log": {
+          "path": "functions/f_0000000000105020_cxa_finalize.pipeline.stdout.log",
+          "sha256": "4fbf848a95e366a55ae22cb9ac9d8f2332d915abe65143c6f92b663149231552"
+        },
+        "readable": {
+          "path": "functions/f_0000000000105020_cxa_finalize.read.py",
+          "sha256": "c3c8d80f531923a8de67e772f7d906e3a9f5f46b16e54b8f558f18b03618b8b5"
+        }
+      },
+      "body_max": 1069088,
+      "body_max_hex": "0x105020",
+      "body_min": 1069088,
+      "body_min_hex": "0x105020",
+      "calling_convention": "unknown",
+      "entry": 1069088,
+      "entry_hex": "0x105020",
+      "entry_plan_id": "function_entry:1069088",
+      "external": false,
+      "function_id": "function:0x105020",
+      "generated_name": null,
+      "inline": false,
+      "is_shim_boundary": true,
+      "module": "functions.f_0000000000105020_cxa_finalize",
+      "module_stem": "f_0000000000105020_cxa_finalize",
+      "name": "__cxa_finalize",
+      "namespace": "<EXTERNAL>",
+      "no_return": false,
+      "operator_name": null,
+      "ordinal": 15,
+      "pal_name": "f_cxa_finalize",
+      "published_icecube": "icecubes/f_0000000000105020_cxa_finalize.icecube.json.gz",
+      "published_module": "functions/f_0000000000105020_cxa_finalize.py",
+      "published_sha256": "1088e1691af1d3aa60755a8b81fa62557147d3f2e9d3a4a49736346d8df50035",
+      "python_parameter_count": 0,
+      "python_symbol": "__cxa_finalize",
+      "qualified_name": "<EXTERNAL>::__cxa_finalize",
+      "runtime_imports": [
+        "PALhelpers"
+      ],
+      "runtime_mode": "legacy_direct",
+      "ssa_name": "__cxa_finalize",
+      "status": "decompiled",
+      "thunk": true,
+      "warnings": []
+    }
+  ],
+  "internal_call_targets": [
+    "PALexec",
+    "deregister_tm_clones",
+    "register_tm_clones"
+  ],
+  "known_limitations": [
+    "clear-case proof-of-concept runtime, not native process emulation",
+    "SysV AMD64 is the only ABI backend currently expected",
+    "ELF data sections, relocations, globals, heap, TLS, and permissions are not fully mapped",
+    "indirect calls and unresolved dynamic-linker behavior fail closed",
+    "threads, signals, exceptions, and dynamic code generation are unsupported",
+    "stdio formatting and line input are bounded Python shims, not full libc",
+    "static strings referenced through base-zero PTRSUB are completed from readable ELF PT_LOAD bytes into PAL_stdio_strings.json; non-string ELF data remains outside this clear-case mapper",
+    "a published function may still fail when its frozen ABI plan is deferred",
+    "explicit init trunks return a zero sentinel and are diagnostic substitutes, not recovered semantics",
+    "runtime ABI plan projection narrows only exact zero-fitting constants to an accepted callee subregister width"
+  ],
+  "program": {
+    "compiler_spec_id": "gcc",
+    "executable_format": "Executable and Linking Format (ELF)",
+    "executable_path": "specimens/o3/o3_PALexec.matrix",
+    "executable_path_policy": "relative_to_pal_repository_root_or_basename",
+    "image_base": 1048576,
+    "image_base_hex": "0x100000",
+    "language_id": "x86:LE:64:default",
+    "name": "o3_PALexec.matrix"
+  },
+  "publication_class": "COMPLETE",
+  "published_at_utc": "2026-08-01T06:14:27Z",
+  "runtime_modules": [
+    "PALABI",
+    "PALMEM",
+    "PALhelpers"
+  ],
+  "runtime_templates": {
+    "PAL_project_runtime.py": {
+      "authority": "PALExecInterface.PAL_PROJECT_RUNTIME_SOURCE",
+      "sha256": "5325b7835eabd01a8f04a651e8d459359b9ecba3c33b0fc147b9a5e21c4b371b",
+      "version": "v11_x86_64_register_family_truth_runtime"
+    }
+  },
+  "runtime_trace": {
+    "artifact": "PAL_runtime_trace.jsonl",
+    "captures": [
+      "module_memory_root_identity",
+      "ABI_context_memory_root_identity",
+      "internal_call_arguments",
+      "mapped_pointer_previews",
+      "internal_call_results",
+      "child_frame_materialized_arguments",
+      "callee_semantic_results",
+      "child_return_carriers",
+      "parent_return_carriers",
+      "caller_visible_result_views",
+      "ABI_chain_publication_health",
+      "guarded_ABI_argument_bridge_events",
+      "exceptions"
+    ],
+    "default_enabled": false,
+    "enable_environment": "PAL_EXEC_TRACE=1",
+    "stderr_environment": "PAL_EXEC_TRACE_STDERR=1",
+    "version": "runtime_trace_v1_internal_call_memory_custody"
+  },
+  "schema_version": 1,
+  "shim_policy": {
+    "no_return_family": "python_system_exit_v1",
+    "print_family": "python_stream_io_v2",
+    "shimmed_names": [
+      "__fprintf_chk",
+      "__printf_chk",
+      "__stack_chk_fail",
+      "_exit",
+      "abort",
+      "exit",
+      "fgets",
+      "fprintf",
+      "fputc",
+      "fputc_unlocked",
+      "fputs",
+      "fputs_unlocked",
+      "printf",
+      "putchar",
+      "puts",
+      "strcmp",
+      "strcspn"
+    ],
+    "stdio_family": "python_fgets_string_v1",
+    "unknown_external": "closed_runtime_trap",
+    "unresolved_known_targets": [
+      "_ITM_deregisterTMCloneTable",
+      "_ITM_registerTMCloneTable",
+      "__cxa_finalize",
+      "__gmon_start__",
+      "__libc_start_main",
+      "f_ITM_deregisterTMCloneTable",
+      "f_ITM_registerTMCloneTable",
+      "f_cxa_finalize",
+      "f_frame_dummy",
+      "f_gmon_start",
+      "f_libc_start_main",
+      "frame_dummy"
+    ]
+  },
+  "source_manifest_sha256": "9a77df11054dd53e61ebcfe832db78a5a6ac5445ef76a0a17095503508c7144c",
+  "source_project": "/home/rem/gh/PAL/pyghidra-PAL/PAL/project/o3_PALexec.matrix",
+  "static_string_completion": {
+    "active": true,
+    "address_translation": {
+      "ambiguous_references": 0,
+      "code_pointer_references": 0,
+      "direct_resolved_references": 0,
+      "elf_link_base": "0x0",
+      "function_pointer_references": 1,
+      "load_bias": "0x100000",
+      "program_image_base": "0x100000",
+      "rebased_resolved_references": 0,
+      "resolution_rule": "accept_exactly_one_valid_direct_or_rebased_readable_ELF_PT_LOAD_C_string_mapping",
+      "unresolved_references": 0
+    },
+    "ambiguous": [],
+    "build": "static_strings_v3_rebased_elf_address_truth",
+    "code_pointer_references": [],
+    "completed": [],
+    "conflicts": [],
+    "counts": {
+      "ambiguous_references": 0,
+      "code_pointer_references": 0,
+      "completed_strings": 0,
+      "direct_resolved_references": 0,
+      "final_strings": 63,
+      "function_pointer_references": 1,
+      "original_strings": 63,
+      "rebased_resolved_references": 0,
+      "required_runtime_strings": 0,
+      "unresolved_ptrsub_references": 0
+    },
+    "executable": "/home/rem/gh/PAL/pyghidra-PAL/PAL/specimens/o3/o3_PALexec.matrix",
+    "executable_sha256": "3b3df9d0c4f574413a2d49c9ffcfd9a4bf30cefd06e2b8a653329cd782896701",
+    "existing": [],
+    "format": "pal_static_string_completion",
+    "function_pointer_references": [
+      {
+        "classification": "manifest_function_entry_pointer",
+        "entry_hex": "0x101273",
+        "function_id": "function:0x101273",
+        "function_name": "main",
+        "generated_address": "0x101273",
+        "reasons": [
+          "f_0000000000101040_start.exec.py:c_ptrsub_zero_base",
+          "f_0000000000101040_start.py:c_ptrsub_zero_base"
+        ]
+      }
+    ],
+    "non_string_reference_classification": {
+      "build": "ptrsub_reference_classifier_v1_manifest_code_authority",
+      "code_pointer_references": 0,
+      "code_pointers": [],
+      "function_pointer_references": 1,
+      "function_pointers": [
+        {
+          "classification": "manifest_function_entry_pointer",
+          "entry_hex": "0x101273",
+          "function_id": "function:0x101273",
+          "function_name": "main",
+          "generated_address": "0x101273",
+          "reasons": [
+            "f_0000000000101040_start.exec.py:c_ptrsub_zero_base",
+            "f_0000000000101040_start.py:c_ptrsub_zero_base"
+          ]
+        }
+      ],
+      "remaining_unresolved_references": 0,
+      "rule": "manifest_function_entry_or_body_ownership_excludes_address_from_static_string_health"
+    },
+    "overlay": "/home/rem/gh/PAL/pyghidra-PAL/PAL/project/o3_PALexec.matrix/.execute.stage.rzln482n/PAL_stdio_strings.json",
+    "parse_warnings": [],
+    "reference_constants": {
+      "0x101273": [
+        "f_0000000000101040_start.exec.py:c_ptrsub_zero_base",
+        "f_0000000000101040_start.py:c_ptrsub_zero_base"
+      ]
+    },
+    "required_strings": {},
+    "resolutions": [],
+    "schema_version": 2,
+    "source_roots": [
+      "/home/rem/gh/PAL/pyghidra-PAL/PAL/project/o3_PALexec.matrix/functions",
+      "/home/rem/gh/PAL/pyghidra-PAL/PAL/project/o3_PALexec.matrix/.execute.stage.rzln482n/functions"
+    ],
+    "unresolved": []
+  },
+  "static_string_memory_publication": {
+    "address_translation": {
+      "ambiguous_references": 0,
+      "code_pointer_references": 0,
+      "direct_resolved_references": 0,
+      "elf_link_base": "0x0",
+      "function_pointer_references": 1,
+      "load_bias": "0x100000",
+      "program_image_base": "0x100000",
+      "rebased_resolved_references": 0,
+      "resolution_rule": "accept_exactly_one_valid_direct_or_rebased_readable_ELF_PT_LOAD_C_string_mapping",
+      "unresolved_references": 0
+    },
+    "completion_build": "static_strings_v3_rebased_elf_address_truth",
+    "health": "READY",
+    "lifted_load_consumer": "PALhelpers.c_load",
+    "non_string_reference_classification": {
+      "build": "ptrsub_reference_classifier_v1_manifest_code_authority",
+      "code_pointer_references": 0,
+      "code_pointers": [],
+      "function_pointer_references": 1,
+      "function_pointers": [
+        {
+          "classification": "manifest_function_entry_pointer",
+          "entry_hex": "0x101273",
+          "function_id": "function:0x101273",
+          "function_name": "main",
+          "generated_address": "0x101273",
+          "reasons": [
+            "f_0000000000101040_start.exec.py:c_ptrsub_zero_base",
+            "f_0000000000101040_start.py:c_ptrsub_zero_base"
+          ]
+        }
+      ],
+      "remaining_unresolved_references": 0,
+      "rule": "manifest_function_entry_or_body_ownership_excludes_address_from_static_string_health"
+    },
+    "publisher_stage_audit": {
+      "active": true,
+      "address_translation": {
+        "ambiguous_references": 0,
+        "code_pointer_references": 0,
+        "direct_resolved_references": 0,
+        "elf_link_base": "0x0",
+        "function_pointer_references": 1,
+        "load_bias": "0x100000",
+        "program_image_base": "0x100000",
+        "rebased_resolved_references": 0,
+        "resolution_rule": "accept_exactly_one_valid_direct_or_rebased_readable_ELF_PT_LOAD_C_string_mapping",
+        "unresolved_references": 0
+      },
+      "ambiguous_references": 0,
+      "direct_resolved_references": 0,
+      "failures": [],
+      "health": "READY",
+      "overlay": "/home/rem/gh/PAL/pyghidra-PAL/PAL/project/o3_PALexec.matrix/.execute.stage.rzln482n/PAL_stdio_strings.json",
+      "overlay_strings": 63,
+      "rebased_resolved_references": 0,
+      "required_strings": 0,
+      "rule": "every_resolved_completer_string_must_exist_exactly_in_the_published_overlay; unresolved_strong_PTRSUB_references_publish_as_DEGRADED",
+      "unresolved_references": 0
+    },
+    "runtime_audit": "v5_internal_call_memory_custody_trace",
+    "runtime_mapper": "PALShims.PALPrintShims._load_stdio_literals",
+    "runtime_memory": "PALMEM.PALMemory",
+    "transport": "PAL_stdio_strings.json"
+  },
+  "thunk_targets": [
+    "_ITM_deregisterTMCloneTable",
+    "_ITM_registerTMCloneTable",
+    "__cxa_finalize",
+    "__gmon_start__",
+    "__libc_start_main",
+    "f_ITM_deregisterTMCloneTable",
+    "f_ITM_registerTMCloneTable",
+    "f_cxa_finalize",
+    "f_frame_dummy",
+    "f_gmon_start",
+    "f_libc_start_main",
+    "frame_dummy"
+  ],
+  "warnings": []
+}

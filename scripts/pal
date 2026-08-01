@@ -1,0 +1,573 @@
+#!/usr/bin/env bash
+set -Eeuo pipefail
+
+# PAL root launcher v3.2
+# Self-contained root authority + flat Python import plane.
+PAL_ROOT="$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")" && pwd -P)"
+export PAL_ROOT
+export PAL_STACK_ROOT="${PAL_STACK_ROOT:-$PAL_ROOT/stack}"
+export PAL_INTERFACE_ROOT="${PAL_INTERFACE_ROOT:-$PAL_ROOT/interface}"
+export PAL_PIPELINE_ROOT="${PAL_PIPELINE_ROOT:-$PAL_ROOT/pipeline}"
+export PAL_SCRIPTS_ROOT="${PAL_SCRIPTS_ROOT:-$PAL_ROOT/scripts}"
+export PAL_SPECIMENS_ROOT="${PAL_SPECIMENS_ROOT:-$PAL_ROOT/specimens}"
+export PAL_SPECIMENS_C_ROOT="${PAL_SPECIMENS_C_ROOT:-$PAL_SPECIMENS_ROOT/c}"
+export PAL_SPECIMENS_O0_ROOT="${PAL_SPECIMENS_O0_ROOT:-$PAL_SPECIMENS_ROOT/o0}"
+export PAL_SPECIMENS_O3_ROOT="${PAL_SPECIMENS_O3_ROOT:-$PAL_SPECIMENS_ROOT/o3}"
+export PAL_PROJECT_ROOT="${PAL_PROJECT_ROOT:-$PAL_ROOT/project}"
+export PAL_ENVIRONMENT_VERSION="pal_root_environment_v3.2_pipeline_runner_authority"
+export PYTHONUNBUFFERED=1
+
+_prepend_unique() {
+    local variable="$1" value="$2" current item rebuilt=""
+    current="${!variable-}"
+    IFS=':' read -r -a _parts <<< "$current"
+    rebuilt="$value"
+    for item in "${_parts[@]}"; do
+        [[ -n "$item" && "$item" != "$value" ]] || continue
+        rebuilt+="${rebuilt:+:}$item"
+    done
+    printf -v "$variable" '%s' "$rebuilt"
+    export "$variable"
+}
+
+# This is the deliberate flat-module compatibility plane.  Existing PAL files
+# keep using absolute imports even though their physical files are grouped.
+# Prepend in reverse priority so PAL_ROOT remains first.
+_prepend_unique PYTHONPATH "$PAL_INTERFACE_ROOT"
+_prepend_unique PYTHONPATH "$PAL_PIPELINE_ROOT"
+_prepend_unique PYTHONPATH "$PAL_STACK_ROOT"
+_prepend_unique PYTHONPATH "$PAL_ROOT"
+_prepend_unique PATH "$PAL_SCRIPTS_ROOT"
+_prepend_unique PATH "$PAL_ROOT"
+unset -f _prepend_unique
+
+cd -- "$PAL_ROOT"
+
+usage() {
+    cat <<'TXT'
+PAL root launcher v3.2
+
+Usage:
+  ./pal termui [PALTermUI options...]
+  ./pal exec [arguments...]
+  ./pal pipeline <suffix> [matrix-runner arguments...]
+  ./pal report [run-directory]
+  ./pal pipeline-module <module-or-script> [arguments...]
+  ./pal script <name.sh> [arguments...]
+  ./pal python [python arguments...]
+  ./pal check
+  ./pal env
+  ./pal specimens
+
+The launcher exports one flat Python import plane:
+  PAL root : stack : pipeline : interface
+
+TermUI receives PAL/project as its ordinary positional source.  ExecInterface
+receives the real PAL root for project discovery while a temporary flattened
+module hoist preserves its historical root-module publication contract.  The
+pipeline argument is an open specimen suffix selector, not a fixed class name.
+For example: showcase selects *.showcase and *.showcase.exe.
+TXT
+}
+
+_first_file() {
+    local candidate
+    for candidate in "$@"; do
+        [[ -f "$candidate" ]] && { printf '%s\n' "$candidate"; return 0; }
+    done
+    return 1
+}
+
+_is_publish_matrix_runner() {
+    local path="$1" base
+    [[ -f "$path" ]] || return 1
+    base="$(basename -- "$path")"
+
+    # Report consumers are never execution runners, regardless of a stale
+    # PAL_MATRIX_RUNNER environment override.
+    case "${base,,}" in
+        build_matrix_debug_report.sh|*bug*report*.sh|*matrix*report*.sh)
+            return 1
+            ;;
+    esac
+
+    grep -qi 'pyghidra' "$path" 2>/dev/null \
+        && grep -q 'CRYSTAL_BATCH' "$path" 2>/dev/null \
+        && grep -qE 'PAL ALL-EXE IMPORT \+ PUBLISH MATRIX|audit_publish_bundle|SUMMARY_TSV' "$path" 2>/dev/null
+}
+
+_find_matrix_runner() {
+    local candidate
+
+    if [[ -n "${PAL_MATRIX_RUNNER:-}" ]]; then
+        candidate="${PAL_MATRIX_RUNNER}"
+        if _is_publish_matrix_runner "$candidate"; then
+            printf '%s\n' "$candidate"
+            return 0
+        fi
+        printf 'PAL PIPELINE WARNING: ignoring invalid PAL_MATRIX_RUNNER override: %s\n' \
+            "$candidate" >&2
+        printf '  A report generator cannot serve as the PyGhidra publication runner.\n' >&2
+    fi
+
+    for candidate in \
+        "$PAL_SCRIPTS_ROOT/PAL_stack_debug.sh" \
+        "$PAL_ROOT/PAL_stack_debug.sh" \
+        "$PAL_SCRIPTS_ROOT/PAL_import_publish_all_exe_matrix.sh" \
+        "$PAL_ROOT/PAL_import_publish_all_exe_matrix.sh"
+    do
+        if _is_publish_matrix_runner "$candidate"; then
+            printf '%s\n' "$candidate"
+            return 0
+        fi
+    done
+
+    # Rename-tolerant fallback, but only for scripts carrying all three strong
+    # execution fingerprints.  This cannot admit build_matrix_debug_report.sh.
+    while IFS= read -r candidate; do
+        if _is_publish_matrix_runner "$candidate"; then
+            printf '%s\n' "$candidate"
+            return 0
+        fi
+    done < <(
+        find "$PAL_SCRIPTS_ROOT" "$PAL_ROOT" \
+            -maxdepth 1 -type f -name '*.sh' -print 2>/dev/null | sort
+    )
+    return 1
+}
+
+_find_matrix_reporter() {
+    local candidate
+    for candidate in \
+        "$PAL_SCRIPTS_ROOT/build_matrix_debug_report.sh" \
+        "$PAL_ROOT/build_matrix_debug_report.sh"
+    do
+        [[ -f "$candidate" ]] && { printf '%s\n' "$candidate"; return 0; }
+    done
+    return 1
+}
+
+_new_matrix_run_after() {
+    local marker="$1"
+    python3 - "$PAL_ROOT/log_matrix" "$marker" <<'PY_NEW_RUN'
+from pathlib import Path
+import sys
+
+root = Path(sys.argv[1])
+marker = Path(sys.argv[2])
+try:
+    marker_ns = marker.stat().st_mtime_ns
+except OSError:
+    marker_ns = 0
+
+candidates = []
+if root.is_dir():
+    for path in root.iterdir():
+        if not path.is_dir() or not path.name.startswith("run_"):
+            continue
+        try:
+            stamp = path.stat().st_mtime_ns
+        except OSError:
+            continue
+        if stamp >= marker_ns:
+            candidates.append((stamp, path.name, path.resolve()))
+
+if candidates:
+    candidates.sort(reverse=True)
+    print(candidates[0][2])
+PY_NEW_RUN
+}
+
+_update_latest_matrix_link() {
+    local run_dir="$1" log_root latest temporary
+    [[ -d "$run_dir" ]] || return 1
+    log_root="$PAL_ROOT/log_matrix"
+    latest="$log_root/latest"
+    mkdir -p -- "$log_root"
+
+    if [[ -e "$latest" && ! -L "$latest" ]]; then
+        printf 'PAL POST-RUN WARNING: cannot replace non-symlink latest path: %s\n' \
+            "$latest" >&2
+        return 1
+    fi
+
+    temporary="$log_root/.latest.$$"
+    rm -f -- "$temporary"
+    ln -s -- "$(basename -- "$run_dir")" "$temporary"
+    mv -Tf -- "$temporary" "$latest"
+    printf 'Latest matrix:       %s -> %s\n' "$latest" "$run_dir"
+}
+
+_postprocess_matrix_run() {
+    local run_marker="$1" runner_status="$2"
+    local run_dir reporter has_failures auto_report report_status
+
+    run_dir="$(_new_matrix_run_after "$run_marker")"
+    if [[ -z "$run_dir" || ! -d "$run_dir" ]]; then
+        printf 'PAL POST-RUN WARNING: publication runner created no new log_matrix/run_* directory.\n' >&2
+        return 0
+    fi
+
+    _update_latest_matrix_link "$run_dir" || true
+
+    auto_report="${PAL_AUTO_BUG_MATRIX:-1}"
+    if [[ "$auto_report" != "0" && "$auto_report" != "1" ]]; then
+        printf 'PAL POST-RUN WARNING: PAL_AUTO_BUG_MATRIX must be 0 or 1; treating it as 1.\n' >&2
+        auto_report=1
+    fi
+    [[ "$auto_report" == "1" ]] || return 0
+
+    has_failures="$({
+        python3 - "$run_dir/failed_reports" <<'PY_HAS_FAILURES'
+from pathlib import Path
+import sys
+root = Path(sys.argv[1])
+print("1" if root.is_dir() and any(root.iterdir()) else "0")
+PY_HAS_FAILURES
+    } 2>/dev/null || printf '0')"
+
+    if [[ "$has_failures" == "1" ]]; then
+        if reporter="$(_find_matrix_reporter)"; then
+            printf '\nPAL POST-RUN REPORTER: %s\n' "$reporter"
+            printf 'PAL POST-RUN SOURCE:   %s\n' "$run_dir"
+            # Explicit source custody bypasses every historical /PAL hardcode.
+            set +e
+            bash "$reporter" "$run_dir"
+            report_status=$?
+            set -e
+            if (( report_status != 0 )); then
+                printf 'PAL POST-RUN WARNING: report generation failed with status %d; pipeline status remains %d.\n' \
+                    "$report_status" "$runner_status" >&2
+            fi
+        else
+            printf 'PAL POST-RUN WARNING: failures exist but build_matrix_debug_report.sh is absent.\n' >&2
+        fi
+    else
+        printf 'PAL POST-RUN: ZERO KILLED — no failed reports; bug matrix not generated.\n'
+    fi
+}
+
+_run_filtered_pipeline() {
+    local specimen_class="${1:-}"
+    [[ -n "$specimen_class" ]] || {
+        echo "specimen suffix is required (examples: matrix, frontier, showcase)" >&2
+        return 2
+    }
+    shift || true
+    specimen_class="${specimen_class#.}"
+    specimen_class="${specimen_class,,}"
+
+    # Open extension authority: this is deliberately not a whitelist.  Any
+    # safe filename suffix may define a temporary PAL specimen group without a
+    # launcher update.  Reject only path/control syntax that could escape the
+    # specimen inventory contract.
+    if [[ -z "$specimen_class" || ! "$specimen_class" =~ ^[a-z0-9][a-z0-9._-]*$ ]]; then
+        echo "invalid specimen suffix '$specimen_class'" >&2
+        echo "use letters, digits, dot, underscore, or hyphen; do not include a path" >&2
+        return 2
+    fi
+
+    local runner
+    runner="$(_find_matrix_runner)" || {
+        echo "PAL PIPELINE ERROR: existing matrix runner not found." >&2
+        echo "Set PAL_MATRIX_RUNNER=/absolute/path/to/runner.sh" >&2
+        return 2
+    }
+    runner="$(cd -- "$(dirname -- "$runner")" && printf '%s/%s\n' "$(pwd -P)" "$(basename -- "$runner")")"
+
+    local temp_dir list_file real_find status
+    temp_dir="$(mktemp -d "${TMPDIR:-/tmp}/pal-${specimen_class}.XXXXXX")"
+    list_file="$temp_dir/binaries.nul"
+    real_find="$(command -v find)"
+    trap 'rm -rf -- "${temp_dir:-}"' RETURN
+
+    mkdir -p -- "$temp_dir/bin" "$temp_dir/staged"
+
+    printf 'PAL LAUNCHER BUILD: %s\n' "$PAL_ENVIRONMENT_VERSION"
+    python3 - "$specimen_class" "$list_file" "$temp_dir/staged" \
+        "$PAL_ROOT" "$PAL_SPECIMENS_O0_ROOT" "$PAL_SPECIMENS_O3_ROOT" <<'PY'
+from __future__ import annotations
+
+import os
+import shutil
+import sys
+from collections import Counter
+from pathlib import Path
+
+specimen_class = sys.argv[1].casefold()
+list_file = Path(sys.argv[2])
+stage_root = Path(sys.argv[3])
+roots = [Path(value).expanduser() for value in sys.argv[4:]]
+suffixes = (f".{specimen_class}", f".{specimen_class}.exe")
+
+selected: list[tuple[str, Path]] = []
+seen: set[str] = set()
+for index, root in enumerate(roots):
+    if not root.is_dir():
+        continue
+    label = "root" if index == 0 else root.name.casefold()
+    iterator = root.iterdir() if index == 0 else root.rglob("*")
+    for path in iterator:
+        try:
+            if not path.is_file():
+                continue
+        except OSError:
+            continue
+        if not path.name.casefold().endswith(suffixes):
+            continue
+        resolved = path.resolve()
+        key = str(resolved)
+        if key in seen:
+            continue
+        seen.add(key)
+        selected.append((label, resolved))
+
+selected.sort(key=lambda item: (item[1].name.casefold(), str(item[1])))
+if not selected:
+    raise SystemExit(
+        f"no .{specimen_class} binaries found in: "
+        + ", ".join(str(root) for root in roots)
+    )
+
+counts = Counter(path.name.casefold() for _, path in selected)
+result: list[Path] = []
+print(f"PAL SUFFIX FILTER: .{specimen_class}")
+print(f"Selected binaries: {len(selected)}")
+for ordinal, (label, path) in enumerate(selected, 1):
+    if counts[path.name.casefold()] == 1:
+        exported = path
+        note = ""
+    else:
+        # O0/O3 may intentionally contain the same basename.  Stage a unique
+        # alias so the existing project-per-basename matrix runner can import
+        # both rather than silently overwriting one project.
+        safe_label = "".join(ch if ch.isalnum() else "_" for ch in label).strip("_") or "specimen"
+        alias = stage_root / f"{safe_label}__{ordinal:02d}__{path.name}"
+        try:
+            os.link(path, alias)
+        except OSError:
+            try:
+                alias.symlink_to(path)
+            except OSError:
+                shutil.copy2(path, alias)
+        exported = alias
+        note = f" -> staged as {alias.name}"
+    result.append(exported)
+    print(f"  {path}{note}")
+
+with list_file.open("wb") as handle:
+    for path in result:
+        handle.write(os.fsencode(str(path)))
+        handle.write(b"\0")
+PY
+
+    export PAL_FILTER_CLASS="$specimen_class"
+    export PAL_FILTER_LIST="$list_file"
+    export PAL_FILTER_ROOT="$PAL_ROOT"
+    export PAL_REAL_FIND="$real_find"
+
+    cat > "$temp_dir/bin/find" <<'FIND_SH'
+#!/usr/bin/env bash
+set -euo pipefail
+
+root_match=0
+maxdepth_one=0
+file_type=0
+print_nul=0
+exe_pattern=0
+previous=""
+
+[[ "${1:-}" == "${PAL_FILTER_ROOT:-}" ]] && root_match=1
+for argument in "$@"; do
+    [[ "$previous" == "-maxdepth" && "$argument" == "1" ]] && maxdepth_one=1
+    [[ "$previous" == "-type" && "$argument" == "f" ]] && file_type=1
+    if [[ "$previous" == "-name" || "$previous" == "-iname" ]]; then
+        [[ "$argument" == *"exe"* || "$argument" == *"EXE"* ]] && exe_pattern=1
+    fi
+    [[ "$argument" == "-print0" ]] && print_nul=1
+    previous="$argument"
+done
+
+if (( root_match && maxdepth_one && file_type && print_nul && exe_pattern )); then
+    cat -- "$PAL_FILTER_LIST"
+else
+    exec "$PAL_REAL_FIND" "$@"
+fi
+FIND_SH
+    chmod +x "$temp_dir/bin/find"
+
+    # The legacy forensic runner discovers inputs with a bare `find` command
+    # against PAL_ROOT and insists on the historical *.exe pattern.  Put the
+    # exact-list adapter first on PATH for this child process so that only the
+    # class-filtered inventory is returned.  The paths themselves remain the
+    # original suffix-matched binaries; nothing is renamed or
+    # copied into PAL_ROOT.
+    export PATH="$temp_dir/bin:$PATH"
+
+    # Authoritative grouped PyGhidra script boundary.  The file lives in
+    # pipeline/ and installs the flat import plane before loading PALBatchDecompiler.
+    local grouped_batch="$PAL_PIPELINE_ROOT/crystal_batch.py"
+    [[ -f "$grouped_batch" ]] || {
+        echo "PAL PIPELINE ERROR: pipeline PyGhidra batch entrypoint missing: $grouped_batch" >&2
+        return 2
+    }
+    mkdir -p -- \
+        "$PAL_PROJECT_ROOT" \
+        "$PAL_ROOT/log_matrix" \
+        "$PAL_ROOT/.ghidra_projects"
+    export CRYSTAL_BATCH="$grouped_batch"
+    export PAL_SNAPSHOT_ROOT="$PAL_ROOT"
+    export PAL_PIPELINE_CLASS="$specimen_class"
+    export LOG_MATRIX_ROOT="$PAL_ROOT/log_matrix"
+
+    printf 'Matrix runner:      %s\n' "$runner"
+    printf 'Batch entrypoint:    %s\n' "$CRYSTAL_BATCH"
+    printf 'Published projects: %s/<specimen>\n' "$PAL_PROJECT_ROOT"
+    printf 'Reports:            %s/log_matrix/run_<timestamp>_<pid>/\n\n' "$PAL_ROOT"
+
+    if [[ "${PAL_PIPELINE_DRY_RUN:-0}" == "1" ]]; then
+        echo "PAL_PIPELINE_DRY_RUN=1; inventory complete, runner not started."
+        rm -rf -- "$temp_dir"
+        trap - RETURN
+        return 0
+    fi
+
+    local run_marker="$temp_dir/matrix-run.started"
+    : > "$run_marker"
+
+    set +e
+    bash "$runner" "$@"
+    status=$?
+    set -e
+
+    _postprocess_matrix_run "$run_marker" "$status"
+
+    rm -rf -- "$temp_dir"
+    trap - RETURN
+    return "$status"
+}
+
+command_name="${1:-help}"
+[[ $# -gt 0 ]] && shift || true
+
+case "$command_name" in
+    termui|ui)
+        [[ -d "$PAL_PROJECT_ROOT" ]] || {
+            echo "PAL project directory is missing: $PAL_PROJECT_ROOT" >&2
+            exit 2
+        }
+        ui="$(_first_file \
+            "$PAL_INTERFACE_ROOT/PALTermUI.py" \
+            "$PAL_ROOT/PALTermUI.py")" || {
+            echo "PALTermUI.py not found in interface/ or PAL root" >&2
+            exit 2
+        }
+        if [[ "${PAL_TERMUI_DRY_RUN:-0}" == "1" ]]; then
+            printf 'TERMUI COMMAND:'
+            printf ' %q' python3 "$ui" "$PAL_PROJECT_ROOT" "$@"
+            printf '\n'
+            exit 0
+        fi
+        # Stable PALTermUI accepts one optional positional source.  Do not pass
+        # the unsupported project-root option.
+        exec python3 "$ui" "$PAL_PROJECT_ROOT" "$@"
+        ;;
+    exec|execute)
+        mkdir -p -- \
+            "$PAL_PROJECT_ROOT" \
+            "$PAL_ROOT/log_matrix" \
+            "$PAL_ROOT/.ghidra_projects"
+        exec_ui="$(_first_file \
+            "$PAL_INTERFACE_ROOT/PALExecInterface.py" \
+            "$PAL_ROOT/PALExecInterface.py")" || {
+            echo "PALExecInterface.py not found in interface/ or PAL root" >&2
+            exit 2
+        }
+        exec_hoist="$PAL_INTERFACE_ROOT/PALExecHoist.py"
+        [[ -f "$exec_hoist" ]] || {
+            echo "PALExecInterface root-hoist bridge is missing: $exec_hoist" >&2
+            exit 2
+        }
+        export PAL_EXEC_INTERFACE_PATH="$exec_ui"
+        exec python3 "$exec_hoist" "$@"
+        ;;
+    pipeline)
+        _run_filtered_pipeline "$@"
+        ;;
+    report)
+        report_root="${1:-$PAL_ROOT/log_matrix/latest}"
+        reporter="$(_find_matrix_reporter)" || {
+            echo "build_matrix_debug_report.sh not found in scripts/ or PAL root" >&2
+            exit 2
+        }
+        [[ -d "$report_root" ]] || {
+            echo "matrix run directory not found: $report_root" >&2
+            exit 2
+        }
+        exec bash "$reporter" "$report_root"
+        ;;
+    pipeline-module)
+        target="${1:-}"
+        [[ -n "$target" ]] || { echo "pipeline module is required" >&2; exit 2; }
+        shift
+        module="$(_first_file \
+            "$PAL_PIPELINE_ROOT/$target" \
+            "$PAL_PIPELINE_ROOT/$target.py" \
+            "$PAL_ROOT/$target" \
+            "$PAL_ROOT/$target.py")" || {
+            echo "pipeline module not found: $target" >&2
+            exit 2
+        }
+        exec python3 "$module" "$@"
+        ;;
+    script)
+        target="${1:-}"
+        [[ -n "$target" ]] || { echo "script name is required" >&2; exit 2; }
+        shift
+        script="$(_first_file \
+            "$PAL_SCRIPTS_ROOT/$target" \
+            "$PAL_SCRIPTS_ROOT/$target.sh" \
+            "$PAL_ROOT/$target" \
+            "$PAL_ROOT/$target.sh")" || {
+            echo "script not found: $target" >&2
+            exit 2
+        }
+        exec bash "$script" "$@"
+        ;;
+    python)
+        exec python3 "$@"
+        ;;
+    check)
+        checker="$(_first_file \
+            "$PAL_SCRIPTS_ROOT/check_pal_environment.py" \
+            "$PAL_ROOT/check_pal_environment.py")" || {
+            echo "environment checker is missing" >&2
+            exit 2
+        }
+        exec python3 "$checker"
+        ;;
+    specimens)
+        printf 'C sources : %s\n' "$PAL_SPECIMENS_C_ROOT"
+        printf 'O0 builds : %s\n' "$PAL_SPECIMENS_O0_ROOT"
+        printf 'O3 builds : %s\n' "$PAL_SPECIMENS_O3_ROOT"
+        ;;
+    env)
+        printf 'PAL_ENVIRONMENT_VERSION=%s\n' "$PAL_ENVIRONMENT_VERSION"
+        printf 'PAL_ROOT=%s\n' "$PAL_ROOT"
+        printf 'PAL_STACK_ROOT=%s\n' "$PAL_STACK_ROOT"
+        printf 'PAL_INTERFACE_ROOT=%s\n' "$PAL_INTERFACE_ROOT"
+        printf 'PAL_PIPELINE_ROOT=%s\n' "$PAL_PIPELINE_ROOT"
+        printf 'PAL_SCRIPTS_ROOT=%s\n' "$PAL_SCRIPTS_ROOT"
+        printf 'PAL_SPECIMENS_ROOT=%s\n' "$PAL_SPECIMENS_ROOT"
+        printf 'PAL_PROJECT_ROOT=%s\n' "$PAL_PROJECT_ROOT"
+        printf 'PYTHONPATH=%s\n' "${PYTHONPATH:-}"
+        ;;
+    help|-h|--help)
+        usage
+        ;;
+    *)
+        echo "unknown PAL command: $command_name" >&2
+        usage >&2
+        exit 2
+        ;;
+esac

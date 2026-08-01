@@ -1,0 +1,38 @@
+{
+  "batch_build": "batch_v2h_final_abi_authority_publication",
+  "elapsed_ns": 984440427,
+  "finished_time_ns": 1785568089517314764,
+  "format": "pal_internal_pipeline_stream_capture",
+  "function": {
+    "entry": 1053104,
+    "entry_hex": "0x1011b0",
+    "function_id": "function:0x1011b0",
+    "module_stem": "f_00000000001011b0_craft_row_for_altitude",
+    "name": "craft_row_for_altitude",
+    "qualified_name": "Global::craft_row_for_altitude"
+  },
+  "keep_success_logs": true,
+  "mirrored_to_process_stdio": true,
+  "outcome": "decompiled",
+  "pipeline_entrypoint": "run_all",
+  "raw_text_policy": "exact_python_stdout_stderr_text_before_portability_rewrite",
+  "schema_version": 1,
+  "started_time_ns": 1785568088532874337,
+  "streams": {
+    "combined": {
+      "bytes": 35666,
+      "path": "functions/f_00000000001011b0_craft_row_for_altitude.pipeline.log",
+      "sha256": "a0c40d45c7c9de707be94e41be12737ff22b27fd08eee2c6d22bfa6fbd110c11"
+    },
+    "stderr": {
+      "bytes": 0,
+      "path": "functions/f_00000000001011b0_craft_row_for_altitude.pipeline.stderr.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "stdout": {
+      "bytes": 35666,
+      "path": "functions/f_00000000001011b0_craft_row_for_altitude.pipeline.stdout.log",
+      "sha256": "a0c40d45c7c9de707be94e41be12737ff22b27fd08eee2c6d22bfa6fbd110c11"
+    }
+  }
+}

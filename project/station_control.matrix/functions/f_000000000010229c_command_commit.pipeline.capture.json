@@ -1,0 +1,38 @@
+{
+  "batch_build": "batch_v2h_final_abi_authority_publication",
+  "elapsed_ns": 2885701422,
+  "finished_time_ns": 1785564407766604144,
+  "format": "pal_internal_pipeline_stream_capture",
+  "function": {
+    "entry": 1057436,
+    "entry_hex": "0x10229c",
+    "function_id": "function:0x10229c",
+    "module_stem": "f_000000000010229c_command_commit",
+    "name": "command_commit",
+    "qualified_name": "Global::command_commit"
+  },
+  "keep_success_logs": true,
+  "mirrored_to_process_stdio": true,
+  "outcome": "decompiled",
+  "pipeline_entrypoint": "run_all",
+  "raw_text_policy": "exact_python_stdout_stderr_text_before_portability_rewrite",
+  "schema_version": 1,
+  "started_time_ns": 1785564404880902722,
+  "streams": {
+    "combined": {
+      "bytes": 44512,
+      "path": "functions/f_000000000010229c_command_commit.pipeline.log",
+      "sha256": "9ec1ab2e2479c3dffced7318a11bba8a44862977818477f79704e49ed51b03d4"
+    },
+    "stderr": {
+      "bytes": 0,
+      "path": "functions/f_000000000010229c_command_commit.pipeline.stderr.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "stdout": {
+      "bytes": 44512,
+      "path": "functions/f_000000000010229c_command_commit.pipeline.stdout.log",
+      "sha256": "9ec1ab2e2479c3dffced7318a11bba8a44862977818477f79704e49ed51b03d4"
+    }
+  }
+}

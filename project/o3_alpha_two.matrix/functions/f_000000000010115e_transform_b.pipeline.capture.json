@@ -1,0 +1,38 @@
+{
+  "batch_build": "batch_v2h_final_abi_authority_publication",
+  "elapsed_ns": 436317139,
+  "finished_time_ns": 1785564553058229889,
+  "format": "pal_internal_pipeline_stream_capture",
+  "function": {
+    "entry": 1053022,
+    "entry_hex": "0x10115e",
+    "function_id": "function:0x10115e",
+    "module_stem": "f_000000000010115e_transform_b",
+    "name": "transform_b",
+    "qualified_name": "Global::transform_b"
+  },
+  "keep_success_logs": true,
+  "mirrored_to_process_stdio": true,
+  "outcome": "decompiled",
+  "pipeline_entrypoint": "run_all",
+  "raw_text_policy": "exact_python_stdout_stderr_text_before_portability_rewrite",
+  "schema_version": 1,
+  "started_time_ns": 1785564552621912750,
+  "streams": {
+    "combined": {
+      "bytes": 21953,
+      "path": "functions/f_000000000010115e_transform_b.pipeline.log",
+      "sha256": "d74e5f36bc909cdc0273cff97ef597b81e16ab040ef4b7c45a602ddb557a1a8a"
+    },
+    "stderr": {
+      "bytes": 0,
+      "path": "functions/f_000000000010115e_transform_b.pipeline.stderr.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "stdout": {
+      "bytes": 21953,
+      "path": "functions/f_000000000010115e_transform_b.pipeline.stdout.log",
+      "sha256": "d74e5f36bc909cdc0273cff97ef597b81e16ab040ef4b7c45a602ddb557a1a8a"
+    }
+  }
+}

@@ -1,0 +1,38 @@
+{
+  "batch_build": "batch_v2h_final_abi_authority_publication",
+  "elapsed_ns": 418698160,
+  "finished_time_ns": 1785568088530675459,
+  "format": "pal_internal_pipeline_stream_capture",
+  "function": {
+    "entry": 1053017,
+    "entry_hex": "0x101159",
+    "function_id": "function:0x101159",
+    "module_stem": "f_0000000000101159_initialize_lander",
+    "name": "initialize_lander",
+    "qualified_name": "Global::initialize_lander"
+  },
+  "keep_success_logs": true,
+  "mirrored_to_process_stdio": true,
+  "outcome": "decompiled",
+  "pipeline_entrypoint": "run_all",
+  "raw_text_policy": "exact_python_stdout_stderr_text_before_portability_rewrite",
+  "schema_version": 1,
+  "started_time_ns": 1785568088111977299,
+  "streams": {
+    "combined": {
+      "bytes": 26907,
+      "path": "functions/f_0000000000101159_initialize_lander.pipeline.log",
+      "sha256": "57ebdb40608426b90cecb3ae8a4e82ef5ddd29aa74f25c47379867a246eefbe8"
+    },
+    "stderr": {
+      "bytes": 0,
+      "path": "functions/f_0000000000101159_initialize_lander.pipeline.stderr.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "stdout": {
+      "bytes": 26907,
+      "path": "functions/f_0000000000101159_initialize_lander.pipeline.stdout.log",
+      "sha256": "57ebdb40608426b90cecb3ae8a4e82ef5ddd29aa74f25c47379867a246eefbe8"
+    }
+  }
+}

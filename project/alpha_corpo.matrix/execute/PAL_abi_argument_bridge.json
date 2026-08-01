@@ -1,0 +1,132 @@
+{
+  "active": true,
+  "automatic_exact_subregister_compatibility": true,
+  "bridged_carrier_disagreements": 0,
+  "bridged_contracts": 1,
+  "build": "pal_exec_interface_v1u_exact_integral_subregister_projection",
+  "complete_project": true,
+  "format": "pal_guarded_abi_argument_bridge",
+  "policy": "exact-integral-subregister-auto-v1u",
+  "records": [
+    {
+      "actions": [
+        {
+          "from": "unknown_scalar",
+          "index": 0,
+          "kind": "normalize_argument_class",
+          "to": "integer"
+        },
+        {
+          "from": "unknown_scalar",
+          "index": 2,
+          "kind": "normalize_argument_class",
+          "to": "integer"
+        },
+        {
+          "from": 64,
+          "index": 2,
+          "kind": "clamp_argument_width",
+          "to": 32
+        }
+      ],
+      "argument_chain_bridged": 1,
+      "bridge_profile": "exact_same_family_integral_subregister_v1u",
+      "carrier_disagreement_bridged": 0,
+      "complete_project_exact_integral_subregister_bridge_v1u": true,
+      "contract_id": "abi_custody:13c10b99647b6cda93725313",
+      "entry_plan_id": "function_entry:1053001",
+      "exact_integral_subregister_action_proofs_v1u": [
+        {
+          "action": {
+            "from": "unknown_scalar",
+            "index": 0,
+            "kind": "normalize_argument_class",
+            "to": "integer"
+          },
+          "allowed": true,
+          "reason": "custody_proven_integral_class_alias"
+        },
+        {
+          "action": {
+            "from": "unknown_scalar",
+            "index": 2,
+            "kind": "normalize_argument_class",
+            "to": "integer"
+          },
+          "allowed": true,
+          "reason": "custody_proven_integral_class_alias"
+        },
+        {
+          "action": {
+            "from": 64,
+            "index": 2,
+            "kind": "clamp_argument_width",
+            "to": 32
+          },
+          "allowed": true,
+          "reason": "exact_failed_argument_width_projection"
+        }
+      ],
+      "exact_integral_subregister_cardinality_gates_v1u": {
+        "call_and_entry_arity_equal": true,
+        "custody_callee_count_exact": true,
+        "custody_caller_count_exact": true,
+        "entry_fixed_count_exact": true,
+        "entry_plan_identity_exact": true,
+        "no_carrier_disagreement_bridge": true,
+        "no_zero_fill": true
+      },
+      "exact_integral_subregister_proofs_v1u": [
+        {
+          "callee_register": "EDX",
+          "caller_register": "RDX",
+          "constant_value": 8,
+          "failed_gates": [],
+          "gates": {
+            "argument_index_exact": true,
+            "byte_aligned_integral_widths": true,
+            "call_argument_present": true,
+            "custody_argument_continuity": true,
+            "custody_argument_present": true,
+            "failure_status_incompatible": true,
+            "gp_register_transport": true,
+            "integral_scalar_class": true,
+            "only_width_disagrees": true,
+            "same_physical_register_family": true,
+            "source_sid_exact": true,
+            "source_width_exact": true,
+            "strict_supported_width_contraction": true,
+            "target_argument_present": true,
+            "target_binding_present": true,
+            "target_ordinal_exact": true,
+            "target_sid_exact": true,
+            "target_width_exact": true
+          },
+          "index": 2,
+          "kind": "pal_exec_exact_integral_subregister_compatibility_v1u",
+          "physical_register_family": "RDX",
+          "runtime_projection": "mask_integral_value_to_exact_callee_subregister_width_modulo_2_pow_n",
+          "source_is_constant": true,
+          "source_sid": "c_8_8",
+          "source_width_bits": 64,
+          "target_binding_register": "EDX",
+          "target_sid": "v_1389",
+          "target_width_bits": 32,
+          "upstream_authority_mutated": false,
+          "value_inference_used": false
+        }
+      ],
+      "plan_id": "call_site:1053160:(ram, 0x101225, 48, 8):8",
+      "reasons": [],
+      "runtime_call_plan_core_sha256": "32db3e6b6f614637a9459cb64af6ab452f76648b03ce1e22da2ad8a2ea81fd34",
+      "runtime_entry_plan_core_sha256": "9302727cc9facf718595f458b7d556804ca88bc0f111bec9cfe6e74332aaf37e",
+      "source_call_plan_core_sha256": "5b6ff6730e9bb664eef8d0d5ca580636e9cce24feb192eedd27f96baad847dba",
+      "source_entry_plan_core_sha256": "cd27754d556495cb7a4c0fdfbff4fb80b6fa882ecc7be9deef8a5af632e193c5",
+      "status": "bridgeable",
+      "zero_fill_indices": []
+    }
+  ],
+  "rejected": [],
+  "rule": "same physical GP-register family plus exact call/entry identity and width-only custody permits runtime-only low-bit subregister projection for constants or variables; no value inference, carrier, order, or arity repair",
+  "schema_version": 1
+}

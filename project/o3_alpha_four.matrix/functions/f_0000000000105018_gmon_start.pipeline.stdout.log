@@ -1,0 +1,398 @@
+
+===== CFG DEBUG =====
+
+[EDGES]
+
+[IPDOM]
+0x105018 -> ipdom: None
+
+=====================
+
+===== PAL RESOLVER INDIRECT STORAGE v22c =====
+
+[INVENTORY]
+{'active': False,
+ 'address_tied_families': 0,
+ 'custody_transitions': 0,
+ 'effect_owner_groups': 0,
+ 'escape_barrier_sids': 0,
+ 'input_contracts': 0,
+ 'kind': 'resolver_indirect_storage_inventory_v22c',
+ 'machine_state_families': 0,
+ 'machine_state_sids': 0,
+ 'owner_categories': {},
+ 'parameter_initializers': 0,
+ 'persistent_families': 0,
+ 'rule': 'HighVariable_identity_families_plus_address_escape_alias_barrier',
+ 'runtime_order': 'CFG_governed_not_linearized',
+ 'storage_families': 0,
+ 'version': 'v22c_indirect_storage_families',
+ 'warnings': 0}
+
+[STORAGE FAMILIES]
+
+[PARAMETER INITIALIZERS / STORAGE WRITES]
+[]
+
+[WARNINGS]
+[]
+===== END PAL RESOLVER INDIRECT STORAGE =====
+
+========================================================================
+PALRAW AUDIT v0.3 :: raw instruction BLOCK p-code vs HF/PAL CFG
+========================================================================
+
+--- 0x10127f ---
+Raw block  : 0x10127f -> next 0x105018
+Instr count: 0
+Terminal   : None None
+Raw succs  : []
+Norm succs : None
+HF block   : None
+CFG edges  : []
+STATUS     : no_hf_block
+NOTE       : No PAL/HighFunction block mapped to this address.
+Raw instructions:
+Terminal raw p-code:
+HF/PAL ops :
+
+--- 0x1011b6 ---
+Raw block  : 0x1011b6 -> next 0x105018
+Instr count: 7
+Terminal   : 0x1011cc JMP 0x00101294
+Raw succs  : ['0x101294']
+Norm succs : None
+HF block   : None
+CFG edges  : []
+STATUS     : no_hf_block
+NOTE       : No PAL/HighFunction block mapped to this address.
+Raw instructions:
+   0x1011b6  MOV EAX,dword ptr [RBP + -0x18]
+   0x1011b9  ADD EAX,EDX
+   0x1011bb  MOV EDI,EAX
+   0x1011bd  CALL 0x00101149
+   0x1011c2  MOV dword ptr [RBP + -0x24],EAX
+   0x1011c5  MOV dword ptr [RBP + -0x14],0x0
+   0x1011cc  JMP 0x00101294
+Terminal raw p-code:
+     ---  BRANCH (ram, 0x101294, 8)
+HF/PAL ops :
+
+--- 0x101219 ---
+Raw block  : 0x101219 -> next 0x105018
+Instr count: 0
+Terminal   : None None
+Raw succs  : []
+Norm succs : None
+HF block   : None
+CFG edges  : []
+STATUS     : no_hf_block
+NOTE       : No PAL/HighFunction block mapped to this address.
+Raw instructions:
+Terminal raw p-code:
+HF/PAL ops :
+
+--- 0x10120f ---
+Raw block  : 0x10120f -> next 0x105018
+Instr count: 0
+Terminal   : None None
+Raw succs  : []
+Norm succs : None
+HF block   : None
+CFG edges  : []
+STATUS     : no_hf_block
+NOTE       : No PAL/HighFunction block mapped to this address.
+Raw instructions:
+Terminal raw p-code:
+HF/PAL ops :
+
+--- 0x101221 ---
+Raw block  : 0x101221 -> next 0x105018
+Instr count: 0
+Terminal   : None None
+Raw succs  : []
+Norm succs : None
+HF block   : None
+CFG edges  : []
+STATUS     : no_hf_block
+NOTE       : No PAL/HighFunction block mapped to this address.
+Raw instructions:
+Terminal raw p-code:
+HF/PAL ops :
+
+--- 0x101284 ---
+Raw block  : 0x101284 -> next 0x105018
+Instr count: 0
+Terminal   : None None
+Raw succs  : []
+Norm succs : None
+HF block   : None
+CFG edges  : []
+STATUS     : no_hf_block
+NOTE       : No PAL/HighFunction block mapped to this address.
+Raw instructions:
+Terminal raw p-code:
+HF/PAL ops :
+
+--- 0x10127f ---
+Raw block  : 0x10127f -> next 0x105018
+Instr count: 0
+Terminal   : None None
+Raw succs  : []
+Norm succs : None
+HF block   : None
+CFG edges  : []
+STATUS     : no_hf_block
+NOTE       : No PAL/HighFunction block mapped to this address.
+Raw instructions:
+Terminal raw p-code:
+HF/PAL ops :
+
+========================================================================
+
+===== PAL COMPUTE ANALYZER =====
+{'kind': 'pal_compute_inventory_v22',
+ 'version': 'v23b_abi_thunk_compatibility_return_reconciliation',
+ 'runtime_representation': 'raw_unsigned_bitvector_at_ssa_boundaries',
+ 'operations': 0,
+ 'output_plans': 0,
+ 'control_contracts': 1,
+ 'c_compute_filtered': 0,
+ 'use_site_overrides': 0,
+ 'return_observation_view_mismatches': 0,
+ 'storage_custody_related_ops': 0,
+ 'indirect_custody_contracts': 0,
+ 'indirect_custody_resolved': 0,
+ 'indirect_custody_deferred': 0,
+ 'indirect_effect_owner_compute_ops': 0,
+ 'storage_family_bindings': 0,
+ 'function_entry_abi_plan': True,
+ 'call_site_abi_plans': 0,
+ 'internal_call_plan_failures': 0,
+ 'unsupported_implicit_inputs': 0,
+ 'abi_runtime_helper_assignments': 0,
+ 'no_return_calls': 0,
+ 'reachable_return_boundaries': 1,
+ 'unreachable_return_boundaries': 0,
+ 'synthetic_no_return_continuations_suppressed': 0,
+ 'statuses': {},
+ 'categories': {},
+ 'helpers': {},
+ 'opcodes': {},
+ 'warnings': 0}
+
+[WARNINGS]
+[]
+
+[METADATA-ONLY COMPUTE BOUNDARIES]
+
+[HELPER-REQUIRED CONTRACTS]
+
+[INDIRECT STORAGE-CUSTODY CONTRACTS]
+
+[INDIRECT CUSTODY INVENTORY]
+{'kind': 'pal_compute_indirect_custody_inventory_v22d',
+ 'version': 'v23b_abi_thunk_compatibility_return_reconciliation',
+ 'resolver_transitions': 0,
+ 'compute_indirect_contracts': 0,
+ 'resolved_custody': 0,
+ 'deferred_custody': 0,
+ 'effect_owner_compute_bindings': 0,
+ 'effect_owner_compute_ops': 0,
+ 'owner_categories': {},
+ 'storage_families': 0,
+ 'storage_sid_bindings': 0,
+ 'address_escape_barrier_sids': 0,
+ 'parameter_storage_initializers': 0,
+ 'runtime_helpers': 0,
+ 'warnings': 0,
+ 'rule': 'INDIRECT_is_metadata_only_owner_bound_storage_transition'}
+
+[ABI-D ENTRY/CALL PLAN INVENTORY]
+{'kind': 'pal_compute_abi_plan_inventory_v23',
+ 'version': 'v23b_abi_thunk_compatibility_return_reconciliation',
+ 'function': '__gmon_start__',
+ 'entry_plan_present': True,
+ 'entry_plan_status': 'ready',
+ 'fixed_arguments': 0,
+ 'implicit_inputs': 0,
+ 'implicit_inputs_unsupported': 0,
+ 'call_compute_contracts': 0,
+ 'call_site_plans': 0,
+ 'call_sites_without_plan': 0,
+ 'call_statuses': {},
+ 'dispatch_classes': {},
+ 'internal_calls': 0,
+ 'internal_calls_with_target_compatible_plan': 0,
+ 'internal_calls_without_target_compatible_plan': 0,
+ 'internal_calls_with_deferred_target_compatibility': 0,
+ 'internal_calls_with_incompatible_target': 0,
+ 'internal_calls_without_transport_plan': 0,
+ 'external_calls': 0,
+ 'thunk_calls': 0,
+ 'external_via_thunk_calls': 0,
+ 'thunk_endpoint_deferred_calls': 0,
+ 'thunk_calls_misclassified_internal': 0,
+ 'target_compatibility_overclaims': 0,
+ 'no_return_calls': 0,
+ 'result_carrier_contracts': 0,
+ 'abi_runtime_helper_assignments': 0,
+ 'warnings': 0,
+ 'acceptance_gates': {'every_emitted_function_has_entry_plan': True,
+                      'every_call_has_call_site_plan': True,
+                      'every_internal_call_has_target_compatible_plan': True,
+                      'every_internal_call_has_carrier_transport_plan': True,
+                      'no_resolved_thunk_misclassified_internal': True,
+                      'no_target_compatibility_overclaim': True,
+                      'no_implicit_input_is_unsupported': True,
+                      'no_runtime_helper_assigned_by_ABI_guesswork': True},
+ 'return_boundary_reconciliation': {'kind': 'pal_compute_return_boundary_reconciliation_v23b',
+                                    'version': 'v23b_abi_thunk_compatibility_return_reconciliation',
+                                    'function': '__gmon_start__',
+                                    'entry_block_addr': 1069080,
+                                    'cfg_evidence_available': True,
+                                    'no_return_terminating_blocks': [],
+                                    'no_return_call_op_keys': [],
+                                    'return_boundaries': 1,
+                                    'reachable_return_boundaries': 1,
+                                    'unreachable_return_boundaries': 0,
+                                    'deferred_return_boundaries': 0,
+                                    'reachable_return_widths': [32],
+                                    'width_reconciled': True,
+                                    'synthetic_no_return_continuations_suppressed': 0,
+                                    'rule': 'traverse_CFG_with_no_return_blocks_as_terminal_then_reconcile_reachable_raw_return_transports_only'},
+ 'rule': 'ABI_A_B_C_authority_only_thunk_endpoint_and_compatibility_tri_state_no_downstream_argument_reinference'}
+
+[FUNCTION ENTRY ABI PLAN]
+{'plan_id': 'function_entry:1069080',
+ 'status': 'ready',
+ 'callable_signature_status': 'legacy_non_variadic_fallback',
+ 'fixed_argument_count': 0,
+ 'implicit_input_count': 0,
+ 'variadic_register_save_area': {'required': False,
+                                 'status': 'not_required',
+                                 'slots': [],
+                                 'gp_slots': [],
+                                 'sse_slots': [],
+                                 'fixed_variadic_partition_status': 'deferred_to_entry_protocol_analysis',
+                                 'source': 'abi_context.registers',
+                                 'authority': 'ABI_C_carriers_plus_variadic_contract'},
+ 'overflow_argument_area': {'required': False,
+                            'status': 'not_required',
+                            'source': 'abi_context.overflow_argument_area',
+                            'observed_stack_carriers': [],
+                            'materialization': 'consume_preclassified_overflow_slots',
+                            'offset_inference_allowed': False,
+                            'authority': 'ABI_C_stack_carriers_or_variadic_protocol'},
+ 'variadic_al': {'required': False,
+                 'status': 'not_required',
+                 'source': 'abi_context.variadic_xmm_count',
+                 'inputs': [],
+                 'default_allowed': False,
+                 'authority': 'ABI_C_variadic_xmm_count_contract'},
+ 'frame_base': {'required': False,
+                'status': 'not_observed',
+                'source': 'abi_context.frame_base',
+                'inputs': [],
+                'derive_from_parameter_names': False,
+                'authority': 'ABI_C_frame_state_custody'},
+ 'tls_base': {'required': False,
+              'status': 'not_observed',
+              'source': 'abi_context.tls_base',
+              'inputs': [],
+              'derive_from_expression_names': False,
+              'authority': 'ABI_C_tls_state_custody'},
+ 'return_contract': {'kind': 'pal_compute_return_carrier_contract_abi_d',
+                     'version': 'v23b_abi_thunk_compatibility_return_reconciliation',
+                     'status': 'return_width_proven_carrier_deferred',
+                     'no_return': False,
+                     'output_sid': None,
+                     'output_width_bits': None,
+                     'declared_width_bits': None,
+                     'effective_result_width_bits': 32,
+                     'declared_return': {'name': 'undefined',
+                                         'display_name': 'undefined',
+                                         'class_name': 'DefaultDataType',
+                                         'length_bytes': 1,
+                                         'width_bits': 8,
+                                         'signed': None,
+                                         'kind_hint': None},
+                     'return_storage': {'repr': '<UNASSIGNED>',
+                                        'size_bytes': 0,
+                                        'flags': {'register': False,
+                                                  'stack': False,
+                                                  'memory': False,
+                                                  'unassigned': True,
+                                                  'void': False,
+                                                  'auto': False},
+                                        'pieces': [],
+                                        'storage_keys': []},
+                     'carrier_pieces': [],
+                     'normalization': {'mode': 'mask_to_output_width',
+                                       'width_bits': 32,
+                                       'mask': 4294967295},
+                     'runtime_helper': None,
+                     'runtime_helper_authority': 'no_ABI_runtime_helper_assigned',
+                     'authority': 'reachable_raw_return_transport',
+                     'reported_declared_width_bits': 8,
+                     'declared_width_authoritative': False,
+                     'declared_return_evidence_status': 'non_authoritative_default_or_unresolved_prototype',
+                     'transport_width_bits': 32,
+                     'logical_result_width_bits': 32,
+                     'reachable_return_widths': [32],
+                     'reachable_return_boundary_count': 1,
+                     'unreachable_return_boundary_count': 0,
+                     'deferred_return_boundary_count': 0},
+ 'reachable_return_boundaries': [{'block_addr': 1069080,
+                                  'return_value_sid': 'c_1_4',
+                                  'return_value_width_bits': 32,
+                                  'return_transport_width_bits': 32,
+                                  'return_logical_width_bits': 32,
+                                  'return_declared_view': None,
+                                  'return_boundary_authority': 'raw_return_register_transport',
+                                  'return_reachability': 'reachable',
+                                  'reachable_return': True,
+                                  'execution_suppressed': False,
+                                  'emission_policy': 'emit_reachable_return_boundary',
+                                  'cut_by_no_return_blocks': [],
+                                  'cut_by_no_return_call_op_keys': []}],
+ 'unreachable_return_boundaries': []}
+
+[RETURN BOUNDARY RECONCILIATION]
+{'kind': 'pal_compute_return_boundary_reconciliation_v23b',
+ 'version': 'v23b_abi_thunk_compatibility_return_reconciliation',
+ 'function': '__gmon_start__',
+ 'entry_block_addr': 1069080,
+ 'cfg_evidence_available': True,
+ 'no_return_terminating_blocks': [],
+ 'no_return_call_op_keys': [],
+ 'return_boundaries': 1,
+ 'reachable_return_boundaries': 1,
+ 'unreachable_return_boundaries': 0,
+ 'deferred_return_boundaries': 0,
+ 'reachable_return_widths': [32],
+ 'width_reconciled': True,
+ 'synthetic_no_return_continuations_suppressed': 0,
+ 'rule': 'traverse_CFG_with_no_return_blocks_as_terminal_then_reconcile_reachable_raw_return_transports_only'}
+
+[CALL SITE ABI PLANS]
+===== END PAL COMPUTE ANALYZER =====
+
+
+=========== SGL EXECUTION TREE ===========
+
+sequence
+  sequence
+    block [0x105018]
+
+=========== END TREE ===========
+
+[SGL EXEC TREE PERSISTED] path=/home/rem/gh/PAL/pyghidra-PAL/PAL/PAL_logs/f_0000000000105018_gmon_start.sgl.exec_tree.log mode=append temporary=False delete_on_completion=False
+
+[PHI DROP-INS]
+------------------------------------------------------------
+------------------------------------------------------------
+{'kind': 'phi_compute_consumer_inactive_v21',
+ 'reason': 'PALCompute_metadata_not_present',
+ 'version': 'v21_compute_contract_consumers'}
+[]

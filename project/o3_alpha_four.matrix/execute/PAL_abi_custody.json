@@ -1,0 +1,1424 @@
+{
+  "acceptance_gates": {
+    "annotation_aliases_collapsed": true,
+    "authorized_repair_identity_verified": true,
+    "cfg_rewritten": false,
+    "core_conflicts_fail_closed": true,
+    "exec_tree_rewritten": false,
+    "final_custody_refresh_completed": true,
+    "final_post_emitter_plan_index_published": true,
+    "generated_python_rewritten": false,
+    "integrity_refreshed": true,
+    "last_call_surface_inference_used": false,
+    "phi_rewritten": false,
+    "plan_core_continuity_verified": true,
+    "recursive_whole_icecube_plan_discovery_used": false,
+    "whole_plan_object_equality_used": false
+  },
+  "authority": {
+    "callee": "PALCompute_function_entry_abi_plans",
+    "caller": "PALCompute_v23c_call_site_plans",
+    "machine_liveness": "PALlibrary.PALLifter.raw_machine_image",
+    "plan_identity": "PALABIPlanCanonicalizer_v1_immutable_plan_core",
+    "project_index": "PAL_abi_plan_index.json",
+    "publication": "PALCodeDocument.metadata_registry_frozen_icecube"
+  },
+  "canonicalizer_version": "v1_immutable_plan_identity",
+  "contracts": [
+    {
+      "argument_chain": {
+        "arguments": [],
+        "arity_compatible": true,
+        "callee_fixed_argument_count": 0,
+        "callee_materialized_argument_count": 0,
+        "caller_argument_count": 0,
+        "failures": [],
+        "kind": "pal_abi_argument_custody_chain_v1",
+        "materialization_authority": "call_site_carriers_joined_to_exact_entry_plan_bindings",
+        "status": "ready"
+      },
+      "call": {
+        "block_addr": 1052967,
+        "call_address": 1052967,
+        "dispatch_class": "internal_resolved",
+        "op_id": "(ram, 0x101127, 33, 6)",
+        "op_key": "1052967:(ram, 0x101127, 33, 6):6",
+        "plan_id": "call_site:1052967:(ram, 0x101127, 33, 6):6",
+        "target": {
+          "calling_convention": "unknown",
+          "entry": 1052816,
+          "entry_plan_lookup_key": "function_entry:1052816",
+          "external": false,
+          "fixed_parameter_count": null,
+          "name": "deregister_tm_clones",
+          "physical_external": false,
+          "prototype_authority": {
+            "authority": "Ghidra_Function_signature_source_plus_explicit_C_arity",
+            "conflicts": [],
+            "declared_variadic": false,
+            "fixed_parameter_count": null,
+            "high_prototype_parameter_count": null,
+            "kind": "function_prototype_authority_v23b",
+            "observed_parameter_count": 0,
+            "prototype_text": "undefined deregister_tm_clones()",
+            "prototype_text_arity_hint": "empty_unspecified",
+            "reason": "empty parameter enumeration lacks explicit void or strong signature-source authority",
+            "reported_parameter_count": 0,
+            "signature_source": "DEFAULT",
+            "signature_source_class": "default",
+            "status": "unresolved",
+            "version": "v23b_authoritative_prototypes_and_carriers"
+          },
+          "resolved": true,
+          "semantic_endpoint_entry": null,
+          "semantic_endpoint_name": null,
+          "semantic_endpoint_status": "physical_non_thunk_internal_target",
+          "thunk": false,
+          "variadic": false
+        }
+      },
+      "callee": {
+        "entry": 1052816,
+        "entry_hex": "0x101090",
+        "entry_plan_id": "function_entry:1052816",
+        "function_id": "function:0x101090",
+        "function_name": "deregister_tm_clones",
+        "icecube": "f_0000000000101090_deregister_tm_clones.icecube.json.gz"
+      },
+      "caller": {
+        "entry": 1052928,
+        "entry_hex": "0x101100",
+        "entry_plan_id": "function_entry:1052928",
+        "function_id": "function:0x101100",
+        "function_name": "__do_global_dtors_aux",
+        "icecube": "f_0000000000101100_do_global_dtors_aux.icecube.json.gz"
+      },
+      "contract_id": "abi_custody:fbd4896f7e42a887e403b343",
+      "downstream_reinference_allowed": false,
+      "kind": "pal_abi_custody_chain_contract_v1",
+      "metadata_only": true,
+      "repair": {
+        "carrier_live_to_return": null,
+        "carrier_width_bits": 64,
+        "emitter_repair_authorized": false,
+        "inspector_metadata_only": true,
+        "intervening_carrier_writes": [],
+        "logical_result_width_bits": 8,
+        "output_sid": null,
+        "physical_return_register": "RAX",
+        "repair_authority": "PALABICustodyInspector_v1_exact_cross_function_contract",
+        "repair_status": "not_required",
+        "rule": "authorize_only_exact_call_entry_carrier_width_liveness_agreement_never_last_call_surface_inference",
+        "status": "linked",
+        "width_authority": "caller_effective_result_width"
+      },
+      "return_chain": {
+        "callee_return_contract": {
+          "authority": "reachable_raw_return_transport",
+          "carrier_pieces": [],
+          "declared_return": {
+            "class_name": "DefaultDataType",
+            "display_name": "undefined",
+            "kind_hint": null,
+            "length_bytes": 1,
+            "name": "undefined",
+            "signed": null,
+            "width_bits": 8
+          },
+          "declared_return_evidence_status": "non_authoritative_default_or_unresolved_prototype",
+          "declared_width_authoritative": false,
+          "declared_width_bits": null,
+          "deferred_return_boundary_count": 0,
+          "effective_result_width_bits": 64,
+          "kind": "pal_compute_return_carrier_contract_abi_d",
+          "logical_result_width_bits": 64,
+          "no_return": false,
+          "normalization": {
+            "mask": 18446744073709551615,
+            "mode": "mask_to_output_width",
+            "width_bits": 64
+          },
+          "output_sid": null,
+          "output_width_bits": null,
+          "reachable_return_boundary_count": 1,
+          "reachable_return_widths": [
+            64
+          ],
+          "reported_declared_width_bits": 8,
+          "return_storage": {
+            "flags": {
+              "auto": false,
+              "memory": false,
+              "register": false,
+              "stack": false,
+              "unassigned": true,
+              "void": false
+            },
+            "pieces": [],
+            "repr": "<UNASSIGNED>",
+            "size_bytes": 0,
+            "storage_keys": []
+          },
+          "runtime_helper": null,
+          "runtime_helper_authority": "no_ABI_runtime_helper_assigned",
+          "status": "return_width_proven_carrier_deferred",
+          "transport_width_bits": 64,
+          "unreachable_return_boundary_count": 0,
+          "version": "v23b_abi_thunk_compatibility_return_reconciliation"
+        },
+        "candidate": null,
+        "liveness": {
+          "carrier_live_to_return": null,
+          "intervening_carrier_writes": [],
+          "kind": "pal_abi_return_carrier_liveness_v1",
+          "reason": "call_result_has_explicit_SSA_or_no_candidate",
+          "status": "not_required"
+        },
+        "logical_result_width_bits": 8,
+        "physical_carrier": {
+          "backend": "sysv_amd64",
+          "carrier_width_bits": 64,
+          "kind": "pal_abi_return_carrier_evidence_v1",
+          "logical_width_bits": 8,
+          "raw_path_evidence": [
+            {
+              "return_block_addr": 1052816,
+              "writes": [
+                {
+                  "block_addr": 1052816,
+                  "instruction": "LEA RAX,[0x104010]",
+                  "instruction_addr": 1052823,
+                  "offset": 0,
+                  "pcode": "(register, 0x0, 8) COPY (const, 0x104010, 8)",
+                  "register": "RAX",
+                  "repr": "(register, 0x0, 8)",
+                  "size_bytes": 8,
+                  "width_bits": 64
+                }
+              ]
+            }
+          ],
+          "reason": "all_reachable_raw_return_paths_write_RAX_family_under_sysv_amd64",
+          "register": "RAX",
+          "register_offsets": [
+            0
+          ],
+          "reinference_allowed": false,
+          "status": "resolved"
+        },
+        "width_authority": "caller_effective_result_width"
+      },
+      "status": "linked",
+      "target_entry_plan_id": "function_entry:1052816",
+      "version": "v1b_canonical_project_plan_index"
+    },
+    {
+      "argument_chain": {
+        "arguments": [],
+        "arity_compatible": true,
+        "callee_fixed_argument_count": 0,
+        "callee_materialized_argument_count": 0,
+        "caller_argument_count": 0,
+        "failures": [],
+        "kind": "pal_abi_argument_custody_chain_v1",
+        "materialization_authority": "call_site_carriers_joined_to_exact_entry_plan_bindings",
+        "status": "ready"
+      },
+      "call": {
+        "block_addr": 1052996,
+        "call_address": 1052996,
+        "dispatch_class": "internal_resolved",
+        "op_id": "(ram, 0x101144, 0, 0)",
+        "op_key": "1052996:(ram, 0x101144, 0, 0):0",
+        "plan_id": "call_site:1052996:(ram, 0x101144, 0, 0):0",
+        "target": {
+          "calling_convention": "unknown",
+          "entry": 1052864,
+          "entry_plan_lookup_key": "function_entry:1052864",
+          "external": false,
+          "fixed_parameter_count": null,
+          "name": "register_tm_clones",
+          "physical_external": false,
+          "prototype_authority": {
+            "authority": "Ghidra_Function_signature_source_plus_explicit_C_arity",
+            "conflicts": [],
+            "declared_variadic": false,
+            "fixed_parameter_count": null,
+            "high_prototype_parameter_count": null,
+            "kind": "function_prototype_authority_v23b",
+            "observed_parameter_count": 0,
+            "prototype_text": "undefined register_tm_clones()",
+            "prototype_text_arity_hint": "empty_unspecified",
+            "reason": "empty parameter enumeration lacks explicit void or strong signature-source authority",
+            "reported_parameter_count": 0,
+            "signature_source": "DEFAULT",
+            "signature_source_class": "default",
+            "status": "unresolved",
+            "version": "v23b_authoritative_prototypes_and_carriers"
+          },
+          "resolved": true,
+          "semantic_endpoint_entry": null,
+          "semantic_endpoint_name": null,
+          "semantic_endpoint_status": "physical_non_thunk_internal_target",
+          "thunk": false,
+          "variadic": false
+        }
+      },
+      "callee": {
+        "entry": 1052864,
+        "entry_hex": "0x1010c0",
+        "entry_plan_id": "function_entry:1052864",
+        "function_id": "function:0x1010c0",
+        "function_name": "register_tm_clones",
+        "icecube": "f_00000000001010c0_register_tm_clones.icecube.json.gz"
+      },
+      "caller": {
+        "entry": 1052992,
+        "entry_hex": "0x101140",
+        "entry_plan_id": "function_entry:1052992",
+        "function_id": "function:0x101140",
+        "function_name": "frame_dummy",
+        "icecube": "f_0000000000101140_frame_dummy.icecube.json.gz"
+      },
+      "contract_id": "abi_custody:d1eff4f4dcbdc326d30739c9",
+      "downstream_reinference_allowed": false,
+      "kind": "pal_abi_custody_chain_contract_v1",
+      "metadata_only": true,
+      "repair": {
+        "carrier_live_to_return": null,
+        "carrier_width_bits": 64,
+        "emitter_repair_authorized": false,
+        "inspector_metadata_only": true,
+        "intervening_carrier_writes": [],
+        "logical_result_width_bits": 8,
+        "output_sid": null,
+        "physical_return_register": "RAX",
+        "repair_authority": "PALABICustodyInspector_v1_exact_cross_function_contract",
+        "repair_status": "not_required",
+        "rule": "authorize_only_exact_call_entry_carrier_width_liveness_agreement_never_last_call_surface_inference",
+        "status": "linked",
+        "width_authority": "caller_effective_result_width"
+      },
+      "return_chain": {
+        "callee_return_contract": {
+          "authority": "reachable_raw_return_transport",
+          "carrier_pieces": [],
+          "declared_return": {
+            "class_name": "DefaultDataType",
+            "display_name": "undefined",
+            "kind_hint": null,
+            "length_bytes": 1,
+            "name": "undefined",
+            "signed": null,
+            "width_bits": 8
+          },
+          "declared_return_evidence_status": "non_authoritative_default_or_unresolved_prototype",
+          "declared_width_authoritative": false,
+          "declared_width_bits": null,
+          "deferred_return_boundary_count": 0,
+          "effective_result_width_bits": 64,
+          "kind": "pal_compute_return_carrier_contract_abi_d",
+          "logical_result_width_bits": 64,
+          "no_return": false,
+          "normalization": {
+            "mask": 18446744073709551615,
+            "mode": "mask_to_output_width",
+            "width_bits": 64
+          },
+          "output_sid": null,
+          "output_width_bits": null,
+          "reachable_return_boundary_count": 1,
+          "reachable_return_widths": [
+            64
+          ],
+          "reported_declared_width_bits": 8,
+          "return_storage": {
+            "flags": {
+              "auto": false,
+              "memory": false,
+              "register": false,
+              "stack": false,
+              "unassigned": true,
+              "void": false
+            },
+            "pieces": [],
+            "repr": "<UNASSIGNED>",
+            "size_bytes": 0,
+            "storage_keys": []
+          },
+          "runtime_helper": null,
+          "runtime_helper_authority": "no_ABI_runtime_helper_assigned",
+          "status": "return_width_proven_carrier_deferred",
+          "transport_width_bits": 64,
+          "unreachable_return_boundary_count": 0,
+          "version": "v23b_abi_thunk_compatibility_return_reconciliation"
+        },
+        "candidate": null,
+        "liveness": {
+          "carrier_live_to_return": null,
+          "intervening_carrier_writes": [],
+          "kind": "pal_abi_return_carrier_liveness_v1",
+          "reason": "call_result_has_explicit_SSA_or_no_candidate",
+          "status": "not_required"
+        },
+        "logical_result_width_bits": 8,
+        "physical_carrier": {
+          "backend": "sysv_amd64",
+          "carrier_width_bits": 64,
+          "kind": "pal_abi_return_carrier_evidence_v1",
+          "logical_width_bits": 8,
+          "raw_path_evidence": [
+            {
+              "return_block_addr": 1052864,
+              "writes": [
+                {
+                  "block_addr": 1052864,
+                  "instruction": "SAR RAX,0x3",
+                  "instruction_addr": 1052888,
+                  "offset": 0,
+                  "pcode": "(register, 0x0, 8) INT_SRIGHT (register, 0x0, 8) , (unique, 0xd1000, 4)",
+                  "register": "RAX",
+                  "repr": "(register, 0x0, 8)",
+                  "size_bytes": 8,
+                  "width_bits": 64
+                }
+              ]
+            }
+          ],
+          "reason": "all_reachable_raw_return_paths_write_RAX_family_under_sysv_amd64",
+          "register": "RAX",
+          "register_offsets": [
+            0
+          ],
+          "reinference_allowed": false,
+          "status": "resolved"
+        },
+        "width_authority": "caller_effective_result_width"
+      },
+      "status": "linked",
+      "target_entry_plan_id": "function_entry:1052864",
+      "version": "v1b_canonical_project_plan_index"
+    },
+    {
+      "argument_chain": {
+        "arguments": [
+          {
+            "agreement": {
+              "carrier": true,
+              "class": true,
+              "order": true,
+              "width": true
+            },
+            "callee": {
+              "canonical_carrier": "RDI",
+              "carrier": "EDI",
+              "carrier_class": "integer",
+              "carrier_kind": "gp_register",
+              "carrier_width_bits": 32,
+              "name": "param_0",
+              "ordinal": 0,
+              "source_sid": "v_149",
+              "storage_key": "register:56:4"
+            },
+            "caller": {
+              "argument_class": "integer",
+              "canonical_carrier": "RDI",
+              "carrier": "RDI",
+              "carrier_kind": "gp_register",
+              "source_name": null,
+              "source_sid": "v_110",
+              "source_width_bits": 32,
+              "stack_slot": null
+            },
+            "index": 0,
+            "status": "ready"
+          }
+        ],
+        "arity_compatible": true,
+        "callee_fixed_argument_count": 1,
+        "callee_materialized_argument_count": 1,
+        "caller_argument_count": 1,
+        "failures": [],
+        "kind": "pal_abi_argument_custody_chain_v1",
+        "materialization_authority": "call_site_carriers_joined_to_exact_entry_plan_bindings",
+        "status": "ready"
+      },
+      "call": {
+        "block_addr": 1053107,
+        "call_address": 1053117,
+        "dispatch_class": "internal_resolved",
+        "op_id": "(ram, 0x1011bd, 53, 5)",
+        "op_key": "1053107:(ram, 0x1011bd, 53, 5):5",
+        "plan_id": "call_site:1053107:(ram, 0x1011bd, 53, 5):5",
+        "target": {
+          "calling_convention": "unknown",
+          "entry": 1053001,
+          "entry_plan_lookup_key": "function_entry:1053001",
+          "external": false,
+          "fixed_parameter_count": null,
+          "name": "mutate",
+          "physical_external": false,
+          "prototype_authority": {
+            "authority": "Ghidra_Function_signature_source_plus_explicit_C_arity",
+            "conflicts": [],
+            "declared_variadic": false,
+            "fixed_parameter_count": null,
+            "high_prototype_parameter_count": null,
+            "kind": "function_prototype_authority_v23b",
+            "observed_parameter_count": 0,
+            "prototype_text": "undefined mutate()",
+            "prototype_text_arity_hint": "empty_unspecified",
+            "reason": "empty parameter enumeration lacks explicit void or strong signature-source authority",
+            "reported_parameter_count": 0,
+            "signature_source": "DEFAULT",
+            "signature_source_class": "default",
+            "status": "unresolved",
+            "version": "v23b_authoritative_prototypes_and_carriers"
+          },
+          "resolved": true,
+          "semantic_endpoint_entry": null,
+          "semantic_endpoint_name": null,
+          "semantic_endpoint_status": "physical_non_thunk_internal_target",
+          "thunk": false,
+          "variadic": false
+        }
+      },
+      "callee": {
+        "entry": 1053001,
+        "entry_hex": "0x101149",
+        "entry_plan_id": "function_entry:1053001",
+        "function_id": "function:0x101149",
+        "function_name": "mutate",
+        "icecube": "f_0000000000101149_mutate.icecube.json.gz"
+      },
+      "caller": {
+        "entry": 1053053,
+        "entry_hex": "0x10117d",
+        "entry_plan_id": "function_entry:1053053",
+        "function_id": "function:0x10117d",
+        "function_name": "main",
+        "icecube": "f_000000000010117d_main.icecube.json.gz"
+      },
+      "contract_id": "abi_custody:318f690c0ef1339aa3740e3c",
+      "downstream_reinference_allowed": false,
+      "kind": "pal_abi_custody_chain_contract_v1",
+      "metadata_only": true,
+      "repair": {
+        "carrier_live_to_return": null,
+        "carrier_width_bits": 64,
+        "emitter_repair_authorized": false,
+        "inspector_metadata_only": true,
+        "intervening_carrier_writes": [],
+        "logical_result_width_bits": 32,
+        "output_sid": "v_4440",
+        "physical_return_register": "RAX",
+        "repair_authority": "PALABICustodyInspector_v1_exact_cross_function_contract",
+        "repair_status": "not_required",
+        "rule": "authorize_only_exact_call_entry_carrier_width_liveness_agreement_never_last_call_surface_inference",
+        "status": "linked",
+        "width_authority": "caller_output_ssa_width"
+      },
+      "return_chain": {
+        "callee_return_contract": {
+          "authority": "reachable_raw_return_transport",
+          "carrier_pieces": [],
+          "declared_return": {
+            "class_name": "DefaultDataType",
+            "display_name": "undefined",
+            "kind_hint": null,
+            "length_bytes": 1,
+            "name": "undefined",
+            "signed": null,
+            "width_bits": 8
+          },
+          "declared_return_evidence_status": "non_authoritative_default_or_unresolved_prototype",
+          "declared_width_authoritative": false,
+          "declared_width_bits": null,
+          "deferred_return_boundary_count": 0,
+          "effective_result_width_bits": 32,
+          "kind": "pal_compute_return_carrier_contract_abi_d",
+          "logical_result_width_bits": 32,
+          "no_return": false,
+          "normalization": {
+            "mask": 4294967295,
+            "mode": "mask_to_output_width",
+            "width_bits": 32
+          },
+          "output_sid": null,
+          "output_width_bits": null,
+          "reachable_return_boundary_count": 1,
+          "reachable_return_widths": [
+            32
+          ],
+          "reported_declared_width_bits": 8,
+          "return_storage": {
+            "flags": {
+              "auto": false,
+              "memory": false,
+              "register": false,
+              "stack": false,
+              "unassigned": true,
+              "void": false
+            },
+            "pieces": [],
+            "repr": "<UNASSIGNED>",
+            "size_bytes": 0,
+            "storage_keys": []
+          },
+          "runtime_helper": null,
+          "runtime_helper_authority": "no_ABI_runtime_helper_assigned",
+          "status": "return_width_proven_carrier_deferred",
+          "transport_width_bits": 32,
+          "unreachable_return_boundary_count": 0,
+          "version": "v23b_abi_thunk_compatibility_return_reconciliation"
+        },
+        "candidate": null,
+        "liveness": {
+          "carrier_live_to_return": null,
+          "intervening_carrier_writes": [],
+          "kind": "pal_abi_return_carrier_liveness_v1",
+          "reason": "call_result_has_explicit_SSA_or_no_candidate",
+          "status": "not_required"
+        },
+        "logical_result_width_bits": 32,
+        "physical_carrier": {
+          "backend": "sysv_amd64",
+          "carrier_width_bits": 64,
+          "kind": "pal_abi_return_carrier_evidence_v1",
+          "logical_width_bits": 32,
+          "raw_path_evidence": [
+            {
+              "return_block_addr": 1053005,
+              "writes": [
+                {
+                  "block_addr": 1053005,
+                  "instruction": "XOR EAX,0x55",
+                  "instruction_addr": 1053017,
+                  "offset": 0,
+                  "pcode": "(register, 0x0, 4) INT_XOR (register, 0x0, 4) , (const, 0x55, 4)",
+                  "register": "RAX",
+                  "repr": "(register, 0x0, 4)",
+                  "size_bytes": 4,
+                  "width_bits": 32
+                },
+                {
+                  "block_addr": 1053005,
+                  "instruction": "XOR EAX,0x55",
+                  "instruction_addr": 1053017,
+                  "offset": 0,
+                  "pcode": "(register, 0x0, 8) INT_ZEXT (register, 0x0, 4)",
+                  "register": "RAX",
+                  "repr": "(register, 0x0, 8)",
+                  "size_bytes": 8,
+                  "width_bits": 64
+                }
+              ]
+            }
+          ],
+          "reason": "all_reachable_raw_return_paths_write_RAX_family_under_sysv_amd64",
+          "register": "RAX",
+          "register_offsets": [
+            0
+          ],
+          "reinference_allowed": false,
+          "status": "resolved"
+        },
+        "width_authority": "caller_output_ssa_width"
+      },
+      "status": "linked",
+      "target_entry_plan_id": "function_entry:1053001",
+      "version": "v1b_canonical_project_plan_index"
+    },
+    {
+      "argument_chain": {
+        "arguments": [
+          {
+            "agreement": {
+              "carrier": true,
+              "class": true,
+              "order": true,
+              "width": true
+            },
+            "callee": {
+              "canonical_carrier": "RDI",
+              "carrier": "EDI",
+              "carrier_class": "integer",
+              "carrier_kind": "gp_register",
+              "carrier_width_bits": 32,
+              "name": "param_0",
+              "ordinal": 0,
+              "source_sid": "v_322",
+              "storage_key": "register:56:4"
+            },
+            "caller": {
+              "argument_class": "integer",
+              "canonical_carrier": "RDI",
+              "carrier": "RDI",
+              "carrier_kind": "gp_register",
+              "source_name": null,
+              "source_sid": "v_4880",
+              "source_width_bits": 32,
+              "stack_slot": null
+            },
+            "index": 0,
+            "status": "ready"
+          },
+          {
+            "agreement": {
+              "carrier": true,
+              "class": true,
+              "order": true,
+              "width": true
+            },
+            "callee": {
+              "canonical_carrier": "RSI",
+              "carrier": "ESI",
+              "carrier_class": "integer",
+              "carrier_kind": "gp_register",
+              "carrier_width_bits": 32,
+              "name": "param_1",
+              "ordinal": 1,
+              "source_sid": "v_323",
+              "storage_key": "register:48:4"
+            },
+            "caller": {
+              "argument_class": "integer",
+              "canonical_carrier": "RSI",
+              "carrier": "RSI",
+              "carrier_kind": "gp_register",
+              "source_name": null,
+              "source_sid": "v_5030",
+              "source_width_bits": 32,
+              "stack_slot": null
+            },
+            "index": 1,
+            "status": "ready"
+          }
+        ],
+        "arity_compatible": true,
+        "callee_fixed_argument_count": 2,
+        "callee_materialized_argument_count": 2,
+        "caller_argument_count": 2,
+        "failures": [],
+        "kind": "pal_abi_argument_custody_chain_v1",
+        "materialization_authority": "call_site_carriers_joined_to_exact_entry_plan_bindings",
+        "status": "ready"
+      },
+      "call": {
+        "block_addr": 1053137,
+        "call_address": 1053147,
+        "dispatch_class": "internal_resolved",
+        "op_id": "(ram, 0x1011db, 268, 0)",
+        "op_key": "1053137:(ram, 0x1011db, 268, 0):0",
+        "plan_id": "call_site:1053137:(ram, 0x1011db, 268, 0):0",
+        "target": {
+          "calling_convention": "unknown",
+          "entry": 1053022,
+          "entry_plan_lookup_key": "function_entry:1053022",
+          "external": false,
+          "fixed_parameter_count": null,
+          "name": "feedback",
+          "physical_external": false,
+          "prototype_authority": {
+            "authority": "Ghidra_Function_signature_source_plus_explicit_C_arity",
+            "conflicts": [],
+            "declared_variadic": false,
+            "fixed_parameter_count": null,
+            "high_prototype_parameter_count": null,
+            "kind": "function_prototype_authority_v23b",
+            "observed_parameter_count": 0,
+            "prototype_text": "undefined feedback()",
+            "prototype_text_arity_hint": "empty_unspecified",
+            "reason": "empty parameter enumeration lacks explicit void or strong signature-source authority",
+            "reported_parameter_count": 0,
+            "signature_source": "DEFAULT",
+            "signature_source_class": "default",
+            "status": "unresolved",
+            "version": "v23b_authoritative_prototypes_and_carriers"
+          },
+          "resolved": true,
+          "semantic_endpoint_entry": null,
+          "semantic_endpoint_name": null,
+          "semantic_endpoint_status": "physical_non_thunk_internal_target",
+          "thunk": false,
+          "variadic": false
+        }
+      },
+      "callee": {
+        "entry": 1053022,
+        "entry_hex": "0x10115e",
+        "entry_plan_id": "function_entry:1053022",
+        "function_id": "function:0x10115e",
+        "function_name": "feedback",
+        "icecube": "f_000000000010115e_feedback.icecube.json.gz"
+      },
+      "caller": {
+        "entry": 1053053,
+        "entry_hex": "0x10117d",
+        "entry_plan_id": "function_entry:1053053",
+        "function_id": "function:0x10117d",
+        "function_name": "main",
+        "icecube": "f_000000000010117d_main.icecube.json.gz"
+      },
+      "contract_id": "abi_custody:27b3910992fa396b9e95dfce",
+      "downstream_reinference_allowed": false,
+      "kind": "pal_abi_custody_chain_contract_v1",
+      "metadata_only": true,
+      "repair": {
+        "carrier_live_to_return": null,
+        "carrier_width_bits": 64,
+        "emitter_repair_authorized": false,
+        "inspector_metadata_only": true,
+        "intervening_carrier_writes": [],
+        "logical_result_width_bits": 32,
+        "output_sid": "v_4453",
+        "physical_return_register": "RAX",
+        "repair_authority": "PALABICustodyInspector_v1_exact_cross_function_contract",
+        "repair_status": "not_required",
+        "rule": "authorize_only_exact_call_entry_carrier_width_liveness_agreement_never_last_call_surface_inference",
+        "status": "linked",
+        "width_authority": "caller_output_ssa_width"
+      },
+      "return_chain": {
+        "callee_return_contract": {
+          "authority": "reachable_raw_return_transport",
+          "carrier_pieces": [],
+          "declared_return": {
+            "class_name": "DefaultDataType",
+            "display_name": "undefined",
+            "kind_hint": null,
+            "length_bytes": 1,
+            "name": "undefined",
+            "signed": null,
+            "width_bits": 8
+          },
+          "declared_return_evidence_status": "non_authoritative_default_or_unresolved_prototype",
+          "declared_width_authoritative": false,
+          "declared_width_bits": null,
+          "deferred_return_boundary_count": 0,
+          "effective_result_width_bits": 32,
+          "kind": "pal_compute_return_carrier_contract_abi_d",
+          "logical_result_width_bits": 32,
+          "no_return": false,
+          "normalization": {
+            "mask": 4294967295,
+            "mode": "mask_to_output_width",
+            "width_bits": 32
+          },
+          "output_sid": null,
+          "output_width_bits": null,
+          "reachable_return_boundary_count": 1,
+          "reachable_return_widths": [
+            32
+          ],
+          "reported_declared_width_bits": 8,
+          "return_storage": {
+            "flags": {
+              "auto": false,
+              "memory": false,
+              "register": false,
+              "stack": false,
+              "unassigned": true,
+              "void": false
+            },
+            "pieces": [],
+            "repr": "<UNASSIGNED>",
+            "size_bytes": 0,
+            "storage_keys": []
+          },
+          "runtime_helper": null,
+          "runtime_helper_authority": "no_ABI_runtime_helper_assigned",
+          "status": "return_width_proven_carrier_deferred",
+          "transport_width_bits": 32,
+          "unreachable_return_boundary_count": 0,
+          "version": "v23b_abi_thunk_compatibility_return_reconciliation"
+        },
+        "candidate": null,
+        "liveness": {
+          "carrier_live_to_return": null,
+          "intervening_carrier_writes": [],
+          "kind": "pal_abi_return_carrier_liveness_v1",
+          "reason": "call_result_has_explicit_SSA_or_no_candidate",
+          "status": "not_required"
+        },
+        "logical_result_width_bits": 32,
+        "physical_carrier": {
+          "backend": "sysv_amd64",
+          "carrier_width_bits": 64,
+          "kind": "pal_abi_return_carrier_evidence_v1",
+          "logical_width_bits": 32,
+          "raw_path_evidence": [
+            {
+              "return_block_addr": 1053026,
+              "writes": [
+                {
+                  "block_addr": 1053026,
+                  "instruction": "ADD EAX,EDX",
+                  "instruction_addr": 1053049,
+                  "offset": 0,
+                  "pcode": "(register, 0x0, 4) INT_ADD (register, 0x0, 4) , (register, 0x10, 4)",
+                  "register": "RAX",
+                  "repr": "(register, 0x0, 4)",
+                  "size_bytes": 4,
+                  "width_bits": 32
+                },
+                {
+                  "block_addr": 1053026,
+                  "instruction": "ADD EAX,EDX",
+                  "instruction_addr": 1053049,
+                  "offset": 0,
+                  "pcode": "(register, 0x0, 8) INT_ZEXT (register, 0x0, 4)",
+                  "register": "RAX",
+                  "repr": "(register, 0x0, 8)",
+                  "size_bytes": 8,
+                  "width_bits": 64
+                }
+              ]
+            }
+          ],
+          "reason": "all_reachable_raw_return_paths_write_RAX_family_under_sysv_amd64",
+          "register": "RAX",
+          "register_offsets": [
+            0
+          ],
+          "reinference_allowed": false,
+          "status": "resolved"
+        },
+        "width_authority": "caller_output_ssa_width"
+      },
+      "status": "linked",
+      "target_entry_plan_id": "function_entry:1053022",
+      "version": "v1b_canonical_project_plan_index"
+    },
+    {
+      "argument_chain": {
+        "arguments": [
+          {
+            "agreement": {
+              "carrier": true,
+              "class": true,
+              "order": true,
+              "width": true
+            },
+            "callee": {
+              "canonical_carrier": "RDI",
+              "carrier": "EDI",
+              "carrier_class": "integer",
+              "carrier_kind": "gp_register",
+              "carrier_width_bits": 32,
+              "name": "param_0",
+              "ordinal": 0,
+              "source_sid": "v_149",
+              "storage_key": "register:56:4"
+            },
+            "caller": {
+              "argument_class": "integer",
+              "canonical_carrier": "RDI",
+              "carrier": "RDI",
+              "carrier_kind": "gp_register",
+              "source_name": null,
+              "source_sid": "v_1765",
+              "source_width_bits": 32,
+              "stack_slot": null
+            },
+            "index": 0,
+            "status": "ready"
+          }
+        ],
+        "arity_compatible": true,
+        "callee_fixed_argument_count": 1,
+        "callee_materialized_argument_count": 1,
+        "caller_argument_count": 1,
+        "failures": [],
+        "kind": "pal_abi_argument_custody_chain_v1",
+        "materialization_authority": "call_site_carriers_joined_to_exact_entry_plan_bindings",
+        "status": "ready"
+      },
+      "call": {
+        "block_addr": 1053260,
+        "call_address": 1053267,
+        "dispatch_class": "internal_resolved",
+        "op_id": "(ram, 0x101253, 671, 2)",
+        "op_key": "1053260:(ram, 0x101253, 671, 2):2",
+        "plan_id": "call_site:1053260:(ram, 0x101253, 671, 2):2",
+        "target": {
+          "calling_convention": "unknown",
+          "entry": 1053001,
+          "entry_plan_lookup_key": "function_entry:1053001",
+          "external": false,
+          "fixed_parameter_count": null,
+          "name": "mutate",
+          "physical_external": false,
+          "prototype_authority": {
+            "authority": "Ghidra_Function_signature_source_plus_explicit_C_arity",
+            "conflicts": [],
+            "declared_variadic": false,
+            "fixed_parameter_count": null,
+            "high_prototype_parameter_count": null,
+            "kind": "function_prototype_authority_v23b",
+            "observed_parameter_count": 0,
+            "prototype_text": "undefined mutate()",
+            "prototype_text_arity_hint": "empty_unspecified",
+            "reason": "empty parameter enumeration lacks explicit void or strong signature-source authority",
+            "reported_parameter_count": 0,
+            "signature_source": "DEFAULT",
+            "signature_source_class": "default",
+            "status": "unresolved",
+            "version": "v23b_authoritative_prototypes_and_carriers"
+          },
+          "resolved": true,
+          "semantic_endpoint_entry": null,
+          "semantic_endpoint_name": null,
+          "semantic_endpoint_status": "physical_non_thunk_internal_target",
+          "thunk": false,
+          "variadic": false
+        }
+      },
+      "callee": {
+        "entry": 1053001,
+        "entry_hex": "0x101149",
+        "entry_plan_id": "function_entry:1053001",
+        "function_id": "function:0x101149",
+        "function_name": "mutate",
+        "icecube": "f_0000000000101149_mutate.icecube.json.gz"
+      },
+      "caller": {
+        "entry": 1053053,
+        "entry_hex": "0x10117d",
+        "entry_plan_id": "function_entry:1053053",
+        "function_id": "function:0x10117d",
+        "function_name": "main",
+        "icecube": "f_000000000010117d_main.icecube.json.gz"
+      },
+      "contract_id": "abi_custody:76810f77675a48a1693f9cac",
+      "downstream_reinference_allowed": false,
+      "kind": "pal_abi_custody_chain_contract_v1",
+      "metadata_only": true,
+      "repair": {
+        "carrier_live_to_return": null,
+        "carrier_width_bits": 64,
+        "emitter_repair_authorized": false,
+        "inspector_metadata_only": true,
+        "intervening_carrier_writes": [],
+        "logical_result_width_bits": 32,
+        "output_sid": "v_4548",
+        "physical_return_register": "RAX",
+        "repair_authority": "PALABICustodyInspector_v1_exact_cross_function_contract",
+        "repair_status": "not_required",
+        "rule": "authorize_only_exact_call_entry_carrier_width_liveness_agreement_never_last_call_surface_inference",
+        "status": "linked",
+        "width_authority": "caller_output_ssa_width"
+      },
+      "return_chain": {
+        "callee_return_contract": {
+          "authority": "reachable_raw_return_transport",
+          "carrier_pieces": [],
+          "declared_return": {
+            "class_name": "DefaultDataType",
+            "display_name": "undefined",
+            "kind_hint": null,
+            "length_bytes": 1,
+            "name": "undefined",
+            "signed": null,
+            "width_bits": 8
+          },
+          "declared_return_evidence_status": "non_authoritative_default_or_unresolved_prototype",
+          "declared_width_authoritative": false,
+          "declared_width_bits": null,
+          "deferred_return_boundary_count": 0,
+          "effective_result_width_bits": 32,
+          "kind": "pal_compute_return_carrier_contract_abi_d",
+          "logical_result_width_bits": 32,
+          "no_return": false,
+          "normalization": {
+            "mask": 4294967295,
+            "mode": "mask_to_output_width",
+            "width_bits": 32
+          },
+          "output_sid": null,
+          "output_width_bits": null,
+          "reachable_return_boundary_count": 1,
+          "reachable_return_widths": [
+            32
+          ],
+          "reported_declared_width_bits": 8,
+          "return_storage": {
+            "flags": {
+              "auto": false,
+              "memory": false,
+              "register": false,
+              "stack": false,
+              "unassigned": true,
+              "void": false
+            },
+            "pieces": [],
+            "repr": "<UNASSIGNED>",
+            "size_bytes": 0,
+            "storage_keys": []
+          },
+          "runtime_helper": null,
+          "runtime_helper_authority": "no_ABI_runtime_helper_assigned",
+          "status": "return_width_proven_carrier_deferred",
+          "transport_width_bits": 32,
+          "unreachable_return_boundary_count": 0,
+          "version": "v23b_abi_thunk_compatibility_return_reconciliation"
+        },
+        "candidate": null,
+        "liveness": {
+          "carrier_live_to_return": null,
+          "intervening_carrier_writes": [],
+          "kind": "pal_abi_return_carrier_liveness_v1",
+          "reason": "call_result_has_explicit_SSA_or_no_candidate",
+          "status": "not_required"
+        },
+        "logical_result_width_bits": 32,
+        "physical_carrier": {
+          "backend": "sysv_amd64",
+          "carrier_width_bits": 64,
+          "kind": "pal_abi_return_carrier_evidence_v1",
+          "logical_width_bits": 32,
+          "raw_path_evidence": [
+            {
+              "return_block_addr": 1053005,
+              "writes": [
+                {
+                  "block_addr": 1053005,
+                  "instruction": "XOR EAX,0x55",
+                  "instruction_addr": 1053017,
+                  "offset": 0,
+                  "pcode": "(register, 0x0, 4) INT_XOR (register, 0x0, 4) , (const, 0x55, 4)",
+                  "register": "RAX",
+                  "repr": "(register, 0x0, 4)",
+                  "size_bytes": 4,
+                  "width_bits": 32
+                },
+                {
+                  "block_addr": 1053005,
+                  "instruction": "XOR EAX,0x55",
+                  "instruction_addr": 1053017,
+                  "offset": 0,
+                  "pcode": "(register, 0x0, 8) INT_ZEXT (register, 0x0, 4)",
+                  "register": "RAX",
+                  "repr": "(register, 0x0, 8)",
+                  "size_bytes": 8,
+                  "width_bits": 64
+                }
+              ]
+            }
+          ],
+          "reason": "all_reachable_raw_return_paths_write_RAX_family_under_sysv_amd64",
+          "register": "RAX",
+          "register_offsets": [
+            0
+          ],
+          "reinference_allowed": false,
+          "status": "resolved"
+        },
+        "width_authority": "caller_output_ssa_width"
+      },
+      "status": "linked",
+      "target_entry_plan_id": "function_entry:1053001",
+      "version": "v1b_canonical_project_plan_index"
+    }
+  ],
+  "emitter_v52_second_pass": {
+    "authority": "PALABICustodyInspector_v1_exact_cross_function_contract",
+    "authorized_contracts": 0,
+    "authorized_functions": 0,
+    "build": "batch_v2h_final_abi_authority_publication",
+    "failures": [],
+    "last_call_inference": 0,
+    "pipeline_layers_rerun": [
+      "PALemitter"
+    ],
+    "re_emitted_entries": [],
+    "re_emitted_functions": 0,
+    "status": "not_required",
+    "target_name_inference": 0,
+    "upstream_layers_rerun": 0
+  },
+  "final_authority": {
+    "artifact": "PAL_abi_final_authority.json",
+    "phase": "post_emitter_v52_refreeze_and_custody_refresh",
+    "sha256": "fbde5f72b3636d56b2a8c016308857b521cdb0cb35450886c53f62c2fb42e9a7",
+    "status": "complete"
+  },
+  "final_plan_alias_audit": {
+    "artifact": "PAL_abi_plan_alias_audit.json",
+    "phase": "post_emitter_v52_refreeze_and_custody_refresh",
+    "sha256": "72151b9621f5bf287244c2e0d75e7f1a1a3d0376235379dc5e47cafb67af42a7",
+    "summary": {
+      "alias_groups": 12,
+      "annotation_variant_groups": 0,
+      "call_plans": 12,
+      "core_conflicts": 0,
+      "entry_plans": 19,
+      "exact_duplicate_groups": 31,
+      "kind": "pal_abi_canonical_project_plan_index_summary_v1",
+      "phase": "post_emitter_v52_refreeze_and_custody_refresh",
+      "plan_identities": 31,
+      "plan_occurrences": 43,
+      "status": "ready"
+    }
+  },
+  "final_plan_index": {
+    "artifact": "PAL_abi_plan_index.json",
+    "phase": "post_emitter_v52_refreeze_and_custody_refresh",
+    "sha256": "5e325e3a5d3ea734448d818c3567d771394b51197588a57a38bc220595f0b1b6",
+    "summary": {
+      "alias_groups": 12,
+      "annotation_variant_groups": 0,
+      "call_plans": 12,
+      "core_conflicts": 0,
+      "entry_plans": 19,
+      "exact_duplicate_groups": 31,
+      "kind": "pal_abi_canonical_project_plan_index_summary_v1",
+      "phase": "post_emitter_v52_refreeze_and_custody_refresh",
+      "plan_identities": 31,
+      "plan_occurrences": 43,
+      "status": "ready"
+    }
+  },
+  "format": "pal_abi_custody_project_report",
+  "icecubes": [
+    {
+      "entry": 1052672,
+      "entry_hex": "0x101000",
+      "entry_plan_id": "function_entry:1052672",
+      "function_id": "function:0x101000",
+      "function_name": "_init",
+      "icecube": "f_0000000000101000_init.icecube.json.gz",
+      "sha256": "a8e24fa42450600dd81e5a7e874b4a7989baa5718be8e9d1922a5df0eaab4563"
+    },
+    {
+      "entry": 1052704,
+      "entry_hex": "0x101020",
+      "entry_plan_id": "function_entry:1052704",
+      "function_id": "function:0x101020",
+      "function_name": "FUN_00101020",
+      "icecube": "f_0000000000101020_FUN_00101020.icecube.json.gz",
+      "sha256": "f452718cb8fe4239d86faffaae017ac464e7b8c83fa02634648e882860b92f25"
+    },
+    {
+      "entry": 1052736,
+      "entry_hex": "0x101040",
+      "entry_plan_id": "function_entry:1052736",
+      "function_id": "function:0x101040",
+      "function_name": "__cxa_finalize",
+      "icecube": "f_0000000000101040_cxa_finalize.icecube.json.gz",
+      "sha256": "075ab817091934e38404b76641d8681820890db27f8ad0a0ac0c1d5554cc5c43"
+    },
+    {
+      "entry": 1052752,
+      "entry_hex": "0x101050",
+      "entry_plan_id": "function_entry:1052752",
+      "function_id": "function:0x101050",
+      "function_name": "printf",
+      "icecube": "f_0000000000101050_printf.icecube.json.gz",
+      "sha256": "29d163f896c416cc6d3186a1e8ccecef5b45efc69d929b36752f6233dab578a4"
+    },
+    {
+      "entry": 1052768,
+      "entry_hex": "0x101060",
+      "entry_plan_id": "function_entry:1052768",
+      "function_id": "function:0x101060",
+      "function_name": "_start",
+      "icecube": "f_0000000000101060_start.icecube.json.gz",
+      "sha256": "cfafbec8fe12fab68f9465a41e6e0734d85197bf74c865c7598ee98c176ece97"
+    },
+    {
+      "entry": 1052816,
+      "entry_hex": "0x101090",
+      "entry_plan_id": "function_entry:1052816",
+      "function_id": "function:0x101090",
+      "function_name": "deregister_tm_clones",
+      "icecube": "f_0000000000101090_deregister_tm_clones.icecube.json.gz",
+      "sha256": "5190100b7031cbd36cbf108a69294f53c1d092d7a33b0302285b8e3ed1cbe2be"
+    },
+    {
+      "entry": 1052864,
+      "entry_hex": "0x1010c0",
+      "entry_plan_id": "function_entry:1052864",
+      "function_id": "function:0x1010c0",
+      "function_name": "register_tm_clones",
+      "icecube": "f_00000000001010c0_register_tm_clones.icecube.json.gz",
+      "sha256": "b7a79fb7ead7f7da0c5359bbd8b654ed94390d947a58d1338b203928d188451a"
+    },
+    {
+      "entry": 1052928,
+      "entry_hex": "0x101100",
+      "entry_plan_id": "function_entry:1052928",
+      "function_id": "function:0x101100",
+      "function_name": "__do_global_dtors_aux",
+      "icecube": "f_0000000000101100_do_global_dtors_aux.icecube.json.gz",
+      "sha256": "266ecc1210f68f2d6d5ba67490932028da5fb2bd289c6aae6b3a33bb16fd1fad"
+    },
+    {
+      "entry": 1052992,
+      "entry_hex": "0x101140",
+      "entry_plan_id": "function_entry:1052992",
+      "function_id": "function:0x101140",
+      "function_name": "frame_dummy",
+      "icecube": "f_0000000000101140_frame_dummy.icecube.json.gz",
+      "sha256": "c5c7015cee6283020e75270643a42761f5decbac909912d384a4dc1b3719138c"
+    },
+    {
+      "entry": 1053001,
+      "entry_hex": "0x101149",
+      "entry_plan_id": "function_entry:1053001",
+      "function_id": "function:0x101149",
+      "function_name": "mutate",
+      "icecube": "f_0000000000101149_mutate.icecube.json.gz",
+      "sha256": "79b3ab209fbec106268c8211848c00183143462b4f548094a985fc272f1dd571"
+    },
+    {
+      "entry": 1053022,
+      "entry_hex": "0x10115e",
+      "entry_plan_id": "function_entry:1053022",
+      "function_id": "function:0x10115e",
+      "function_name": "feedback",
+      "icecube": "f_000000000010115e_feedback.icecube.json.gz",
+      "sha256": "f98717f3997bf5d2bdd91d21ef2d7832934d73c09044b32341df0965e9d5c6cc"
+    },
+    {
+      "entry": 1053053,
+      "entry_hex": "0x10117d",
+      "entry_plan_id": "function_entry:1053053",
+      "function_id": "function:0x10117d",
+      "function_name": "main",
+      "icecube": "f_000000000010117d_main.icecube.json.gz",
+      "sha256": "c7b01b8b738d021dcdf7b3966b857d4ed5bdafdf284187f8d2523cdc0a2b73da"
+    },
+    {
+      "entry": 1053452,
+      "entry_hex": "0x10130c",
+      "entry_plan_id": "function_entry:1053452",
+      "function_id": "function:0x10130c",
+      "function_name": "_fini",
+      "icecube": "f_000000000010130c_fini.icecube.json.gz",
+      "sha256": "4629dbed0ec6c3a838eb5443511a85ff6c5cdc37695ac0741829518917c52879"
+    },
+    {
+      "entry": 1069056,
+      "entry_hex": "0x105000",
+      "entry_plan_id": "function_entry:1069056",
+      "function_id": "function:0x105000",
+      "function_name": "__libc_start_main",
+      "icecube": "f_0000000000105000_libc_start_main.icecube.json.gz",
+      "sha256": "2d3cdc33b929aa8280c37ea559740f3c45e5eba09c40481090a6f902eb5d5a3b"
+    },
+    {
+      "entry": 1069064,
+      "entry_hex": "0x105008",
+      "entry_plan_id": "function_entry:1069064",
+      "function_id": "function:0x105008",
+      "function_name": "_ITM_deregisterTMCloneTable",
+      "icecube": "f_0000000000105008_ITM_deregisterTMCloneTable.icecube.json.gz",
+      "sha256": "394cd374f5d91474f8ceaa861a0de98fb98bd9e1ea673e8191b073eb47610d48"
+    },
+    {
+      "entry": 1069072,
+      "entry_hex": "0x105010",
+      "entry_plan_id": "function_entry:1069072",
+      "function_id": "function:0x105010",
+      "function_name": "printf",
+      "icecube": "f_0000000000105010_printf.icecube.json.gz",
+      "sha256": "0ba0b36019f6abfaa2610b0bad111a7754ce1ee211a74fc1f222a417c6653344"
+    },
+    {
+      "entry": 1069080,
+      "entry_hex": "0x105018",
+      "entry_plan_id": "function_entry:1069080",
+      "function_id": "function:0x105018",
+      "function_name": "__gmon_start__",
+      "icecube": "f_0000000000105018_gmon_start.icecube.json.gz",
+      "sha256": "76f14e99488608f7876d22edb29b4611ac3355dc32ccd4ba5bd6164b7642ed44"
+    },
+    {
+      "entry": 1069088,
+      "entry_hex": "0x105020",
+      "entry_plan_id": "function_entry:1069088",
+      "function_id": "function:0x105020",
+      "function_name": "_ITM_registerTMCloneTable",
+      "icecube": "f_0000000000105020_ITM_registerTMCloneTable.icecube.json.gz",
+      "sha256": "5966a38d29b146cb05638f83eb89269f2590cae81d0969f29135626fb82984dd"
+    },
+    {
+      "entry": 1069096,
+      "entry_hex": "0x105028",
+      "entry_plan_id": "function_entry:1069096",
+      "function_id": "function:0x105028",
+      "function_name": "__cxa_finalize",
+      "icecube": "f_0000000000105028_cxa_finalize.icecube.json.gz",
+      "sha256": "7dfae41e5d95e6c8d1898a03ac4806571585b84b4833104acd1ce3cc38eeec67"
+    }
+  ],
+  "plan_alias_audit": {
+    "artifact": "PAL_abi_plan_alias_audit.json",
+    "status": "ready",
+    "summary": {
+      "alias_groups": 12,
+      "annotation_variant_groups": 0,
+      "call_plans": 12,
+      "core_conflicts": 0,
+      "entry_plans": 19,
+      "exact_duplicate_groups": 31,
+      "kind": "pal_abi_canonical_project_plan_index_summary_v1",
+      "phase": "post_custody_join",
+      "plan_identities": 31,
+      "plan_occurrences": 43,
+      "status": "ready"
+    }
+  },
+  "plan_index": {
+    "artifact": "PAL_abi_plan_index.json",
+    "status": "ready",
+    "summary": {
+      "alias_groups": 12,
+      "annotation_variant_groups": 0,
+      "call_plans": 12,
+      "core_conflicts": 0,
+      "entry_plans": 19,
+      "exact_duplicate_groups": 31,
+      "kind": "pal_abi_canonical_project_plan_index_summary_v1",
+      "phase": "post_custody_join",
+      "plan_identities": 31,
+      "plan_occurrences": 43,
+      "status": "ready"
+    }
+  },
+  "project_root": "o3_alpha_four.matrix",
+  "schema_version": 1,
+  "status": "ready",
+  "summary": {
+    "argument_chains_incompatible": 0,
+    "argument_chains_ready": 5,
+    "call_plans": 12,
+    "canonicalizer_version": "v1_immutable_plan_identity",
+    "carrier_disagreements": 0,
+    "entry_plans": 19,
+    "generated_code_rewrites": 0,
+    "ghost_repairs_conflicting": 0,
+    "ghost_repairs_deferred": 0,
+    "ghost_repairs_resolved": 0,
+    "icecubes": 19,
+    "internal_calls_linked": 5,
+    "internal_calls_unresolved": 0,
+    "kind": "pal_abi_custody_project_summary_v1b",
+    "metadata_only": true,
+    "outputless_candidates": 0,
+    "plan_alias_groups": 12,
+    "plan_annotation_variant_groups": 0,
+    "plan_core_conflicts": 0,
+    "plan_occurrences": 43,
+    "result_width_conflicts": 0,
+    "return_carriers_deferred": 0,
+    "return_carriers_resolved": 5,
+    "runtime_helpers": 0,
+    "stamped_plan_occurrences": 43,
+    "status": "ready",
+    "version": "v1b_canonical_project_plan_index"
+  },
+  "unresolved_internal_calls": [],
+  "version": "v1b_canonical_project_plan_index"
+}

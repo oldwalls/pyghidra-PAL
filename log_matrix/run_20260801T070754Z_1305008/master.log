@@ -1,0 +1,92 @@
+
+PAL ALL-EXE IMPORT + PUBLISH MATRIX v6
+Run started:            2026-08-01T07:07:55Z
+Executables discovered: 1
+Ghidra project name:    PAL_ALL_EXE_20260801T070754Z_1305008
+Console mode:           progress
+Report directory:       /home/rem/gh/PAL/pyghidra-PAL/PAL/log_matrix/run_20260801T070754Z_1305008
+
+
+PROJECT [1/1] START lunar_lander.game
+[1/30] decompile Global::_init @ 0x101000
+          OK -> functions.f_0000000000101000_init
+[2/30] decompile Global::FUN_00101020 @ 0x101020
+          OK -> functions.f_0000000000101020_FUN_00101020
+[3/30] decompile <EXTERNAL>::puts @ 0x101030
+          OK -> functions.f_0000000000101030_puts
+[4/30] decompile <EXTERNAL>::printf @ 0x101040
+          OK -> functions.f_0000000000101040_printf
+[5/30] decompile <EXTERNAL>::fgets @ 0x101050
+          OK -> functions.f_0000000000101050_fgets
+[6/30] decompile <EXTERNAL>::__cxa_finalize @ 0x101060
+          OK -> functions.f_0000000000101060_cxa_finalize
+[7/30] decompile Global::_start @ 0x101070
+          OK -> functions.f_0000000000101070_start
+[8/30] decompile Global::deregister_tm_clones @ 0x1010a0
+          OK -> functions.f_00000000001010a0_deregister_tm_clones
+[9/30] decompile Global::register_tm_clones @ 0x1010d0
+          OK -> functions.f_00000000001010d0_register_tm_clones
+[10/30] decompile Global::__do_global_dtors_aux @ 0x101110
+          OK -> functions.f_0000000000101110_do_global_dtors_aux
+[11/30] decompile Global::frame_dummy @ 0x101150
+          OK -> functions.f_0000000000101150_frame_dummy
+[12/30] decompile Global::initialize_lander @ 0x101159
+          OK -> functions.f_0000000000101159_initialize_lander
+[13/30] decompile Global::craft_row_for_altitude @ 0x1011b0
+          OK -> functions.f_00000000001011b0_craft_row_for_altitude
+[14/30] decompile Global::print_sky_row @ 0x101219
+          OK -> functions.f_0000000000101219_print_sky_row
+[15/30] decompile Global::draw_lander @ 0x101252
+          OK -> functions.f_0000000000101252_draw_lander
+[16/30] decompile Global::parse_burn @ 0x1013bf
+          OK -> functions.f_00000000001013bf_parse_burn
+[17/30] decompile Global::read_burn @ 0x101437
+          OK -> functions.f_0000000000101437_read_burn
+[18/30] decompile Global::apply_burn @ 0x1014a6
+          OK -> functions.f_00000000001014a6_apply_burn
+[19/30] decompile Global::print_result @ 0x101596
+          OK -> functions.f_0000000000101596_print_result
+[20/30] decompile Global::lander_exit_code @ 0x1016bd
+          OK -> functions.f_00000000001016bd_lander_exit_code
+[21/30] decompile Global::main @ 0x1016f0
+          OK -> functions.f_00000000001016f0_main
+[22/30] decompile Global::_fini @ 0x101784
+          OK -> functions.f_0000000000101784_fini
+[23/30] decompile <EXTERNAL>::__libc_start_main @ 0x105000
+          OK -> functions.f_0000000000105000_libc_start_main
+[24/30] decompile <EXTERNAL>::_ITM_deregisterTMCloneTable @ 0x105008
+          OK -> functions.f_0000000000105008_ITM_deregisterTMCloneTable
+[25/30] decompile <EXTERNAL>::puts @ 0x105010
+          OK -> functions.f_0000000000105010_puts
+[26/30] decompile <EXTERNAL>::printf @ 0x105018
+          OK -> functions.f_0000000000105018_printf
+[27/30] decompile <EXTERNAL>::fgets @ 0x105020
+          OK -> functions.f_0000000000105020_fgets
+[28/30] decompile <EXTERNAL>::__gmon_start__ @ 0x105028
+          OK -> functions.f_0000000000105028_gmon_start
+[29/30] decompile <EXTERNAL>::_ITM_registerTMCloneTable @ 0x105030
+          OK -> functions.f_0000000000105030_ITM_registerTMCloneTable
+[30/30] decompile <EXTERNAL>::__cxa_finalize @ 0x105038
+          OK -> functions.f_0000000000105038_cxa_finalize
+PAL batch complete: 30 decompiled, 0 failed, 0 external skipped
+PROJECT [1/1] DONE PASS lunar_lander.game | functions=30 failed=0 elapsed=37s
+
+======================================================================
+PAL ALL-EXE MATRIX SUMMARY
+======================================================================
+
+Attempted:      1
+Passed:         1
+Failed:         0
+Aborted:        0
+Ghidra project: /home/rem/gh/PAL/pyghidra-PAL/PAL/.ghidra_projects/PAL_ALL_EXE_20260801T070754Z_1305008
+Master log:     /home/rem/gh/PAL/pyghidra-PAL/PAL/log_matrix/run_20260801T070754Z_1305008/master.log
+Inventory:      /home/rem/gh/PAL/pyghidra-PAL/PAL/log_matrix/run_20260801T070754Z_1305008/inventory.tsv
+TSV summary:    /home/rem/gh/PAL/pyghidra-PAL/PAL/log_matrix/run_20260801T070754Z_1305008/summary.tsv
+JSON summary:   /home/rem/gh/PAL/pyghidra-PAL/PAL/log_matrix/run_20260801T070754Z_1305008/summary.json
+Failures:       /home/rem/gh/PAL/pyghidra-PAL/PAL/log_matrix/run_20260801T070754Z_1305008/failures.txt
+Failed reports: /home/rem/gh/PAL/pyghidra-PAL/PAL/log_matrix/run_20260801T070754Z_1305008/failed_reports
+Failed archives: /home/rem/gh/PAL/pyghidra-PAL/PAL/log_matrix/run_20260801T070754Z_1305008/failed_archives
+Run directory:  /home/rem/gh/PAL/pyghidra-PAL/PAL/log_matrix/run_20260801T070754Z_1305008
+PASS: all discovered executables imported and published.
+TABLOID WARNING: viewer is not executable: /home/rem/gh/PAL/pyghidra-PAL/PAL/PAL_log_tabloid.sh

@@ -1,0 +1,38 @@
+{
+  "batch_build": "batch_v2h_final_abi_authority_publication",
+  "elapsed_ns": 605811001,
+  "finished_time_ns": 1785564397069592679,
+  "format": "pal_internal_pipeline_stream_capture",
+  "function": {
+    "entry": 1055404,
+    "entry_hex": "0x101aac",
+    "function_id": "function:0x101aac",
+    "module_stem": "f_0000000000101aac_record_fault",
+    "name": "record_fault",
+    "qualified_name": "Global::record_fault"
+  },
+  "keep_success_logs": true,
+  "mirrored_to_process_stdio": true,
+  "outcome": "decompiled",
+  "pipeline_entrypoint": "run_all",
+  "raw_text_policy": "exact_python_stdout_stderr_text_before_portability_rewrite",
+  "schema_version": 1,
+  "started_time_ns": 1785564396463781678,
+  "streams": {
+    "combined": {
+      "bytes": 25030,
+      "path": "functions/f_0000000000101aac_record_fault.pipeline.log",
+      "sha256": "fca78fba094def3a6232a89cc36053aa43d885748a5fe9aa81b65df6011dc670"
+    },
+    "stderr": {
+      "bytes": 0,
+      "path": "functions/f_0000000000101aac_record_fault.pipeline.stderr.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "stdout": {
+      "bytes": 25030,
+      "path": "functions/f_0000000000101aac_record_fault.pipeline.stdout.log",
+      "sha256": "fca78fba094def3a6232a89cc36053aa43d885748a5fe9aa81b65df6011dc670"
+    }
+  }
+}

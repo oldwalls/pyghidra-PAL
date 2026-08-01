@@ -1,0 +1,148 @@
+{
+  "active": true,
+  "automatic_exact_subregister_compatibility": true,
+  "bridged_carrier_disagreements": 0,
+  "bridged_contracts": 1,
+  "build": "pal_exec_interface_v1u_exact_integral_subregister_projection",
+  "complete_project": true,
+  "format": "pal_guarded_abi_argument_bridge",
+  "policy": "exact-integral-subregister-auto-v1u",
+  "records": [
+    {
+      "actions": [
+        {
+          "from": "unknown_scalar",
+          "index": 0,
+          "kind": "normalize_argument_class",
+          "to": "integer"
+        },
+        {
+          "from": "unknown_scalar",
+          "index": 1,
+          "kind": "normalize_argument_class",
+          "to": "integer"
+        },
+        {
+          "from": "unknown_scalar",
+          "index": 2,
+          "kind": "normalize_argument_class",
+          "to": "integer"
+        },
+        {
+          "from": 32,
+          "index": 2,
+          "kind": "clamp_argument_width",
+          "to": 16
+        }
+      ],
+      "argument_chain_bridged": 1,
+      "bridge_profile": "exact_same_family_integral_subregister_v1u",
+      "carrier_disagreement_bridged": 0,
+      "complete_project_exact_integral_subregister_bridge_v1u": true,
+      "contract_id": "abi_custody:dce577f291cc2163edd33e25",
+      "entry_plan_id": "function_entry:1052969",
+      "exact_integral_subregister_action_proofs_v1u": [
+        {
+          "action": {
+            "from": "unknown_scalar",
+            "index": 0,
+            "kind": "normalize_argument_class",
+            "to": "integer"
+          },
+          "allowed": true,
+          "reason": "custody_proven_integral_class_alias"
+        },
+        {
+          "action": {
+            "from": "unknown_scalar",
+            "index": 1,
+            "kind": "normalize_argument_class",
+            "to": "integer"
+          },
+          "allowed": true,
+          "reason": "custody_proven_integral_class_alias"
+        },
+        {
+          "action": {
+            "from": "unknown_scalar",
+            "index": 2,
+            "kind": "normalize_argument_class",
+            "to": "integer"
+          },
+          "allowed": true,
+          "reason": "custody_proven_integral_class_alias"
+        },
+        {
+          "action": {
+            "from": 32,
+            "index": 2,
+            "kind": "clamp_argument_width",
+            "to": 16
+          },
+          "allowed": true,
+          "reason": "exact_failed_argument_width_projection"
+        }
+      ],
+      "exact_integral_subregister_cardinality_gates_v1u": {
+        "call_and_entry_arity_equal": true,
+        "custody_callee_count_exact": true,
+        "custody_caller_count_exact": true,
+        "entry_fixed_count_exact": true,
+        "entry_plan_identity_exact": true,
+        "no_carrier_disagreement_bridge": true,
+        "no_zero_fill": true
+      },
+      "exact_integral_subregister_proofs_v1u": [
+        {
+          "callee_register": "DX",
+          "caller_register": "RDX",
+          "constant_value": 32767,
+          "failed_gates": [],
+          "gates": {
+            "argument_index_exact": true,
+            "byte_aligned_integral_widths": true,
+            "call_argument_present": true,
+            "custody_argument_continuity": true,
+            "custody_argument_present": true,
+            "failure_status_incompatible": true,
+            "gp_register_transport": true,
+            "integral_scalar_class": true,
+            "only_width_disagrees": true,
+            "same_physical_register_family": true,
+            "source_sid_exact": true,
+            "source_width_exact": true,
+            "strict_supported_width_contraction": true,
+            "target_argument_present": true,
+            "target_binding_present": true,
+            "target_ordinal_exact": true,
+            "target_sid_exact": true,
+            "target_width_exact": true
+          },
+          "index": 2,
+          "kind": "pal_exec_exact_integral_subregister_compatibility_v1u",
+          "physical_register_family": "RDX",
+          "runtime_projection": "mask_integral_value_to_exact_callee_subregister_width_modulo_2_pow_n",
+          "source_is_constant": true,
+          "source_sid": "c_32767_4",
+          "source_width_bits": 32,
+          "target_binding_register": "DX",
+          "target_sid": "v_4130",
+          "target_width_bits": 16,
+          "upstream_authority_mutated": false,
+          "value_inference_used": false
+        }
+      ],
+      "plan_id": "call_site:1053303:(ram, 0x1012a1, 40, 0):0",
+      "reasons": [],
+      "runtime_call_plan_core_sha256": "d10afebd2316d131f67033811f4f0b51d41f91f98c1bae7a26a9d76d51c1dad1",
+      "runtime_entry_plan_core_sha256": "3e5a4afe461be5cf9c93aa485620365924bf9bde60c6b40bd5a53f59fa33d1e1",
+      "source_call_plan_core_sha256": "af4d8361152a1f21ce7c6497fe1afaa2d568035c3d8fbd0ecb333f6750d23ed6",
+      "source_entry_plan_core_sha256": "9d814b55dddeab91490af206f934d28a464f9cfd1c9cc6e862c76455600c7093",
+      "status": "bridgeable",
+      "zero_fill_indices": []
+    }
+  ],
+  "rejected": [],
+  "rule": "same physical GP-register family plus exact call/entry identity and width-only custody permits runtime-only low-bit subregister projection for constants or variables; no value inference, carrier, order, or arity repair",
+  "schema_version": 1
+}

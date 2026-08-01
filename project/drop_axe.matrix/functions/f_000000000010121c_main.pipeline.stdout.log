@@ -1,0 +1,2006 @@
+
+===== CFG DEBUG =====
+
+[EDGES]
+0x101220 -> 0x101328  true raw=true role=raw_true_explicit_target pol=fallthrough inv=True edge=cfg-edge-v1:0x101220->0x101328 direct_join=False
+0x101220 -> 0x101308  false raw=false role=raw_false_fallthrough pol=fallthrough inv=False edge=cfg-edge-v1:0x101220->0x101308 direct_join=False
+0x101308 -> 0x10134a  uncond raw=uncond role=uncond pol=unknown inv=None edge=cfg-edge-v1:0x101308->0x10134a direct_join=False
+0x101328 -> 0x10134a  uncond raw=uncond role=uncond pol=unknown inv=None edge=cfg-edge-v1:0x101328->0x10134a direct_join=False
+0x10134a -> 0x1013e9  true raw=true role=raw_true_explicit_target pol=fallthrough inv=True edge=cfg-edge-v1:0x10134a->0x1013e9 direct_join=False
+0x10134a -> 0x1013c9  false raw=false role=raw_false_fallthrough pol=fallthrough inv=False edge=cfg-edge-v1:0x10134a->0x1013c9 direct_join=False
+0x1013c9 -> 0x10140b  uncond raw=uncond role=uncond pol=unknown inv=None edge=cfg-edge-v1:0x1013c9->0x10140b direct_join=False
+0x1013e9 -> 0x10140b  uncond raw=uncond role=uncond pol=unknown inv=None edge=cfg-edge-v1:0x1013e9->0x10140b direct_join=False
+0x10140b -> 0x1014ff  true raw=true role=raw_true_explicit_target pol=fallthrough inv=True edge=cfg-edge-v1:0x10140b->0x1014ff direct_join=False
+0x10140b -> 0x10148a  false raw=false role=raw_false_fallthrough pol=fallthrough inv=False edge=cfg-edge-v1:0x10140b->0x10148a direct_join=False
+0x10148a -> 0x10154a  uncond raw=uncond role=uncond pol=unknown inv=None edge=cfg-edge-v1:0x10148a->0x10154a direct_join=False
+0x1014ff -> 0x10154a  uncond raw=uncond role=uncond pol=unknown inv=None edge=cfg-edge-v1:0x1014ff->0x10154a direct_join=False
+0x10154a -> 0x101563  true raw=true role=raw_true_explicit_target pol=fallthrough inv=True edge=cfg-edge-v1:0x10154a->0x101563 direct_join=False
+0x10154a -> 0x10155e  false raw=false role=raw_false_fallthrough pol=fallthrough inv=False edge=cfg-edge-v1:0x10154a->0x10155e direct_join=False
+0x10155e -> EXIT  uncond raw=uncond role=uncond pol=unknown inv=None edge=cfg-edge-v1:0x10155e->EXIT direct_join=False
+0x101563 -> EXIT  uncond raw=uncond role=uncond pol=unknown inv=None edge=cfg-edge-v1:0x101563->EXIT direct_join=False
+
+[BRANCH RESOLUTION EVENTS]
+{'kind': 'binary_branch_truth_bound_by_evidence_class_v21d', 'src': 1053216, 'first_dst': 1053480, 'second_dst': 1053448, 'hf_target': 1053480, 'hf_normalized_target': 1053480, 'direct_dst': 1053448, 'first_invert': True, 'second_invert': False, 'condition_truth_authority': 'raw_jcc_hf_relation_direct_flags', 'reason': 'branch_truth_evidence_v21d hf_target=0x101328 raw_target=0x101328 raw_fallthrough=0x101308 legacy_hint=(mnemonic=JNZ hf_cond_opcode=INT_EQUAL) class=direct_flags', 'relation_evidence': {'version': 'ordered_relation_algebra_v23e', 'status': 'unresolved', 'mnemonic': 'JNZ', 'raw_relation': None, 'raw_domain': None, 'hf_opcode': 'INT_EQUAL', 'hf_relation': None, 'hf_domain': None, 'operand_profile': {'status': 'unresolved', 'reason': 'constant_threshold_requires_exact_value_custody', 'operand_count': 2, 'left_sid': 'v_1201', 'right_sid': 'c_0_4', 'left_identity': ('high', 'high_rep:1201'), 'right_identity': ('constant', 32, 0), 'left_width_bits': 32, 'right_width_bits': 32, 'left_constant': False, 'right_constant': True}, 'operand_orientation': None, 'relation_to_hf': None, 'invert_for_target': None, 'invert_for_fallthrough': None, 'reason': 'ordered_relation_family_not_applicable', 'legacy_hint_resolved': True, 'selected_as_authority': False}, 'boolean_carrier_evidence': {'status': 'proven_boolean', 'reason': 'comparison_result_is_boolean', 'root_opcode': 'INT_EQUAL', 'contains_multiequal': False, 'depth': 0}}
+{'kind': 'binary_branch_truth_bound_by_evidence_class_v21d', 'src': 1053514, 'first_dst': 1053673, 'second_dst': 1053641, 'hf_target': 1053673, 'hf_normalized_target': 1053673, 'direct_dst': 1053641, 'first_invert': True, 'second_invert': False, 'condition_truth_authority': 'raw_jcc_hf_relation_direct_flags', 'reason': 'branch_truth_evidence_v21d hf_target=0x1013e9 raw_target=0x1013e9 raw_fallthrough=0x1013c9 legacy_hint=(mnemonic=JNZ hf_cond_opcode=INT_EQUAL) class=direct_flags', 'relation_evidence': {'version': 'ordered_relation_algebra_v23e', 'status': 'unresolved', 'mnemonic': 'JNZ', 'raw_relation': None, 'raw_domain': None, 'hf_opcode': 'INT_EQUAL', 'hf_relation': None, 'hf_domain': None, 'operand_profile': {'status': 'unresolved', 'reason': 'constant_threshold_requires_exact_value_custody', 'operand_count': 2, 'left_sid': 'v_1279', 'right_sid': 'c_0_4', 'left_identity': ('high', 'high_rep:1201'), 'right_identity': ('constant', 32, 0), 'left_width_bits': 32, 'right_width_bits': 32, 'left_constant': False, 'right_constant': True}, 'operand_orientation': None, 'relation_to_hf': None, 'invert_for_target': None, 'invert_for_fallthrough': None, 'reason': 'ordered_relation_family_not_applicable', 'legacy_hint_resolved': True, 'selected_as_authority': False}, 'boolean_carrier_evidence': {'status': 'proven_boolean', 'reason': 'comparison_result_is_boolean', 'root_opcode': 'INT_EQUAL', 'contains_multiequal': False, 'depth': 0}}
+{'kind': 'binary_branch_truth_bound_by_evidence_class_v21d', 'src': 1053707, 'first_dst': 1053951, 'second_dst': 1053834, 'hf_target': 1053951, 'hf_normalized_target': 1053951, 'direct_dst': 1053834, 'first_invert': True, 'second_invert': False, 'condition_truth_authority': 'raw_jcc_hf_relation_direct_flags', 'reason': 'branch_truth_evidence_v21d hf_target=0x1014ff raw_target=0x1014ff raw_fallthrough=0x10148a legacy_hint=(mnemonic=JNZ hf_cond_opcode=INT_EQUAL) class=direct_flags', 'relation_evidence': {'version': 'ordered_relation_algebra_v23e', 'status': 'unresolved', 'mnemonic': 'JNZ', 'raw_relation': None, 'raw_domain': None, 'hf_opcode': 'INT_EQUAL', 'hf_relation': None, 'hf_domain': None, 'operand_profile': {'status': 'unresolved', 'reason': 'constant_threshold_requires_exact_value_custody', 'operand_count': 2, 'left_sid': 'v_1357', 'right_sid': 'c_0_4', 'left_identity': ('high', 'high_rep:1201'), 'right_identity': ('constant', 32, 0), 'left_width_bits': 32, 'right_width_bits': 32, 'left_constant': False, 'right_constant': True}, 'operand_orientation': None, 'relation_to_hf': None, 'invert_for_target': None, 'invert_for_fallthrough': None, 'reason': 'ordered_relation_family_not_applicable', 'legacy_hint_resolved': True, 'selected_as_authority': False}, 'boolean_carrier_evidence': {'status': 'proven_boolean', 'reason': 'comparison_result_is_boolean', 'root_opcode': 'INT_EQUAL', 'contains_multiequal': False, 'depth': 0}}
+{'kind': 'binary_branch_truth_bound_by_evidence_class_v21d', 'src': 1054026, 'first_dst': 1054051, 'second_dst': 1054046, 'hf_target': 1054051, 'hf_normalized_target': 1054051, 'direct_dst': 1054046, 'first_invert': True, 'second_invert': False, 'condition_truth_authority': 'raw_jcc_hf_relation_direct_flags', 'reason': 'branch_truth_evidence_v21d hf_target=0x101563 raw_target=0x101563 raw_fallthrough=0x10155e legacy_hint=(mnemonic=JZ hf_cond_opcode=INT_NOTEQUAL) class=direct_flags', 'relation_evidence': {'version': 'ordered_relation_algebra_v23e', 'status': 'unresolved', 'mnemonic': 'JZ', 'raw_relation': None, 'raw_domain': None, 'hf_opcode': 'INT_NOTEQUAL', 'hf_relation': None, 'hf_domain': None, 'operand_profile': {'status': 'proven_runtime_pair', 'reason': 'two_distinct_nonconstant_equal_width_hf_operands', 'operand_count': 2, 'left_sid': 'v_4705', 'right_sid': 'v_715', 'left_identity': ('high', 'high_rep:4557'), 'right_identity': ('high', 'high_rep:715'), 'left_width_bits': 64, 'right_width_bits': 64, 'left_constant': False, 'right_constant': False}, 'operand_orientation': None, 'relation_to_hf': None, 'invert_for_target': None, 'invert_for_fallthrough': None, 'reason': 'ordered_relation_family_not_applicable', 'legacy_hint_resolved': True, 'selected_as_authority': False}, 'boolean_carrier_evidence': {'status': 'proven_boolean', 'reason': 'comparison_result_is_boolean', 'root_opcode': 'INT_NOTEQUAL', 'contains_multiequal': False, 'depth': 0}}
+
+[EDGE IDENTITY v23 / BOHDI EMPEROR]
+{'kind': 'cfg_edge_identity_inventory_v23', 'version': 'FunctionCFG_v23e_clothed_emperor_cfg_truth', 'id_schema': 'cfg_edge_identity_v1', 'canonical_identity': '(src_addr,dst_addr)', 'edges': 16, 'unique_edge_keys': 16, 'binary_cbranch_edges': 8, 'direct_join_edges': 0, 'direct_join_branch_arm_edges': 0, 'direct_join_loop_exit_edges': 0, 'direct_join_empty_arm_candidates': 0, 'warnings': 0, 'topology_mutations': 0, 'polarity_mutations': 0, 'rule': 'freeze_repaired_CFG_edge_identity_then_mark_exact_binary_CBRANCH_edge_to_IPDOM'}
+
+[IPDOM]
+0x101220 -> ipdom: 0x10134a
+0x101308 -> ipdom: 0x10134a
+0x101328 -> ipdom: 0x10134a
+0x10134a -> ipdom: 0x10140b
+0x1013c9 -> ipdom: 0x10140b
+0x1013e9 -> ipdom: 0x10140b
+0x10140b -> ipdom: 0x10154a
+0x10148a -> ipdom: 0x10154a
+0x1014ff -> ipdom: 0x10154a
+0x10154a -> ipdom: EXIT
+0x10155e -> ipdom: EXIT
+0x101563 -> ipdom: EXIT
+
+=====================
+
+===== PAL RESOLVER INDIRECT STORAGE v22c =====
+
+[INVENTORY]
+{'active': True,
+ 'address_tied_families': 2,
+ 'custody_transitions': 140,
+ 'effect_owner_groups': 47,
+ 'escape_barrier_sids': 102,
+ 'input_contracts': 140,
+ 'kind': 'resolver_indirect_storage_inventory_v22c',
+ 'machine_state_families': 1,
+ 'machine_state_sids': 49,
+ 'owner_categories': {'call_boundary': 140},
+ 'parameter_initializers': 0,
+ 'persistent_families': 1,
+ 'rule': 'HighVariable_identity_families_plus_address_escape_alias_barrier',
+ 'runtime_order': 'CFG_governed_not_linearized',
+ 'storage_families': 3,
+ 'version': 'v22c_indirect_storage_families',
+ 'warnings': 0}
+
+[STORAGE FAMILIES]
+{'address_tied': False,
+ 'classification': 'non_address_tied_machine_state',
+ 'entry_sids': ['v_3551', 'v_2496', 'v_2493'],
+ 'family_id': 'storage_family:high_rep:3551',
+ 'high_identity_key': 'high_rep:3551',
+ 'high_name': 'in_FS_OFFSET',
+ 'member_sids': ['v_3551',
+                 'v_2350',
+                 'v_2353',
+                 'v_2356',
+                 'v_2359',
+                 'v_2362',
+                 'v_2365',
+                 'v_2368',
+                 'v_2371',
+                 'v_2374',
+                 'v_2377',
+                 'v_2380',
+                 'v_2383',
+                 'v_2386',
+                 'v_2389',
+                 'v_2392',
+                 'v_2395',
+                 'v_2496',
+                 'v_2398',
+                 'v_2401',
+                 'v_2404',
+                 'v_2407',
+                 'v_2410',
+                 'v_2413',
+                 'v_2416',
+                 'v_2419',
+                 'v_2422',
+                 'v_2425',
+                 'v_2428',
+                 'v_2493',
+                 'v_2431',
+                 'v_2434',
+                 'v_2437',
+                 'v_2440',
+                 'v_2443',
+                 'v_2446',
+                 'v_2449',
+                 'v_2452',
+                 'v_2455',
+                 'v_2458',
+                 'v_2461',
+                 'v_2464',
+                 'v_2467',
+                 'v_2470',
+                 'v_2473',
+                 'v_2476',
+                 'v_2479',
+                 'v_2482',
+                 'v_2485'],
+ 'parameter_initializers': 0,
+ 'persistent': False,
+ 'transitions': 46}
+{'address_tied': True,
+ 'classification': 'address_tied_c_storage',
+ 'entry_sids': ['v_39', 'v_4711', 'v_4708', 'v_4705'],
+ 'family_id': 'storage_family:high_rep:4557',
+ 'high_identity_key': 'high_rep:4557',
+ 'high_name': 'local_10',
+ 'member_sids': ['v_39',
+                 'v_4557',
+                 'v_4560',
+                 'v_4563',
+                 'v_4566',
+                 'v_4569',
+                 'v_4572',
+                 'v_4575',
+                 'v_4578',
+                 'v_4582',
+                 'v_4585',
+                 'v_4589',
+                 'v_4592',
+                 'v_4595',
+                 'v_4598',
+                 'v_4601',
+                 'v_4604',
+                 'v_4711',
+                 'v_4607',
+                 'v_4610',
+                 'v_4613',
+                 'v_4617',
+                 'v_4620',
+                 'v_4624',
+                 'v_4627',
+                 'v_4630',
+                 'v_4633',
+                 'v_4636',
+                 'v_4639',
+                 'v_4708',
+                 'v_4642',
+                 'v_4645',
+                 'v_4648',
+                 'v_4652',
+                 'v_4655',
+                 'v_4659',
+                 'v_4662',
+                 'v_4665',
+                 'v_4668',
+                 'v_4671',
+                 'v_4674',
+                 'v_4677',
+                 'v_4680',
+                 'v_4683',
+                 'v_4686',
+                 'v_4689',
+                 'v_4692',
+                 'v_4695',
+                 'v_4699',
+                 'v_4705',
+                 'v_4703'],
+ 'parameter_initializers': 0,
+ 'persistent': False,
+ 'transitions': 47}
+{'address_tied': True,
+ 'classification': 'persistent_address_tied_storage',
+ 'entry_sids': ['v_4872', 'v_4253', 'v_4250', 'v_4247'],
+ 'family_id': 'storage_family:high_rep:4872',
+ 'high_identity_key': 'high_rep:4872',
+ 'high_name': 'stdin',
+ 'member_sids': ['v_4872',
+                 'v_4103',
+                 'v_4106',
+                 'v_4109',
+                 'v_4112',
+                 'v_4115',
+                 'v_4118',
+                 'v_4121',
+                 'v_4124',
+                 'v_4127',
+                 'v_4130',
+                 'v_4133',
+                 'v_4136',
+                 'v_4139',
+                 'v_4142',
+                 'v_4145',
+                 'v_4148',
+                 'v_4253',
+                 'v_4151',
+                 'v_4154',
+                 'v_4157',
+                 'v_4160',
+                 'v_4163',
+                 'v_4166',
+                 'v_4169',
+                 'v_4172',
+                 'v_4175',
+                 'v_4178',
+                 'v_4181',
+                 'v_4250',
+                 'v_4184',
+                 'v_4187',
+                 'v_4190',
+                 'v_4193',
+                 'v_4196',
+                 'v_4199',
+                 'v_4202',
+                 'v_4205',
+                 'v_4208',
+                 'v_4211',
+                 'v_4214',
+                 'v_4217',
+                 'v_4220',
+                 'v_4223',
+                 'v_4226',
+                 'v_4229',
+                 'v_4232',
+                 'v_4235',
+                 'v_4238',
+                 'v_4247',
+                 'v_4241'],
+ 'parameter_initializers': 0,
+ 'persistent': True,
+ 'transitions': 47}
+
+[PARAMETER INITIALIZERS / STORAGE WRITES]
+[]
+
+[WARNINGS]
+[]
+===== END PAL RESOLVER INDIRECT STORAGE =====
+
+========================================================================
+PALRAW AUDIT v0.3 :: raw instruction BLOCK p-code vs HF/PAL CFG
+========================================================================
+
+--- 0x10127f ---
+Raw block  : 0x101220 -> next 0x101308
+Instr count: 50
+Terminal   : 0x101306 JNZ 0x00101328
+Raw succs  : ['0x101328', '0x101308']
+Norm succs : ['0x101308', '0x101328']
+HF block   : 0x101220
+CFG edges  : ['0x101328 role=raw_true_explicit_target raw=true', '0x101308 role=raw_false_fallthrough raw=false']
+STATUS     : successors_match
+Raw instructions:
+   0x101220  PUSH RBP
+   0x101221  MOV RBP,RSP
+   0x101224  SUB RSP,0x60
+   0x101228  MOV RAX,qword ptr FS:[0x28]
+   0x101231  MOV qword ptr [RBP + -0x8],RAX
+   0x101235  XOR EAX,EAX
+   0x101237  MOV dword ptr [RBP + -0x54],0x64
+   0x10123e  LEA RAX,[0x102010]
+   0x101245  MOV RDI,RAX
+   0x101248  CALL 0x001010a0
+   0x10124d  LEA RAX,[0x102048]
+   0x101254  MOV RDI,RAX
+   0x101257  CALL 0x001010a0
+   0x10125c  LEA RAX,[0x102010]
+   0x101263  MOV RDI,RAX
+   0x101266  CALL 0x001010a0
+   0x10126b  LEA RAX,[0x102080]
+   0x101272  MOV RDI,RAX
+   0x101275  CALL 0x001010a0
+   0x10127a  LEA RAX,[0x1020a8]
+   0x101281  MOV RDI,RAX
+   0x101284  CALL 0x001010a0
+   0x101289  LEA RAX,[0x1020e8]
+   0x101290  MOV RDI,RAX
+   0x101293  CALL 0x001010a0
+   0x101298  LEA RAX,[0x102140]
+   0x10129f  MOV RDI,RAX
+   0x1012a2  CALL 0x001010a0
+   0x1012a7  LEA RAX,[0x102198]
+   0x1012ae  MOV RDI,RAX
+   0x1012b1  CALL 0x001010a0
+   0x1012b6  LEA RAX,[0x1021e0]
+   0x1012bd  MOV RDI,RAX
+   0x1012c0  MOV EAX,0x0
+   0x1012c5  CALL 0x001010c0
+   0x1012ca  MOV RDX,qword ptr [0x00104010]
+   0x1012d1  LEA RAX,[RBP + -0x50]
+   0x1012d5  MOV ESI,0x40
+   0x1012da  MOV RDI,RAX
+   0x1012dd  CALL 0x001010e0
+   0x1012e2  LEA RAX,[RBP + -0x50]
+   0x1012e6  MOV RDI,RAX
+   0x1012e9  CALL 0x001011e9
+   0x1012ee  LEA RAX,[RBP + -0x50]
+   0x1012f2  LEA RDX,[0x10220a]
+   0x1012f9  MOV RSI,RDX
+   0x1012fc  MOV RDI,RAX
+   0x1012ff  CALL 0x001010f0
+   0x101304  TEST EAX,EAX
+   0x101306  JNZ 0x00101328
+Terminal raw p-code:
+    (unique, 0x24f00, 1) BOOL_NEGATE (register, 0x206, 1)
+     ---  CBRANCH (ram, 0x101328, 8) , (unique, 0x24f00, 1)
+HF/PAL ops :
+    INT_ADD [v_3551, 0x28] -> v_5073
+    CAST [v_5073] -> v_36
+    LOAD [0x1b1, v_36] -> v_39
+    COPY [0x64] -> local_5c
+    COPY [0x102010] -> v_4895
+    INDIRECT [v_3551, 0x24] -> v_2350
+    INDIRECT [stdin, 0x24] -> stdin
+    INDIRECT [v_39, 0x24] -> local_10
+    CALL [puts, v_4895] -> None
+    COPY [0x102048] -> v_4907
+    INDIRECT [v_2350, 0x29] -> v_2353
+    INDIRECT [stdin, 0x29] -> stdin
+    INDIRECT [local_10, 0x29] -> local_10
+    CALL [puts, v_4907] -> None
+    COPY [0x102010] -> v_4898
+    INDIRECT [v_2353, 0x2e] -> v_2356
+    INDIRECT [stdin, 0x2e] -> stdin
+    INDIRECT [local_10, 0x2e] -> local_10
+    CALL [puts, v_4898] -> None
+    COPY [0x102080] -> v_4910
+    INDIRECT [v_2356, 0x33] -> v_2359
+    INDIRECT [stdin, 0x33] -> stdin
+    INDIRECT [local_10, 0x33] -> local_10
+    CALL [puts, v_4910] -> None
+    COPY [0x1020a8] -> v_4913
+    INDIRECT [v_2359, 0x38] -> v_2362
+    INDIRECT [stdin, 0x38] -> stdin
+    INDIRECT [local_10, 0x38] -> local_10
+    CALL [puts, v_4913] -> None
+    COPY [0x1020e8] -> v_4916
+    INDIRECT [v_2362, 0x3d] -> v_2365
+    INDIRECT [stdin, 0x3d] -> stdin
+    INDIRECT [local_10, 0x3d] -> local_10
+    CALL [puts, v_4916] -> None
+    COPY [0x102140] -> v_4919
+    INDIRECT [v_2365, 0x42] -> v_2368
+    INDIRECT [stdin, 0x42] -> stdin
+    INDIRECT [local_10, 0x42] -> local_10
+    CALL [puts, v_4919] -> None
+    COPY [0x102198] -> v_4922
+    INDIRECT [v_2368, 0x47] -> v_2371
+    INDIRECT [stdin, 0x47] -> stdin
+    INDIRECT [local_10, 0x47] -> local_10
+    CALL [puts, v_4922] -> None
+    COPY [0x1021e0] -> v_4925
+    INDIRECT [v_2371, 0x4d] -> v_2374
+    INDIRECT [stdin, 0x4d] -> stdin
+    INDIRECT [local_10, 0x4d] -> local_10
+    CALL [printf, v_4925] -> None
+    PTRSUB [v_3550, -0x58] -> v_198
+    INDIRECT [v_2374, 0x55] -> v_2377
+    INDIRECT [stdin, 0x55] -> stdin
+    INDIRECT [local_10, 0x55] -> local_10
+    CALL [fgets, v_198, 0x40, stdin] -> None
+    PTRSUB [v_3550, -0x58] -> v_215
+    INDIRECT [v_2377, 0x5b] -> v_2380
+    INDIRECT [stdin, 0x5b] -> stdin
+    INDIRECT [local_10, 0x5b] -> local_10
+    CALL [clean_input, v_215] -> None
+    PTRSUB [v_3550, -0x58] -> v_230
+    COPY [0x10220a] -> v_4928
+    INDIRECT [v_2380, 0x63] -> v_2383
+    INDIRECT [stdin, 0x63] -> stdin
+    INDIRECT [local_10, 0x63] -> local_10
+    CALL [strcmp, v_230, v_4928] -> v_1201
+    INT_EQUAL [v_1201, 0x0] -> v_259
+HF/PAL term:
+    CBRANCH [LAB_00101328, v_259] -> None cond=v_259
+
+--- 0x1011b6 ---
+Raw block  : 0x1011b6 -> next 0x101220
+Instr count: 2
+Terminal   : 0x1011b9 JZ 0x001011c7
+Raw succs  : ['0x1011c7', '0x1011bb']
+Norm succs : None
+HF block   : None
+CFG edges  : []
+STATUS     : no_hf_block
+NOTE       : No PAL/HighFunction block mapped to this address.
+Raw instructions:
+   0x1011b6  MOV RBP,RSP
+   0x1011b9  JZ 0x001011c7
+Terminal raw p-code:
+     ---  CBRANCH (ram, 0x1011c7, 8) , (register, 0x206, 1)
+HF/PAL ops :
+
+--- 0x101219 ---
+Raw block  : 0x101219 -> next 0x101220
+Instr count: 3
+Terminal   : 0x10121b RET
+Raw succs  : []
+Norm succs : None
+HF block   : None
+CFG edges  : []
+STATUS     : no_hf_block
+NOTE       : No PAL/HighFunction block mapped to this address.
+Raw instructions:
+   0x101219  NOP
+   0x10121a  LEAVE
+   0x10121b  RET
+Terminal raw p-code:
+    (register, 0x288, 8) LOAD (const, 0x1b1, 8) , (register, 0x20, 8)
+    (register, 0x20, 8) INT_ADD (register, 0x20, 8) , (const, 0x8, 8)
+     ---  RETURN (register, 0x288, 8)
+HF/PAL ops :
+
+--- 0x10120f ---
+Raw block  : 0x10120f -> next 0x101220
+Instr count: 6
+Terminal   : 0x10121b RET
+Raw succs  : []
+Norm succs : None
+HF block   : None
+CFG edges  : []
+STATUS     : no_hf_block
+NOTE       : No PAL/HighFunction block mapped to this address.
+Raw instructions:
+   0x10120f  MOV RDX,qword ptr [RBP + -0x8]
+   0x101213  ADD RAX,RDX
+   0x101216  MOV byte ptr [RAX],0x0
+   0x101219  NOP
+   0x10121a  LEAVE
+   0x10121b  RET
+Terminal raw p-code:
+    (register, 0x288, 8) LOAD (const, 0x1b1, 8) , (register, 0x20, 8)
+    (register, 0x20, 8) INT_ADD (register, 0x20, 8) , (const, 0x8, 8)
+     ---  RETURN (register, 0x288, 8)
+HF/PAL ops :
+
+--- 0x101221 ---
+Raw block  : 0x101220 -> next 0x101308
+Instr count: 50
+Terminal   : 0x101306 JNZ 0x00101328
+Raw succs  : ['0x101328', '0x101308']
+Norm succs : ['0x101308', '0x101328']
+HF block   : 0x101220
+CFG edges  : ['0x101328 role=raw_true_explicit_target raw=true', '0x101308 role=raw_false_fallthrough raw=false']
+STATUS     : successors_match
+Raw instructions:
+   0x101220  PUSH RBP
+   0x101221  MOV RBP,RSP
+   0x101224  SUB RSP,0x60
+   0x101228  MOV RAX,qword ptr FS:[0x28]
+   0x101231  MOV qword ptr [RBP + -0x8],RAX
+   0x101235  XOR EAX,EAX
+   0x101237  MOV dword ptr [RBP + -0x54],0x64
+   0x10123e  LEA RAX,[0x102010]
+   0x101245  MOV RDI,RAX
+   0x101248  CALL 0x001010a0
+   0x10124d  LEA RAX,[0x102048]
+   0x101254  MOV RDI,RAX
+   0x101257  CALL 0x001010a0
+   0x10125c  LEA RAX,[0x102010]
+   0x101263  MOV RDI,RAX
+   0x101266  CALL 0x001010a0
+   0x10126b  LEA RAX,[0x102080]
+   0x101272  MOV RDI,RAX
+   0x101275  CALL 0x001010a0
+   0x10127a  LEA RAX,[0x1020a8]
+   0x101281  MOV RDI,RAX
+   0x101284  CALL 0x001010a0
+   0x101289  LEA RAX,[0x1020e8]
+   0x101290  MOV RDI,RAX
+   0x101293  CALL 0x001010a0
+   0x101298  LEA RAX,[0x102140]
+   0x10129f  MOV RDI,RAX
+   0x1012a2  CALL 0x001010a0
+   0x1012a7  LEA RAX,[0x102198]
+   0x1012ae  MOV RDI,RAX
+   0x1012b1  CALL 0x001010a0
+   0x1012b6  LEA RAX,[0x1021e0]
+   0x1012bd  MOV RDI,RAX
+   0x1012c0  MOV EAX,0x0
+   0x1012c5  CALL 0x001010c0
+   0x1012ca  MOV RDX,qword ptr [0x00104010]
+   0x1012d1  LEA RAX,[RBP + -0x50]
+   0x1012d5  MOV ESI,0x40
+   0x1012da  MOV RDI,RAX
+   0x1012dd  CALL 0x001010e0
+   0x1012e2  LEA RAX,[RBP + -0x50]
+   0x1012e6  MOV RDI,RAX
+   0x1012e9  CALL 0x001011e9
+   0x1012ee  LEA RAX,[RBP + -0x50]
+   0x1012f2  LEA RDX,[0x10220a]
+   0x1012f9  MOV RSI,RDX
+   0x1012fc  MOV RDI,RAX
+   0x1012ff  CALL 0x001010f0
+   0x101304  TEST EAX,EAX
+   0x101306  JNZ 0x00101328
+Terminal raw p-code:
+    (unique, 0x24f00, 1) BOOL_NEGATE (register, 0x206, 1)
+     ---  CBRANCH (ram, 0x101328, 8) , (unique, 0x24f00, 1)
+HF/PAL ops :
+    INT_ADD [v_3551, 0x28] -> v_5073
+    CAST [v_5073] -> v_36
+    LOAD [0x1b1, v_36] -> v_39
+    COPY [0x64] -> local_5c
+    COPY [0x102010] -> v_4895
+    INDIRECT [v_3551, 0x24] -> v_2350
+    INDIRECT [stdin, 0x24] -> stdin
+    INDIRECT [v_39, 0x24] -> local_10
+    CALL [puts, v_4895] -> None
+    COPY [0x102048] -> v_4907
+    INDIRECT [v_2350, 0x29] -> v_2353
+    INDIRECT [stdin, 0x29] -> stdin
+    INDIRECT [local_10, 0x29] -> local_10
+    CALL [puts, v_4907] -> None
+    COPY [0x102010] -> v_4898
+    INDIRECT [v_2353, 0x2e] -> v_2356
+    INDIRECT [stdin, 0x2e] -> stdin
+    INDIRECT [local_10, 0x2e] -> local_10
+    CALL [puts, v_4898] -> None
+    COPY [0x102080] -> v_4910
+    INDIRECT [v_2356, 0x33] -> v_2359
+    INDIRECT [stdin, 0x33] -> stdin
+    INDIRECT [local_10, 0x33] -> local_10
+    CALL [puts, v_4910] -> None
+    COPY [0x1020a8] -> v_4913
+    INDIRECT [v_2359, 0x38] -> v_2362
+    INDIRECT [stdin, 0x38] -> stdin
+    INDIRECT [local_10, 0x38] -> local_10
+    CALL [puts, v_4913] -> None
+    COPY [0x1020e8] -> v_4916
+    INDIRECT [v_2362, 0x3d] -> v_2365
+    INDIRECT [stdin, 0x3d] -> stdin
+    INDIRECT [local_10, 0x3d] -> local_10
+    CALL [puts, v_4916] -> None
+    COPY [0x102140] -> v_4919
+    INDIRECT [v_2365, 0x42] -> v_2368
+    INDIRECT [stdin, 0x42] -> stdin
+    INDIRECT [local_10, 0x42] -> local_10
+    CALL [puts, v_4919] -> None
+    COPY [0x102198] -> v_4922
+    INDIRECT [v_2368, 0x47] -> v_2371
+    INDIRECT [stdin, 0x47] -> stdin
+    INDIRECT [local_10, 0x47] -> local_10
+    CALL [puts, v_4922] -> None
+    COPY [0x1021e0] -> v_4925
+    INDIRECT [v_2371, 0x4d] -> v_2374
+    INDIRECT [stdin, 0x4d] -> stdin
+    INDIRECT [local_10, 0x4d] -> local_10
+    CALL [printf, v_4925] -> None
+    PTRSUB [v_3550, -0x58] -> v_198
+    INDIRECT [v_2374, 0x55] -> v_2377
+    INDIRECT [stdin, 0x55] -> stdin
+    INDIRECT [local_10, 0x55] -> local_10
+    CALL [fgets, v_198, 0x40, stdin] -> None
+    PTRSUB [v_3550, -0x58] -> v_215
+    INDIRECT [v_2377, 0x5b] -> v_2380
+    INDIRECT [stdin, 0x5b] -> stdin
+    INDIRECT [local_10, 0x5b] -> local_10
+    CALL [clean_input, v_215] -> None
+    PTRSUB [v_3550, -0x58] -> v_230
+    COPY [0x10220a] -> v_4928
+    INDIRECT [v_2380, 0x63] -> v_2383
+    INDIRECT [stdin, 0x63] -> stdin
+    INDIRECT [local_10, 0x63] -> local_10
+    CALL [strcmp, v_230, v_4928] -> v_1201
+    INT_EQUAL [v_1201, 0x0] -> v_259
+HF/PAL term:
+    CBRANCH [LAB_00101328, v_259] -> None cond=v_259
+
+--- 0x101284 ---
+Raw block  : 0x101220 -> next 0x101308
+Instr count: 50
+Terminal   : 0x101306 JNZ 0x00101328
+Raw succs  : ['0x101328', '0x101308']
+Norm succs : ['0x101308', '0x101328']
+HF block   : 0x101220
+CFG edges  : ['0x101328 role=raw_true_explicit_target raw=true', '0x101308 role=raw_false_fallthrough raw=false']
+STATUS     : successors_match
+Raw instructions:
+   0x101220  PUSH RBP
+   0x101221  MOV RBP,RSP
+   0x101224  SUB RSP,0x60
+   0x101228  MOV RAX,qword ptr FS:[0x28]
+   0x101231  MOV qword ptr [RBP + -0x8],RAX
+   0x101235  XOR EAX,EAX
+   0x101237  MOV dword ptr [RBP + -0x54],0x64
+   0x10123e  LEA RAX,[0x102010]
+   0x101245  MOV RDI,RAX
+   0x101248  CALL 0x001010a0
+   0x10124d  LEA RAX,[0x102048]
+   0x101254  MOV RDI,RAX
+   0x101257  CALL 0x001010a0
+   0x10125c  LEA RAX,[0x102010]
+   0x101263  MOV RDI,RAX
+   0x101266  CALL 0x001010a0
+   0x10126b  LEA RAX,[0x102080]
+   0x101272  MOV RDI,RAX
+   0x101275  CALL 0x001010a0
+   0x10127a  LEA RAX,[0x1020a8]
+   0x101281  MOV RDI,RAX
+   0x101284  CALL 0x001010a0
+   0x101289  LEA RAX,[0x1020e8]
+   0x101290  MOV RDI,RAX
+   0x101293  CALL 0x001010a0
+   0x101298  LEA RAX,[0x102140]
+   0x10129f  MOV RDI,RAX
+   0x1012a2  CALL 0x001010a0
+   0x1012a7  LEA RAX,[0x102198]
+   0x1012ae  MOV RDI,RAX
+   0x1012b1  CALL 0x001010a0
+   0x1012b6  LEA RAX,[0x1021e0]
+   0x1012bd  MOV RDI,RAX
+   0x1012c0  MOV EAX,0x0
+   0x1012c5  CALL 0x001010c0
+   0x1012ca  MOV RDX,qword ptr [0x00104010]
+   0x1012d1  LEA RAX,[RBP + -0x50]
+   0x1012d5  MOV ESI,0x40
+   0x1012da  MOV RDI,RAX
+   0x1012dd  CALL 0x001010e0
+   0x1012e2  LEA RAX,[RBP + -0x50]
+   0x1012e6  MOV RDI,RAX
+   0x1012e9  CALL 0x001011e9
+   0x1012ee  LEA RAX,[RBP + -0x50]
+   0x1012f2  LEA RDX,[0x10220a]
+   0x1012f9  MOV RSI,RDX
+   0x1012fc  MOV RDI,RAX
+   0x1012ff  CALL 0x001010f0
+   0x101304  TEST EAX,EAX
+   0x101306  JNZ 0x00101328
+Terminal raw p-code:
+    (unique, 0x24f00, 1) BOOL_NEGATE (register, 0x206, 1)
+     ---  CBRANCH (ram, 0x101328, 8) , (unique, 0x24f00, 1)
+HF/PAL ops :
+    INT_ADD [v_3551, 0x28] -> v_5073
+    CAST [v_5073] -> v_36
+    LOAD [0x1b1, v_36] -> v_39
+    COPY [0x64] -> local_5c
+    COPY [0x102010] -> v_4895
+    INDIRECT [v_3551, 0x24] -> v_2350
+    INDIRECT [stdin, 0x24] -> stdin
+    INDIRECT [v_39, 0x24] -> local_10
+    CALL [puts, v_4895] -> None
+    COPY [0x102048] -> v_4907
+    INDIRECT [v_2350, 0x29] -> v_2353
+    INDIRECT [stdin, 0x29] -> stdin
+    INDIRECT [local_10, 0x29] -> local_10
+    CALL [puts, v_4907] -> None
+    COPY [0x102010] -> v_4898
+    INDIRECT [v_2353, 0x2e] -> v_2356
+    INDIRECT [stdin, 0x2e] -> stdin
+    INDIRECT [local_10, 0x2e] -> local_10
+    CALL [puts, v_4898] -> None
+    COPY [0x102080] -> v_4910
+    INDIRECT [v_2356, 0x33] -> v_2359
+    INDIRECT [stdin, 0x33] -> stdin
+    INDIRECT [local_10, 0x33] -> local_10
+    CALL [puts, v_4910] -> None
+    COPY [0x1020a8] -> v_4913
+    INDIRECT [v_2359, 0x38] -> v_2362
+    INDIRECT [stdin, 0x38] -> stdin
+    INDIRECT [local_10, 0x38] -> local_10
+    CALL [puts, v_4913] -> None
+    COPY [0x1020e8] -> v_4916
+    INDIRECT [v_2362, 0x3d] -> v_2365
+    INDIRECT [stdin, 0x3d] -> stdin
+    INDIRECT [local_10, 0x3d] -> local_10
+    CALL [puts, v_4916] -> None
+    COPY [0x102140] -> v_4919
+    INDIRECT [v_2365, 0x42] -> v_2368
+    INDIRECT [stdin, 0x42] -> stdin
+    INDIRECT [local_10, 0x42] -> local_10
+    CALL [puts, v_4919] -> None
+    COPY [0x102198] -> v_4922
+    INDIRECT [v_2368, 0x47] -> v_2371
+    INDIRECT [stdin, 0x47] -> stdin
+    INDIRECT [local_10, 0x47] -> local_10
+    CALL [puts, v_4922] -> None
+    COPY [0x1021e0] -> v_4925
+    INDIRECT [v_2371, 0x4d] -> v_2374
+    INDIRECT [stdin, 0x4d] -> stdin
+    INDIRECT [local_10, 0x4d] -> local_10
+    CALL [printf, v_4925] -> None
+    PTRSUB [v_3550, -0x58] -> v_198
+    INDIRECT [v_2374, 0x55] -> v_2377
+    INDIRECT [stdin, 0x55] -> stdin
+    INDIRECT [local_10, 0x55] -> local_10
+    CALL [fgets, v_198, 0x40, stdin] -> None
+    PTRSUB [v_3550, -0x58] -> v_215
+    INDIRECT [v_2377, 0x5b] -> v_2380
+    INDIRECT [stdin, 0x5b] -> stdin
+    INDIRECT [local_10, 0x5b] -> local_10
+    CALL [clean_input, v_215] -> None
+    PTRSUB [v_3550, -0x58] -> v_230
+    COPY [0x10220a] -> v_4928
+    INDIRECT [v_2380, 0x63] -> v_2383
+    INDIRECT [stdin, 0x63] -> stdin
+    INDIRECT [local_10, 0x63] -> local_10
+    CALL [strcmp, v_230, v_4928] -> v_1201
+    INT_EQUAL [v_1201, 0x0] -> v_259
+HF/PAL term:
+    CBRANCH [LAB_00101328, v_259] -> None cond=v_259
+
+--- 0x10127f ---
+Raw block  : 0x101220 -> next 0x101308
+Instr count: 50
+Terminal   : 0x101306 JNZ 0x00101328
+Raw succs  : ['0x101328', '0x101308']
+Norm succs : ['0x101308', '0x101328']
+HF block   : 0x101220
+CFG edges  : ['0x101328 role=raw_true_explicit_target raw=true', '0x101308 role=raw_false_fallthrough raw=false']
+STATUS     : successors_match
+Raw instructions:
+   0x101220  PUSH RBP
+   0x101221  MOV RBP,RSP
+   0x101224  SUB RSP,0x60
+   0x101228  MOV RAX,qword ptr FS:[0x28]
+   0x101231  MOV qword ptr [RBP + -0x8],RAX
+   0x101235  XOR EAX,EAX
+   0x101237  MOV dword ptr [RBP + -0x54],0x64
+   0x10123e  LEA RAX,[0x102010]
+   0x101245  MOV RDI,RAX
+   0x101248  CALL 0x001010a0
+   0x10124d  LEA RAX,[0x102048]
+   0x101254  MOV RDI,RAX
+   0x101257  CALL 0x001010a0
+   0x10125c  LEA RAX,[0x102010]
+   0x101263  MOV RDI,RAX
+   0x101266  CALL 0x001010a0
+   0x10126b  LEA RAX,[0x102080]
+   0x101272  MOV RDI,RAX
+   0x101275  CALL 0x001010a0
+   0x10127a  LEA RAX,[0x1020a8]
+   0x101281  MOV RDI,RAX
+   0x101284  CALL 0x001010a0
+   0x101289  LEA RAX,[0x1020e8]
+   0x101290  MOV RDI,RAX
+   0x101293  CALL 0x001010a0
+   0x101298  LEA RAX,[0x102140]
+   0x10129f  MOV RDI,RAX
+   0x1012a2  CALL 0x001010a0
+   0x1012a7  LEA RAX,[0x102198]
+   0x1012ae  MOV RDI,RAX
+   0x1012b1  CALL 0x001010a0
+   0x1012b6  LEA RAX,[0x1021e0]
+   0x1012bd  MOV RDI,RAX
+   0x1012c0  MOV EAX,0x0
+   0x1012c5  CALL 0x001010c0
+   0x1012ca  MOV RDX,qword ptr [0x00104010]
+   0x1012d1  LEA RAX,[RBP + -0x50]
+   0x1012d5  MOV ESI,0x40
+   0x1012da  MOV RDI,RAX
+   0x1012dd  CALL 0x001010e0
+   0x1012e2  LEA RAX,[RBP + -0x50]
+   0x1012e6  MOV RDI,RAX
+   0x1012e9  CALL 0x001011e9
+   0x1012ee  LEA RAX,[RBP + -0x50]
+   0x1012f2  LEA RDX,[0x10220a]
+   0x1012f9  MOV RSI,RDX
+   0x1012fc  MOV RDI,RAX
+   0x1012ff  CALL 0x001010f0
+   0x101304  TEST EAX,EAX
+   0x101306  JNZ 0x00101328
+Terminal raw p-code:
+    (unique, 0x24f00, 1) BOOL_NEGATE (register, 0x206, 1)
+     ---  CBRANCH (ram, 0x101328, 8) , (unique, 0x24f00, 1)
+HF/PAL ops :
+    INT_ADD [v_3551, 0x28] -> v_5073
+    CAST [v_5073] -> v_36
+    LOAD [0x1b1, v_36] -> v_39
+    COPY [0x64] -> local_5c
+    COPY [0x102010] -> v_4895
+    INDIRECT [v_3551, 0x24] -> v_2350
+    INDIRECT [stdin, 0x24] -> stdin
+    INDIRECT [v_39, 0x24] -> local_10
+    CALL [puts, v_4895] -> None
+    COPY [0x102048] -> v_4907
+    INDIRECT [v_2350, 0x29] -> v_2353
+    INDIRECT [stdin, 0x29] -> stdin
+    INDIRECT [local_10, 0x29] -> local_10
+    CALL [puts, v_4907] -> None
+    COPY [0x102010] -> v_4898
+    INDIRECT [v_2353, 0x2e] -> v_2356
+    INDIRECT [stdin, 0x2e] -> stdin
+    INDIRECT [local_10, 0x2e] -> local_10
+    CALL [puts, v_4898] -> None
+    COPY [0x102080] -> v_4910
+    INDIRECT [v_2356, 0x33] -> v_2359
+    INDIRECT [stdin, 0x33] -> stdin
+    INDIRECT [local_10, 0x33] -> local_10
+    CALL [puts, v_4910] -> None
+    COPY [0x1020a8] -> v_4913
+    INDIRECT [v_2359, 0x38] -> v_2362
+    INDIRECT [stdin, 0x38] -> stdin
+    INDIRECT [local_10, 0x38] -> local_10
+    CALL [puts, v_4913] -> None
+    COPY [0x1020e8] -> v_4916
+    INDIRECT [v_2362, 0x3d] -> v_2365
+    INDIRECT [stdin, 0x3d] -> stdin
+    INDIRECT [local_10, 0x3d] -> local_10
+    CALL [puts, v_4916] -> None
+    COPY [0x102140] -> v_4919
+    INDIRECT [v_2365, 0x42] -> v_2368
+    INDIRECT [stdin, 0x42] -> stdin
+    INDIRECT [local_10, 0x42] -> local_10
+    CALL [puts, v_4919] -> None
+    COPY [0x102198] -> v_4922
+    INDIRECT [v_2368, 0x47] -> v_2371
+    INDIRECT [stdin, 0x47] -> stdin
+    INDIRECT [local_10, 0x47] -> local_10
+    CALL [puts, v_4922] -> None
+    COPY [0x1021e0] -> v_4925
+    INDIRECT [v_2371, 0x4d] -> v_2374
+    INDIRECT [stdin, 0x4d] -> stdin
+    INDIRECT [local_10, 0x4d] -> local_10
+    CALL [printf, v_4925] -> None
+    PTRSUB [v_3550, -0x58] -> v_198
+    INDIRECT [v_2374, 0x55] -> v_2377
+    INDIRECT [stdin, 0x55] -> stdin
+    INDIRECT [local_10, 0x55] -> local_10
+    CALL [fgets, v_198, 0x40, stdin] -> None
+    PTRSUB [v_3550, -0x58] -> v_215
+    INDIRECT [v_2377, 0x5b] -> v_2380
+    INDIRECT [stdin, 0x5b] -> stdin
+    INDIRECT [local_10, 0x5b] -> local_10
+    CALL [clean_input, v_215] -> None
+    PTRSUB [v_3550, -0x58] -> v_230
+    COPY [0x10220a] -> v_4928
+    INDIRECT [v_2380, 0x63] -> v_2383
+    INDIRECT [stdin, 0x63] -> stdin
+    INDIRECT [local_10, 0x63] -> local_10
+    CALL [strcmp, v_230, v_4928] -> v_1201
+    INT_EQUAL [v_1201, 0x0] -> v_259
+HF/PAL term:
+    CBRANCH [LAB_00101328, v_259] -> None cond=v_259
+
+========================================================================
+
+===== PAL COMPUTE ANALYZER =====
+{'kind': 'pal_compute_inventory_v22',
+ 'version': 'v23b_abi_thunk_compatibility_return_reconciliation',
+ 'runtime_representation': 'raw_unsigned_bitvector_at_ssa_boundaries',
+ 'operations': 264,
+ 'output_plans': 220,
+ 'control_contracts': 9,
+ 'c_compute_filtered': 221,
+ 'use_site_overrides': 0,
+ 'return_observation_view_mismatches': 0,
+ 'storage_custody_related_ops': 201,
+ 'indirect_custody_contracts': 140,
+ 'indirect_custody_resolved': 140,
+ 'indirect_custody_deferred': 0,
+ 'indirect_effect_owner_compute_ops': 47,
+ 'storage_family_bindings': 151,
+ 'function_entry_abi_plan': True,
+ 'call_site_abi_plans': 47,
+ 'internal_call_plan_failures': 3,
+ 'unsupported_implicit_inputs': 0,
+ 'abi_runtime_helper_assignments': 0,
+ 'no_return_calls': 1,
+ 'reachable_return_boundaries': 1,
+ 'unreachable_return_boundaries': 1,
+ 'synthetic_no_return_continuations_suppressed': 1,
+ 'statuses': {'helper_required': 8,
+              'metadata_only': 198,
+              'deferred_memory': 11,
+              'deferred_external': 47},
+ 'categories': {'integer_arithmetic': 3,
+                'conversion': 3,
+                'memory': 2,
+                'transport': 45,
+                'storage_custody': 140,
+                'call_boundary': 47,
+                'pointer_arithmetic': 9,
+                'comparison': 4,
+                'phi_merge': 11},
+ 'helpers': {'c_add': 2,
+             'c_load': 2,
+             'c_ptrsub': 9,
+             'c_eq': 3,
+             'c_sub': 1,
+             'c_zext': 1,
+             'c_ne': 1},
+ 'opcodes': {'INT_ADD': 2,
+             'CAST': 2,
+             'LOAD': 2,
+             'COPY': 45,
+             'INDIRECT': 140,
+             'CALL': 47,
+             'PTRSUB': 9,
+             'INT_EQUAL': 3,
+             'MULTIEQUAL': 11,
+             'INT_SUB': 1,
+             'INT_ZEXT': 1,
+             'INT_NOTEQUAL': 1},
+ 'warnings': 0}
+
+[WARNINGS]
+[]
+
+[METADATA-ONLY COMPUTE BOUNDARIES]
+0x101220 CAST ['v_5073'] -> v_36 classification=same_width_explicit_recast
+0x101220 INDIRECT ['v_3551', 'c_36_4'] -> v_2350 classification=None
+0x101220 INDIRECT ['v_4872', 'c_36_4'] -> v_4103 classification=None
+0x101220 INDIRECT ['v_39', 'c_36_4'] -> v_4557 classification=None
+0x101220 INDIRECT ['v_2350', 'c_41_4'] -> v_2353 classification=None
+0x101220 INDIRECT ['v_4103', 'c_41_4'] -> v_4106 classification=None
+0x101220 INDIRECT ['v_4557', 'c_41_4'] -> v_4560 classification=None
+0x101220 INDIRECT ['v_2353', 'c_46_4'] -> v_2356 classification=None
+0x101220 INDIRECT ['v_4106', 'c_46_4'] -> v_4109 classification=None
+0x101220 INDIRECT ['v_4560', 'c_46_4'] -> v_4563 classification=None
+0x101220 INDIRECT ['v_2356', 'c_51_4'] -> v_2359 classification=None
+0x101220 INDIRECT ['v_4109', 'c_51_4'] -> v_4112 classification=None
+0x101220 INDIRECT ['v_4563', 'c_51_4'] -> v_4566 classification=None
+0x101220 INDIRECT ['v_2359', 'c_56_4'] -> v_2362 classification=None
+0x101220 INDIRECT ['v_4112', 'c_56_4'] -> v_4115 classification=None
+0x101220 INDIRECT ['v_4566', 'c_56_4'] -> v_4569 classification=None
+0x101220 INDIRECT ['v_2362', 'c_61_4'] -> v_2365 classification=None
+0x101220 INDIRECT ['v_4115', 'c_61_4'] -> v_4118 classification=None
+0x101220 INDIRECT ['v_4569', 'c_61_4'] -> v_4572 classification=None
+0x101220 INDIRECT ['v_2365', 'c_66_4'] -> v_2368 classification=None
+0x101220 INDIRECT ['v_4118', 'c_66_4'] -> v_4121 classification=None
+0x101220 INDIRECT ['v_4572', 'c_66_4'] -> v_4575 classification=None
+0x101220 INDIRECT ['v_2368', 'c_71_4'] -> v_2371 classification=None
+0x101220 INDIRECT ['v_4121', 'c_71_4'] -> v_4124 classification=None
+0x101220 INDIRECT ['v_4575', 'c_71_4'] -> v_4578 classification=None
+0x101220 INDIRECT ['v_2371', 'c_77_4'] -> v_2374 classification=None
+0x101220 INDIRECT ['v_4124', 'c_77_4'] -> v_4127 classification=None
+0x101220 INDIRECT ['v_4578', 'c_77_4'] -> v_4582 classification=None
+0x101220 INDIRECT ['v_2374', 'c_85_4'] -> v_2377 classification=None
+0x101220 INDIRECT ['v_4127', 'c_85_4'] -> v_4130 classification=None
+0x101220 INDIRECT ['v_4582', 'c_85_4'] -> v_4585 classification=None
+0x101220 INDIRECT ['v_2377', 'c_91_4'] -> v_2380 classification=None
+0x101220 INDIRECT ['v_4130', 'c_91_4'] -> v_4133 classification=None
+0x101220 INDIRECT ['v_4585', 'c_91_4'] -> v_4589 classification=None
+0x101220 INDIRECT ['v_2380', 'c_99_4'] -> v_2383 classification=None
+0x101220 INDIRECT ['v_4133', 'c_99_4'] -> v_4136 classification=None
+0x101220 INDIRECT ['v_4589', 'c_99_4'] -> v_4592 classification=None
+0x101328 INDIRECT ['v_2383', 'c_369_4'] -> v_2386 classification=None
+0x101328 INDIRECT ['v_4136', 'c_369_4'] -> v_4139 classification=None
+0x101328 INDIRECT ['v_4592', 'c_369_4'] -> v_4595 classification=None
+0x101328 INDIRECT ['v_2386', 'c_374_4'] -> v_2389 classification=None
+0x101328 INDIRECT ['v_4139', 'c_374_4'] -> v_4142 classification=None
+0x101328 INDIRECT ['v_4595', 'c_374_4'] -> v_4598 classification=None
+0x101308 INDIRECT ['v_2383', 'c_115_4'] -> v_2392 classification=None
+0x101308 INDIRECT ['v_4136', 'c_115_4'] -> v_4145 classification=None
+0x101308 INDIRECT ['v_4592', 'c_115_4'] -> v_4601 classification=None
+0x101308 INDIRECT ['v_2392', 'c_120_4'] -> v_2395 classification=None
+0x101308 INDIRECT ['v_4145', 'c_120_4'] -> v_4148 classification=None
+0x101308 INDIRECT ['v_4601', 'c_120_4'] -> v_4604 classification=None
+0x10134a MULTIEQUAL ['v_4604', 'v_4598'] -> v_4711 classification=None
+0x10134a MULTIEQUAL ['v_4001', 'v_941'] -> v_4553 classification=None
+0x10134a MULTIEQUAL ['v_4148', 'v_4142'] -> v_4253 classification=None
+0x10134a MULTIEQUAL ['v_2395', 'v_2389'] -> v_2496 classification=None
+0x10134a INDIRECT ['v_2496', 'c_126_4'] -> v_2398 classification=None
+0x10134a INDIRECT ['v_4253', 'c_126_4'] -> v_4151 classification=None
+0x10134a INDIRECT ['v_4711', 'c_126_4'] -> v_4607 classification=None
+0x10134a INDIRECT ['v_2398', 'c_131_4'] -> v_2401 classification=None
+0x10134a INDIRECT ['v_4151', 'c_131_4'] -> v_4154 classification=None
+0x10134a INDIRECT ['v_4607', 'c_131_4'] -> v_4610 classification=None
+0x10134a INDIRECT ['v_2401', 'c_136_4'] -> v_2404 classification=None
+0x10134a INDIRECT ['v_4154', 'c_136_4'] -> v_4157 classification=None
+0x10134a INDIRECT ['v_4610', 'c_136_4'] -> v_4613 classification=None
+0x10134a INDIRECT ['v_2404', 'c_142_4'] -> v_2407 classification=None
+0x10134a INDIRECT ['v_4157', 'c_142_4'] -> v_4160 classification=None
+0x10134a INDIRECT ['v_4613', 'c_142_4'] -> v_4617 classification=None
+0x10134a INDIRECT ['v_2407', 'c_150_4'] -> v_2410 classification=None
+0x10134a INDIRECT ['v_4160', 'c_150_4'] -> v_4163 classification=None
+0x10134a INDIRECT ['v_4617', 'c_150_4'] -> v_4620 classification=None
+0x10134a INDIRECT ['v_2410', 'c_156_4'] -> v_2413 classification=None
+0x10134a INDIRECT ['v_4163', 'c_156_4'] -> v_4166 classification=None
+0x10134a INDIRECT ['v_4620', 'c_156_4'] -> v_4624 classification=None
+0x10134a INDIRECT ['v_2413', 'c_164_4'] -> v_2416 classification=None
+0x10134a INDIRECT ['v_4166', 'c_164_4'] -> v_4169 classification=None
+0x10134a INDIRECT ['v_4624', 'c_164_4'] -> v_4627 classification=None
+0x1013e9 INDIRECT ['v_2416', 'c_342_4'] -> v_2419 classification=None
+0x1013e9 INDIRECT ['v_4169', 'c_342_4'] -> v_4172 classification=None
+0x1013e9 INDIRECT ['v_4627', 'c_342_4'] -> v_4630 classification=None
+0x1013e9 INDIRECT ['v_2419', 'c_347_4'] -> v_2422 classification=None
+0x1013e9 INDIRECT ['v_4172', 'c_347_4'] -> v_4175 classification=None
+0x1013e9 INDIRECT ['v_4630', 'c_347_4'] -> v_4633 classification=None
+0x1013c9 INDIRECT ['v_2416', 'c_180_4'] -> v_2425 classification=None
+0x1013c9 INDIRECT ['v_4169', 'c_180_4'] -> v_4178 classification=None
+0x1013c9 INDIRECT ['v_4627', 'c_180_4'] -> v_4636 classification=None
+0x1013c9 INDIRECT ['v_2425', 'c_185_4'] -> v_2428 classification=None
+0x1013c9 INDIRECT ['v_4178', 'c_185_4'] -> v_4181 classification=None
+0x1013c9 INDIRECT ['v_4636', 'c_185_4'] -> v_4639 classification=None
+0x10140b MULTIEQUAL ['v_4639', 'v_4633'] -> v_4708 classification=None
+0x10140b MULTIEQUAL ['v_4553', 'v_867'] -> v_4550 classification=None
+0x10140b MULTIEQUAL ['v_4181', 'v_4175'] -> v_4250 classification=None
+0x10140b MULTIEQUAL ['v_2428', 'v_2422'] -> v_2493 classification=None
+0x10140b INDIRECT ['v_2493', 'c_191_4'] -> v_2431 classification=None
+0x10140b INDIRECT ['v_4250', 'c_191_4'] -> v_4184 classification=None
+0x10140b INDIRECT ['v_4708', 'c_191_4'] -> v_4642 classification=None
+0x10140b INDIRECT ['v_2431', 'c_196_4'] -> v_2434 classification=None
+0x10140b INDIRECT ['v_4184', 'c_196_4'] -> v_4187 classification=None
+0x10140b INDIRECT ['v_4642', 'c_196_4'] -> v_4645 classification=None
+0x10140b INDIRECT ['v_2434', 'c_201_4'] -> v_2437 classification=None
+0x10140b INDIRECT ['v_4187', 'c_201_4'] -> v_4190 classification=None
+0x10140b INDIRECT ['v_4645', 'c_201_4'] -> v_4648 classification=None
+0x10140b INDIRECT ['v_2437', 'c_207_4'] -> v_2440 classification=None
+0x10140b INDIRECT ['v_4190', 'c_207_4'] -> v_4193 classification=None
+0x10140b INDIRECT ['v_4648', 'c_207_4'] -> v_4652 classification=None
+0x10140b INDIRECT ['v_2440', 'c_215_4'] -> v_2443 classification=None
+0x10140b INDIRECT ['v_4193', 'c_215_4'] -> v_4196 classification=None
+0x10140b INDIRECT ['v_4652', 'c_215_4'] -> v_4655 classification=None
+0x10140b INDIRECT ['v_2443', 'c_221_4'] -> v_2446 classification=None
+0x10140b INDIRECT ['v_4196', 'c_221_4'] -> v_4199 classification=None
+0x10140b INDIRECT ['v_4655', 'c_221_4'] -> v_4659 classification=None
+0x10140b INDIRECT ['v_2446', 'c_229_4'] -> v_2449 classification=None
+0x10140b INDIRECT ['v_4199', 'c_229_4'] -> v_4202 classification=None
+0x10140b INDIRECT ['v_4659', 'c_229_4'] -> v_4662 classification=None
+0x1014ff INDIRECT ['v_2449', 'c_317_4'] -> v_2452 classification=None
+0x1014ff INDIRECT ['v_4202', 'c_317_4'] -> v_4205 classification=None
+0x1014ff INDIRECT ['v_4662', 'c_317_4'] -> v_4665 classification=None
+0x1014ff INDIRECT ['v_2452', 'c_322_4'] -> v_2455 classification=None
+0x1014ff INDIRECT ['v_4205', 'c_322_4'] -> v_4208 classification=None
+0x1014ff INDIRECT ['v_4665', 'c_322_4'] -> v_4668 classification=None
+0x1014ff INDIRECT ['v_2455', 'c_327_4'] -> v_2458 classification=None
+0x1014ff INDIRECT ['v_4208', 'c_327_4'] -> v_4211 classification=None
+0x1014ff INDIRECT ['v_4668', 'c_327_4'] -> v_4671 classification=None
+0x1014ff INDIRECT ['v_2458', 'c_332_4'] -> v_2461 classification=None
+0x1014ff INDIRECT ['v_4211', 'c_332_4'] -> v_4214 classification=None
+0x1014ff INDIRECT ['v_4671', 'c_332_4'] -> v_4674 classification=None
+0x1014ff INDIRECT ['v_2461', 'c_337_4'] -> v_2464 classification=None
+0x1014ff INDIRECT ['v_4214', 'c_337_4'] -> v_4217 classification=None
+0x1014ff INDIRECT ['v_4674', 'c_337_4'] -> v_4677 classification=None
+0x10148a INDIRECT ['v_2449', 'c_245_4'] -> v_2467 classification=None
+0x10148a INDIRECT ['v_4202', 'c_245_4'] -> v_4220 classification=None
+0x10148a INDIRECT ['v_4662', 'c_245_4'] -> v_4680 classification=None
+0x10148a INDIRECT ['v_2467', 'c_250_4'] -> v_2470 classification=None
+0x10148a INDIRECT ['v_4220', 'c_250_4'] -> v_4223 classification=None
+0x10148a INDIRECT ['v_4680', 'c_250_4'] -> v_4683 classification=None
+0x10148a INDIRECT ['v_2470', 'c_255_4'] -> v_2473 classification=None
+0x10148a INDIRECT ['v_4223', 'c_255_4'] -> v_4226 classification=None
+0x10148a INDIRECT ['v_4683', 'c_255_4'] -> v_4686 classification=None
+0x10148a INDIRECT ['v_2473', 'c_260_4'] -> v_2476 classification=None
+0x10148a INDIRECT ['v_4226', 'c_260_4'] -> v_4229 classification=None
+0x10148a INDIRECT ['v_4686', 'c_260_4'] -> v_4689 classification=None
+0x10148a INDIRECT ['v_2476', 'c_265_4'] -> v_2479 classification=None
+0x10148a INDIRECT ['v_4229', 'c_265_4'] -> v_4232 classification=None
+0x10148a INDIRECT ['v_4689', 'c_265_4'] -> v_4692 classification=None
+0x10148a INDIRECT ['v_2479', 'c_270_4'] -> v_2482 classification=None
+0x10148a INDIRECT ['v_4232', 'c_270_4'] -> v_4235 classification=None
+0x10148a INDIRECT ['v_4692', 'c_270_4'] -> v_4695 classification=None
+0x10148a INDIRECT ['v_2482', 'c_282_4'] -> v_2485 classification=None
+0x10148a INDIRECT ['v_4235', 'c_282_4'] -> v_4238 classification=None
+0x10148a INDIRECT ['v_4695', 'c_282_4'] -> v_4699 classification=None
+0x10154a MULTIEQUAL ['v_4699', 'v_4677'] -> v_4705 classification=None
+0x10154a MULTIEQUAL ['v_4238', 'v_4217'] -> v_4247 classification=None
+0x10154a MULTIEQUAL ['v_2485', 'v_2464'] -> v_2490 classification=None
+0x10154a CAST ['v_5074'] -> v_700 classification=same_width_explicit_recast
+0x101563 COPY ['v_4247'] -> v_4245 classification=bit_preserving_copy
+0x10155e INDIRECT ['v_4247', 'c_304_4'] -> v_4241 classification=None
+0x10155e INDIRECT ['v_4705', 'c_304_4'] -> v_4703 classification=None
+0x10155e COPY ['v_4241'] -> v_4243 classification=bit_preserving_copy
+
+[HELPER-REQUIRED CONTRACTS]
+0x101220 INT_ADD v_5073 helper=c_add widths=[64, 64]->64 overrides=0
+0x101220 INT_EQUAL v_259 helper=c_eq widths=[32, 32]->8 overrides=0
+0x10134a INT_EQUAL v_415 helper=c_eq widths=[32, 32]->8 overrides=0
+0x1013e9 INT_SUB v_867 helper=c_sub widths=[32, 32]->32 overrides=0
+0x10140b INT_EQUAL v_571 helper=c_eq widths=[32, 32]->8 overrides=0
+0x10148a INT_ZEXT v_2036 helper=c_zext widths=[32]->64 overrides=0
+0x10154a INT_ADD v_5074 helper=c_add widths=[64, 64]->64 overrides=0
+0x10154a INT_NOTEQUAL v_724 helper=c_ne widths=[64, 64]->8 overrides=0
+
+[INDIRECT STORAGE-CUSTODY CONTRACTS]
+0x101220 v_3551 -> v_2350 family=storage_family:high_rep:3551 owner=CALL/0x24 owner_compute=1053216:(ram, 0x101248, 36, 8):8 status=metadata_only
+0x101220 v_4872 -> v_4103 family=storage_family:high_rep:4872 owner=CALL/0x24 owner_compute=1053216:(ram, 0x101248, 36, 8):8 status=metadata_only
+0x101220 v_39 -> v_4557 family=storage_family:high_rep:4557 owner=CALL/0x24 owner_compute=1053216:(ram, 0x101248, 36, 8):8 status=metadata_only
+0x101220 v_2350 -> v_2353 family=storage_family:high_rep:3551 owner=CALL/0x29 owner_compute=1053216:(ram, 0x101257, 41, 13):13 status=metadata_only
+0x101220 v_4103 -> v_4106 family=storage_family:high_rep:4872 owner=CALL/0x29 owner_compute=1053216:(ram, 0x101257, 41, 13):13 status=metadata_only
+0x101220 v_4557 -> v_4560 family=storage_family:high_rep:4557 owner=CALL/0x29 owner_compute=1053216:(ram, 0x101257, 41, 13):13 status=metadata_only
+0x101220 v_2353 -> v_2356 family=storage_family:high_rep:3551 owner=CALL/0x2e owner_compute=1053216:(ram, 0x101266, 46, 18):18 status=metadata_only
+0x101220 v_4106 -> v_4109 family=storage_family:high_rep:4872 owner=CALL/0x2e owner_compute=1053216:(ram, 0x101266, 46, 18):18 status=metadata_only
+0x101220 v_4560 -> v_4563 family=storage_family:high_rep:4557 owner=CALL/0x2e owner_compute=1053216:(ram, 0x101266, 46, 18):18 status=metadata_only
+0x101220 v_2356 -> v_2359 family=storage_family:high_rep:3551 owner=CALL/0x33 owner_compute=1053216:(ram, 0x101275, 51, 23):23 status=metadata_only
+0x101220 v_4109 -> v_4112 family=storage_family:high_rep:4872 owner=CALL/0x33 owner_compute=1053216:(ram, 0x101275, 51, 23):23 status=metadata_only
+0x101220 v_4563 -> v_4566 family=storage_family:high_rep:4557 owner=CALL/0x33 owner_compute=1053216:(ram, 0x101275, 51, 23):23 status=metadata_only
+0x101220 v_2359 -> v_2362 family=storage_family:high_rep:3551 owner=CALL/0x38 owner_compute=1053216:(ram, 0x101284, 56, 28):28 status=metadata_only
+0x101220 v_4112 -> v_4115 family=storage_family:high_rep:4872 owner=CALL/0x38 owner_compute=1053216:(ram, 0x101284, 56, 28):28 status=metadata_only
+0x101220 v_4566 -> v_4569 family=storage_family:high_rep:4557 owner=CALL/0x38 owner_compute=1053216:(ram, 0x101284, 56, 28):28 status=metadata_only
+0x101220 v_2362 -> v_2365 family=storage_family:high_rep:3551 owner=CALL/0x3d owner_compute=1053216:(ram, 0x101293, 61, 33):33 status=metadata_only
+0x101220 v_4115 -> v_4118 family=storage_family:high_rep:4872 owner=CALL/0x3d owner_compute=1053216:(ram, 0x101293, 61, 33):33 status=metadata_only
+0x101220 v_4569 -> v_4572 family=storage_family:high_rep:4557 owner=CALL/0x3d owner_compute=1053216:(ram, 0x101293, 61, 33):33 status=metadata_only
+0x101220 v_2365 -> v_2368 family=storage_family:high_rep:3551 owner=CALL/0x42 owner_compute=1053216:(ram, 0x1012a2, 66, 38):38 status=metadata_only
+0x101220 v_4118 -> v_4121 family=storage_family:high_rep:4872 owner=CALL/0x42 owner_compute=1053216:(ram, 0x1012a2, 66, 38):38 status=metadata_only
+0x101220 v_4572 -> v_4575 family=storage_family:high_rep:4557 owner=CALL/0x42 owner_compute=1053216:(ram, 0x1012a2, 66, 38):38 status=metadata_only
+0x101220 v_2368 -> v_2371 family=storage_family:high_rep:3551 owner=CALL/0x47 owner_compute=1053216:(ram, 0x1012b1, 71, 43):43 status=metadata_only
+0x101220 v_4121 -> v_4124 family=storage_family:high_rep:4872 owner=CALL/0x47 owner_compute=1053216:(ram, 0x1012b1, 71, 43):43 status=metadata_only
+0x101220 v_4575 -> v_4578 family=storage_family:high_rep:4557 owner=CALL/0x47 owner_compute=1053216:(ram, 0x1012b1, 71, 43):43 status=metadata_only
+0x101220 v_2371 -> v_2374 family=storage_family:high_rep:3551 owner=CALL/0x4d owner_compute=1053216:(ram, 0x1012c5, 77, 48):48 status=metadata_only
+0x101220 v_4124 -> v_4127 family=storage_family:high_rep:4872 owner=CALL/0x4d owner_compute=1053216:(ram, 0x1012c5, 77, 48):48 status=metadata_only
+0x101220 v_4578 -> v_4582 family=storage_family:high_rep:4557 owner=CALL/0x4d owner_compute=1053216:(ram, 0x1012c5, 77, 48):48 status=metadata_only
+0x101220 v_2374 -> v_2377 family=storage_family:high_rep:3551 owner=CALL/0x55 owner_compute=1053216:(ram, 0x1012dd, 85, 53):53 status=metadata_only
+0x101220 v_4127 -> v_4130 family=storage_family:high_rep:4872 owner=CALL/0x55 owner_compute=1053216:(ram, 0x1012dd, 85, 53):53 status=metadata_only
+0x101220 v_4582 -> v_4585 family=storage_family:high_rep:4557 owner=CALL/0x55 owner_compute=1053216:(ram, 0x1012dd, 85, 53):53 status=metadata_only
+0x101220 v_2377 -> v_2380 family=storage_family:high_rep:3551 owner=CALL/0x5b owner_compute=1053216:(ram, 0x1012e9, 91, 58):58 status=metadata_only
+0x101220 v_4130 -> v_4133 family=storage_family:high_rep:4872 owner=CALL/0x5b owner_compute=1053216:(ram, 0x1012e9, 91, 58):58 status=metadata_only
+0x101220 v_4585 -> v_4589 family=storage_family:high_rep:4557 owner=CALL/0x5b owner_compute=1053216:(ram, 0x1012e9, 91, 58):58 status=metadata_only
+0x101220 v_2380 -> v_2383 family=storage_family:high_rep:3551 owner=CALL/0x63 owner_compute=1053216:(ram, 0x1012ff, 99, 64):64 status=metadata_only
+0x101220 v_4133 -> v_4136 family=storage_family:high_rep:4872 owner=CALL/0x63 owner_compute=1053216:(ram, 0x1012ff, 99, 64):64 status=metadata_only
+0x101220 v_4589 -> v_4592 family=storage_family:high_rep:4557 owner=CALL/0x63 owner_compute=1053216:(ram, 0x1012ff, 99, 64):64 status=metadata_only
+0x101328 v_2383 -> v_2386 family=storage_family:high_rep:3551 owner=CALL/0x171 owner_compute=1053480:(ram, 0x101332, 369, 4):4 status=metadata_only
+0x101328 v_4136 -> v_4139 family=storage_family:high_rep:4872 owner=CALL/0x171 owner_compute=1053480:(ram, 0x101332, 369, 4):4 status=metadata_only
+0x101328 v_4592 -> v_4595 family=storage_family:high_rep:4557 owner=CALL/0x171 owner_compute=1053480:(ram, 0x101332, 369, 4):4 status=metadata_only
+0x101328 v_2386 -> v_2389 family=storage_family:high_rep:3551 owner=CALL/0x176 owner_compute=1053480:(ram, 0x101341, 374, 9):9 status=metadata_only
+0x101328 v_4139 -> v_4142 family=storage_family:high_rep:4872 owner=CALL/0x176 owner_compute=1053480:(ram, 0x101341, 374, 9):9 status=metadata_only
+0x101328 v_4595 -> v_4598 family=storage_family:high_rep:4557 owner=CALL/0x176 owner_compute=1053480:(ram, 0x101341, 374, 9):9 status=metadata_only
+0x101308 v_2383 -> v_2392 family=storage_family:high_rep:3551 owner=CALL/0x73 owner_compute=1053448:(ram, 0x101312, 115, 4):4 status=metadata_only
+0x101308 v_4136 -> v_4145 family=storage_family:high_rep:4872 owner=CALL/0x73 owner_compute=1053448:(ram, 0x101312, 115, 4):4 status=metadata_only
+0x101308 v_4592 -> v_4601 family=storage_family:high_rep:4557 owner=CALL/0x73 owner_compute=1053448:(ram, 0x101312, 115, 4):4 status=metadata_only
+0x101308 v_2392 -> v_2395 family=storage_family:high_rep:3551 owner=CALL/0x78 owner_compute=1053448:(ram, 0x101321, 120, 9):9 status=metadata_only
+0x101308 v_4145 -> v_4148 family=storage_family:high_rep:4872 owner=CALL/0x78 owner_compute=1053448:(ram, 0x101321, 120, 9):9 status=metadata_only
+0x101308 v_4601 -> v_4604 family=storage_family:high_rep:4557 owner=CALL/0x78 owner_compute=1053448:(ram, 0x101321, 120, 9):9 status=metadata_only
+0x10134a v_2496 -> v_2398 family=storage_family:high_rep:3551 owner=CALL/0x7e owner_compute=1053514:(ram, 0x101354, 126, 8):8 status=metadata_only
+0x10134a v_4253 -> v_4151 family=storage_family:high_rep:4872 owner=CALL/0x7e owner_compute=1053514:(ram, 0x101354, 126, 8):8 status=metadata_only
+0x10134a v_4711 -> v_4607 family=storage_family:high_rep:4557 owner=CALL/0x7e owner_compute=1053514:(ram, 0x101354, 126, 8):8 status=metadata_only
+0x10134a v_2398 -> v_2401 family=storage_family:high_rep:3551 owner=CALL/0x83 owner_compute=1053514:(ram, 0x101363, 131, 13):13 status=metadata_only
+0x10134a v_4151 -> v_4154 family=storage_family:high_rep:4872 owner=CALL/0x83 owner_compute=1053514:(ram, 0x101363, 131, 13):13 status=metadata_only
+0x10134a v_4607 -> v_4610 family=storage_family:high_rep:4557 owner=CALL/0x83 owner_compute=1053514:(ram, 0x101363, 131, 13):13 status=metadata_only
+0x10134a v_2401 -> v_2404 family=storage_family:high_rep:3551 owner=CALL/0x88 owner_compute=1053514:(ram, 0x101372, 136, 18):18 status=metadata_only
+0x10134a v_4154 -> v_4157 family=storage_family:high_rep:4872 owner=CALL/0x88 owner_compute=1053514:(ram, 0x101372, 136, 18):18 status=metadata_only
+0x10134a v_4610 -> v_4613 family=storage_family:high_rep:4557 owner=CALL/0x88 owner_compute=1053514:(ram, 0x101372, 136, 18):18 status=metadata_only
+0x10134a v_2404 -> v_2407 family=storage_family:high_rep:3551 owner=CALL/0x8e owner_compute=1053514:(ram, 0x101386, 142, 23):23 status=metadata_only
+0x10134a v_4157 -> v_4160 family=storage_family:high_rep:4872 owner=CALL/0x8e owner_compute=1053514:(ram, 0x101386, 142, 23):23 status=metadata_only
+0x10134a v_4613 -> v_4617 family=storage_family:high_rep:4557 owner=CALL/0x8e owner_compute=1053514:(ram, 0x101386, 142, 23):23 status=metadata_only
+0x10134a v_2407 -> v_2410 family=storage_family:high_rep:3551 owner=CALL/0x96 owner_compute=1053514:(ram, 0x10139e, 150, 28):28 status=metadata_only
+0x10134a v_4160 -> v_4163 family=storage_family:high_rep:4872 owner=CALL/0x96 owner_compute=1053514:(ram, 0x10139e, 150, 28):28 status=metadata_only
+0x10134a v_4617 -> v_4620 family=storage_family:high_rep:4557 owner=CALL/0x96 owner_compute=1053514:(ram, 0x10139e, 150, 28):28 status=metadata_only
+0x10134a v_2410 -> v_2413 family=storage_family:high_rep:3551 owner=CALL/0x9c owner_compute=1053514:(ram, 0x1013aa, 156, 33):33 status=metadata_only
+0x10134a v_4163 -> v_4166 family=storage_family:high_rep:4872 owner=CALL/0x9c owner_compute=1053514:(ram, 0x1013aa, 156, 33):33 status=metadata_only
+0x10134a v_4620 -> v_4624 family=storage_family:high_rep:4557 owner=CALL/0x9c owner_compute=1053514:(ram, 0x1013aa, 156, 33):33 status=metadata_only
+0x10134a v_2413 -> v_2416 family=storage_family:high_rep:3551 owner=CALL/0xa4 owner_compute=1053514:(ram, 0x1013c0, 164, 39):39 status=metadata_only
+0x10134a v_4166 -> v_4169 family=storage_family:high_rep:4872 owner=CALL/0xa4 owner_compute=1053514:(ram, 0x1013c0, 164, 39):39 status=metadata_only
+0x10134a v_4624 -> v_4627 family=storage_family:high_rep:4557 owner=CALL/0xa4 owner_compute=1053514:(ram, 0x1013c0, 164, 39):39 status=metadata_only
+0x1013e9 v_2416 -> v_2419 family=storage_family:high_rep:3551 owner=CALL/0x156 owner_compute=1053673:(ram, 0x1013f3, 342, 4):4 status=metadata_only
+0x1013e9 v_4169 -> v_4172 family=storage_family:high_rep:4872 owner=CALL/0x156 owner_compute=1053673:(ram, 0x1013f3, 342, 4):4 status=metadata_only
+0x1013e9 v_4627 -> v_4630 family=storage_family:high_rep:4557 owner=CALL/0x156 owner_compute=1053673:(ram, 0x1013f3, 342, 4):4 status=metadata_only
+0x1013e9 v_2419 -> v_2422 family=storage_family:high_rep:3551 owner=CALL/0x15b owner_compute=1053673:(ram, 0x101402, 347, 9):9 status=metadata_only
+0x1013e9 v_4172 -> v_4175 family=storage_family:high_rep:4872 owner=CALL/0x15b owner_compute=1053673:(ram, 0x101402, 347, 9):9 status=metadata_only
+0x1013e9 v_4630 -> v_4633 family=storage_family:high_rep:4557 owner=CALL/0x15b owner_compute=1053673:(ram, 0x101402, 347, 9):9 status=metadata_only
+0x1013c9 v_2416 -> v_2425 family=storage_family:high_rep:3551 owner=CALL/0xb4 owner_compute=1053641:(ram, 0x1013d3, 180, 4):4 status=metadata_only
+0x1013c9 v_4169 -> v_4178 family=storage_family:high_rep:4872 owner=CALL/0xb4 owner_compute=1053641:(ram, 0x1013d3, 180, 4):4 status=metadata_only
+0x1013c9 v_4627 -> v_4636 family=storage_family:high_rep:4557 owner=CALL/0xb4 owner_compute=1053641:(ram, 0x1013d3, 180, 4):4 status=metadata_only
+0x1013c9 v_2425 -> v_2428 family=storage_family:high_rep:3551 owner=CALL/0xb9 owner_compute=1053641:(ram, 0x1013e2, 185, 9):9 status=metadata_only
+0x1013c9 v_4178 -> v_4181 family=storage_family:high_rep:4872 owner=CALL/0xb9 owner_compute=1053641:(ram, 0x1013e2, 185, 9):9 status=metadata_only
+0x1013c9 v_4636 -> v_4639 family=storage_family:high_rep:4557 owner=CALL/0xb9 owner_compute=1053641:(ram, 0x1013e2, 185, 9):9 status=metadata_only
+0x10140b v_2493 -> v_2431 family=storage_family:high_rep:3551 owner=CALL/0xbf owner_compute=1053707:(ram, 0x101415, 191, 8):8 status=metadata_only
+0x10140b v_4250 -> v_4184 family=storage_family:high_rep:4872 owner=CALL/0xbf owner_compute=1053707:(ram, 0x101415, 191, 8):8 status=metadata_only
+0x10140b v_4708 -> v_4642 family=storage_family:high_rep:4557 owner=CALL/0xbf owner_compute=1053707:(ram, 0x101415, 191, 8):8 status=metadata_only
+0x10140b v_2431 -> v_2434 family=storage_family:high_rep:3551 owner=CALL/0xc4 owner_compute=1053707:(ram, 0x101424, 196, 13):13 status=metadata_only
+0x10140b v_4184 -> v_4187 family=storage_family:high_rep:4872 owner=CALL/0xc4 owner_compute=1053707:(ram, 0x101424, 196, 13):13 status=metadata_only
+0x10140b v_4642 -> v_4645 family=storage_family:high_rep:4557 owner=CALL/0xc4 owner_compute=1053707:(ram, 0x101424, 196, 13):13 status=metadata_only
+0x10140b v_2434 -> v_2437 family=storage_family:high_rep:3551 owner=CALL/0xc9 owner_compute=1053707:(ram, 0x101433, 201, 18):18 status=metadata_only
+0x10140b v_4187 -> v_4190 family=storage_family:high_rep:4872 owner=CALL/0xc9 owner_compute=1053707:(ram, 0x101433, 201, 18):18 status=metadata_only
+0x10140b v_4645 -> v_4648 family=storage_family:high_rep:4557 owner=CALL/0xc9 owner_compute=1053707:(ram, 0x101433, 201, 18):18 status=metadata_only
+0x10140b v_2437 -> v_2440 family=storage_family:high_rep:3551 owner=CALL/0xcf owner_compute=1053707:(ram, 0x101447, 207, 23):23 status=metadata_only
+0x10140b v_4190 -> v_4193 family=storage_family:high_rep:4872 owner=CALL/0xcf owner_compute=1053707:(ram, 0x101447, 207, 23):23 status=metadata_only
+0x10140b v_4648 -> v_4652 family=storage_family:high_rep:4557 owner=CALL/0xcf owner_compute=1053707:(ram, 0x101447, 207, 23):23 status=metadata_only
+0x10140b v_2440 -> v_2443 family=storage_family:high_rep:3551 owner=CALL/0xd7 owner_compute=1053707:(ram, 0x10145f, 215, 28):28 status=metadata_only
+0x10140b v_4193 -> v_4196 family=storage_family:high_rep:4872 owner=CALL/0xd7 owner_compute=1053707:(ram, 0x10145f, 215, 28):28 status=metadata_only
+0x10140b v_4652 -> v_4655 family=storage_family:high_rep:4557 owner=CALL/0xd7 owner_compute=1053707:(ram, 0x10145f, 215, 28):28 status=metadata_only
+0x10140b v_2443 -> v_2446 family=storage_family:high_rep:3551 owner=CALL/0xdd owner_compute=1053707:(ram, 0x10146b, 221, 33):33 status=metadata_only
+0x10140b v_4196 -> v_4199 family=storage_family:high_rep:4872 owner=CALL/0xdd owner_compute=1053707:(ram, 0x10146b, 221, 33):33 status=metadata_only
+0x10140b v_4655 -> v_4659 family=storage_family:high_rep:4557 owner=CALL/0xdd owner_compute=1053707:(ram, 0x10146b, 221, 33):33 status=metadata_only
+0x10140b v_2446 -> v_2449 family=storage_family:high_rep:3551 owner=CALL/0xe5 owner_compute=1053707:(ram, 0x101481, 229, 39):39 status=metadata_only
+0x10140b v_4199 -> v_4202 family=storage_family:high_rep:4872 owner=CALL/0xe5 owner_compute=1053707:(ram, 0x101481, 229, 39):39 status=metadata_only
+0x10140b v_4659 -> v_4662 family=storage_family:high_rep:4557 owner=CALL/0xe5 owner_compute=1053707:(ram, 0x101481, 229, 39):39 status=metadata_only
+0x1014ff v_2449 -> v_2452 family=storage_family:high_rep:3551 owner=CALL/0x13d owner_compute=1053951:(ram, 0x101509, 317, 4):4 status=metadata_only
+0x1014ff v_4202 -> v_4205 family=storage_family:high_rep:4872 owner=CALL/0x13d owner_compute=1053951:(ram, 0x101509, 317, 4):4 status=metadata_only
+0x1014ff v_4662 -> v_4665 family=storage_family:high_rep:4557 owner=CALL/0x13d owner_compute=1053951:(ram, 0x101509, 317, 4):4 status=metadata_only
+0x1014ff v_2452 -> v_2455 family=storage_family:high_rep:3551 owner=CALL/0x142 owner_compute=1053951:(ram, 0x101518, 322, 9):9 status=metadata_only
+0x1014ff v_4205 -> v_4208 family=storage_family:high_rep:4872 owner=CALL/0x142 owner_compute=1053951:(ram, 0x101518, 322, 9):9 status=metadata_only
+0x1014ff v_4665 -> v_4668 family=storage_family:high_rep:4557 owner=CALL/0x142 owner_compute=1053951:(ram, 0x101518, 322, 9):9 status=metadata_only
+0x1014ff v_2455 -> v_2458 family=storage_family:high_rep:3551 owner=CALL/0x147 owner_compute=1053951:(ram, 0x101527, 327, 14):14 status=metadata_only
+0x1014ff v_4208 -> v_4211 family=storage_family:high_rep:4872 owner=CALL/0x147 owner_compute=1053951:(ram, 0x101527, 327, 14):14 status=metadata_only
+0x1014ff v_4668 -> v_4671 family=storage_family:high_rep:4557 owner=CALL/0x147 owner_compute=1053951:(ram, 0x101527, 327, 14):14 status=metadata_only
+0x1014ff v_2458 -> v_2461 family=storage_family:high_rep:3551 owner=CALL/0x14c owner_compute=1053951:(ram, 0x101536, 332, 19):19 status=metadata_only
+0x1014ff v_4211 -> v_4214 family=storage_family:high_rep:4872 owner=CALL/0x14c owner_compute=1053951:(ram, 0x101536, 332, 19):19 status=metadata_only
+0x1014ff v_4671 -> v_4674 family=storage_family:high_rep:4557 owner=CALL/0x14c owner_compute=1053951:(ram, 0x101536, 332, 19):19 status=metadata_only
+0x1014ff v_2461 -> v_2464 family=storage_family:high_rep:3551 owner=CALL/0x151 owner_compute=1053951:(ram, 0x101545, 337, 24):24 status=metadata_only
+0x1014ff v_4214 -> v_4217 family=storage_family:high_rep:4872 owner=CALL/0x151 owner_compute=1053951:(ram, 0x101545, 337, 24):24 status=metadata_only
+0x1014ff v_4674 -> v_4677 family=storage_family:high_rep:4557 owner=CALL/0x151 owner_compute=1053951:(ram, 0x101545, 337, 24):24 status=metadata_only
+0x10148a v_2449 -> v_2467 family=storage_family:high_rep:3551 owner=CALL/0xf5 owner_compute=1053834:(ram, 0x101494, 245, 4):4 status=metadata_only
+0x10148a v_4202 -> v_4220 family=storage_family:high_rep:4872 owner=CALL/0xf5 owner_compute=1053834:(ram, 0x101494, 245, 4):4 status=metadata_only
+0x10148a v_4662 -> v_4680 family=storage_family:high_rep:4557 owner=CALL/0xf5 owner_compute=1053834:(ram, 0x101494, 245, 4):4 status=metadata_only
+0x10148a v_2467 -> v_2470 family=storage_family:high_rep:3551 owner=CALL/0xfa owner_compute=1053834:(ram, 0x1014a3, 250, 9):9 status=metadata_only
+0x10148a v_4220 -> v_4223 family=storage_family:high_rep:4872 owner=CALL/0xfa owner_compute=1053834:(ram, 0x1014a3, 250, 9):9 status=metadata_only
+0x10148a v_4680 -> v_4683 family=storage_family:high_rep:4557 owner=CALL/0xfa owner_compute=1053834:(ram, 0x1014a3, 250, 9):9 status=metadata_only
+0x10148a v_2470 -> v_2473 family=storage_family:high_rep:3551 owner=CALL/0xff owner_compute=1053834:(ram, 0x1014b2, 255, 14):14 status=metadata_only
+0x10148a v_4223 -> v_4226 family=storage_family:high_rep:4872 owner=CALL/0xff owner_compute=1053834:(ram, 0x1014b2, 255, 14):14 status=metadata_only
+0x10148a v_4683 -> v_4686 family=storage_family:high_rep:4557 owner=CALL/0xff owner_compute=1053834:(ram, 0x1014b2, 255, 14):14 status=metadata_only
+0x10148a v_2473 -> v_2476 family=storage_family:high_rep:3551 owner=CALL/0x104 owner_compute=1053834:(ram, 0x1014c1, 260, 19):19 status=metadata_only
+0x10148a v_4226 -> v_4229 family=storage_family:high_rep:4872 owner=CALL/0x104 owner_compute=1053834:(ram, 0x1014c1, 260, 19):19 status=metadata_only
+0x10148a v_4686 -> v_4689 family=storage_family:high_rep:4557 owner=CALL/0x104 owner_compute=1053834:(ram, 0x1014c1, 260, 19):19 status=metadata_only
+0x10148a v_2476 -> v_2479 family=storage_family:high_rep:3551 owner=CALL/0x109 owner_compute=1053834:(ram, 0x1014d0, 265, 24):24 status=metadata_only
+0x10148a v_4229 -> v_4232 family=storage_family:high_rep:4872 owner=CALL/0x109 owner_compute=1053834:(ram, 0x1014d0, 265, 24):24 status=metadata_only
+0x10148a v_4689 -> v_4692 family=storage_family:high_rep:4557 owner=CALL/0x109 owner_compute=1053834:(ram, 0x1014d0, 265, 24):24 status=metadata_only
+0x10148a v_2479 -> v_2482 family=storage_family:high_rep:3551 owner=CALL/0x10e owner_compute=1053834:(ram, 0x1014df, 270, 29):29 status=metadata_only
+0x10148a v_4232 -> v_4235 family=storage_family:high_rep:4872 owner=CALL/0x10e owner_compute=1053834:(ram, 0x1014df, 270, 29):29 status=metadata_only
+0x10148a v_4692 -> v_4695 family=storage_family:high_rep:4557 owner=CALL/0x10e owner_compute=1053834:(ram, 0x1014df, 270, 29):29 status=metadata_only
+0x10148a v_2482 -> v_2485 family=storage_family:high_rep:3551 owner=CALL/0x11a owner_compute=1053834:(ram, 0x1014f8, 282, 35):35 status=metadata_only
+0x10148a v_4235 -> v_4238 family=storage_family:high_rep:4872 owner=CALL/0x11a owner_compute=1053834:(ram, 0x1014f8, 282, 35):35 status=metadata_only
+0x10148a v_4695 -> v_4699 family=storage_family:high_rep:4557 owner=CALL/0x11a owner_compute=1053834:(ram, 0x1014f8, 282, 35):35 status=metadata_only
+0x10155e v_4247 -> v_4241 family=storage_family:high_rep:4872 owner=CALL/0x130 owner_compute=1054046:(ram, 0x10155e, 304, 2):2 status=metadata_only
+0x10155e v_4705 -> v_4703 family=storage_family:high_rep:4557 owner=CALL/0x130 owner_compute=1054046:(ram, 0x10155e, 304, 2):2 status=metadata_only
+
+[INDIRECT CUSTODY INVENTORY]
+{'kind': 'pal_compute_indirect_custody_inventory_v22d',
+ 'version': 'v23b_abi_thunk_compatibility_return_reconciliation',
+ 'resolver_transitions': 140,
+ 'compute_indirect_contracts': 140,
+ 'resolved_custody': 140,
+ 'deferred_custody': 0,
+ 'effect_owner_compute_bindings': 140,
+ 'effect_owner_compute_ops': 47,
+ 'owner_categories': {'call_boundary': 140},
+ 'storage_families': 3,
+ 'storage_sid_bindings': 151,
+ 'address_escape_barrier_sids': 102,
+ 'parameter_storage_initializers': 0,
+ 'runtime_helpers': 0,
+ 'warnings': 0,
+ 'rule': 'INDIRECT_is_metadata_only_owner_bound_storage_transition'}
+
+[ABI-D ENTRY/CALL PLAN INVENTORY]
+{'kind': 'pal_compute_abi_plan_inventory_v23',
+ 'version': 'v23b_abi_thunk_compatibility_return_reconciliation',
+ 'function': 'main',
+ 'entry_plan_present': True,
+ 'entry_plan_status': 'ready',
+ 'fixed_arguments': 0,
+ 'implicit_inputs': 2,
+ 'implicit_inputs_unsupported': 0,
+ 'call_compute_contracts': 47,
+ 'call_site_plans': 47,
+ 'call_sites_without_plan': 0,
+ 'call_statuses': {'ready': 46, 'deferred_target_dispatch': 1},
+ 'dispatch_classes': {'external_via_import_thunk': 43,
+                      'internal_resolved': 3,
+                      'resolved_thunk_endpoint_deferred': 1},
+ 'internal_calls': 3,
+ 'internal_calls_with_target_compatible_plan': 0,
+ 'internal_calls_without_target_compatible_plan': 3,
+ 'internal_calls_with_deferred_target_compatibility': 3,
+ 'internal_calls_with_incompatible_target': 0,
+ 'internal_calls_without_transport_plan': 0,
+ 'external_calls': 43,
+ 'thunk_calls': 44,
+ 'external_via_thunk_calls': 43,
+ 'thunk_endpoint_deferred_calls': 1,
+ 'thunk_calls_misclassified_internal': 0,
+ 'target_compatibility_overclaims': 0,
+ 'no_return_calls': 1,
+ 'result_carrier_contracts': 47,
+ 'abi_runtime_helper_assignments': 0,
+ 'warnings': 0,
+ 'acceptance_gates': {'every_emitted_function_has_entry_plan': True,
+                      'every_call_has_call_site_plan': True,
+                      'every_internal_call_has_target_compatible_plan': False,
+                      'every_internal_call_has_carrier_transport_plan': True,
+                      'no_resolved_thunk_misclassified_internal': True,
+                      'no_target_compatibility_overclaim': True,
+                      'no_implicit_input_is_unsupported': True,
+                      'no_runtime_helper_assigned_by_ABI_guesswork': True},
+ 'return_boundary_reconciliation': {'kind': 'pal_compute_return_boundary_reconciliation_v23b',
+                                    'version': 'v23b_abi_thunk_compatibility_return_reconciliation',
+                                    'function': 'main',
+                                    'entry_block_addr': 1053216,
+                                    'cfg_evidence_available': True,
+                                    'no_return_terminating_blocks': [1054046],
+                                    'no_return_call_op_keys': ['1054046:(ram, '
+                                                               '0x10155e, 304, '
+                                                               '2):2'],
+                                    'return_boundaries': 2,
+                                    'reachable_return_boundaries': 1,
+                                    'unreachable_return_boundaries': 1,
+                                    'deferred_return_boundaries': 0,
+                                    'reachable_return_widths': [64],
+                                    'width_reconciled': True,
+                                    'synthetic_no_return_continuations_suppressed': 1,
+                                    'rule': 'traverse_CFG_with_no_return_blocks_as_terminal_then_reconcile_reachable_raw_return_transports_only'},
+ 'rule': 'ABI_A_B_C_authority_only_thunk_endpoint_and_compatibility_tri_state_no_downstream_argument_reinference'}
+
+[FUNCTION ENTRY ABI PLAN]
+{'plan_id': 'function_entry:1053212',
+ 'status': 'ready',
+ 'callable_signature_status': 'legacy_non_variadic_fallback',
+ 'fixed_argument_count': 0,
+ 'implicit_input_count': 2,
+ 'variadic_register_save_area': {'required': False,
+                                 'status': 'not_required',
+                                 'slots': [],
+                                 'gp_slots': [],
+                                 'sse_slots': [],
+                                 'fixed_variadic_partition_status': 'deferred_to_entry_protocol_analysis',
+                                 'source': 'abi_context.registers',
+                                 'authority': 'ABI_C_carriers_plus_variadic_contract'},
+ 'overflow_argument_area': {'required': False,
+                            'status': 'not_required',
+                            'source': 'abi_context.overflow_argument_area',
+                            'observed_stack_carriers': [],
+                            'materialization': 'consume_preclassified_overflow_slots',
+                            'offset_inference_allowed': False,
+                            'authority': 'ABI_C_stack_carriers_or_variadic_protocol'},
+ 'variadic_al': {'required': False,
+                 'status': 'not_required',
+                 'source': 'abi_context.variadic_xmm_count',
+                 'inputs': [],
+                 'default_allowed': False,
+                 'authority': 'ABI_C_variadic_xmm_count_contract'},
+ 'frame_base': {'required': True,
+                'status': 'runtime_abi_context_required',
+                'source': 'abi_context.frame_base',
+                'inputs': [{'kind': 'pal_compute_implicit_input_materialization_abi_d',
+                            'version': 'v23b_abi_thunk_compatibility_return_reconciliation',
+                            'sid': 'v_3550',
+                            'canonical_alias': 'abi_stack_pointer',
+                            'role': 'stack_pointer',
+                            'custody_class': 'frame_state',
+                            'width_bits': 64,
+                            'register': {'name': 'RSP',
+                                         'base_name': 'RSP',
+                                         'size_bytes': 8,
+                                         'repr': 'RSP'},
+                            'destination': 'abi_context.stack_pointer',
+                            'materialization': 'read_from_runtime_abi_context',
+                            'status': 'runtime_context_required',
+                            'unsupported': False,
+                            'runtime_helper': None,
+                            'authority': 'PALSymbolResolver_ABI_C_implicit_input_contract'}],
+                'derive_from_parameter_names': False,
+                'authority': 'ABI_C_frame_state_custody'},
+ 'tls_base': {'required': True,
+              'status': 'runtime_abi_context_required',
+              'source': 'abi_context.tls_base',
+              'inputs': [{'kind': 'pal_compute_implicit_input_materialization_abi_d',
+                          'version': 'v23b_abi_thunk_compatibility_return_reconciliation',
+                          'sid': 'v_3551',
+                          'canonical_alias': 'abi_tls_base',
+                          'role': 'thread_local_storage_base',
+                          'custody_class': 'tls_state',
+                          'width_bits': 64,
+                          'register': {'name': 'FS_OFFSET',
+                                       'base_name': 'FS_OFFSET',
+                                       'size_bytes': 8,
+                                       'repr': 'FS_OFFSET'},
+                          'destination': 'abi_context.tls_base',
+                          'materialization': 'read_from_runtime_abi_context',
+                          'status': 'runtime_context_required',
+                          'unsupported': False,
+                          'runtime_helper': None,
+                          'authority': 'PALSymbolResolver_ABI_C_implicit_input_contract'}],
+              'derive_from_expression_names': False,
+              'authority': 'ABI_C_tls_state_custody'},
+ 'return_contract': {'kind': 'pal_compute_return_carrier_contract_abi_d',
+                     'version': 'v23b_abi_thunk_compatibility_return_reconciliation',
+                     'status': 'return_width_proven_carrier_deferred',
+                     'no_return': False,
+                     'output_sid': None,
+                     'output_width_bits': None,
+                     'declared_width_bits': None,
+                     'effective_result_width_bits': 64,
+                     'declared_return': {'name': 'undefined',
+                                         'display_name': 'undefined',
+                                         'class_name': 'DefaultDataType',
+                                         'length_bytes': 1,
+                                         'width_bits': 8,
+                                         'signed': None,
+                                         'kind_hint': None},
+                     'return_storage': {'repr': '<UNASSIGNED>',
+                                        'size_bytes': 0,
+                                        'flags': {'register': False,
+                                                  'stack': False,
+                                                  'memory': False,
+                                                  'unassigned': True,
+                                                  'void': False,
+                                                  'auto': False},
+                                        'pieces': [],
+                                        'storage_keys': []},
+                     'carrier_pieces': [],
+                     'normalization': {'mode': 'mask_to_output_width',
+                                       'width_bits': 64,
+                                       'mask': 18446744073709551615},
+                     'runtime_helper': None,
+                     'runtime_helper_authority': 'no_ABI_runtime_helper_assigned',
+                     'authority': 'reachable_raw_return_transport',
+                     'reported_declared_width_bits': 8,
+                     'declared_width_authoritative': False,
+                     'declared_return_evidence_status': 'non_authoritative_default_or_unresolved_prototype',
+                     'transport_width_bits': 64,
+                     'logical_result_width_bits': 64,
+                     'reachable_return_widths': [64],
+                     'reachable_return_boundary_count': 1,
+                     'unreachable_return_boundary_count': 1,
+                     'deferred_return_boundary_count': 0},
+ 'reachable_return_boundaries': [{'block_addr': 1054051,
+                                  'return_value_sid': 'v_690',
+                                  'return_value_width_bits': 64,
+                                  'return_transport_width_bits': 64,
+                                  'return_logical_width_bits': 64,
+                                  'return_declared_view': None,
+                                  'return_boundary_authority': 'raw_return_register_transport',
+                                  'return_reachability': 'reachable',
+                                  'reachable_return': True,
+                                  'execution_suppressed': False,
+                                  'emission_policy': 'emit_reachable_return_boundary',
+                                  'cut_by_no_return_blocks': [],
+                                  'cut_by_no_return_call_op_keys': []}],
+ 'unreachable_return_boundaries': [{'block_addr': 1054046,
+                                    'return_value_sid': 'c_1_4',
+                                    'return_value_width_bits': 32,
+                                    'return_transport_width_bits': 32,
+                                    'return_logical_width_bits': 32,
+                                    'return_declared_view': None,
+                                    'return_boundary_authority': 'raw_return_register_transport',
+                                    'return_reachability': 'unreachable_after_no_return_in_same_block',
+                                    'reachable_return': False,
+                                    'execution_suppressed': True,
+                                    'emission_policy': 'suppress_unreachable_return_after_no_return',
+                                    'cut_by_no_return_blocks': [1054046],
+                                    'cut_by_no_return_call_op_keys': ['1054046:(ram, '
+                                                                      '0x10155e, '
+                                                                      '304, '
+                                                                      '2):2']}]}
+
+[RETURN BOUNDARY RECONCILIATION]
+{'kind': 'pal_compute_return_boundary_reconciliation_v23b',
+ 'version': 'v23b_abi_thunk_compatibility_return_reconciliation',
+ 'function': 'main',
+ 'entry_block_addr': 1053216,
+ 'cfg_evidence_available': True,
+ 'no_return_terminating_blocks': [1054046],
+ 'no_return_call_op_keys': ['1054046:(ram, 0x10155e, 304, 2):2'],
+ 'return_boundaries': 2,
+ 'reachable_return_boundaries': 1,
+ 'unreachable_return_boundaries': 1,
+ 'deferred_return_boundaries': 0,
+ 'reachable_return_widths': [64],
+ 'width_reconciled': True,
+ 'synthetic_no_return_continuations_suppressed': 1,
+ 'rule': 'traverse_CFG_with_no_return_blocks_as_terminal_then_reconcile_reachable_raw_return_transports_only'}
+
+[CALL SITE ABI PLANS]
+{'op_key': '1053216:(ram, 0x101248, 36, 8):8',
+ 'target': 'puts',
+ 'dispatch_class': 'external_via_import_thunk',
+ 'status': 'ready',
+ 'argument_count': 1,
+ 'carrier_allocation_status': 'complete',
+ 'target_compatibility_status': 'compatible',
+ 'target_compatible': True,
+ 'no_return': False,
+ 'result_width_bits': 32}
+{'op_key': '1053216:(ram, 0x101257, 41, 13):13',
+ 'target': 'puts',
+ 'dispatch_class': 'external_via_import_thunk',
+ 'status': 'ready',
+ 'argument_count': 1,
+ 'carrier_allocation_status': 'complete',
+ 'target_compatibility_status': 'compatible',
+ 'target_compatible': True,
+ 'no_return': False,
+ 'result_width_bits': 32}
+{'op_key': '1053216:(ram, 0x101266, 46, 18):18',
+ 'target': 'puts',
+ 'dispatch_class': 'external_via_import_thunk',
+ 'status': 'ready',
+ 'argument_count': 1,
+ 'carrier_allocation_status': 'complete',
+ 'target_compatibility_status': 'compatible',
+ 'target_compatible': True,
+ 'no_return': False,
+ 'result_width_bits': 32}
+{'op_key': '1053216:(ram, 0x101275, 51, 23):23',
+ 'target': 'puts',
+ 'dispatch_class': 'external_via_import_thunk',
+ 'status': 'ready',
+ 'argument_count': 1,
+ 'carrier_allocation_status': 'complete',
+ 'target_compatibility_status': 'compatible',
+ 'target_compatible': True,
+ 'no_return': False,
+ 'result_width_bits': 32}
+{'op_key': '1053216:(ram, 0x101284, 56, 28):28',
+ 'target': 'puts',
+ 'dispatch_class': 'external_via_import_thunk',
+ 'status': 'ready',
+ 'argument_count': 1,
+ 'carrier_allocation_status': 'complete',
+ 'target_compatibility_status': 'compatible',
+ 'target_compatible': True,
+ 'no_return': False,
+ 'result_width_bits': 32}
+{'op_key': '1053216:(ram, 0x101293, 61, 33):33',
+ 'target': 'puts',
+ 'dispatch_class': 'external_via_import_thunk',
+ 'status': 'ready',
+ 'argument_count': 1,
+ 'carrier_allocation_status': 'complete',
+ 'target_compatibility_status': 'compatible',
+ 'target_compatible': True,
+ 'no_return': False,
+ 'result_width_bits': 32}
+{'op_key': '1053216:(ram, 0x1012a2, 66, 38):38',
+ 'target': 'puts',
+ 'dispatch_class': 'external_via_import_thunk',
+ 'status': 'ready',
+ 'argument_count': 1,
+ 'carrier_allocation_status': 'complete',
+ 'target_compatibility_status': 'compatible',
+ 'target_compatible': True,
+ 'no_return': False,
+ 'result_width_bits': 32}
+{'op_key': '1053216:(ram, 0x1012b1, 71, 43):43',
+ 'target': 'puts',
+ 'dispatch_class': 'external_via_import_thunk',
+ 'status': 'ready',
+ 'argument_count': 1,
+ 'carrier_allocation_status': 'complete',
+ 'target_compatibility_status': 'compatible',
+ 'target_compatible': True,
+ 'no_return': False,
+ 'result_width_bits': 32}
+{'op_key': '1053216:(ram, 0x1012c5, 77, 48):48',
+ 'target': 'printf',
+ 'dispatch_class': 'external_via_import_thunk',
+ 'status': 'ready',
+ 'argument_count': 1,
+ 'carrier_allocation_status': 'complete',
+ 'target_compatibility_status': 'compatible',
+ 'target_compatible': True,
+ 'no_return': False,
+ 'result_width_bits': 32}
+{'op_key': '1053216:(ram, 0x1012dd, 85, 53):53',
+ 'target': 'fgets',
+ 'dispatch_class': 'external_via_import_thunk',
+ 'status': 'ready',
+ 'argument_count': 3,
+ 'carrier_allocation_status': 'complete',
+ 'target_compatibility_status': 'compatible',
+ 'target_compatible': True,
+ 'no_return': False,
+ 'result_width_bits': 64}
+{'op_key': '1053216:(ram, 0x1012e9, 91, 58):58',
+ 'target': 'clean_input',
+ 'dispatch_class': 'internal_resolved',
+ 'status': 'ready',
+ 'argument_count': 1,
+ 'carrier_allocation_status': 'complete',
+ 'target_compatibility_status': 'deferred',
+ 'target_compatible': None,
+ 'no_return': False,
+ 'result_width_bits': 8}
+{'op_key': '1053216:(ram, 0x1012ff, 99, 64):64',
+ 'target': 'strcmp',
+ 'dispatch_class': 'external_via_import_thunk',
+ 'status': 'ready',
+ 'argument_count': 2,
+ 'carrier_allocation_status': 'complete',
+ 'target_compatibility_status': 'compatible',
+ 'target_compatible': True,
+ 'no_return': False,
+ 'result_width_bits': 32}
+{'op_key': '1053480:(ram, 0x101332, 369, 4):4',
+ 'target': 'puts',
+ 'dispatch_class': 'external_via_import_thunk',
+ 'status': 'ready',
+ 'argument_count': 1,
+ 'carrier_allocation_status': 'complete',
+ 'target_compatibility_status': 'compatible',
+ 'target_compatible': True,
+ 'no_return': False,
+ 'result_width_bits': 32}
+{'op_key': '1053480:(ram, 0x101341, 374, 9):9',
+ 'target': 'puts',
+ 'dispatch_class': 'external_via_import_thunk',
+ 'status': 'ready',
+ 'argument_count': 1,
+ 'carrier_allocation_status': 'complete',
+ 'target_compatibility_status': 'compatible',
+ 'target_compatible': True,
+ 'no_return': False,
+ 'result_width_bits': 32}
+{'op_key': '1053448:(ram, 0x101312, 115, 4):4',
+ 'target': 'puts',
+ 'dispatch_class': 'external_via_import_thunk',
+ 'status': 'ready',
+ 'argument_count': 1,
+ 'carrier_allocation_status': 'complete',
+ 'target_compatibility_status': 'compatible',
+ 'target_compatible': True,
+ 'no_return': False,
+ 'result_width_bits': 32}
+{'op_key': '1053448:(ram, 0x101321, 120, 9):9',
+ 'target': 'puts',
+ 'dispatch_class': 'external_via_import_thunk',
+ 'status': 'ready',
+ 'argument_count': 1,
+ 'carrier_allocation_status': 'complete',
+ 'target_compatibility_status': 'compatible',
+ 'target_compatible': True,
+ 'no_return': False,
+ 'result_width_bits': 32}
+{'op_key': '1053514:(ram, 0x101354, 126, 8):8',
+ 'target': 'puts',
+ 'dispatch_class': 'external_via_import_thunk',
+ 'status': 'ready',
+ 'argument_count': 1,
+ 'carrier_allocation_status': 'complete',
+ 'target_compatibility_status': 'compatible',
+ 'target_compatible': True,
+ 'no_return': False,
+ 'result_width_bits': 32}
+{'op_key': '1053514:(ram, 0x101363, 131, 13):13',
+ 'target': 'puts',
+ 'dispatch_class': 'external_via_import_thunk',
+ 'status': 'ready',
+ 'argument_count': 1,
+ 'carrier_allocation_status': 'complete',
+ 'target_compatibility_status': 'compatible',
+ 'target_compatible': True,
+ 'no_return': False,
+ 'result_width_bits': 32}
+{'op_key': '1053514:(ram, 0x101372, 136, 18):18',
+ 'target': 'puts',
+ 'dispatch_class': 'external_via_import_thunk',
+ 'status': 'ready',
+ 'argument_count': 1,
+ 'carrier_allocation_status': 'complete',
+ 'target_compatibility_status': 'compatible',
+ 'target_compatible': True,
+ 'no_return': False,
+ 'result_width_bits': 32}
+{'op_key': '1053514:(ram, 0x101386, 142, 23):23',
+ 'target': 'printf',
+ 'dispatch_class': 'external_via_import_thunk',
+ 'status': 'ready',
+ 'argument_count': 1,
+ 'carrier_allocation_status': 'complete',
+ 'target_compatibility_status': 'compatible',
+ 'target_compatible': True,
+ 'no_return': False,
+ 'result_width_bits': 32}
+{'op_key': '1053514:(ram, 0x10139e, 150, 28):28',
+ 'target': 'fgets',
+ 'dispatch_class': 'external_via_import_thunk',
+ 'status': 'ready',
+ 'argument_count': 3,
+ 'carrier_allocation_status': 'complete',
+ 'target_compatibility_status': 'compatible',
+ 'target_compatible': True,
+ 'no_return': False,
+ 'result_width_bits': 64}
+{'op_key': '1053514:(ram, 0x1013aa, 156, 33):33',
+ 'target': 'clean_input',
+ 'dispatch_class': 'internal_resolved',
+ 'status': 'ready',
+ 'argument_count': 1,
+ 'carrier_allocation_status': 'complete',
+ 'target_compatibility_status': 'deferred',
+ 'target_compatible': None,
+ 'no_return': False,
+ 'result_width_bits': 8}
+{'op_key': '1053514:(ram, 0x1013c0, 164, 39):39',
+ 'target': 'strcmp',
+ 'dispatch_class': 'external_via_import_thunk',
+ 'status': 'ready',
+ 'argument_count': 2,
+ 'carrier_allocation_status': 'complete',
+ 'target_compatibility_status': 'compatible',
+ 'target_compatible': True,
+ 'no_return': False,
+ 'result_width_bits': 32}
+{'op_key': '1053673:(ram, 0x1013f3, 342, 4):4',
+ 'target': 'puts',
+ 'dispatch_class': 'external_via_import_thunk',
+ 'status': 'ready',
+ 'argument_count': 1,
+ 'carrier_allocation_status': 'complete',
+ 'target_compatibility_status': 'compatible',
+ 'target_compatible': True,
+ 'no_return': False,
+ 'result_width_bits': 32}
+{'op_key': '1053673:(ram, 0x101402, 347, 9):9',
+ 'target': 'puts',
+ 'dispatch_class': 'external_via_import_thunk',
+ 'status': 'ready',
+ 'argument_count': 1,
+ 'carrier_allocation_status': 'complete',
+ 'target_compatibility_status': 'compatible',
+ 'target_compatible': True,
+ 'no_return': False,
+ 'result_width_bits': 32}
+{'op_key': '1053641:(ram, 0x1013d3, 180, 4):4',
+ 'target': 'puts',
+ 'dispatch_class': 'external_via_import_thunk',
+ 'status': 'ready',
+ 'argument_count': 1,
+ 'carrier_allocation_status': 'complete',
+ 'target_compatibility_status': 'compatible',
+ 'target_compatible': True,
+ 'no_return': False,
+ 'result_width_bits': 32}
+{'op_key': '1053641:(ram, 0x1013e2, 185, 9):9',
+ 'target': 'puts',
+ 'dispatch_class': 'external_via_import_thunk',
+ 'status': 'ready',
+ 'argument_count': 1,
+ 'carrier_allocation_status': 'complete',
+ 'target_compatibility_status': 'compatible',
+ 'target_compatible': True,
+ 'no_return': False,
+ 'result_width_bits': 32}
+{'op_key': '1053707:(ram, 0x101415, 191, 8):8',
+ 'target': 'puts',
+ 'dispatch_class': 'external_via_import_thunk',
+ 'status': 'ready',
+ 'argument_count': 1,
+ 'carrier_allocation_status': 'complete',
+ 'target_compatibility_status': 'compatible',
+ 'target_compatible': True,
+ 'no_return': False,
+ 'result_width_bits': 32}
+{'op_key': '1053707:(ram, 0x101424, 196, 13):13',
+ 'target': 'puts',
+ 'dispatch_class': 'external_via_import_thunk',
+ 'status': 'ready',
+ 'argument_count': 1,
+ 'carrier_allocation_status': 'complete',
+ 'target_compatibility_status': 'compatible',
+ 'target_compatible': True,
+ 'no_return': False,
+ 'result_width_bits': 32}
+{'op_key': '1053707:(ram, 0x101433, 201, 18):18',
+ 'target': 'puts',
+ 'dispatch_class': 'external_via_import_thunk',
+ 'status': 'ready',
+ 'argument_count': 1,
+ 'carrier_allocation_status': 'complete',
+ 'target_compatibility_status': 'compatible',
+ 'target_compatible': True,
+ 'no_return': False,
+ 'result_width_bits': 32}
+{'op_key': '1053707:(ram, 0x101447, 207, 23):23',
+ 'target': 'printf',
+ 'dispatch_class': 'external_via_import_thunk',
+ 'status': 'ready',
+ 'argument_count': 1,
+ 'carrier_allocation_status': 'complete',
+ 'target_compatibility_status': 'compatible',
+ 'target_compatible': True,
+ 'no_return': False,
+ 'result_width_bits': 32}
+{'op_key': '1053707:(ram, 0x10145f, 215, 28):28',
+ 'target': 'fgets',
+ 'dispatch_class': 'external_via_import_thunk',
+ 'status': 'ready',
+ 'argument_count': 3,
+ 'carrier_allocation_status': 'complete',
+ 'target_compatibility_status': 'compatible',
+ 'target_compatible': True,
+ 'no_return': False,
+ 'result_width_bits': 64}
+{'op_key': '1053707:(ram, 0x10146b, 221, 33):33',
+ 'target': 'clean_input',
+ 'dispatch_class': 'internal_resolved',
+ 'status': 'ready',
+ 'argument_count': 1,
+ 'carrier_allocation_status': 'complete',
+ 'target_compatibility_status': 'deferred',
+ 'target_compatible': None,
+ 'no_return': False,
+ 'result_width_bits': 8}
+{'op_key': '1053707:(ram, 0x101481, 229, 39):39',
+ 'target': 'strcmp',
+ 'dispatch_class': 'external_via_import_thunk',
+ 'status': 'ready',
+ 'argument_count': 2,
+ 'carrier_allocation_status': 'complete',
+ 'target_compatibility_status': 'compatible',
+ 'target_compatible': True,
+ 'no_return': False,
+ 'result_width_bits': 32}
+{'op_key': '1053951:(ram, 0x101509, 317, 4):4',
+ 'target': 'puts',
+ 'dispatch_class': 'external_via_import_thunk',
+ 'status': 'ready',
+ 'argument_count': 1,
+ 'carrier_allocation_status': 'complete',
+ 'target_compatibility_status': 'compatible',
+ 'target_compatible': True,
+ 'no_return': False,
+ 'result_width_bits': 32}
+{'op_key': '1053951:(ram, 0x101518, 322, 9):9',
+ 'target': 'puts',
+ 'dispatch_class': 'external_via_import_thunk',
+ 'status': 'ready',
+ 'argument_count': 1,
+ 'carrier_allocation_status': 'complete',
+ 'target_compatibility_status': 'compatible',
+ 'target_compatible': True,
+ 'no_return': False,
+ 'result_width_bits': 32}
+{'op_key': '1053951:(ram, 0x101527, 327, 14):14',
+ 'target': 'puts',
+ 'dispatch_class': 'external_via_import_thunk',
+ 'status': 'ready',
+ 'argument_count': 1,
+ 'carrier_allocation_status': 'complete',
+ 'target_compatibility_status': 'compatible',
+ 'target_compatible': True,
+ 'no_return': False,
+ 'result_width_bits': 32}
+{'op_key': '1053951:(ram, 0x101536, 332, 19):19',
+ 'target': 'puts',
+ 'dispatch_class': 'external_via_import_thunk',
+ 'status': 'ready',
+ 'argument_count': 1,
+ 'carrier_allocation_status': 'complete',
+ 'target_compatibility_status': 'compatible',
+ 'target_compatible': True,
+ 'no_return': False,
+ 'result_width_bits': 32}
+{'op_key': '1053951:(ram, 0x101545, 337, 24):24',
+ 'target': 'puts',
+ 'dispatch_class': 'external_via_import_thunk',
+ 'status': 'ready',
+ 'argument_count': 1,
+ 'carrier_allocation_status': 'complete',
+ 'target_compatibility_status': 'compatible',
+ 'target_compatible': True,
+ 'no_return': False,
+ 'result_width_bits': 32}
+{'op_key': '1053834:(ram, 0x101494, 245, 4):4',
+ 'target': 'puts',
+ 'dispatch_class': 'external_via_import_thunk',
+ 'status': 'ready',
+ 'argument_count': 1,
+ 'carrier_allocation_status': 'complete',
+ 'target_compatibility_status': 'compatible',
+ 'target_compatible': True,
+ 'no_return': False,
+ 'result_width_bits': 32}
+{'op_key': '1053834:(ram, 0x1014a3, 250, 9):9',
+ 'target': 'puts',
+ 'dispatch_class': 'external_via_import_thunk',
+ 'status': 'ready',
+ 'argument_count': 1,
+ 'carrier_allocation_status': 'complete',
+ 'target_compatibility_status': 'compatible',
+ 'target_compatible': True,
+ 'no_return': False,
+ 'result_width_bits': 32}
+{'op_key': '1053834:(ram, 0x1014b2, 255, 14):14',
+ 'target': 'puts',
+ 'dispatch_class': 'external_via_import_thunk',
+ 'status': 'ready',
+ 'argument_count': 1,
+ 'carrier_allocation_status': 'complete',
+ 'target_compatibility_status': 'compatible',
+ 'target_compatible': True,
+ 'no_return': False,
+ 'result_width_bits': 32}
+{'op_key': '1053834:(ram, 0x1014c1, 260, 19):19',
+ 'target': 'puts',
+ 'dispatch_class': 'external_via_import_thunk',
+ 'status': 'ready',
+ 'argument_count': 1,
+ 'carrier_allocation_status': 'complete',
+ 'target_compatibility_status': 'compatible',
+ 'target_compatible': True,
+ 'no_return': False,
+ 'result_width_bits': 32}
+{'op_key': '1053834:(ram, 0x1014d0, 265, 24):24',
+ 'target': 'puts',
+ 'dispatch_class': 'external_via_import_thunk',
+ 'status': 'ready',
+ 'argument_count': 1,
+ 'carrier_allocation_status': 'complete',
+ 'target_compatibility_status': 'compatible',
+ 'target_compatible': True,
+ 'no_return': False,
+ 'result_width_bits': 32}
+{'op_key': '1053834:(ram, 0x1014df, 270, 29):29',
+ 'target': 'puts',
+ 'dispatch_class': 'external_via_import_thunk',
+ 'status': 'ready',
+ 'argument_count': 1,
+ 'carrier_allocation_status': 'complete',
+ 'target_compatibility_status': 'compatible',
+ 'target_compatible': True,
+ 'no_return': False,
+ 'result_width_bits': 32}
+{'op_key': '1053834:(ram, 0x1014f8, 282, 35):35',
+ 'target': 'printf',
+ 'dispatch_class': 'external_via_import_thunk',
+ 'status': 'ready',
+ 'argument_count': 2,
+ 'carrier_allocation_status': 'complete',
+ 'target_compatibility_status': 'compatible',
+ 'target_compatible': True,
+ 'no_return': False,
+ 'result_width_bits': 32}
+{'op_key': '1054046:(ram, 0x10155e, 304, 2):2',
+ 'target': '__stack_chk_fail',
+ 'dispatch_class': 'resolved_thunk_endpoint_deferred',
+ 'status': 'deferred_target_dispatch',
+ 'argument_count': 0,
+ 'carrier_allocation_status': 'complete',
+ 'target_compatibility_status': 'deferred',
+ 'target_compatible': None,
+ 'no_return': True,
+ 'result_width_bits': 8}
+===== END PAL COMPUTE ANALYZER =====
+
+
+=========== SGL EXECUTION TREE ===========
+
+sequence
+  block [0x101220]
+  if [cond=not ((v_1201 == 0))]
+    then
+      sequence
+        block [0x101328]
+    else
+      sequence
+        block [0x101308]
+  block [0x10134a]
+  if [cond=not ((v_1279 == 0))]
+    then
+      sequence
+        block [0x1013e9]
+    else
+      sequence
+        block [0x1013c9]
+  block [0x10140b]
+  if [cond=not ((v_1357 == 0))]
+    then
+      sequence
+        block [0x1014ff]
+    else
+      sequence
+        block [0x10148a]
+  block [0x10154a]
+  if [cond=not ((local_10 != v_715))]
+    then
+      sequence
+        block [0x101563]
+    else
+      sequence
+        block [0x10155e]
+  sequence
+
+=========== END TREE ===========
+
+[SGL EXEC TREE PERSISTED] path=/home/rem/gh/PAL/pyghidra-PAL/PAL/PAL_logs/f_0000000000101220_main.sgl.exec_tree.log mode=append temporary=False delete_on_completion=False
+
+[PHI DROP-INS]
+------------------------------------------------------------
+pred=0x101328 -> join=0x10134a :: local_5c = v_941
+pred=0x101308 -> join=0x10134a :: v_2496 = v_2395
+pred=0x101328 -> join=0x10134a :: v_2496 = v_2389
+pred=0x1013e9 -> join=0x10140b :: local_5c = v_867
+pred=0x1013c9 -> join=0x10140b :: v_2493 = v_2428
+pred=0x1013e9 -> join=0x10140b :: v_2493 = v_2422
+pred=0x10148a -> join=0x10154a :: v_2490 = v_2485
+pred=0x1014ff -> join=0x10154a :: v_2490 = v_2464
+------------------------------------------------------------
+{'active': True,
+ 'bound_plans': 220,
+ 'control_contracts_forwarded': 9,
+ 'input_op_contracts': 264,
+ 'input_plans': 220,
+ 'kind': 'phi_compute_consumer_inventory_v21',
+ 'outputless_contracts_forwarded': 44,
+ 'phi_merge_contracts': 11,
+ 'phi_transition_contracts': 8,
+ 'preserved_compute_boundaries': 177,
+ 'preserved_deferred_contracts': 14,
+ 'preserved_outputless_boundaries': 44,
+ 'preserved_outputless_deferred_contracts': 44,
+ 'preserved_outputless_helpers': 0,
+ 'preserved_runtime_helpers': 19,
+ 'rule': 'preserve_PALCompute_authority_remap_execution_destination_only',
+ 'state_alias_bindings': 8,
+ 'transition_owners': {'source_state_alias': 8},
+ 'version': 'v21_compute_contract_consumers',
+ 'warnings': 0}
+[]

@@ -1,0 +1,90 @@
+{
+  "acceptance_gates": {
+    "authorized_repair_identity_verified": true,
+    "authorized_repairs_present_in_final_index": true,
+    "cfg_rewritten_by_finalizer": false,
+    "emitter_reemit_counts_verified": true,
+    "exec_tree_rewritten_by_finalizer": false,
+    "final_custody_refresh_completed": true,
+    "final_index_postdates_emitter_refreeze": true,
+    "generated_python_rewritten_by_finalizer": false,
+    "phi_rewritten_by_finalizer": false,
+    "plan_core_continuity_verified": true
+  },
+  "build": "batch_v2h_final_abi_authority_publication",
+  "canonicalizer_version": "v1_immutable_plan_identity",
+  "custody_health": {
+    "status": "broken",
+    "summary": {
+      "argument_chains_incompatible": 6,
+      "argument_chains_ready": 60,
+      "call_plans": 159,
+      "canonicalizer_version": "v1_immutable_plan_identity",
+      "carrier_disagreements": 0,
+      "entry_plans": 50,
+      "generated_code_rewrites": 0,
+      "ghost_repairs_conflicting": 0,
+      "ghost_repairs_deferred": 0,
+      "ghost_repairs_resolved": 0,
+      "icecubes": 50,
+      "internal_calls_linked": 66,
+      "internal_calls_unresolved": 0,
+      "kind": "pal_abi_custody_project_summary_v1b",
+      "metadata_only": true,
+      "outputless_candidates": 0,
+      "plan_alias_groups": 159,
+      "plan_annotation_variant_groups": 0,
+      "plan_core_conflicts": 0,
+      "plan_occurrences": 368,
+      "result_width_conflicts": 0,
+      "return_carriers_deferred": 0,
+      "return_carriers_resolved": 66,
+      "runtime_helpers": 0,
+      "stamped_plan_occurrences": 368,
+      "status": "broken",
+      "version": "v1b_canonical_project_plan_index"
+    }
+  },
+  "emitter_v52_second_pass": {
+    "authority": "PALABICustodyInspector_v1_exact_cross_function_contract",
+    "authorized_contracts": 0,
+    "authorized_functions": 0,
+    "build": "batch_v2h_final_abi_authority_publication",
+    "failures": [],
+    "last_call_inference": 0,
+    "pipeline_layers_rerun": [
+      "PALemitter"
+    ],
+    "re_emitted_entries": [],
+    "re_emitted_functions": 0,
+    "status": "not_required",
+    "target_name_inference": 0,
+    "upstream_layers_rerun": 0
+  },
+  "failures": [],
+  "final": {
+    "alias_audit": "PAL_abi_plan_alias_audit.json",
+    "alias_audit_sha256": "38cf8943320cc421ad5bbeab66b07396284af324e2424e2cf654c839e98102da",
+    "authorized_plan_ids": [],
+    "custody_report": "PAL_abi_custody.json",
+    "icecube_set_sha256": "3a4b1079a6470bee83c813acc437a9ca21dab5c735aba8a24eafc536224a36d9",
+    "icecubes": 50,
+    "plan_core_hashes": 209,
+    "plan_index": "PAL_abi_plan_index.json",
+    "plan_index_sha256": "bd9f9e7b21ba38109b19ef14a360e68bb7fad5042fdb6d8a212867afaad9ecd3",
+    "record_hashes_refreshed": 50
+  },
+  "format": "pal_abi_final_authority_receipt",
+  "inspector_version": "v1b_canonical_project_plan_index",
+  "phase": "post_emitter_v52_refreeze_and_custody_refresh",
+  "pre_emitter": {
+    "alias_audit": "PAL_abi_plan_alias_audit.pre_emitter_v52.json",
+    "authorized_plan_ids": [],
+    "custody_report": "PAL_abi_custody.pre_emitter_v52.json",
+    "plan_core_hashes": 209,
+    "plan_index": "PAL_abi_plan_index.pre_emitter_v52.json"
+  },
+  "project": "station_control.matrix",
+  "schema_version": 1,
+  "status": "complete"
+}

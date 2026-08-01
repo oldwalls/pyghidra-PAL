@@ -1,0 +1,38 @@
+{
+  "batch_build": "batch_v2h_final_abi_authority_publication",
+  "elapsed_ns": 406002755,
+  "finished_time_ns": 1785564310361397530,
+  "format": "pal_internal_pipeline_stream_capture",
+  "function": {
+    "entry": 1053054,
+    "entry_hex": "0x10117e",
+    "function_id": "function:0x10117e",
+    "module_stem": "f_000000000010117e_check_bit",
+    "name": "check_bit",
+    "qualified_name": "Global::check_bit"
+  },
+  "keep_success_logs": true,
+  "mirrored_to_process_stdio": true,
+  "outcome": "decompiled",
+  "pipeline_entrypoint": "run_all",
+  "raw_text_policy": "exact_python_stdout_stderr_text_before_portability_rewrite",
+  "schema_version": 1,
+  "started_time_ns": 1785564309955394775,
+  "streams": {
+    "combined": {
+      "bytes": 26933,
+      "path": "functions/f_000000000010117e_check_bit.pipeline.log",
+      "sha256": "eb679f15f8dd2850b186f51e5724aa22d172c59695498c3900e3d51381c5548b"
+    },
+    "stderr": {
+      "bytes": 0,
+      "path": "functions/f_000000000010117e_check_bit.pipeline.stderr.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "stdout": {
+      "bytes": 26933,
+      "path": "functions/f_000000000010117e_check_bit.pipeline.stdout.log",
+      "sha256": "eb679f15f8dd2850b186f51e5724aa22d172c59695498c3900e3d51381c5548b"
+    }
+  }
+}

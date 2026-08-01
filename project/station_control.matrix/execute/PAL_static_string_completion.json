@@ -1,0 +1,359 @@
+{
+  "active": true,
+  "address_translation": {
+    "ambiguous_references": 0,
+    "code_pointer_references": 0,
+    "direct_resolved_references": 0,
+    "elf_link_base": "0x0",
+    "function_pointer_references": 1,
+    "load_bias": "0x100000",
+    "program_image_base": "0x100000",
+    "rebased_resolved_references": 6,
+    "resolution_rule": "accept_exactly_one_valid_direct_or_rebased_readable_ELF_PT_LOAD_C_string_mapping",
+    "unresolved_references": 0
+  },
+  "ambiguous": [],
+  "build": "static_strings_v3_rebased_elf_address_truth",
+  "code_pointer_references": [],
+  "completed": [
+    {
+      "byte_length_with_nul": 5,
+      "elf_address": "0x3b70",
+      "elf_link_base": "0x0",
+      "elf_segment": {
+        "filesz": 4292,
+        "flags": 4,
+        "memsz": 4292,
+        "vaddr": "0x3000"
+      },
+      "generated_address": "0x103b70",
+      "load_bias": "0x100000",
+      "program_image_base": "0x100000",
+      "reasons": [
+        "f_00000000001024df_dispatch_command.exec.py:c_ptrsub_zero_base",
+        "f_00000000001024df_dispatch_command.py:c_ptrsub_zero_base"
+      ],
+      "resolution_mode": "rebased",
+      "text": "help"
+    },
+    {
+      "byte_length_with_nul": 5,
+      "elf_address": "0x3b7c",
+      "elf_link_base": "0x0",
+      "elf_segment": {
+        "filesz": 4292,
+        "flags": 4,
+        "memsz": 4292,
+        "vaddr": "0x3000"
+      },
+      "generated_address": "0x103b7c",
+      "load_bias": "0x100000",
+      "program_image_base": "0x100000",
+      "reasons": [
+        "f_00000000001024df_dispatch_command.exec.py:c_ptrsub_zero_base",
+        "f_00000000001024df_dispatch_command.py:c_ptrsub_zero_base"
+      ],
+      "resolution_mode": "rebased",
+      "text": "boot"
+    },
+    {
+      "byte_length_with_nul": 5,
+      "elf_address": "0x3b87",
+      "elf_link_base": "0x0",
+      "elf_segment": {
+        "filesz": 4292,
+        "flags": 4,
+        "memsz": 4292,
+        "vaddr": "0x3000"
+      },
+      "generated_address": "0x103b87",
+      "load_bias": "0x100000",
+      "program_image_base": "0x100000",
+      "reasons": [
+        "f_00000000001024df_dispatch_command.exec.py:c_ptrsub_zero_base",
+        "f_00000000001024df_dispatch_command.py:c_ptrsub_zero_base"
+      ],
+      "resolution_mode": "rebased",
+      "text": "load"
+    },
+    {
+      "byte_length_with_nul": 4,
+      "elf_address": "0x3b92",
+      "elf_link_base": "0x0",
+      "elf_segment": {
+        "filesz": 4292,
+        "flags": 4,
+        "memsz": 4292,
+        "vaddr": "0x3000"
+      },
+      "generated_address": "0x103b92",
+      "load_bias": "0x100000",
+      "program_image_base": "0x100000",
+      "reasons": [
+        "f_00000000001024df_dispatch_command.exec.py:c_ptrsub_zero_base",
+        "f_00000000001024df_dispatch_command.py:c_ptrsub_zero_base"
+      ],
+      "resolution_mode": "rebased",
+      "text": "arm"
+    },
+    {
+      "byte_length_with_nul": 5,
+      "elf_address": "0x3b9c",
+      "elf_link_base": "0x0",
+      "elf_segment": {
+        "filesz": 4292,
+        "flags": 4,
+        "memsz": 4292,
+        "vaddr": "0x3000"
+      },
+      "generated_address": "0x103b9c",
+      "load_bias": "0x100000",
+      "program_image_base": "0x100000",
+      "reasons": [
+        "f_00000000001024df_dispatch_command.exec.py:c_ptrsub_zero_base",
+        "f_00000000001024df_dispatch_command.py:c_ptrsub_zero_base"
+      ],
+      "resolution_mode": "rebased",
+      "text": "cool"
+    },
+    {
+      "byte_length_with_nul": 5,
+      "elf_address": "0x3ba8",
+      "elf_link_base": "0x0",
+      "elf_segment": {
+        "filesz": 4292,
+        "flags": 4,
+        "memsz": 4292,
+        "vaddr": "0x3000"
+      },
+      "generated_address": "0x103ba8",
+      "load_bias": "0x100000",
+      "program_image_base": "0x100000",
+      "reasons": [
+        "f_00000000001024df_dispatch_command.exec.py:c_ptrsub_zero_base",
+        "f_00000000001024df_dispatch_command.py:c_ptrsub_zero_base"
+      ],
+      "resolution_mode": "rebased",
+      "text": "quit"
+    }
+  ],
+  "conflicts": [],
+  "counts": {
+    "ambiguous_references": 0,
+    "code_pointer_references": 0,
+    "completed_strings": 6,
+    "direct_resolved_references": 0,
+    "final_strings": 205,
+    "function_pointer_references": 1,
+    "original_strings": 199,
+    "rebased_resolved_references": 6,
+    "required_runtime_strings": 6,
+    "unresolved_ptrsub_references": 0
+  },
+  "executable": "/home/rem/gh/PAL/pyghidra-PAL/PAL/specimens/o0/station_control.matrix",
+  "executable_sha256": "3d2fde07dbbcf5d3f635f56d82470fffdd9c80af105fbc0d9f52101ae378dd13",
+  "existing": [],
+  "format": "pal_static_string_completion",
+  "function_pointer_references": [
+    {
+      "classification": "manifest_function_entry_pointer",
+      "entry_hex": "0x10271e",
+      "function_id": "function:0x10271e",
+      "function_name": "main",
+      "generated_address": "0x10271e",
+      "reasons": [
+        "f_00000000001010e0_start.exec.py:c_ptrsub_zero_base",
+        "f_00000000001010e0_start.py:c_ptrsub_zero_base"
+      ]
+    }
+  ],
+  "non_string_reference_classification": {
+    "build": "ptrsub_reference_classifier_v1_manifest_code_authority",
+    "code_pointer_references": 0,
+    "code_pointers": [],
+    "function_pointer_references": 1,
+    "function_pointers": [
+      {
+        "classification": "manifest_function_entry_pointer",
+        "entry_hex": "0x10271e",
+        "function_id": "function:0x10271e",
+        "function_name": "main",
+        "generated_address": "0x10271e",
+        "reasons": [
+          "f_00000000001010e0_start.exec.py:c_ptrsub_zero_base",
+          "f_00000000001010e0_start.py:c_ptrsub_zero_base"
+        ]
+      }
+    ],
+    "remaining_unresolved_references": 0,
+    "rule": "manifest_function_entry_or_body_ownership_excludes_address_from_static_string_health"
+  },
+  "overlay": "/home/rem/gh/PAL/pyghidra-PAL/PAL/project/station_control.matrix/.execute.stage.8_ctux2f/PAL_stdio_strings.json",
+  "parse_warnings": [],
+  "reference_constants": {
+    "0x10271e": [
+      "f_00000000001010e0_start.exec.py:c_ptrsub_zero_base",
+      "f_00000000001010e0_start.py:c_ptrsub_zero_base"
+    ],
+    "0x103b70": [
+      "f_00000000001024df_dispatch_command.exec.py:c_ptrsub_zero_base",
+      "f_00000000001024df_dispatch_command.py:c_ptrsub_zero_base"
+    ],
+    "0x103b7c": [
+      "f_00000000001024df_dispatch_command.exec.py:c_ptrsub_zero_base",
+      "f_00000000001024df_dispatch_command.py:c_ptrsub_zero_base"
+    ],
+    "0x103b87": [
+      "f_00000000001024df_dispatch_command.exec.py:c_ptrsub_zero_base",
+      "f_00000000001024df_dispatch_command.py:c_ptrsub_zero_base"
+    ],
+    "0x103b92": [
+      "f_00000000001024df_dispatch_command.exec.py:c_ptrsub_zero_base",
+      "f_00000000001024df_dispatch_command.py:c_ptrsub_zero_base"
+    ],
+    "0x103b9c": [
+      "f_00000000001024df_dispatch_command.exec.py:c_ptrsub_zero_base",
+      "f_00000000001024df_dispatch_command.py:c_ptrsub_zero_base"
+    ],
+    "0x103ba8": [
+      "f_00000000001024df_dispatch_command.exec.py:c_ptrsub_zero_base",
+      "f_00000000001024df_dispatch_command.py:c_ptrsub_zero_base"
+    ]
+  },
+  "required_strings": {
+    "0x103b70": "help",
+    "0x103b7c": "boot",
+    "0x103b87": "load",
+    "0x103b92": "arm",
+    "0x103b9c": "cool",
+    "0x103ba8": "quit"
+  },
+  "resolutions": [
+    {
+      "byte_length_with_nul": 5,
+      "elf_address": "0x3b70",
+      "elf_link_base": "0x0",
+      "elf_segment": {
+        "filesz": 4292,
+        "flags": 4,
+        "memsz": 4292,
+        "vaddr": "0x3000"
+      },
+      "generated_address": "0x103b70",
+      "load_bias": "0x100000",
+      "program_image_base": "0x100000",
+      "reasons": [
+        "f_00000000001024df_dispatch_command.exec.py:c_ptrsub_zero_base",
+        "f_00000000001024df_dispatch_command.py:c_ptrsub_zero_base"
+      ],
+      "resolution_mode": "rebased",
+      "text": "help"
+    },
+    {
+      "byte_length_with_nul": 5,
+      "elf_address": "0x3b7c",
+      "elf_link_base": "0x0",
+      "elf_segment": {
+        "filesz": 4292,
+        "flags": 4,
+        "memsz": 4292,
+        "vaddr": "0x3000"
+      },
+      "generated_address": "0x103b7c",
+      "load_bias": "0x100000",
+      "program_image_base": "0x100000",
+      "reasons": [
+        "f_00000000001024df_dispatch_command.exec.py:c_ptrsub_zero_base",
+        "f_00000000001024df_dispatch_command.py:c_ptrsub_zero_base"
+      ],
+      "resolution_mode": "rebased",
+      "text": "boot"
+    },
+    {
+      "byte_length_with_nul": 5,
+      "elf_address": "0x3b87",
+      "elf_link_base": "0x0",
+      "elf_segment": {
+        "filesz": 4292,
+        "flags": 4,
+        "memsz": 4292,
+        "vaddr": "0x3000"
+      },
+      "generated_address": "0x103b87",
+      "load_bias": "0x100000",
+      "program_image_base": "0x100000",
+      "reasons": [
+        "f_00000000001024df_dispatch_command.exec.py:c_ptrsub_zero_base",
+        "f_00000000001024df_dispatch_command.py:c_ptrsub_zero_base"
+      ],
+      "resolution_mode": "rebased",
+      "text": "load"
+    },
+    {
+      "byte_length_with_nul": 4,
+      "elf_address": "0x3b92",
+      "elf_link_base": "0x0",
+      "elf_segment": {
+        "filesz": 4292,
+        "flags": 4,
+        "memsz": 4292,
+        "vaddr": "0x3000"
+      },
+      "generated_address": "0x103b92",
+      "load_bias": "0x100000",
+      "program_image_base": "0x100000",
+      "reasons": [
+        "f_00000000001024df_dispatch_command.exec.py:c_ptrsub_zero_base",
+        "f_00000000001024df_dispatch_command.py:c_ptrsub_zero_base"
+      ],
+      "resolution_mode": "rebased",
+      "text": "arm"
+    },
+    {
+      "byte_length_with_nul": 5,
+      "elf_address": "0x3b9c",
+      "elf_link_base": "0x0",
+      "elf_segment": {
+        "filesz": 4292,
+        "flags": 4,
+        "memsz": 4292,
+        "vaddr": "0x3000"
+      },
+      "generated_address": "0x103b9c",
+      "load_bias": "0x100000",
+      "program_image_base": "0x100000",
+      "reasons": [
+        "f_00000000001024df_dispatch_command.exec.py:c_ptrsub_zero_base",
+        "f_00000000001024df_dispatch_command.py:c_ptrsub_zero_base"
+      ],
+      "resolution_mode": "rebased",
+      "text": "cool"
+    },
+    {
+      "byte_length_with_nul": 5,
+      "elf_address": "0x3ba8",
+      "elf_link_base": "0x0",
+      "elf_segment": {
+        "filesz": 4292,
+        "flags": 4,
+        "memsz": 4292,
+        "vaddr": "0x3000"
+      },
+      "generated_address": "0x103ba8",
+      "load_bias": "0x100000",
+      "program_image_base": "0x100000",
+      "reasons": [
+        "f_00000000001024df_dispatch_command.exec.py:c_ptrsub_zero_base",
+        "f_00000000001024df_dispatch_command.py:c_ptrsub_zero_base"
+      ],
+      "resolution_mode": "rebased",
+      "text": "quit"
+    }
+  ],
+  "schema_version": 2,
+  "source_roots": [
+    "/home/rem/gh/PAL/pyghidra-PAL/PAL/project/station_control.matrix/functions",
+    "/home/rem/gh/PAL/pyghidra-PAL/PAL/project/station_control.matrix/.execute.stage.8_ctux2f/functions"
+  ],
+  "unresolved": []
+}

@@ -1,0 +1,38 @@
+{
+  "batch_build": "batch_v2h_final_abi_authority_publication",
+  "elapsed_ns": 296739159,
+  "finished_time_ns": 1785564476559428334,
+  "format": "pal_internal_pipeline_stream_capture",
+  "function": {
+    "entry": 1069064,
+    "entry_hex": "0x105008",
+    "function_id": "function:0x105008",
+    "module_stem": "f_0000000000105008_ITM_deregisterTMCloneTable",
+    "name": "_ITM_deregisterTMCloneTable",
+    "qualified_name": "<EXTERNAL>::_ITM_deregisterTMCloneTable"
+  },
+  "keep_success_logs": true,
+  "mirrored_to_process_stdio": true,
+  "outcome": "decompiled",
+  "pipeline_entrypoint": "run_all",
+  "raw_text_policy": "exact_python_stdout_stderr_text_before_portability_rewrite",
+  "schema_version": 1,
+  "started_time_ns": 1785564476262689175,
+  "streams": {
+    "combined": {
+      "bytes": 15971,
+      "path": "functions/f_0000000000105008_ITM_deregisterTMCloneTable.pipeline.log",
+      "sha256": "7d703f21ffec0e4f05e188eb3aec6ddda776df45c28c3d41f181ae70de0f9380"
+    },
+    "stderr": {
+      "bytes": 0,
+      "path": "functions/f_0000000000105008_ITM_deregisterTMCloneTable.pipeline.stderr.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "stdout": {
+      "bytes": 15971,
+      "path": "functions/f_0000000000105008_ITM_deregisterTMCloneTable.pipeline.stdout.log",
+      "sha256": "7d703f21ffec0e4f05e188eb3aec6ddda776df45c28c3d41f181ae70de0f9380"
+    }
+  }
+}

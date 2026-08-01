@@ -1,0 +1,38 @@
+{
+  "batch_build": "batch_v2h_final_abi_authority_publication",
+  "elapsed_ns": 417626992,
+  "finished_time_ns": 1785564582167589923,
+  "format": "pal_internal_pipeline_stream_capture",
+  "function": {
+    "entry": 1052928,
+    "entry_hex": "0x101100",
+    "function_id": "function:0x101100",
+    "module_stem": "f_0000000000101100_start",
+    "name": "_start",
+    "qualified_name": "Global::_start"
+  },
+  "keep_success_logs": true,
+  "mirrored_to_process_stdio": true,
+  "outcome": "decompiled",
+  "pipeline_entrypoint": "run_all",
+  "raw_text_policy": "exact_python_stdout_stderr_text_before_portability_rewrite",
+  "schema_version": 1,
+  "started_time_ns": 1785564581749962931,
+  "streams": {
+    "combined": {
+      "bytes": 22130,
+      "path": "functions/f_0000000000101100_start.pipeline.log",
+      "sha256": "7822958656bee51c60b1ba787185d78b2de6f3b2d5dd4cba9faa2d3cb0fd58d6"
+    },
+    "stderr": {
+      "bytes": 0,
+      "path": "functions/f_0000000000101100_start.pipeline.stderr.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "stdout": {
+      "bytes": 22130,
+      "path": "functions/f_0000000000101100_start.pipeline.stdout.log",
+      "sha256": "7822958656bee51c60b1ba787185d78b2de6f3b2d5dd4cba9faa2d3cb0fd58d6"
+    }
+  }
+}

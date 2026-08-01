@@ -1,0 +1,38 @@
+{
+  "batch_build": "batch_v2h_final_abi_authority_publication",
+  "elapsed_ns": 1538777621,
+  "finished_time_ns": 1785564634090784453,
+  "format": "pal_internal_pipeline_stream_capture",
+  "function": {
+    "entry": 1054908,
+    "entry_hex": "0x1018bc",
+    "function_id": "function:0x1018bc",
+    "module_stem": "f_00000000001018bc_read_command",
+    "name": "read_command",
+    "qualified_name": "Global::read_command"
+  },
+  "keep_success_logs": true,
+  "mirrored_to_process_stdio": true,
+  "outcome": "decompiled",
+  "pipeline_entrypoint": "run_all",
+  "raw_text_policy": "exact_python_stdout_stderr_text_before_portability_rewrite",
+  "schema_version": 1,
+  "started_time_ns": 1785564632552006832,
+  "streams": {
+    "combined": {
+      "bytes": 39701,
+      "path": "functions/f_00000000001018bc_read_command.pipeline.log",
+      "sha256": "eb4980cc6e2fd71ad2f50f3eb7b46ef4e270c412ec5a3ac101fe1b88a9340f34"
+    },
+    "stderr": {
+      "bytes": 0,
+      "path": "functions/f_00000000001018bc_read_command.pipeline.stderr.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "stdout": {
+      "bytes": 39701,
+      "path": "functions/f_00000000001018bc_read_command.pipeline.stdout.log",
+      "sha256": "eb4980cc6e2fd71ad2f50f3eb7b46ef4e270c412ec5a3ac101fe1b88a9340f34"
+    }
+  }
+}

@@ -1,0 +1,38 @@
+{
+  "batch_build": "batch_v2h_final_abi_authority_publication",
+  "elapsed_ns": 370989643,
+  "finished_time_ns": 1785564349218447676,
+  "format": "pal_internal_pipeline_stream_capture",
+  "function": {
+    "entry": 1054056,
+    "entry_hex": "0x101568",
+    "function_id": "function:0x101568",
+    "module_stem": "f_0000000000101568_fini",
+    "name": "_fini",
+    "qualified_name": "Global::_fini"
+  },
+  "keep_success_logs": true,
+  "mirrored_to_process_stdio": true,
+  "outcome": "decompiled",
+  "pipeline_entrypoint": "run_all",
+  "raw_text_policy": "exact_python_stdout_stderr_text_before_portability_rewrite",
+  "schema_version": 1,
+  "started_time_ns": 1785564348847458033,
+  "streams": {
+    "combined": {
+      "bytes": 17891,
+      "path": "functions/f_0000000000101568_fini.pipeline.log",
+      "sha256": "9ec1b11cd152f1d55fc3b7e1fdd0a8624633024b27e1cff5badcba0e9057a643"
+    },
+    "stderr": {
+      "bytes": 0,
+      "path": "functions/f_0000000000101568_fini.pipeline.stderr.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "stdout": {
+      "bytes": 17891,
+      "path": "functions/f_0000000000101568_fini.pipeline.stdout.log",
+      "sha256": "9ec1b11cd152f1d55fc3b7e1fdd0a8624633024b27e1cff5badcba0e9057a643"
+    }
+  }
+}

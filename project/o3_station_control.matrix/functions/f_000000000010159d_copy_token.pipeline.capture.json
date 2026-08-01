@@ -1,0 +1,38 @@
+{
+  "batch_build": "batch_v2h_final_abi_authority_publication",
+  "elapsed_ns": 836485291,
+  "finished_time_ns": 1785564627677551527,
+  "format": "pal_internal_pipeline_stream_capture",
+  "function": {
+    "entry": 1054109,
+    "entry_hex": "0x10159d",
+    "function_id": "function:0x10159d",
+    "module_stem": "f_000000000010159d_copy_token",
+    "name": "copy_token",
+    "qualified_name": "Global::copy_token"
+  },
+  "keep_success_logs": true,
+  "mirrored_to_process_stdio": true,
+  "outcome": "decompiled",
+  "pipeline_entrypoint": "run_all",
+  "raw_text_policy": "exact_python_stdout_stderr_text_before_portability_rewrite",
+  "schema_version": 1,
+  "started_time_ns": 1785564626841066236,
+  "streams": {
+    "combined": {
+      "bytes": 30020,
+      "path": "functions/f_000000000010159d_copy_token.pipeline.log",
+      "sha256": "be28fa555bbcfb61cab1eca60c4a6dd96965d7ca6490abcf21a6b969d47d8da4"
+    },
+    "stderr": {
+      "bytes": 0,
+      "path": "functions/f_000000000010159d_copy_token.pipeline.stderr.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "stdout": {
+      "bytes": 30020,
+      "path": "functions/f_000000000010159d_copy_token.pipeline.stdout.log",
+      "sha256": "be28fa555bbcfb61cab1eca60c4a6dd96965d7ca6490abcf21a6b969d47d8da4"
+    }
+  }
+}

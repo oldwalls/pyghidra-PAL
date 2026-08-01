@@ -1,0 +1,38 @@
+{
+  "batch_build": "batch_v2h_final_abi_authority_publication",
+  "elapsed_ns": 803910900,
+  "finished_time_ns": 1785564385573099111,
+  "format": "pal_internal_pipeline_stream_capture",
+  "function": {
+    "entry": 1053586,
+    "entry_hex": "0x101392",
+    "function_id": "function:0x101392",
+    "module_stem": "f_0000000000101392_print_status",
+    "name": "print_status",
+    "qualified_name": "Global::print_status"
+  },
+  "keep_success_logs": true,
+  "mirrored_to_process_stdio": true,
+  "outcome": "decompiled",
+  "pipeline_entrypoint": "run_all",
+  "raw_text_policy": "exact_python_stdout_stderr_text_before_portability_rewrite",
+  "schema_version": 1,
+  "started_time_ns": 1785564384769188211,
+  "streams": {
+    "combined": {
+      "bytes": 25351,
+      "path": "functions/f_0000000000101392_print_status.pipeline.log",
+      "sha256": "f20a25de5cce6839dd5df49f3d524ec98e09e03bf45cca99fd6847fe5a127250"
+    },
+    "stderr": {
+      "bytes": 0,
+      "path": "functions/f_0000000000101392_print_status.pipeline.stderr.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "stdout": {
+      "bytes": 25351,
+      "path": "functions/f_0000000000101392_print_status.pipeline.stdout.log",
+      "sha256": "f20a25de5cce6839dd5df49f3d524ec98e09e03bf45cca99fd6847fe5a127250"
+    }
+  }
+}

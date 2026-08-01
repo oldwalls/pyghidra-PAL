@@ -1,0 +1,38 @@
+{
+  "batch_build": "batch_v2h_final_abi_authority_publication",
+  "elapsed_ns": 725864326,
+  "finished_time_ns": 1785564343556074534,
+  "format": "pal_internal_pipeline_stream_capture",
+  "function": {
+    "entry": 1053088,
+    "entry_hex": "0x1011a0",
+    "function_id": "function:0x1011a0",
+    "module_stem": "f_00000000001011a0_do_global_dtors_aux",
+    "name": "__do_global_dtors_aux",
+    "qualified_name": "Global::__do_global_dtors_aux"
+  },
+  "keep_success_logs": true,
+  "mirrored_to_process_stdio": true,
+  "outcome": "decompiled",
+  "pipeline_entrypoint": "run_all",
+  "raw_text_policy": "exact_python_stdout_stderr_text_before_portability_rewrite",
+  "schema_version": 1,
+  "started_time_ns": 1785564342830210208,
+  "streams": {
+    "combined": {
+      "bytes": 28709,
+      "path": "functions/f_00000000001011a0_do_global_dtors_aux.pipeline.log",
+      "sha256": "08d398cfd25a12cd51d643662926516f567353b66095d89534804d5fc8a68668"
+    },
+    "stderr": {
+      "bytes": 0,
+      "path": "functions/f_00000000001011a0_do_global_dtors_aux.pipeline.stderr.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "stdout": {
+      "bytes": 28709,
+      "path": "functions/f_00000000001011a0_do_global_dtors_aux.pipeline.stdout.log",
+      "sha256": "08d398cfd25a12cd51d643662926516f567353b66095d89534804d5fc8a68668"
+    }
+  }
+}

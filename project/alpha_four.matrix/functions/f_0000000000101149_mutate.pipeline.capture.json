@@ -1,0 +1,38 @@
+{
+  "batch_build": "batch_v2h_final_abi_authority_publication",
+  "elapsed_ns": 393438694,
+  "finished_time_ns": 1785564280857153510,
+  "format": "pal_internal_pipeline_stream_capture",
+  "function": {
+    "entry": 1053001,
+    "entry_hex": "0x101149",
+    "function_id": "function:0x101149",
+    "module_stem": "f_0000000000101149_mutate",
+    "name": "mutate",
+    "qualified_name": "Global::mutate"
+  },
+  "keep_success_logs": true,
+  "mirrored_to_process_stdio": true,
+  "outcome": "decompiled",
+  "pipeline_entrypoint": "run_all",
+  "raw_text_policy": "exact_python_stdout_stderr_text_before_portability_rewrite",
+  "schema_version": 1,
+  "started_time_ns": 1785564280463714816,
+  "streams": {
+    "combined": {
+      "bytes": 20530,
+      "path": "functions/f_0000000000101149_mutate.pipeline.log",
+      "sha256": "55ea86fb1dab48aefbcd9852b3c0913e81ce6819567107e8964be0087a66f733"
+    },
+    "stderr": {
+      "bytes": 0,
+      "path": "functions/f_0000000000101149_mutate.pipeline.stderr.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "stdout": {
+      "bytes": 20530,
+      "path": "functions/f_0000000000101149_mutate.pipeline.stdout.log",
+      "sha256": "55ea86fb1dab48aefbcd9852b3c0913e81ce6819567107e8964be0087a66f733"
+    }
+  }
+}

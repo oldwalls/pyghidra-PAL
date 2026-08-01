@@ -1,0 +1,38 @@
+{
+  "batch_build": "batch_v2h_final_abi_authority_publication",
+  "elapsed_ns": 382013261,
+  "finished_time_ns": 1785564580105751782,
+  "format": "pal_internal_pipeline_stream_capture",
+  "function": {
+    "entry": 1052848,
+    "entry_hex": "0x1010b0",
+    "function_id": "function:0x1010b0",
+    "module_stem": "f_00000000001010b0_stack_chk_fail",
+    "name": "__stack_chk_fail",
+    "qualified_name": "<EXTERNAL>::__stack_chk_fail"
+  },
+  "keep_success_logs": true,
+  "mirrored_to_process_stdio": true,
+  "outcome": "decompiled",
+  "pipeline_entrypoint": "run_all",
+  "raw_text_policy": "exact_python_stdout_stderr_text_before_portability_rewrite",
+  "schema_version": 1,
+  "started_time_ns": 1785564579723738521,
+  "streams": {
+    "combined": {
+      "bytes": 19085,
+      "path": "functions/f_00000000001010b0_stack_chk_fail.pipeline.log",
+      "sha256": "687dc21b21298d76946ff7d819e275a682b4e7fc3379f5d2b33739dc8b5151c6"
+    },
+    "stderr": {
+      "bytes": 0,
+      "path": "functions/f_00000000001010b0_stack_chk_fail.pipeline.stderr.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "stdout": {
+      "bytes": 19085,
+      "path": "functions/f_00000000001010b0_stack_chk_fail.pipeline.stdout.log",
+      "sha256": "687dc21b21298d76946ff7d819e275a682b4e7fc3379f5d2b33739dc8b5151c6"
+    }
+  }
+}

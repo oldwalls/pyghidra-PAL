@@ -1,0 +1,38 @@
+{
+  "batch_build": "batch_v2h_final_abi_authority_publication",
+  "elapsed_ns": 337314306,
+  "finished_time_ns": 1785564652893783137,
+  "format": "pal_internal_pipeline_stream_capture",
+  "function": {
+    "entry": 1058820,
+    "entry_hex": "0x102804",
+    "function_id": "function:0x102804",
+    "module_stem": "f_0000000000102804_fini",
+    "name": "_fini",
+    "qualified_name": "Global::_fini"
+  },
+  "keep_success_logs": true,
+  "mirrored_to_process_stdio": true,
+  "outcome": "decompiled",
+  "pipeline_entrypoint": "run_all",
+  "raw_text_policy": "exact_python_stdout_stderr_text_before_portability_rewrite",
+  "schema_version": 1,
+  "started_time_ns": 1785564652556468831,
+  "streams": {
+    "combined": {
+      "bytes": 14681,
+      "path": "functions/f_0000000000102804_fini.pipeline.log",
+      "sha256": "2aa9a067a86f42679f836b07ef984d7f464aa6ee61a226349401f5492a0c0e4a"
+    },
+    "stderr": {
+      "bytes": 0,
+      "path": "functions/f_0000000000102804_fini.pipeline.stderr.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "stdout": {
+      "bytes": 14681,
+      "path": "functions/f_0000000000102804_fini.pipeline.stdout.log",
+      "sha256": "2aa9a067a86f42679f836b07ef984d7f464aa6ee61a226349401f5492a0c0e4a"
+    }
+  }
+}

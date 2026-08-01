@@ -1,0 +1,24 @@
+{
+  "audit_schema": "pal_publish_audit_v1",
+  "checked_manifest_artifacts": 210,
+  "checked_python_files": 62,
+  "counts": {
+    "decompiled": 30,
+    "discovered": 30,
+    "enumerated": 30,
+    "failed": 0,
+    "skipped_external": 0
+  },
+  "errors": [],
+  "expected_binary_sha256": "4687c82e2503317b8ea093d29b855a007b2372b3542805ace3727f776de16968",
+  "manifest_path": "/home/rem/gh/PAL/pyghidra-PAL/PAL/project/lunar_lander.game/PAL_function_manifest.json",
+  "manifest_status": "complete",
+  "ok": true,
+  "program_executable_path": "specimens/o0/lunar_lander.game",
+  "program_name": "lunar_lander.game",
+  "publish_bytes": 12131345,
+  "publish_directory": "/home/rem/gh/PAL/pyghidra-PAL/PAL/project/lunar_lander.game",
+  "publish_files": 223,
+  "specimen": "lunar_lander.game",
+  "warnings": []
+}

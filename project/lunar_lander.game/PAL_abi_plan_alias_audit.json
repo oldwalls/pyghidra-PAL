@@ -1,0 +1,3418 @@
+{
+  "canonicalizer_version": "v1_immutable_plan_identity",
+  "core_conflicts": [],
+  "custody_health": {
+    "status": "ready",
+    "summary": {
+      "argument_chains_incompatible": 0,
+      "argument_chains_ready": 11,
+      "call_plans": 52,
+      "canonicalizer_version": "v1_immutable_plan_identity",
+      "carrier_disagreements": 0,
+      "entry_plans": 30,
+      "generated_code_rewrites": 0,
+      "ghost_repairs_conflicting": 0,
+      "ghost_repairs_deferred": 0,
+      "ghost_repairs_resolved": 0,
+      "icecubes": 30,
+      "internal_calls_linked": 11,
+      "internal_calls_unresolved": 0,
+      "kind": "pal_abi_custody_project_summary_v1b",
+      "metadata_only": true,
+      "outputless_candidates": 0,
+      "plan_alias_groups": 52,
+      "plan_annotation_variant_groups": 0,
+      "plan_core_conflicts": 0,
+      "plan_occurrences": 134,
+      "result_width_conflicts": 0,
+      "return_carriers_deferred": 0,
+      "return_carriers_resolved": 11,
+      "runtime_helpers": 0,
+      "stamped_plan_occurrences": 134,
+      "status": "ready",
+      "version": "v1b_canonical_project_plan_index"
+    }
+  },
+  "final_authority": {
+    "authorized_plan_ids": [],
+    "authorized_repair_identity_verified": true,
+    "build": "batch_v2h_final_abi_authority_publication",
+    "canonicalizer_version": "v1_immutable_plan_identity",
+    "emitter_v52_second_pass": {
+      "authority": "PALABICustodyInspector_v1_exact_cross_function_contract",
+      "authorized_contracts": 0,
+      "authorized_functions": 0,
+      "build": "batch_v2h_final_abi_authority_publication",
+      "failures": [],
+      "last_call_inference": 0,
+      "pipeline_layers_rerun": [
+        "PALemitter"
+      ],
+      "re_emitted_entries": [],
+      "re_emitted_functions": 0,
+      "status": "not_required",
+      "target_name_inference": 0,
+      "upstream_layers_rerun": 0
+    },
+    "final_custody_refresh_completed": true,
+    "final_plan_index": "PAL_abi_plan_index.json",
+    "inspector_version": "v1b_canonical_project_plan_index",
+    "kind": "pal_batch_final_abi_authority_v2h",
+    "last_call_surface_inference_used": false,
+    "phase": "post_emitter_v52_refreeze_and_custody_refresh",
+    "plan_core_continuity_verified": true,
+    "pre_emitter_plan_index": "PAL_abi_plan_index.pre_emitter_v52.json",
+    "target_name_inference_used": false
+  },
+  "format": "pal_abi_plan_alias_audit",
+  "groups": [
+    {
+      "annotation_hashes": [
+        "d8866ce54b926ad198d28c97cb895adedf4b191b82b04b32e954f17c5278ab6f"
+      ],
+      "authoritative_source": {
+        "function_entry": 1052672,
+        "function_id": "function:0x101000",
+        "function_name": "_init",
+        "icecube": "f_0000000000101000_init.icecube.json.gz",
+        "json_pointer": "/snapshot/document/metadata_registry/abi:call:call_site:1052688:(ram, 0x101010, 23, 2):2",
+        "registry_key": "abi:call:call_site:1052688:(ram, 0x101010, 23, 2):2"
+      },
+      "classification": "exact_duplicates",
+      "core_hashes": [
+        "1a2895518ec221fd60739042c1cfe03ee8270e9e33406a32387091e78abd002b"
+      ],
+      "occurrences": [
+        {
+          "plan_annotation_sha256": "d8866ce54b926ad198d28c97cb895adedf4b191b82b04b32e954f17c5278ab6f",
+          "plan_core_sha256": "1a2895518ec221fd60739042c1cfe03ee8270e9e33406a32387091e78abd002b",
+          "source": {
+            "function_entry": 1052672,
+            "function_id": "function:0x101000",
+            "function_name": "_init",
+            "icecube": "f_0000000000101000_init.icecube.json.gz",
+            "json_pointer": "/snapshot/document/metadata_registry/abi:call:call_site:1052688:(ram, 0x101010, 23, 2):2",
+            "registry_key": "abi:call:call_site:1052688:(ram, 0x101010, 23, 2):2"
+          }
+        },
+        {
+          "plan_annotation_sha256": "d8866ce54b926ad198d28c97cb895adedf4b191b82b04b32e954f17c5278ab6f",
+          "plan_core_sha256": "1a2895518ec221fd60739042c1cfe03ee8270e9e33406a32387091e78abd002b",
+          "source": {
+            "function_entry": 1052672,
+            "function_id": "function:0x101000",
+            "function_name": "_init",
+            "icecube": "f_0000000000101000_init.icecube.json.gz",
+            "json_pointer": "/snapshot/document/metadata_registry/abi:call_op:1052688:(ram, 0x101010, 23, 2):2",
+            "registry_key": "abi:call_op:1052688:(ram, 0x101010, 23, 2):2"
+          }
+        }
+      ],
+      "plan_class": "call_site_abi_plan",
+      "plan_id": "call_site:1052688:(ram, 0x101010, 23, 2):2"
+    },
+    {
+      "annotation_hashes": [
+        "f7d1325db2559d70a7db8861982844676736686f96db1c58ca4682c0886776e9"
+      ],
+      "authoritative_source": {
+        "function_entry": 1052704,
+        "function_id": "function:0x101020",
+        "function_name": "FUN_00101020",
+        "icecube": "f_0000000000101020_FUN_00101020.icecube.json.gz",
+        "json_pointer": "/snapshot/document/metadata_registry/abi:call:call_site:1052704:(ram, 0x101026, 3, 3):3",
+        "registry_key": "abi:call:call_site:1052704:(ram, 0x101026, 3, 3):3"
+      },
+      "classification": "exact_duplicates",
+      "core_hashes": [
+        "c4d0892c6f1b3d602c4711a323fb815d1d67207ce24034e2d7e76bc173e0a412"
+      ],
+      "occurrences": [
+        {
+          "plan_annotation_sha256": "f7d1325db2559d70a7db8861982844676736686f96db1c58ca4682c0886776e9",
+          "plan_core_sha256": "c4d0892c6f1b3d602c4711a323fb815d1d67207ce24034e2d7e76bc173e0a412",
+          "source": {
+            "function_entry": 1052704,
+            "function_id": "function:0x101020",
+            "function_name": "FUN_00101020",
+            "icecube": "f_0000000000101020_FUN_00101020.icecube.json.gz",
+            "json_pointer": "/snapshot/document/metadata_registry/abi:call:call_site:1052704:(ram, 0x101026, 3, 3):3",
+            "registry_key": "abi:call:call_site:1052704:(ram, 0x101026, 3, 3):3"
+          }
+        },
+        {
+          "plan_annotation_sha256": "f7d1325db2559d70a7db8861982844676736686f96db1c58ca4682c0886776e9",
+          "plan_core_sha256": "c4d0892c6f1b3d602c4711a323fb815d1d67207ce24034e2d7e76bc173e0a412",
+          "source": {
+            "function_entry": 1052704,
+            "function_id": "function:0x101020",
+            "function_name": "FUN_00101020",
+            "icecube": "f_0000000000101020_FUN_00101020.icecube.json.gz",
+            "json_pointer": "/snapshot/document/metadata_registry/abi:call_op:1052704:(ram, 0x101026, 3, 3):3",
+            "registry_key": "abi:call_op:1052704:(ram, 0x101026, 3, 3):3"
+          }
+        }
+      ],
+      "plan_class": "call_site_abi_plan",
+      "plan_id": "call_site:1052704:(ram, 0x101026, 3, 3):3"
+    },
+    {
+      "annotation_hashes": [
+        "ca21520024b52a7ea7fe28995389bed008d591efc755a84e2167805f7650d3d4"
+      ],
+      "authoritative_source": {
+        "function_entry": 1052720,
+        "function_id": "function:0x101030",
+        "function_name": "puts",
+        "icecube": "f_0000000000101030_puts.icecube.json.gz",
+        "json_pointer": "/snapshot/document/metadata_registry/abi:call:call_site:1052720:(ram, 0x101030, 0, 2):2",
+        "registry_key": "abi:call:call_site:1052720:(ram, 0x101030, 0, 2):2"
+      },
+      "classification": "exact_duplicates",
+      "core_hashes": [
+        "530df19902d0f6aa65da506f8b012f5d0a950aaf40a00355ca1624aac78a7bc8"
+      ],
+      "occurrences": [
+        {
+          "plan_annotation_sha256": "ca21520024b52a7ea7fe28995389bed008d591efc755a84e2167805f7650d3d4",
+          "plan_core_sha256": "530df19902d0f6aa65da506f8b012f5d0a950aaf40a00355ca1624aac78a7bc8",
+          "source": {
+            "function_entry": 1052720,
+            "function_id": "function:0x101030",
+            "function_name": "puts",
+            "icecube": "f_0000000000101030_puts.icecube.json.gz",
+            "json_pointer": "/snapshot/document/metadata_registry/abi:call:call_site:1052720:(ram, 0x101030, 0, 2):2",
+            "registry_key": "abi:call:call_site:1052720:(ram, 0x101030, 0, 2):2"
+          }
+        },
+        {
+          "plan_annotation_sha256": "ca21520024b52a7ea7fe28995389bed008d591efc755a84e2167805f7650d3d4",
+          "plan_core_sha256": "530df19902d0f6aa65da506f8b012f5d0a950aaf40a00355ca1624aac78a7bc8",
+          "source": {
+            "function_entry": 1052720,
+            "function_id": "function:0x101030",
+            "function_name": "puts",
+            "icecube": "f_0000000000101030_puts.icecube.json.gz",
+            "json_pointer": "/snapshot/document/metadata_registry/abi:call_op:1052720:(ram, 0x101030, 0, 2):2",
+            "registry_key": "abi:call_op:1052720:(ram, 0x101030, 0, 2):2"
+          }
+        }
+      ],
+      "plan_class": "call_site_abi_plan",
+      "plan_id": "call_site:1052720:(ram, 0x101030, 0, 2):2"
+    },
+    {
+      "annotation_hashes": [
+        "b62f46fac0a0c03dcd26f73b275eb358a8f85a4c2f341f5ed53d06f86bd0508f"
+      ],
+      "authoritative_source": {
+        "function_entry": 1052736,
+        "function_id": "function:0x101040",
+        "function_name": "printf",
+        "icecube": "f_0000000000101040_printf.icecube.json.gz",
+        "json_pointer": "/snapshot/document/metadata_registry/abi:call:call_site:1052736:(ram, 0x101040, 0, 2):2",
+        "registry_key": "abi:call:call_site:1052736:(ram, 0x101040, 0, 2):2"
+      },
+      "classification": "exact_duplicates",
+      "core_hashes": [
+        "aa79dd2de20d0d12164b9a0550ce5044da67725cd9f87b81a782527fed9d809e"
+      ],
+      "occurrences": [
+        {
+          "plan_annotation_sha256": "b62f46fac0a0c03dcd26f73b275eb358a8f85a4c2f341f5ed53d06f86bd0508f",
+          "plan_core_sha256": "aa79dd2de20d0d12164b9a0550ce5044da67725cd9f87b81a782527fed9d809e",
+          "source": {
+            "function_entry": 1052736,
+            "function_id": "function:0x101040",
+            "function_name": "printf",
+            "icecube": "f_0000000000101040_printf.icecube.json.gz",
+            "json_pointer": "/snapshot/document/metadata_registry/abi:call:call_site:1052736:(ram, 0x101040, 0, 2):2",
+            "registry_key": "abi:call:call_site:1052736:(ram, 0x101040, 0, 2):2"
+          }
+        },
+        {
+          "plan_annotation_sha256": "b62f46fac0a0c03dcd26f73b275eb358a8f85a4c2f341f5ed53d06f86bd0508f",
+          "plan_core_sha256": "aa79dd2de20d0d12164b9a0550ce5044da67725cd9f87b81a782527fed9d809e",
+          "source": {
+            "function_entry": 1052736,
+            "function_id": "function:0x101040",
+            "function_name": "printf",
+            "icecube": "f_0000000000101040_printf.icecube.json.gz",
+            "json_pointer": "/snapshot/document/metadata_registry/abi:call_op:1052736:(ram, 0x101040, 0, 2):2",
+            "registry_key": "abi:call_op:1052736:(ram, 0x101040, 0, 2):2"
+          }
+        }
+      ],
+      "plan_class": "call_site_abi_plan",
+      "plan_id": "call_site:1052736:(ram, 0x101040, 0, 2):2"
+    },
+    {
+      "annotation_hashes": [
+        "d3bd005862b1effc017f70d1b44e8878ddbc20df348c7e0ce2d0c23b06b73f1b"
+      ],
+      "authoritative_source": {
+        "function_entry": 1052752,
+        "function_id": "function:0x101050",
+        "function_name": "fgets",
+        "icecube": "f_0000000000101050_fgets.icecube.json.gz",
+        "json_pointer": "/snapshot/document/metadata_registry/abi:call:call_site:1052752:(ram, 0x101050, 0, 2):2",
+        "registry_key": "abi:call:call_site:1052752:(ram, 0x101050, 0, 2):2"
+      },
+      "classification": "exact_duplicates",
+      "core_hashes": [
+        "87a9adfcc252a9afc43b165d316f8d74ae785a4c7f8be5a8587660fdaf542991"
+      ],
+      "occurrences": [
+        {
+          "plan_annotation_sha256": "d3bd005862b1effc017f70d1b44e8878ddbc20df348c7e0ce2d0c23b06b73f1b",
+          "plan_core_sha256": "87a9adfcc252a9afc43b165d316f8d74ae785a4c7f8be5a8587660fdaf542991",
+          "source": {
+            "function_entry": 1052752,
+            "function_id": "function:0x101050",
+            "function_name": "fgets",
+            "icecube": "f_0000000000101050_fgets.icecube.json.gz",
+            "json_pointer": "/snapshot/document/metadata_registry/abi:call:call_site:1052752:(ram, 0x101050, 0, 2):2",
+            "registry_key": "abi:call:call_site:1052752:(ram, 0x101050, 0, 2):2"
+          }
+        },
+        {
+          "plan_annotation_sha256": "d3bd005862b1effc017f70d1b44e8878ddbc20df348c7e0ce2d0c23b06b73f1b",
+          "plan_core_sha256": "87a9adfcc252a9afc43b165d316f8d74ae785a4c7f8be5a8587660fdaf542991",
+          "source": {
+            "function_entry": 1052752,
+            "function_id": "function:0x101050",
+            "function_name": "fgets",
+            "icecube": "f_0000000000101050_fgets.icecube.json.gz",
+            "json_pointer": "/snapshot/document/metadata_registry/abi:call_op:1052752:(ram, 0x101050, 0, 2):2",
+            "registry_key": "abi:call_op:1052752:(ram, 0x101050, 0, 2):2"
+          }
+        }
+      ],
+      "plan_class": "call_site_abi_plan",
+      "plan_id": "call_site:1052752:(ram, 0x101050, 0, 2):2"
+    },
+    {
+      "annotation_hashes": [
+        "eeb85dfff2a045d8566ea9e629f9e65101205e14fce2fdbdf61b3a94a53ac8ed"
+      ],
+      "authoritative_source": {
+        "function_entry": 1052768,
+        "function_id": "function:0x101060",
+        "function_name": "__cxa_finalize",
+        "icecube": "f_0000000000101060_cxa_finalize.icecube.json.gz",
+        "json_pointer": "/snapshot/document/metadata_registry/abi:call:call_site:1052768:(ram, 0x101060, 0, 2):2",
+        "registry_key": "abi:call:call_site:1052768:(ram, 0x101060, 0, 2):2"
+      },
+      "classification": "exact_duplicates",
+      "core_hashes": [
+        "73c6e3503f4a712d713bb5728a1087db3962a107098d33732402aeac067b8a73"
+      ],
+      "occurrences": [
+        {
+          "plan_annotation_sha256": "eeb85dfff2a045d8566ea9e629f9e65101205e14fce2fdbdf61b3a94a53ac8ed",
+          "plan_core_sha256": "73c6e3503f4a712d713bb5728a1087db3962a107098d33732402aeac067b8a73",
+          "source": {
+            "function_entry": 1052768,
+            "function_id": "function:0x101060",
+            "function_name": "__cxa_finalize",
+            "icecube": "f_0000000000101060_cxa_finalize.icecube.json.gz",
+            "json_pointer": "/snapshot/document/metadata_registry/abi:call:call_site:1052768:(ram, 0x101060, 0, 2):2",
+            "registry_key": "abi:call:call_site:1052768:(ram, 0x101060, 0, 2):2"
+          }
+        },
+        {
+          "plan_annotation_sha256": "eeb85dfff2a045d8566ea9e629f9e65101205e14fce2fdbdf61b3a94a53ac8ed",
+          "plan_core_sha256": "73c6e3503f4a712d713bb5728a1087db3962a107098d33732402aeac067b8a73",
+          "source": {
+            "function_entry": 1052768,
+            "function_id": "function:0x101060",
+            "function_name": "__cxa_finalize",
+            "icecube": "f_0000000000101060_cxa_finalize.icecube.json.gz",
+            "json_pointer": "/snapshot/document/metadata_registry/abi:call_op:1052768:(ram, 0x101060, 0, 2):2",
+            "registry_key": "abi:call_op:1052768:(ram, 0x101060, 0, 2):2"
+          }
+        }
+      ],
+      "plan_class": "call_site_abi_plan",
+      "plan_id": "call_site:1052768:(ram, 0x101060, 0, 2):2"
+    },
+    {
+      "annotation_hashes": [
+        "551e1dc9959c2e3dfba8e446d2eb29a8ee0d77bfd333748b32ff1ec76f0638ab"
+      ],
+      "authoritative_source": {
+        "function_entry": 1052784,
+        "function_id": "function:0x101070",
+        "function_name": "_start",
+        "icecube": "f_0000000000101070_start.icecube.json.gz",
+        "json_pointer": "/snapshot/document/metadata_registry/abi:call:call_site:1052784:(ram, 0x10108b, 55, 5):5",
+        "registry_key": "abi:call:call_site:1052784:(ram, 0x10108b, 55, 5):5"
+      },
+      "classification": "exact_duplicates",
+      "core_hashes": [
+        "d3fe9c1f65d55d3279c22a1ef9c79db89762f404e2e32f4871f0f5b6e5e27190"
+      ],
+      "occurrences": [
+        {
+          "plan_annotation_sha256": "551e1dc9959c2e3dfba8e446d2eb29a8ee0d77bfd333748b32ff1ec76f0638ab",
+          "plan_core_sha256": "d3fe9c1f65d55d3279c22a1ef9c79db89762f404e2e32f4871f0f5b6e5e27190",
+          "source": {
+            "function_entry": 1052784,
+            "function_id": "function:0x101070",
+            "function_name": "_start",
+            "icecube": "f_0000000000101070_start.icecube.json.gz",
+            "json_pointer": "/snapshot/document/metadata_registry/abi:call:call_site:1052784:(ram, 0x10108b, 55, 5):5",
+            "registry_key": "abi:call:call_site:1052784:(ram, 0x10108b, 55, 5):5"
+          }
+        },
+        {
+          "plan_annotation_sha256": "551e1dc9959c2e3dfba8e446d2eb29a8ee0d77bfd333748b32ff1ec76f0638ab",
+          "plan_core_sha256": "d3fe9c1f65d55d3279c22a1ef9c79db89762f404e2e32f4871f0f5b6e5e27190",
+          "source": {
+            "function_entry": 1052784,
+            "function_id": "function:0x101070",
+            "function_name": "_start",
+            "icecube": "f_0000000000101070_start.icecube.json.gz",
+            "json_pointer": "/snapshot/document/metadata_registry/abi:call_op:1052784:(ram, 0x10108b, 55, 5):5",
+            "registry_key": "abi:call_op:1052784:(ram, 0x10108b, 55, 5):5"
+          }
+        }
+      ],
+      "plan_class": "call_site_abi_plan",
+      "plan_id": "call_site:1052784:(ram, 0x10108b, 55, 5):5"
+    },
+    {
+      "annotation_hashes": [
+        "b1e47375b9cfdb0af468e913683234f132b1e15b7a61b926ef04370bf3415b57"
+      ],
+      "authoritative_source": {
+        "function_entry": 1052944,
+        "function_id": "function:0x101110",
+        "function_name": "__do_global_dtors_aux",
+        "icecube": "f_0000000000101110_do_global_dtors_aux.icecube.json.gz",
+        "json_pointer": "/snapshot/document/metadata_registry/abi:call:call_site:1052971:(ram, 0x101132, 30, 3):3",
+        "registry_key": "abi:call:call_site:1052971:(ram, 0x101132, 30, 3):3"
+      },
+      "classification": "exact_duplicates",
+      "core_hashes": [
+        "13dc5b64541d04bb79d3ba1db663236fc4aa01580533de3271c8267fb2d6bc67"
+      ],
+      "occurrences": [
+        {
+          "plan_annotation_sha256": "b1e47375b9cfdb0af468e913683234f132b1e15b7a61b926ef04370bf3415b57",
+          "plan_core_sha256": "13dc5b64541d04bb79d3ba1db663236fc4aa01580533de3271c8267fb2d6bc67",
+          "source": {
+            "function_entry": 1052944,
+            "function_id": "function:0x101110",
+            "function_name": "__do_global_dtors_aux",
+            "icecube": "f_0000000000101110_do_global_dtors_aux.icecube.json.gz",
+            "json_pointer": "/snapshot/document/metadata_registry/abi:call:call_site:1052971:(ram, 0x101132, 30, 3):3",
+            "registry_key": "abi:call:call_site:1052971:(ram, 0x101132, 30, 3):3"
+          }
+        },
+        {
+          "plan_annotation_sha256": "b1e47375b9cfdb0af468e913683234f132b1e15b7a61b926ef04370bf3415b57",
+          "plan_core_sha256": "13dc5b64541d04bb79d3ba1db663236fc4aa01580533de3271c8267fb2d6bc67",
+          "source": {
+            "function_entry": 1052944,
+            "function_id": "function:0x101110",
+            "function_name": "__do_global_dtors_aux",
+            "icecube": "f_0000000000101110_do_global_dtors_aux.icecube.json.gz",
+            "json_pointer": "/snapshot/document/metadata_registry/abi:call_op:1052971:(ram, 0x101132, 30, 3):3",
+            "registry_key": "abi:call_op:1052971:(ram, 0x101132, 30, 3):3"
+          }
+        }
+      ],
+      "plan_class": "call_site_abi_plan",
+      "plan_id": "call_site:1052971:(ram, 0x101132, 30, 3):3"
+    },
+    {
+      "annotation_hashes": [
+        "b45bb66658982dfef2aa2011de3bcdb7eba1342ac0bcf1c6c3a6d64a285d582e"
+      ],
+      "authoritative_source": {
+        "function_entry": 1052944,
+        "function_id": "function:0x101110",
+        "function_name": "__do_global_dtors_aux",
+        "icecube": "f_0000000000101110_do_global_dtors_aux.icecube.json.gz",
+        "json_pointer": "/snapshot/document/metadata_registry/abi:call:call_site:1052983:(ram, 0x101137, 33, 6):6",
+        "registry_key": "abi:call:call_site:1052983:(ram, 0x101137, 33, 6):6"
+      },
+      "classification": "exact_duplicates",
+      "core_hashes": [
+        "cfefedb73194e9ad379feba021e1d7afd3813da43b82d5e81a15213efd70bbe9"
+      ],
+      "occurrences": [
+        {
+          "plan_annotation_sha256": "b45bb66658982dfef2aa2011de3bcdb7eba1342ac0bcf1c6c3a6d64a285d582e",
+          "plan_core_sha256": "cfefedb73194e9ad379feba021e1d7afd3813da43b82d5e81a15213efd70bbe9",
+          "source": {
+            "function_entry": 1052944,
+            "function_id": "function:0x101110",
+            "function_name": "__do_global_dtors_aux",
+            "icecube": "f_0000000000101110_do_global_dtors_aux.icecube.json.gz",
+            "json_pointer": "/snapshot/document/metadata_registry/abi:call:call_site:1052983:(ram, 0x101137, 33, 6):6",
+            "registry_key": "abi:call:call_site:1052983:(ram, 0x101137, 33, 6):6"
+          }
+        },
+        {
+          "plan_annotation_sha256": "b45bb66658982dfef2aa2011de3bcdb7eba1342ac0bcf1c6c3a6d64a285d582e",
+          "plan_core_sha256": "cfefedb73194e9ad379feba021e1d7afd3813da43b82d5e81a15213efd70bbe9",
+          "source": {
+            "function_entry": 1052944,
+            "function_id": "function:0x101110",
+            "function_name": "__do_global_dtors_aux",
+            "icecube": "f_0000000000101110_do_global_dtors_aux.icecube.json.gz",
+            "json_pointer": "/snapshot/document/metadata_registry/abi:call_op:1052983:(ram, 0x101137, 33, 6):6",
+            "registry_key": "abi:call_op:1052983:(ram, 0x101137, 33, 6):6"
+          }
+        }
+      ],
+      "plan_class": "call_site_abi_plan",
+      "plan_id": "call_site:1052983:(ram, 0x101137, 33, 6):6"
+    },
+    {
+      "annotation_hashes": [
+        "5fe4217538ae289bacf072aa53935d0186ecbe86be2312bf0a26eef515840829"
+      ],
+      "authoritative_source": {
+        "function_entry": 1053008,
+        "function_id": "function:0x101150",
+        "function_name": "frame_dummy",
+        "icecube": "f_0000000000101150_frame_dummy.icecube.json.gz",
+        "json_pointer": "/snapshot/document/metadata_registry/abi:call:call_site:1053012:(ram, 0x101154, 0, 0):0",
+        "registry_key": "abi:call:call_site:1053012:(ram, 0x101154, 0, 0):0"
+      },
+      "classification": "exact_duplicates",
+      "core_hashes": [
+        "b0fb08ec98ddfda89df1a761182d38e1178fddc9ee55f0874c1d4355048806ff"
+      ],
+      "occurrences": [
+        {
+          "plan_annotation_sha256": "5fe4217538ae289bacf072aa53935d0186ecbe86be2312bf0a26eef515840829",
+          "plan_core_sha256": "b0fb08ec98ddfda89df1a761182d38e1178fddc9ee55f0874c1d4355048806ff",
+          "source": {
+            "function_entry": 1053008,
+            "function_id": "function:0x101150",
+            "function_name": "frame_dummy",
+            "icecube": "f_0000000000101150_frame_dummy.icecube.json.gz",
+            "json_pointer": "/snapshot/document/metadata_registry/abi:call:call_site:1053012:(ram, 0x101154, 0, 0):0",
+            "registry_key": "abi:call:call_site:1053012:(ram, 0x101154, 0, 0):0"
+          }
+        },
+        {
+          "plan_annotation_sha256": "5fe4217538ae289bacf072aa53935d0186ecbe86be2312bf0a26eef515840829",
+          "plan_core_sha256": "b0fb08ec98ddfda89df1a761182d38e1178fddc9ee55f0874c1d4355048806ff",
+          "source": {
+            "function_entry": 1053008,
+            "function_id": "function:0x101150",
+            "function_name": "frame_dummy",
+            "icecube": "f_0000000000101150_frame_dummy.icecube.json.gz",
+            "json_pointer": "/snapshot/document/metadata_registry/abi:call_op:1053012:(ram, 0x101154, 0, 0):0",
+            "registry_key": "abi:call_op:1053012:(ram, 0x101154, 0, 0):0"
+          }
+        }
+      ],
+      "plan_class": "call_site_abi_plan",
+      "plan_id": "call_site:1053012:(ram, 0x101154, 0, 0):0"
+    },
+    {
+      "annotation_hashes": [
+        "30a7a8d66c62f1e21105a2b4c86c8759ef19459292c59ac9f6f2b439ff168fff"
+      ],
+      "authoritative_source": {
+        "function_entry": 1053209,
+        "function_id": "function:0x101219",
+        "function_name": "print_sky_row",
+        "icecube": "f_0000000000101219_print_sky_row.icecube.json.gz",
+        "json_pointer": "/snapshot/document/metadata_registry/abi:call:call_site:1053231:(ram, 0x101239, 41, 1):1",
+        "registry_key": "abi:call:call_site:1053231:(ram, 0x101239, 41, 1):1"
+      },
+      "classification": "exact_duplicates",
+      "core_hashes": [
+        "311fdba0b7ce698e57b85ce9b380906a828edbe99e44728e8175ca296fe0b910"
+      ],
+      "occurrences": [
+        {
+          "plan_annotation_sha256": "30a7a8d66c62f1e21105a2b4c86c8759ef19459292c59ac9f6f2b439ff168fff",
+          "plan_core_sha256": "311fdba0b7ce698e57b85ce9b380906a828edbe99e44728e8175ca296fe0b910",
+          "source": {
+            "function_entry": 1053209,
+            "function_id": "function:0x101219",
+            "function_name": "print_sky_row",
+            "icecube": "f_0000000000101219_print_sky_row.icecube.json.gz",
+            "json_pointer": "/snapshot/document/metadata_registry/abi:call:call_site:1053231:(ram, 0x101239, 41, 1):1",
+            "registry_key": "abi:call:call_site:1053231:(ram, 0x101239, 41, 1):1"
+          }
+        },
+        {
+          "plan_annotation_sha256": "30a7a8d66c62f1e21105a2b4c86c8759ef19459292c59ac9f6f2b439ff168fff",
+          "plan_core_sha256": "311fdba0b7ce698e57b85ce9b380906a828edbe99e44728e8175ca296fe0b910",
+          "source": {
+            "function_entry": 1053209,
+            "function_id": "function:0x101219",
+            "function_name": "print_sky_row",
+            "icecube": "f_0000000000101219_print_sky_row.icecube.json.gz",
+            "json_pointer": "/snapshot/document/metadata_registry/abi:call_op:1053231:(ram, 0x101239, 41, 1):1",
+            "registry_key": "abi:call_op:1053231:(ram, 0x101239, 41, 1):1"
+          }
+        }
+      ],
+      "plan_class": "call_site_abi_plan",
+      "plan_id": "call_site:1053231:(ram, 0x101239, 41, 1):1"
+    },
+    {
+      "annotation_hashes": [
+        "980d88f64bc50d1fd8770bc3638a1d09fb985e8cf7e8fe162af8cceca08bcbd0"
+      ],
+      "authoritative_source": {
+        "function_entry": 1053209,
+        "function_id": "function:0x101219",
+        "function_name": "print_sky_row",
+        "icecube": "f_0000000000101219_print_sky_row.icecube.json.gz",
+        "json_pointer": "/snapshot/document/metadata_registry/abi:call:call_site:1053248:(ram, 0x10124a, 53, 1):1",
+        "registry_key": "abi:call:call_site:1053248:(ram, 0x10124a, 53, 1):1"
+      },
+      "classification": "exact_duplicates",
+      "core_hashes": [
+        "893b9dd505d712a2f2cedeb294715ddf290e4d210cb1d335b00ff56b6b448d04"
+      ],
+      "occurrences": [
+        {
+          "plan_annotation_sha256": "980d88f64bc50d1fd8770bc3638a1d09fb985e8cf7e8fe162af8cceca08bcbd0",
+          "plan_core_sha256": "893b9dd505d712a2f2cedeb294715ddf290e4d210cb1d335b00ff56b6b448d04",
+          "source": {
+            "function_entry": 1053209,
+            "function_id": "function:0x101219",
+            "function_name": "print_sky_row",
+            "icecube": "f_0000000000101219_print_sky_row.icecube.json.gz",
+            "json_pointer": "/snapshot/document/metadata_registry/abi:call:call_site:1053248:(ram, 0x10124a, 53, 1):1",
+            "registry_key": "abi:call:call_site:1053248:(ram, 0x10124a, 53, 1):1"
+          }
+        },
+        {
+          "plan_annotation_sha256": "980d88f64bc50d1fd8770bc3638a1d09fb985e8cf7e8fe162af8cceca08bcbd0",
+          "plan_core_sha256": "893b9dd505d712a2f2cedeb294715ddf290e4d210cb1d335b00ff56b6b448d04",
+          "source": {
+            "function_entry": 1053209,
+            "function_id": "function:0x101219",
+            "function_name": "print_sky_row",
+            "icecube": "f_0000000000101219_print_sky_row.icecube.json.gz",
+            "json_pointer": "/snapshot/document/metadata_registry/abi:call_op:1053248:(ram, 0x10124a, 53, 1):1",
+            "registry_key": "abi:call_op:1053248:(ram, 0x10124a, 53, 1):1"
+          }
+        }
+      ],
+      "plan_class": "call_site_abi_plan",
+      "plan_id": "call_site:1053248:(ram, 0x10124a, 53, 1):1"
+    },
+    {
+      "annotation_hashes": [
+        "0e94adc19b5cebdabd728ce3cbd95ff9a4e12966f92f18f50f30742273a5b88c"
+      ],
+      "authoritative_source": {
+        "function_entry": 1053266,
+        "function_id": "function:0x101252",
+        "function_name": "draw_lander",
+        "icecube": "f_0000000000101252_draw_lander.icecube.json.gz",
+        "json_pointer": "/snapshot/document/metadata_registry/abi:call:call_site:1053266:(ram, 0x101266, 26, 1):1",
+        "registry_key": "abi:call:call_site:1053266:(ram, 0x101266, 26, 1):1"
+      },
+      "classification": "exact_duplicates",
+      "core_hashes": [
+        "b78f6c885fe10baeb4c9f55c0298263cdad08964a96927be474dacf6b23af168"
+      ],
+      "occurrences": [
+        {
+          "plan_annotation_sha256": "0e94adc19b5cebdabd728ce3cbd95ff9a4e12966f92f18f50f30742273a5b88c",
+          "plan_core_sha256": "b78f6c885fe10baeb4c9f55c0298263cdad08964a96927be474dacf6b23af168",
+          "source": {
+            "function_entry": 1053266,
+            "function_id": "function:0x101252",
+            "function_name": "draw_lander",
+            "icecube": "f_0000000000101252_draw_lander.icecube.json.gz",
+            "json_pointer": "/snapshot/document/metadata_registry/abi:call:call_site:1053266:(ram, 0x101266, 26, 1):1",
+            "registry_key": "abi:call:call_site:1053266:(ram, 0x101266, 26, 1):1"
+          }
+        },
+        {
+          "plan_annotation_sha256": "0e94adc19b5cebdabd728ce3cbd95ff9a4e12966f92f18f50f30742273a5b88c",
+          "plan_core_sha256": "b78f6c885fe10baeb4c9f55c0298263cdad08964a96927be474dacf6b23af168",
+          "source": {
+            "function_entry": 1053266,
+            "function_id": "function:0x101252",
+            "function_name": "draw_lander",
+            "icecube": "f_0000000000101252_draw_lander.icecube.json.gz",
+            "json_pointer": "/snapshot/document/metadata_registry/abi:call_op:1053266:(ram, 0x101266, 26, 1):1",
+            "registry_key": "abi:call_op:1053266:(ram, 0x101266, 26, 1):1"
+          }
+        }
+      ],
+      "plan_class": "call_site_abi_plan",
+      "plan_id": "call_site:1053266:(ram, 0x101266, 26, 1):1"
+    },
+    {
+      "annotation_hashes": [
+        "3f4ce446a9ceb167cc30860c36692a053506c5397b02f507a6ccac2e34d58622"
+      ],
+      "authoritative_source": {
+        "function_entry": 1053266,
+        "function_id": "function:0x101252",
+        "function_name": "draw_lander",
+        "icecube": "f_0000000000101252_draw_lander.icecube.json.gz",
+        "json_pointer": "/snapshot/document/metadata_registry/abi:call:call_site:1053266:(ram, 0x101278, 34, 3):3",
+        "registry_key": "abi:call:call_site:1053266:(ram, 0x101278, 34, 3):3"
+      },
+      "classification": "exact_duplicates",
+      "core_hashes": [
+        "a24afdd63fcd6f3b8e3f7e9f4fbf3aa1e5940dd6c7ba624ba4fc1e29913c6af7"
+      ],
+      "occurrences": [
+        {
+          "plan_annotation_sha256": "3f4ce446a9ceb167cc30860c36692a053506c5397b02f507a6ccac2e34d58622",
+          "plan_core_sha256": "a24afdd63fcd6f3b8e3f7e9f4fbf3aa1e5940dd6c7ba624ba4fc1e29913c6af7",
+          "source": {
+            "function_entry": 1053266,
+            "function_id": "function:0x101252",
+            "function_name": "draw_lander",
+            "icecube": "f_0000000000101252_draw_lander.icecube.json.gz",
+            "json_pointer": "/snapshot/document/metadata_registry/abi:call:call_site:1053266:(ram, 0x101278, 34, 3):3",
+            "registry_key": "abi:call:call_site:1053266:(ram, 0x101278, 34, 3):3"
+          }
+        },
+        {
+          "plan_annotation_sha256": "3f4ce446a9ceb167cc30860c36692a053506c5397b02f507a6ccac2e34d58622",
+          "plan_core_sha256": "a24afdd63fcd6f3b8e3f7e9f4fbf3aa1e5940dd6c7ba624ba4fc1e29913c6af7",
+          "source": {
+            "function_entry": 1053266,
+            "function_id": "function:0x101252",
+            "function_name": "draw_lander",
+            "icecube": "f_0000000000101252_draw_lander.icecube.json.gz",
+            "json_pointer": "/snapshot/document/metadata_registry/abi:call_op:1053266:(ram, 0x101278, 34, 3):3",
+            "registry_key": "abi:call_op:1053266:(ram, 0x101278, 34, 3):3"
+          }
+        }
+      ],
+      "plan_class": "call_site_abi_plan",
+      "plan_id": "call_site:1053266:(ram, 0x101278, 34, 3):3"
+    },
+    {
+      "annotation_hashes": [
+        "e791d2d14cd6bf9b203b0da17091b52764f31345c4efcab6ab6df059fb412aa8"
+      ],
+      "authoritative_source": {
+        "function_entry": 1053266,
+        "function_id": "function:0x101252",
+        "function_name": "draw_lander",
+        "icecube": "f_0000000000101252_draw_lander.icecube.json.gz",
+        "json_pointer": "/snapshot/document/metadata_registry/abi:call:call_site:1053266:(ram, 0x101287, 39, 5):5",
+        "registry_key": "abi:call:call_site:1053266:(ram, 0x101287, 39, 5):5"
+      },
+      "classification": "exact_duplicates",
+      "core_hashes": [
+        "d416dcaf793aa4a1861a1ae1cbfd393688252df21346c2ecbab62c2fa1607a63"
+      ],
+      "occurrences": [
+        {
+          "plan_annotation_sha256": "e791d2d14cd6bf9b203b0da17091b52764f31345c4efcab6ab6df059fb412aa8",
+          "plan_core_sha256": "d416dcaf793aa4a1861a1ae1cbfd393688252df21346c2ecbab62c2fa1607a63",
+          "source": {
+            "function_entry": 1053266,
+            "function_id": "function:0x101252",
+            "function_name": "draw_lander",
+            "icecube": "f_0000000000101252_draw_lander.icecube.json.gz",
+            "json_pointer": "/snapshot/document/metadata_registry/abi:call:call_site:1053266:(ram, 0x101287, 39, 5):5",
+            "registry_key": "abi:call:call_site:1053266:(ram, 0x101287, 39, 5):5"
+          }
+        },
+        {
+          "plan_annotation_sha256": "e791d2d14cd6bf9b203b0da17091b52764f31345c4efcab6ab6df059fb412aa8",
+          "plan_core_sha256": "d416dcaf793aa4a1861a1ae1cbfd393688252df21346c2ecbab62c2fa1607a63",
+          "source": {
+            "function_entry": 1053266,
+            "function_id": "function:0x101252",
+            "function_name": "draw_lander",
+            "icecube": "f_0000000000101252_draw_lander.icecube.json.gz",
+            "json_pointer": "/snapshot/document/metadata_registry/abi:call_op:1053266:(ram, 0x101287, 39, 5):5",
+            "registry_key": "abi:call_op:1053266:(ram, 0x101287, 39, 5):5"
+          }
+        }
+      ],
+      "plan_class": "call_site_abi_plan",
+      "plan_id": "call_site:1053266:(ram, 0x101287, 39, 5):5"
+    },
+    {
+      "annotation_hashes": [
+        "c4594aad30e6df228740fcbff15456dc0f6c7cb697472e95a925d6d63ffafb50"
+      ],
+      "authoritative_source": {
+        "function_entry": 1053266,
+        "function_id": "function:0x101252",
+        "function_name": "draw_lander",
+        "icecube": "f_0000000000101252_draw_lander.icecube.json.gz",
+        "json_pointer": "/snapshot/document/metadata_registry/abi:call:call_site:1053266:(ram, 0x101296, 44, 7):7",
+        "registry_key": "abi:call:call_site:1053266:(ram, 0x101296, 44, 7):7"
+      },
+      "classification": "exact_duplicates",
+      "core_hashes": [
+        "414b54d371f5bb4c273c364a94f85e309ae58caab4552bb69238a06afbdd7aee"
+      ],
+      "occurrences": [
+        {
+          "plan_annotation_sha256": "c4594aad30e6df228740fcbff15456dc0f6c7cb697472e95a925d6d63ffafb50",
+          "plan_core_sha256": "414b54d371f5bb4c273c364a94f85e309ae58caab4552bb69238a06afbdd7aee",
+          "source": {
+            "function_entry": 1053266,
+            "function_id": "function:0x101252",
+            "function_name": "draw_lander",
+            "icecube": "f_0000000000101252_draw_lander.icecube.json.gz",
+            "json_pointer": "/snapshot/document/metadata_registry/abi:call:call_site:1053266:(ram, 0x101296, 44, 7):7",
+            "registry_key": "abi:call:call_site:1053266:(ram, 0x101296, 44, 7):7"
+          }
+        },
+        {
+          "plan_annotation_sha256": "c4594aad30e6df228740fcbff15456dc0f6c7cb697472e95a925d6d63ffafb50",
+          "plan_core_sha256": "414b54d371f5bb4c273c364a94f85e309ae58caab4552bb69238a06afbdd7aee",
+          "source": {
+            "function_entry": 1053266,
+            "function_id": "function:0x101252",
+            "function_name": "draw_lander",
+            "icecube": "f_0000000000101252_draw_lander.icecube.json.gz",
+            "json_pointer": "/snapshot/document/metadata_registry/abi:call_op:1053266:(ram, 0x101296, 44, 7):7",
+            "registry_key": "abi:call_op:1053266:(ram, 0x101296, 44, 7):7"
+          }
+        }
+      ],
+      "plan_class": "call_site_abi_plan",
+      "plan_id": "call_site:1053266:(ram, 0x101296, 44, 7):7"
+    },
+    {
+      "annotation_hashes": [
+        "d493c9909f6eed99e8b4ff166bc3c755288828eee1bd2433a8a1262a1cef37c3"
+      ],
+      "authoritative_source": {
+        "function_entry": 1053266,
+        "function_id": "function:0x101252",
+        "function_name": "draw_lander",
+        "icecube": "f_0000000000101252_draw_lander.icecube.json.gz",
+        "json_pointer": "/snapshot/document/metadata_registry/abi:call:call_site:1053266:(ram, 0x1012a5, 49, 9):9",
+        "registry_key": "abi:call:call_site:1053266:(ram, 0x1012a5, 49, 9):9"
+      },
+      "classification": "exact_duplicates",
+      "core_hashes": [
+        "801ef1659c94f2629e4c41b72be53e58cce461da60d47e01b7c0b5aaa39b63a7"
+      ],
+      "occurrences": [
+        {
+          "plan_annotation_sha256": "d493c9909f6eed99e8b4ff166bc3c755288828eee1bd2433a8a1262a1cef37c3",
+          "plan_core_sha256": "801ef1659c94f2629e4c41b72be53e58cce461da60d47e01b7c0b5aaa39b63a7",
+          "source": {
+            "function_entry": 1053266,
+            "function_id": "function:0x101252",
+            "function_name": "draw_lander",
+            "icecube": "f_0000000000101252_draw_lander.icecube.json.gz",
+            "json_pointer": "/snapshot/document/metadata_registry/abi:call:call_site:1053266:(ram, 0x1012a5, 49, 9):9",
+            "registry_key": "abi:call:call_site:1053266:(ram, 0x1012a5, 49, 9):9"
+          }
+        },
+        {
+          "plan_annotation_sha256": "d493c9909f6eed99e8b4ff166bc3c755288828eee1bd2433a8a1262a1cef37c3",
+          "plan_core_sha256": "801ef1659c94f2629e4c41b72be53e58cce461da60d47e01b7c0b5aaa39b63a7",
+          "source": {
+            "function_entry": 1053266,
+            "function_id": "function:0x101252",
+            "function_name": "draw_lander",
+            "icecube": "f_0000000000101252_draw_lander.icecube.json.gz",
+            "json_pointer": "/snapshot/document/metadata_registry/abi:call_op:1053266:(ram, 0x1012a5, 49, 9):9",
+            "registry_key": "abi:call_op:1053266:(ram, 0x1012a5, 49, 9):9"
+          }
+        }
+      ],
+      "plan_class": "call_site_abi_plan",
+      "plan_id": "call_site:1053266:(ram, 0x1012a5, 49, 9):9"
+    },
+    {
+      "annotation_hashes": [
+        "b883d12f6d5e442952a44fb405343a108ed2b777745a91dfe5b097162c54c48d"
+      ],
+      "authoritative_source": {
+        "function_entry": 1053266,
+        "function_id": "function:0x101252",
+        "function_name": "draw_lander",
+        "icecube": "f_0000000000101252_draw_lander.icecube.json.gz",
+        "json_pointer": "/snapshot/document/metadata_registry/abi:call:call_site:1053266:(ram, 0x1012d9, 86, 22):22",
+        "registry_key": "abi:call:call_site:1053266:(ram, 0x1012d9, 86, 22):22"
+      },
+      "classification": "exact_duplicates",
+      "core_hashes": [
+        "6896ee4be8b0851a791df47961cef8a95ffe0a9fc681fe5ef45d437daed0ac20"
+      ],
+      "occurrences": [
+        {
+          "plan_annotation_sha256": "b883d12f6d5e442952a44fb405343a108ed2b777745a91dfe5b097162c54c48d",
+          "plan_core_sha256": "6896ee4be8b0851a791df47961cef8a95ffe0a9fc681fe5ef45d437daed0ac20",
+          "source": {
+            "function_entry": 1053266,
+            "function_id": "function:0x101252",
+            "function_name": "draw_lander",
+            "icecube": "f_0000000000101252_draw_lander.icecube.json.gz",
+            "json_pointer": "/snapshot/document/metadata_registry/abi:call:call_site:1053266:(ram, 0x1012d9, 86, 22):22",
+            "registry_key": "abi:call:call_site:1053266:(ram, 0x1012d9, 86, 22):22"
+          }
+        },
+        {
+          "plan_annotation_sha256": "b883d12f6d5e442952a44fb405343a108ed2b777745a91dfe5b097162c54c48d",
+          "plan_core_sha256": "6896ee4be8b0851a791df47961cef8a95ffe0a9fc681fe5ef45d437daed0ac20",
+          "source": {
+            "function_entry": 1053266,
+            "function_id": "function:0x101252",
+            "function_name": "draw_lander",
+            "icecube": "f_0000000000101252_draw_lander.icecube.json.gz",
+            "json_pointer": "/snapshot/document/metadata_registry/abi:call_op:1053266:(ram, 0x1012d9, 86, 22):22",
+            "registry_key": "abi:call_op:1053266:(ram, 0x1012d9, 86, 22):22"
+          }
+        }
+      ],
+      "plan_class": "call_site_abi_plan",
+      "plan_id": "call_site:1053266:(ram, 0x1012d9, 86, 22):22"
+    },
+    {
+      "annotation_hashes": [
+        "c74caad76a2fb869f676b187915123c2629700cc37e1b31ee96eee29e9654eb4"
+      ],
+      "authoritative_source": {
+        "function_entry": 1053266,
+        "function_id": "function:0x101252",
+        "function_name": "draw_lander",
+        "icecube": "f_0000000000101252_draw_lander.icecube.json.gz",
+        "json_pointer": "/snapshot/document/metadata_registry/abi:call:call_site:1053266:(ram, 0x1012e8, 91, 24):24",
+        "registry_key": "abi:call:call_site:1053266:(ram, 0x1012e8, 91, 24):24"
+      },
+      "classification": "exact_duplicates",
+      "core_hashes": [
+        "7a43c89e609ee5a50d40bf260ad5b9200c2c5a7994e8385750d30ff38fc427bc"
+      ],
+      "occurrences": [
+        {
+          "plan_annotation_sha256": "c74caad76a2fb869f676b187915123c2629700cc37e1b31ee96eee29e9654eb4",
+          "plan_core_sha256": "7a43c89e609ee5a50d40bf260ad5b9200c2c5a7994e8385750d30ff38fc427bc",
+          "source": {
+            "function_entry": 1053266,
+            "function_id": "function:0x101252",
+            "function_name": "draw_lander",
+            "icecube": "f_0000000000101252_draw_lander.icecube.json.gz",
+            "json_pointer": "/snapshot/document/metadata_registry/abi:call:call_site:1053266:(ram, 0x1012e8, 91, 24):24",
+            "registry_key": "abi:call:call_site:1053266:(ram, 0x1012e8, 91, 24):24"
+          }
+        },
+        {
+          "plan_annotation_sha256": "c74caad76a2fb869f676b187915123c2629700cc37e1b31ee96eee29e9654eb4",
+          "plan_core_sha256": "7a43c89e609ee5a50d40bf260ad5b9200c2c5a7994e8385750d30ff38fc427bc",
+          "source": {
+            "function_entry": 1053266,
+            "function_id": "function:0x101252",
+            "function_name": "draw_lander",
+            "icecube": "f_0000000000101252_draw_lander.icecube.json.gz",
+            "json_pointer": "/snapshot/document/metadata_registry/abi:call_op:1053266:(ram, 0x1012e8, 91, 24):24",
+            "registry_key": "abi:call_op:1053266:(ram, 0x1012e8, 91, 24):24"
+          }
+        }
+      ],
+      "plan_class": "call_site_abi_plan",
+      "plan_id": "call_site:1053266:(ram, 0x1012e8, 91, 24):24"
+    },
+    {
+      "annotation_hashes": [
+        "0a3c9e7f61d352b41aef7b591c1ed3feef18159532ca50cc31b69cf6e8601f19"
+      ],
+      "authoritative_source": {
+        "function_entry": 1053266,
+        "function_id": "function:0x101252",
+        "function_name": "draw_lander",
+        "icecube": "f_0000000000101252_draw_lander.icecube.json.gz",
+        "json_pointer": "/snapshot/document/metadata_registry/abi:call:call_site:1053430:(ram, 0x101300, 219, 0):0",
+        "registry_key": "abi:call:call_site:1053430:(ram, 0x101300, 219, 0):0"
+      },
+      "classification": "exact_duplicates",
+      "core_hashes": [
+        "90b3f4f228f4edab95da285787b5ce9350dceefd09341537b5b0678740a3c5e9"
+      ],
+      "occurrences": [
+        {
+          "plan_annotation_sha256": "0a3c9e7f61d352b41aef7b591c1ed3feef18159532ca50cc31b69cf6e8601f19",
+          "plan_core_sha256": "90b3f4f228f4edab95da285787b5ce9350dceefd09341537b5b0678740a3c5e9",
+          "source": {
+            "function_entry": 1053266,
+            "function_id": "function:0x101252",
+            "function_name": "draw_lander",
+            "icecube": "f_0000000000101252_draw_lander.icecube.json.gz",
+            "json_pointer": "/snapshot/document/metadata_registry/abi:call:call_site:1053430:(ram, 0x101300, 219, 0):0",
+            "registry_key": "abi:call:call_site:1053430:(ram, 0x101300, 219, 0):0"
+          }
+        },
+        {
+          "plan_annotation_sha256": "0a3c9e7f61d352b41aef7b591c1ed3feef18159532ca50cc31b69cf6e8601f19",
+          "plan_core_sha256": "90b3f4f228f4edab95da285787b5ce9350dceefd09341537b5b0678740a3c5e9",
+          "source": {
+            "function_entry": 1053266,
+            "function_id": "function:0x101252",
+            "function_name": "draw_lander",
+            "icecube": "f_0000000000101252_draw_lander.icecube.json.gz",
+            "json_pointer": "/snapshot/document/metadata_registry/abi:call_op:1053430:(ram, 0x101300, 219, 0):0",
+            "registry_key": "abi:call_op:1053430:(ram, 0x101300, 219, 0):0"
+          }
+        }
+      ],
+      "plan_class": "call_site_abi_plan",
+      "plan_id": "call_site:1053430:(ram, 0x101300, 219, 0):0"
+    },
+    {
+      "annotation_hashes": [
+        "7590ab7fa410ad6ea71dd6ca896cfae16c7a054c1e66bc8bcfb9ad4b078a25ec"
+      ],
+      "authoritative_source": {
+        "function_entry": 1053266,
+        "function_id": "function:0x101252",
+        "function_name": "draw_lander",
+        "icecube": "f_0000000000101252_draw_lander.icecube.json.gz",
+        "json_pointer": "/snapshot/document/metadata_registry/abi:call:call_site:1053455:(ram, 0x101319, 115, 1):1",
+        "registry_key": "abi:call:call_site:1053455:(ram, 0x101319, 115, 1):1"
+      },
+      "classification": "exact_duplicates",
+      "core_hashes": [
+        "62e2c873f0563bab77e09123e681fb813f4bce063924dc955f1e9dc19428e271"
+      ],
+      "occurrences": [
+        {
+          "plan_annotation_sha256": "7590ab7fa410ad6ea71dd6ca896cfae16c7a054c1e66bc8bcfb9ad4b078a25ec",
+          "plan_core_sha256": "62e2c873f0563bab77e09123e681fb813f4bce063924dc955f1e9dc19428e271",
+          "source": {
+            "function_entry": 1053266,
+            "function_id": "function:0x101252",
+            "function_name": "draw_lander",
+            "icecube": "f_0000000000101252_draw_lander.icecube.json.gz",
+            "json_pointer": "/snapshot/document/metadata_registry/abi:call:call_site:1053455:(ram, 0x101319, 115, 1):1",
+            "registry_key": "abi:call:call_site:1053455:(ram, 0x101319, 115, 1):1"
+          }
+        },
+        {
+          "plan_annotation_sha256": "7590ab7fa410ad6ea71dd6ca896cfae16c7a054c1e66bc8bcfb9ad4b078a25ec",
+          "plan_core_sha256": "62e2c873f0563bab77e09123e681fb813f4bce063924dc955f1e9dc19428e271",
+          "source": {
+            "function_entry": 1053266,
+            "function_id": "function:0x101252",
+            "function_name": "draw_lander",
+            "icecube": "f_0000000000101252_draw_lander.icecube.json.gz",
+            "json_pointer": "/snapshot/document/metadata_registry/abi:call_op:1053455:(ram, 0x101319, 115, 1):1",
+            "registry_key": "abi:call_op:1053455:(ram, 0x101319, 115, 1):1"
+          }
+        }
+      ],
+      "plan_class": "call_site_abi_plan",
+      "plan_id": "call_site:1053455:(ram, 0x101319, 115, 1):1"
+    },
+    {
+      "annotation_hashes": [
+        "eb3fe661c407111e043b003684c380075e3f772cf4b1e15357497b8325787b7e"
+      ],
+      "authoritative_source": {
+        "function_entry": 1053266,
+        "function_id": "function:0x101252",
+        "function_name": "draw_lander",
+        "icecube": "f_0000000000101252_draw_lander.icecube.json.gz",
+        "json_pointer": "/snapshot/document/metadata_registry/abi:call:call_site:1053455:(ram, 0x101328, 120, 3):3",
+        "registry_key": "abi:call:call_site:1053455:(ram, 0x101328, 120, 3):3"
+      },
+      "classification": "exact_duplicates",
+      "core_hashes": [
+        "4f5a013332ed48e8c4ec9e74f96e43cf3a891c3d2a5f0157c8ed5ef83c82a3ee"
+      ],
+      "occurrences": [
+        {
+          "plan_annotation_sha256": "eb3fe661c407111e043b003684c380075e3f772cf4b1e15357497b8325787b7e",
+          "plan_core_sha256": "4f5a013332ed48e8c4ec9e74f96e43cf3a891c3d2a5f0157c8ed5ef83c82a3ee",
+          "source": {
+            "function_entry": 1053266,
+            "function_id": "function:0x101252",
+            "function_name": "draw_lander",
+            "icecube": "f_0000000000101252_draw_lander.icecube.json.gz",
+            "json_pointer": "/snapshot/document/metadata_registry/abi:call:call_site:1053455:(ram, 0x101328, 120, 3):3",
+            "registry_key": "abi:call:call_site:1053455:(ram, 0x101328, 120, 3):3"
+          }
+        },
+        {
+          "plan_annotation_sha256": "eb3fe661c407111e043b003684c380075e3f772cf4b1e15357497b8325787b7e",
+          "plan_core_sha256": "4f5a013332ed48e8c4ec9e74f96e43cf3a891c3d2a5f0157c8ed5ef83c82a3ee",
+          "source": {
+            "function_entry": 1053266,
+            "function_id": "function:0x101252",
+            "function_name": "draw_lander",
+            "icecube": "f_0000000000101252_draw_lander.icecube.json.gz",
+            "json_pointer": "/snapshot/document/metadata_registry/abi:call_op:1053455:(ram, 0x101328, 120, 3):3",
+            "registry_key": "abi:call_op:1053455:(ram, 0x101328, 120, 3):3"
+          }
+        }
+      ],
+      "plan_class": "call_site_abi_plan",
+      "plan_id": "call_site:1053455:(ram, 0x101328, 120, 3):3"
+    },
+    {
+      "annotation_hashes": [
+        "947986aa427f198980c074dc23fe2b1388a5fa237ee9763acc97ba459716b13f"
+      ],
+      "authoritative_source": {
+        "function_entry": 1053266,
+        "function_id": "function:0x101252",
+        "function_name": "draw_lander",
+        "icecube": "f_0000000000101252_draw_lander.icecube.json.gz",
+        "json_pointer": "/snapshot/document/metadata_registry/abi:call:call_site:1053455:(ram, 0x101337, 125, 5):5",
+        "registry_key": "abi:call:call_site:1053455:(ram, 0x101337, 125, 5):5"
+      },
+      "classification": "exact_duplicates",
+      "core_hashes": [
+        "3bf1cabdf228b2c26b1f201fda525b509c5d70bb5dddc87bebfcb306ba8f885c"
+      ],
+      "occurrences": [
+        {
+          "plan_annotation_sha256": "947986aa427f198980c074dc23fe2b1388a5fa237ee9763acc97ba459716b13f",
+          "plan_core_sha256": "3bf1cabdf228b2c26b1f201fda525b509c5d70bb5dddc87bebfcb306ba8f885c",
+          "source": {
+            "function_entry": 1053266,
+            "function_id": "function:0x101252",
+            "function_name": "draw_lander",
+            "icecube": "f_0000000000101252_draw_lander.icecube.json.gz",
+            "json_pointer": "/snapshot/document/metadata_registry/abi:call:call_site:1053455:(ram, 0x101337, 125, 5):5",
+            "registry_key": "abi:call:call_site:1053455:(ram, 0x101337, 125, 5):5"
+          }
+        },
+        {
+          "plan_annotation_sha256": "947986aa427f198980c074dc23fe2b1388a5fa237ee9763acc97ba459716b13f",
+          "plan_core_sha256": "3bf1cabdf228b2c26b1f201fda525b509c5d70bb5dddc87bebfcb306ba8f885c",
+          "source": {
+            "function_entry": 1053266,
+            "function_id": "function:0x101252",
+            "function_name": "draw_lander",
+            "icecube": "f_0000000000101252_draw_lander.icecube.json.gz",
+            "json_pointer": "/snapshot/document/metadata_registry/abi:call_op:1053455:(ram, 0x101337, 125, 5):5",
+            "registry_key": "abi:call_op:1053455:(ram, 0x101337, 125, 5):5"
+          }
+        }
+      ],
+      "plan_class": "call_site_abi_plan",
+      "plan_id": "call_site:1053455:(ram, 0x101337, 125, 5):5"
+    },
+    {
+      "annotation_hashes": [
+        "b6eb89389b6b5509758c69984d6d5d02babd1e39f4701e5ead0b2a3f6dda5d32"
+      ],
+      "authoritative_source": {
+        "function_entry": 1053266,
+        "function_id": "function:0x101252",
+        "function_name": "draw_lander",
+        "icecube": "f_0000000000101252_draw_lander.icecube.json.gz",
+        "json_pointer": "/snapshot/document/metadata_registry/abi:call:call_site:1053512:(ram, 0x101352, 150, 1):1",
+        "registry_key": "abi:call:call_site:1053512:(ram, 0x101352, 150, 1):1"
+      },
+      "classification": "exact_duplicates",
+      "core_hashes": [
+        "669ca6891561ad345cfed1a5aedce6df9efc500c64fe0c9e2ed0d7fed5af8beb"
+      ],
+      "occurrences": [
+        {
+          "plan_annotation_sha256": "b6eb89389b6b5509758c69984d6d5d02babd1e39f4701e5ead0b2a3f6dda5d32",
+          "plan_core_sha256": "669ca6891561ad345cfed1a5aedce6df9efc500c64fe0c9e2ed0d7fed5af8beb",
+          "source": {
+            "function_entry": 1053266,
+            "function_id": "function:0x101252",
+            "function_name": "draw_lander",
+            "icecube": "f_0000000000101252_draw_lander.icecube.json.gz",
+            "json_pointer": "/snapshot/document/metadata_registry/abi:call:call_site:1053512:(ram, 0x101352, 150, 1):1",
+            "registry_key": "abi:call:call_site:1053512:(ram, 0x101352, 150, 1):1"
+          }
+        },
+        {
+          "plan_annotation_sha256": "b6eb89389b6b5509758c69984d6d5d02babd1e39f4701e5ead0b2a3f6dda5d32",
+          "plan_core_sha256": "669ca6891561ad345cfed1a5aedce6df9efc500c64fe0c9e2ed0d7fed5af8beb",
+          "source": {
+            "function_entry": 1053266,
+            "function_id": "function:0x101252",
+            "function_name": "draw_lander",
+            "icecube": "f_0000000000101252_draw_lander.icecube.json.gz",
+            "json_pointer": "/snapshot/document/metadata_registry/abi:call_op:1053512:(ram, 0x101352, 150, 1):1",
+            "registry_key": "abi:call_op:1053512:(ram, 0x101352, 150, 1):1"
+          }
+        }
+      ],
+      "plan_class": "call_site_abi_plan",
+      "plan_id": "call_site:1053512:(ram, 0x101352, 150, 1):1"
+    },
+    {
+      "annotation_hashes": [
+        "68b736dc371fdfb1b6b9c583dda281fe76d405415aa1623fc0d0d901b290e6e5"
+      ],
+      "authoritative_source": {
+        "function_entry": 1053266,
+        "function_id": "function:0x101252",
+        "function_name": "draw_lander",
+        "icecube": "f_0000000000101252_draw_lander.icecube.json.gz",
+        "json_pointer": "/snapshot/document/metadata_registry/abi:call:call_site:1053541:(ram, 0x10136f, 198, 1):1",
+        "registry_key": "abi:call:call_site:1053541:(ram, 0x10136f, 198, 1):1"
+      },
+      "classification": "exact_duplicates",
+      "core_hashes": [
+        "37111670ee8d93a14a479c3617220d19cd98733a56f115d260d9749e855bac41"
+      ],
+      "occurrences": [
+        {
+          "plan_annotation_sha256": "68b736dc371fdfb1b6b9c583dda281fe76d405415aa1623fc0d0d901b290e6e5",
+          "plan_core_sha256": "37111670ee8d93a14a479c3617220d19cd98733a56f115d260d9749e855bac41",
+          "source": {
+            "function_entry": 1053266,
+            "function_id": "function:0x101252",
+            "function_name": "draw_lander",
+            "icecube": "f_0000000000101252_draw_lander.icecube.json.gz",
+            "json_pointer": "/snapshot/document/metadata_registry/abi:call:call_site:1053541:(ram, 0x10136f, 198, 1):1",
+            "registry_key": "abi:call:call_site:1053541:(ram, 0x10136f, 198, 1):1"
+          }
+        },
+        {
+          "plan_annotation_sha256": "68b736dc371fdfb1b6b9c583dda281fe76d405415aa1623fc0d0d901b290e6e5",
+          "plan_core_sha256": "37111670ee8d93a14a479c3617220d19cd98733a56f115d260d9749e855bac41",
+          "source": {
+            "function_entry": 1053266,
+            "function_id": "function:0x101252",
+            "function_name": "draw_lander",
+            "icecube": "f_0000000000101252_draw_lander.icecube.json.gz",
+            "json_pointer": "/snapshot/document/metadata_registry/abi:call_op:1053541:(ram, 0x10136f, 198, 1):1",
+            "registry_key": "abi:call_op:1053541:(ram, 0x10136f, 198, 1):1"
+          }
+        }
+      ],
+      "plan_class": "call_site_abi_plan",
+      "plan_id": "call_site:1053541:(ram, 0x10136f, 198, 1):1"
+    },
+    {
+      "annotation_hashes": [
+        "5c5b2a8228e566bde5377f829fd68b6d0783de9f10fb8778609af4802b5569fd"
+      ],
+      "authoritative_source": {
+        "function_entry": 1053266,
+        "function_id": "function:0x101252",
+        "function_name": "draw_lander",
+        "icecube": "f_0000000000101252_draw_lander.icecube.json.gz",
+        "json_pointer": "/snapshot/document/metadata_registry/abi:call:call_site:1053558:(ram, 0x101380, 204, 1):1",
+        "registry_key": "abi:call:call_site:1053558:(ram, 0x101380, 204, 1):1"
+      },
+      "classification": "exact_duplicates",
+      "core_hashes": [
+        "ae3295c06375fd9c8c3526b53ddb6cf0f6033d23210950755e2473ff4cd670b7"
+      ],
+      "occurrences": [
+        {
+          "plan_annotation_sha256": "5c5b2a8228e566bde5377f829fd68b6d0783de9f10fb8778609af4802b5569fd",
+          "plan_core_sha256": "ae3295c06375fd9c8c3526b53ddb6cf0f6033d23210950755e2473ff4cd670b7",
+          "source": {
+            "function_entry": 1053266,
+            "function_id": "function:0x101252",
+            "function_name": "draw_lander",
+            "icecube": "f_0000000000101252_draw_lander.icecube.json.gz",
+            "json_pointer": "/snapshot/document/metadata_registry/abi:call:call_site:1053558:(ram, 0x101380, 204, 1):1",
+            "registry_key": "abi:call:call_site:1053558:(ram, 0x101380, 204, 1):1"
+          }
+        },
+        {
+          "plan_annotation_sha256": "5c5b2a8228e566bde5377f829fd68b6d0783de9f10fb8778609af4802b5569fd",
+          "plan_core_sha256": "ae3295c06375fd9c8c3526b53ddb6cf0f6033d23210950755e2473ff4cd670b7",
+          "source": {
+            "function_entry": 1053266,
+            "function_id": "function:0x101252",
+            "function_name": "draw_lander",
+            "icecube": "f_0000000000101252_draw_lander.icecube.json.gz",
+            "json_pointer": "/snapshot/document/metadata_registry/abi:call_op:1053558:(ram, 0x101380, 204, 1):1",
+            "registry_key": "abi:call_op:1053558:(ram, 0x101380, 204, 1):1"
+          }
+        }
+      ],
+      "plan_class": "call_site_abi_plan",
+      "plan_id": "call_site:1053558:(ram, 0x101380, 204, 1):1"
+    },
+    {
+      "annotation_hashes": [
+        "7624d0200943ca0b9a8a9043eb05a9a921f6c5e22e4a1be56d29a3ca60aa1d8a"
+      ],
+      "authoritative_source": {
+        "function_entry": 1053266,
+        "function_id": "function:0x101252",
+        "function_name": "draw_lander",
+        "icecube": "f_0000000000101252_draw_lander.icecube.json.gz",
+        "json_pointer": "/snapshot/document/metadata_registry/abi:call:call_site:1053573:(ram, 0x101399, 158, 1):1",
+        "registry_key": "abi:call:call_site:1053573:(ram, 0x101399, 158, 1):1"
+      },
+      "classification": "exact_duplicates",
+      "core_hashes": [
+        "690f52e66ac804f65580a876ef7336348dca03794bb4ce19b458924d11266ca2"
+      ],
+      "occurrences": [
+        {
+          "plan_annotation_sha256": "7624d0200943ca0b9a8a9043eb05a9a921f6c5e22e4a1be56d29a3ca60aa1d8a",
+          "plan_core_sha256": "690f52e66ac804f65580a876ef7336348dca03794bb4ce19b458924d11266ca2",
+          "source": {
+            "function_entry": 1053266,
+            "function_id": "function:0x101252",
+            "function_name": "draw_lander",
+            "icecube": "f_0000000000101252_draw_lander.icecube.json.gz",
+            "json_pointer": "/snapshot/document/metadata_registry/abi:call:call_site:1053573:(ram, 0x101399, 158, 1):1",
+            "registry_key": "abi:call:call_site:1053573:(ram, 0x101399, 158, 1):1"
+          }
+        },
+        {
+          "plan_annotation_sha256": "7624d0200943ca0b9a8a9043eb05a9a921f6c5e22e4a1be56d29a3ca60aa1d8a",
+          "plan_core_sha256": "690f52e66ac804f65580a876ef7336348dca03794bb4ce19b458924d11266ca2",
+          "source": {
+            "function_entry": 1053266,
+            "function_id": "function:0x101252",
+            "function_name": "draw_lander",
+            "icecube": "f_0000000000101252_draw_lander.icecube.json.gz",
+            "json_pointer": "/snapshot/document/metadata_registry/abi:call_op:1053573:(ram, 0x101399, 158, 1):1",
+            "registry_key": "abi:call_op:1053573:(ram, 0x101399, 158, 1):1"
+          }
+        }
+      ],
+      "plan_class": "call_site_abi_plan",
+      "plan_id": "call_site:1053573:(ram, 0x101399, 158, 1):1"
+    },
+    {
+      "annotation_hashes": [
+        "f3ad49bac37e824d8a8cc0b5a289ead127a7ef457c1fccf2eda2510c92f8149f"
+      ],
+      "authoritative_source": {
+        "function_entry": 1053266,
+        "function_id": "function:0x101252",
+        "function_name": "draw_lander",
+        "icecube": "f_0000000000101252_draw_lander.icecube.json.gz",
+        "json_pointer": "/snapshot/document/metadata_registry/abi:call:call_site:1053573:(ram, 0x1013a8, 163, 3):3",
+        "registry_key": "abi:call:call_site:1053573:(ram, 0x1013a8, 163, 3):3"
+      },
+      "classification": "exact_duplicates",
+      "core_hashes": [
+        "7cac1efcfaa8763c605887170d8a3b5a019b2a2d4c073a788023614df7a1d9ab"
+      ],
+      "occurrences": [
+        {
+          "plan_annotation_sha256": "f3ad49bac37e824d8a8cc0b5a289ead127a7ef457c1fccf2eda2510c92f8149f",
+          "plan_core_sha256": "7cac1efcfaa8763c605887170d8a3b5a019b2a2d4c073a788023614df7a1d9ab",
+          "source": {
+            "function_entry": 1053266,
+            "function_id": "function:0x101252",
+            "function_name": "draw_lander",
+            "icecube": "f_0000000000101252_draw_lander.icecube.json.gz",
+            "json_pointer": "/snapshot/document/metadata_registry/abi:call:call_site:1053573:(ram, 0x1013a8, 163, 3):3",
+            "registry_key": "abi:call:call_site:1053573:(ram, 0x1013a8, 163, 3):3"
+          }
+        },
+        {
+          "plan_annotation_sha256": "f3ad49bac37e824d8a8cc0b5a289ead127a7ef457c1fccf2eda2510c92f8149f",
+          "plan_core_sha256": "7cac1efcfaa8763c605887170d8a3b5a019b2a2d4c073a788023614df7a1d9ab",
+          "source": {
+            "function_entry": 1053266,
+            "function_id": "function:0x101252",
+            "function_name": "draw_lander",
+            "icecube": "f_0000000000101252_draw_lander.icecube.json.gz",
+            "json_pointer": "/snapshot/document/metadata_registry/abi:call_op:1053573:(ram, 0x1013a8, 163, 3):3",
+            "registry_key": "abi:call_op:1053573:(ram, 0x1013a8, 163, 3):3"
+          }
+        }
+      ],
+      "plan_class": "call_site_abi_plan",
+      "plan_id": "call_site:1053573:(ram, 0x1013a8, 163, 3):3"
+    },
+    {
+      "annotation_hashes": [
+        "b12db0ac41a2c5afc0f622db321a8b45694816ed241c58dea488df9f730e3ce1"
+      ],
+      "authoritative_source": {
+        "function_entry": 1053266,
+        "function_id": "function:0x101252",
+        "function_name": "draw_lander",
+        "icecube": "f_0000000000101252_draw_lander.icecube.json.gz",
+        "json_pointer": "/snapshot/document/metadata_registry/abi:call:call_site:1053573:(ram, 0x1013b7, 168, 5):5",
+        "registry_key": "abi:call:call_site:1053573:(ram, 0x1013b7, 168, 5):5"
+      },
+      "classification": "exact_duplicates",
+      "core_hashes": [
+        "0bfcea1b87f5a24b05a6f09dc82b8d15f566b178715c42d6044b3ca689ebc530"
+      ],
+      "occurrences": [
+        {
+          "plan_annotation_sha256": "b12db0ac41a2c5afc0f622db321a8b45694816ed241c58dea488df9f730e3ce1",
+          "plan_core_sha256": "0bfcea1b87f5a24b05a6f09dc82b8d15f566b178715c42d6044b3ca689ebc530",
+          "source": {
+            "function_entry": 1053266,
+            "function_id": "function:0x101252",
+            "function_name": "draw_lander",
+            "icecube": "f_0000000000101252_draw_lander.icecube.json.gz",
+            "json_pointer": "/snapshot/document/metadata_registry/abi:call:call_site:1053573:(ram, 0x1013b7, 168, 5):5",
+            "registry_key": "abi:call:call_site:1053573:(ram, 0x1013b7, 168, 5):5"
+          }
+        },
+        {
+          "plan_annotation_sha256": "b12db0ac41a2c5afc0f622db321a8b45694816ed241c58dea488df9f730e3ce1",
+          "plan_core_sha256": "0bfcea1b87f5a24b05a6f09dc82b8d15f566b178715c42d6044b3ca689ebc530",
+          "source": {
+            "function_entry": 1053266,
+            "function_id": "function:0x101252",
+            "function_name": "draw_lander",
+            "icecube": "f_0000000000101252_draw_lander.icecube.json.gz",
+            "json_pointer": "/snapshot/document/metadata_registry/abi:call_op:1053573:(ram, 0x1013b7, 168, 5):5",
+            "registry_key": "abi:call_op:1053573:(ram, 0x1013b7, 168, 5):5"
+          }
+        }
+      ],
+      "plan_class": "call_site_abi_plan",
+      "plan_id": "call_site:1053573:(ram, 0x1013b7, 168, 5):5"
+    },
+    {
+      "annotation_hashes": [
+        "5fb7e3289e0502358c51c78dba89d068a55ae3eb5aaa157c756fd251c9c5aace"
+      ],
+      "authoritative_source": {
+        "function_entry": 1053751,
+        "function_id": "function:0x101437",
+        "function_name": "read_burn",
+        "icecube": "f_0000000000101437_read_burn.icecube.json.gz",
+        "json_pointer": "/snapshot/document/metadata_registry/abi:call:call_site:1053751:(ram, 0x101456, 23, 2):2",
+        "registry_key": "abi:call:call_site:1053751:(ram, 0x101456, 23, 2):2"
+      },
+      "classification": "exact_duplicates",
+      "core_hashes": [
+        "c8879b428c8b594df3200060a1b104c1b549e089dd1eb79ae2eb8957ab2c1bd7"
+      ],
+      "occurrences": [
+        {
+          "plan_annotation_sha256": "5fb7e3289e0502358c51c78dba89d068a55ae3eb5aaa157c756fd251c9c5aace",
+          "plan_core_sha256": "c8879b428c8b594df3200060a1b104c1b549e089dd1eb79ae2eb8957ab2c1bd7",
+          "source": {
+            "function_entry": 1053751,
+            "function_id": "function:0x101437",
+            "function_name": "read_burn",
+            "icecube": "f_0000000000101437_read_burn.icecube.json.gz",
+            "json_pointer": "/snapshot/document/metadata_registry/abi:call:call_site:1053751:(ram, 0x101456, 23, 2):2",
+            "registry_key": "abi:call:call_site:1053751:(ram, 0x101456, 23, 2):2"
+          }
+        },
+        {
+          "plan_annotation_sha256": "5fb7e3289e0502358c51c78dba89d068a55ae3eb5aaa157c756fd251c9c5aace",
+          "plan_core_sha256": "c8879b428c8b594df3200060a1b104c1b549e089dd1eb79ae2eb8957ab2c1bd7",
+          "source": {
+            "function_entry": 1053751,
+            "function_id": "function:0x101437",
+            "function_name": "read_burn",
+            "icecube": "f_0000000000101437_read_burn.icecube.json.gz",
+            "json_pointer": "/snapshot/document/metadata_registry/abi:call_op:1053751:(ram, 0x101456, 23, 2):2",
+            "registry_key": "abi:call_op:1053751:(ram, 0x101456, 23, 2):2"
+          }
+        }
+      ],
+      "plan_class": "call_site_abi_plan",
+      "plan_id": "call_site:1053751:(ram, 0x101456, 23, 2):2"
+    },
+    {
+      "annotation_hashes": [
+        "0d7d73aacdacd04c9e0e3762f4891e103bd9df3337c2b2d770579214e5470569"
+      ],
+      "authoritative_source": {
+        "function_entry": 1053751,
+        "function_id": "function:0x101437",
+        "function_name": "read_burn",
+        "icecube": "f_0000000000101437_read_burn.icecube.json.gz",
+        "json_pointer": "/snapshot/document/metadata_registry/abi:call:call_site:1053792:(ram, 0x10146a, 39, 2):2",
+        "registry_key": "abi:call:call_site:1053792:(ram, 0x10146a, 39, 2):2"
+      },
+      "classification": "exact_duplicates",
+      "core_hashes": [
+        "08fad8369083f3e580f191b30e5138c3967f4ce9c5cc76be036e7e80fb0e569c"
+      ],
+      "occurrences": [
+        {
+          "plan_annotation_sha256": "0d7d73aacdacd04c9e0e3762f4891e103bd9df3337c2b2d770579214e5470569",
+          "plan_core_sha256": "08fad8369083f3e580f191b30e5138c3967f4ce9c5cc76be036e7e80fb0e569c",
+          "source": {
+            "function_entry": 1053751,
+            "function_id": "function:0x101437",
+            "function_name": "read_burn",
+            "icecube": "f_0000000000101437_read_burn.icecube.json.gz",
+            "json_pointer": "/snapshot/document/metadata_registry/abi:call:call_site:1053792:(ram, 0x10146a, 39, 2):2",
+            "registry_key": "abi:call:call_site:1053792:(ram, 0x10146a, 39, 2):2"
+          }
+        },
+        {
+          "plan_annotation_sha256": "0d7d73aacdacd04c9e0e3762f4891e103bd9df3337c2b2d770579214e5470569",
+          "plan_core_sha256": "08fad8369083f3e580f191b30e5138c3967f4ce9c5cc76be036e7e80fb0e569c",
+          "source": {
+            "function_entry": 1053751,
+            "function_id": "function:0x101437",
+            "function_name": "read_burn",
+            "icecube": "f_0000000000101437_read_burn.icecube.json.gz",
+            "json_pointer": "/snapshot/document/metadata_registry/abi:call_op:1053792:(ram, 0x10146a, 39, 2):2",
+            "registry_key": "abi:call_op:1053792:(ram, 0x10146a, 39, 2):2"
+          }
+        }
+      ],
+      "plan_class": "call_site_abi_plan",
+      "plan_id": "call_site:1053792:(ram, 0x10146a, 39, 2):2"
+    },
+    {
+      "annotation_hashes": [
+        "4a17c288e2c1abb33846ad17dd8519afdde22c772b0b44cb61caf35a641c06b4"
+      ],
+      "authoritative_source": {
+        "function_entry": 1053751,
+        "function_id": "function:0x101437",
+        "function_name": "read_burn",
+        "icecube": "f_0000000000101437_read_burn.icecube.json.gz",
+        "json_pointer": "/snapshot/document/metadata_registry/abi:call:call_site:1053814:(ram, 0x101484, 57, 2):2",
+        "registry_key": "abi:call:call_site:1053814:(ram, 0x101484, 57, 2):2"
+      },
+      "classification": "exact_duplicates",
+      "core_hashes": [
+        "a880ff2acb67fb562361e0f12001004627bf18473494e24c1e1e6e5aaa2593bd"
+      ],
+      "occurrences": [
+        {
+          "plan_annotation_sha256": "4a17c288e2c1abb33846ad17dd8519afdde22c772b0b44cb61caf35a641c06b4",
+          "plan_core_sha256": "a880ff2acb67fb562361e0f12001004627bf18473494e24c1e1e6e5aaa2593bd",
+          "source": {
+            "function_entry": 1053751,
+            "function_id": "function:0x101437",
+            "function_name": "read_burn",
+            "icecube": "f_0000000000101437_read_burn.icecube.json.gz",
+            "json_pointer": "/snapshot/document/metadata_registry/abi:call:call_site:1053814:(ram, 0x101484, 57, 2):2",
+            "registry_key": "abi:call:call_site:1053814:(ram, 0x101484, 57, 2):2"
+          }
+        },
+        {
+          "plan_annotation_sha256": "4a17c288e2c1abb33846ad17dd8519afdde22c772b0b44cb61caf35a641c06b4",
+          "plan_core_sha256": "a880ff2acb67fb562361e0f12001004627bf18473494e24c1e1e6e5aaa2593bd",
+          "source": {
+            "function_entry": 1053751,
+            "function_id": "function:0x101437",
+            "function_name": "read_burn",
+            "icecube": "f_0000000000101437_read_burn.icecube.json.gz",
+            "json_pointer": "/snapshot/document/metadata_registry/abi:call_op:1053814:(ram, 0x101484, 57, 2):2",
+            "registry_key": "abi:call_op:1053814:(ram, 0x101484, 57, 2):2"
+          }
+        }
+      ],
+      "plan_class": "call_site_abi_plan",
+      "plan_id": "call_site:1053814:(ram, 0x101484, 57, 2):2"
+    },
+    {
+      "annotation_hashes": [
+        "3c629c7e31c5a3d72aedef4f24524cc199bfa913912e67d7aa7b7bbaaef7429f"
+      ],
+      "authoritative_source": {
+        "function_entry": 1053751,
+        "function_id": "function:0x101437",
+        "function_name": "read_burn",
+        "icecube": "f_0000000000101437_read_burn.icecube.json.gz",
+        "json_pointer": "/snapshot/document/metadata_registry/abi:call:call_site:1053842:(ram, 0x10149c, 79, 3):3",
+        "registry_key": "abi:call:call_site:1053842:(ram, 0x10149c, 79, 3):3"
+      },
+      "classification": "exact_duplicates",
+      "core_hashes": [
+        "a1a6b8309b4b505132179bb6489490ca1ab40887d8453be3a10a9446a7396daf"
+      ],
+      "occurrences": [
+        {
+          "plan_annotation_sha256": "3c629c7e31c5a3d72aedef4f24524cc199bfa913912e67d7aa7b7bbaaef7429f",
+          "plan_core_sha256": "a1a6b8309b4b505132179bb6489490ca1ab40887d8453be3a10a9446a7396daf",
+          "source": {
+            "function_entry": 1053751,
+            "function_id": "function:0x101437",
+            "function_name": "read_burn",
+            "icecube": "f_0000000000101437_read_burn.icecube.json.gz",
+            "json_pointer": "/snapshot/document/metadata_registry/abi:call:call_site:1053842:(ram, 0x10149c, 79, 3):3",
+            "registry_key": "abi:call:call_site:1053842:(ram, 0x10149c, 79, 3):3"
+          }
+        },
+        {
+          "plan_annotation_sha256": "3c629c7e31c5a3d72aedef4f24524cc199bfa913912e67d7aa7b7bbaaef7429f",
+          "plan_core_sha256": "a1a6b8309b4b505132179bb6489490ca1ab40887d8453be3a10a9446a7396daf",
+          "source": {
+            "function_entry": 1053751,
+            "function_id": "function:0x101437",
+            "function_name": "read_burn",
+            "icecube": "f_0000000000101437_read_burn.icecube.json.gz",
+            "json_pointer": "/snapshot/document/metadata_registry/abi:call_op:1053842:(ram, 0x10149c, 79, 3):3",
+            "registry_key": "abi:call_op:1053842:(ram, 0x10149c, 79, 3):3"
+          }
+        }
+      ],
+      "plan_class": "call_site_abi_plan",
+      "plan_id": "call_site:1053842:(ram, 0x10149c, 79, 3):3"
+    },
+    {
+      "annotation_hashes": [
+        "23c023036ceb5d1af35e104afaea0acfad44e6c68348efa5aa8a415ea630f451"
+      ],
+      "authoritative_source": {
+        "function_entry": 1054102,
+        "function_id": "function:0x101596",
+        "function_name": "print_result",
+        "icecube": "f_0000000000101596_print_result.icecube.json.gz",
+        "json_pointer": "/snapshot/document/metadata_registry/abi:call:call_site:1054102:(ram, 0x1015ac, 20, 1):1",
+        "registry_key": "abi:call:call_site:1054102:(ram, 0x1015ac, 20, 1):1"
+      },
+      "classification": "exact_duplicates",
+      "core_hashes": [
+        "66c5a2b4ebf2eb1c9550bb841bd021ac2463c02e04e2598b0c9fa1ab524f6a3b"
+      ],
+      "occurrences": [
+        {
+          "plan_annotation_sha256": "23c023036ceb5d1af35e104afaea0acfad44e6c68348efa5aa8a415ea630f451",
+          "plan_core_sha256": "66c5a2b4ebf2eb1c9550bb841bd021ac2463c02e04e2598b0c9fa1ab524f6a3b",
+          "source": {
+            "function_entry": 1054102,
+            "function_id": "function:0x101596",
+            "function_name": "print_result",
+            "icecube": "f_0000000000101596_print_result.icecube.json.gz",
+            "json_pointer": "/snapshot/document/metadata_registry/abi:call:call_site:1054102:(ram, 0x1015ac, 20, 1):1",
+            "registry_key": "abi:call:call_site:1054102:(ram, 0x1015ac, 20, 1):1"
+          }
+        },
+        {
+          "plan_annotation_sha256": "23c023036ceb5d1af35e104afaea0acfad44e6c68348efa5aa8a415ea630f451",
+          "plan_core_sha256": "66c5a2b4ebf2eb1c9550bb841bd021ac2463c02e04e2598b0c9fa1ab524f6a3b",
+          "source": {
+            "function_entry": 1054102,
+            "function_id": "function:0x101596",
+            "function_name": "print_result",
+            "icecube": "f_0000000000101596_print_result.icecube.json.gz",
+            "json_pointer": "/snapshot/document/metadata_registry/abi:call_op:1054102:(ram, 0x1015ac, 20, 1):1",
+            "registry_key": "abi:call_op:1054102:(ram, 0x1015ac, 20, 1):1"
+          }
+        }
+      ],
+      "plan_class": "call_site_abi_plan",
+      "plan_id": "call_site:1054102:(ram, 0x1015ac, 20, 1):1"
+    },
+    {
+      "annotation_hashes": [
+        "d1cfc508db18ae1ca6ac49b8c4db117bca36560b17a2ef0e2360fc1696c38b51"
+      ],
+      "authoritative_source": {
+        "function_entry": 1054102,
+        "function_id": "function:0x101596",
+        "function_name": "print_result",
+        "icecube": "f_0000000000101596_print_result.icecube.json.gz",
+        "json_pointer": "/snapshot/document/metadata_registry/abi:call:call_site:1054102:(ram, 0x1015bb, 25, 3):3",
+        "registry_key": "abi:call:call_site:1054102:(ram, 0x1015bb, 25, 3):3"
+      },
+      "classification": "exact_duplicates",
+      "core_hashes": [
+        "3abff99e52cd4fd7665ad355c579a42a89f5924cd4c4af77247c7ca66556e59f"
+      ],
+      "occurrences": [
+        {
+          "plan_annotation_sha256": "d1cfc508db18ae1ca6ac49b8c4db117bca36560b17a2ef0e2360fc1696c38b51",
+          "plan_core_sha256": "3abff99e52cd4fd7665ad355c579a42a89f5924cd4c4af77247c7ca66556e59f",
+          "source": {
+            "function_entry": 1054102,
+            "function_id": "function:0x101596",
+            "function_name": "print_result",
+            "icecube": "f_0000000000101596_print_result.icecube.json.gz",
+            "json_pointer": "/snapshot/document/metadata_registry/abi:call:call_site:1054102:(ram, 0x1015bb, 25, 3):3",
+            "registry_key": "abi:call:call_site:1054102:(ram, 0x1015bb, 25, 3):3"
+          }
+        },
+        {
+          "plan_annotation_sha256": "d1cfc508db18ae1ca6ac49b8c4db117bca36560b17a2ef0e2360fc1696c38b51",
+          "plan_core_sha256": "3abff99e52cd4fd7665ad355c579a42a89f5924cd4c4af77247c7ca66556e59f",
+          "source": {
+            "function_entry": 1054102,
+            "function_id": "function:0x101596",
+            "function_name": "print_result",
+            "icecube": "f_0000000000101596_print_result.icecube.json.gz",
+            "json_pointer": "/snapshot/document/metadata_registry/abi:call_op:1054102:(ram, 0x1015bb, 25, 3):3",
+            "registry_key": "abi:call_op:1054102:(ram, 0x1015bb, 25, 3):3"
+          }
+        }
+      ],
+      "plan_class": "call_site_abi_plan",
+      "plan_id": "call_site:1054102:(ram, 0x1015bb, 25, 3):3"
+    },
+    {
+      "annotation_hashes": [
+        "24cef6cb11ba6d6bda797db5c099f539c0523eb6dc9a01a54176697331a9ac0e"
+      ],
+      "authoritative_source": {
+        "function_entry": 1054102,
+        "function_id": "function:0x101596",
+        "function_name": "print_result",
+        "icecube": "f_0000000000101596_print_result.icecube.json.gz",
+        "json_pointer": "/snapshot/document/metadata_registry/abi:call:call_site:1054102:(ram, 0x1015ca, 30, 5):5",
+        "registry_key": "abi:call:call_site:1054102:(ram, 0x1015ca, 30, 5):5"
+      },
+      "classification": "exact_duplicates",
+      "core_hashes": [
+        "c1e6a2ae386cb6e96d8fbc3b8ff6339d3e4eadb95855f4db62dc15ca534cd7e7"
+      ],
+      "occurrences": [
+        {
+          "plan_annotation_sha256": "24cef6cb11ba6d6bda797db5c099f539c0523eb6dc9a01a54176697331a9ac0e",
+          "plan_core_sha256": "c1e6a2ae386cb6e96d8fbc3b8ff6339d3e4eadb95855f4db62dc15ca534cd7e7",
+          "source": {
+            "function_entry": 1054102,
+            "function_id": "function:0x101596",
+            "function_name": "print_result",
+            "icecube": "f_0000000000101596_print_result.icecube.json.gz",
+            "json_pointer": "/snapshot/document/metadata_registry/abi:call:call_site:1054102:(ram, 0x1015ca, 30, 5):5",
+            "registry_key": "abi:call:call_site:1054102:(ram, 0x1015ca, 30, 5):5"
+          }
+        },
+        {
+          "plan_annotation_sha256": "24cef6cb11ba6d6bda797db5c099f539c0523eb6dc9a01a54176697331a9ac0e",
+          "plan_core_sha256": "c1e6a2ae386cb6e96d8fbc3b8ff6339d3e4eadb95855f4db62dc15ca534cd7e7",
+          "source": {
+            "function_entry": 1054102,
+            "function_id": "function:0x101596",
+            "function_name": "print_result",
+            "icecube": "f_0000000000101596_print_result.icecube.json.gz",
+            "json_pointer": "/snapshot/document/metadata_registry/abi:call_op:1054102:(ram, 0x1015ca, 30, 5):5",
+            "registry_key": "abi:call_op:1054102:(ram, 0x1015ca, 30, 5):5"
+          }
+        }
+      ],
+      "plan_class": "call_site_abi_plan",
+      "plan_id": "call_site:1054102:(ram, 0x1015ca, 30, 5):5"
+    },
+    {
+      "annotation_hashes": [
+        "b2aaaedb35f85cc621b3b7caa5b03476987faecd5bf801c1d9f1547d253d4603"
+      ],
+      "authoritative_source": {
+        "function_entry": 1054102,
+        "function_id": "function:0x101596",
+        "function_name": "print_result",
+        "icecube": "f_0000000000101596_print_result.icecube.json.gz",
+        "json_pointer": "/snapshot/document/metadata_registry/abi:call:call_site:1054170:(ram, 0x1015e4, 52, 1):1",
+        "registry_key": "abi:call:call_site:1054170:(ram, 0x1015e4, 52, 1):1"
+      },
+      "classification": "exact_duplicates",
+      "core_hashes": [
+        "e5bc9191e2d8241dface9ef705eca85fbefecf43ea34ca4fd84840126c7007bb"
+      ],
+      "occurrences": [
+        {
+          "plan_annotation_sha256": "b2aaaedb35f85cc621b3b7caa5b03476987faecd5bf801c1d9f1547d253d4603",
+          "plan_core_sha256": "e5bc9191e2d8241dface9ef705eca85fbefecf43ea34ca4fd84840126c7007bb",
+          "source": {
+            "function_entry": 1054102,
+            "function_id": "function:0x101596",
+            "function_name": "print_result",
+            "icecube": "f_0000000000101596_print_result.icecube.json.gz",
+            "json_pointer": "/snapshot/document/metadata_registry/abi:call:call_site:1054170:(ram, 0x1015e4, 52, 1):1",
+            "registry_key": "abi:call:call_site:1054170:(ram, 0x1015e4, 52, 1):1"
+          }
+        },
+        {
+          "plan_annotation_sha256": "b2aaaedb35f85cc621b3b7caa5b03476987faecd5bf801c1d9f1547d253d4603",
+          "plan_core_sha256": "e5bc9191e2d8241dface9ef705eca85fbefecf43ea34ca4fd84840126c7007bb",
+          "source": {
+            "function_entry": 1054102,
+            "function_id": "function:0x101596",
+            "function_name": "print_result",
+            "icecube": "f_0000000000101596_print_result.icecube.json.gz",
+            "json_pointer": "/snapshot/document/metadata_registry/abi:call_op:1054170:(ram, 0x1015e4, 52, 1):1",
+            "registry_key": "abi:call_op:1054170:(ram, 0x1015e4, 52, 1):1"
+          }
+        }
+      ],
+      "plan_class": "call_site_abi_plan",
+      "plan_id": "call_site:1054170:(ram, 0x1015e4, 52, 1):1"
+    },
+    {
+      "annotation_hashes": [
+        "cddf8504e6eefe3ddd9d36b7ee6f1fe79bc1b81a7cf2528371289e43c18b8c20"
+      ],
+      "authoritative_source": {
+        "function_entry": 1054102,
+        "function_id": "function:0x101596",
+        "function_name": "print_result",
+        "icecube": "f_0000000000101596_print_result.icecube.json.gz",
+        "json_pointer": "/snapshot/document/metadata_registry/abi:call:call_site:1054170:(ram, 0x1015f3, 57, 3):3",
+        "registry_key": "abi:call:call_site:1054170:(ram, 0x1015f3, 57, 3):3"
+      },
+      "classification": "exact_duplicates",
+      "core_hashes": [
+        "8c683233c7a203fe7bf4eab0a60c51ec1795e1fdaf096957d53a85b25a7e50fb"
+      ],
+      "occurrences": [
+        {
+          "plan_annotation_sha256": "cddf8504e6eefe3ddd9d36b7ee6f1fe79bc1b81a7cf2528371289e43c18b8c20",
+          "plan_core_sha256": "8c683233c7a203fe7bf4eab0a60c51ec1795e1fdaf096957d53a85b25a7e50fb",
+          "source": {
+            "function_entry": 1054102,
+            "function_id": "function:0x101596",
+            "function_name": "print_result",
+            "icecube": "f_0000000000101596_print_result.icecube.json.gz",
+            "json_pointer": "/snapshot/document/metadata_registry/abi:call:call_site:1054170:(ram, 0x1015f3, 57, 3):3",
+            "registry_key": "abi:call:call_site:1054170:(ram, 0x1015f3, 57, 3):3"
+          }
+        },
+        {
+          "plan_annotation_sha256": "cddf8504e6eefe3ddd9d36b7ee6f1fe79bc1b81a7cf2528371289e43c18b8c20",
+          "plan_core_sha256": "8c683233c7a203fe7bf4eab0a60c51ec1795e1fdaf096957d53a85b25a7e50fb",
+          "source": {
+            "function_entry": 1054102,
+            "function_id": "function:0x101596",
+            "function_name": "print_result",
+            "icecube": "f_0000000000101596_print_result.icecube.json.gz",
+            "json_pointer": "/snapshot/document/metadata_registry/abi:call_op:1054170:(ram, 0x1015f3, 57, 3):3",
+            "registry_key": "abi:call_op:1054170:(ram, 0x1015f3, 57, 3):3"
+          }
+        }
+      ],
+      "plan_class": "call_site_abi_plan",
+      "plan_id": "call_site:1054170:(ram, 0x1015f3, 57, 3):3"
+    },
+    {
+      "annotation_hashes": [
+        "d168cb1531601c7b97900ef27ba36c87a031c5b95e12077a57f7f4b23ecd4102"
+      ],
+      "authoritative_source": {
+        "function_entry": 1054102,
+        "function_id": "function:0x101596",
+        "function_name": "print_result",
+        "icecube": "f_0000000000101596_print_result.icecube.json.gz",
+        "json_pointer": "/snapshot/document/metadata_registry/abi:call:call_site:1054216:(ram, 0x101612, 91, 1):1",
+        "registry_key": "abi:call:call_site:1054216:(ram, 0x101612, 91, 1):1"
+      },
+      "classification": "exact_duplicates",
+      "core_hashes": [
+        "a24148d3db82826a93271a4ab9fbd3d253c474326a5365460939463b70d83887"
+      ],
+      "occurrences": [
+        {
+          "plan_annotation_sha256": "d168cb1531601c7b97900ef27ba36c87a031c5b95e12077a57f7f4b23ecd4102",
+          "plan_core_sha256": "a24148d3db82826a93271a4ab9fbd3d253c474326a5365460939463b70d83887",
+          "source": {
+            "function_entry": 1054102,
+            "function_id": "function:0x101596",
+            "function_name": "print_result",
+            "icecube": "f_0000000000101596_print_result.icecube.json.gz",
+            "json_pointer": "/snapshot/document/metadata_registry/abi:call:call_site:1054216:(ram, 0x101612, 91, 1):1",
+            "registry_key": "abi:call:call_site:1054216:(ram, 0x101612, 91, 1):1"
+          }
+        },
+        {
+          "plan_annotation_sha256": "d168cb1531601c7b97900ef27ba36c87a031c5b95e12077a57f7f4b23ecd4102",
+          "plan_core_sha256": "a24148d3db82826a93271a4ab9fbd3d253c474326a5365460939463b70d83887",
+          "source": {
+            "function_entry": 1054102,
+            "function_id": "function:0x101596",
+            "function_name": "print_result",
+            "icecube": "f_0000000000101596_print_result.icecube.json.gz",
+            "json_pointer": "/snapshot/document/metadata_registry/abi:call_op:1054216:(ram, 0x101612, 91, 1):1",
+            "registry_key": "abi:call_op:1054216:(ram, 0x101612, 91, 1):1"
+          }
+        }
+      ],
+      "plan_class": "call_site_abi_plan",
+      "plan_id": "call_site:1054216:(ram, 0x101612, 91, 1):1"
+    },
+    {
+      "annotation_hashes": [
+        "d99d03008a35650d02e21fee33617122e81fb6594ca02f8c08a15d875c2aae42"
+      ],
+      "authoritative_source": {
+        "function_entry": 1054102,
+        "function_id": "function:0x101596",
+        "function_name": "print_result",
+        "icecube": "f_0000000000101596_print_result.icecube.json.gz",
+        "json_pointer": "/snapshot/document/metadata_registry/abi:call:call_site:1054216:(ram, 0x10162f, 106, 7):7",
+        "registry_key": "abi:call:call_site:1054216:(ram, 0x10162f, 106, 7):7"
+      },
+      "classification": "exact_duplicates",
+      "core_hashes": [
+        "bb974176607aa3ce0baf1cd0af911e295fce74492859ffdf4cb9eed95399a778"
+      ],
+      "occurrences": [
+        {
+          "plan_annotation_sha256": "d99d03008a35650d02e21fee33617122e81fb6594ca02f8c08a15d875c2aae42",
+          "plan_core_sha256": "bb974176607aa3ce0baf1cd0af911e295fce74492859ffdf4cb9eed95399a778",
+          "source": {
+            "function_entry": 1054102,
+            "function_id": "function:0x101596",
+            "function_name": "print_result",
+            "icecube": "f_0000000000101596_print_result.icecube.json.gz",
+            "json_pointer": "/snapshot/document/metadata_registry/abi:call:call_site:1054216:(ram, 0x10162f, 106, 7):7",
+            "registry_key": "abi:call:call_site:1054216:(ram, 0x10162f, 106, 7):7"
+          }
+        },
+        {
+          "plan_annotation_sha256": "d99d03008a35650d02e21fee33617122e81fb6594ca02f8c08a15d875c2aae42",
+          "plan_core_sha256": "bb974176607aa3ce0baf1cd0af911e295fce74492859ffdf4cb9eed95399a778",
+          "source": {
+            "function_entry": 1054102,
+            "function_id": "function:0x101596",
+            "function_name": "print_result",
+            "icecube": "f_0000000000101596_print_result.icecube.json.gz",
+            "json_pointer": "/snapshot/document/metadata_registry/abi:call_op:1054216:(ram, 0x10162f, 106, 7):7",
+            "registry_key": "abi:call_op:1054216:(ram, 0x10162f, 106, 7):7"
+          }
+        }
+      ],
+      "plan_class": "call_site_abi_plan",
+      "plan_id": "call_site:1054216:(ram, 0x10162f, 106, 7):7"
+    },
+    {
+      "annotation_hashes": [
+        "be665a298878072eb9112c0cf13440cda5a1aaca1003a39506ced9d970252baa"
+      ],
+      "authoritative_source": {
+        "function_entry": 1054102,
+        "function_id": "function:0x101596",
+        "function_name": "print_result",
+        "icecube": "f_0000000000101596_print_result.icecube.json.gz",
+        "json_pointer": "/snapshot/document/metadata_registry/abi:call:call_site:1054216:(ram, 0x10164c, 121, 13):13",
+        "registry_key": "abi:call:call_site:1054216:(ram, 0x10164c, 121, 13):13"
+      },
+      "classification": "exact_duplicates",
+      "core_hashes": [
+        "a17f6ed57da74c0d1f280936d59d18feb5d8ac2ce8d5136e5c0581363bd6f14b"
+      ],
+      "occurrences": [
+        {
+          "plan_annotation_sha256": "be665a298878072eb9112c0cf13440cda5a1aaca1003a39506ced9d970252baa",
+          "plan_core_sha256": "a17f6ed57da74c0d1f280936d59d18feb5d8ac2ce8d5136e5c0581363bd6f14b",
+          "source": {
+            "function_entry": 1054102,
+            "function_id": "function:0x101596",
+            "function_name": "print_result",
+            "icecube": "f_0000000000101596_print_result.icecube.json.gz",
+            "json_pointer": "/snapshot/document/metadata_registry/abi:call:call_site:1054216:(ram, 0x10164c, 121, 13):13",
+            "registry_key": "abi:call:call_site:1054216:(ram, 0x10164c, 121, 13):13"
+          }
+        },
+        {
+          "plan_annotation_sha256": "be665a298878072eb9112c0cf13440cda5a1aaca1003a39506ced9d970252baa",
+          "plan_core_sha256": "a17f6ed57da74c0d1f280936d59d18feb5d8ac2ce8d5136e5c0581363bd6f14b",
+          "source": {
+            "function_entry": 1054102,
+            "function_id": "function:0x101596",
+            "function_name": "print_result",
+            "icecube": "f_0000000000101596_print_result.icecube.json.gz",
+            "json_pointer": "/snapshot/document/metadata_registry/abi:call_op:1054216:(ram, 0x10164c, 121, 13):13",
+            "registry_key": "abi:call_op:1054216:(ram, 0x10164c, 121, 13):13"
+          }
+        }
+      ],
+      "plan_class": "call_site_abi_plan",
+      "plan_id": "call_site:1054216:(ram, 0x10164c, 121, 13):13"
+    },
+    {
+      "annotation_hashes": [
+        "445d541f47ebd7696ac7de15641854e4a7e4f9fde0fa611410ff5842b6ec4a39"
+      ],
+      "authoritative_source": {
+        "function_entry": 1054102,
+        "function_id": "function:0x101596",
+        "function_name": "print_result",
+        "icecube": "f_0000000000101596_print_result.icecube.json.gz",
+        "json_pointer": "/snapshot/document/metadata_registry/abi:call:call_site:1054216:(ram, 0x101669, 136, 19):19",
+        "registry_key": "abi:call:call_site:1054216:(ram, 0x101669, 136, 19):19"
+      },
+      "classification": "exact_duplicates",
+      "core_hashes": [
+        "293f15c4c48c2e813b3f55af118711090abe1c7be9aeeb32a8277eb97337b6d3"
+      ],
+      "occurrences": [
+        {
+          "plan_annotation_sha256": "445d541f47ebd7696ac7de15641854e4a7e4f9fde0fa611410ff5842b6ec4a39",
+          "plan_core_sha256": "293f15c4c48c2e813b3f55af118711090abe1c7be9aeeb32a8277eb97337b6d3",
+          "source": {
+            "function_entry": 1054102,
+            "function_id": "function:0x101596",
+            "function_name": "print_result",
+            "icecube": "f_0000000000101596_print_result.icecube.json.gz",
+            "json_pointer": "/snapshot/document/metadata_registry/abi:call:call_site:1054216:(ram, 0x101669, 136, 19):19",
+            "registry_key": "abi:call:call_site:1054216:(ram, 0x101669, 136, 19):19"
+          }
+        },
+        {
+          "plan_annotation_sha256": "445d541f47ebd7696ac7de15641854e4a7e4f9fde0fa611410ff5842b6ec4a39",
+          "plan_core_sha256": "293f15c4c48c2e813b3f55af118711090abe1c7be9aeeb32a8277eb97337b6d3",
+          "source": {
+            "function_entry": 1054102,
+            "function_id": "function:0x101596",
+            "function_name": "print_result",
+            "icecube": "f_0000000000101596_print_result.icecube.json.gz",
+            "json_pointer": "/snapshot/document/metadata_registry/abi:call_op:1054216:(ram, 0x101669, 136, 19):19",
+            "registry_key": "abi:call_op:1054216:(ram, 0x101669, 136, 19):19"
+          }
+        }
+      ],
+      "plan_class": "call_site_abi_plan",
+      "plan_id": "call_site:1054216:(ram, 0x101669, 136, 19):19"
+    },
+    {
+      "annotation_hashes": [
+        "82afb438e478538db03bf21a39630ec6206a8fb22e2b1db14d124fed2af79cba"
+      ],
+      "authoritative_source": {
+        "function_entry": 1054102,
+        "function_id": "function:0x101596",
+        "function_name": "print_result",
+        "icecube": "f_0000000000101596_print_result.icecube.json.gz",
+        "json_pointer": "/snapshot/document/metadata_registry/abi:call:call_site:1054320:(ram, 0x10167a, 142, 1):1",
+        "registry_key": "abi:call:call_site:1054320:(ram, 0x10167a, 142, 1):1"
+      },
+      "classification": "exact_duplicates",
+      "core_hashes": [
+        "966bb3a55d112385cf53d7e86e00ac0e11d54058050f074e3bfcbe30c128babe"
+      ],
+      "occurrences": [
+        {
+          "plan_annotation_sha256": "82afb438e478538db03bf21a39630ec6206a8fb22e2b1db14d124fed2af79cba",
+          "plan_core_sha256": "966bb3a55d112385cf53d7e86e00ac0e11d54058050f074e3bfcbe30c128babe",
+          "source": {
+            "function_entry": 1054102,
+            "function_id": "function:0x101596",
+            "function_name": "print_result",
+            "icecube": "f_0000000000101596_print_result.icecube.json.gz",
+            "json_pointer": "/snapshot/document/metadata_registry/abi:call:call_site:1054320:(ram, 0x10167a, 142, 1):1",
+            "registry_key": "abi:call:call_site:1054320:(ram, 0x10167a, 142, 1):1"
+          }
+        },
+        {
+          "plan_annotation_sha256": "82afb438e478538db03bf21a39630ec6206a8fb22e2b1db14d124fed2af79cba",
+          "plan_core_sha256": "966bb3a55d112385cf53d7e86e00ac0e11d54058050f074e3bfcbe30c128babe",
+          "source": {
+            "function_entry": 1054102,
+            "function_id": "function:0x101596",
+            "function_name": "print_result",
+            "icecube": "f_0000000000101596_print_result.icecube.json.gz",
+            "json_pointer": "/snapshot/document/metadata_registry/abi:call_op:1054320:(ram, 0x10167a, 142, 1):1",
+            "registry_key": "abi:call_op:1054320:(ram, 0x10167a, 142, 1):1"
+          }
+        }
+      ],
+      "plan_class": "call_site_abi_plan",
+      "plan_id": "call_site:1054320:(ram, 0x10167a, 142, 1):1"
+    },
+    {
+      "annotation_hashes": [
+        "7b6245eac72889e0752a97ca0475d6faafbdd49974649bf6c03e2a6604764460"
+      ],
+      "authoritative_source": {
+        "function_entry": 1054102,
+        "function_id": "function:0x101596",
+        "function_name": "print_result",
+        "icecube": "f_0000000000101596_print_result.icecube.json.gz",
+        "json_pointer": "/snapshot/document/metadata_registry/abi:call:call_site:1054320:(ram, 0x101697, 157, 7):7",
+        "registry_key": "abi:call:call_site:1054320:(ram, 0x101697, 157, 7):7"
+      },
+      "classification": "exact_duplicates",
+      "core_hashes": [
+        "8aea00505a0569a1908e9ac359425a0a3271f5801593f3ba8d4291a957745326"
+      ],
+      "occurrences": [
+        {
+          "plan_annotation_sha256": "7b6245eac72889e0752a97ca0475d6faafbdd49974649bf6c03e2a6604764460",
+          "plan_core_sha256": "8aea00505a0569a1908e9ac359425a0a3271f5801593f3ba8d4291a957745326",
+          "source": {
+            "function_entry": 1054102,
+            "function_id": "function:0x101596",
+            "function_name": "print_result",
+            "icecube": "f_0000000000101596_print_result.icecube.json.gz",
+            "json_pointer": "/snapshot/document/metadata_registry/abi:call:call_site:1054320:(ram, 0x101697, 157, 7):7",
+            "registry_key": "abi:call:call_site:1054320:(ram, 0x101697, 157, 7):7"
+          }
+        },
+        {
+          "plan_annotation_sha256": "7b6245eac72889e0752a97ca0475d6faafbdd49974649bf6c03e2a6604764460",
+          "plan_core_sha256": "8aea00505a0569a1908e9ac359425a0a3271f5801593f3ba8d4291a957745326",
+          "source": {
+            "function_entry": 1054102,
+            "function_id": "function:0x101596",
+            "function_name": "print_result",
+            "icecube": "f_0000000000101596_print_result.icecube.json.gz",
+            "json_pointer": "/snapshot/document/metadata_registry/abi:call_op:1054320:(ram, 0x101697, 157, 7):7",
+            "registry_key": "abi:call_op:1054320:(ram, 0x101697, 157, 7):7"
+          }
+        }
+      ],
+      "plan_class": "call_site_abi_plan",
+      "plan_id": "call_site:1054320:(ram, 0x101697, 157, 7):7"
+    },
+    {
+      "annotation_hashes": [
+        "16470fad0b6a04294f24e110c4b73811af46ef6dc713e8defc6c8facac00235f"
+      ],
+      "authoritative_source": {
+        "function_entry": 1054102,
+        "function_id": "function:0x101596",
+        "function_name": "print_result",
+        "icecube": "f_0000000000101596_print_result.icecube.json.gz",
+        "json_pointer": "/snapshot/document/metadata_registry/abi:call:call_site:1054320:(ram, 0x1016a6, 162, 9):9",
+        "registry_key": "abi:call:call_site:1054320:(ram, 0x1016a6, 162, 9):9"
+      },
+      "classification": "exact_duplicates",
+      "core_hashes": [
+        "92a5050fbc9e7eb3b485c964bc37c86aaea393872073930cf3ccd88780e74662"
+      ],
+      "occurrences": [
+        {
+          "plan_annotation_sha256": "16470fad0b6a04294f24e110c4b73811af46ef6dc713e8defc6c8facac00235f",
+          "plan_core_sha256": "92a5050fbc9e7eb3b485c964bc37c86aaea393872073930cf3ccd88780e74662",
+          "source": {
+            "function_entry": 1054102,
+            "function_id": "function:0x101596",
+            "function_name": "print_result",
+            "icecube": "f_0000000000101596_print_result.icecube.json.gz",
+            "json_pointer": "/snapshot/document/metadata_registry/abi:call:call_site:1054320:(ram, 0x1016a6, 162, 9):9",
+            "registry_key": "abi:call:call_site:1054320:(ram, 0x1016a6, 162, 9):9"
+          }
+        },
+        {
+          "plan_annotation_sha256": "16470fad0b6a04294f24e110c4b73811af46ef6dc713e8defc6c8facac00235f",
+          "plan_core_sha256": "92a5050fbc9e7eb3b485c964bc37c86aaea393872073930cf3ccd88780e74662",
+          "source": {
+            "function_entry": 1054102,
+            "function_id": "function:0x101596",
+            "function_name": "print_result",
+            "icecube": "f_0000000000101596_print_result.icecube.json.gz",
+            "json_pointer": "/snapshot/document/metadata_registry/abi:call_op:1054320:(ram, 0x1016a6, 162, 9):9",
+            "registry_key": "abi:call_op:1054320:(ram, 0x1016a6, 162, 9):9"
+          }
+        }
+      ],
+      "plan_class": "call_site_abi_plan",
+      "plan_id": "call_site:1054320:(ram, 0x1016a6, 162, 9):9"
+    },
+    {
+      "annotation_hashes": [
+        "fbb9181f1ad16c45f6ddd22c3c3d6c1610e97ea8ee2f75dfbc0c176991ac31d7"
+      ],
+      "authoritative_source": {
+        "function_entry": 1054102,
+        "function_id": "function:0x101596",
+        "function_name": "print_result",
+        "icecube": "f_0000000000101596_print_result.icecube.json.gz",
+        "json_pointer": "/snapshot/document/metadata_registry/abi:call:call_site:1054379:(ram, 0x1016b5, 63, 1):1",
+        "registry_key": "abi:call:call_site:1054379:(ram, 0x1016b5, 63, 1):1"
+      },
+      "classification": "exact_duplicates",
+      "core_hashes": [
+        "da0f68bc598332688e6d873ee3382b93b4bf777a686b236681b3dd304b1abd08"
+      ],
+      "occurrences": [
+        {
+          "plan_annotation_sha256": "fbb9181f1ad16c45f6ddd22c3c3d6c1610e97ea8ee2f75dfbc0c176991ac31d7",
+          "plan_core_sha256": "da0f68bc598332688e6d873ee3382b93b4bf777a686b236681b3dd304b1abd08",
+          "source": {
+            "function_entry": 1054102,
+            "function_id": "function:0x101596",
+            "function_name": "print_result",
+            "icecube": "f_0000000000101596_print_result.icecube.json.gz",
+            "json_pointer": "/snapshot/document/metadata_registry/abi:call:call_site:1054379:(ram, 0x1016b5, 63, 1):1",
+            "registry_key": "abi:call:call_site:1054379:(ram, 0x1016b5, 63, 1):1"
+          }
+        },
+        {
+          "plan_annotation_sha256": "fbb9181f1ad16c45f6ddd22c3c3d6c1610e97ea8ee2f75dfbc0c176991ac31d7",
+          "plan_core_sha256": "da0f68bc598332688e6d873ee3382b93b4bf777a686b236681b3dd304b1abd08",
+          "source": {
+            "function_entry": 1054102,
+            "function_id": "function:0x101596",
+            "function_name": "print_result",
+            "icecube": "f_0000000000101596_print_result.icecube.json.gz",
+            "json_pointer": "/snapshot/document/metadata_registry/abi:call_op:1054379:(ram, 0x1016b5, 63, 1):1",
+            "registry_key": "abi:call_op:1054379:(ram, 0x1016b5, 63, 1):1"
+          }
+        }
+      ],
+      "plan_class": "call_site_abi_plan",
+      "plan_id": "call_site:1054379:(ram, 0x1016b5, 63, 1):1"
+    },
+    {
+      "annotation_hashes": [
+        "3c159f51b3ed951d47712a24e86088b87cf8f543510562c8fb2eac0f1fade565"
+      ],
+      "authoritative_source": {
+        "function_entry": 1054448,
+        "function_id": "function:0x1016f0",
+        "function_name": "main",
+        "icecube": "f_00000000001016f0_main.icecube.json.gz",
+        "json_pointer": "/snapshot/document/metadata_registry/abi:call:call_site:1054448:(ram, 0x1016ff, 18, 3):3",
+        "registry_key": "abi:call:call_site:1054448:(ram, 0x1016ff, 18, 3):3"
+      },
+      "classification": "exact_duplicates",
+      "core_hashes": [
+        "452d48b7b4ad9e1bf847058a1c1ff6ae1a1cf301451a79ea708ba330f7347198"
+      ],
+      "occurrences": [
+        {
+          "plan_annotation_sha256": "3c159f51b3ed951d47712a24e86088b87cf8f543510562c8fb2eac0f1fade565",
+          "plan_core_sha256": "452d48b7b4ad9e1bf847058a1c1ff6ae1a1cf301451a79ea708ba330f7347198",
+          "source": {
+            "function_entry": 1054448,
+            "function_id": "function:0x1016f0",
+            "function_name": "main",
+            "icecube": "f_00000000001016f0_main.icecube.json.gz",
+            "json_pointer": "/snapshot/document/metadata_registry/abi:call:call_site:1054448:(ram, 0x1016ff, 18, 3):3",
+            "registry_key": "abi:call:call_site:1054448:(ram, 0x1016ff, 18, 3):3"
+          }
+        },
+        {
+          "plan_annotation_sha256": "3c159f51b3ed951d47712a24e86088b87cf8f543510562c8fb2eac0f1fade565",
+          "plan_core_sha256": "452d48b7b4ad9e1bf847058a1c1ff6ae1a1cf301451a79ea708ba330f7347198",
+          "source": {
+            "function_entry": 1054448,
+            "function_id": "function:0x1016f0",
+            "function_name": "main",
+            "icecube": "f_00000000001016f0_main.icecube.json.gz",
+            "json_pointer": "/snapshot/document/metadata_registry/abi:call_op:1054448:(ram, 0x1016ff, 18, 3):3",
+            "registry_key": "abi:call_op:1054448:(ram, 0x1016ff, 18, 3):3"
+          }
+        }
+      ],
+      "plan_class": "call_site_abi_plan",
+      "plan_id": "call_site:1054448:(ram, 0x1016ff, 18, 3):3"
+    },
+    {
+      "annotation_hashes": [
+        "f61a9f2c0ddce561c8b4a6279d97e7e83077b9158116d551748ab41192ce191c"
+      ],
+      "authoritative_source": {
+        "function_entry": 1054448,
+        "function_id": "function:0x1016f0",
+        "function_name": "main",
+        "icecube": "f_00000000001016f0_main.icecube.json.gz",
+        "json_pointer": "/snapshot/document/metadata_registry/abi:call:call_site:1054491:(ram, 0x101722, 66, 6):6",
+        "registry_key": "abi:call:call_site:1054491:(ram, 0x101722, 66, 6):6"
+      },
+      "classification": "exact_duplicates",
+      "core_hashes": [
+        "a12dcb17b810fe5cc2468cc7bb2d58657c85ba6a586b0dd54a4454eb1e62adc3"
+      ],
+      "occurrences": [
+        {
+          "plan_annotation_sha256": "f61a9f2c0ddce561c8b4a6279d97e7e83077b9158116d551748ab41192ce191c",
+          "plan_core_sha256": "a12dcb17b810fe5cc2468cc7bb2d58657c85ba6a586b0dd54a4454eb1e62adc3",
+          "source": {
+            "function_entry": 1054448,
+            "function_id": "function:0x1016f0",
+            "function_name": "main",
+            "icecube": "f_00000000001016f0_main.icecube.json.gz",
+            "json_pointer": "/snapshot/document/metadata_registry/abi:call:call_site:1054491:(ram, 0x101722, 66, 6):6",
+            "registry_key": "abi:call:call_site:1054491:(ram, 0x101722, 66, 6):6"
+          }
+        },
+        {
+          "plan_annotation_sha256": "f61a9f2c0ddce561c8b4a6279d97e7e83077b9158116d551748ab41192ce191c",
+          "plan_core_sha256": "a12dcb17b810fe5cc2468cc7bb2d58657c85ba6a586b0dd54a4454eb1e62adc3",
+          "source": {
+            "function_entry": 1054448,
+            "function_id": "function:0x1016f0",
+            "function_name": "main",
+            "icecube": "f_00000000001016f0_main.icecube.json.gz",
+            "json_pointer": "/snapshot/document/metadata_registry/abi:call_op:1054491:(ram, 0x101722, 66, 6):6",
+            "registry_key": "abi:call_op:1054491:(ram, 0x101722, 66, 6):6"
+          }
+        }
+      ],
+      "plan_class": "call_site_abi_plan",
+      "plan_id": "call_site:1054491:(ram, 0x101722, 66, 6):6"
+    },
+    {
+      "annotation_hashes": [
+        "0bfe192568f767842a5b545f27982e7323b4630ff070f487b6de28772a44ea6e"
+      ],
+      "authoritative_source": {
+        "function_entry": 1054448,
+        "function_id": "function:0x1016f0",
+        "function_name": "main",
+        "icecube": "f_00000000001016f0_main.icecube.json.gz",
+        "json_pointer": "/snapshot/document/metadata_registry/abi:call:call_site:1054491:(ram, 0x10172e, 72, 13):13",
+        "registry_key": "abi:call:call_site:1054491:(ram, 0x10172e, 72, 13):13"
+      },
+      "classification": "exact_duplicates",
+      "core_hashes": [
+        "ec4d1c100c982a0b6e7020986a06cd2584a30e06c259542721ecde9a39b2c4c9"
+      ],
+      "occurrences": [
+        {
+          "plan_annotation_sha256": "0bfe192568f767842a5b545f27982e7323b4630ff070f487b6de28772a44ea6e",
+          "plan_core_sha256": "ec4d1c100c982a0b6e7020986a06cd2584a30e06c259542721ecde9a39b2c4c9",
+          "source": {
+            "function_entry": 1054448,
+            "function_id": "function:0x1016f0",
+            "function_name": "main",
+            "icecube": "f_00000000001016f0_main.icecube.json.gz",
+            "json_pointer": "/snapshot/document/metadata_registry/abi:call:call_site:1054491:(ram, 0x10172e, 72, 13):13",
+            "registry_key": "abi:call:call_site:1054491:(ram, 0x10172e, 72, 13):13"
+          }
+        },
+        {
+          "plan_annotation_sha256": "0bfe192568f767842a5b545f27982e7323b4630ff070f487b6de28772a44ea6e",
+          "plan_core_sha256": "ec4d1c100c982a0b6e7020986a06cd2584a30e06c259542721ecde9a39b2c4c9",
+          "source": {
+            "function_entry": 1054448,
+            "function_id": "function:0x1016f0",
+            "function_name": "main",
+            "icecube": "f_00000000001016f0_main.icecube.json.gz",
+            "json_pointer": "/snapshot/document/metadata_registry/abi:call_op:1054491:(ram, 0x10172e, 72, 13):13",
+            "registry_key": "abi:call_op:1054491:(ram, 0x10172e, 72, 13):13"
+          }
+        }
+      ],
+      "plan_class": "call_site_abi_plan",
+      "plan_id": "call_site:1054491:(ram, 0x10172e, 72, 13):13"
+    },
+    {
+      "annotation_hashes": [
+        "4c7a8f39f1f145d5c4c42f574d90eb8c83dc788c59830e8a65042ae7907ff3fb"
+      ],
+      "authoritative_source": {
+        "function_entry": 1054448,
+        "function_id": "function:0x1016f0",
+        "function_name": "main",
+        "icecube": "f_00000000001016f0_main.icecube.json.gz",
+        "json_pointer": "/snapshot/document/metadata_registry/abi:call:call_site:1054541:(ram, 0x101759, 120, 6):6",
+        "registry_key": "abi:call:call_site:1054541:(ram, 0x101759, 120, 6):6"
+      },
+      "classification": "exact_duplicates",
+      "core_hashes": [
+        "9092a2467c4420a1a883f107fab9471dcaa1cce2ec39957cc34a5cf0e70d6f95"
+      ],
+      "occurrences": [
+        {
+          "plan_annotation_sha256": "4c7a8f39f1f145d5c4c42f574d90eb8c83dc788c59830e8a65042ae7907ff3fb",
+          "plan_core_sha256": "9092a2467c4420a1a883f107fab9471dcaa1cce2ec39957cc34a5cf0e70d6f95",
+          "source": {
+            "function_entry": 1054448,
+            "function_id": "function:0x1016f0",
+            "function_name": "main",
+            "icecube": "f_00000000001016f0_main.icecube.json.gz",
+            "json_pointer": "/snapshot/document/metadata_registry/abi:call:call_site:1054541:(ram, 0x101759, 120, 6):6",
+            "registry_key": "abi:call:call_site:1054541:(ram, 0x101759, 120, 6):6"
+          }
+        },
+        {
+          "plan_annotation_sha256": "4c7a8f39f1f145d5c4c42f574d90eb8c83dc788c59830e8a65042ae7907ff3fb",
+          "plan_core_sha256": "9092a2467c4420a1a883f107fab9471dcaa1cce2ec39957cc34a5cf0e70d6f95",
+          "source": {
+            "function_entry": 1054448,
+            "function_id": "function:0x1016f0",
+            "function_name": "main",
+            "icecube": "f_00000000001016f0_main.icecube.json.gz",
+            "json_pointer": "/snapshot/document/metadata_registry/abi:call_op:1054541:(ram, 0x101759, 120, 6):6",
+            "registry_key": "abi:call_op:1054541:(ram, 0x101759, 120, 6):6"
+          }
+        }
+      ],
+      "plan_class": "call_site_abi_plan",
+      "plan_id": "call_site:1054541:(ram, 0x101759, 120, 6):6"
+    },
+    {
+      "annotation_hashes": [
+        "84085db0592cafbd29a089028a6ddb001da63fd015ec6e64e052d01c4a4e0052"
+      ],
+      "authoritative_source": {
+        "function_entry": 1054448,
+        "function_id": "function:0x1016f0",
+        "function_name": "main",
+        "icecube": "f_00000000001016f0_main.icecube.json.gz",
+        "json_pointer": "/snapshot/document/metadata_registry/abi:call:call_site:1054570:(ram, 0x101771, 48, 9):9",
+        "registry_key": "abi:call:call_site:1054570:(ram, 0x101771, 48, 9):9"
+      },
+      "classification": "exact_duplicates",
+      "core_hashes": [
+        "44d3945b669a76a721781d49d87c38f36b982fbd933afdd490f5e7dfcc2535e8"
+      ],
+      "occurrences": [
+        {
+          "plan_annotation_sha256": "84085db0592cafbd29a089028a6ddb001da63fd015ec6e64e052d01c4a4e0052",
+          "plan_core_sha256": "44d3945b669a76a721781d49d87c38f36b982fbd933afdd490f5e7dfcc2535e8",
+          "source": {
+            "function_entry": 1054448,
+            "function_id": "function:0x1016f0",
+            "function_name": "main",
+            "icecube": "f_00000000001016f0_main.icecube.json.gz",
+            "json_pointer": "/snapshot/document/metadata_registry/abi:call:call_site:1054570:(ram, 0x101771, 48, 9):9",
+            "registry_key": "abi:call:call_site:1054570:(ram, 0x101771, 48, 9):9"
+          }
+        },
+        {
+          "plan_annotation_sha256": "84085db0592cafbd29a089028a6ddb001da63fd015ec6e64e052d01c4a4e0052",
+          "plan_core_sha256": "44d3945b669a76a721781d49d87c38f36b982fbd933afdd490f5e7dfcc2535e8",
+          "source": {
+            "function_entry": 1054448,
+            "function_id": "function:0x1016f0",
+            "function_name": "main",
+            "icecube": "f_00000000001016f0_main.icecube.json.gz",
+            "json_pointer": "/snapshot/document/metadata_registry/abi:call_op:1054570:(ram, 0x101771, 48, 9):9",
+            "registry_key": "abi:call_op:1054570:(ram, 0x101771, 48, 9):9"
+          }
+        }
+      ],
+      "plan_class": "call_site_abi_plan",
+      "plan_id": "call_site:1054570:(ram, 0x101771, 48, 9):9"
+    },
+    {
+      "annotation_hashes": [
+        "5500c23caa581799e14a91174440bcc7ab8b3319d525855a6550925826299e68"
+      ],
+      "authoritative_source": {
+        "function_entry": 1054448,
+        "function_id": "function:0x1016f0",
+        "function_name": "main",
+        "icecube": "f_00000000001016f0_main.icecube.json.gz",
+        "json_pointer": "/snapshot/document/metadata_registry/abi:call:call_site:1054570:(ram, 0x10177d, 54, 15):15",
+        "registry_key": "abi:call:call_site:1054570:(ram, 0x10177d, 54, 15):15"
+      },
+      "classification": "exact_duplicates",
+      "core_hashes": [
+        "76dffa524a59ef51ead59e1e66206735009c5a7afc00f0850ca5512473f1180d"
+      ],
+      "occurrences": [
+        {
+          "plan_annotation_sha256": "5500c23caa581799e14a91174440bcc7ab8b3319d525855a6550925826299e68",
+          "plan_core_sha256": "76dffa524a59ef51ead59e1e66206735009c5a7afc00f0850ca5512473f1180d",
+          "source": {
+            "function_entry": 1054448,
+            "function_id": "function:0x1016f0",
+            "function_name": "main",
+            "icecube": "f_00000000001016f0_main.icecube.json.gz",
+            "json_pointer": "/snapshot/document/metadata_registry/abi:call:call_site:1054570:(ram, 0x10177d, 54, 15):15",
+            "registry_key": "abi:call:call_site:1054570:(ram, 0x10177d, 54, 15):15"
+          }
+        },
+        {
+          "plan_annotation_sha256": "5500c23caa581799e14a91174440bcc7ab8b3319d525855a6550925826299e68",
+          "plan_core_sha256": "76dffa524a59ef51ead59e1e66206735009c5a7afc00f0850ca5512473f1180d",
+          "source": {
+            "function_entry": 1054448,
+            "function_id": "function:0x1016f0",
+            "function_name": "main",
+            "icecube": "f_00000000001016f0_main.icecube.json.gz",
+            "json_pointer": "/snapshot/document/metadata_registry/abi:call_op:1054570:(ram, 0x10177d, 54, 15):15",
+            "registry_key": "abi:call_op:1054570:(ram, 0x10177d, 54, 15):15"
+          }
+        }
+      ],
+      "plan_class": "call_site_abi_plan",
+      "plan_id": "call_site:1054570:(ram, 0x10177d, 54, 15):15"
+    },
+    {
+      "annotation_hashes": [
+        "27689b9fb33e250a7d951c6e8d42442acf9bee9be170cd8ded9150231873250a"
+      ],
+      "authoritative_source": {
+        "function_entry": 1052672,
+        "function_id": "function:0x101000",
+        "function_name": "_init",
+        "icecube": "f_0000000000101000_init.icecube.json.gz",
+        "json_pointer": "/snapshot/document/metadata_registry/abi:entry_plan",
+        "registry_key": "abi:entry_plan"
+      },
+      "classification": "exact_duplicates",
+      "core_hashes": [
+        "b7fe40304524757027676563b7b115ed4a9bc2c288e53f689660d5283f8ac0e3"
+      ],
+      "occurrences": [
+        {
+          "plan_annotation_sha256": "27689b9fb33e250a7d951c6e8d42442acf9bee9be170cd8ded9150231873250a",
+          "plan_core_sha256": "b7fe40304524757027676563b7b115ed4a9bc2c288e53f689660d5283f8ac0e3",
+          "source": {
+            "function_entry": 1052672,
+            "function_id": "function:0x101000",
+            "function_name": "_init",
+            "icecube": "f_0000000000101000_init.icecube.json.gz",
+            "json_pointer": "/snapshot/document/metadata_registry/abi:entry_plan",
+            "registry_key": "abi:entry_plan"
+          }
+        }
+      ],
+      "plan_class": "function_entry_abi_plan",
+      "plan_id": "function_entry:1052672"
+    },
+    {
+      "annotation_hashes": [
+        "c2dd9432e6e94ff6c6a64f038120175da0792eaf11acbdd859d40bc2d85301ee"
+      ],
+      "authoritative_source": {
+        "function_entry": 1052704,
+        "function_id": "function:0x101020",
+        "function_name": "FUN_00101020",
+        "icecube": "f_0000000000101020_FUN_00101020.icecube.json.gz",
+        "json_pointer": "/snapshot/document/metadata_registry/abi:entry_plan",
+        "registry_key": "abi:entry_plan"
+      },
+      "classification": "exact_duplicates",
+      "core_hashes": [
+        "cdddaafca944385f57b5a05f3c1d402f1e8e7297679c25f8b56f78368dc06dac"
+      ],
+      "occurrences": [
+        {
+          "plan_annotation_sha256": "c2dd9432e6e94ff6c6a64f038120175da0792eaf11acbdd859d40bc2d85301ee",
+          "plan_core_sha256": "cdddaafca944385f57b5a05f3c1d402f1e8e7297679c25f8b56f78368dc06dac",
+          "source": {
+            "function_entry": 1052704,
+            "function_id": "function:0x101020",
+            "function_name": "FUN_00101020",
+            "icecube": "f_0000000000101020_FUN_00101020.icecube.json.gz",
+            "json_pointer": "/snapshot/document/metadata_registry/abi:entry_plan",
+            "registry_key": "abi:entry_plan"
+          }
+        }
+      ],
+      "plan_class": "function_entry_abi_plan",
+      "plan_id": "function_entry:1052704"
+    },
+    {
+      "annotation_hashes": [
+        "bd2bdbf28001111794ab7249f9195eb9d5e4071124f36cc575491032615c437d"
+      ],
+      "authoritative_source": {
+        "function_entry": 1052720,
+        "function_id": "function:0x101030",
+        "function_name": "puts",
+        "icecube": "f_0000000000101030_puts.icecube.json.gz",
+        "json_pointer": "/snapshot/document/metadata_registry/abi:entry_plan",
+        "registry_key": "abi:entry_plan"
+      },
+      "classification": "exact_duplicates",
+      "core_hashes": [
+        "0f8e19f73aa8f101c9726be60f005734fa004945fb4b5058daa6761016fbe818"
+      ],
+      "occurrences": [
+        {
+          "plan_annotation_sha256": "bd2bdbf28001111794ab7249f9195eb9d5e4071124f36cc575491032615c437d",
+          "plan_core_sha256": "0f8e19f73aa8f101c9726be60f005734fa004945fb4b5058daa6761016fbe818",
+          "source": {
+            "function_entry": 1052720,
+            "function_id": "function:0x101030",
+            "function_name": "puts",
+            "icecube": "f_0000000000101030_puts.icecube.json.gz",
+            "json_pointer": "/snapshot/document/metadata_registry/abi:entry_plan",
+            "registry_key": "abi:entry_plan"
+          }
+        }
+      ],
+      "plan_class": "function_entry_abi_plan",
+      "plan_id": "function_entry:1052720"
+    },
+    {
+      "annotation_hashes": [
+        "ab08ef9a044b11246f8869ef558b28da39addcbdfa558f61b0ba1a86db14b4fc"
+      ],
+      "authoritative_source": {
+        "function_entry": 1052736,
+        "function_id": "function:0x101040",
+        "function_name": "printf",
+        "icecube": "f_0000000000101040_printf.icecube.json.gz",
+        "json_pointer": "/snapshot/document/metadata_registry/abi:entry_plan",
+        "registry_key": "abi:entry_plan"
+      },
+      "classification": "exact_duplicates",
+      "core_hashes": [
+        "063b9fb3d96518f8dcf5f1cde13fe65c7d4d1319e18be44ef813ae9c59f9a268"
+      ],
+      "occurrences": [
+        {
+          "plan_annotation_sha256": "ab08ef9a044b11246f8869ef558b28da39addcbdfa558f61b0ba1a86db14b4fc",
+          "plan_core_sha256": "063b9fb3d96518f8dcf5f1cde13fe65c7d4d1319e18be44ef813ae9c59f9a268",
+          "source": {
+            "function_entry": 1052736,
+            "function_id": "function:0x101040",
+            "function_name": "printf",
+            "icecube": "f_0000000000101040_printf.icecube.json.gz",
+            "json_pointer": "/snapshot/document/metadata_registry/abi:entry_plan",
+            "registry_key": "abi:entry_plan"
+          }
+        }
+      ],
+      "plan_class": "function_entry_abi_plan",
+      "plan_id": "function_entry:1052736"
+    },
+    {
+      "annotation_hashes": [
+        "354cc02265b8faa0604a8529c27bcbae9623ef15d55bd017697c2c89422757a6"
+      ],
+      "authoritative_source": {
+        "function_entry": 1052752,
+        "function_id": "function:0x101050",
+        "function_name": "fgets",
+        "icecube": "f_0000000000101050_fgets.icecube.json.gz",
+        "json_pointer": "/snapshot/document/metadata_registry/abi:entry_plan",
+        "registry_key": "abi:entry_plan"
+      },
+      "classification": "exact_duplicates",
+      "core_hashes": [
+        "8d9cf8d52770ef61ff5915aba3fcc5208d1579afc4bbfce76ae40ef4e746ecdc"
+      ],
+      "occurrences": [
+        {
+          "plan_annotation_sha256": "354cc02265b8faa0604a8529c27bcbae9623ef15d55bd017697c2c89422757a6",
+          "plan_core_sha256": "8d9cf8d52770ef61ff5915aba3fcc5208d1579afc4bbfce76ae40ef4e746ecdc",
+          "source": {
+            "function_entry": 1052752,
+            "function_id": "function:0x101050",
+            "function_name": "fgets",
+            "icecube": "f_0000000000101050_fgets.icecube.json.gz",
+            "json_pointer": "/snapshot/document/metadata_registry/abi:entry_plan",
+            "registry_key": "abi:entry_plan"
+          }
+        }
+      ],
+      "plan_class": "function_entry_abi_plan",
+      "plan_id": "function_entry:1052752"
+    },
+    {
+      "annotation_hashes": [
+        "7a0f8b0d5a6237f347fc2807a20366e6828ff315a350336a273da506f104bed1"
+      ],
+      "authoritative_source": {
+        "function_entry": 1052768,
+        "function_id": "function:0x101060",
+        "function_name": "__cxa_finalize",
+        "icecube": "f_0000000000101060_cxa_finalize.icecube.json.gz",
+        "json_pointer": "/snapshot/document/metadata_registry/abi:entry_plan",
+        "registry_key": "abi:entry_plan"
+      },
+      "classification": "exact_duplicates",
+      "core_hashes": [
+        "a7e157336c34bb52c019b3f5f829b487adf308faa8d04d9bdf72e7af192175f5"
+      ],
+      "occurrences": [
+        {
+          "plan_annotation_sha256": "7a0f8b0d5a6237f347fc2807a20366e6828ff315a350336a273da506f104bed1",
+          "plan_core_sha256": "a7e157336c34bb52c019b3f5f829b487adf308faa8d04d9bdf72e7af192175f5",
+          "source": {
+            "function_entry": 1052768,
+            "function_id": "function:0x101060",
+            "function_name": "__cxa_finalize",
+            "icecube": "f_0000000000101060_cxa_finalize.icecube.json.gz",
+            "json_pointer": "/snapshot/document/metadata_registry/abi:entry_plan",
+            "registry_key": "abi:entry_plan"
+          }
+        }
+      ],
+      "plan_class": "function_entry_abi_plan",
+      "plan_id": "function_entry:1052768"
+    },
+    {
+      "annotation_hashes": [
+        "69688e6c78108ab24903aef0a764c60b7fc53716f0bb7dfb08ec2f743e5b3537"
+      ],
+      "authoritative_source": {
+        "function_entry": 1052784,
+        "function_id": "function:0x101070",
+        "function_name": "_start",
+        "icecube": "f_0000000000101070_start.icecube.json.gz",
+        "json_pointer": "/snapshot/document/metadata_registry/abi:entry_plan",
+        "registry_key": "abi:entry_plan"
+      },
+      "classification": "exact_duplicates",
+      "core_hashes": [
+        "114bcbabccd663db1218f9461d86b8ecd6940177b92ffba4658e9fe7d695d247"
+      ],
+      "occurrences": [
+        {
+          "plan_annotation_sha256": "69688e6c78108ab24903aef0a764c60b7fc53716f0bb7dfb08ec2f743e5b3537",
+          "plan_core_sha256": "114bcbabccd663db1218f9461d86b8ecd6940177b92ffba4658e9fe7d695d247",
+          "source": {
+            "function_entry": 1052784,
+            "function_id": "function:0x101070",
+            "function_name": "_start",
+            "icecube": "f_0000000000101070_start.icecube.json.gz",
+            "json_pointer": "/snapshot/document/metadata_registry/abi:entry_plan",
+            "registry_key": "abi:entry_plan"
+          }
+        }
+      ],
+      "plan_class": "function_entry_abi_plan",
+      "plan_id": "function_entry:1052784"
+    },
+    {
+      "annotation_hashes": [
+        "aa9b758c6ad5a400605e17736495f0330eb87cd78808f77cab2f9c1cc9182da9"
+      ],
+      "authoritative_source": {
+        "function_entry": 1052832,
+        "function_id": "function:0x1010a0",
+        "function_name": "deregister_tm_clones",
+        "icecube": "f_00000000001010a0_deregister_tm_clones.icecube.json.gz",
+        "json_pointer": "/snapshot/document/metadata_registry/abi:entry_plan",
+        "registry_key": "abi:entry_plan"
+      },
+      "classification": "exact_duplicates",
+      "core_hashes": [
+        "c6d852ad14469233297354c9d3b95060f5f1e183fc9d21ba62d6f4c4f5be0fc0"
+      ],
+      "occurrences": [
+        {
+          "plan_annotation_sha256": "aa9b758c6ad5a400605e17736495f0330eb87cd78808f77cab2f9c1cc9182da9",
+          "plan_core_sha256": "c6d852ad14469233297354c9d3b95060f5f1e183fc9d21ba62d6f4c4f5be0fc0",
+          "source": {
+            "function_entry": 1052832,
+            "function_id": "function:0x1010a0",
+            "function_name": "deregister_tm_clones",
+            "icecube": "f_00000000001010a0_deregister_tm_clones.icecube.json.gz",
+            "json_pointer": "/snapshot/document/metadata_registry/abi:entry_plan",
+            "registry_key": "abi:entry_plan"
+          }
+        }
+      ],
+      "plan_class": "function_entry_abi_plan",
+      "plan_id": "function_entry:1052832"
+    },
+    {
+      "annotation_hashes": [
+        "e1911b246152e89d892de9733c807076d169c3c78fbbf5d82da6bc1ef4e6638c"
+      ],
+      "authoritative_source": {
+        "function_entry": 1052880,
+        "function_id": "function:0x1010d0",
+        "function_name": "register_tm_clones",
+        "icecube": "f_00000000001010d0_register_tm_clones.icecube.json.gz",
+        "json_pointer": "/snapshot/document/metadata_registry/abi:entry_plan",
+        "registry_key": "abi:entry_plan"
+      },
+      "classification": "exact_duplicates",
+      "core_hashes": [
+        "2d23559969d0577593d93acdcf5ca4a53276da96097e8c1d516d80f44869419e"
+      ],
+      "occurrences": [
+        {
+          "plan_annotation_sha256": "e1911b246152e89d892de9733c807076d169c3c78fbbf5d82da6bc1ef4e6638c",
+          "plan_core_sha256": "2d23559969d0577593d93acdcf5ca4a53276da96097e8c1d516d80f44869419e",
+          "source": {
+            "function_entry": 1052880,
+            "function_id": "function:0x1010d0",
+            "function_name": "register_tm_clones",
+            "icecube": "f_00000000001010d0_register_tm_clones.icecube.json.gz",
+            "json_pointer": "/snapshot/document/metadata_registry/abi:entry_plan",
+            "registry_key": "abi:entry_plan"
+          }
+        }
+      ],
+      "plan_class": "function_entry_abi_plan",
+      "plan_id": "function_entry:1052880"
+    },
+    {
+      "annotation_hashes": [
+        "230517e76f3aaf6d1cec29940aab17214d58670b419e5f6f5a8f993915747344"
+      ],
+      "authoritative_source": {
+        "function_entry": 1052944,
+        "function_id": "function:0x101110",
+        "function_name": "__do_global_dtors_aux",
+        "icecube": "f_0000000000101110_do_global_dtors_aux.icecube.json.gz",
+        "json_pointer": "/snapshot/document/metadata_registry/abi:entry_plan",
+        "registry_key": "abi:entry_plan"
+      },
+      "classification": "exact_duplicates",
+      "core_hashes": [
+        "cd582e8c83da31488a08ee8bf73628224202b19372b01376910fa9591ff787e1"
+      ],
+      "occurrences": [
+        {
+          "plan_annotation_sha256": "230517e76f3aaf6d1cec29940aab17214d58670b419e5f6f5a8f993915747344",
+          "plan_core_sha256": "cd582e8c83da31488a08ee8bf73628224202b19372b01376910fa9591ff787e1",
+          "source": {
+            "function_entry": 1052944,
+            "function_id": "function:0x101110",
+            "function_name": "__do_global_dtors_aux",
+            "icecube": "f_0000000000101110_do_global_dtors_aux.icecube.json.gz",
+            "json_pointer": "/snapshot/document/metadata_registry/abi:entry_plan",
+            "registry_key": "abi:entry_plan"
+          }
+        }
+      ],
+      "plan_class": "function_entry_abi_plan",
+      "plan_id": "function_entry:1052944"
+    },
+    {
+      "annotation_hashes": [
+        "c55b6e625b197eb2d5324e47a490156a80c8d18b478bb6027f67b00dfd7630cf"
+      ],
+      "authoritative_source": {
+        "function_entry": 1053008,
+        "function_id": "function:0x101150",
+        "function_name": "frame_dummy",
+        "icecube": "f_0000000000101150_frame_dummy.icecube.json.gz",
+        "json_pointer": "/snapshot/document/metadata_registry/abi:entry_plan",
+        "registry_key": "abi:entry_plan"
+      },
+      "classification": "exact_duplicates",
+      "core_hashes": [
+        "421acc13b32db511f8efa751c2841ca9ed4746ee6be4e3e44d1aca852ac1c819"
+      ],
+      "occurrences": [
+        {
+          "plan_annotation_sha256": "c55b6e625b197eb2d5324e47a490156a80c8d18b478bb6027f67b00dfd7630cf",
+          "plan_core_sha256": "421acc13b32db511f8efa751c2841ca9ed4746ee6be4e3e44d1aca852ac1c819",
+          "source": {
+            "function_entry": 1053008,
+            "function_id": "function:0x101150",
+            "function_name": "frame_dummy",
+            "icecube": "f_0000000000101150_frame_dummy.icecube.json.gz",
+            "json_pointer": "/snapshot/document/metadata_registry/abi:entry_plan",
+            "registry_key": "abi:entry_plan"
+          }
+        }
+      ],
+      "plan_class": "function_entry_abi_plan",
+      "plan_id": "function_entry:1053008"
+    },
+    {
+      "annotation_hashes": [
+        "6fc71292324b07c7515f9aebc0d1758b86277b0a97d0dfc647419d35e0a44fd4"
+      ],
+      "authoritative_source": {
+        "function_entry": 1053017,
+        "function_id": "function:0x101159",
+        "function_name": "initialize_lander",
+        "icecube": "f_0000000000101159_initialize_lander.icecube.json.gz",
+        "json_pointer": "/snapshot/document/metadata_registry/abi:entry_plan",
+        "registry_key": "abi:entry_plan"
+      },
+      "classification": "exact_duplicates",
+      "core_hashes": [
+        "521c1dd8de02cd6eca2ac9d478d834b08c7c9f53f2fedb6ba90f4f0ef4f81bc3"
+      ],
+      "occurrences": [
+        {
+          "plan_annotation_sha256": "6fc71292324b07c7515f9aebc0d1758b86277b0a97d0dfc647419d35e0a44fd4",
+          "plan_core_sha256": "521c1dd8de02cd6eca2ac9d478d834b08c7c9f53f2fedb6ba90f4f0ef4f81bc3",
+          "source": {
+            "function_entry": 1053017,
+            "function_id": "function:0x101159",
+            "function_name": "initialize_lander",
+            "icecube": "f_0000000000101159_initialize_lander.icecube.json.gz",
+            "json_pointer": "/snapshot/document/metadata_registry/abi:entry_plan",
+            "registry_key": "abi:entry_plan"
+          }
+        }
+      ],
+      "plan_class": "function_entry_abi_plan",
+      "plan_id": "function_entry:1053017"
+    },
+    {
+      "annotation_hashes": [
+        "5b711cc1a7277abe1ed78ce82c9ec3b536ad247a4a31144c62547815cf61d5ba"
+      ],
+      "authoritative_source": {
+        "function_entry": 1053104,
+        "function_id": "function:0x1011b0",
+        "function_name": "craft_row_for_altitude",
+        "icecube": "f_00000000001011b0_craft_row_for_altitude.icecube.json.gz",
+        "json_pointer": "/snapshot/document/metadata_registry/abi:entry_plan",
+        "registry_key": "abi:entry_plan"
+      },
+      "classification": "exact_duplicates",
+      "core_hashes": [
+        "f7fbebb73c90c92c853d480e1b1b1f9b96bb7d1bacf16300b14a50634ce10e4a"
+      ],
+      "occurrences": [
+        {
+          "plan_annotation_sha256": "5b711cc1a7277abe1ed78ce82c9ec3b536ad247a4a31144c62547815cf61d5ba",
+          "plan_core_sha256": "f7fbebb73c90c92c853d480e1b1b1f9b96bb7d1bacf16300b14a50634ce10e4a",
+          "source": {
+            "function_entry": 1053104,
+            "function_id": "function:0x1011b0",
+            "function_name": "craft_row_for_altitude",
+            "icecube": "f_00000000001011b0_craft_row_for_altitude.icecube.json.gz",
+            "json_pointer": "/snapshot/document/metadata_registry/abi:entry_plan",
+            "registry_key": "abi:entry_plan"
+          }
+        }
+      ],
+      "plan_class": "function_entry_abi_plan",
+      "plan_id": "function_entry:1053104"
+    },
+    {
+      "annotation_hashes": [
+        "bbb46d451b594d0251582ae7240745720528a894de4091f1e26be87d8f534007"
+      ],
+      "authoritative_source": {
+        "function_entry": 1053209,
+        "function_id": "function:0x101219",
+        "function_name": "print_sky_row",
+        "icecube": "f_0000000000101219_print_sky_row.icecube.json.gz",
+        "json_pointer": "/snapshot/document/metadata_registry/abi:entry_plan",
+        "registry_key": "abi:entry_plan"
+      },
+      "classification": "exact_duplicates",
+      "core_hashes": [
+        "12f1f63fbde6dbf43e919ffbfcfa34ffe64339919bc3865f7f2f0dc5d3853610"
+      ],
+      "occurrences": [
+        {
+          "plan_annotation_sha256": "bbb46d451b594d0251582ae7240745720528a894de4091f1e26be87d8f534007",
+          "plan_core_sha256": "12f1f63fbde6dbf43e919ffbfcfa34ffe64339919bc3865f7f2f0dc5d3853610",
+          "source": {
+            "function_entry": 1053209,
+            "function_id": "function:0x101219",
+            "function_name": "print_sky_row",
+            "icecube": "f_0000000000101219_print_sky_row.icecube.json.gz",
+            "json_pointer": "/snapshot/document/metadata_registry/abi:entry_plan",
+            "registry_key": "abi:entry_plan"
+          }
+        }
+      ],
+      "plan_class": "function_entry_abi_plan",
+      "plan_id": "function_entry:1053209"
+    },
+    {
+      "annotation_hashes": [
+        "8b7bed6fd97df9d5dd4fcf2e79e4e32921c0b6580c92efa3accc29b0f411aaa0"
+      ],
+      "authoritative_source": {
+        "function_entry": 1053266,
+        "function_id": "function:0x101252",
+        "function_name": "draw_lander",
+        "icecube": "f_0000000000101252_draw_lander.icecube.json.gz",
+        "json_pointer": "/snapshot/document/metadata_registry/abi:entry_plan",
+        "registry_key": "abi:entry_plan"
+      },
+      "classification": "exact_duplicates",
+      "core_hashes": [
+        "94c5f62b5e592cb8b67afa029fbd864c04e8bea01d00ce148b40973a8ccee535"
+      ],
+      "occurrences": [
+        {
+          "plan_annotation_sha256": "8b7bed6fd97df9d5dd4fcf2e79e4e32921c0b6580c92efa3accc29b0f411aaa0",
+          "plan_core_sha256": "94c5f62b5e592cb8b67afa029fbd864c04e8bea01d00ce148b40973a8ccee535",
+          "source": {
+            "function_entry": 1053266,
+            "function_id": "function:0x101252",
+            "function_name": "draw_lander",
+            "icecube": "f_0000000000101252_draw_lander.icecube.json.gz",
+            "json_pointer": "/snapshot/document/metadata_registry/abi:entry_plan",
+            "registry_key": "abi:entry_plan"
+          }
+        }
+      ],
+      "plan_class": "function_entry_abi_plan",
+      "plan_id": "function_entry:1053266"
+    },
+    {
+      "annotation_hashes": [
+        "98c1a4f1f56c0a03ca936ad0867c6e52ee7d8a802cf001ba4ff2c45b3982b631"
+      ],
+      "authoritative_source": {
+        "function_entry": 1053631,
+        "function_id": "function:0x1013bf",
+        "function_name": "parse_burn",
+        "icecube": "f_00000000001013bf_parse_burn.icecube.json.gz",
+        "json_pointer": "/snapshot/document/metadata_registry/abi:entry_plan",
+        "registry_key": "abi:entry_plan"
+      },
+      "classification": "exact_duplicates",
+      "core_hashes": [
+        "9c6746ce450faa8fd6c3eca063ee79eef27f5a7da41b87d938803e9ef9573095"
+      ],
+      "occurrences": [
+        {
+          "plan_annotation_sha256": "98c1a4f1f56c0a03ca936ad0867c6e52ee7d8a802cf001ba4ff2c45b3982b631",
+          "plan_core_sha256": "9c6746ce450faa8fd6c3eca063ee79eef27f5a7da41b87d938803e9ef9573095",
+          "source": {
+            "function_entry": 1053631,
+            "function_id": "function:0x1013bf",
+            "function_name": "parse_burn",
+            "icecube": "f_00000000001013bf_parse_burn.icecube.json.gz",
+            "json_pointer": "/snapshot/document/metadata_registry/abi:entry_plan",
+            "registry_key": "abi:entry_plan"
+          }
+        }
+      ],
+      "plan_class": "function_entry_abi_plan",
+      "plan_id": "function_entry:1053631"
+    },
+    {
+      "annotation_hashes": [
+        "bf688f8ab0f15fc411b5d8958a2ccf1326cca240f6dab4172a89a85c3fc21835"
+      ],
+      "authoritative_source": {
+        "function_entry": 1053751,
+        "function_id": "function:0x101437",
+        "function_name": "read_burn",
+        "icecube": "f_0000000000101437_read_burn.icecube.json.gz",
+        "json_pointer": "/snapshot/document/metadata_registry/abi:entry_plan",
+        "registry_key": "abi:entry_plan"
+      },
+      "classification": "exact_duplicates",
+      "core_hashes": [
+        "b60c20364a7de091cfd5c0e89bbfc12efa387f6a4a379eeaeab5eadebd3019b8"
+      ],
+      "occurrences": [
+        {
+          "plan_annotation_sha256": "bf688f8ab0f15fc411b5d8958a2ccf1326cca240f6dab4172a89a85c3fc21835",
+          "plan_core_sha256": "b60c20364a7de091cfd5c0e89bbfc12efa387f6a4a379eeaeab5eadebd3019b8",
+          "source": {
+            "function_entry": 1053751,
+            "function_id": "function:0x101437",
+            "function_name": "read_burn",
+            "icecube": "f_0000000000101437_read_burn.icecube.json.gz",
+            "json_pointer": "/snapshot/document/metadata_registry/abi:entry_plan",
+            "registry_key": "abi:entry_plan"
+          }
+        }
+      ],
+      "plan_class": "function_entry_abi_plan",
+      "plan_id": "function_entry:1053751"
+    },
+    {
+      "annotation_hashes": [
+        "b2834209ff379d503bdd676cbf4f7aa7a2367cf5317f0530196739b04b0b7af1"
+      ],
+      "authoritative_source": {
+        "function_entry": 1053862,
+        "function_id": "function:0x1014a6",
+        "function_name": "apply_burn",
+        "icecube": "f_00000000001014a6_apply_burn.icecube.json.gz",
+        "json_pointer": "/snapshot/document/metadata_registry/abi:entry_plan",
+        "registry_key": "abi:entry_plan"
+      },
+      "classification": "exact_duplicates",
+      "core_hashes": [
+        "dd711bd51f572bc4ad6e0d4f649bd92d968fa30fc49bb839812712fb7aa17d84"
+      ],
+      "occurrences": [
+        {
+          "plan_annotation_sha256": "b2834209ff379d503bdd676cbf4f7aa7a2367cf5317f0530196739b04b0b7af1",
+          "plan_core_sha256": "dd711bd51f572bc4ad6e0d4f649bd92d968fa30fc49bb839812712fb7aa17d84",
+          "source": {
+            "function_entry": 1053862,
+            "function_id": "function:0x1014a6",
+            "function_name": "apply_burn",
+            "icecube": "f_00000000001014a6_apply_burn.icecube.json.gz",
+            "json_pointer": "/snapshot/document/metadata_registry/abi:entry_plan",
+            "registry_key": "abi:entry_plan"
+          }
+        }
+      ],
+      "plan_class": "function_entry_abi_plan",
+      "plan_id": "function_entry:1053862"
+    },
+    {
+      "annotation_hashes": [
+        "5a9f971079b6632c9963deef98224ea5393e8c47e7a4ce001476c359d1a5ec79"
+      ],
+      "authoritative_source": {
+        "function_entry": 1054102,
+        "function_id": "function:0x101596",
+        "function_name": "print_result",
+        "icecube": "f_0000000000101596_print_result.icecube.json.gz",
+        "json_pointer": "/snapshot/document/metadata_registry/abi:entry_plan",
+        "registry_key": "abi:entry_plan"
+      },
+      "classification": "exact_duplicates",
+      "core_hashes": [
+        "64775718ff7a2471596fad3a75884640a907aed6673df0c687f093c3e3307d2a"
+      ],
+      "occurrences": [
+        {
+          "plan_annotation_sha256": "5a9f971079b6632c9963deef98224ea5393e8c47e7a4ce001476c359d1a5ec79",
+          "plan_core_sha256": "64775718ff7a2471596fad3a75884640a907aed6673df0c687f093c3e3307d2a",
+          "source": {
+            "function_entry": 1054102,
+            "function_id": "function:0x101596",
+            "function_name": "print_result",
+            "icecube": "f_0000000000101596_print_result.icecube.json.gz",
+            "json_pointer": "/snapshot/document/metadata_registry/abi:entry_plan",
+            "registry_key": "abi:entry_plan"
+          }
+        }
+      ],
+      "plan_class": "function_entry_abi_plan",
+      "plan_id": "function_entry:1054102"
+    },
+    {
+      "annotation_hashes": [
+        "465fc486f240b8a963be8b4e07677ad39165c3f77035bbea8abdeb55a636bcfe"
+      ],
+      "authoritative_source": {
+        "function_entry": 1054397,
+        "function_id": "function:0x1016bd",
+        "function_name": "lander_exit_code",
+        "icecube": "f_00000000001016bd_lander_exit_code.icecube.json.gz",
+        "json_pointer": "/snapshot/document/metadata_registry/abi:entry_plan",
+        "registry_key": "abi:entry_plan"
+      },
+      "classification": "exact_duplicates",
+      "core_hashes": [
+        "e504957a8e909b3369b0e4e6d6989243bb06039fd4e6cda5bebd603146fb1fd9"
+      ],
+      "occurrences": [
+        {
+          "plan_annotation_sha256": "465fc486f240b8a963be8b4e07677ad39165c3f77035bbea8abdeb55a636bcfe",
+          "plan_core_sha256": "e504957a8e909b3369b0e4e6d6989243bb06039fd4e6cda5bebd603146fb1fd9",
+          "source": {
+            "function_entry": 1054397,
+            "function_id": "function:0x1016bd",
+            "function_name": "lander_exit_code",
+            "icecube": "f_00000000001016bd_lander_exit_code.icecube.json.gz",
+            "json_pointer": "/snapshot/document/metadata_registry/abi:entry_plan",
+            "registry_key": "abi:entry_plan"
+          }
+        }
+      ],
+      "plan_class": "function_entry_abi_plan",
+      "plan_id": "function_entry:1054397"
+    },
+    {
+      "annotation_hashes": [
+        "96f6581fdb381ddd1728fc6b787ac5a9e9e3dec3662597ea4140a34f3f69a9fd"
+      ],
+      "authoritative_source": {
+        "function_entry": 1054448,
+        "function_id": "function:0x1016f0",
+        "function_name": "main",
+        "icecube": "f_00000000001016f0_main.icecube.json.gz",
+        "json_pointer": "/snapshot/document/metadata_registry/abi:entry_plan",
+        "registry_key": "abi:entry_plan"
+      },
+      "classification": "exact_duplicates",
+      "core_hashes": [
+        "90d7e3229300197a0e744346b89f8f05cad29e4dc2b3e332bb98cabc53f99914"
+      ],
+      "occurrences": [
+        {
+          "plan_annotation_sha256": "96f6581fdb381ddd1728fc6b787ac5a9e9e3dec3662597ea4140a34f3f69a9fd",
+          "plan_core_sha256": "90d7e3229300197a0e744346b89f8f05cad29e4dc2b3e332bb98cabc53f99914",
+          "source": {
+            "function_entry": 1054448,
+            "function_id": "function:0x1016f0",
+            "function_name": "main",
+            "icecube": "f_00000000001016f0_main.icecube.json.gz",
+            "json_pointer": "/snapshot/document/metadata_registry/abi:entry_plan",
+            "registry_key": "abi:entry_plan"
+          }
+        }
+      ],
+      "plan_class": "function_entry_abi_plan",
+      "plan_id": "function_entry:1054448"
+    },
+    {
+      "annotation_hashes": [
+        "6e1f14eb81b31c5253219765a933f543b8d98a115b5f34f2df00bdff9a813d9e"
+      ],
+      "authoritative_source": {
+        "function_entry": 1054596,
+        "function_id": "function:0x101784",
+        "function_name": "_fini",
+        "icecube": "f_0000000000101784_fini.icecube.json.gz",
+        "json_pointer": "/snapshot/document/metadata_registry/abi:entry_plan",
+        "registry_key": "abi:entry_plan"
+      },
+      "classification": "exact_duplicates",
+      "core_hashes": [
+        "c5b79f9c9d2b000c841df127712ed5a0cc68b910a6d724651ee74a8605301e4d"
+      ],
+      "occurrences": [
+        {
+          "plan_annotation_sha256": "6e1f14eb81b31c5253219765a933f543b8d98a115b5f34f2df00bdff9a813d9e",
+          "plan_core_sha256": "c5b79f9c9d2b000c841df127712ed5a0cc68b910a6d724651ee74a8605301e4d",
+          "source": {
+            "function_entry": 1054596,
+            "function_id": "function:0x101784",
+            "function_name": "_fini",
+            "icecube": "f_0000000000101784_fini.icecube.json.gz",
+            "json_pointer": "/snapshot/document/metadata_registry/abi:entry_plan",
+            "registry_key": "abi:entry_plan"
+          }
+        }
+      ],
+      "plan_class": "function_entry_abi_plan",
+      "plan_id": "function_entry:1054596"
+    },
+    {
+      "annotation_hashes": [
+        "d2354035e8e4907a9442397438d2749617268c28aaeaf8af1d3f30f718a00f68"
+      ],
+      "authoritative_source": {
+        "function_entry": 1069056,
+        "function_id": "function:0x105000",
+        "function_name": "__libc_start_main",
+        "icecube": "f_0000000000105000_libc_start_main.icecube.json.gz",
+        "json_pointer": "/snapshot/document/metadata_registry/abi:entry_plan",
+        "registry_key": "abi:entry_plan"
+      },
+      "classification": "exact_duplicates",
+      "core_hashes": [
+        "bb0c2d45bb5bcc3d01c70032871f7f681f78c919e9275a506f7e8821adb8541b"
+      ],
+      "occurrences": [
+        {
+          "plan_annotation_sha256": "d2354035e8e4907a9442397438d2749617268c28aaeaf8af1d3f30f718a00f68",
+          "plan_core_sha256": "bb0c2d45bb5bcc3d01c70032871f7f681f78c919e9275a506f7e8821adb8541b",
+          "source": {
+            "function_entry": 1069056,
+            "function_id": "function:0x105000",
+            "function_name": "__libc_start_main",
+            "icecube": "f_0000000000105000_libc_start_main.icecube.json.gz",
+            "json_pointer": "/snapshot/document/metadata_registry/abi:entry_plan",
+            "registry_key": "abi:entry_plan"
+          }
+        }
+      ],
+      "plan_class": "function_entry_abi_plan",
+      "plan_id": "function_entry:1069056"
+    },
+    {
+      "annotation_hashes": [
+        "c0f2fe72dcee2b2848e76f48ba4cef06d8114f75a8b0e03b2ed33c0dd4a03a0a"
+      ],
+      "authoritative_source": {
+        "function_entry": 1069064,
+        "function_id": "function:0x105008",
+        "function_name": "_ITM_deregisterTMCloneTable",
+        "icecube": "f_0000000000105008_ITM_deregisterTMCloneTable.icecube.json.gz",
+        "json_pointer": "/snapshot/document/metadata_registry/abi:entry_plan",
+        "registry_key": "abi:entry_plan"
+      },
+      "classification": "exact_duplicates",
+      "core_hashes": [
+        "829ee12f5c2e612ee24a8f7b7e9752f01bc584fb2f180a8c170ff5034204ba1c"
+      ],
+      "occurrences": [
+        {
+          "plan_annotation_sha256": "c0f2fe72dcee2b2848e76f48ba4cef06d8114f75a8b0e03b2ed33c0dd4a03a0a",
+          "plan_core_sha256": "829ee12f5c2e612ee24a8f7b7e9752f01bc584fb2f180a8c170ff5034204ba1c",
+          "source": {
+            "function_entry": 1069064,
+            "function_id": "function:0x105008",
+            "function_name": "_ITM_deregisterTMCloneTable",
+            "icecube": "f_0000000000105008_ITM_deregisterTMCloneTable.icecube.json.gz",
+            "json_pointer": "/snapshot/document/metadata_registry/abi:entry_plan",
+            "registry_key": "abi:entry_plan"
+          }
+        }
+      ],
+      "plan_class": "function_entry_abi_plan",
+      "plan_id": "function_entry:1069064"
+    },
+    {
+      "annotation_hashes": [
+        "db760789bfbdced16d2fe190d389e281fb6ac8b9dda1d8cc3ae9e8086c6e2083"
+      ],
+      "authoritative_source": {
+        "function_entry": 1069072,
+        "function_id": "function:0x105010",
+        "function_name": "puts",
+        "icecube": "f_0000000000105010_puts.icecube.json.gz",
+        "json_pointer": "/snapshot/document/metadata_registry/abi:entry_plan",
+        "registry_key": "abi:entry_plan"
+      },
+      "classification": "exact_duplicates",
+      "core_hashes": [
+        "d462db3728fa700a3e8eed8e5745ce8597ff2457bef59798b2c8cbf44fa011cb"
+      ],
+      "occurrences": [
+        {
+          "plan_annotation_sha256": "db760789bfbdced16d2fe190d389e281fb6ac8b9dda1d8cc3ae9e8086c6e2083",
+          "plan_core_sha256": "d462db3728fa700a3e8eed8e5745ce8597ff2457bef59798b2c8cbf44fa011cb",
+          "source": {
+            "function_entry": 1069072,
+            "function_id": "function:0x105010",
+            "function_name": "puts",
+            "icecube": "f_0000000000105010_puts.icecube.json.gz",
+            "json_pointer": "/snapshot/document/metadata_registry/abi:entry_plan",
+            "registry_key": "abi:entry_plan"
+          }
+        }
+      ],
+      "plan_class": "function_entry_abi_plan",
+      "plan_id": "function_entry:1069072"
+    },
+    {
+      "annotation_hashes": [
+        "1dd9f7db2ce52c36593e8addafd43d572952f871310be421c5769ca5f2dce917"
+      ],
+      "authoritative_source": {
+        "function_entry": 1069080,
+        "function_id": "function:0x105018",
+        "function_name": "printf",
+        "icecube": "f_0000000000105018_printf.icecube.json.gz",
+        "json_pointer": "/snapshot/document/metadata_registry/abi:entry_plan",
+        "registry_key": "abi:entry_plan"
+      },
+      "classification": "exact_duplicates",
+      "core_hashes": [
+        "a1ec1ac3363752345c95279378ffe86fe2cbea394d81b8a3beedeea88a8dab9f"
+      ],
+      "occurrences": [
+        {
+          "plan_annotation_sha256": "1dd9f7db2ce52c36593e8addafd43d572952f871310be421c5769ca5f2dce917",
+          "plan_core_sha256": "a1ec1ac3363752345c95279378ffe86fe2cbea394d81b8a3beedeea88a8dab9f",
+          "source": {
+            "function_entry": 1069080,
+            "function_id": "function:0x105018",
+            "function_name": "printf",
+            "icecube": "f_0000000000105018_printf.icecube.json.gz",
+            "json_pointer": "/snapshot/document/metadata_registry/abi:entry_plan",
+            "registry_key": "abi:entry_plan"
+          }
+        }
+      ],
+      "plan_class": "function_entry_abi_plan",
+      "plan_id": "function_entry:1069080"
+    },
+    {
+      "annotation_hashes": [
+        "176ba3367aa273739c1b270c3a5f0c5001ed97951948f283d2f7493116291544"
+      ],
+      "authoritative_source": {
+        "function_entry": 1069088,
+        "function_id": "function:0x105020",
+        "function_name": "fgets",
+        "icecube": "f_0000000000105020_fgets.icecube.json.gz",
+        "json_pointer": "/snapshot/document/metadata_registry/abi:entry_plan",
+        "registry_key": "abi:entry_plan"
+      },
+      "classification": "exact_duplicates",
+      "core_hashes": [
+        "46e2a782088506676910561b9fa4368ee96532574d90c3ccb65c210ec3c63feb"
+      ],
+      "occurrences": [
+        {
+          "plan_annotation_sha256": "176ba3367aa273739c1b270c3a5f0c5001ed97951948f283d2f7493116291544",
+          "plan_core_sha256": "46e2a782088506676910561b9fa4368ee96532574d90c3ccb65c210ec3c63feb",
+          "source": {
+            "function_entry": 1069088,
+            "function_id": "function:0x105020",
+            "function_name": "fgets",
+            "icecube": "f_0000000000105020_fgets.icecube.json.gz",
+            "json_pointer": "/snapshot/document/metadata_registry/abi:entry_plan",
+            "registry_key": "abi:entry_plan"
+          }
+        }
+      ],
+      "plan_class": "function_entry_abi_plan",
+      "plan_id": "function_entry:1069088"
+    },
+    {
+      "annotation_hashes": [
+        "866aa39a1a08e63ef09141b044f786d565f8c1d9f2bd5592c7bc94d3367a3a43"
+      ],
+      "authoritative_source": {
+        "function_entry": 1069096,
+        "function_id": "function:0x105028",
+        "function_name": "__gmon_start__",
+        "icecube": "f_0000000000105028_gmon_start.icecube.json.gz",
+        "json_pointer": "/snapshot/document/metadata_registry/abi:entry_plan",
+        "registry_key": "abi:entry_plan"
+      },
+      "classification": "exact_duplicates",
+      "core_hashes": [
+        "4f21b14b249a2095d7f22da67b0a482bb9147bf946a661a575965e48bce091ee"
+      ],
+      "occurrences": [
+        {
+          "plan_annotation_sha256": "866aa39a1a08e63ef09141b044f786d565f8c1d9f2bd5592c7bc94d3367a3a43",
+          "plan_core_sha256": "4f21b14b249a2095d7f22da67b0a482bb9147bf946a661a575965e48bce091ee",
+          "source": {
+            "function_entry": 1069096,
+            "function_id": "function:0x105028",
+            "function_name": "__gmon_start__",
+            "icecube": "f_0000000000105028_gmon_start.icecube.json.gz",
+            "json_pointer": "/snapshot/document/metadata_registry/abi:entry_plan",
+            "registry_key": "abi:entry_plan"
+          }
+        }
+      ],
+      "plan_class": "function_entry_abi_plan",
+      "plan_id": "function_entry:1069096"
+    },
+    {
+      "annotation_hashes": [
+        "f37be49ee461fa3a1caf5f1bf90cee39a50a3777b59d865974eaa09cdafc139b"
+      ],
+      "authoritative_source": {
+        "function_entry": 1069104,
+        "function_id": "function:0x105030",
+        "function_name": "_ITM_registerTMCloneTable",
+        "icecube": "f_0000000000105030_ITM_registerTMCloneTable.icecube.json.gz",
+        "json_pointer": "/snapshot/document/metadata_registry/abi:entry_plan",
+        "registry_key": "abi:entry_plan"
+      },
+      "classification": "exact_duplicates",
+      "core_hashes": [
+        "6b2aa01f4ba522ce98769ec173b32d4baa0304fc16e64233dc0a33fcabe75555"
+      ],
+      "occurrences": [
+        {
+          "plan_annotation_sha256": "f37be49ee461fa3a1caf5f1bf90cee39a50a3777b59d865974eaa09cdafc139b",
+          "plan_core_sha256": "6b2aa01f4ba522ce98769ec173b32d4baa0304fc16e64233dc0a33fcabe75555",
+          "source": {
+            "function_entry": 1069104,
+            "function_id": "function:0x105030",
+            "function_name": "_ITM_registerTMCloneTable",
+            "icecube": "f_0000000000105030_ITM_registerTMCloneTable.icecube.json.gz",
+            "json_pointer": "/snapshot/document/metadata_registry/abi:entry_plan",
+            "registry_key": "abi:entry_plan"
+          }
+        }
+      ],
+      "plan_class": "function_entry_abi_plan",
+      "plan_id": "function_entry:1069104"
+    },
+    {
+      "annotation_hashes": [
+        "f067dbecb4ec56625b1d87751bcf020430db451a3f73fa119faf2e0b55faee4e"
+      ],
+      "authoritative_source": {
+        "function_entry": 1069112,
+        "function_id": "function:0x105038",
+        "function_name": "__cxa_finalize",
+        "icecube": "f_0000000000105038_cxa_finalize.icecube.json.gz",
+        "json_pointer": "/snapshot/document/metadata_registry/abi:entry_plan",
+        "registry_key": "abi:entry_plan"
+      },
+      "classification": "exact_duplicates",
+      "core_hashes": [
+        "22b28575a0ef6932e81c2ce25124d9aad43a17b74cc8dc04c4075c1db34d6bea"
+      ],
+      "occurrences": [
+        {
+          "plan_annotation_sha256": "f067dbecb4ec56625b1d87751bcf020430db451a3f73fa119faf2e0b55faee4e",
+          "plan_core_sha256": "22b28575a0ef6932e81c2ce25124d9aad43a17b74cc8dc04c4075c1db34d6bea",
+          "source": {
+            "function_entry": 1069112,
+            "function_id": "function:0x105038",
+            "function_name": "__cxa_finalize",
+            "icecube": "f_0000000000105038_cxa_finalize.icecube.json.gz",
+            "json_pointer": "/snapshot/document/metadata_registry/abi:entry_plan",
+            "registry_key": "abi:entry_plan"
+          }
+        }
+      ],
+      "plan_class": "function_entry_abi_plan",
+      "plan_id": "function_entry:1069112"
+    }
+  ],
+  "phase": "post_emitter_v52_refreeze_and_custody_refresh",
+  "project_root": "lunar_lander.game",
+  "schema_version": 1,
+  "status": "ready",
+  "summary": {
+    "alias_groups": 52,
+    "annotation_variant_groups": 0,
+    "call_plans": 52,
+    "core_conflicts": 0,
+    "entry_plans": 30,
+    "exact_duplicate_groups": 82,
+    "kind": "pal_abi_canonical_project_plan_index_summary_v1",
+    "phase": "post_emitter_v52_refreeze_and_custody_refresh",
+    "plan_identities": 82,
+    "plan_occurrences": 134,
+    "status": "ready"
+  },
+  "version": "v1b_canonical_project_plan_index"
+}

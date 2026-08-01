@@ -1,0 +1,3395 @@
+{
+  "abi_custody": {
+    "acceptance_gates": {
+      "annotation_aliases_collapsed": true,
+      "authorized_repair_identity_verified": true,
+      "cfg_rewritten": false,
+      "core_conflicts_fail_closed": true,
+      "exec_tree_rewritten": false,
+      "final_custody_refresh_completed": true,
+      "final_post_emitter_plan_index_published": true,
+      "generated_python_rewritten": false,
+      "integrity_refreshed": true,
+      "last_call_surface_inference_used": false,
+      "phi_rewritten": false,
+      "plan_core_continuity_verified": true,
+      "recursive_whole_icecube_plan_discovery_used": false,
+      "whole_plan_object_equality_used": false
+    },
+    "authority": {
+      "callee": "PALCompute_function_entry_abi_plans",
+      "caller": "PALCompute_v23c_call_site_plans",
+      "machine_liveness": "PALlibrary.PALLifter.raw_machine_image",
+      "plan_identity": "PALABIPlanCanonicalizer_v1_immutable_plan_core",
+      "project_index": "PAL_abi_plan_index.json",
+      "publication": "PALCodeDocument.metadata_registry_frozen_icecube"
+    },
+    "canonicalizer_version": "v1_immutable_plan_identity",
+    "contracts": [
+      {
+        "argument_chain": {
+          "arguments": [],
+          "arity_compatible": true,
+          "callee_fixed_argument_count": 0,
+          "callee_materialized_argument_count": 0,
+          "caller_argument_count": 0,
+          "failures": [],
+          "kind": "pal_abi_argument_custody_chain_v1",
+          "materialization_authority": "call_site_carriers_joined_to_exact_entry_plan_bindings",
+          "status": "ready"
+        },
+        "call": {
+          "block_addr": 1053127,
+          "call_address": 1053127,
+          "dispatch_class": "internal_resolved",
+          "op_id": "(ram, 0x1011c7, 33, 6)",
+          "op_key": "1053127:(ram, 0x1011c7, 33, 6):6",
+          "plan_id": "call_site:1053127:(ram, 0x1011c7, 33, 6):6",
+          "target": {
+            "calling_convention": "unknown",
+            "entry": 1052976,
+            "entry_plan_lookup_key": "function_entry:1052976",
+            "external": false,
+            "fixed_parameter_count": null,
+            "name": "deregister_tm_clones",
+            "physical_external": false,
+            "prototype_authority": {
+              "authority": "Ghidra_Function_signature_source_plus_explicit_C_arity",
+              "conflicts": [],
+              "declared_variadic": false,
+              "fixed_parameter_count": null,
+              "high_prototype_parameter_count": null,
+              "kind": "function_prototype_authority_v23b",
+              "observed_parameter_count": 0,
+              "prototype_text": "undefined deregister_tm_clones()",
+              "prototype_text_arity_hint": "empty_unspecified",
+              "reason": "empty parameter enumeration lacks explicit void or strong signature-source authority",
+              "reported_parameter_count": 0,
+              "signature_source": "DEFAULT",
+              "signature_source_class": "default",
+              "status": "unresolved",
+              "version": "v23b_authoritative_prototypes_and_carriers"
+            },
+            "resolved": true,
+            "semantic_endpoint_entry": null,
+            "semantic_endpoint_name": null,
+            "semantic_endpoint_status": "physical_non_thunk_internal_target",
+            "thunk": false,
+            "variadic": false
+          }
+        },
+        "callee": {
+          "entry": 1052976,
+          "entry_hex": "0x101130",
+          "entry_plan_id": "function_entry:1052976",
+          "function_id": "function:0x101130",
+          "function_name": "deregister_tm_clones",
+          "icecube": "f_0000000000101130_deregister_tm_clones.icecube.json.gz"
+        },
+        "caller": {
+          "entry": 1053088,
+          "entry_hex": "0x1011a0",
+          "entry_plan_id": "function_entry:1053088",
+          "function_id": "function:0x1011a0",
+          "function_name": "__do_global_dtors_aux",
+          "icecube": "f_00000000001011a0_do_global_dtors_aux.icecube.json.gz"
+        },
+        "contract_id": "abi_custody:f1ad4c0e5418f291ffc4fa5d",
+        "downstream_reinference_allowed": false,
+        "kind": "pal_abi_custody_chain_contract_v1",
+        "metadata_only": true,
+        "repair": {
+          "carrier_live_to_return": null,
+          "carrier_width_bits": 64,
+          "emitter_repair_authorized": false,
+          "inspector_metadata_only": true,
+          "intervening_carrier_writes": [],
+          "logical_result_width_bits": 8,
+          "output_sid": null,
+          "physical_return_register": "RAX",
+          "repair_authority": "PALABICustodyInspector_v1_exact_cross_function_contract",
+          "repair_status": "not_required",
+          "rule": "authorize_only_exact_call_entry_carrier_width_liveness_agreement_never_last_call_surface_inference",
+          "status": "linked",
+          "width_authority": "caller_effective_result_width"
+        },
+        "return_chain": {
+          "callee_return_contract": {
+            "authority": "reachable_raw_return_transport",
+            "carrier_pieces": [],
+            "declared_return": {
+              "class_name": "DefaultDataType",
+              "display_name": "undefined",
+              "kind_hint": null,
+              "length_bytes": 1,
+              "name": "undefined",
+              "signed": null,
+              "width_bits": 8
+            },
+            "declared_return_evidence_status": "non_authoritative_default_or_unresolved_prototype",
+            "declared_width_authoritative": false,
+            "declared_width_bits": null,
+            "deferred_return_boundary_count": 0,
+            "effective_result_width_bits": 64,
+            "kind": "pal_compute_return_carrier_contract_abi_d",
+            "logical_result_width_bits": 64,
+            "no_return": false,
+            "normalization": {
+              "mask": 18446744073709551615,
+              "mode": "mask_to_output_width",
+              "width_bits": 64
+            },
+            "output_sid": null,
+            "output_width_bits": null,
+            "reachable_return_boundary_count": 1,
+            "reachable_return_widths": [
+              64
+            ],
+            "reported_declared_width_bits": 8,
+            "return_storage": {
+              "flags": {
+                "auto": false,
+                "memory": false,
+                "register": false,
+                "stack": false,
+                "unassigned": true,
+                "void": false
+              },
+              "pieces": [],
+              "repr": "<UNASSIGNED>",
+              "size_bytes": 0,
+              "storage_keys": []
+            },
+            "runtime_helper": null,
+            "runtime_helper_authority": "no_ABI_runtime_helper_assigned",
+            "status": "return_width_proven_carrier_deferred",
+            "transport_width_bits": 64,
+            "unreachable_return_boundary_count": 0,
+            "version": "v23b_abi_thunk_compatibility_return_reconciliation"
+          },
+          "candidate": null,
+          "liveness": {
+            "carrier_live_to_return": null,
+            "intervening_carrier_writes": [],
+            "kind": "pal_abi_return_carrier_liveness_v1",
+            "reason": "call_result_has_explicit_SSA_or_no_candidate",
+            "status": "not_required"
+          },
+          "logical_result_width_bits": 8,
+          "physical_carrier": {
+            "backend": "sysv_amd64",
+            "carrier_width_bits": 64,
+            "kind": "pal_abi_return_carrier_evidence_v1",
+            "logical_width_bits": 8,
+            "raw_path_evidence": [
+              {
+                "return_block_addr": 1052976,
+                "writes": [
+                  {
+                    "block_addr": 1052976,
+                    "instruction": "LEA RAX,[0x104010]",
+                    "instruction_addr": 1052983,
+                    "offset": 0,
+                    "pcode": "(register, 0x0, 8) COPY (const, 0x104010, 8)",
+                    "register": "RAX",
+                    "repr": "(register, 0x0, 8)",
+                    "size_bytes": 8,
+                    "width_bits": 64
+                  }
+                ]
+              }
+            ],
+            "reason": "all_reachable_raw_return_paths_write_RAX_family_under_sysv_amd64",
+            "register": "RAX",
+            "register_offsets": [
+              0
+            ],
+            "reinference_allowed": false,
+            "status": "resolved"
+          },
+          "width_authority": "caller_effective_result_width"
+        },
+        "status": "linked",
+        "target_entry_plan_id": "function_entry:1052976",
+        "version": "v1b_canonical_project_plan_index"
+      },
+      {
+        "argument_chain": {
+          "arguments": [],
+          "arity_compatible": true,
+          "callee_fixed_argument_count": 0,
+          "callee_materialized_argument_count": 0,
+          "caller_argument_count": 0,
+          "failures": [],
+          "kind": "pal_abi_argument_custody_chain_v1",
+          "materialization_authority": "call_site_carriers_joined_to_exact_entry_plan_bindings",
+          "status": "ready"
+        },
+        "call": {
+          "block_addr": 1053156,
+          "call_address": 1053156,
+          "dispatch_class": "internal_resolved",
+          "op_id": "(ram, 0x1011e4, 0, 0)",
+          "op_key": "1053156:(ram, 0x1011e4, 0, 0):0",
+          "plan_id": "call_site:1053156:(ram, 0x1011e4, 0, 0):0",
+          "target": {
+            "calling_convention": "unknown",
+            "entry": 1053024,
+            "entry_plan_lookup_key": "function_entry:1053024",
+            "external": false,
+            "fixed_parameter_count": null,
+            "name": "register_tm_clones",
+            "physical_external": false,
+            "prototype_authority": {
+              "authority": "Ghidra_Function_signature_source_plus_explicit_C_arity",
+              "conflicts": [],
+              "declared_variadic": false,
+              "fixed_parameter_count": null,
+              "high_prototype_parameter_count": null,
+              "kind": "function_prototype_authority_v23b",
+              "observed_parameter_count": 0,
+              "prototype_text": "undefined register_tm_clones()",
+              "prototype_text_arity_hint": "empty_unspecified",
+              "reason": "empty parameter enumeration lacks explicit void or strong signature-source authority",
+              "reported_parameter_count": 0,
+              "signature_source": "DEFAULT",
+              "signature_source_class": "default",
+              "status": "unresolved",
+              "version": "v23b_authoritative_prototypes_and_carriers"
+            },
+            "resolved": true,
+            "semantic_endpoint_entry": null,
+            "semantic_endpoint_name": null,
+            "semantic_endpoint_status": "physical_non_thunk_internal_target",
+            "thunk": false,
+            "variadic": false
+          }
+        },
+        "callee": {
+          "entry": 1053024,
+          "entry_hex": "0x101160",
+          "entry_plan_id": "function_entry:1053024",
+          "function_id": "function:0x101160",
+          "function_name": "register_tm_clones",
+          "icecube": "f_0000000000101160_register_tm_clones.icecube.json.gz"
+        },
+        "caller": {
+          "entry": 1053152,
+          "entry_hex": "0x1011e0",
+          "entry_plan_id": "function_entry:1053152",
+          "function_id": "function:0x1011e0",
+          "function_name": "frame_dummy",
+          "icecube": "f_00000000001011e0_frame_dummy.icecube.json.gz"
+        },
+        "contract_id": "abi_custody:a532b60b77f4bf8eabc9e699",
+        "downstream_reinference_allowed": false,
+        "kind": "pal_abi_custody_chain_contract_v1",
+        "metadata_only": true,
+        "repair": {
+          "carrier_live_to_return": null,
+          "carrier_width_bits": 64,
+          "emitter_repair_authorized": false,
+          "inspector_metadata_only": true,
+          "intervening_carrier_writes": [],
+          "logical_result_width_bits": 8,
+          "output_sid": null,
+          "physical_return_register": "RAX",
+          "repair_authority": "PALABICustodyInspector_v1_exact_cross_function_contract",
+          "repair_status": "not_required",
+          "rule": "authorize_only_exact_call_entry_carrier_width_liveness_agreement_never_last_call_surface_inference",
+          "status": "linked",
+          "width_authority": "caller_effective_result_width"
+        },
+        "return_chain": {
+          "callee_return_contract": {
+            "authority": "reachable_raw_return_transport",
+            "carrier_pieces": [],
+            "declared_return": {
+              "class_name": "DefaultDataType",
+              "display_name": "undefined",
+              "kind_hint": null,
+              "length_bytes": 1,
+              "name": "undefined",
+              "signed": null,
+              "width_bits": 8
+            },
+            "declared_return_evidence_status": "non_authoritative_default_or_unresolved_prototype",
+            "declared_width_authoritative": false,
+            "declared_width_bits": null,
+            "deferred_return_boundary_count": 0,
+            "effective_result_width_bits": 64,
+            "kind": "pal_compute_return_carrier_contract_abi_d",
+            "logical_result_width_bits": 64,
+            "no_return": false,
+            "normalization": {
+              "mask": 18446744073709551615,
+              "mode": "mask_to_output_width",
+              "width_bits": 64
+            },
+            "output_sid": null,
+            "output_width_bits": null,
+            "reachable_return_boundary_count": 1,
+            "reachable_return_widths": [
+              64
+            ],
+            "reported_declared_width_bits": 8,
+            "return_storage": {
+              "flags": {
+                "auto": false,
+                "memory": false,
+                "register": false,
+                "stack": false,
+                "unassigned": true,
+                "void": false
+              },
+              "pieces": [],
+              "repr": "<UNASSIGNED>",
+              "size_bytes": 0,
+              "storage_keys": []
+            },
+            "runtime_helper": null,
+            "runtime_helper_authority": "no_ABI_runtime_helper_assigned",
+            "status": "return_width_proven_carrier_deferred",
+            "transport_width_bits": 64,
+            "unreachable_return_boundary_count": 0,
+            "version": "v23b_abi_thunk_compatibility_return_reconciliation"
+          },
+          "candidate": null,
+          "liveness": {
+            "carrier_live_to_return": null,
+            "intervening_carrier_writes": [],
+            "kind": "pal_abi_return_carrier_liveness_v1",
+            "reason": "call_result_has_explicit_SSA_or_no_candidate",
+            "status": "not_required"
+          },
+          "logical_result_width_bits": 8,
+          "physical_carrier": {
+            "backend": "sysv_amd64",
+            "carrier_width_bits": 64,
+            "kind": "pal_abi_return_carrier_evidence_v1",
+            "logical_width_bits": 8,
+            "raw_path_evidence": [
+              {
+                "return_block_addr": 1053024,
+                "writes": [
+                  {
+                    "block_addr": 1053024,
+                    "instruction": "SAR RAX,0x3",
+                    "instruction_addr": 1053048,
+                    "offset": 0,
+                    "pcode": "(register, 0x0, 8) INT_SRIGHT (register, 0x0, 8) , (unique, 0xd1000, 4)",
+                    "register": "RAX",
+                    "repr": "(register, 0x0, 8)",
+                    "size_bytes": 8,
+                    "width_bits": 64
+                  }
+                ]
+              }
+            ],
+            "reason": "all_reachable_raw_return_paths_write_RAX_family_under_sysv_amd64",
+            "register": "RAX",
+            "register_offsets": [
+              0
+            ],
+            "reinference_allowed": false,
+            "status": "resolved"
+          },
+          "width_authority": "caller_effective_result_width"
+        },
+        "status": "linked",
+        "target_entry_plan_id": "function_entry:1053024",
+        "version": "v1b_canonical_project_plan_index"
+      },
+      {
+        "argument_chain": {
+          "arguments": [
+            {
+              "agreement": {
+                "carrier": true,
+                "class": true,
+                "order": true,
+                "width": true
+              },
+              "callee": {
+                "canonical_carrier": "RDI",
+                "carrier": "RDI",
+                "carrier_class": "integer",
+                "carrier_kind": "gp_register",
+                "carrier_width_bits": 64,
+                "name": "param_0",
+                "ordinal": 0,
+                "source_sid": "v_168",
+                "storage_key": "register:56:8"
+              },
+              "caller": {
+                "argument_class": "integer",
+                "canonical_carrier": "RDI",
+                "carrier": "RDI",
+                "carrier_kind": "gp_register",
+                "source_name": null,
+                "source_sid": "v_215",
+                "source_width_bits": 64,
+                "stack_slot": null
+              },
+              "index": 0,
+              "status": "ready"
+            }
+          ],
+          "arity_compatible": true,
+          "callee_fixed_argument_count": 1,
+          "callee_materialized_argument_count": 1,
+          "caller_argument_count": 1,
+          "failures": [],
+          "kind": "pal_abi_argument_custody_chain_v1",
+          "materialization_authority": "call_site_carriers_joined_to_exact_entry_plan_bindings",
+          "status": "ready"
+        },
+        "call": {
+          "block_addr": 1053216,
+          "call_address": 1053417,
+          "dispatch_class": "internal_resolved",
+          "op_id": "(ram, 0x1012e9, 91, 58)",
+          "op_key": "1053216:(ram, 0x1012e9, 91, 58):58",
+          "plan_id": "call_site:1053216:(ram, 0x1012e9, 91, 58):58",
+          "target": {
+            "calling_convention": "unknown",
+            "entry": 1053161,
+            "entry_plan_lookup_key": "function_entry:1053161",
+            "external": false,
+            "fixed_parameter_count": null,
+            "name": "clean_input",
+            "physical_external": false,
+            "prototype_authority": {
+              "authority": "Ghidra_Function_signature_source_plus_explicit_C_arity",
+              "conflicts": [],
+              "declared_variadic": false,
+              "fixed_parameter_count": null,
+              "high_prototype_parameter_count": null,
+              "kind": "function_prototype_authority_v23b",
+              "observed_parameter_count": 0,
+              "prototype_text": "undefined clean_input()",
+              "prototype_text_arity_hint": "empty_unspecified",
+              "reason": "empty parameter enumeration lacks explicit void or strong signature-source authority",
+              "reported_parameter_count": 0,
+              "signature_source": "DEFAULT",
+              "signature_source_class": "default",
+              "status": "unresolved",
+              "version": "v23b_authoritative_prototypes_and_carriers"
+            },
+            "resolved": true,
+            "semantic_endpoint_entry": null,
+            "semantic_endpoint_name": null,
+            "semantic_endpoint_status": "physical_non_thunk_internal_target",
+            "thunk": false,
+            "variadic": false
+          }
+        },
+        "callee": {
+          "entry": 1053161,
+          "entry_hex": "0x1011e9",
+          "entry_plan_id": "function_entry:1053161",
+          "function_id": "function:0x1011e9",
+          "function_name": "clean_input",
+          "icecube": "f_00000000001011e9_clean_input.icecube.json.gz"
+        },
+        "caller": {
+          "entry": 1053212,
+          "entry_hex": "0x10121c",
+          "entry_plan_id": "function_entry:1053212",
+          "function_id": "function:0x10121c",
+          "function_name": "main",
+          "icecube": "f_000000000010121c_main.icecube.json.gz"
+        },
+        "contract_id": "abi_custody:7da0d66844e57a74c41847fd",
+        "downstream_reinference_allowed": false,
+        "kind": "pal_abi_custody_chain_contract_v1",
+        "metadata_only": true,
+        "repair": {
+          "carrier_live_to_return": null,
+          "carrier_width_bits": 64,
+          "emitter_repair_authorized": false,
+          "inspector_metadata_only": true,
+          "intervening_carrier_writes": [],
+          "logical_result_width_bits": 8,
+          "output_sid": null,
+          "physical_return_register": "RAX",
+          "repair_authority": "PALABICustodyInspector_v1_exact_cross_function_contract",
+          "repair_status": "not_required",
+          "rule": "authorize_only_exact_call_entry_carrier_width_liveness_agreement_never_last_call_surface_inference",
+          "status": "linked",
+          "width_authority": "caller_effective_result_width"
+        },
+        "return_chain": {
+          "callee_return_contract": {
+            "authority": "reachable_raw_return_transport",
+            "carrier_pieces": [],
+            "declared_return": {
+              "class_name": "DefaultDataType",
+              "display_name": "undefined",
+              "kind_hint": null,
+              "length_bytes": 1,
+              "name": "undefined",
+              "signed": null,
+              "width_bits": 8
+            },
+            "declared_return_evidence_status": "non_authoritative_default_or_unresolved_prototype",
+            "declared_width_authoritative": false,
+            "declared_width_bits": null,
+            "deferred_return_boundary_count": 0,
+            "effective_result_width_bits": 64,
+            "kind": "pal_compute_return_carrier_contract_abi_d",
+            "logical_result_width_bits": 64,
+            "no_return": false,
+            "normalization": {
+              "mask": 18446744073709551615,
+              "mode": "mask_to_output_width",
+              "width_bits": 64
+            },
+            "output_sid": null,
+            "output_width_bits": null,
+            "reachable_return_boundary_count": 1,
+            "reachable_return_widths": [
+              64
+            ],
+            "reported_declared_width_bits": 8,
+            "return_storage": {
+              "flags": {
+                "auto": false,
+                "memory": false,
+                "register": false,
+                "stack": false,
+                "unassigned": true,
+                "void": false
+              },
+              "pieces": [],
+              "repr": "<UNASSIGNED>",
+              "size_bytes": 0,
+              "storage_keys": []
+            },
+            "runtime_helper": null,
+            "runtime_helper_authority": "no_ABI_runtime_helper_assigned",
+            "status": "return_width_proven_carrier_deferred",
+            "transport_width_bits": 64,
+            "unreachable_return_boundary_count": 0,
+            "version": "v23b_abi_thunk_compatibility_return_reconciliation"
+          },
+          "candidate": null,
+          "liveness": {
+            "carrier_live_to_return": null,
+            "intervening_carrier_writes": [],
+            "kind": "pal_abi_return_carrier_liveness_v1",
+            "reason": "call_result_has_explicit_SSA_or_no_candidate",
+            "status": "not_required"
+          },
+          "logical_result_width_bits": 8,
+          "physical_carrier": {
+            "backend": "sysv_amd64",
+            "carrier_width_bits": 64,
+            "kind": "pal_abi_return_carrier_evidence_v1",
+            "logical_width_bits": 8,
+            "raw_path_evidence": [
+              {
+                "return_block_addr": 1053165,
+                "writes": [
+                  {
+                    "block_addr": 1053165,
+                    "instruction": "ADD RAX,RDX",
+                    "instruction_addr": 1053203,
+                    "offset": 0,
+                    "pcode": "(register, 0x0, 8) INT_ADD (register, 0x0, 8) , (register, 0x10, 8)",
+                    "register": "RAX",
+                    "repr": "(register, 0x0, 8)",
+                    "size_bytes": 8,
+                    "width_bits": 64
+                  }
+                ]
+              }
+            ],
+            "reason": "all_reachable_raw_return_paths_write_RAX_family_under_sysv_amd64",
+            "register": "RAX",
+            "register_offsets": [
+              0
+            ],
+            "reinference_allowed": false,
+            "status": "resolved"
+          },
+          "width_authority": "caller_effective_result_width"
+        },
+        "status": "linked",
+        "target_entry_plan_id": "function_entry:1053161",
+        "version": "v1b_canonical_project_plan_index"
+      },
+      {
+        "argument_chain": {
+          "arguments": [
+            {
+              "agreement": {
+                "carrier": true,
+                "class": true,
+                "order": true,
+                "width": true
+              },
+              "callee": {
+                "canonical_carrier": "RDI",
+                "carrier": "RDI",
+                "carrier_class": "integer",
+                "carrier_kind": "gp_register",
+                "carrier_width_bits": 64,
+                "name": "param_0",
+                "ordinal": 0,
+                "source_sid": "v_168",
+                "storage_key": "register:56:8"
+              },
+              "caller": {
+                "argument_class": "integer",
+                "canonical_carrier": "RDI",
+                "carrier": "RDI",
+                "carrier_kind": "gp_register",
+                "source_name": null,
+                "source_sid": "v_371",
+                "source_width_bits": 64,
+                "stack_slot": null
+              },
+              "index": 0,
+              "status": "ready"
+            }
+          ],
+          "arity_compatible": true,
+          "callee_fixed_argument_count": 1,
+          "callee_materialized_argument_count": 1,
+          "caller_argument_count": 1,
+          "failures": [],
+          "kind": "pal_abi_argument_custody_chain_v1",
+          "materialization_authority": "call_site_carriers_joined_to_exact_entry_plan_bindings",
+          "status": "ready"
+        },
+        "call": {
+          "block_addr": 1053514,
+          "call_address": 1053610,
+          "dispatch_class": "internal_resolved",
+          "op_id": "(ram, 0x1013aa, 156, 33)",
+          "op_key": "1053514:(ram, 0x1013aa, 156, 33):33",
+          "plan_id": "call_site:1053514:(ram, 0x1013aa, 156, 33):33",
+          "target": {
+            "calling_convention": "unknown",
+            "entry": 1053161,
+            "entry_plan_lookup_key": "function_entry:1053161",
+            "external": false,
+            "fixed_parameter_count": null,
+            "name": "clean_input",
+            "physical_external": false,
+            "prototype_authority": {
+              "authority": "Ghidra_Function_signature_source_plus_explicit_C_arity",
+              "conflicts": [],
+              "declared_variadic": false,
+              "fixed_parameter_count": null,
+              "high_prototype_parameter_count": null,
+              "kind": "function_prototype_authority_v23b",
+              "observed_parameter_count": 0,
+              "prototype_text": "undefined clean_input()",
+              "prototype_text_arity_hint": "empty_unspecified",
+              "reason": "empty parameter enumeration lacks explicit void or strong signature-source authority",
+              "reported_parameter_count": 0,
+              "signature_source": "DEFAULT",
+              "signature_source_class": "default",
+              "status": "unresolved",
+              "version": "v23b_authoritative_prototypes_and_carriers"
+            },
+            "resolved": true,
+            "semantic_endpoint_entry": null,
+            "semantic_endpoint_name": null,
+            "semantic_endpoint_status": "physical_non_thunk_internal_target",
+            "thunk": false,
+            "variadic": false
+          }
+        },
+        "callee": {
+          "entry": 1053161,
+          "entry_hex": "0x1011e9",
+          "entry_plan_id": "function_entry:1053161",
+          "function_id": "function:0x1011e9",
+          "function_name": "clean_input",
+          "icecube": "f_00000000001011e9_clean_input.icecube.json.gz"
+        },
+        "caller": {
+          "entry": 1053212,
+          "entry_hex": "0x10121c",
+          "entry_plan_id": "function_entry:1053212",
+          "function_id": "function:0x10121c",
+          "function_name": "main",
+          "icecube": "f_000000000010121c_main.icecube.json.gz"
+        },
+        "contract_id": "abi_custody:f38feb1282508ca82f3bf04e",
+        "downstream_reinference_allowed": false,
+        "kind": "pal_abi_custody_chain_contract_v1",
+        "metadata_only": true,
+        "repair": {
+          "carrier_live_to_return": null,
+          "carrier_width_bits": 64,
+          "emitter_repair_authorized": false,
+          "inspector_metadata_only": true,
+          "intervening_carrier_writes": [],
+          "logical_result_width_bits": 8,
+          "output_sid": null,
+          "physical_return_register": "RAX",
+          "repair_authority": "PALABICustodyInspector_v1_exact_cross_function_contract",
+          "repair_status": "not_required",
+          "rule": "authorize_only_exact_call_entry_carrier_width_liveness_agreement_never_last_call_surface_inference",
+          "status": "linked",
+          "width_authority": "caller_effective_result_width"
+        },
+        "return_chain": {
+          "callee_return_contract": {
+            "authority": "reachable_raw_return_transport",
+            "carrier_pieces": [],
+            "declared_return": {
+              "class_name": "DefaultDataType",
+              "display_name": "undefined",
+              "kind_hint": null,
+              "length_bytes": 1,
+              "name": "undefined",
+              "signed": null,
+              "width_bits": 8
+            },
+            "declared_return_evidence_status": "non_authoritative_default_or_unresolved_prototype",
+            "declared_width_authoritative": false,
+            "declared_width_bits": null,
+            "deferred_return_boundary_count": 0,
+            "effective_result_width_bits": 64,
+            "kind": "pal_compute_return_carrier_contract_abi_d",
+            "logical_result_width_bits": 64,
+            "no_return": false,
+            "normalization": {
+              "mask": 18446744073709551615,
+              "mode": "mask_to_output_width",
+              "width_bits": 64
+            },
+            "output_sid": null,
+            "output_width_bits": null,
+            "reachable_return_boundary_count": 1,
+            "reachable_return_widths": [
+              64
+            ],
+            "reported_declared_width_bits": 8,
+            "return_storage": {
+              "flags": {
+                "auto": false,
+                "memory": false,
+                "register": false,
+                "stack": false,
+                "unassigned": true,
+                "void": false
+              },
+              "pieces": [],
+              "repr": "<UNASSIGNED>",
+              "size_bytes": 0,
+              "storage_keys": []
+            },
+            "runtime_helper": null,
+            "runtime_helper_authority": "no_ABI_runtime_helper_assigned",
+            "status": "return_width_proven_carrier_deferred",
+            "transport_width_bits": 64,
+            "unreachable_return_boundary_count": 0,
+            "version": "v23b_abi_thunk_compatibility_return_reconciliation"
+          },
+          "candidate": null,
+          "liveness": {
+            "carrier_live_to_return": null,
+            "intervening_carrier_writes": [],
+            "kind": "pal_abi_return_carrier_liveness_v1",
+            "reason": "call_result_has_explicit_SSA_or_no_candidate",
+            "status": "not_required"
+          },
+          "logical_result_width_bits": 8,
+          "physical_carrier": {
+            "backend": "sysv_amd64",
+            "carrier_width_bits": 64,
+            "kind": "pal_abi_return_carrier_evidence_v1",
+            "logical_width_bits": 8,
+            "raw_path_evidence": [
+              {
+                "return_block_addr": 1053165,
+                "writes": [
+                  {
+                    "block_addr": 1053165,
+                    "instruction": "ADD RAX,RDX",
+                    "instruction_addr": 1053203,
+                    "offset": 0,
+                    "pcode": "(register, 0x0, 8) INT_ADD (register, 0x0, 8) , (register, 0x10, 8)",
+                    "register": "RAX",
+                    "repr": "(register, 0x0, 8)",
+                    "size_bytes": 8,
+                    "width_bits": 64
+                  }
+                ]
+              }
+            ],
+            "reason": "all_reachable_raw_return_paths_write_RAX_family_under_sysv_amd64",
+            "register": "RAX",
+            "register_offsets": [
+              0
+            ],
+            "reinference_allowed": false,
+            "status": "resolved"
+          },
+          "width_authority": "caller_effective_result_width"
+        },
+        "status": "linked",
+        "target_entry_plan_id": "function_entry:1053161",
+        "version": "v1b_canonical_project_plan_index"
+      },
+      {
+        "argument_chain": {
+          "arguments": [
+            {
+              "agreement": {
+                "carrier": true,
+                "class": true,
+                "order": true,
+                "width": true
+              },
+              "callee": {
+                "canonical_carrier": "RDI",
+                "carrier": "RDI",
+                "carrier_class": "integer",
+                "carrier_kind": "gp_register",
+                "carrier_width_bits": 64,
+                "name": "param_0",
+                "ordinal": 0,
+                "source_sid": "v_168",
+                "storage_key": "register:56:8"
+              },
+              "caller": {
+                "argument_class": "integer",
+                "canonical_carrier": "RDI",
+                "carrier": "RDI",
+                "carrier_kind": "gp_register",
+                "source_name": null,
+                "source_sid": "v_527",
+                "source_width_bits": 64,
+                "stack_slot": null
+              },
+              "index": 0,
+              "status": "ready"
+            }
+          ],
+          "arity_compatible": true,
+          "callee_fixed_argument_count": 1,
+          "callee_materialized_argument_count": 1,
+          "caller_argument_count": 1,
+          "failures": [],
+          "kind": "pal_abi_argument_custody_chain_v1",
+          "materialization_authority": "call_site_carriers_joined_to_exact_entry_plan_bindings",
+          "status": "ready"
+        },
+        "call": {
+          "block_addr": 1053707,
+          "call_address": 1053803,
+          "dispatch_class": "internal_resolved",
+          "op_id": "(ram, 0x10146b, 221, 33)",
+          "op_key": "1053707:(ram, 0x10146b, 221, 33):33",
+          "plan_id": "call_site:1053707:(ram, 0x10146b, 221, 33):33",
+          "target": {
+            "calling_convention": "unknown",
+            "entry": 1053161,
+            "entry_plan_lookup_key": "function_entry:1053161",
+            "external": false,
+            "fixed_parameter_count": null,
+            "name": "clean_input",
+            "physical_external": false,
+            "prototype_authority": {
+              "authority": "Ghidra_Function_signature_source_plus_explicit_C_arity",
+              "conflicts": [],
+              "declared_variadic": false,
+              "fixed_parameter_count": null,
+              "high_prototype_parameter_count": null,
+              "kind": "function_prototype_authority_v23b",
+              "observed_parameter_count": 0,
+              "prototype_text": "undefined clean_input()",
+              "prototype_text_arity_hint": "empty_unspecified",
+              "reason": "empty parameter enumeration lacks explicit void or strong signature-source authority",
+              "reported_parameter_count": 0,
+              "signature_source": "DEFAULT",
+              "signature_source_class": "default",
+              "status": "unresolved",
+              "version": "v23b_authoritative_prototypes_and_carriers"
+            },
+            "resolved": true,
+            "semantic_endpoint_entry": null,
+            "semantic_endpoint_name": null,
+            "semantic_endpoint_status": "physical_non_thunk_internal_target",
+            "thunk": false,
+            "variadic": false
+          }
+        },
+        "callee": {
+          "entry": 1053161,
+          "entry_hex": "0x1011e9",
+          "entry_plan_id": "function_entry:1053161",
+          "function_id": "function:0x1011e9",
+          "function_name": "clean_input",
+          "icecube": "f_00000000001011e9_clean_input.icecube.json.gz"
+        },
+        "caller": {
+          "entry": 1053212,
+          "entry_hex": "0x10121c",
+          "entry_plan_id": "function_entry:1053212",
+          "function_id": "function:0x10121c",
+          "function_name": "main",
+          "icecube": "f_000000000010121c_main.icecube.json.gz"
+        },
+        "contract_id": "abi_custody:17444ec61dc43cb94a693f3e",
+        "downstream_reinference_allowed": false,
+        "kind": "pal_abi_custody_chain_contract_v1",
+        "metadata_only": true,
+        "repair": {
+          "carrier_live_to_return": null,
+          "carrier_width_bits": 64,
+          "emitter_repair_authorized": false,
+          "inspector_metadata_only": true,
+          "intervening_carrier_writes": [],
+          "logical_result_width_bits": 8,
+          "output_sid": null,
+          "physical_return_register": "RAX",
+          "repair_authority": "PALABICustodyInspector_v1_exact_cross_function_contract",
+          "repair_status": "not_required",
+          "rule": "authorize_only_exact_call_entry_carrier_width_liveness_agreement_never_last_call_surface_inference",
+          "status": "linked",
+          "width_authority": "caller_effective_result_width"
+        },
+        "return_chain": {
+          "callee_return_contract": {
+            "authority": "reachable_raw_return_transport",
+            "carrier_pieces": [],
+            "declared_return": {
+              "class_name": "DefaultDataType",
+              "display_name": "undefined",
+              "kind_hint": null,
+              "length_bytes": 1,
+              "name": "undefined",
+              "signed": null,
+              "width_bits": 8
+            },
+            "declared_return_evidence_status": "non_authoritative_default_or_unresolved_prototype",
+            "declared_width_authoritative": false,
+            "declared_width_bits": null,
+            "deferred_return_boundary_count": 0,
+            "effective_result_width_bits": 64,
+            "kind": "pal_compute_return_carrier_contract_abi_d",
+            "logical_result_width_bits": 64,
+            "no_return": false,
+            "normalization": {
+              "mask": 18446744073709551615,
+              "mode": "mask_to_output_width",
+              "width_bits": 64
+            },
+            "output_sid": null,
+            "output_width_bits": null,
+            "reachable_return_boundary_count": 1,
+            "reachable_return_widths": [
+              64
+            ],
+            "reported_declared_width_bits": 8,
+            "return_storage": {
+              "flags": {
+                "auto": false,
+                "memory": false,
+                "register": false,
+                "stack": false,
+                "unassigned": true,
+                "void": false
+              },
+              "pieces": [],
+              "repr": "<UNASSIGNED>",
+              "size_bytes": 0,
+              "storage_keys": []
+            },
+            "runtime_helper": null,
+            "runtime_helper_authority": "no_ABI_runtime_helper_assigned",
+            "status": "return_width_proven_carrier_deferred",
+            "transport_width_bits": 64,
+            "unreachable_return_boundary_count": 0,
+            "version": "v23b_abi_thunk_compatibility_return_reconciliation"
+          },
+          "candidate": null,
+          "liveness": {
+            "carrier_live_to_return": null,
+            "intervening_carrier_writes": [],
+            "kind": "pal_abi_return_carrier_liveness_v1",
+            "reason": "call_result_has_explicit_SSA_or_no_candidate",
+            "status": "not_required"
+          },
+          "logical_result_width_bits": 8,
+          "physical_carrier": {
+            "backend": "sysv_amd64",
+            "carrier_width_bits": 64,
+            "kind": "pal_abi_return_carrier_evidence_v1",
+            "logical_width_bits": 8,
+            "raw_path_evidence": [
+              {
+                "return_block_addr": 1053165,
+                "writes": [
+                  {
+                    "block_addr": 1053165,
+                    "instruction": "ADD RAX,RDX",
+                    "instruction_addr": 1053203,
+                    "offset": 0,
+                    "pcode": "(register, 0x0, 8) INT_ADD (register, 0x0, 8) , (register, 0x10, 8)",
+                    "register": "RAX",
+                    "repr": "(register, 0x0, 8)",
+                    "size_bytes": 8,
+                    "width_bits": 64
+                  }
+                ]
+              }
+            ],
+            "reason": "all_reachable_raw_return_paths_write_RAX_family_under_sysv_amd64",
+            "register": "RAX",
+            "register_offsets": [
+              0
+            ],
+            "reinference_allowed": false,
+            "status": "resolved"
+          },
+          "width_authority": "caller_effective_result_width"
+        },
+        "status": "linked",
+        "target_entry_plan_id": "function_entry:1053161",
+        "version": "v1b_canonical_project_plan_index"
+      }
+    ],
+    "emitter_v52_second_pass": {
+      "authority": "PALABICustodyInspector_v1_exact_cross_function_contract",
+      "authorized_contracts": 0,
+      "authorized_functions": 0,
+      "build": "batch_v2h_final_abi_authority_publication",
+      "failures": [],
+      "last_call_inference": 0,
+      "pipeline_layers_rerun": [
+        "PALemitter"
+      ],
+      "re_emitted_entries": [],
+      "re_emitted_functions": 0,
+      "status": "not_required",
+      "target_name_inference": 0,
+      "upstream_layers_rerun": 0
+    },
+    "final_authority": {
+      "artifact": "PAL_abi_final_authority.json",
+      "phase": "post_emitter_v52_refreeze_and_custody_refresh",
+      "sha256": "31f38cb999830ddf27fba98d87d4ab7b009c4aeca2097c0ad02d2ddc04d27381",
+      "status": "complete"
+    },
+    "final_plan_alias_audit": {
+      "artifact": "PAL_abi_plan_alias_audit.json",
+      "phase": "post_emitter_v52_refreeze_and_custody_refresh",
+      "sha256": "761f23072469acea76deef1c56449a2128fdb43b4b02710ef5b05c3228f31f37",
+      "summary": {
+        "alias_groups": 61,
+        "annotation_variant_groups": 0,
+        "call_plans": 61,
+        "core_conflicts": 0,
+        "entry_plans": 28,
+        "exact_duplicate_groups": 89,
+        "kind": "pal_abi_canonical_project_plan_index_summary_v1",
+        "phase": "post_emitter_v52_refreeze_and_custody_refresh",
+        "plan_identities": 89,
+        "plan_occurrences": 150,
+        "status": "ready"
+      }
+    },
+    "final_plan_index": {
+      "artifact": "PAL_abi_plan_index.json",
+      "phase": "post_emitter_v52_refreeze_and_custody_refresh",
+      "sha256": "bc84bf3f39cfdc54beee7b2de79377a1f0bb6e20f5ce1ac32caaf0bac1c5c19b",
+      "summary": {
+        "alias_groups": 61,
+        "annotation_variant_groups": 0,
+        "call_plans": 61,
+        "core_conflicts": 0,
+        "entry_plans": 28,
+        "exact_duplicate_groups": 89,
+        "kind": "pal_abi_canonical_project_plan_index_summary_v1",
+        "phase": "post_emitter_v52_refreeze_and_custody_refresh",
+        "plan_identities": 89,
+        "plan_occurrences": 150,
+        "status": "ready"
+      }
+    },
+    "format": "pal_abi_custody_project_report",
+    "icecubes": [
+      {
+        "entry": 1052672,
+        "entry_hex": "0x101000",
+        "entry_plan_id": "function_entry:1052672",
+        "function_id": "function:0x101000",
+        "function_name": "_init",
+        "icecube": "f_0000000000101000_init.icecube.json.gz",
+        "sha256": "b247f194ececcc2de4beb96072878d896c8e32494af55f018e9a23760412b836"
+      },
+      {
+        "entry": 1052704,
+        "entry_hex": "0x101020",
+        "entry_plan_id": "function_entry:1052704",
+        "function_id": "function:0x101020",
+        "function_name": "FUN_00101020",
+        "icecube": "f_0000000000101020_FUN_00101020.icecube.json.gz",
+        "sha256": "03a1efe942a043843f3992258973490d44a9b45940af5f875b7047fed9d7422f"
+      },
+      {
+        "entry": 1052816,
+        "entry_hex": "0x101090",
+        "entry_plan_id": "function_entry:1052816",
+        "function_id": "function:0x101090",
+        "function_name": "__cxa_finalize",
+        "icecube": "f_0000000000101090_cxa_finalize.icecube.json.gz",
+        "sha256": "3f77558b43934e39946b717d6156426e8bbd0c1aea85e5ab275bb40048ca6039"
+      },
+      {
+        "entry": 1052832,
+        "entry_hex": "0x1010a0",
+        "entry_plan_id": "function_entry:1052832",
+        "function_id": "function:0x1010a0",
+        "function_name": "puts",
+        "icecube": "f_00000000001010a0_puts.icecube.json.gz",
+        "sha256": "931a58b05b2bd84ef0835f1f0ade0ae4db55b1423178b9db86d4213c7f2b723e"
+      },
+      {
+        "entry": 1052848,
+        "entry_hex": "0x1010b0",
+        "entry_plan_id": "function_entry:1052848",
+        "function_id": "function:0x1010b0",
+        "function_name": "__stack_chk_fail",
+        "icecube": "f_00000000001010b0_stack_chk_fail.icecube.json.gz",
+        "sha256": "a6bad9d86ebc7be4569b10be0c433ad9e6ca776b73cfeeef366321bdc3d12258"
+      },
+      {
+        "entry": 1052864,
+        "entry_hex": "0x1010c0",
+        "entry_plan_id": "function_entry:1052864",
+        "function_id": "function:0x1010c0",
+        "function_name": "printf",
+        "icecube": "f_00000000001010c0_printf.icecube.json.gz",
+        "sha256": "bfb7856d3eae94f2cb7c0b768058677716ce807af8db010e66a480f082803a05"
+      },
+      {
+        "entry": 1052880,
+        "entry_hex": "0x1010d0",
+        "entry_plan_id": "function_entry:1052880",
+        "function_id": "function:0x1010d0",
+        "function_name": "strcspn",
+        "icecube": "f_00000000001010d0_strcspn.icecube.json.gz",
+        "sha256": "9c0caf77f3c79ac9ab6c16e3c2301b7ed7317937dd2ee01b0decc71fedc83600"
+      },
+      {
+        "entry": 1052896,
+        "entry_hex": "0x1010e0",
+        "entry_plan_id": "function_entry:1052896",
+        "function_id": "function:0x1010e0",
+        "function_name": "fgets",
+        "icecube": "f_00000000001010e0_fgets.icecube.json.gz",
+        "sha256": "43a52857359eadd3a2a519657626724129543deabd730aec4d5a8b27a51a2577"
+      },
+      {
+        "entry": 1052912,
+        "entry_hex": "0x1010f0",
+        "entry_plan_id": "function_entry:1052912",
+        "function_id": "function:0x1010f0",
+        "function_name": "strcmp",
+        "icecube": "f_00000000001010f0_strcmp.icecube.json.gz",
+        "sha256": "0e63fbdc701a8fcfca3a8efd5651dc2a47525e621444b75e8e00542a8908cd0f"
+      },
+      {
+        "entry": 1052928,
+        "entry_hex": "0x101100",
+        "entry_plan_id": "function_entry:1052928",
+        "function_id": "function:0x101100",
+        "function_name": "_start",
+        "icecube": "f_0000000000101100_start.icecube.json.gz",
+        "sha256": "85aa5f7152ff6ec8aecd017575258fc7ebdc541f6f50270b42250c61d9e46c1e"
+      },
+      {
+        "entry": 1052976,
+        "entry_hex": "0x101130",
+        "entry_plan_id": "function_entry:1052976",
+        "function_id": "function:0x101130",
+        "function_name": "deregister_tm_clones",
+        "icecube": "f_0000000000101130_deregister_tm_clones.icecube.json.gz",
+        "sha256": "c04a988539a53a183b05c6269c5db8bfba6b9636a2faf35017d9237b929e6b57"
+      },
+      {
+        "entry": 1053024,
+        "entry_hex": "0x101160",
+        "entry_plan_id": "function_entry:1053024",
+        "function_id": "function:0x101160",
+        "function_name": "register_tm_clones",
+        "icecube": "f_0000000000101160_register_tm_clones.icecube.json.gz",
+        "sha256": "9ecd98a1137fc2f126ed35ac292958469af7108b29ebf187e50445ce258e0757"
+      },
+      {
+        "entry": 1053088,
+        "entry_hex": "0x1011a0",
+        "entry_plan_id": "function_entry:1053088",
+        "function_id": "function:0x1011a0",
+        "function_name": "__do_global_dtors_aux",
+        "icecube": "f_00000000001011a0_do_global_dtors_aux.icecube.json.gz",
+        "sha256": "8a0bdb4147d842326d60574e536559e720bb332fe1f950173c398cd4aa69e4ba"
+      },
+      {
+        "entry": 1053152,
+        "entry_hex": "0x1011e0",
+        "entry_plan_id": "function_entry:1053152",
+        "function_id": "function:0x1011e0",
+        "function_name": "frame_dummy",
+        "icecube": "f_00000000001011e0_frame_dummy.icecube.json.gz",
+        "sha256": "12b4ff3d170fa32c954608ca1ee6ce378cc9705c30068ef66c94243e9300568c"
+      },
+      {
+        "entry": 1053161,
+        "entry_hex": "0x1011e9",
+        "entry_plan_id": "function_entry:1053161",
+        "function_id": "function:0x1011e9",
+        "function_name": "clean_input",
+        "icecube": "f_00000000001011e9_clean_input.icecube.json.gz",
+        "sha256": "fa3723fde15de4054a0be01cb7540ac9f87459ebdbd61833084af78ef4f3fa4f"
+      },
+      {
+        "entry": 1053212,
+        "entry_hex": "0x10121c",
+        "entry_plan_id": "function_entry:1053212",
+        "function_id": "function:0x10121c",
+        "function_name": "main",
+        "icecube": "f_000000000010121c_main.icecube.json.gz",
+        "sha256": "792aa4aac7023c3e28b5589f80a658f649aefe979dd35ad56cf1bb4543082627"
+      },
+      {
+        "entry": 1054056,
+        "entry_hex": "0x101568",
+        "entry_plan_id": "function_entry:1054056",
+        "function_id": "function:0x101568",
+        "function_name": "_fini",
+        "icecube": "f_0000000000101568_fini.icecube.json.gz",
+        "sha256": "d1035e4490c0dd0477543187bae20bda8a8a51981f7ecda006a34f4625dbc73f"
+      },
+      {
+        "entry": 1069056,
+        "entry_hex": "0x105000",
+        "entry_plan_id": "function_entry:1069056",
+        "function_id": "function:0x105000",
+        "function_name": "__libc_start_main",
+        "icecube": "f_0000000000105000_libc_start_main.icecube.json.gz",
+        "sha256": "fee5bc5b069d6102188a67320c35a28604b7a35e322c3d808b2dc98584fc4a57"
+      },
+      {
+        "entry": 1069064,
+        "entry_hex": "0x105008",
+        "entry_plan_id": "function_entry:1069064",
+        "function_id": "function:0x105008",
+        "function_name": "_ITM_deregisterTMCloneTable",
+        "icecube": "f_0000000000105008_ITM_deregisterTMCloneTable.icecube.json.gz",
+        "sha256": "721f3d06f1a9c15056eca68a1f743388cf3eccd669a398f56da0e2e3430462b1"
+      },
+      {
+        "entry": 1069072,
+        "entry_hex": "0x105010",
+        "entry_plan_id": "function_entry:1069072",
+        "function_id": "function:0x105010",
+        "function_name": "puts",
+        "icecube": "f_0000000000105010_puts.icecube.json.gz",
+        "sha256": "b663b477050a5dba7c39afd987de73cff5a51af0aeb987410646f45ec64140e1"
+      },
+      {
+        "entry": 1069080,
+        "entry_hex": "0x105018",
+        "entry_plan_id": "function_entry:1069080",
+        "function_id": "function:0x105018",
+        "function_name": "__stack_chk_fail",
+        "icecube": "f_0000000000105018_stack_chk_fail.icecube.json.gz",
+        "sha256": "307225d65f292fdeff95aa3d6deb4de15f7b9aeb1e47721b61e688e58c695437"
+      },
+      {
+        "entry": 1069088,
+        "entry_hex": "0x105020",
+        "entry_plan_id": "function_entry:1069088",
+        "function_id": "function:0x105020",
+        "function_name": "printf",
+        "icecube": "f_0000000000105020_printf.icecube.json.gz",
+        "sha256": "f7894808afb89db91f510642bcff3d23d0c7ed7625547acdb7d6d74f1ec13e73"
+      },
+      {
+        "entry": 1069096,
+        "entry_hex": "0x105028",
+        "entry_plan_id": "function_entry:1069096",
+        "function_id": "function:0x105028",
+        "function_name": "strcspn",
+        "icecube": "f_0000000000105028_strcspn.icecube.json.gz",
+        "sha256": "fa23dea9288677035db00ed5131e995d82966585416240145029e8e3b01a153b"
+      },
+      {
+        "entry": 1069104,
+        "entry_hex": "0x105030",
+        "entry_plan_id": "function_entry:1069104",
+        "function_id": "function:0x105030",
+        "function_name": "fgets",
+        "icecube": "f_0000000000105030_fgets.icecube.json.gz",
+        "sha256": "b991be99a5d3c286488b64c4fa93eccc3a3a9848c53462e26a46b51bf4740c60"
+      },
+      {
+        "entry": 1069112,
+        "entry_hex": "0x105038",
+        "entry_plan_id": "function_entry:1069112",
+        "function_id": "function:0x105038",
+        "function_name": "strcmp",
+        "icecube": "f_0000000000105038_strcmp.icecube.json.gz",
+        "sha256": "8add448c1031ce25e12141f320ac3dc92e07c31efd302cfa9383c78a1d48d2b2"
+      },
+      {
+        "entry": 1069120,
+        "entry_hex": "0x105040",
+        "entry_plan_id": "function_entry:1069120",
+        "function_id": "function:0x105040",
+        "function_name": "__gmon_start__",
+        "icecube": "f_0000000000105040_gmon_start.icecube.json.gz",
+        "sha256": "cfcf035f1e4c4e373bd193e0a603fbecc2ee740567fb10903a3ed8a3e68df297"
+      },
+      {
+        "entry": 1069128,
+        "entry_hex": "0x105048",
+        "entry_plan_id": "function_entry:1069128",
+        "function_id": "function:0x105048",
+        "function_name": "_ITM_registerTMCloneTable",
+        "icecube": "f_0000000000105048_ITM_registerTMCloneTable.icecube.json.gz",
+        "sha256": "6843f827646396aaddff934c6bdda0a4a3e08ea948a6b402ae1094a5cdb45d71"
+      },
+      {
+        "entry": 1069136,
+        "entry_hex": "0x105050",
+        "entry_plan_id": "function_entry:1069136",
+        "function_id": "function:0x105050",
+        "function_name": "__cxa_finalize",
+        "icecube": "f_0000000000105050_cxa_finalize.icecube.json.gz",
+        "sha256": "884caf7a58f002a89015a780a77b2572ae6eeea25affbf5fa4f7ebed0211c13b"
+      }
+    ],
+    "plan_alias_audit": {
+      "artifact": "PAL_abi_plan_alias_audit.json",
+      "status": "ready",
+      "summary": {
+        "alias_groups": 61,
+        "annotation_variant_groups": 0,
+        "call_plans": 61,
+        "core_conflicts": 0,
+        "entry_plans": 28,
+        "exact_duplicate_groups": 89,
+        "kind": "pal_abi_canonical_project_plan_index_summary_v1",
+        "phase": "post_custody_join",
+        "plan_identities": 89,
+        "plan_occurrences": 150,
+        "status": "ready"
+      }
+    },
+    "plan_index": {
+      "artifact": "PAL_abi_plan_index.json",
+      "status": "ready",
+      "summary": {
+        "alias_groups": 61,
+        "annotation_variant_groups": 0,
+        "call_plans": 61,
+        "core_conflicts": 0,
+        "entry_plans": 28,
+        "exact_duplicate_groups": 89,
+        "kind": "pal_abi_canonical_project_plan_index_summary_v1",
+        "phase": "post_custody_join",
+        "plan_identities": 89,
+        "plan_occurrences": 150,
+        "status": "ready"
+      }
+    },
+    "project_root": "drop_axe.matrix",
+    "schema_version": 1,
+    "status": "ready",
+    "summary": {
+      "argument_chains_incompatible": 0,
+      "argument_chains_ready": 5,
+      "call_plans": 61,
+      "canonicalizer_version": "v1_immutable_plan_identity",
+      "carrier_disagreements": 0,
+      "entry_plans": 28,
+      "generated_code_rewrites": 0,
+      "ghost_repairs_conflicting": 0,
+      "ghost_repairs_deferred": 0,
+      "ghost_repairs_resolved": 0,
+      "icecubes": 28,
+      "internal_calls_linked": 5,
+      "internal_calls_unresolved": 0,
+      "kind": "pal_abi_custody_project_summary_v1b",
+      "metadata_only": true,
+      "outputless_candidates": 0,
+      "plan_alias_groups": 61,
+      "plan_annotation_variant_groups": 0,
+      "plan_core_conflicts": 0,
+      "plan_occurrences": 150,
+      "result_width_conflicts": 0,
+      "return_carriers_deferred": 0,
+      "return_carriers_resolved": 5,
+      "runtime_helpers": 0,
+      "stamped_plan_occurrences": 150,
+      "status": "ready",
+      "version": "v1b_canonical_project_plan_index"
+    },
+    "unresolved_internal_calls": [],
+    "version": "v1b_canonical_project_plan_index"
+  },
+  "abi_final_authority": {
+    "acceptance_gates": {
+      "authorized_repair_identity_verified": true,
+      "authorized_repairs_present_in_final_index": true,
+      "cfg_rewritten_by_finalizer": false,
+      "emitter_reemit_counts_verified": true,
+      "exec_tree_rewritten_by_finalizer": false,
+      "final_custody_refresh_completed": true,
+      "final_index_postdates_emitter_refreeze": true,
+      "generated_python_rewritten_by_finalizer": false,
+      "phi_rewritten_by_finalizer": false,
+      "plan_core_continuity_verified": true
+    },
+    "build": "batch_v2h_final_abi_authority_publication",
+    "canonicalizer_version": "v1_immutable_plan_identity",
+    "custody_health": {
+      "status": "ready",
+      "summary": {
+        "argument_chains_incompatible": 0,
+        "argument_chains_ready": 5,
+        "call_plans": 61,
+        "canonicalizer_version": "v1_immutable_plan_identity",
+        "carrier_disagreements": 0,
+        "entry_plans": 28,
+        "generated_code_rewrites": 0,
+        "ghost_repairs_conflicting": 0,
+        "ghost_repairs_deferred": 0,
+        "ghost_repairs_resolved": 0,
+        "icecubes": 28,
+        "internal_calls_linked": 5,
+        "internal_calls_unresolved": 0,
+        "kind": "pal_abi_custody_project_summary_v1b",
+        "metadata_only": true,
+        "outputless_candidates": 0,
+        "plan_alias_groups": 61,
+        "plan_annotation_variant_groups": 0,
+        "plan_core_conflicts": 0,
+        "plan_occurrences": 150,
+        "result_width_conflicts": 0,
+        "return_carriers_deferred": 0,
+        "return_carriers_resolved": 5,
+        "runtime_helpers": 0,
+        "stamped_plan_occurrences": 150,
+        "status": "ready",
+        "version": "v1b_canonical_project_plan_index"
+      }
+    },
+    "emitter_v52_second_pass": {
+      "authority": "PALABICustodyInspector_v1_exact_cross_function_contract",
+      "authorized_contracts": 0,
+      "authorized_functions": 0,
+      "build": "batch_v2h_final_abi_authority_publication",
+      "failures": [],
+      "last_call_inference": 0,
+      "pipeline_layers_rerun": [
+        "PALemitter"
+      ],
+      "re_emitted_entries": [],
+      "re_emitted_functions": 0,
+      "status": "not_required",
+      "target_name_inference": 0,
+      "upstream_layers_rerun": 0
+    },
+    "failures": [],
+    "final": {
+      "alias_audit": "PAL_abi_plan_alias_audit.json",
+      "alias_audit_sha256": "761f23072469acea76deef1c56449a2128fdb43b4b02710ef5b05c3228f31f37",
+      "authorized_plan_ids": [],
+      "custody_report": "PAL_abi_custody.json",
+      "icecube_set_sha256": "77015c0a28e6b7f21ef6188bea73d90b89aee50cee86babb97e60009901a6d7a",
+      "icecubes": 28,
+      "plan_core_hashes": 89,
+      "plan_index": "PAL_abi_plan_index.json",
+      "plan_index_sha256": "bc84bf3f39cfdc54beee7b2de79377a1f0bb6e20f5ce1ac32caaf0bac1c5c19b",
+      "record_hashes_refreshed": 28
+    },
+    "format": "pal_abi_final_authority_receipt",
+    "inspector_version": "v1b_canonical_project_plan_index",
+    "phase": "post_emitter_v52_refreeze_and_custody_refresh",
+    "pre_emitter": {
+      "alias_audit": "PAL_abi_plan_alias_audit.pre_emitter_v52.json",
+      "authorized_plan_ids": [],
+      "custody_report": "PAL_abi_custody.pre_emitter_v52.json",
+      "plan_core_hashes": 89,
+      "plan_index": "PAL_abi_plan_index.pre_emitter_v52.json"
+    },
+    "project": "drop_axe.matrix",
+    "schema_version": 1,
+    "status": "complete"
+  },
+  "artifacts": {
+    "abi_custody": "PAL_abi_custody.json",
+    "abi_final_authority": "PAL_abi_final_authority.json",
+    "abi_plan_alias_audit": "PAL_abi_plan_alias_audit.json",
+    "abi_plan_index": "PAL_abi_plan_index.json",
+    "abi_pre_emitter_alias_audit": "PAL_abi_plan_alias_audit.pre_emitter_v52.json",
+    "abi_pre_emitter_custody": "PAL_abi_custody.pre_emitter_v52.json",
+    "abi_pre_emitter_plan_index": "PAL_abi_plan_index.pre_emitter_v52.json",
+    "dispatch": "PAL_dispatch.py",
+    "jump_table": "PAL_jump_table.json",
+    "manifest": "PAL_function_manifest.json",
+    "name_registry": "PAL_ONCS.json",
+    "stdio_strings": "PAL_stdio_strings.json"
+  },
+  "build": "batch_v2h_final_abi_authority_publication",
+  "call_graph": {
+    "edges": [],
+    "status": "deferred_to_inter_function_relation_layer"
+  },
+  "counts": {
+    "decompiled": 28,
+    "discovered": 28,
+    "enumerated": 28,
+    "failed": 0,
+    "remaining_unprocessed": 0,
+    "skipped_external": 0
+  },
+  "directory_policy": "portable_relative_non_destructive_manifest_authoritative",
+  "format": "pal_function_bundle",
+  "functions": [
+    {
+      "abi_custody": {
+        "contracts": 0,
+        "ghost_repairs_resolved": 0,
+        "status": "ready"
+      },
+      "active_name": "f_init",
+      "active_name_source": "pal",
+      "artifacts": {
+        "executable": {
+          "path": "functions/f_0000000000101000_init.exec.py",
+          "sha256": "eca9278b236ae7b7f4b5664da66713b082e36961c8f1b56604bc3fbc85bf7813"
+        },
+        "icecube": {
+          "path": "functions/f_0000000000101000_init.icecube.json.gz",
+          "sha256": "b247f194ececcc2de4beb96072878d896c8e32494af55f018e9a23760412b836"
+        },
+        "pipeline_capture": {
+          "path": "functions/f_0000000000101000_init.pipeline.capture.json",
+          "sha256": "ded124a6c7a74d44eff0884294dc63887f511f98191cea01ed7e092f1159979d"
+        },
+        "pipeline_log": {
+          "path": "functions/f_0000000000101000_init.pipeline.log",
+          "sha256": "ef2c9de8a262c9e78a720803a0e1ceab761548632fb5f4ab6b3a95754a1d4138"
+        },
+        "pipeline_stderr_log": {
+          "path": "functions/f_0000000000101000_init.pipeline.stderr.log",
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        "pipeline_stdout_log": {
+          "path": "functions/f_0000000000101000_init.pipeline.stdout.log",
+          "sha256": "ef2c9de8a262c9e78a720803a0e1ceab761548632fb5f4ab6b3a95754a1d4138"
+        },
+        "readable": {
+          "path": "functions/f_0000000000101000_init.read.py",
+          "sha256": "8d6d2ad891474a0b18718fef7a13a3863ef597d12363650c2ed8e8d0c1abe32d"
+        }
+      },
+      "body_max": 1052698,
+      "body_max_hex": "0x10101a",
+      "body_min": 1052672,
+      "body_min_hex": "0x101000",
+      "calling_convention": "__stdcall",
+      "entry": 1052672,
+      "entry_hex": "0x101000",
+      "external": false,
+      "function_id": "function:0x101000",
+      "generated_name": null,
+      "inline": false,
+      "module": "functions.f_0000000000101000_init",
+      "module_stem": "f_0000000000101000_init",
+      "name": "_init",
+      "namespace": "Global",
+      "no_return": false,
+      "operator_name": null,
+      "ordinal": 0,
+      "pal_name": "f_init",
+      "python_symbol": "_init",
+      "qualified_name": "Global::_init",
+      "ssa_name": "_init",
+      "status": "decompiled",
+      "thunk": false,
+      "warnings": []
+    },
+    {
+      "abi_custody": {
+        "contracts": 0,
+        "ghost_repairs_resolved": 0,
+        "status": "ready"
+      },
+      "active_name": "f_egret",
+      "active_name_source": "generated",
+      "artifacts": {
+        "executable": {
+          "path": "functions/f_0000000000101020_FUN_00101020.exec.py",
+          "sha256": "3c0cd8d7b9387deac5735cf14605f0a56993d376794cdd43d4821ec45e92a04d"
+        },
+        "icecube": {
+          "path": "functions/f_0000000000101020_FUN_00101020.icecube.json.gz",
+          "sha256": "03a1efe942a043843f3992258973490d44a9b45940af5f875b7047fed9d7422f"
+        },
+        "pipeline_capture": {
+          "path": "functions/f_0000000000101020_FUN_00101020.pipeline.capture.json",
+          "sha256": "699866af84635eea8339dbcdc0813d5dca3e675737d713728f560c4f68547da8"
+        },
+        "pipeline_log": {
+          "path": "functions/f_0000000000101020_FUN_00101020.pipeline.log",
+          "sha256": "3c8e3893404a9e18f768a36e99b27b1a521397c2da7dab9beae8bbb903a7f3df"
+        },
+        "pipeline_stderr_log": {
+          "path": "functions/f_0000000000101020_FUN_00101020.pipeline.stderr.log",
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        "pipeline_stdout_log": {
+          "path": "functions/f_0000000000101020_FUN_00101020.pipeline.stdout.log",
+          "sha256": "3c8e3893404a9e18f768a36e99b27b1a521397c2da7dab9beae8bbb903a7f3df"
+        },
+        "readable": {
+          "path": "functions/f_0000000000101020_FUN_00101020.read.py",
+          "sha256": "ef2a173823826e9f008bfcd6dd104ac5a00a6ac339214bf1702796032b77a550"
+        }
+      },
+      "body_max": 1052716,
+      "body_max_hex": "0x10102c",
+      "body_min": 1052704,
+      "body_min_hex": "0x101020",
+      "calling_convention": "unknown",
+      "entry": 1052704,
+      "entry_hex": "0x101020",
+      "external": false,
+      "function_id": "function:0x101020",
+      "generated_name": "f_egret",
+      "inline": false,
+      "module": "functions.f_0000000000101020_FUN_00101020",
+      "module_stem": "f_0000000000101020_FUN_00101020",
+      "name": "FUN_00101020",
+      "namespace": "Global",
+      "no_return": false,
+      "operator_name": null,
+      "ordinal": 1,
+      "pal_name": "f_FUN_00101020",
+      "python_symbol": "FUN_00101020",
+      "qualified_name": "Global::FUN_00101020",
+      "ssa_name": "FUN_00101020",
+      "status": "decompiled",
+      "thunk": false,
+      "warnings": []
+    },
+    {
+      "abi_custody": {
+        "contracts": 0,
+        "ghost_repairs_resolved": 0,
+        "status": "ready"
+      },
+      "active_name": "f_cxa_finalize",
+      "active_name_source": "pal",
+      "artifacts": {
+        "executable": {
+          "path": "functions/f_0000000000101090_cxa_finalize.exec.py",
+          "sha256": "3867ace3b0b3c17eddb7e7c19c3d03dd5ff007ca6743dd0e78cfb329a3f034c5"
+        },
+        "icecube": {
+          "path": "functions/f_0000000000101090_cxa_finalize.icecube.json.gz",
+          "sha256": "3f77558b43934e39946b717d6156426e8bbd0c1aea85e5ab275bb40048ca6039"
+        },
+        "pipeline_capture": {
+          "path": "functions/f_0000000000101090_cxa_finalize.pipeline.capture.json",
+          "sha256": "ca933f76a9884a45b8128221a6e539899af11fda3887060538aeea0913b302ab"
+        },
+        "pipeline_log": {
+          "path": "functions/f_0000000000101090_cxa_finalize.pipeline.log",
+          "sha256": "5c39906f36e38d0635c5322481a0a606c32e563243a387ff1a51b2fbbd3f2abf"
+        },
+        "pipeline_stderr_log": {
+          "path": "functions/f_0000000000101090_cxa_finalize.pipeline.stderr.log",
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        "pipeline_stdout_log": {
+          "path": "functions/f_0000000000101090_cxa_finalize.pipeline.stdout.log",
+          "sha256": "5c39906f36e38d0635c5322481a0a606c32e563243a387ff1a51b2fbbd3f2abf"
+        },
+        "readable": {
+          "path": "functions/f_0000000000101090_cxa_finalize.read.py",
+          "sha256": "25f70763ffad5adb5a98ca4175f2d580b639962abab2d3cc227b0f7f35827903"
+        }
+      },
+      "body_max": 1052826,
+      "body_max_hex": "0x10109a",
+      "body_min": 1052816,
+      "body_min_hex": "0x101090",
+      "calling_convention": "unknown",
+      "entry": 1052816,
+      "entry_hex": "0x101090",
+      "external": false,
+      "function_id": "function:0x101090",
+      "generated_name": null,
+      "inline": false,
+      "module": "functions.f_0000000000101090_cxa_finalize",
+      "module_stem": "f_0000000000101090_cxa_finalize",
+      "name": "__cxa_finalize",
+      "namespace": "<EXTERNAL>",
+      "no_return": false,
+      "operator_name": null,
+      "ordinal": 2,
+      "pal_name": "f_cxa_finalize",
+      "python_symbol": "__cxa_finalize",
+      "qualified_name": "<EXTERNAL>::__cxa_finalize",
+      "ssa_name": "__cxa_finalize",
+      "status": "decompiled",
+      "thunk": true,
+      "warnings": []
+    },
+    {
+      "abi_custody": {
+        "contracts": 0,
+        "ghost_repairs_resolved": 0,
+        "status": "ready"
+      },
+      "active_name": "f_puts",
+      "active_name_source": "pal",
+      "artifacts": {
+        "executable": {
+          "path": "functions/f_00000000001010a0_puts.exec.py",
+          "sha256": "11b9bdab7f61dbb02954f11ffad358ad0f5a2f0ffcba8d01b2bac22614acd007"
+        },
+        "icecube": {
+          "path": "functions/f_00000000001010a0_puts.icecube.json.gz",
+          "sha256": "931a58b05b2bd84ef0835f1f0ade0ae4db55b1423178b9db86d4213c7f2b723e"
+        },
+        "pipeline_capture": {
+          "path": "functions/f_00000000001010a0_puts.pipeline.capture.json",
+          "sha256": "96ef9db5c3ef935970173927a9f47d01f666ec9b43e60a476e1eb1e9e8d19cb9"
+        },
+        "pipeline_log": {
+          "path": "functions/f_00000000001010a0_puts.pipeline.log",
+          "sha256": "746d5f578dc103cd3d1b6e4a24d07693c3654863c2976c3ab7dfc68c75b1e2c1"
+        },
+        "pipeline_stderr_log": {
+          "path": "functions/f_00000000001010a0_puts.pipeline.stderr.log",
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        "pipeline_stdout_log": {
+          "path": "functions/f_00000000001010a0_puts.pipeline.stdout.log",
+          "sha256": "746d5f578dc103cd3d1b6e4a24d07693c3654863c2976c3ab7dfc68c75b1e2c1"
+        },
+        "readable": {
+          "path": "functions/f_00000000001010a0_puts.read.py",
+          "sha256": "3d5e6b584bf5992a9099e09d830afd908ef0eaa8347ed097cd123f5e1f82976c"
+        }
+      },
+      "body_max": 1052842,
+      "body_max_hex": "0x1010aa",
+      "body_min": 1052832,
+      "body_min_hex": "0x1010a0",
+      "calling_convention": "unknown",
+      "entry": 1052832,
+      "entry_hex": "0x1010a0",
+      "external": false,
+      "function_id": "function:0x1010a0",
+      "generated_name": null,
+      "inline": false,
+      "module": "functions.f_00000000001010a0_puts",
+      "module_stem": "f_00000000001010a0_puts",
+      "name": "puts",
+      "namespace": "<EXTERNAL>",
+      "no_return": false,
+      "operator_name": null,
+      "ordinal": 3,
+      "pal_name": "f_puts",
+      "python_symbol": "puts",
+      "qualified_name": "<EXTERNAL>::puts",
+      "ssa_name": "puts",
+      "status": "decompiled",
+      "thunk": true,
+      "warnings": []
+    },
+    {
+      "abi_custody": {
+        "contracts": 0,
+        "ghost_repairs_resolved": 0,
+        "status": "ready"
+      },
+      "active_name": "f_stack_chk_fail",
+      "active_name_source": "pal",
+      "artifacts": {
+        "executable": {
+          "path": "functions/f_00000000001010b0_stack_chk_fail.exec.py",
+          "sha256": "c3949cdabf740e72d7983fa763e5698645f5276e540f398bef41aafc38c63c37"
+        },
+        "icecube": {
+          "path": "functions/f_00000000001010b0_stack_chk_fail.icecube.json.gz",
+          "sha256": "a6bad9d86ebc7be4569b10be0c433ad9e6ca776b73cfeeef366321bdc3d12258"
+        },
+        "pipeline_capture": {
+          "path": "functions/f_00000000001010b0_stack_chk_fail.pipeline.capture.json",
+          "sha256": "5ad097c9a30354f807670029ba3e4599cf1c694ce2c360254beac208d6d0fdf5"
+        },
+        "pipeline_log": {
+          "path": "functions/f_00000000001010b0_stack_chk_fail.pipeline.log",
+          "sha256": "687dc21b21298d76946ff7d819e275a682b4e7fc3379f5d2b33739dc8b5151c6"
+        },
+        "pipeline_stderr_log": {
+          "path": "functions/f_00000000001010b0_stack_chk_fail.pipeline.stderr.log",
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        "pipeline_stdout_log": {
+          "path": "functions/f_00000000001010b0_stack_chk_fail.pipeline.stdout.log",
+          "sha256": "687dc21b21298d76946ff7d819e275a682b4e7fc3379f5d2b33739dc8b5151c6"
+        },
+        "readable": {
+          "path": "functions/f_00000000001010b0_stack_chk_fail.read.py",
+          "sha256": "7a57427ebe0d99aa0ca27f3cba9522fd733390a885ec8f5d325623700d3846bb"
+        }
+      },
+      "body_max": 1052858,
+      "body_max_hex": "0x1010ba",
+      "body_min": 1052848,
+      "body_min_hex": "0x1010b0",
+      "calling_convention": "unknown",
+      "entry": 1052848,
+      "entry_hex": "0x1010b0",
+      "external": false,
+      "function_id": "function:0x1010b0",
+      "generated_name": null,
+      "inline": false,
+      "module": "functions.f_00000000001010b0_stack_chk_fail",
+      "module_stem": "f_00000000001010b0_stack_chk_fail",
+      "name": "__stack_chk_fail",
+      "namespace": "<EXTERNAL>",
+      "no_return": true,
+      "operator_name": null,
+      "ordinal": 4,
+      "pal_name": "f_stack_chk_fail",
+      "python_symbol": "__stack_chk_fail",
+      "qualified_name": "<EXTERNAL>::__stack_chk_fail",
+      "ssa_name": "__stack_chk_fail",
+      "status": "decompiled",
+      "thunk": true,
+      "warnings": []
+    },
+    {
+      "abi_custody": {
+        "contracts": 0,
+        "ghost_repairs_resolved": 0,
+        "status": "ready"
+      },
+      "active_name": "f_printf",
+      "active_name_source": "pal",
+      "artifacts": {
+        "executable": {
+          "path": "functions/f_00000000001010c0_printf.exec.py",
+          "sha256": "2b96113ca78d02d3593654c67e1c2bcc3986f5e630ee97d53ebaf584cbfffaa4"
+        },
+        "icecube": {
+          "path": "functions/f_00000000001010c0_printf.icecube.json.gz",
+          "sha256": "bfb7856d3eae94f2cb7c0b768058677716ce807af8db010e66a480f082803a05"
+        },
+        "pipeline_capture": {
+          "path": "functions/f_00000000001010c0_printf.pipeline.capture.json",
+          "sha256": "3eada6936e5660c1b468301dacf4e46a0ddcfa97cb7071ab93584ece7c1edad1"
+        },
+        "pipeline_log": {
+          "path": "functions/f_00000000001010c0_printf.pipeline.log",
+          "sha256": "5ace702cdc791582b841a47c33d2fec0399141afb0827215dae8506e25cf5e1c"
+        },
+        "pipeline_stderr_log": {
+          "path": "functions/f_00000000001010c0_printf.pipeline.stderr.log",
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        "pipeline_stdout_log": {
+          "path": "functions/f_00000000001010c0_printf.pipeline.stdout.log",
+          "sha256": "5ace702cdc791582b841a47c33d2fec0399141afb0827215dae8506e25cf5e1c"
+        },
+        "readable": {
+          "path": "functions/f_00000000001010c0_printf.read.py",
+          "sha256": "9287512319f7a14890f1a49e741edf39f94c78bf5f511ddabb78a97a1729e44e"
+        }
+      },
+      "body_max": 1052874,
+      "body_max_hex": "0x1010ca",
+      "body_min": 1052864,
+      "body_min_hex": "0x1010c0",
+      "calling_convention": "unknown",
+      "entry": 1052864,
+      "entry_hex": "0x1010c0",
+      "external": false,
+      "function_id": "function:0x1010c0",
+      "generated_name": null,
+      "inline": false,
+      "module": "functions.f_00000000001010c0_printf",
+      "module_stem": "f_00000000001010c0_printf",
+      "name": "printf",
+      "namespace": "<EXTERNAL>",
+      "no_return": false,
+      "operator_name": null,
+      "ordinal": 5,
+      "pal_name": "f_printf",
+      "python_symbol": "printf",
+      "qualified_name": "<EXTERNAL>::printf",
+      "ssa_name": "printf",
+      "status": "decompiled",
+      "thunk": true,
+      "warnings": []
+    },
+    {
+      "abi_custody": {
+        "contracts": 0,
+        "ghost_repairs_resolved": 0,
+        "status": "ready"
+      },
+      "active_name": "f_strcspn",
+      "active_name_source": "pal",
+      "artifacts": {
+        "executable": {
+          "path": "functions/f_00000000001010d0_strcspn.exec.py",
+          "sha256": "c144d41eb48cac9421e7f7439e0572e54879c0e9ddcbe2d00240f652867753fe"
+        },
+        "icecube": {
+          "path": "functions/f_00000000001010d0_strcspn.icecube.json.gz",
+          "sha256": "9c0caf77f3c79ac9ab6c16e3c2301b7ed7317937dd2ee01b0decc71fedc83600"
+        },
+        "pipeline_capture": {
+          "path": "functions/f_00000000001010d0_strcspn.pipeline.capture.json",
+          "sha256": "f0a2029e3d4d8cd83fb6ba42cb9016d37cfd135fe1ce8334842478cc5f126eb6"
+        },
+        "pipeline_log": {
+          "path": "functions/f_00000000001010d0_strcspn.pipeline.log",
+          "sha256": "ef194de82befb4d47a414514e458edd3eaae9d9707aa2443ae42f6d12b13f1ae"
+        },
+        "pipeline_stderr_log": {
+          "path": "functions/f_00000000001010d0_strcspn.pipeline.stderr.log",
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        "pipeline_stdout_log": {
+          "path": "functions/f_00000000001010d0_strcspn.pipeline.stdout.log",
+          "sha256": "ef194de82befb4d47a414514e458edd3eaae9d9707aa2443ae42f6d12b13f1ae"
+        },
+        "readable": {
+          "path": "functions/f_00000000001010d0_strcspn.read.py",
+          "sha256": "a64ac44b409b7e2b068dfc3ce78eaccf70ebb1c86b98988d9840042d6ea7e387"
+        }
+      },
+      "body_max": 1052890,
+      "body_max_hex": "0x1010da",
+      "body_min": 1052880,
+      "body_min_hex": "0x1010d0",
+      "calling_convention": "unknown",
+      "entry": 1052880,
+      "entry_hex": "0x1010d0",
+      "external": false,
+      "function_id": "function:0x1010d0",
+      "generated_name": null,
+      "inline": false,
+      "module": "functions.f_00000000001010d0_strcspn",
+      "module_stem": "f_00000000001010d0_strcspn",
+      "name": "strcspn",
+      "namespace": "<EXTERNAL>",
+      "no_return": false,
+      "operator_name": null,
+      "ordinal": 6,
+      "pal_name": "f_strcspn",
+      "python_symbol": "strcspn",
+      "qualified_name": "<EXTERNAL>::strcspn",
+      "ssa_name": "strcspn",
+      "status": "decompiled",
+      "thunk": true,
+      "warnings": []
+    },
+    {
+      "abi_custody": {
+        "contracts": 0,
+        "ghost_repairs_resolved": 0,
+        "status": "ready"
+      },
+      "active_name": "f_fgets",
+      "active_name_source": "pal",
+      "artifacts": {
+        "executable": {
+          "path": "functions/f_00000000001010e0_fgets.exec.py",
+          "sha256": "0ec89cdd28cd395b9642348ef7812e5de63c9082bc1befea47abd0472370a9e8"
+        },
+        "icecube": {
+          "path": "functions/f_00000000001010e0_fgets.icecube.json.gz",
+          "sha256": "43a52857359eadd3a2a519657626724129543deabd730aec4d5a8b27a51a2577"
+        },
+        "pipeline_capture": {
+          "path": "functions/f_00000000001010e0_fgets.pipeline.capture.json",
+          "sha256": "f6946924c077602c85f3bc6270212174d403128f1b8fa90bf5b83fa0b4505664"
+        },
+        "pipeline_log": {
+          "path": "functions/f_00000000001010e0_fgets.pipeline.log",
+          "sha256": "d7b698c5943632e43078db997be6636d51a7a002cf5b6ec43a1f40f785dd96b7"
+        },
+        "pipeline_stderr_log": {
+          "path": "functions/f_00000000001010e0_fgets.pipeline.stderr.log",
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        "pipeline_stdout_log": {
+          "path": "functions/f_00000000001010e0_fgets.pipeline.stdout.log",
+          "sha256": "d7b698c5943632e43078db997be6636d51a7a002cf5b6ec43a1f40f785dd96b7"
+        },
+        "readable": {
+          "path": "functions/f_00000000001010e0_fgets.read.py",
+          "sha256": "9839135d5fc4e114b3457d510ff5d05853108ba9047ce4fbc2bcf3cfbe4d85ca"
+        }
+      },
+      "body_max": 1052906,
+      "body_max_hex": "0x1010ea",
+      "body_min": 1052896,
+      "body_min_hex": "0x1010e0",
+      "calling_convention": "unknown",
+      "entry": 1052896,
+      "entry_hex": "0x1010e0",
+      "external": false,
+      "function_id": "function:0x1010e0",
+      "generated_name": null,
+      "inline": false,
+      "module": "functions.f_00000000001010e0_fgets",
+      "module_stem": "f_00000000001010e0_fgets",
+      "name": "fgets",
+      "namespace": "<EXTERNAL>",
+      "no_return": false,
+      "operator_name": null,
+      "ordinal": 7,
+      "pal_name": "f_fgets",
+      "python_symbol": "fgets",
+      "qualified_name": "<EXTERNAL>::fgets",
+      "ssa_name": "fgets",
+      "status": "decompiled",
+      "thunk": true,
+      "warnings": []
+    },
+    {
+      "abi_custody": {
+        "contracts": 0,
+        "ghost_repairs_resolved": 0,
+        "status": "ready"
+      },
+      "active_name": "f_strcmp",
+      "active_name_source": "pal",
+      "artifacts": {
+        "executable": {
+          "path": "functions/f_00000000001010f0_strcmp.exec.py",
+          "sha256": "e8c5c9c551ec4338551bd2884f5e985f9719419536c540d992ef8179d31b37d0"
+        },
+        "icecube": {
+          "path": "functions/f_00000000001010f0_strcmp.icecube.json.gz",
+          "sha256": "0e63fbdc701a8fcfca3a8efd5651dc2a47525e621444b75e8e00542a8908cd0f"
+        },
+        "pipeline_capture": {
+          "path": "functions/f_00000000001010f0_strcmp.pipeline.capture.json",
+          "sha256": "5a22e6b3bb71df9e4ded0f944658b0a4c36e67b60d488dedaee9b0688b5e36b5"
+        },
+        "pipeline_log": {
+          "path": "functions/f_00000000001010f0_strcmp.pipeline.log",
+          "sha256": "60ef722c1e806ade42401734039ad0194407b8f6045310d8e95bc1647b77c988"
+        },
+        "pipeline_stderr_log": {
+          "path": "functions/f_00000000001010f0_strcmp.pipeline.stderr.log",
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        "pipeline_stdout_log": {
+          "path": "functions/f_00000000001010f0_strcmp.pipeline.stdout.log",
+          "sha256": "60ef722c1e806ade42401734039ad0194407b8f6045310d8e95bc1647b77c988"
+        },
+        "readable": {
+          "path": "functions/f_00000000001010f0_strcmp.read.py",
+          "sha256": "d0fa3f01fc8f55fef58dac1b7f8284b4ae5bcd8ed48f1d03d9353d927ff22a5a"
+        }
+      },
+      "body_max": 1052922,
+      "body_max_hex": "0x1010fa",
+      "body_min": 1052912,
+      "body_min_hex": "0x1010f0",
+      "calling_convention": "unknown",
+      "entry": 1052912,
+      "entry_hex": "0x1010f0",
+      "external": false,
+      "function_id": "function:0x1010f0",
+      "generated_name": null,
+      "inline": false,
+      "module": "functions.f_00000000001010f0_strcmp",
+      "module_stem": "f_00000000001010f0_strcmp",
+      "name": "strcmp",
+      "namespace": "<EXTERNAL>",
+      "no_return": false,
+      "operator_name": null,
+      "ordinal": 8,
+      "pal_name": "f_strcmp",
+      "python_symbol": "strcmp",
+      "qualified_name": "<EXTERNAL>::strcmp",
+      "ssa_name": "strcmp",
+      "status": "decompiled",
+      "thunk": true,
+      "warnings": []
+    },
+    {
+      "abi_custody": {
+        "contracts": 0,
+        "ghost_repairs_resolved": 0,
+        "status": "ready"
+      },
+      "active_name": "f_start",
+      "active_name_source": "pal",
+      "artifacts": {
+        "executable": {
+          "path": "functions/f_0000000000101100_start.exec.py",
+          "sha256": "5e6c3c9323184a7523e11789cdaaf374dc1383100c5e79af9d59f716121d7396"
+        },
+        "icecube": {
+          "path": "functions/f_0000000000101100_start.icecube.json.gz",
+          "sha256": "85aa5f7152ff6ec8aecd017575258fc7ebdc541f6f50270b42250c61d9e46c1e"
+        },
+        "pipeline_capture": {
+          "path": "functions/f_0000000000101100_start.pipeline.capture.json",
+          "sha256": "b49872c7893080b6a9ef08e042baa5ae9f1ed67fe1c9204c7140f6b97b52605d"
+        },
+        "pipeline_log": {
+          "path": "functions/f_0000000000101100_start.pipeline.log",
+          "sha256": "7822958656bee51c60b1ba787185d78b2de6f3b2d5dd4cba9faa2d3cb0fd58d6"
+        },
+        "pipeline_stderr_log": {
+          "path": "functions/f_0000000000101100_start.pipeline.stderr.log",
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        "pipeline_stdout_log": {
+          "path": "functions/f_0000000000101100_start.pipeline.stdout.log",
+          "sha256": "7822958656bee51c60b1ba787185d78b2de6f3b2d5dd4cba9faa2d3cb0fd58d6"
+        },
+        "readable": {
+          "path": "functions/f_0000000000101100_start.read.py",
+          "sha256": "c5ac7cc4ed0d5978d1eea7044d489d0869e87bf649bd60f1553b752421a83f7b"
+        }
+      },
+      "body_max": 1052965,
+      "body_max_hex": "0x101125",
+      "body_min": 1052928,
+      "body_min_hex": "0x101100",
+      "calling_convention": "processEntry",
+      "entry": 1052928,
+      "entry_hex": "0x101100",
+      "external": false,
+      "function_id": "function:0x101100",
+      "generated_name": null,
+      "inline": false,
+      "module": "functions.f_0000000000101100_start",
+      "module_stem": "f_0000000000101100_start",
+      "name": "_start",
+      "namespace": "Global",
+      "no_return": false,
+      "operator_name": null,
+      "ordinal": 9,
+      "pal_name": "f_start",
+      "python_symbol": "_start",
+      "qualified_name": "Global::_start",
+      "ssa_name": "_start",
+      "status": "decompiled",
+      "thunk": false,
+      "warnings": []
+    },
+    {
+      "abi_custody": {
+        "contracts": 0,
+        "ghost_repairs_resolved": 0,
+        "status": "ready"
+      },
+      "active_name": "f_deregister_tm_clones",
+      "active_name_source": "pal",
+      "artifacts": {
+        "executable": {
+          "path": "functions/f_0000000000101130_deregister_tm_clones.exec.py",
+          "sha256": "07efc50662ead60bf6941f1df3cade6b5e3b009a916f26f55f4a38e048635165"
+        },
+        "icecube": {
+          "path": "functions/f_0000000000101130_deregister_tm_clones.icecube.json.gz",
+          "sha256": "c04a988539a53a183b05c6269c5db8bfba6b9636a2faf35017d9237b929e6b57"
+        },
+        "pipeline_capture": {
+          "path": "functions/f_0000000000101130_deregister_tm_clones.pipeline.capture.json",
+          "sha256": "beb48a676ba42dc9ca129eb10fd824d08e91f22637fcbc4d1e2be2288c836c52"
+        },
+        "pipeline_log": {
+          "path": "functions/f_0000000000101130_deregister_tm_clones.pipeline.log",
+          "sha256": "fe978e61da9e67019bb924051f4a4e717920af6d6882753abbc788a5be5de0dd"
+        },
+        "pipeline_stderr_log": {
+          "path": "functions/f_0000000000101130_deregister_tm_clones.pipeline.stderr.log",
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        "pipeline_stdout_log": {
+          "path": "functions/f_0000000000101130_deregister_tm_clones.pipeline.stdout.log",
+          "sha256": "fe978e61da9e67019bb924051f4a4e717920af6d6882753abbc788a5be5de0dd"
+        },
+        "readable": {
+          "path": "functions/f_0000000000101130_deregister_tm_clones.read.py",
+          "sha256": "d26736aae3a263b7a6c4f4bf9829b7f2653e836166d07f0e82bf7c1cbe10dafa"
+        }
+      },
+      "body_max": 1053016,
+      "body_max_hex": "0x101158",
+      "body_min": 1052976,
+      "body_min_hex": "0x101130",
+      "calling_convention": "unknown",
+      "entry": 1052976,
+      "entry_hex": "0x101130",
+      "external": false,
+      "function_id": "function:0x101130",
+      "generated_name": null,
+      "inline": false,
+      "module": "functions.f_0000000000101130_deregister_tm_clones",
+      "module_stem": "f_0000000000101130_deregister_tm_clones",
+      "name": "deregister_tm_clones",
+      "namespace": "Global",
+      "no_return": false,
+      "operator_name": null,
+      "ordinal": 10,
+      "pal_name": "f_deregister_tm_clones",
+      "python_symbol": "deregister_tm_clones",
+      "qualified_name": "Global::deregister_tm_clones",
+      "ssa_name": "deregister_tm_clones",
+      "status": "decompiled",
+      "thunk": false,
+      "warnings": []
+    },
+    {
+      "abi_custody": {
+        "contracts": 0,
+        "ghost_repairs_resolved": 0,
+        "status": "ready"
+      },
+      "active_name": "f_register_tm_clones",
+      "active_name_source": "pal",
+      "artifacts": {
+        "executable": {
+          "path": "functions/f_0000000000101160_register_tm_clones.exec.py",
+          "sha256": "a55c400afc4c24d65cad2c3cb368a731bce8400f1f635e3fa8a98867ca7cd0a3"
+        },
+        "icecube": {
+          "path": "functions/f_0000000000101160_register_tm_clones.icecube.json.gz",
+          "sha256": "9ecd98a1137fc2f126ed35ac292958469af7108b29ebf187e50445ce258e0757"
+        },
+        "pipeline_capture": {
+          "path": "functions/f_0000000000101160_register_tm_clones.pipeline.capture.json",
+          "sha256": "5f6164932b562e24f6e487d79b784bf87855f274db40a1c37d5b6da903ae89a2"
+        },
+        "pipeline_log": {
+          "path": "functions/f_0000000000101160_register_tm_clones.pipeline.log",
+          "sha256": "447f751bdf4b0c895b712ab301d644fef25bd0105d6fb3cdddf28fd19e1acab5"
+        },
+        "pipeline_stderr_log": {
+          "path": "functions/f_0000000000101160_register_tm_clones.pipeline.stderr.log",
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        "pipeline_stdout_log": {
+          "path": "functions/f_0000000000101160_register_tm_clones.pipeline.stdout.log",
+          "sha256": "447f751bdf4b0c895b712ab301d644fef25bd0105d6fb3cdddf28fd19e1acab5"
+        },
+        "readable": {
+          "path": "functions/f_0000000000101160_register_tm_clones.read.py",
+          "sha256": "e3c0a38d75a3c883c9927222323b7c570c9a2936bf45be8943ce307fa9b08ef2"
+        }
+      },
+      "body_max": 1053080,
+      "body_max_hex": "0x101198",
+      "body_min": 1053024,
+      "body_min_hex": "0x101160",
+      "calling_convention": "unknown",
+      "entry": 1053024,
+      "entry_hex": "0x101160",
+      "external": false,
+      "function_id": "function:0x101160",
+      "generated_name": null,
+      "inline": false,
+      "module": "functions.f_0000000000101160_register_tm_clones",
+      "module_stem": "f_0000000000101160_register_tm_clones",
+      "name": "register_tm_clones",
+      "namespace": "Global",
+      "no_return": false,
+      "operator_name": null,
+      "ordinal": 11,
+      "pal_name": "f_register_tm_clones",
+      "python_symbol": "register_tm_clones",
+      "qualified_name": "Global::register_tm_clones",
+      "ssa_name": "register_tm_clones",
+      "status": "decompiled",
+      "thunk": false,
+      "warnings": []
+    },
+    {
+      "abi_custody": {
+        "contracts": 1,
+        "ghost_repairs_resolved": 0,
+        "status": "ready"
+      },
+      "active_name": "f_do_global_dtors_aux",
+      "active_name_source": "pal",
+      "artifacts": {
+        "executable": {
+          "path": "functions/f_00000000001011a0_do_global_dtors_aux.exec.py",
+          "sha256": "e30ec578e8163c0e7c7c5277c04cbd818e1f5c8989d71ba6a223d6859a9e6c74"
+        },
+        "icecube": {
+          "path": "functions/f_00000000001011a0_do_global_dtors_aux.icecube.json.gz",
+          "sha256": "8a0bdb4147d842326d60574e536559e720bb332fe1f950173c398cd4aa69e4ba"
+        },
+        "pipeline_capture": {
+          "path": "functions/f_00000000001011a0_do_global_dtors_aux.pipeline.capture.json",
+          "sha256": "359d059d15bd543554ca57d388d3a88cc7aa471c4c7ed03e464dee714e6f02c4"
+        },
+        "pipeline_log": {
+          "path": "functions/f_00000000001011a0_do_global_dtors_aux.pipeline.log",
+          "sha256": "08d398cfd25a12cd51d643662926516f567353b66095d89534804d5fc8a68668"
+        },
+        "pipeline_stderr_log": {
+          "path": "functions/f_00000000001011a0_do_global_dtors_aux.pipeline.stderr.log",
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        "pipeline_stdout_log": {
+          "path": "functions/f_00000000001011a0_do_global_dtors_aux.pipeline.stdout.log",
+          "sha256": "08d398cfd25a12cd51d643662926516f567353b66095d89534804d5fc8a68668"
+        },
+        "readable": {
+          "path": "functions/f_00000000001011a0_do_global_dtors_aux.read.py",
+          "sha256": "e80c980c50fdcba42131add9f38d7425237be2252aae3f1e5ded25e1dfad5878"
+        }
+      },
+      "body_max": 1053144,
+      "body_max_hex": "0x1011d8",
+      "body_min": 1053088,
+      "body_min_hex": "0x1011a0",
+      "calling_convention": "unknown",
+      "entry": 1053088,
+      "entry_hex": "0x1011a0",
+      "external": false,
+      "function_id": "function:0x1011a0",
+      "generated_name": null,
+      "inline": false,
+      "module": "functions.f_00000000001011a0_do_global_dtors_aux",
+      "module_stem": "f_00000000001011a0_do_global_dtors_aux",
+      "name": "__do_global_dtors_aux",
+      "namespace": "Global",
+      "no_return": false,
+      "operator_name": null,
+      "ordinal": 12,
+      "pal_name": "f_do_global_dtors_aux",
+      "python_symbol": "__do_global_dtors_aux",
+      "qualified_name": "Global::__do_global_dtors_aux",
+      "ssa_name": "__do_global_dtors_aux",
+      "status": "decompiled",
+      "thunk": false,
+      "warnings": []
+    },
+    {
+      "abi_custody": {
+        "contracts": 1,
+        "ghost_repairs_resolved": 0,
+        "status": "ready"
+      },
+      "active_name": "f_frame_dummy",
+      "active_name_source": "pal",
+      "artifacts": {
+        "executable": {
+          "path": "functions/f_00000000001011e0_frame_dummy.exec.py",
+          "sha256": "e7812f943fd60b87eec83ea9066edd973ff700e4c08901c2917545ddc61b3dd1"
+        },
+        "icecube": {
+          "path": "functions/f_00000000001011e0_frame_dummy.icecube.json.gz",
+          "sha256": "12b4ff3d170fa32c954608ca1ee6ce378cc9705c30068ef66c94243e9300568c"
+        },
+        "pipeline_capture": {
+          "path": "functions/f_00000000001011e0_frame_dummy.pipeline.capture.json",
+          "sha256": "5a51c7a089d8548bcb58efa9d5400d78cfed7553f182ec28a438b8155b89a958"
+        },
+        "pipeline_log": {
+          "path": "functions/f_00000000001011e0_frame_dummy.pipeline.log",
+          "sha256": "168f96d165559b2b93d9d3d006649fc155ef94b354a2529ac830a1e2e6c63935"
+        },
+        "pipeline_stderr_log": {
+          "path": "functions/f_00000000001011e0_frame_dummy.pipeline.stderr.log",
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        "pipeline_stdout_log": {
+          "path": "functions/f_00000000001011e0_frame_dummy.pipeline.stdout.log",
+          "sha256": "168f96d165559b2b93d9d3d006649fc155ef94b354a2529ac830a1e2e6c63935"
+        },
+        "readable": {
+          "path": "functions/f_00000000001011e0_frame_dummy.read.py",
+          "sha256": "e1f18f97a5ee0c309b71490c2c1358efaefb2aba0e4c0cb9b93711cf3b092339"
+        }
+      },
+      "body_max": 1053160,
+      "body_max_hex": "0x1011e8",
+      "body_min": 1053152,
+      "body_min_hex": "0x1011e0",
+      "calling_convention": "unknown",
+      "entry": 1053152,
+      "entry_hex": "0x1011e0",
+      "external": false,
+      "function_id": "function:0x1011e0",
+      "generated_name": null,
+      "inline": false,
+      "module": "functions.f_00000000001011e0_frame_dummy",
+      "module_stem": "f_00000000001011e0_frame_dummy",
+      "name": "frame_dummy",
+      "namespace": "Global",
+      "no_return": false,
+      "operator_name": null,
+      "ordinal": 13,
+      "pal_name": "f_frame_dummy",
+      "python_symbol": "frame_dummy",
+      "qualified_name": "Global::frame_dummy",
+      "ssa_name": "frame_dummy",
+      "status": "decompiled",
+      "thunk": true,
+      "warnings": []
+    },
+    {
+      "abi_custody": {
+        "contracts": 0,
+        "ghost_repairs_resolved": 0,
+        "status": "ready"
+      },
+      "active_name": "f_clean_input",
+      "active_name_source": "pal",
+      "artifacts": {
+        "executable": {
+          "path": "functions/f_00000000001011e9_clean_input.exec.py",
+          "sha256": "289f411a387fd099165accce4007cfed4c2a352ffa8a5377e8371ec1358927b2"
+        },
+        "icecube": {
+          "path": "functions/f_00000000001011e9_clean_input.icecube.json.gz",
+          "sha256": "fa3723fde15de4054a0be01cb7540ac9f87459ebdbd61833084af78ef4f3fa4f"
+        },
+        "pipeline_capture": {
+          "path": "functions/f_00000000001011e9_clean_input.pipeline.capture.json",
+          "sha256": "48c0aa8312308536cd659be5aac9b53a9b97389680a127ae126a9bb44b4a551c"
+        },
+        "pipeline_log": {
+          "path": "functions/f_00000000001011e9_clean_input.pipeline.log",
+          "sha256": "d6d1ae6676b4555a75847da6e0a99250bee165019b554c22a554804030124a17"
+        },
+        "pipeline_stderr_log": {
+          "path": "functions/f_00000000001011e9_clean_input.pipeline.stderr.log",
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        "pipeline_stdout_log": {
+          "path": "functions/f_00000000001011e9_clean_input.pipeline.stdout.log",
+          "sha256": "d6d1ae6676b4555a75847da6e0a99250bee165019b554c22a554804030124a17"
+        },
+        "readable": {
+          "path": "functions/f_00000000001011e9_clean_input.read.py",
+          "sha256": "ed628c4d35c5d42881ac474579446a8335fafb739a2934f430f4bb763a513607"
+        }
+      },
+      "body_max": 1053211,
+      "body_max_hex": "0x10121b",
+      "body_min": 1053161,
+      "body_min_hex": "0x1011e9",
+      "calling_convention": "unknown",
+      "entry": 1053161,
+      "entry_hex": "0x1011e9",
+      "external": false,
+      "function_id": "function:0x1011e9",
+      "generated_name": null,
+      "inline": false,
+      "module": "functions.f_00000000001011e9_clean_input",
+      "module_stem": "f_00000000001011e9_clean_input",
+      "name": "clean_input",
+      "namespace": "Global",
+      "no_return": false,
+      "operator_name": null,
+      "ordinal": 14,
+      "pal_name": "f_clean_input",
+      "python_symbol": "clean_input",
+      "qualified_name": "Global::clean_input",
+      "ssa_name": "clean_input",
+      "status": "decompiled",
+      "thunk": false,
+      "warnings": []
+    },
+    {
+      "abi_custody": {
+        "contracts": 3,
+        "ghost_repairs_resolved": 0,
+        "status": "ready"
+      },
+      "active_name": "f_main",
+      "active_name_source": "pal",
+      "artifacts": {
+        "executable": {
+          "path": "functions/f_000000000010121c_main.exec.py",
+          "sha256": "8e42cbb37e3040f2674bf67b5881c85b1d769ca55cb3c4271ad2f21e6ff9c487"
+        },
+        "icecube": {
+          "path": "functions/f_000000000010121c_main.icecube.json.gz",
+          "sha256": "792aa4aac7023c3e28b5589f80a658f649aefe979dd35ad56cf1bb4543082627"
+        },
+        "pipeline_capture": {
+          "path": "functions/f_000000000010121c_main.pipeline.capture.json",
+          "sha256": "87e7748289b5156f70b8e4f8a740eed8b4746b08791d6ec2ee4f528490eaaeca"
+        },
+        "pipeline_log": {
+          "path": "functions/f_000000000010121c_main.pipeline.log",
+          "sha256": "0424ad142313e9c700996c4042f917b8f9d7118577bc9c10110a2587d6f583fb"
+        },
+        "pipeline_stderr_log": {
+          "path": "functions/f_000000000010121c_main.pipeline.stderr.log",
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        "pipeline_stdout_log": {
+          "path": "functions/f_000000000010121c_main.pipeline.stdout.log",
+          "sha256": "0424ad142313e9c700996c4042f917b8f9d7118577bc9c10110a2587d6f583fb"
+        },
+        "readable": {
+          "path": "functions/f_000000000010121c_main.read.py",
+          "sha256": "605cb4dbf8073e9dfeee7d4be1d6f3b966213c5275106565cbf3603d3e2fe798"
+        }
+      },
+      "body_max": 1054052,
+      "body_max_hex": "0x101564",
+      "body_min": 1053212,
+      "body_min_hex": "0x10121c",
+      "calling_convention": "unknown",
+      "entry": 1053212,
+      "entry_hex": "0x10121c",
+      "external": false,
+      "function_id": "function:0x10121c",
+      "generated_name": null,
+      "inline": false,
+      "module": "functions.f_000000000010121c_main",
+      "module_stem": "f_000000000010121c_main",
+      "name": "main",
+      "namespace": "Global",
+      "no_return": false,
+      "operator_name": null,
+      "ordinal": 15,
+      "pal_name": "f_main",
+      "python_symbol": "main",
+      "qualified_name": "Global::main",
+      "ssa_name": "main",
+      "status": "decompiled",
+      "thunk": false,
+      "warnings": []
+    },
+    {
+      "abi_custody": {
+        "contracts": 0,
+        "ghost_repairs_resolved": 0,
+        "status": "ready"
+      },
+      "active_name": "f_fini",
+      "active_name_source": "pal",
+      "artifacts": {
+        "executable": {
+          "path": "functions/f_0000000000101568_fini.exec.py",
+          "sha256": "869916740a20d970f15d402c2f3ddc7479a1085fa1b9c37af0fe9aeb345f3570"
+        },
+        "icecube": {
+          "path": "functions/f_0000000000101568_fini.icecube.json.gz",
+          "sha256": "d1035e4490c0dd0477543187bae20bda8a8a51981f7ecda006a34f4625dbc73f"
+        },
+        "pipeline_capture": {
+          "path": "functions/f_0000000000101568_fini.pipeline.capture.json",
+          "sha256": "145c5f2eca325e3bdcd80afecd4494d232ffd00bf14daa0e826ad035f580a538"
+        },
+        "pipeline_log": {
+          "path": "functions/f_0000000000101568_fini.pipeline.log",
+          "sha256": "9ec1b11cd152f1d55fc3b7e1fdd0a8624633024b27e1cff5badcba0e9057a643"
+        },
+        "pipeline_stderr_log": {
+          "path": "functions/f_0000000000101568_fini.pipeline.stderr.log",
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        "pipeline_stdout_log": {
+          "path": "functions/f_0000000000101568_fini.pipeline.stdout.log",
+          "sha256": "9ec1b11cd152f1d55fc3b7e1fdd0a8624633024b27e1cff5badcba0e9057a643"
+        },
+        "readable": {
+          "path": "functions/f_0000000000101568_fini.read.py",
+          "sha256": "8abd3c229c0d552f3aa7c64ba35e98e6904eba8916b1932c0b0790a26465ba8e"
+        }
+      },
+      "body_max": 1054068,
+      "body_max_hex": "0x101574",
+      "body_min": 1054056,
+      "body_min_hex": "0x101568",
+      "calling_convention": "unknown",
+      "entry": 1054056,
+      "entry_hex": "0x101568",
+      "external": false,
+      "function_id": "function:0x101568",
+      "generated_name": null,
+      "inline": false,
+      "module": "functions.f_0000000000101568_fini",
+      "module_stem": "f_0000000000101568_fini",
+      "name": "_fini",
+      "namespace": "Global",
+      "no_return": false,
+      "operator_name": null,
+      "ordinal": 16,
+      "pal_name": "f_fini",
+      "python_symbol": "_fini",
+      "qualified_name": "Global::_fini",
+      "ssa_name": "_fini",
+      "status": "decompiled",
+      "thunk": false,
+      "warnings": []
+    },
+    {
+      "abi_custody": {
+        "contracts": 0,
+        "ghost_repairs_resolved": 0,
+        "status": "ready"
+      },
+      "active_name": "f_libc_start_main",
+      "active_name_source": "pal",
+      "artifacts": {
+        "executable": {
+          "path": "functions/f_0000000000105000_libc_start_main.exec.py",
+          "sha256": "9869421820d14b946792f79bbd84822d138afc23a7a653e9e8c9c2e87a9c8040"
+        },
+        "icecube": {
+          "path": "functions/f_0000000000105000_libc_start_main.icecube.json.gz",
+          "sha256": "fee5bc5b069d6102188a67320c35a28604b7a35e322c3d808b2dc98584fc4a57"
+        },
+        "pipeline_capture": {
+          "path": "functions/f_0000000000105000_libc_start_main.pipeline.capture.json",
+          "sha256": "2e27241bda4d1b833fb80f5a3707bda7588181934cda1a7efc2f63e46d0813a7"
+        },
+        "pipeline_log": {
+          "path": "functions/f_0000000000105000_libc_start_main.pipeline.log",
+          "sha256": "0fa4e0b0eadca8457f13cd9ba911abf4d4ecfbbc9ec1acd5b1d0c09f74869cdf"
+        },
+        "pipeline_stderr_log": {
+          "path": "functions/f_0000000000105000_libc_start_main.pipeline.stderr.log",
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        "pipeline_stdout_log": {
+          "path": "functions/f_0000000000105000_libc_start_main.pipeline.stdout.log",
+          "sha256": "0fa4e0b0eadca8457f13cd9ba911abf4d4ecfbbc9ec1acd5b1d0c09f74869cdf"
+        },
+        "readable": {
+          "path": "functions/f_0000000000105000_libc_start_main.read.py",
+          "sha256": "226ed67eff71c19c5236782777571c56cde626a1f4b823c4c55b7b921ec38dae"
+        }
+      },
+      "body_max": 1069056,
+      "body_max_hex": "0x105000",
+      "body_min": 1069056,
+      "body_min_hex": "0x105000",
+      "calling_convention": "unknown",
+      "entry": 1069056,
+      "entry_hex": "0x105000",
+      "external": false,
+      "function_id": "function:0x105000",
+      "generated_name": null,
+      "inline": false,
+      "module": "functions.f_0000000000105000_libc_start_main",
+      "module_stem": "f_0000000000105000_libc_start_main",
+      "name": "__libc_start_main",
+      "namespace": "<EXTERNAL>",
+      "no_return": false,
+      "operator_name": null,
+      "ordinal": 17,
+      "pal_name": "f_libc_start_main",
+      "python_symbol": "__libc_start_main",
+      "qualified_name": "<EXTERNAL>::__libc_start_main",
+      "ssa_name": "__libc_start_main",
+      "status": "decompiled",
+      "thunk": true,
+      "warnings": []
+    },
+    {
+      "abi_custody": {
+        "contracts": 0,
+        "ghost_repairs_resolved": 0,
+        "status": "ready"
+      },
+      "active_name": "f_ITM_deregisterTMCloneTable",
+      "active_name_source": "pal",
+      "artifacts": {
+        "executable": {
+          "path": "functions/f_0000000000105008_ITM_deregisterTMCloneTable.exec.py",
+          "sha256": "656236e74c1aa0ea55106b7e875126d74195a7153487f0a9734c15b87a60487f"
+        },
+        "icecube": {
+          "path": "functions/f_0000000000105008_ITM_deregisterTMCloneTable.icecube.json.gz",
+          "sha256": "721f3d06f1a9c15056eca68a1f743388cf3eccd669a398f56da0e2e3430462b1"
+        },
+        "pipeline_capture": {
+          "path": "functions/f_0000000000105008_ITM_deregisterTMCloneTable.pipeline.capture.json",
+          "sha256": "a6749dc3b60c891b3f59edcf11876109e54506eb1bda8483c2f492070f9d59c5"
+        },
+        "pipeline_log": {
+          "path": "functions/f_0000000000105008_ITM_deregisterTMCloneTable.pipeline.log",
+          "sha256": "bc0bbe626095ca578a383ea7206a5c0700fafed5c6a53612e2971015635d3c3a"
+        },
+        "pipeline_stderr_log": {
+          "path": "functions/f_0000000000105008_ITM_deregisterTMCloneTable.pipeline.stderr.log",
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        "pipeline_stdout_log": {
+          "path": "functions/f_0000000000105008_ITM_deregisterTMCloneTable.pipeline.stdout.log",
+          "sha256": "bc0bbe626095ca578a383ea7206a5c0700fafed5c6a53612e2971015635d3c3a"
+        },
+        "readable": {
+          "path": "functions/f_0000000000105008_ITM_deregisterTMCloneTable.read.py",
+          "sha256": "6f165076ecc91a2a36ad826f8a2b08d3665501be8ad395aca1aebe89ad15f97c"
+        }
+      },
+      "body_max": 1069064,
+      "body_max_hex": "0x105008",
+      "body_min": 1069064,
+      "body_min_hex": "0x105008",
+      "calling_convention": "unknown",
+      "entry": 1069064,
+      "entry_hex": "0x105008",
+      "external": false,
+      "function_id": "function:0x105008",
+      "generated_name": null,
+      "inline": false,
+      "module": "functions.f_0000000000105008_ITM_deregisterTMCloneTable",
+      "module_stem": "f_0000000000105008_ITM_deregisterTMCloneTable",
+      "name": "_ITM_deregisterTMCloneTable",
+      "namespace": "<EXTERNAL>",
+      "no_return": false,
+      "operator_name": null,
+      "ordinal": 18,
+      "pal_name": "f_ITM_deregisterTMCloneTable",
+      "python_symbol": "_ITM_deregisterTMCloneTable",
+      "qualified_name": "<EXTERNAL>::_ITM_deregisterTMCloneTable",
+      "ssa_name": "_ITM_deregisterTMCloneTable",
+      "status": "decompiled",
+      "thunk": true,
+      "warnings": []
+    },
+    {
+      "abi_custody": {
+        "contracts": 0,
+        "ghost_repairs_resolved": 0,
+        "status": "ready"
+      },
+      "active_name": "f_puts",
+      "active_name_source": "pal",
+      "artifacts": {
+        "executable": {
+          "path": "functions/f_0000000000105010_puts.exec.py",
+          "sha256": "edc4bff91ad2a80dffbabe0aba3300463ed8faa719e03d96d68634e8de2dc4c6"
+        },
+        "icecube": {
+          "path": "functions/f_0000000000105010_puts.icecube.json.gz",
+          "sha256": "b663b477050a5dba7c39afd987de73cff5a51af0aeb987410646f45ec64140e1"
+        },
+        "pipeline_capture": {
+          "path": "functions/f_0000000000105010_puts.pipeline.capture.json",
+          "sha256": "2ecb3ec9d32936c3a060531d255a63f68ca898a0c57b290c1c49f811977678dc"
+        },
+        "pipeline_log": {
+          "path": "functions/f_0000000000105010_puts.pipeline.log",
+          "sha256": "b4533eca1eb9ee2bb7b77a85191d2a713a62db8d42f0028528716069deee0013"
+        },
+        "pipeline_stderr_log": {
+          "path": "functions/f_0000000000105010_puts.pipeline.stderr.log",
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        "pipeline_stdout_log": {
+          "path": "functions/f_0000000000105010_puts.pipeline.stdout.log",
+          "sha256": "b4533eca1eb9ee2bb7b77a85191d2a713a62db8d42f0028528716069deee0013"
+        },
+        "readable": {
+          "path": "functions/f_0000000000105010_puts.read.py",
+          "sha256": "2fcf19e9a22d85a4c8b479a944a429f794089ab01a4c09f16452b13698d9276d"
+        }
+      },
+      "body_max": 1069072,
+      "body_max_hex": "0x105010",
+      "body_min": 1069072,
+      "body_min_hex": "0x105010",
+      "calling_convention": "unknown",
+      "entry": 1069072,
+      "entry_hex": "0x105010",
+      "external": false,
+      "function_id": "function:0x105010",
+      "generated_name": null,
+      "inline": false,
+      "module": "functions.f_0000000000105010_puts",
+      "module_stem": "f_0000000000105010_puts",
+      "name": "puts",
+      "namespace": "<EXTERNAL>",
+      "no_return": false,
+      "operator_name": null,
+      "ordinal": 19,
+      "pal_name": "f_puts",
+      "python_symbol": "puts",
+      "qualified_name": "<EXTERNAL>::puts",
+      "ssa_name": "puts",
+      "status": "decompiled",
+      "thunk": true,
+      "warnings": []
+    },
+    {
+      "abi_custody": {
+        "contracts": 0,
+        "ghost_repairs_resolved": 0,
+        "status": "ready"
+      },
+      "active_name": "f_stack_chk_fail",
+      "active_name_source": "pal",
+      "artifacts": {
+        "executable": {
+          "path": "functions/f_0000000000105018_stack_chk_fail.exec.py",
+          "sha256": "a1ce99b7608e9ef783f138291dc1854945f9714fa40a86e69acd37688ea920a3"
+        },
+        "icecube": {
+          "path": "functions/f_0000000000105018_stack_chk_fail.icecube.json.gz",
+          "sha256": "307225d65f292fdeff95aa3d6deb4de15f7b9aeb1e47721b61e688e58c695437"
+        },
+        "pipeline_capture": {
+          "path": "functions/f_0000000000105018_stack_chk_fail.pipeline.capture.json",
+          "sha256": "2c95ab3bf611f6cd29b4d0fcaaee1f2e4b6d505f0099c7308d1909402fab48e5"
+        },
+        "pipeline_log": {
+          "path": "functions/f_0000000000105018_stack_chk_fail.pipeline.log",
+          "sha256": "331a5b87797dc2ed48cf0cc580ba028801c680f022a92ae0585e03168ba4217c"
+        },
+        "pipeline_stderr_log": {
+          "path": "functions/f_0000000000105018_stack_chk_fail.pipeline.stderr.log",
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        "pipeline_stdout_log": {
+          "path": "functions/f_0000000000105018_stack_chk_fail.pipeline.stdout.log",
+          "sha256": "331a5b87797dc2ed48cf0cc580ba028801c680f022a92ae0585e03168ba4217c"
+        },
+        "readable": {
+          "path": "functions/f_0000000000105018_stack_chk_fail.read.py",
+          "sha256": "37dca63cdb51520213f40d6f06bb143e2ab7c6291d3aab54fb3fd565b45969f5"
+        }
+      },
+      "body_max": 1069080,
+      "body_max_hex": "0x105018",
+      "body_min": 1069080,
+      "body_min_hex": "0x105018",
+      "calling_convention": "unknown",
+      "entry": 1069080,
+      "entry_hex": "0x105018",
+      "external": false,
+      "function_id": "function:0x105018",
+      "generated_name": null,
+      "inline": false,
+      "module": "functions.f_0000000000105018_stack_chk_fail",
+      "module_stem": "f_0000000000105018_stack_chk_fail",
+      "name": "__stack_chk_fail",
+      "namespace": "<EXTERNAL>",
+      "no_return": true,
+      "operator_name": null,
+      "ordinal": 20,
+      "pal_name": "f_stack_chk_fail",
+      "python_symbol": "__stack_chk_fail",
+      "qualified_name": "<EXTERNAL>::__stack_chk_fail",
+      "ssa_name": "__stack_chk_fail",
+      "status": "decompiled",
+      "thunk": true,
+      "warnings": []
+    },
+    {
+      "abi_custody": {
+        "contracts": 0,
+        "ghost_repairs_resolved": 0,
+        "status": "ready"
+      },
+      "active_name": "f_printf",
+      "active_name_source": "pal",
+      "artifacts": {
+        "executable": {
+          "path": "functions/f_0000000000105020_printf.exec.py",
+          "sha256": "f7c630944bd95d6dd042f0a474b1da615a22bfa59b56c39efd837f7cfe3eba98"
+        },
+        "icecube": {
+          "path": "functions/f_0000000000105020_printf.icecube.json.gz",
+          "sha256": "f7894808afb89db91f510642bcff3d23d0c7ed7625547acdb7d6d74f1ec13e73"
+        },
+        "pipeline_capture": {
+          "path": "functions/f_0000000000105020_printf.pipeline.capture.json",
+          "sha256": "998b797a4d1c3b98575cdc7f390b47e07ec7fe757bd3d42b3cd84ff6d0acb095"
+        },
+        "pipeline_log": {
+          "path": "functions/f_0000000000105020_printf.pipeline.log",
+          "sha256": "a74426d7511376dcc15a24a7b5efd203009fad7b7cba821cfbd6a2eca2fbf9c7"
+        },
+        "pipeline_stderr_log": {
+          "path": "functions/f_0000000000105020_printf.pipeline.stderr.log",
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        "pipeline_stdout_log": {
+          "path": "functions/f_0000000000105020_printf.pipeline.stdout.log",
+          "sha256": "a74426d7511376dcc15a24a7b5efd203009fad7b7cba821cfbd6a2eca2fbf9c7"
+        },
+        "readable": {
+          "path": "functions/f_0000000000105020_printf.read.py",
+          "sha256": "8a4740f3bbc8d6ec58d7e2443d49e66629be3e83ee4129ca74b93f0537f360c1"
+        }
+      },
+      "body_max": 1069088,
+      "body_max_hex": "0x105020",
+      "body_min": 1069088,
+      "body_min_hex": "0x105020",
+      "calling_convention": "unknown",
+      "entry": 1069088,
+      "entry_hex": "0x105020",
+      "external": false,
+      "function_id": "function:0x105020",
+      "generated_name": null,
+      "inline": false,
+      "module": "functions.f_0000000000105020_printf",
+      "module_stem": "f_0000000000105020_printf",
+      "name": "printf",
+      "namespace": "<EXTERNAL>",
+      "no_return": false,
+      "operator_name": null,
+      "ordinal": 21,
+      "pal_name": "f_printf",
+      "python_symbol": "printf",
+      "qualified_name": "<EXTERNAL>::printf",
+      "ssa_name": "printf",
+      "status": "decompiled",
+      "thunk": true,
+      "warnings": []
+    },
+    {
+      "abi_custody": {
+        "contracts": 0,
+        "ghost_repairs_resolved": 0,
+        "status": "ready"
+      },
+      "active_name": "f_strcspn",
+      "active_name_source": "pal",
+      "artifacts": {
+        "executable": {
+          "path": "functions/f_0000000000105028_strcspn.exec.py",
+          "sha256": "f7bc2201db870f1909db47c983efdb17b2dfae2e674b92a636dc091c822b8163"
+        },
+        "icecube": {
+          "path": "functions/f_0000000000105028_strcspn.icecube.json.gz",
+          "sha256": "fa23dea9288677035db00ed5131e995d82966585416240145029e8e3b01a153b"
+        },
+        "pipeline_capture": {
+          "path": "functions/f_0000000000105028_strcspn.pipeline.capture.json",
+          "sha256": "8102c435fe6a4857d3aacec5d6b8043da360d50b692613eee149b15d3a5457fc"
+        },
+        "pipeline_log": {
+          "path": "functions/f_0000000000105028_strcspn.pipeline.log",
+          "sha256": "6a0e616d86a8969c4789b14426c391873787e04d2162607389fda70f0ea8565e"
+        },
+        "pipeline_stderr_log": {
+          "path": "functions/f_0000000000105028_strcspn.pipeline.stderr.log",
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        "pipeline_stdout_log": {
+          "path": "functions/f_0000000000105028_strcspn.pipeline.stdout.log",
+          "sha256": "6a0e616d86a8969c4789b14426c391873787e04d2162607389fda70f0ea8565e"
+        },
+        "readable": {
+          "path": "functions/f_0000000000105028_strcspn.read.py",
+          "sha256": "d0fea5458adae4d8388c819d637e601e59b276f21f92bf564b5d55e1d2f3842f"
+        }
+      },
+      "body_max": 1069096,
+      "body_max_hex": "0x105028",
+      "body_min": 1069096,
+      "body_min_hex": "0x105028",
+      "calling_convention": "unknown",
+      "entry": 1069096,
+      "entry_hex": "0x105028",
+      "external": false,
+      "function_id": "function:0x105028",
+      "generated_name": null,
+      "inline": false,
+      "module": "functions.f_0000000000105028_strcspn",
+      "module_stem": "f_0000000000105028_strcspn",
+      "name": "strcspn",
+      "namespace": "<EXTERNAL>",
+      "no_return": false,
+      "operator_name": null,
+      "ordinal": 22,
+      "pal_name": "f_strcspn",
+      "python_symbol": "strcspn",
+      "qualified_name": "<EXTERNAL>::strcspn",
+      "ssa_name": "strcspn",
+      "status": "decompiled",
+      "thunk": true,
+      "warnings": []
+    },
+    {
+      "abi_custody": {
+        "contracts": 0,
+        "ghost_repairs_resolved": 0,
+        "status": "ready"
+      },
+      "active_name": "f_fgets",
+      "active_name_source": "pal",
+      "artifacts": {
+        "executable": {
+          "path": "functions/f_0000000000105030_fgets.exec.py",
+          "sha256": "4178b01ea02a13885efdd1352c5874235406e592b0ac4fae157ed03fe4f759e8"
+        },
+        "icecube": {
+          "path": "functions/f_0000000000105030_fgets.icecube.json.gz",
+          "sha256": "b991be99a5d3c286488b64c4fa93eccc3a3a9848c53462e26a46b51bf4740c60"
+        },
+        "pipeline_capture": {
+          "path": "functions/f_0000000000105030_fgets.pipeline.capture.json",
+          "sha256": "8d6445977ed6d1ebe1710fd1f949411d85a0d84c5bd91bc165e8db45735663d8"
+        },
+        "pipeline_log": {
+          "path": "functions/f_0000000000105030_fgets.pipeline.log",
+          "sha256": "9dc450770a133790bf615713173f985528be5414b4c3c91b6c7e882014f48d7d"
+        },
+        "pipeline_stderr_log": {
+          "path": "functions/f_0000000000105030_fgets.pipeline.stderr.log",
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        "pipeline_stdout_log": {
+          "path": "functions/f_0000000000105030_fgets.pipeline.stdout.log",
+          "sha256": "9dc450770a133790bf615713173f985528be5414b4c3c91b6c7e882014f48d7d"
+        },
+        "readable": {
+          "path": "functions/f_0000000000105030_fgets.read.py",
+          "sha256": "f3de94b5e74a2de2b78d8435ef2e1b1c4166df85af89cea66759a10b08624d0e"
+        }
+      },
+      "body_max": 1069104,
+      "body_max_hex": "0x105030",
+      "body_min": 1069104,
+      "body_min_hex": "0x105030",
+      "calling_convention": "unknown",
+      "entry": 1069104,
+      "entry_hex": "0x105030",
+      "external": false,
+      "function_id": "function:0x105030",
+      "generated_name": null,
+      "inline": false,
+      "module": "functions.f_0000000000105030_fgets",
+      "module_stem": "f_0000000000105030_fgets",
+      "name": "fgets",
+      "namespace": "<EXTERNAL>",
+      "no_return": false,
+      "operator_name": null,
+      "ordinal": 23,
+      "pal_name": "f_fgets",
+      "python_symbol": "fgets",
+      "qualified_name": "<EXTERNAL>::fgets",
+      "ssa_name": "fgets",
+      "status": "decompiled",
+      "thunk": true,
+      "warnings": []
+    },
+    {
+      "abi_custody": {
+        "contracts": 0,
+        "ghost_repairs_resolved": 0,
+        "status": "ready"
+      },
+      "active_name": "f_strcmp",
+      "active_name_source": "pal",
+      "artifacts": {
+        "executable": {
+          "path": "functions/f_0000000000105038_strcmp.exec.py",
+          "sha256": "90e56e508285d25630dba691a3f54a7b9ce9766affc31c0c7cad659e9cd94d77"
+        },
+        "icecube": {
+          "path": "functions/f_0000000000105038_strcmp.icecube.json.gz",
+          "sha256": "8add448c1031ce25e12141f320ac3dc92e07c31efd302cfa9383c78a1d48d2b2"
+        },
+        "pipeline_capture": {
+          "path": "functions/f_0000000000105038_strcmp.pipeline.capture.json",
+          "sha256": "dee799db91132949a28a89c3abb6ffa33afce2458bc8aabd6eb0df13a9ce3a18"
+        },
+        "pipeline_log": {
+          "path": "functions/f_0000000000105038_strcmp.pipeline.log",
+          "sha256": "75f539b08a2901c8fc9eb8a7f7570a63a9622617ef898bf38239bef93dd8ac7f"
+        },
+        "pipeline_stderr_log": {
+          "path": "functions/f_0000000000105038_strcmp.pipeline.stderr.log",
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        "pipeline_stdout_log": {
+          "path": "functions/f_0000000000105038_strcmp.pipeline.stdout.log",
+          "sha256": "75f539b08a2901c8fc9eb8a7f7570a63a9622617ef898bf38239bef93dd8ac7f"
+        },
+        "readable": {
+          "path": "functions/f_0000000000105038_strcmp.read.py",
+          "sha256": "e90b30c1844938cf2b7b6f40d84aef1fad3badea1b3d00f40bcef75abf33061b"
+        }
+      },
+      "body_max": 1069112,
+      "body_max_hex": "0x105038",
+      "body_min": 1069112,
+      "body_min_hex": "0x105038",
+      "calling_convention": "unknown",
+      "entry": 1069112,
+      "entry_hex": "0x105038",
+      "external": false,
+      "function_id": "function:0x105038",
+      "generated_name": null,
+      "inline": false,
+      "module": "functions.f_0000000000105038_strcmp",
+      "module_stem": "f_0000000000105038_strcmp",
+      "name": "strcmp",
+      "namespace": "<EXTERNAL>",
+      "no_return": false,
+      "operator_name": null,
+      "ordinal": 24,
+      "pal_name": "f_strcmp",
+      "python_symbol": "strcmp",
+      "qualified_name": "<EXTERNAL>::strcmp",
+      "ssa_name": "strcmp",
+      "status": "decompiled",
+      "thunk": true,
+      "warnings": []
+    },
+    {
+      "abi_custody": {
+        "contracts": 0,
+        "ghost_repairs_resolved": 0,
+        "status": "ready"
+      },
+      "active_name": "f_gmon_start",
+      "active_name_source": "pal",
+      "artifacts": {
+        "executable": {
+          "path": "functions/f_0000000000105040_gmon_start.exec.py",
+          "sha256": "f7bfadf6785c2c59e60bd0c2cedd1c913e8c4a8d9fa00a1a75f770d7fa209284"
+        },
+        "icecube": {
+          "path": "functions/f_0000000000105040_gmon_start.icecube.json.gz",
+          "sha256": "cfcf035f1e4c4e373bd193e0a603fbecc2ee740567fb10903a3ed8a3e68df297"
+        },
+        "pipeline_capture": {
+          "path": "functions/f_0000000000105040_gmon_start.pipeline.capture.json",
+          "sha256": "61cf0ba43647906280d3423084b96d27edc1bba79f7f83061a9901a6d304c04e"
+        },
+        "pipeline_log": {
+          "path": "functions/f_0000000000105040_gmon_start.pipeline.log",
+          "sha256": "0eb08434a83f7755d2ed2f439e4fb3b07e867d8a17a4c3c6c5637dc108816d2e"
+        },
+        "pipeline_stderr_log": {
+          "path": "functions/f_0000000000105040_gmon_start.pipeline.stderr.log",
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        "pipeline_stdout_log": {
+          "path": "functions/f_0000000000105040_gmon_start.pipeline.stdout.log",
+          "sha256": "0eb08434a83f7755d2ed2f439e4fb3b07e867d8a17a4c3c6c5637dc108816d2e"
+        },
+        "readable": {
+          "path": "functions/f_0000000000105040_gmon_start.read.py",
+          "sha256": "8b38438da6a6e3049be20360ecbbf7a2afd2031d679bef754ee5e0c9008d8113"
+        }
+      },
+      "body_max": 1069120,
+      "body_max_hex": "0x105040",
+      "body_min": 1069120,
+      "body_min_hex": "0x105040",
+      "calling_convention": "unknown",
+      "entry": 1069120,
+      "entry_hex": "0x105040",
+      "external": false,
+      "function_id": "function:0x105040",
+      "generated_name": null,
+      "inline": false,
+      "module": "functions.f_0000000000105040_gmon_start",
+      "module_stem": "f_0000000000105040_gmon_start",
+      "name": "__gmon_start__",
+      "namespace": "<EXTERNAL>",
+      "no_return": false,
+      "operator_name": null,
+      "ordinal": 25,
+      "pal_name": "f_gmon_start",
+      "python_symbol": "__gmon_start__",
+      "qualified_name": "<EXTERNAL>::__gmon_start__",
+      "ssa_name": "__gmon_start__",
+      "status": "decompiled",
+      "thunk": true,
+      "warnings": []
+    },
+    {
+      "abi_custody": {
+        "contracts": 0,
+        "ghost_repairs_resolved": 0,
+        "status": "ready"
+      },
+      "active_name": "f_ITM_registerTMCloneTable",
+      "active_name_source": "pal",
+      "artifacts": {
+        "executable": {
+          "path": "functions/f_0000000000105048_ITM_registerTMCloneTable.exec.py",
+          "sha256": "0fa0a83692b9cd20bd17246fb9bd948bc748137f6952aec53faa22e7043f681f"
+        },
+        "icecube": {
+          "path": "functions/f_0000000000105048_ITM_registerTMCloneTable.icecube.json.gz",
+          "sha256": "6843f827646396aaddff934c6bdda0a4a3e08ea948a6b402ae1094a5cdb45d71"
+        },
+        "pipeline_capture": {
+          "path": "functions/f_0000000000105048_ITM_registerTMCloneTable.pipeline.capture.json",
+          "sha256": "2ac6b85fc7d11f853661f5fc38c3d881500e01209e05d50e26f7ce8a322ad1db"
+        },
+        "pipeline_log": {
+          "path": "functions/f_0000000000105048_ITM_registerTMCloneTable.pipeline.log",
+          "sha256": "9c6592349602fede7acd7c20904abdcdeb719e7ebbdba9fb713d9c1073872665"
+        },
+        "pipeline_stderr_log": {
+          "path": "functions/f_0000000000105048_ITM_registerTMCloneTable.pipeline.stderr.log",
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        "pipeline_stdout_log": {
+          "path": "functions/f_0000000000105048_ITM_registerTMCloneTable.pipeline.stdout.log",
+          "sha256": "9c6592349602fede7acd7c20904abdcdeb719e7ebbdba9fb713d9c1073872665"
+        },
+        "readable": {
+          "path": "functions/f_0000000000105048_ITM_registerTMCloneTable.read.py",
+          "sha256": "1fe6c3f429fc196407b74c35d4857a7ade696d2c33913fa746994625dd811da5"
+        }
+      },
+      "body_max": 1069128,
+      "body_max_hex": "0x105048",
+      "body_min": 1069128,
+      "body_min_hex": "0x105048",
+      "calling_convention": "unknown",
+      "entry": 1069128,
+      "entry_hex": "0x105048",
+      "external": false,
+      "function_id": "function:0x105048",
+      "generated_name": null,
+      "inline": false,
+      "module": "functions.f_0000000000105048_ITM_registerTMCloneTable",
+      "module_stem": "f_0000000000105048_ITM_registerTMCloneTable",
+      "name": "_ITM_registerTMCloneTable",
+      "namespace": "<EXTERNAL>",
+      "no_return": false,
+      "operator_name": null,
+      "ordinal": 26,
+      "pal_name": "f_ITM_registerTMCloneTable",
+      "python_symbol": "_ITM_registerTMCloneTable",
+      "qualified_name": "<EXTERNAL>::_ITM_registerTMCloneTable",
+      "ssa_name": "_ITM_registerTMCloneTable",
+      "status": "decompiled",
+      "thunk": true,
+      "warnings": []
+    },
+    {
+      "abi_custody": {
+        "contracts": 0,
+        "ghost_repairs_resolved": 0,
+        "status": "ready"
+      },
+      "active_name": "f_cxa_finalize",
+      "active_name_source": "pal",
+      "artifacts": {
+        "executable": {
+          "path": "functions/f_0000000000105050_cxa_finalize.exec.py",
+          "sha256": "ed2a62cb7b29068b65a556c3d9643c24a0d7429a34e7ed570ec09380f91b11b7"
+        },
+        "icecube": {
+          "path": "functions/f_0000000000105050_cxa_finalize.icecube.json.gz",
+          "sha256": "884caf7a58f002a89015a780a77b2572ae6eeea25affbf5fa4f7ebed0211c13b"
+        },
+        "pipeline_capture": {
+          "path": "functions/f_0000000000105050_cxa_finalize.pipeline.capture.json",
+          "sha256": "84449eb5fb662a9a7159ba1e6728d62b32f88adbea1cbc8d46c5f8f1a384927d"
+        },
+        "pipeline_log": {
+          "path": "functions/f_0000000000105050_cxa_finalize.pipeline.log",
+          "sha256": "e4a16481320225c5b6f66932a7dff0ae325adab4065450a916f5be01de66fe8a"
+        },
+        "pipeline_stderr_log": {
+          "path": "functions/f_0000000000105050_cxa_finalize.pipeline.stderr.log",
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        "pipeline_stdout_log": {
+          "path": "functions/f_0000000000105050_cxa_finalize.pipeline.stdout.log",
+          "sha256": "e4a16481320225c5b6f66932a7dff0ae325adab4065450a916f5be01de66fe8a"
+        },
+        "readable": {
+          "path": "functions/f_0000000000105050_cxa_finalize.read.py",
+          "sha256": "d465e97b79ac068832ef27489bee09a368cfd6a845517b22bbfca14596008942"
+        }
+      },
+      "body_max": 1069136,
+      "body_max_hex": "0x105050",
+      "body_min": 1069136,
+      "body_min_hex": "0x105050",
+      "calling_convention": "unknown",
+      "entry": 1069136,
+      "entry_hex": "0x105050",
+      "external": false,
+      "function_id": "function:0x105050",
+      "generated_name": null,
+      "inline": false,
+      "module": "functions.f_0000000000105050_cxa_finalize",
+      "module_stem": "f_0000000000105050_cxa_finalize",
+      "name": "__cxa_finalize",
+      "namespace": "<EXTERNAL>",
+      "no_return": false,
+      "operator_name": null,
+      "ordinal": 27,
+      "pal_name": "f_cxa_finalize",
+      "python_symbol": "__cxa_finalize",
+      "qualified_name": "<EXTERNAL>::__cxa_finalize",
+      "ssa_name": "__cxa_finalize",
+      "status": "decompiled",
+      "thunk": true,
+      "warnings": []
+    }
+  ],
+  "functions_directory": "functions",
+  "name_registry": {
+    "identity_authority": "function_entry_address_or_stable_manifest_identity",
+    "revision": 0,
+    "version": "humanizer_v2_oncs_varnames_recovery"
+  },
+  "output_root": "project/drop_axe.matrix",
+  "output_root_base": "PAL_repository_root",
+  "pipeline_entrypoint": "run_all",
+  "program": {
+    "compiler_spec_id": "gcc",
+    "executable_format": "Executable and Linking Format (ELF)",
+    "executable_path": "specimens/o0/drop_axe.matrix",
+    "executable_path_policy": "relative_to_pal_repository_root_or_basename",
+    "image_base": 1048576,
+    "image_base_hex": "0x100000",
+    "language_id": "x86:LE:64:default",
+    "name": "drop_axe.matrix"
+  },
+  "schema_version": 1,
+  "static_string_emitter_authority": {
+    "cross_project_discovery_allowed": false,
+    "key": "PAL_STDIO_STRINGS",
+    "restoration": "restore_prior_environment_after_run",
+    "scope": "single_function_pipeline_run",
+    "transport": "scoped_environment",
+    "value_policy": "absolute_internal_path_to_current_project_overlay"
+  },
+  "static_strings": {
+    "artifact": "PAL_stdio_strings.json",
+    "path": "project/drop_axe.matrix/PAL_stdio_strings.json",
+    "producer": "PALStaticStringPublisher",
+    "producer_build": "static_strings_v1_defined_ghidra_data",
+    "rejected_string_records": 0,
+    "source_policy": "ghidra_defined_string_data_only",
+    "status": "published",
+    "strings": 114
+  },
+  "status": "complete"
+}

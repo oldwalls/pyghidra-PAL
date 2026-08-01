@@ -1,0 +1,38 @@
+{
+  "batch_build": "batch_v2h_final_abi_authority_publication",
+  "elapsed_ns": 424643446,
+  "finished_time_ns": 1785564341206567319,
+  "format": "pal_internal_pipeline_stream_capture",
+  "function": {
+    "entry": 1052896,
+    "entry_hex": "0x1010e0",
+    "function_id": "function:0x1010e0",
+    "module_stem": "f_00000000001010e0_fgets",
+    "name": "fgets",
+    "qualified_name": "<EXTERNAL>::fgets"
+  },
+  "keep_success_logs": true,
+  "mirrored_to_process_stdio": true,
+  "outcome": "decompiled",
+  "pipeline_entrypoint": "run_all",
+  "raw_text_policy": "exact_python_stdout_stderr_text_before_portability_rewrite",
+  "schema_version": 1,
+  "started_time_ns": 1785564340781923873,
+  "streams": {
+    "combined": {
+      "bytes": 27883,
+      "path": "functions/f_00000000001010e0_fgets.pipeline.log",
+      "sha256": "d7b698c5943632e43078db997be6636d51a7a002cf5b6ec43a1f40f785dd96b7"
+    },
+    "stderr": {
+      "bytes": 0,
+      "path": "functions/f_00000000001010e0_fgets.pipeline.stderr.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "stdout": {
+      "bytes": 27883,
+      "path": "functions/f_00000000001010e0_fgets.pipeline.stdout.log",
+      "sha256": "d7b698c5943632e43078db997be6636d51a7a002cf5b6ec43a1f40f785dd96b7"
+    }
+  }
+}

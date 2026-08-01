@@ -1,0 +1,38 @@
+{
+  "batch_build": "batch_v2h_final_abi_authority_publication",
+  "elapsed_ns": 568896993,
+  "finished_time_ns": 1785568095093121319,
+  "format": "pal_internal_pipeline_stream_capture",
+  "function": {
+    "entry": 1054397,
+    "entry_hex": "0x1016bd",
+    "function_id": "function:0x1016bd",
+    "module_stem": "f_00000000001016bd_lander_exit_code",
+    "name": "lander_exit_code",
+    "qualified_name": "Global::lander_exit_code"
+  },
+  "keep_success_logs": true,
+  "mirrored_to_process_stdio": true,
+  "outcome": "decompiled",
+  "pipeline_entrypoint": "run_all",
+  "raw_text_policy": "exact_python_stdout_stderr_text_before_portability_rewrite",
+  "schema_version": 1,
+  "started_time_ns": 1785568094524224326,
+  "streams": {
+    "combined": {
+      "bytes": 24549,
+      "path": "functions/f_00000000001016bd_lander_exit_code.pipeline.log",
+      "sha256": "8b5695c228f5f3aa74a55b65a5c61baee41280c72d7fa3191576f66c5271e0ff"
+    },
+    "stderr": {
+      "bytes": 0,
+      "path": "functions/f_00000000001016bd_lander_exit_code.pipeline.stderr.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "stdout": {
+      "bytes": 24549,
+      "path": "functions/f_00000000001016bd_lander_exit_code.pipeline.stdout.log",
+      "sha256": "8b5695c228f5f3aa74a55b65a5c61baee41280c72d7fa3191576f66c5271e0ff"
+    }
+  }
+}

@@ -1,0 +1,38 @@
+{
+  "batch_build": "batch_v2h_final_abi_authority_publication",
+  "elapsed_ns": 2129895448,
+  "finished_time_ns": 1785564401829884214,
+  "format": "pal_internal_pipeline_stream_capture",
+  "function": {
+    "entry": 1056356,
+    "entry_hex": "0x101e64",
+    "function_id": "function:0x101e64",
+    "module_stem": "f_0000000000101e64_command_arm",
+    "name": "command_arm",
+    "qualified_name": "Global::command_arm"
+  },
+  "keep_success_logs": true,
+  "mirrored_to_process_stdio": true,
+  "outcome": "decompiled",
+  "pipeline_entrypoint": "run_all",
+  "raw_text_policy": "exact_python_stdout_stderr_text_before_portability_rewrite",
+  "schema_version": 1,
+  "started_time_ns": 1785564399699988766,
+  "streams": {
+    "combined": {
+      "bytes": 41807,
+      "path": "functions/f_0000000000101e64_command_arm.pipeline.log",
+      "sha256": "d2c1ad395a5532271a0abdc69e867b764edb410b17fd45e095d0157fce69a08f"
+    },
+    "stderr": {
+      "bytes": 0,
+      "path": "functions/f_0000000000101e64_command_arm.pipeline.stderr.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "stdout": {
+      "bytes": 41807,
+      "path": "functions/f_0000000000101e64_command_arm.pipeline.stdout.log",
+      "sha256": "d2c1ad395a5532271a0abdc69e867b764edb410b17fd45e095d0157fce69a08f"
+    }
+  }
+}
