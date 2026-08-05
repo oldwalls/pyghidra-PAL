@@ -1,8 +1,21 @@
 <img width="1024" height="694" alt="image" src="https://github.com/user-attachments/assets/4516c1c9-7016-4c96-a91b-e4c5e0ddd1c6" />
 
+## 📣 Upcoming Update
 
+A new version, v0.24a, of `PALTermUI (mars)` will be released within days. Development is still pending.
 
+It has a reworked PHI pane in the `static debug` feature of TermUI, with more functional linking to ASM and PY. A number of smaller functionality bugs—key mappings, situational lockups, etc.—will also be addressed.
 
+With that release, another component will be shared: a `seq` decompilation project. It contains most of `seq` in decompiled form, including the equivalent of `main()` in `seq` (~650+ LOC).
+
+The PAL stack that decompiled the `seq` functions, in part, will be released after a slightly longer period of testing.
+
+Thank you for your attention,
+Remy
+
+<img width="3800" height="1622" alt="image" src="https://github.com/user-attachments/assets/2ad633c5-e0a6-456d-9032-0dc3a7b7ad7c" />
+
+---
 
 # PAL — PyGhidra Python Abstract Layer
 
