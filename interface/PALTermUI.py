@@ -1,10 +1,22 @@
 # ============================================================
 # PAL TERMINAL UI / ONCS
-# BUILD: PALTermUI mars v0.33a stable ctrl_e_export_header_prefix_hotfix
-# BASELINE: PALTermUI mars v0.33 step10 stable no-graph / sha256 37aa5d4ef0fab5882a36679ad97e3b5fffabf7fa4af852cee4a64540a7c13fc1
+# BUILD: PALTermUI mars v0.24a finalizer_overview_line_focus_asm_context_keys
+# BASELINE-V35E: PALTermUI mars v0.35e usable_temp_materialization_classification
+# FINALIZER: overview EXEC/READ swap; line-focus metadata path; ASM 33pct context; pane-local h/c fixes
+# FINAL CLOSURE: persistent independent histories; pane-local H/C/0; unfolded full PHI blades
+# BASELINE-V35A: PALTermUI mars v0.35a independent_phi_asm_history_compact_dropin_blade
+# STATIC DEBUG PHI VIEW: storage + semantically used temps; exact drop-in blocks only
+# BASELINE-V35: PALTermUI mars v0.35 block_grouped_dropins_narrow_phi_cursor_overlay_order / sha256 5bcb26c8357634e727ac362c94ec9bef53074270be7ff31602c85290410e491c
+# STATIC DEBUG HISTORY: PHI and ASM own independent angle-bracket frame ledgers
+# STATIC DEBUG PHI: verbose assignment facts removed before each custody blade
+# BASELINE: PALTermUI mars v0.33a stable ctrl_e_export_header_prefix_hotfix / sha256 99958b0a983d22d3f02f1eb1696e363bfdab15d558f345d15feeabacd90947b8
 # ORIGIN: PALTermUI neptune v0.23r final / sha256 20abe638914139f7311fb4a3e27fa68ff91a7df84953e34a4b5ea00f15778b7e
 # PYTHON CODE: Ctrl-E replaces EXEC only; exported primary function drops UI-only f_ prefix
 # STATIC DEBUG: one_active_phi_chain_and_exact_active_transition_own_dark_red
+# STATIC DEBUG PHI: materialized variables only; exact drop-in blocks; no virtual PHI-path expansion
+# STATIC DEBUG LINKAGE: active pane owns focus; other two panes refresh without focus theft
+# RENDER ORDER: base -> red cursor bar -> final semantic/search overlays; text repainted at every layer
+# STATIC DEBUG PHI TAIL: drop-in execution replaces misleading Final State termination row
 # ASM DISPLAY: hovered_block_group_owns_full_width_dark_red_surface
 # RETAINED-V30: phi_single_authority_full_asm_hover_surface
 # RETAINED: semantic_phi_cursor_and_block_cursor_jump_relay
@@ -4422,7 +4434,16 @@ class PALTerminalModel:
             "definition_sids", "use_sids", "metadata_refs",
             "destination_sids", "source_sids", "input_sids",
             "dropin_destination_sids", "dropin_source_sids",
+            "drop_in_destination_sids", "drop_in_source_sids",
+            "assignment_destination_sids", "assignment_source_sids",
+            "state_write_destination_sids", "state_write_source_sids",
+            "dropin_destination_sid", "dropin_source_sid",
+            "drop_in_destination_sid", "drop_in_source_sid",
+            "assignment_destination_sid", "assignment_source_sid",
+            "state_write_destination_sid", "state_write_source_sid",
             "destination_sid", "source_sid", "output_sid", "input_sid",
+            "kind", "record_kind", "semantic_role", "event_kind",
+            "receipt_kind", "transaction_kind",
             "source_span", "line", "line_number", "line_index",
             "start_line", "end_line",
         ):
@@ -4477,6 +4498,128 @@ class PALTerminalModel:
             if isinstance(child, (dict, list, tuple, set)) or hasattr(child, "__dict__"):
                 self._collect_statement_sid_fields_v33(child, destination, source, depth + 1, seen)
 
+    def _collect_dropin_statement_fields_v44(
+        self, value, destination, source, evidence, depth=0, seen=None
+    ):
+        """Collect explicit emitter/drop-in custody without broadening semantics.
+
+        PALDocument/Icecube generations use several field spellings.  This
+        collector is additive and schema-tolerant: it records only fields whose
+        names explicitly identify drop-ins, assignment rewrites or state writes.
+        Generic definition/use evidence remains available separately as the
+        compatibility fallback in ``projection_dropins_for_block_v44``.
+        """
+        if value is None or depth > 7:
+            return
+        if seen is None:
+            seen = set()
+        marker = id(value)
+        if marker in seen:
+            return
+        seen.add(marker)
+
+        mapping = _mapping_value(value)
+        if mapping is None:
+            data = getattr(value, "__dict__", None)
+            mapping = data if isinstance(data, dict) else None
+        if mapping is None:
+            if isinstance(value, (list, tuple, set)):
+                for item in value:
+                    self._collect_dropin_statement_fields_v44(
+                        item, destination, source, evidence,
+                        depth + 1, seen,
+                    )
+            return
+
+        destination_groups = {
+            "frozen_dropin_fields": (
+                "dropin_destination_sids", "drop_in_destination_sids",
+                "dropin_destination_sid", "drop_in_destination_sid",
+                "phi_dropin_destination_sids", "phi_dropin_destination_sid",
+            ),
+            "frozen_assignment_fields": (
+                "assignment_destination_sids", "assignment_destination_sid",
+                "assignment_target_sids", "assignment_target_sid",
+                "rewrite_destination_sids", "rewrite_destination_sid",
+            ),
+            "frozen_state_write_fields": (
+                "state_write_destination_sids", "state_write_destination_sid",
+                "placement_destination_sids", "placement_destination_sid",
+                "commit_destination_sids", "commit_destination_sid",
+            ),
+        }
+        source_groups = {
+            "frozen_dropin_fields": (
+                "dropin_source_sids", "drop_in_source_sids",
+                "dropin_source_sid", "drop_in_source_sid",
+                "phi_dropin_source_sids", "phi_dropin_source_sid",
+            ),
+            "frozen_assignment_fields": (
+                "assignment_source_sids", "assignment_source_sid",
+                "assignment_value_sids", "assignment_value_sid",
+                "rewrite_source_sids", "rewrite_source_sid",
+            ),
+            "frozen_state_write_fields": (
+                "state_write_source_sids", "state_write_source_sid",
+                "placement_source_sids", "placement_source_sid",
+                "commit_source_sids", "commit_source_sid",
+            ),
+        }
+
+        for label, keys in destination_groups.items():
+            found = False
+            for key in keys:
+                if key not in mapping:
+                    continue
+                for sid in _metadata_sid_list_v13(mapping.get(key)):
+                    canonical = self.canonical_phi_sid_v33(sid)
+                    if canonical:
+                        destination.add(canonical)
+                        found = True
+            if found:
+                evidence.add(label)
+
+        for label, keys in source_groups.items():
+            found = False
+            for key in keys:
+                if key not in mapping:
+                    continue
+                for sid in _metadata_sid_list_v13(mapping.get(key)):
+                    canonical = self.canonical_phi_sid_v33(sid)
+                    if canonical:
+                        source.add(canonical)
+                        found = True
+            if found:
+                evidence.add(label)
+
+        role_text = " ".join(
+            str(mapping.get(key) or "").strip().casefold()
+            for key in (
+                "kind", "record_kind", "semantic_role", "event_kind",
+                "receipt_kind", "transaction_kind", "status", "reason",
+            )
+        )
+        compact = re.sub(r"[^a-z0-9]+", "_", role_text).strip("_")
+        if "dropin" in compact or "drop_in" in compact:
+            evidence.add("frozen_dropin_record")
+        if "assignment" in compact or "rewrite" in compact:
+            evidence.add("frozen_assignment_record")
+        if (
+            "state_write" in compact or "placement_commit" in compact
+            or "terminal_commit" in compact
+        ):
+            evidence.add("frozen_state_write_record")
+
+        for child in mapping.values():
+            if (
+                isinstance(child, (dict, list, tuple, set))
+                or hasattr(child, "__dict__")
+            ):
+                self._collect_dropin_statement_fields_v44(
+                    child, destination, source, evidence,
+                    depth + 1, seen,
+                )
+
     def _lexical_assignment_sids_v33(self, text):
         destination = set()
         source = set()
@@ -4501,34 +4644,55 @@ class PALTerminalModel:
         return destination, source
 
     def projection_statement_contexts_v33(self, projection=None):
-        """Return line-owned block and SID evidence for statement-precise PHI sync."""
+        """Return line-owned block, SID and explicit drop-in evidence.
+
+        v44 keeps the v33 return contract and adds explicit emitter-custody
+        fields.  Existing consumers continue to use destination/source SIDs;
+        the humanized PHI pane can prefer frozen drop-in evidence and fall back
+        to lexical Python assignments for older Icecubes.
+        """
         projection = str(projection or self.projection)
         revision = int(getattr(self.oncs, "revision", 0) or 0)
         cache_key = (
-            "projection:statement_context:v33", projection, revision,
+            "projection:statement_context:v44", projection, revision,
             str(self.naming), bool(self.operator_overlay),
         )
         cached = self._truth_source_lines_cache.get(cache_key)
         if cached is not None:
             return cached
         try:
-            rendered = tuple(self.oncs.render_lines(projection, self.naming, self.operator_overlay) or ())
+            rendered = tuple(self.oncs.render_lines(
+                projection, self.naming, self.operator_overlay
+            ) or ())
         except Exception:
             rendered = tuple(self.oncs.base_lines(projection) or ())
-        blocks = tuple(self.projection_block_map_v21(projection, allow_cursor_fallback=False) or ())
+        blocks = tuple(self.projection_block_map_v21(
+            projection, allow_cursor_fallback=False
+        ) or ())
         contexts = [{
             "block": blocks[index] if index < len(blocks) else None,
             "definition_sids": set(), "destination_sids": set(),
             "use_sids": set(), "source_sids": set(),
+            "dropin_destination_sids": set(),
+            "dropin_source_sids": set(),
+            "dropin_evidence": set(),
             "metadata_refs": set(), "statement_ids": set(),
         } for index in range(len(rendered))]
         try:
             view = self.document.projection(projection)
         except Exception:
             projections = getattr(self.document, "projections", {})
-            view = projections.get(projection) if isinstance(projections, dict) else None
-        statements = list(getattr(view, "statements", ()) or ()) if view is not None else []
-        resolver = getattr(getattr(self.document, "metadata", None), "resolve", None)
+            view = (
+                projections.get(projection)
+                if isinstance(projections, dict) else None
+            )
+        statements = (
+            list(getattr(view, "statements", ()) or ())
+            if view is not None else []
+        )
+        resolver = getattr(
+            getattr(self.document, "metadata", None), "resolve", None
+        )
         for ordinal, statement in enumerate(statements):
             start, end = self._statement_line_span_v22(statement, ordinal)
             if not contexts:
@@ -4537,9 +4701,21 @@ class PALTerminalModel:
             end = min(max(start, end), len(contexts) - 1)
             destination = set()
             source = set()
+            dropin_destination = set()
+            dropin_source = set()
+            dropin_evidence = set()
             mapping = self._statement_mapping_v33(statement)
-            self._collect_statement_sid_fields_v33(mapping, destination, source)
-            refs = [str(value) for value in list(mapping.get("metadata_refs", ()) or ())]
+            self._collect_statement_sid_fields_v33(
+                mapping, destination, source
+            )
+            self._collect_dropin_statement_fields_v44(
+                mapping, dropin_destination, dropin_source,
+                dropin_evidence,
+            )
+            refs = [
+                str(value)
+                for value in list(mapping.get("metadata_refs", ()) or ())
+            ]
             if callable(resolver):
                 for reference in refs:
                     try:
@@ -4551,51 +4727,1214 @@ class PALTerminalModel:
                             record = None
                     except Exception:
                         record = None
-                    self._collect_statement_sid_fields_v33(record, destination, source)
+                    self._collect_statement_sid_fields_v33(
+                        record, destination, source
+                    )
+                    self._collect_dropin_statement_fields_v44(
+                        record, dropin_destination, dropin_source,
+                        dropin_evidence,
+                    )
             for line_index in range(start, end + 1):
-                lexical_dest, lexical_source = self._lexical_assignment_sids_v33(rendered[line_index])
+                lexical_dest, lexical_source = (
+                    self._lexical_assignment_sids_v33(
+                        rendered[line_index]
+                    )
+                )
                 context = contexts[line_index]
                 context["definition_sids"].update(
                     self.canonical_phi_sid_v33(value)
-                    for value in _metadata_sid_list_v13(mapping.get("definition_sids"))
+                    for value in _metadata_sid_list_v13(
+                        mapping.get("definition_sids")
+                    )
                     if value
                 )
                 context["use_sids"].update(
                     self.canonical_phi_sid_v33(value)
-                    for value in _metadata_sid_list_v13(mapping.get("use_sids"))
+                    for value in _metadata_sid_list_v13(
+                        mapping.get("use_sids")
+                    )
                     if value
                 )
                 context["destination_sids"].update(destination)
                 context["destination_sids"].update(lexical_dest)
                 context["source_sids"].update(source)
                 context["source_sids"].update(lexical_source)
+                context["dropin_destination_sids"].update(
+                    dropin_destination
+                )
+                context["dropin_source_sids"].update(dropin_source)
+                context["dropin_evidence"].update(dropin_evidence)
                 context["metadata_refs"].update(refs)
-                statement_id = mapping.get("statement_id") or mapping.get("id")
+                statement_id = (
+                    mapping.get("statement_id") or mapping.get("id")
+                )
                 if statement_id is not None:
                     context["statement_ids"].add(str(statement_id))
-        # Lexical assignment evidence remains available even when old projections
-        # contain no statement objects.
+
+        # Lexical assignment evidence remains available even when old
+        # projections contain no statement objects.
         for index, context in enumerate(contexts):
-            lexical_dest, lexical_source = self._lexical_assignment_sids_v33(rendered[index])
+            lexical_dest, lexical_source = (
+                self._lexical_assignment_sids_v33(rendered[index])
+            )
             context["destination_sids"].update(lexical_dest)
             context["source_sids"].update(lexical_source)
+
         frozen = []
         for context in contexts:
-            destination = set(context["definition_sids"]) | set(context["destination_sids"])
+            destination = (
+                set(context["definition_sids"])
+                | set(context["destination_sids"])
+            )
             source = set(context["use_sids"]) | set(context["source_sids"])
             frozen.append({
                 "block": context.get("block"),
-                "definition_sids": tuple(sorted(context["definition_sids"])),
+                "definition_sids": tuple(
+                    sorted(context["definition_sids"])
+                ),
                 "destination_sids": tuple(sorted(destination)),
                 "use_sids": tuple(sorted(context["use_sids"])),
                 "source_sids": tuple(sorted(source)),
                 "all_sids": tuple(sorted(destination | source)),
+                "dropin_destination_sids": tuple(sorted(
+                    context["dropin_destination_sids"]
+                )),
+                "dropin_source_sids": tuple(sorted(
+                    context["dropin_source_sids"]
+                )),
+                "dropin_evidence": tuple(sorted(
+                    context["dropin_evidence"]
+                )),
                 "metadata_refs": tuple(sorted(context["metadata_refs"])),
                 "statement_ids": tuple(sorted(context["statement_ids"])),
             })
         cached = tuple(frozen)
         self._truth_source_lines_cache[cache_key] = cached
         return cached
+
+    def projection_dropins_for_block_v44(
+        self, block_addr, projection=None
+    ):
+        """Return assignment/drop-in records owned by one focal CFG block.
+
+        Explicit frozen drop-in/assignment/state-write custody wins.  Older
+        Icecubes fall back to a real Python assignment on a line owned by the
+        same block.  This does not infer new semantic transitions; it only
+        exposes already-published PALDocument evidence in a human workbench.
+        """
+        projection = str(projection or self.projection)
+        focus = self._canonical_block_addr_v21(block_addr)
+        if focus is None:
+            return ()
+        revision = int(getattr(self.oncs, "revision", 0) or 0)
+        cache_key = (
+            "projection:block_dropins:v44", projection, focus, revision,
+            str(self.naming), bool(self.operator_overlay),
+        )
+        cached = self._truth_source_lines_cache.get(cache_key)
+        if cached is not None:
+            return cached
+        try:
+            rendered = tuple(self.oncs.render_lines(
+                projection, self.naming, self.operator_overlay
+            ) or ())
+        except Exception:
+            rendered = tuple(self.oncs.base_lines(projection) or ())
+        contexts = tuple(
+            self.projection_statement_contexts_v33(projection) or ()
+        )
+        function_names = set()
+        for values in (
+            getattr(self.oncs, "call_targets", set()),
+            getattr(self.oncs, "function_defs", set()),
+            getattr(self.oncs, "function_names", set()),
+        ):
+            function_names.update(str(value) for value in list(values or ()))
+
+        candidates = {}
+        for line_index, raw_context in enumerate(contexts):
+            context = dict(raw_context or {})
+            owned = self._canonical_block_addr_v21(
+                context.get("block")
+            )
+            if owned != focus or line_index >= len(rendered):
+                continue
+            text_value = str(rendered[line_index])
+            lexical_dest, lexical_source = (
+                self._lexical_assignment_sids_v33(text_value)
+            )
+            explicit_dest = {
+                self.canonical_phi_sid_v33(value)
+                for value in list(
+                    context.get("dropin_destination_sids", ()) or ()
+                ) if value
+            }
+            explicit_source = {
+                self.canonical_phi_sid_v33(value)
+                for value in list(
+                    context.get("dropin_source_sids", ()) or ()
+                ) if value
+            }
+            context_dest = {
+                self.canonical_phi_sid_v33(value)
+                for value in list(
+                    context.get("destination_sids", ()) or ()
+                ) if value
+            }
+            context_source = {
+                self.canonical_phi_sid_v33(value)
+                for value in list(
+                    context.get("source_sids", ()) or ()
+                ) if value
+            }
+
+            destinations = (
+                explicit_dest or set(lexical_dest) or context_dest
+            )
+            # A generic definition with no Python assignment is not displayed
+            # as a drop-in unless explicit frozen custody says it is one.
+            if not destinations or (
+                not explicit_dest and not lexical_dest
+            ):
+                continue
+            sources = (
+                explicit_source or set(lexical_source) or context_source
+            )
+            sources = {
+                value for value in sources
+                if str(value) not in function_names
+            }
+            destinations.discard("")
+            sources.discard("")
+            if not destinations:
+                continue
+
+            evidence = tuple(
+                str(value) for value in list(
+                    context.get("dropin_evidence", ()) or ()
+                ) if value
+            )
+            if any("dropin" in value for value in evidence):
+                evidence_label = "frozen drop-in"
+            elif evidence:
+                evidence_label = "frozen assignment/state write"
+            else:
+                evidence_label = "projection assignment"
+
+            statement_ids = tuple(
+                str(value) for value in list(
+                    context.get("statement_ids", ()) or ()
+                ) if value
+            )
+            identity_root = (
+                ("statement",) + statement_ids
+                if statement_ids else ("line", str(line_index))
+            )
+            key = (
+                identity_root,
+                tuple(sorted(destinations)),
+            )
+            item = {
+                "kind": "dropin",
+                "dropin_id": "%s:%s:%s" % (
+                    projection, focus,
+                    ",".join(identity_root + tuple(sorted(destinations))),
+                ),
+                "projection": projection,
+                "block": focus,
+                "line": int(line_index),
+                "line_number": int(line_index) + 1,
+                "text": text_value.strip(),
+                "destination_sids": tuple(sorted(destinations)),
+                "source_sids": tuple(sorted(sources)),
+                "destination_names": tuple(
+                    self.active_display_name_v38(value)
+                    for value in sorted(destinations)
+                ),
+                "source_names": tuple(
+                    self.active_display_name_v38(value)
+                    for value in sorted(sources)
+                ),
+                "evidence": evidence,
+                "evidence_label": evidence_label,
+                "metadata_refs": tuple(
+                    str(value) for value in list(
+                        context.get("metadata_refs", ()) or ()
+                    ) if value
+                ),
+                "statement_ids": statement_ids,
+                "lexical_assignment": bool(lexical_dest),
+            }
+            prior = candidates.get(key)
+            if prior is None or (
+                item["lexical_assignment"]
+                and not prior.get("lexical_assignment")
+            ):
+                candidates[key] = item
+
+        ordered = sorted(
+            candidates.values(),
+            key=lambda item: (
+                int(item.get("line", 0)),
+                tuple(item.get("destination_sids", ()) or ()),
+                str(item.get("dropin_id") or ""),
+            ),
+        )
+        for ordinal, item in enumerate(ordered, 1):
+            item["ordinal"] = ordinal
+        cached = tuple(ordered)
+        self._truth_source_lines_cache[cache_key] = cached
+        return cached
+
+    def phi_dropin_focus_rows_v44(
+        self, block_addr, projection=None
+    ):
+        """Humanized PHI pane for one focal ASM address.
+
+        Layout:
+            1. assignments/drop-ins executed by the focal block;
+            2. the frozen PHI block sequence leading to each drop-in;
+            3. the actual drop-in execution row.
+
+        The historical ``Final State`` tail is intentionally omitted because it
+        describes a result variable, not the execution event under inspection.
+        """
+        projection = str(projection or self.projection)
+        focus = self._canonical_block_addr_v21(block_addr)
+        dropins = list(self.projection_dropins_for_block_v44(
+            focus, projection=projection
+        ) or ())
+        if focus is None or not dropins:
+            return ()
+
+        rows = [{
+            "kind": "phi_section",
+            "text": "DROP-INS EXECUTED @ %s [%d]"
+            % (focus, len(dropins)),
+            "dropin_mode": True,
+            "focus_addr": focus,
+        }]
+        for item in dropins:
+            destinations = tuple(item.get("destination_names", ()) or ())
+            sources = tuple(item.get("source_names", ()) or ())
+            target_text = ", ".join(destinations) or "-"
+            source_text = ", ".join(sources) or "expression"
+            code = str(item.get("text") or "").strip()
+            rows.append({
+                "kind": "dropin_summary",
+                "dropin_mode": True,
+                "dropin_id": item.get("dropin_id"),
+                "dropin_index": int(item.get("ordinal", 0)),
+                "output_sid": (
+                    item.get("destination_sids", (None,))[0]
+                    if item.get("destination_sids") else None
+                ),
+                "destination_sids": tuple(
+                    item.get("destination_sids", ()) or ()
+                ),
+                "source_sids": tuple(
+                    item.get("source_sids", ()) or ()
+                ),
+                "address": focus,
+                "addr": focus,
+                "line": int(item.get("line", 0)),
+                "line_number": int(item.get("line_number", 0)),
+                "evidence_label": item.get("evidence_label"),
+                "text": "[%d] PY L%-4d %s <= [%s] :: %s"
+                % (
+                    int(item.get("ordinal", 0)),
+                    int(item.get("line_number", 0)),
+                    target_text, source_text, code,
+                ),
+            })
+
+        for item in dropins:
+            ordinal = int(item.get("ordinal", 0))
+            dropin_id = str(item.get("dropin_id") or "")
+            destinations = tuple(
+                item.get("destination_sids", ()) or ()
+            )
+            code = str(item.get("text") or "").strip()
+            rows.extend((
+                {"kind": "blank", "text": "", "dropin_mode": True},
+                {
+                    "kind": "dropin_sequence_header",
+                    "dropin_mode": True,
+                    "dropin_sequence_id": dropin_id,
+                    "dropin_id": dropin_id,
+                    "dropin_index": ordinal,
+                    "text": "BLOCK SEQUENCE -> DROP-IN [%d]"
+                    % ordinal,
+                },
+            ))
+            for destination in destinations:
+                index = self.phi_custody_index_for_sid_v16(
+                    destination
+                )
+                if index is None:
+                    rows.append({
+                        "kind": "phi_sequence_note",
+                        "dropin_mode": True,
+                        "dropin_sequence_id": dropin_id,
+                        "dropin_id": dropin_id,
+                        "dropin_index": ordinal,
+                        "output_sid": destination,
+                        "text": "  %s: direct materialization; "
+                        "no PHI custody chain is frozen."
+                        % self.phi_display_name_v30(destination),
+                    })
+                    continue
+                for raw in self.phi_custody_blade_v14(index):
+                    row = dict(raw or {})
+                    if row.get("kind") in (
+                        "header_top", "header_bottom", "blank",
+                        "trunk", "final",
+                    ):
+                        continue
+                    row["dropin_mode"] = True
+                    row["dropin_sequence_id"] = dropin_id
+                    row["dropin_id"] = dropin_id
+                    row["dropin_index"] = ordinal
+                    row["phi_template"] = bool(
+                        row.get("phi_template", True)
+                    )
+                    rows.append(row)
+            first_destination = (
+                destinations[0] if destinations else None
+            )
+            prefix = "        | "
+            rows.append({
+                "kind": "dropin_exec",
+                "dropin_mode": True,
+                "dropin_sequence_id": dropin_id,
+                "dropin_id": dropin_id,
+                "dropin_index": ordinal,
+                "output_sid": first_destination,
+                "event_sid": first_destination,
+                "address": focus,
+                "address_display": focus,
+                "address_offset": len(prefix),
+                "block_hotspot": True,
+                "phi_template": True,
+                "text": "%s%-21s DROP-IN EXECUTES: %s"
+                % (prefix, focus, code),
+            })
+        return tuple(rows)
+
+
+    def projection_dropin_groups_for_block_v45(
+        self, block_addr, projection=None
+    ):
+        """GROUP BY exact ASM block while retaining distinct assignments.
+
+        The emitter may publish several execution occurrences of one Python
+        drop-in because several control-flow paths enter the same machine block.
+        The PHI workbench is block-centric: it shows that block once, records
+        how many occurrences were collapsed, and retains every distinct
+        assignment inside the block exactly once.
+        """
+        projection = str(projection or self.projection)
+        focus = self._canonical_block_addr_v21(block_addr)
+        if focus is None:
+            return ()
+        revision = int(getattr(self.oncs, "revision", 0) or 0)
+        cache_key = (
+            "projection:block_dropin_groups:v45", projection, focus,
+            revision, str(self.naming), bool(self.operator_overlay),
+        )
+        cached = self._truth_source_lines_cache.get(cache_key)
+        if cached is not None:
+            return cached
+
+        groups = {}
+        for raw in list(self.projection_dropins_for_block_v44(
+            focus, projection=projection
+        ) or ()):
+            item = dict(raw or {})
+            block = self._canonical_block_addr_v21(
+                item.get("block") or focus
+            ) or focus
+            group = groups.setdefault(block, {
+                "kind": "dropin_block_group",
+                "projection": projection,
+                "block": block,
+                "dropin_id": "%s:%s:block" % (projection, block),
+                "occurrence_count": 0,
+                "destination_sids": set(),
+                "source_sids": set(),
+                "assignments": {},
+            })
+            group["occurrence_count"] += 1
+            destinations = tuple(sorted(
+                self.canonical_phi_sid_v33(value)
+                for value in list(item.get("destination_sids", ()) or ())
+                if value
+            ))
+            sources = tuple(sorted(
+                self.canonical_phi_sid_v33(value)
+                for value in list(item.get("source_sids", ()) or ())
+                if value
+            ))
+            group["destination_sids"].update(destinations)
+            group["source_sids"].update(sources)
+            code_text = str(item.get("text") or "").strip()
+            # Same code + custody inside the same ASM block is one drop-in,
+            # regardless of how many branch occurrences reached it.
+            signature = (code_text, destinations, sources)
+            assignment = group["assignments"].get(signature)
+            if assignment is None:
+                assignment = {
+                    "kind": "dropin_assignment",
+                    "block": block,
+                    "text": code_text,
+                    "destination_sids": destinations,
+                    "source_sids": sources,
+                    "destination_names": tuple(
+                        self.active_display_name_v38(value)
+                        for value in destinations
+                    ),
+                    "source_names": tuple(
+                        self.active_display_name_v38(value)
+                        for value in sources
+                    ),
+                    "occurrence_count": 0,
+                    "line_numbers": set(),
+                    "evidence": set(),
+                    "metadata_refs": set(),
+                    "statement_ids": set(),
+                }
+                group["assignments"][signature] = assignment
+            assignment["occurrence_count"] += 1
+            line_number = int(item.get("line_number", 0) or 0)
+            if line_number > 0:
+                assignment["line_numbers"].add(line_number)
+            assignment["evidence"].update(
+                str(value) for value in list(item.get("evidence", ()) or ())
+                if value
+            )
+            assignment["metadata_refs"].update(
+                str(value) for value in list(
+                    item.get("metadata_refs", ()) or ()
+                ) if value
+            )
+            assignment["statement_ids"].update(
+                str(value) for value in list(
+                    item.get("statement_ids", ()) or ()
+                ) if value
+            )
+
+        ordered_groups = []
+        for block, group in sorted(
+            groups.items(), key=lambda pair: self._asm_address_sort_v34(pair[0])
+        ):
+            assignments = list(group["assignments"].values())
+            assignments.sort(key=lambda item: (
+                min(item["line_numbers"] or {1 << 30}),
+                str(item.get("text") or ""),
+                tuple(item.get("destination_sids", ()) or ()),
+            ))
+            for ordinal, assignment in enumerate(assignments, 1):
+                assignment["ordinal"] = ordinal
+                assignment["line_numbers"] = tuple(sorted(
+                    assignment["line_numbers"]
+                ))
+                assignment["evidence"] = tuple(sorted(
+                    assignment["evidence"]
+                ))
+                assignment["metadata_refs"] = tuple(sorted(
+                    assignment["metadata_refs"]
+                ))
+                assignment["statement_ids"] = tuple(sorted(
+                    assignment["statement_ids"]
+                ))
+            group["assignments"] = tuple(assignments)
+            group["assignment_count"] = len(assignments)
+            group["destination_sids"] = tuple(sorted(
+                group["destination_sids"]
+            ))
+            group["source_sids"] = tuple(sorted(group["source_sids"]))
+            group["destination_names"] = tuple(
+                self.active_display_name_v38(value)
+                for value in group["destination_sids"]
+            )
+            group["source_names"] = tuple(
+                self.active_display_name_v38(value)
+                for value in group["source_sids"]
+            )
+            ordered_groups.append(group)
+
+        for ordinal, group in enumerate(ordered_groups, 1):
+            group["ordinal"] = ordinal
+        cached = tuple(ordered_groups)
+        self._truth_source_lines_cache[cache_key] = cached
+        return cached
+
+    def _is_materialized_storage_sid_v48(self, sid):
+        """Return true only for human-facing materialized state variables.
+
+        Drop-in metadata may also expose pure SSA carriers such as ``v_4453``.
+        Those identities remain valid provenance, but they are not a useful
+        variable inventory for the PHI workbench.  A destination is admitted
+        when it has concrete storage evidence or when its live presentation
+        name is not a raw SSA/static carrier spelling.
+        """
+        canonical, contract = self.active_name_contract_v38(sid)
+        contract = dict(contract or {})
+        if any(bool(contract.get(key)) for key in (
+            "is_function", "is_callee", "is_call_target",
+            "is_function_symbol", "is_constant",
+        )):
+            return False
+        role_text = " ".join(
+            str(contract.get(key) or "").casefold()
+            for key in (
+                "kind", "record_kind", "semantic_role", "object_kind",
+                "category", "type", "role",
+            )
+        )
+        if "constant" in role_text or "function" in role_text:
+            return False
+        storage_evidence = any(
+            contract.get(key) not in (None, False, "", (), [], {})
+            for key in (
+                "storage", "storage_id", "storage_kind", "stack_offset",
+                "stack_slot", "frame_offset", "address", "memory_address",
+                "is_stack_local", "is_parameter", "is_global",
+                "is_materialized", "materialized_storage",
+            )
+        )
+        display = self.active_display_name_v38(canonical or sid)
+        pal_name = str(contract.get("pal_name") or "")
+        canonical = str(canonical or sid or "")
+        names = [display, pal_name, canonical]
+        if any(str(value).startswith("c_") for value in names if value):
+            return False
+        raw_ssa = re.compile(r"^v_[0-9a-f]+$", re.IGNORECASE)
+        if storage_evidence:
+            return True
+        return not all(
+            raw_ssa.fullmatch(str(value or "").strip())
+            for value in names if value
+        )
+
+
+    def _projection_temp_usability_index_v50(self, projection=None):
+        """Classify emitted ``v_*`` destinations by actual downstream usability.
+
+        A one-definition temporary is not automatically SSA traffic.  Temps such
+        as token lengths, loaded sentinels, call results and selector values are
+        real readable variables when their emitted value is consumed later.
+
+        The one narrow exclusion retained for readability is a repeated
+        state-alias carrier: one definition is copied into the same human-facing
+        storage destination across several placements/blocks.  That is the
+        ``v_4453 -> local_24`` class and should collapse to the storage identity
+        rather than occupy a second PHI/materialization row.
+        """
+        projection = str(projection or self.projection)
+        revision = int(getattr(self.oncs, "revision", 0) or 0)
+        cache_key = (
+            "projection:temp_usability_index:v50", projection, revision,
+            str(self.naming), bool(self.operator_overlay),
+        )
+        cached = self._truth_source_lines_cache.get(cache_key)
+        if cached is not None:
+            return cached
+
+        try:
+            rendered = tuple(self.oncs.render_lines(
+                projection, self.naming, self.operator_overlay
+            ) or ())
+        except Exception:
+            rendered = tuple(self.oncs.base_lines(projection) or ())
+        contexts = tuple(
+            self.projection_statement_contexts_v33(projection) or ()
+        )
+        raw_ssa = re.compile(r"^v_[0-9a-f]+$", re.IGNORECASE)
+        index = {}
+
+        def record_for(value):
+            canonical = self.canonical_phi_sid_v33(value)
+            canonical = str(canonical or value or "")
+            display = self.active_display_name_v38(canonical)
+            aliases = {canonical, str(display or "")}
+            try:
+                unused, contract = self.active_name_contract_v38(canonical)
+            except Exception:
+                contract = {}
+            contract = dict(contract or {})
+            for key in (
+                "sid", "canonical_ssa_name", "pal_name", "display_name",
+                "active_name", "generated_human_alias", "operator_alias",
+                "original_name",
+            ):
+                candidate = contract.get(key)
+                if candidate:
+                    aliases.add(str(candidate))
+            if not any(raw_ssa.fullmatch(alias.strip()) for alias in aliases if alias):
+                return None
+            return index.setdefault(canonical, {
+                "sid": canonical,
+                "aliases": set(alias for alias in aliases if alias),
+                "definition_lines": set(),
+                "definition_blocks": set(),
+                "definition_texts": set(),
+                "use_lines": set(),
+                "use_blocks": set(),
+                "use_roles": set(),
+                "storage_sink_destinations": set(),
+                "storage_sink_blocks": set(),
+                "storage_sink_assignments": set(),
+            })
+
+        def semantic_role(text):
+            stripped = str(text or "").strip()
+            lowered = stripped.casefold()
+            if lowered.startswith(("if ", "elif ", "while ")) or lowered.startswith("assert "):
+                return "condition"
+            if lowered.startswith("return"):
+                return "return"
+            if "<-" in stripped or re.search(r"\bMEM(?:8|16|32|64)?\s*\[", stripped):
+                return "memory"
+            if re.search(r"\b[A-Za-z_][A-Za-z0-9_]*\s*\(", stripped):
+                return "call_or_expression"
+            return "expression"
+
+        for line_index, text in enumerate(rendered):
+            context = dict(
+                contexts[line_index] if line_index < len(contexts) else {}
+                or {}
+            )
+            block = self._canonical_block_addr_v21(context.get("block"))
+            destinations = {
+                self.canonical_phi_sid_v33(value)
+                for value in list(
+                    context.get("destination_sids", ()) or ()
+                ) if value
+            }
+            sources = {
+                self.canonical_phi_sid_v33(value)
+                for value in list(context.get("source_sids", ()) or ())
+                if value
+            }
+
+            lexical_dest, lexical_source = self._lexical_assignment_sids_v33(
+                str(text)
+            )
+            destinations.update(
+                self.canonical_phi_sid_v33(value)
+                for value in lexical_dest if value
+            )
+            sources.update(
+                self.canonical_phi_sid_v33(value)
+                for value in lexical_source if value
+            )
+
+            # Legacy/invalid-Python projection rows (for example MEM32[x] <- y)
+            # may not expose lexical source metadata.  Recover raw temp tokens
+            # conservatively and exclude an obvious direct assignment target.
+            raw_tokens = set(re.findall(
+                r"\bv_[0-9A-Fa-f]+\b", str(text), flags=re.IGNORECASE
+            ))
+            direct_target = None
+            target_match = re.match(
+                r"^\s*(v_[0-9A-Fa-f]+)\s*=", str(text), flags=re.IGNORECASE
+            )
+            if target_match:
+                direct_target = self.canonical_phi_sid_v33(
+                    target_match.group(1)
+                )
+                destinations.add(direct_target)
+            for token_name in raw_tokens:
+                canonical_token = self.canonical_phi_sid_v33(token_name)
+                if canonical_token != direct_target:
+                    sources.add(canonical_token)
+
+            for destination in destinations:
+                record = record_for(destination)
+                if record is None:
+                    continue
+                record["definition_lines"].add(int(line_index))
+                if block is not None:
+                    record["definition_blocks"].add(block)
+                record["definition_texts"].add(str(text).strip())
+
+            role = semantic_role(text)
+            for source in sources:
+                record = record_for(source)
+                if record is None:
+                    continue
+                record["use_lines"].add(int(line_index))
+                if block is not None:
+                    record["use_blocks"].add(block)
+                record["use_roles"].add(role)
+
+                for destination in destinations:
+                    if destination == source:
+                        continue
+                    if not self._is_materialized_storage_sid_v48(destination):
+                        continue
+                    record["storage_sink_destinations"].add(str(destination))
+                    if block is not None:
+                        record["storage_sink_blocks"].add(block)
+                    record["storage_sink_assignments"].add((
+                        block,
+                        str(destination),
+                        str(text).strip(),
+                    ))
+
+        frozen = {}
+        for sid, raw_record in index.items():
+            record = dict(raw_record)
+            for key in (
+                "aliases", "definition_lines", "definition_blocks",
+                "definition_texts", "use_lines", "use_blocks", "use_roles",
+                "storage_sink_destinations", "storage_sink_blocks",
+                "storage_sink_assignments",
+            ):
+                record[key] = tuple(sorted(
+                    record.get(key, ()),
+                    key=lambda value: str(value),
+                ))
+            record["definition_count"] = len(record["definition_texts"])
+            record["definition_block_count"] = len(record["definition_blocks"])
+            record["use_count"] = len(record["use_lines"])
+            record["use_block_count"] = len(record["use_blocks"])
+            record["storage_sink_count"] = len(
+                record["storage_sink_destinations"]
+            )
+            record["storage_sink_block_count"] = len(
+                record["storage_sink_blocks"]
+            )
+            record["storage_sink_assignment_count"] = len(
+                record["storage_sink_assignments"]
+            )
+            frozen[sid] = record
+
+        self._truth_source_lines_cache[cache_key] = frozen
+        return frozen
+
+    def _is_valid_control_temp_v50(self, sid, record=None):
+        """Admit semantically used emitted temps; reject repeated alias traffic.
+
+        Valid classes include:
+
+        * several emitted definitions or definition blocks;
+        * several frozen PHI incoming values;
+        * one emitted definition whose value is consumed by a condition, call,
+          return, memory operation or later expression.
+
+        The one-definition carrier is hidden only when it repeatedly
+        materializes into the same stable storage destination across multiple
+        assignments/blocks.  This preserves real temps such as ``v_424`` and
+        ``v_724`` while continuing to suppress ``v_4453``-style storage aliases.
+        """
+        canonical, contract = self.active_name_contract_v38(sid)
+        canonical = str(canonical or sid or "")
+        contract = dict(contract or {})
+        if any(bool(contract.get(key)) for key in (
+            "is_function", "is_callee", "is_call_target",
+            "is_function_symbol", "is_constant",
+        )):
+            return False
+
+        display = self.active_display_name_v38(canonical)
+        raw_ssa = re.compile(r"^v_[0-9a-f]+$", re.IGNORECASE)
+        names = {
+            str(value) for value in (
+                display, canonical, contract.get("pal_name"),
+                contract.get("canonical_ssa_name"),
+            ) if value
+        }
+        if not any(raw_ssa.fullmatch(value.strip()) for value in names):
+            return False
+
+        record = dict(record or {})
+        evidence = dict(
+            self._projection_temp_usability_index_v50(
+                projection=self.projection
+            ).get(canonical, {}) or {}
+        )
+
+        definition_count = max(
+            int(record.get("assignment_count", 0) or 0),
+            int(evidence.get("definition_count", 0) or 0),
+        )
+        definition_blocks = max(
+            int(record.get("block_count", 0) or 0),
+            int(evidence.get("definition_block_count", 0) or 0),
+        )
+
+        try:
+            phi_records = list(
+                dict(self._phi_graph_v14().get("by_output", {}) or {}).get(
+                    canonical, ()
+                ) or ()
+            )
+        except Exception:
+            phi_records = []
+        incoming = {
+            self.canonical_phi_sid_v33(value)
+            for phi_record in phi_records
+            for value in list(
+                dict(phi_record or {}).get("input_sids", ()) or ()
+            )
+            if value
+        }
+
+        # Multi-definition and PHI selector temps remain unconditionally useful.
+        if definition_count >= 2 or definition_blocks >= 2 or len(incoming) >= 2:
+            return True
+
+        # No downstream consumer means no readable materialization purpose.
+        if int(evidence.get("use_count", 0) or 0) < 1:
+            return False
+
+        # A repeated one-source -> one-storage relay is readability alias
+        # traffic, not a second human variable.  Requiring repeated placements
+        # preserves genuine swap/address/result temps that materialize once.
+        repeated_single_sink_alias = (
+            int(evidence.get("storage_sink_count", 0) or 0) == 1
+            and (
+                int(evidence.get("storage_sink_assignment_count", 0) or 0) >= 2
+                or int(evidence.get("storage_sink_block_count", 0) or 0) >= 2
+            )
+        )
+        if definition_count <= 1 and repeated_single_sink_alias:
+            return False
+
+        return True
+
+    def projection_materialization_groups_v48(
+        self, block_addr=None, projection=None, full_scope=False
+    ):
+        """Return exact drop-in block groups for focal or full-function scope."""
+        projection = str(projection or self.projection)
+        focus = self._canonical_block_addr_v21(block_addr)
+        revision = int(getattr(self.oncs, "revision", 0) or 0)
+        cache_key = (
+            "projection:materialization_groups:v48", projection,
+            focus, bool(full_scope), revision,
+            str(self.naming), bool(self.operator_overlay),
+        )
+        cached = self._truth_source_lines_cache.get(cache_key)
+        if cached is not None:
+            return cached
+
+        if full_scope:
+            blocks = {
+                self._canonical_block_addr_v21(
+                    dict(context or {}).get("block")
+                )
+                for context in self.projection_statement_contexts_v33(
+                    projection
+                )
+            }
+            blocks.discard(None)
+        else:
+            blocks = {focus} if focus is not None else set()
+
+        groups = []
+        for block in sorted(blocks, key=self._asm_address_sort_v34):
+            groups.extend(
+                dict(group or {})
+                for group in self.projection_dropin_groups_for_block_v45(
+                    block, projection=projection
+                )
+            )
+        cached = tuple(groups)
+        self._truth_source_lines_cache[cache_key] = cached
+        return cached
+
+    def materialized_variable_inventory_v48(
+        self, block_addr=None, projection=None, full_scope=False
+    ):
+        """Aggregate concrete storage destinations and valid emitted temps.
+
+        Human-facing storage remains the primary inventory.  A raw ``v_*`` destination is retained when publication proves either a
+        multi-definition/PHI selector or a one-definition value with a real
+        downstream consumer.  Repeated one-source-to-one-storage alias traffic
+        remains provenance-only.
+        """
+        projection = str(projection or self.projection)
+        focus = self._canonical_block_addr_v21(block_addr)
+        revision = int(getattr(self.oncs, "revision", 0) or 0)
+        cache_key = (
+            "projection:materialized_inventory:v50", projection,
+            focus, bool(full_scope), revision,
+            str(self.naming), bool(self.operator_overlay),
+        )
+        cached = self._truth_source_lines_cache.get(cache_key)
+        if cached is not None:
+            return cached
+
+        variables = {}
+        for raw_group in self.projection_materialization_groups_v48(
+            focus, projection=projection, full_scope=full_scope
+        ):
+            group = dict(raw_group or {})
+            block = self._canonical_block_addr_v21(group.get("block"))
+            if block is None:
+                continue
+            for raw_assignment in list(group.get("assignments", ()) or ()):
+                assignment = dict(raw_assignment or {})
+                destinations = tuple(
+                    self.canonical_phi_sid_v33(value)
+                    for value in list(
+                        assignment.get("destination_sids", ()) or ()
+                    )
+                    if value
+                )
+                for sid in destinations:
+                    record = variables.setdefault(sid, {
+                        "output_sid": sid,
+                        "sid": sid,
+                        "pal_name": self.active_display_name_v38(sid),
+                        "blocks": {},
+                        "occurrence_count": 0,
+                        "assignment_count": 0,
+                    })
+                    block_record = record["blocks"].setdefault(block, {
+                        "block": block,
+                        "assignments": {},
+                        "occurrence_count": 0,
+                    })
+                    code = str(assignment.get("text") or "").strip()
+                    sources = tuple(
+                        self.canonical_phi_sid_v33(value)
+                        for value in list(
+                            assignment.get("source_sids", ()) or ()
+                        )
+                        if value
+                    )
+                    identity = (code, destinations, sources)
+                    prior = block_record["assignments"].get(identity)
+                    count = max(1, int(
+                        assignment.get("occurrence_count", 0) or 0
+                    ))
+                    if prior is None:
+                        prior = dict(assignment)
+                        prior["occurrence_count"] = count
+                        block_record["assignments"][identity] = prior
+                        record["assignment_count"] += 1
+                    else:
+                        prior["occurrence_count"] = max(
+                            int(prior.get("occurrence_count", 0) or 0), count
+                        )
+                    block_record["occurrence_count"] += count
+                    record["occurrence_count"] += count
+
+        inventory = []
+        for sid, raw_record in variables.items():
+            record = dict(raw_record or {})
+            block_rows = []
+            for block, raw_block in sorted(
+                record["blocks"].items(),
+                key=lambda pair: self._asm_address_sort_v34(pair[0]),
+            ):
+                block_record = dict(raw_block or {})
+                assignments = list(
+                    dict(value or {})
+                    for value in block_record.get("assignments", {}).values()
+                )
+                assignments.sort(key=lambda item: (
+                    min(item.get("line_numbers", ()) or (1 << 30,)),
+                    str(item.get("text") or ""),
+                ))
+                block_record["assignments"] = tuple(assignments)
+                block_record["assignment_count"] = len(assignments)
+                block_rows.append(block_record)
+            record["blocks"] = tuple(block_rows)
+            record["block_count"] = len(block_rows)
+
+            storage = self._is_materialized_storage_sid_v48(sid)
+            valid_temp = self._is_valid_control_temp_v50(sid, record)
+            if not storage and not valid_temp:
+                continue
+            record["materialization_kind"] = (
+                "storage" if storage else "control_temp"
+            )
+            inventory.append(record)
+
+        inventory.sort(key=lambda item: (
+            str(item.get("pal_name") or "").casefold(),
+            str(item.get("output_sid") or "").casefold(),
+        ))
+        for ordinal, item in enumerate(inventory, 1):
+            item["ordinal"] = ordinal
+        cached = tuple(inventory)
+        self._truth_source_lines_cache[cache_key] = cached
+        return cached
+
+    def phi_dropin_focus_rows_v45(
+        self, block_addr, projection=None
+    ):
+        """Compact block-grouped drop-in view for the one-third PHI pane.
+
+        Human reading order is vertical:
+
+            block summary
+            assignment facts, one fact per line
+            block sequence once
+            executed code, one complete data item per line
+
+        Code expressions are never broken or rewritten merely to fit the pane;
+        horizontal scrolling remains available for an intrinsically long item.
+        """
+        projection = str(projection or self.projection)
+        focus = self._canonical_block_addr_v21(block_addr)
+        groups = list(self.projection_dropin_groups_for_block_v45(
+            focus, projection=projection
+        ) or ())
+        if focus is None or not groups:
+            return ()
+
+        rows = [{
+            "kind": "phi_section",
+            "text": "DROP-IN BLOCKS @ %s [%d]" % (focus, len(groups)),
+            "dropin_mode": True,
+            "focus_addr": focus,
+        }]
+
+        for group in groups:
+            group_id = str(group.get("dropin_id") or "")
+            block = self._canonical_block_addr_v21(
+                group.get("block")
+            ) or focus
+            group_index = int(group.get("ordinal", 0) or 0)
+            assignments = list(group.get("assignments", ()) or ())
+            destinations = tuple(group.get("destination_sids", ()) or ())
+            sources = tuple(group.get("source_sids", ()) or ())
+            rows.append({
+                "kind": "dropin_summary",
+                "dropin_mode": True,
+                "dropin_id": group_id,
+                "dropin_index": group_index,
+                "output_sid": destinations[0] if destinations else None,
+                "destination_sids": destinations,
+                "source_sids": sources,
+                "address": block,
+                "addr": block,
+                "line_number": min((
+                    line for assignment in assignments
+                    for line in list(assignment.get("line_numbers", ()) or ())
+                ), default=0),
+                "text": "BLOCK %s | %d assignment%s | %d occurrence%s" % (
+                    block,
+                    int(group.get("assignment_count", len(assignments)) or 0),
+                    "" if len(assignments) == 1 else "s",
+                    int(group.get("occurrence_count", 0) or 0),
+                    "" if int(group.get("occurrence_count", 0) or 0) == 1 else "s",
+                ),
+            })
+
+            # v0.35a: the top summary already names the grouped ASM block.
+            # Do not repeat PY line, occurrence, writes, reads, evidence, and
+            # code prose before the custody blade.  The blade starts directly,
+            # while the complete executed code remains at its terminal event.
+            rows.extend((
+                {"kind": "blank", "text": "", "dropin_mode": True},
+                {
+                    "kind": "dropin_sequence_header",
+                    "dropin_mode": True,
+                    "dropin_sequence_id": group_id,
+                    "dropin_id": group_id,
+                    "dropin_index": group_index,
+                    "text": "PHI BLADE @ %s" % block,
+                },
+            ))
+
+            emitted_path_rows = set()
+            any_path = False
+            for destination in destinations:
+                index = self.phi_custody_index_for_sid_v16(destination)
+                if index is None:
+                    note_key = ("direct", str(destination))
+                    if note_key not in emitted_path_rows:
+                        emitted_path_rows.add(note_key)
+                        rows.append({
+                            "kind": "phi_sequence_note",
+                            "dropin_mode": True,
+                            "dropin_sequence_id": group_id,
+                            "dropin_id": group_id,
+                            "dropin_index": group_index,
+                            "output_sid": destination,
+                            "text": "  direct: %s" % self.phi_display_name_v30(destination),
+                        })
+                    continue
+                for raw in self.phi_custody_blade_v14(index):
+                    row = dict(raw or {})
+                    if row.get("kind") in (
+                        "header_top", "header_bottom", "blank",
+                        "trunk", "final",
+                    ):
+                        continue
+                    semantic_key = (
+                        str(row.get("kind") or ""),
+                        str(row.get("address") or ""),
+                        str(row.get("event_sid") or ""),
+                        str(row.get("output_sid") or ""),
+                        str(row.get("text") or ""),
+                    )
+                    if semantic_key in emitted_path_rows:
+                        continue
+                    emitted_path_rows.add(semantic_key)
+                    any_path = True
+                    row["dropin_mode"] = True
+                    row["dropin_sequence_id"] = group_id
+                    row["dropin_id"] = group_id
+                    row["dropin_index"] = group_index
+                    row["phi_template"] = bool(
+                        row.get("phi_template", True)
+                    )
+                    rows.append(row)
+            if not any_path and not destinations:
+                rows.append({
+                    "kind": "phi_sequence_note",
+                    "dropin_mode": True,
+                    "dropin_sequence_id": group_id,
+                    "dropin_id": group_id,
+                    "dropin_index": group_index,
+                    "text": "  no PHI custody chain is frozen",
+                })
+
+            prefix = "        | "
+            rows.extend((
+                {"kind": "blank", "text": "", "dropin_mode": True},
+                {
+                    "kind": "dropin_exec",
+                    "dropin_mode": True,
+                    "dropin_sequence_id": group_id,
+                    "dropin_id": group_id,
+                    "dropin_index": group_index,
+                    "output_sid": destinations[0] if destinations else None,
+                    "event_sid": destinations[0] if destinations else None,
+                    "address": block,
+                    "address_display": block,
+                    "address_offset": len(prefix),
+                    "block_hotspot": True,
+                    "phi_template": True,
+                    "text": "%s%-21s DROP-IN BLOCK EXECUTES"
+                    % (prefix, block),
+                },
+            ))
+            for assignment in assignments:
+                rows.append({
+                    "kind": "dropin_code",
+                    "dropin_mode": True,
+                    "dropin_sequence_id": group_id,
+                    "dropin_id": group_id,
+                    "dropin_index": group_index,
+                    "assignment_index": int(
+                        assignment.get("ordinal", 0) or 0
+                    ),
+                    "full_data_item": True,
+                    "text": "          [%d] %s" % (
+                        int(assignment.get("ordinal", 0) or 0),
+                        str(assignment.get("text") or ""),
+                    ),
+                })
+        return tuple(rows)
 
     def phi_paths_for_code_context_v33(self, block_addr, context, rows=None):
         """Select statement-owned PHI outputs before falling back to block scope."""
@@ -4667,6 +6006,273 @@ class PALTerminalModel:
             })
             seen.add(output)
         return tuple(selected)
+    def projection_block_activity_v47(
+        self, block_addr, projection=None, statement_context=None
+    ):
+        """Return exact Python/drop-in SID activity for one CFG block.
+
+        A PHI merge may be attached to a block entry without being consumed by
+        the instructions rendered in that block.  This inventory keeps those
+        concepts separate.  It uses only already-frozen PALDocument evidence:
+        statement definitions/uses and explicit drop-in source/destination
+        custody.  It does not infer new PHI semantics from CFG shape alone.
+        """
+        projection = str(projection or self.projection)
+        focus = self._canonical_block_addr_v21(block_addr)
+        buckets = {
+            "definition_sids": set(),
+            "destination_sids": set(),
+            "use_sids": set(),
+            "source_sids": set(),
+            "dropin_destination_sids": set(),
+            "dropin_source_sids": set(),
+            "line_indices": set(),
+        }
+        if focus is None:
+            return {
+                "block": None, "projection": projection,
+                "active_sids": (), "read_sids": (), "write_sids": (),
+                "dropin_sids": (), "line_indices": (),
+                **{key: () for key in buckets if key != "line_indices"},
+            }
+
+        try:
+            contexts = list(
+                self.projection_statement_contexts_v33(projection) or ()
+            )
+        except Exception:
+            contexts = []
+        try:
+            blocks = list(self.projection_block_map_v21(
+                projection, allow_cursor_fallback=False
+            ) or ())
+        except Exception:
+            blocks = []
+
+        selected_contexts = []
+        for index, raw in enumerate(contexts):
+            context = dict(raw or {})
+            owned = self._canonical_block_addr_v21(
+                context.get("block")
+                or (blocks[index] if index < len(blocks) else None)
+            )
+            if owned != focus:
+                continue
+            selected_contexts.append(context)
+            buckets["line_indices"].add(index)
+        if statement_context:
+            selected_contexts.append(dict(statement_context or {}))
+
+        sid_keys = (
+            "definition_sids", "destination_sids", "use_sids",
+            "source_sids", "dropin_destination_sids",
+            "dropin_source_sids",
+        )
+        for context in selected_contexts:
+            for key in sid_keys:
+                for value in list(context.get(key, ()) or ()):
+                    canonical = self.canonical_phi_sid_v33(value)
+                    if canonical:
+                        buckets[key].add(canonical)
+            # Older contexts may publish only all_sids.  Treat them as reads;
+            # this is display relevance, not a write/materialization claim.
+            for value in list(context.get("all_sids", ()) or ()):
+                canonical = self.canonical_phi_sid_v33(value)
+                if canonical:
+                    buckets["source_sids"].add(canonical)
+
+        write_sids = (
+            buckets["definition_sids"]
+            | buckets["destination_sids"]
+            | buckets["dropin_destination_sids"]
+        )
+        read_sids = (
+            buckets["use_sids"]
+            | buckets["source_sids"]
+            | buckets["dropin_source_sids"]
+        )
+        dropin_sids = (
+            buckets["dropin_destination_sids"]
+            | buckets["dropin_source_sids"]
+        )
+        active_sids = read_sids | write_sids
+        result = {
+            "block": focus,
+            "projection": projection,
+            "active_sids": tuple(sorted(active_sids)),
+            "read_sids": tuple(sorted(read_sids)),
+            "write_sids": tuple(sorted(write_sids)),
+            "dropin_sids": tuple(sorted(dropin_sids)),
+            "line_indices": tuple(sorted(buckets["line_indices"])),
+        }
+        for key in sid_keys:
+            result[key] = tuple(sorted(buckets[key]))
+        return result
+
+    def phi_paths_for_focal_block_v47(
+        self, block_addr, statement_context=None, rows=None,
+        projection=None,
+    ):
+        """Classify PHI custody as active block work or passive entry state.
+
+        Address coincidence alone is not sufficient evidence that a PHI value
+        is read, written or materialized by the focused machine block.  The
+        returned rows retain true PHI custody while tagging its relationship to
+        the current ASM/Python scope.
+        """
+        projection = str(projection or self.projection)
+        focus = self._canonical_block_addr_v21(block_addr)
+        activity = self.projection_block_activity_v47(
+            focus, projection=projection,
+            statement_context=statement_context,
+        )
+        active_sids = set(activity.get("active_sids", ()) or ())
+        read_sids = set(activity.get("read_sids", ()) or ())
+        write_sids = set(activity.get("write_sids", ()) or ())
+        dropin_sids = set(activity.get("dropin_sids", ()) or ())
+        rows = [
+            dict(row or {}) for row in list(
+                rows if rows is not None
+                else self.phi_path_focus_rows_v21()
+            )
+        ]
+        graph = self._phi_graph_v14()
+        entries = {
+            str(entry.get("output_sid") or ""): dict(entry or {})
+            for entry in list(graph.get("entries", ()) or ())
+        }
+
+        active = []
+        passive = []
+        seen = set()
+        for raw in rows:
+            row = dict(raw or {})
+            incoming = self._canonical_block_addr_v21(
+                row.get("incoming_addr")
+            )
+            merge = self._canonical_block_addr_v21(row.get("merge_addr"))
+            if focus not in (incoming, merge):
+                continue
+            output = self.canonical_phi_sid_v33(row.get("output_sid"))
+            inputs = {
+                self.canonical_phi_sid_v33(value)
+                for value in list(row.get("input_sids", ()) or ())
+                if value
+            }
+            roots = {
+                self.canonical_phi_sid_v33(value)
+                for value in list(entries.get(output, {}).get("roots", ()) or ())
+                if value
+            }
+            relation = (
+                "merge_at_entry" if merge == focus
+                else "carried_from_block" if incoming == focus
+                else "block_context"
+            )
+            relevant = {output} | inputs | roots
+            intersection = relevant & active_sids
+            is_active = bool(intersection or row.get("statement_owned"))
+            if output in write_sids:
+                block_use = "READ+WRITE" if output in read_sids else "WRITE"
+            elif output in read_sids or bool((inputs | roots) & read_sids):
+                block_use = "READ"
+            elif bool(relevant & dropin_sids):
+                block_use = "DROP-IN"
+            elif is_active:
+                block_use = "RELATED"
+            else:
+                block_use = "NONE"
+
+            if relation == "merge_at_entry":
+                tag = (
+                    "MERGES AT BLOCK ENTRY — ACTIVE HERE"
+                    if is_active else "ENTRY STATE — UNUSED HERE"
+                )
+                short = (
+                    "ACTIVE: %s" % block_use
+                    if is_active else "PASSIVE ENTRY"
+                )
+            elif relation == "carried_from_block":
+                tag = (
+                    "CARRIED FROM BLOCK — ACTIVE HERE"
+                    if is_active else "CHAIN CONTEXT ONLY — UNUSED HERE"
+                )
+                short = (
+                    "ACTIVE: %s" % block_use
+                    if is_active else "PASSIVE CARRY"
+                )
+            else:
+                tag = "FOCAL BLOCK ACTIVITY" if is_active else "CHAIN CONTEXT ONLY"
+                short = "ACTIVE" if is_active else "PASSIVE"
+
+            row.update({
+                "output_sid": output,
+                "input_sids": tuple(sorted(inputs)),
+                "incoming_addr": incoming,
+                "merge_addr": merge,
+                "focal_relation_v47": relation,
+                "block_activity_v47": "active" if is_active else "passive",
+                "block_use_v47": block_use,
+                "activity_tag_v47": tag,
+                "activity_short_v47": short,
+                "activity_intersection_v47": tuple(sorted(intersection)),
+            })
+            identity = (
+                output, incoming, merge, tuple(sorted(inputs)), relation,
+            )
+            if identity in seen:
+                continue
+            seen.add(identity)
+            (active if is_active else passive).append(row)
+
+        # A statement-owned drop-in destination may not expose an edge record
+        # whose merge address equals the rendered assignment block.  Retain the
+        # narrow synthetic authority row used by v0.35, but tag it explicitly as
+        # a block write rather than a CFG merge.
+        destination_sids = set(activity.get("write_sids", ()) or ())
+        existing_outputs = {
+            str(row.get("output_sid") or "") for row in active + passive
+        }
+        for output in sorted(destination_sids):
+            entry = entries.get(output, {})
+            if output in existing_outputs or not entry.get("has_phi"):
+                continue
+            active.append({
+                "kind": "phi_path",
+                "incoming_addr": focus,
+                "incoming_role": "statement_destination",
+                "merge_addr": focus,
+                "output_sid": output,
+                "pal_name": entry.get("pal_name") or output,
+                "input_sids": tuple(entry.get("roots", ()) or ()),
+                "statement_owned": True,
+                "focal_relation_v47": "statement_destination",
+                "block_activity_v47": "active",
+                "block_use_v47": "WRITE",
+                "activity_tag_v47": "MATERIALIZES HERE",
+                "activity_short_v47": "ACTIVE: WRITE",
+                "activity_intersection_v47": (output,),
+                "text": "%s => %s [MATERIALIZES HERE]" % (
+                    focus or "-", self.phi_display_name_v30(output),
+                ),
+            })
+
+        def sort_key(row):
+            return (
+                0 if row.get("focal_relation_v47") == "merge_at_entry" else 1,
+                str(self.phi_display_name_v30(row.get("output_sid"))).casefold(),
+                str(row.get("output_sid") or "").casefold(),
+            )
+        active.sort(key=sort_key)
+        passive.sort(key=sort_key)
+        return {
+            "focus": focus,
+            "activity": activity,
+            "active": tuple(active),
+            "passive": tuple(passive),
+            "all": tuple(active + passive),
+        }
+
     def truth_digest(self):
         metadata_view = IcecubeMetadataView(
             self.document, function_record=self.function_record
@@ -5695,7 +7301,7 @@ class PALCursesUI:
         # remains the default and keeps its original cursor/scroll state.
         self.side_by_side = False
         self.side_active = 0
-        self.side_panes = ("asm", "readable", "c_code", "executable")
+        self.side_panes = ("asm", "executable", "c_code", "readable")
         self.side_titles = {
             "asm": "ASM / MACHINE TRUTH",
             "readable": "READ.PY",
@@ -6024,16 +7630,43 @@ class PALCursesUI:
             return "readable"
         return None
 
+    def _side_line_block_v52(self, pane, line):
+        """Return CFG allegiance for one Python line without token metadata.
+
+        OVERVIEW is line-focused.  It must not build object hotspots or resolve
+        a variable beneath a column merely to synchronize READ/EXEC/ASM.
+        Direct statement block ownership is authoritative; one bounded
+        describe_cursor lookup is retained only for the active legacy line.
+        """
+        pane = str(pane)
+        line = max(0, int(line))
+        try:
+            mapping = tuple(self.model.projection_block_map_v21(
+                pane, allow_cursor_fallback=False
+            ) or ())
+        except Exception:
+            mapping = ()
+        if 0 <= line < len(mapping):
+            block = self.model._canonical_block_addr_v21(mapping[line])
+            if block is not None:
+                return block
+        try:
+            return self.model._canonical_block_addr_v21(
+                self.model.cursor_block_addr_v12(
+                    projection=pane, line=line, column=0
+                )
+            )
+        except Exception:
+            return None
+
     def _side_lock_asm_v12(self, source_pane):
         """Lock ASM contents to the CFG block under the active Python line."""
         if source_pane not in ("readable", "executable"):
             return False
 
         source = self.side_state[source_pane]
-        block_addr = self.model.cursor_block_addr_v12(
-            source_pane,
-            int(source["line"]),
-            int(source["column"]),
+        block_addr = self._side_line_block_v52(
+            source_pane, int(source["line"])
         )
         if block_addr is None:
             # Synthetic/presentation lines may own no CFG block.  Retain the
@@ -6070,9 +7703,9 @@ class PALCursesUI:
         right_width = int(width) - left_width
         return {
             "asm": (0, 0, top_height, left_width),
-            "readable": (0, left_width, top_height, right_width),
+            "executable": (0, left_width, top_height, right_width),
             "c_code": (top_height, 0, bottom_height, left_width),
-            "executable": (top_height, left_width, bottom_height, right_width),
+            "readable": (top_height, left_width, bottom_height, right_width),
         }
 
     def _side_soft_sync_c(self, source_pane):
@@ -6147,6 +7780,14 @@ class PALCursesUI:
         return matches[0]
 
     def _side_sync_python_pair(self, source_pane, soft_c=True):
+        """Synchronize READ/EXEC by statement line and CFG block only.
+
+        The former path delegated to column-sensitive ``sync_cursor`` and could
+        wake legacy object-hotspot metadata for a line whose whole row is now
+        the focus unit.  v0.24a finalizer maps the source line to its peer block,
+        preserves relative line position inside that block, and falls back to
+        document percentage only when frozen block ownership is unavailable.
+        """
         peer = self._side_python_peer(source_pane)
         if peer is None:
             return False
@@ -6159,85 +7800,98 @@ class PALCursesUI:
             max(0, int(source["line"])), max(0, len(source_lines) - 1)
         )
         source_column = min(
-            max(0, int(source["column"])),
+            max(0, int(source.get("column", 0))),
             len(source_lines[source_line]) if source_lines else 0,
         )
         source["line"] = source_line
         source["column"] = source_column
+
         target_line = line_from_document_position(
             percentage_document_position(source_line, len(source_lines)),
             len(target_lines),
         )
-        target_base_column = 0
-        reason = "percentage_fallback"
+        reason = "line_percentage_fallback"
+        source_block = self._side_line_block_v52(source_pane, source_line)
+
         try:
-            source_base_column = self.model.oncs.display_to_pal_column(
-                source_pane,
-                self.model.naming,
-                source_line,
-                source_column,
-                self.model.operator_overlay,
-            )
-            mapping = self.model.sync_projection_cursor(
-                source_pane,
-                peer,
-                source_line,
-                source_base_column,
-            )
-            if mapping.get("matched"):
-                target_line = int(mapping["target_view"]["line"])
-                target_base_column = int(mapping["target_view"]["column"])
-                reason = mapping.get("reason") or "paired_statement"
+            source_map = tuple(self.model.projection_block_map_v21(
+                source_pane, allow_cursor_fallback=False
+            ) or ())
+            target_map = tuple(self.model.projection_block_map_v21(
+                peer, allow_cursor_fallback=False
+            ) or ())
         except Exception:
-            pass
+            source_map = ()
+            target_map = ()
+
+        if source_block is not None and target_map:
+            source_indices = [
+                index for index, value in enumerate(source_map)
+                if self.model._canonical_block_addr_v21(value) == source_block
+            ]
+            target_indices = [
+                index for index, value in enumerate(target_map)
+                if self.model._canonical_block_addr_v21(value) == source_block
+            ]
+            if target_indices:
+                if len(source_indices) <= 1 or source_line not in source_indices:
+                    relative = 0.0
+                else:
+                    relative = (
+                        float(source_indices.index(source_line))
+                        / float(len(source_indices) - 1)
+                    )
+                target_position = int(round(
+                    relative * float(max(0, len(target_indices) - 1))
+                ))
+                target_line = target_indices[
+                    min(max(0, target_position), len(target_indices) - 1)
+                ]
+                reason = "line_block_allegiance"
 
         target_line = min(
-            max(0, target_line), max(0, len(target_lines) - 1)
+            max(0, int(target_line)), max(0, len(target_lines) - 1)
         )
-        try:
-            target_column = self.model.oncs.pal_to_display_column(
-                peer,
-                self.model.naming,
-                target_line,
-                target_base_column,
-                self.model.operator_overlay,
-            )
-        except Exception:
-            target_column = 0
+        # The focus unit is the line, not a token.  Place the passive peer cursor
+        # at indentation rather than performing variable-position recovery.
+        target_column = 0
         if target_lines:
-            target_column = min(
-                max(0, target_column), len(target_lines[target_line])
-            )
-        else:
-            target_column = 0
+            target_text = str(target_lines[target_line])
+            target_column = len(target_text) - len(target_text.lstrip())
         target["line"] = target_line
         target["column"] = target_column
+
         self.last_python_pane = source_pane
         self._side_lock_asm_v12(source_pane)
         if soft_c:
             self._side_soft_sync_c(source_pane)
 
-        # Keep block allegiance anchored to the active Python statement without
-        # changing ordinary single-view scroll state or invoking variable lookup.
+        # Preserve the active Python cursor without invoking object metadata.
         self.model.projection = source_pane
         self.model.line = source_line
         self.model.column = source_column
         self.model.clamp()
-        self.model.update_cursor_context()
         block_label = (
-            self.model._block_cache_key_v12(
-                self._side_asm_block_addr
-            )
-            or "-"
+            self.model._block_cache_key_v12(self._side_asm_block_addr) or "-"
         )
+        self.model.cursor_contract_sid = None
+        self.model.cursor_context = {
+            "projection": source_pane,
+            "line": source_line,
+            "column": source_column,
+            "cfg_block_addr": source_block,
+            "percentage_document_position": percentage_document_position(
+                source_line, len(source_lines)
+            ),
+            "overview_line_focus_v52": True,
+        }
         self.model.status = (
-            "READ/EXEC linked (%s); ASM=%s; C direct %.1f%%"
+            "READ/EXEC linked (%s); ASM=%s; C direct %.1f%%; token metadata bypassed"
             % (
                 reason,
                 block_label,
-                percentage_document_position(
-                    source_line, len(source_lines)
-                ) * 100.0,
+                percentage_document_position(source_line, len(source_lines))
+                * 100.0,
             )
         )
         return True
@@ -6619,7 +8273,10 @@ class PALCursesUI:
     def draw(self):
         height, width = self._prepare_frame("single-v26")
         lines = self.model.lines()
-        body_top = 5
+        # v0.24a final closure: menu, key map, then live status/name line.
+        # The lower edge is now a separator only; status never disappears below
+        # a tall function listing.
+        body_top = 6
         body_height = max(1, height - 7)
         self.model.clamp()
         if self.model.line < self.model.top_line:
@@ -6646,14 +8303,28 @@ class PALCursesUI:
         )
         command = (
             " M MENU | F1 PY VIEW | F2 PY NAMES | ^O OPER | F4 RENAME | TAB PY PANE | "
-            "/ FIND | n/N HIT | F FULL | ENTER FOCUS | ^E EXEC->execute/functions | : COMMAND | ^S SAVE | q BACK "
+            "/ FIND | n/N HIT | F FULL | ENTER FOCUS | ^E EXEC->execute/functions | ^S SAVE | q BACK "
         )
         self._safe_addstr(
             3, 0, command.ljust(width),
             self._attr("status", bold=True), width - 1,
         )
+        focus = self.model.object_focus_label() or self.model.highlight_name() or "-"
+        message = (
+            " %s | %s | labels=%s | %d:%d | find=/%s | focus=%s "
+            % (
+                self.model.warning or self.model.status or "PAL editor",
+                self.model.projection.upper(), self.model.naming_label(),
+                self.model.line + 1, self.model.column + 1,
+                self.code_search_v26 or "-", focus,
+            )
+        )
         self._safe_addstr(
-            4, 0, separator, self._attr("helper", bold=True), width - 1
+            4, 0, message.ljust(width),
+            self._attr("operator", bold=True), width - 1,
+        )
+        self._safe_addstr(
+            5, 0, separator, self._attr("helper", bold=True), width - 1
         )
 
         digits = max(4, len(str(max(1, len(lines)))))
@@ -6677,24 +8348,10 @@ class PALCursesUI:
                 y, line_number, lines[line_number], selected, code_x, code_width
             )
 
-        footer_row = max(5, height - 2)
+        footer_row = max(body_top, height - 1)
         self._safe_addstr(
             footer_row, 0, separator,
             self._attr("helper", bold=True), width - 1,
-        )
-        focus = self.model.object_focus_label() or self.model.highlight_name() or "-"
-        message = (
-            " %s | %s | labels=%s | %d:%d | find=/%s | focus=%s "
-            % (
-                self.model.warning or self.model.status or "PAL editor",
-                self.model.projection.upper(), self.model.naming_label(),
-                self.model.line + 1, self.model.column + 1,
-                self.code_search_v26 or "-", focus,
-            )
-        )
-        self._safe_addstr(
-            height - 1, 0, message.ljust(width),
-            self._attr("operator", bold=True), width - 1,
         )
         cursor_x = code_x + self.model.column - self.model.left_column
         cursor_y = body_top + self.model.line - self.model.top_line
@@ -6758,8 +8415,6 @@ class PALCursesUI:
             self.code_search_v26 = ""
             self.model.status = "full unfiltered code view"
             explicit_redraw = True
-        elif key == ":":
-            explicit_redraw = self._editor_command_v26()
         elif key in ("\n", "\r", curses.KEY_ENTER):
             self.model.update_cursor_context()
             self.model.toggle_object_focus()
@@ -6871,7 +8526,7 @@ class PALSpecOpsHitUI:
         "c_code": "Frozen Ghidra C source evidence.",
         "four": "Linked ASM / READ.PY / C / EXEC.PY matrix.",
         "three": "Strict PHI / ASM / Python block cross-section.",
-        "phi": "All singular PHI custody records.",
+        "phi": "Materialized-variable drop-in blades.",
         "calls": "Module call relationships.",
         "abi": "ABI custody interfaces and carriers.",
         "project": "Unified project metadata digest.",
@@ -6910,6 +8565,11 @@ class PALSpecOpsHitUI:
         self._four_asm_branch_rows_v35 = None
         self._asm_history_v34 = []
         self._asm_history_index_v34 = -1
+        # v0.35a: PHI history is a separate visual-frame ledger.  Angle
+        # brackets dispatch by the active STATIC DEBUG pane; PHI never mutates
+        # or replays the ASM jump ledger, and ASM never replays PHI frames.
+        self._phi_history_v46 = []
+        self._phi_history_index_v46 = -1
         self._asm_branch_focus_v35 = None
         self._four_asm_branch_rows_v35 = None
         self._large_loader_seen_v35 = set()
@@ -7007,15 +8667,17 @@ class PALSpecOpsHitUI:
 
     def _toggle_highlight_mode(self):
         key = self._active_search_key()
-        if not self.searches.get(key, ""):
+        pane = self._active_subpane_label()
+        query = str(self.searches.get(key, "") or "")
+        if not query:
             self.highlight_modes[key] = False
-            self.status = "highlight mode requires an active / search"
+            self.status = "%s highlight lock requires an active / search" % pane
             return False
         self.highlight_modes[key] = not bool(self.highlight_modes.get(key, False))
         self.status = (
-            "highlight mode ON"
+            "%s highlight lock ON; movement follows /%s" % (pane, query)
             if self.highlight_modes[key]
-            else "highlight mode OFF; visual highlights cleared"
+            else "%s highlight lock OFF; cursor movement unrestricted" % pane
         )
         return self.highlight_modes[key]
 
@@ -7043,49 +8705,51 @@ class PALSpecOpsHitUI:
         else:
             command = (
                 " TAB PANE | F1 PY VIEW | F2 PY NAMES | ^O OPER | F4 RENAME | "
-                "/ FIND | H HILITE | F FULL/RESTORE | C CLEAR | "
-                "ENTER FOCUS | ^E EXEC->execute/functions | < EARLIER | > FORWARD | : COMMAND | M/Esc MENU "
+                "/ FIND | H HILITE/MOVE | C CLEAR SEARCH | 0 CLEAR HIST | "
+                "F FULL/RESTORE | ENTER FOCUS | ^E EXEC->execute/functions | "
+                "< EARLIER | > FORWARD | M/Esc MENU "
             )
         self._add(
             3, 0, command.ljust(width),
             self._attr("status", bold=True), max(0, width - 1),
         )
-        self._separator(4, width)
-        self._separator(max(5, height - 2), width)
+
         naming = _display_naming_label(self.model.naming).upper()
         projection = "READ" if self.model.projection == "readable" else "EXEC"
+        key = self._active_search_key()
         if self.menu_mode:
-            key = self._active_search_key()
-            footer = (
+            status_line = (
                 " menu=%s | PY=%s | NAMES=%s | OPER=%s | FIND=/%s | "
-                "H=%s | FULL=%s | ASM-HIST=%s | %s "
+                "H=%s | FULL=%s | PHI-HIST=%s | ASM-HIST=%s | %s "
             ) % (
                 self.LABELS[self.view], projection, naming,
                 "ON" if self.model.operator_overlay else "OFF",
                 self.searches.get(key, "") or "-",
                 "ON" if self.highlight_modes.get(key, False) else "OFF",
                 "ON" if key in self.full_snapshots else "OFF",
-                self._asm_history_label_v34(), self.status,
+                self._phi_history_label_v46(), self._asm_history_label_v34(),
+                self.status,
             )
         else:
-            key = self._active_search_key()
-            footer = (
+            status_line = (
                 " active=%s | PY=%s | NAMES=%s | OPER=%s | FIND=/%s | "
-                "H=%s | FULL=%s | ASM-HIST=%s | %s "
+                "H=%s | FULL=%s | PHI-HIST=%s | ASM-HIST=%s | %s "
             ) % (
                 self._active_subpane_label(), projection, naming,
                 "ON" if self.model.operator_overlay else "OFF",
                 self._search() or "-",
                 "ON" if self._highlight_mode() else "OFF",
                 "ON" if key in self.full_snapshots else "OFF",
-                self._asm_history_label_v34(),
+                self._phi_history_label_v46(), self._asm_history_label_v34(),
                 self.status,
             )
         self._add(
-            height - 1, 0, footer.ljust(width),
+            4, 0, status_line.ljust(width),
             self._attr("operator", bold=True), max(0, width - 1),
         )
-        return 5, max(1, height - 7), width
+        self._separator(5, width)
+        self._separator(max(6, height - 1), width)
+        return 6, max(1, height - 7), width
 
     def _draw_menu_view(self, body_top, body_height, width):
         rows = []
@@ -7495,8 +9159,9 @@ class PALSpecOpsHitUI:
             })
             self._three_toggle_pointer_focus(pointer_row)
             self._three["active"] = self._three["panes"].index("asm")
-            self._asm_reset_history_v35("ASM focus regained from PHI address")
-            self.status = "opened linked ASM focus %s; history cleared" % address
+            self.status = "opened linked ASM focus %s; history retained at %s" % (
+                address, self._asm_history_label_v34()
+            )
         else:
             self._three["active"] = self._three["panes"].index("phi")
             self.status = "opened linked PHI node %s" % sid
@@ -7621,10 +9286,84 @@ class PALSpecOpsHitUI:
                 state["top"] = max(0, first_var - 2)
         return rows
 
+    @staticmethod
+    def _materialized_activity_sort_v51(item):
+        item = dict(item or {})
+        blocks = int(item.get("block_count", 0) or 0)
+        writes = int(item.get("occurrence_count", 0) or 0)
+        name = str(item.get("pal_name") or item.get("output_sid") or "")
+        # Most structurally active first: requested block/write sum, then writes,
+        # then blocks, then stable human name.
+        return (-(blocks + writes), -writes, -blocks, name.casefold())
+
+    def _phi_materialized_full_blades_v51(self, inventory=None):
+        """Unfold every materialized Φ into its complete drop-in blade."""
+        if inventory is None:
+            inventory = list(self.model.materialized_variable_inventory_v48(
+                projection=self.model.projection, full_scope=True
+            ) or ())
+        inventory = sorted(
+            (dict(item or {}) for item in list(inventory or ())),
+            key=self._materialized_activity_sort_v51,
+        )
+        rows = [{
+            "kind": "phi_section",
+            "text": "ALL MATERIALIZED Φ | %d variable%s" % (
+                len(inventory), "" if len(inventory) == 1 else "s"
+            ),
+        }]
+        for rank, item in enumerate(inventory, 1):
+            sid = str(item.get("output_sid") or "")
+            display_name = str(item.get("pal_name") or sid)
+            block_count = int(item.get("block_count", 0) or 0)
+            write_count = int(item.get("occurrence_count", 0) or 0)
+            first_block = next((
+                dict(block or {}).get("block")
+                for block in list(item.get("blocks", ()) or ())
+                if dict(block or {}).get("block")
+            ), None)
+            if len(rows) > 1:
+                rows.append({"kind": "blank", "text": ""})
+            rows.append({
+                "kind": "phi_summary",
+                "text": "Φ-%d %s | %d block%s | %d write%s" % (
+                    rank, display_name,
+                    block_count, "" if block_count == 1 else "s",
+                    write_count, "" if write_count == 1 else "s",
+                ),
+                "output_sid": sid,
+                "sid": sid,
+                "pal_name": display_name,
+                "incoming_addr": first_block,
+                "merge_addr": first_block,
+                "node_index": rank - 1,
+                "node_number": rank,
+                "phi_list": False,
+                "phi_full_blade_v51": True,
+                "materialized_v48": True,
+                "materialization_kind": item.get("materialization_kind"),
+                "materialization_blocks_v48": tuple(
+                    dict(block or {}) for block in list(item.get("blocks", ()) or ())
+                ),
+            })
+            detail = self._phi_materialization_detail_rows_v48(sid, item)
+            rows.extend(detail or ({
+                "kind": "phi_truth_note",
+                "output_sid": sid,
+                "text": "          no materialization blocks are published",
+            },))
+        if not inventory:
+            rows.append({
+                "kind": "empty",
+                "text": "No materialized variables are published in this projection.",
+            })
+        return rows
+
+
     def _one_rows(self, name):
         if name == "phi":
             if self._phi_full_listing_v35:
-                return self._phi_template_rows(pointer_hotspots=True)
+                return self._phi_materialized_full_blades_v51()
             return self._phi_menu_rows_v31()
         if name == "asm":
             if self._asm_branch_focus_v35:
@@ -7713,53 +9452,98 @@ class PALSpecOpsHitUI:
                 self._attr(role, bold=True), clipped_end - clipped_start,
             )
 
-    def _overlay_active_line_v30(self, y, x, text, left, width, active):
-        """Paint the current red-negative row last, above every highlighter."""
+    def _paint_active_cursor_bar_v45(
+        self, y, x, text, left, width, active, underline=False
+    ):
+        """Paint the red cursor surface before final semantic overlays.
+
+        The visible text is repainted together with the background.  This is
+        essential: a background-only rectangle would hide the font and turn
+        the cursor into an opaque block graphic.  Address, search, mnemonic and
+        linkage highlights are intentionally painted afterward.
+        """
         if not active:
             return
         visible = str(text)[left:left + width]
+        attr = self._attr("active_header", bold=True)
+        if underline:
+            attr |= curses.A_UNDERLINE
         self._add(
-            y, x, visible.ljust(width),
-            self._attr("active_header", bold=True), width,
+            y, x, visible.ljust(width), attr, width,
+        )
+
+    def _overlay_active_line_v30(self, y, x, text, left, width, active):
+        """Compatibility alias for the v45 cursor-surface painter."""
+        return self._paint_active_cursor_bar_v45(
+            y, x, text, left, width, active
         )
 
     def _draw_phi_template_line(
         self, y, x, row, text, left, width, selected=False, focused=False,
-        query="",
+        query="", base_attr=None,
     ):
-        """Paint one PHI custody row with stable color and active-row priority."""
+        """Paint PHI rows as base → red cursor → final overlays.
+
+        Every full-width layer repaints the visible characters with its
+        background.  Final address/search/SID overlays are fragment paints, so
+        the cursor remains a readable red bar rather than an opaque rectangle.
+        """
         row = dict(row or {})
         kind = str(row.get("kind") or "body")
         visible = text[left:left + width]
 
         if kind in ("header_top", "header", "header_bottom"):
-            base = self._attr("phi_header", bold=True) | curses.A_REVERSE
+            base = (
+                base_attr if base_attr is not None
+                else self._attr("phi_header", bold=True) | curses.A_REVERSE
+            )
             if focused:
                 base |= curses.A_UNDERLINE
             self._add(y, x, visible.ljust(width), base, width)
+            self._paint_active_cursor_bar_v45(
+                y, x, text, left, width, selected
+            )
             name_offset = int(row.get("header_name_offset", 0) or 0)
             name_width = int(row.get("header_name_width", 0) or 0)
             a = max(name_offset, left)
             b = min(name_offset + name_width, left + width)
             if a < b:
                 fragment = text[a:b] if kind == "header" else " " * (b - a)
-                self._add(y, x + a - left, fragment, self._attr("active_header", bold=True), b - a)
-            self._paint_search(y, x, text, query, left, width, current=selected)
-            self._overlay_active_line_v30(y, x, text, left, width, selected)
+                self._add(
+                    y, x + a - left, fragment,
+                    self._attr("active_header", bold=True), b - a,
+                )
+            self._paint_search(
+                y, x, text, query, left, width, current=selected
+            )
             return
 
-        attr = self._attr("default", bold=focused)
+        attr = (
+            base_attr if base_attr is not None
+            else self._attr("default", bold=focused)
+        )
         if focused:
             attr |= curses.A_UNDERLINE
-        if kind in ("blade", "trunk"):
-            attr = self._attr("helper", bold=focused)
-        elif kind == "cycle":
-            attr = self._attr("phi_cycle", bold=True)
-        elif kind == "final":
-            attr = self._attr("phi_final", bold=True) | curses.A_REVERSE
+        if base_attr is None:
+            if kind in ("blade", "trunk"):
+                attr = self._attr("helper", bold=focused)
+            elif kind == "cycle":
+                attr = self._attr("phi_cycle", bold=True)
+            elif kind == "final":
+                attr = self._attr("phi_final", bold=True) | curses.A_REVERSE
+            elif kind in ("dropin_fact", "dropin_value", "dropin_code"):
+                attr = self._attr(
+                    "helper" if kind != "dropin_code" else "default",
+                    bold=(kind == "dropin_fact"),
+                )
         self._add(y, x, visible.ljust(width), attr, width)
 
-        if kind in ("merge", "incoming", "cycle"):
+        # Cursor bar is deliberately below the final semantic overlays.
+        self._paint_active_cursor_bar_v45(
+            y, x, text, left, width, selected
+        )
+
+        if kind in ("merge", "incoming", "cycle", "dropin_exec"):
             address = str(row.get("address") or "")
             offset = int(row.get("address_offset", 0) or 0)
             if address and text[offset:offset + len(address)] == address:
@@ -7768,11 +9552,14 @@ class PALSpecOpsHitUI:
                 if a < b:
                     role = (
                         "phi_cycle" if kind == "cycle"
-                        else "phi_incoming_addr" if kind == "incoming"
-                        else "phi_merge_addr"
+                        else "phi_merge_addr" if kind == "merge"
+                        else "phi_incoming_addr"
                     )
                     extra = 0 if kind == "cycle" else curses.A_REVERSE
-                    self._add(y, x + a - left, text[a:b], self._attr(role, bold=True) | extra, b - a)
+                    self._add(
+                        y, x + a - left, text[a:b],
+                        self._attr(role, bold=True) | extra, b - a,
+                    )
 
         if kind == "final":
             sid = str(row.get("final_sid") or "")
@@ -7781,9 +9568,16 @@ class PALSpecOpsHitUI:
                 a = max(sid_offset, left)
                 b = min(sid_offset + len(sid), left + width)
                 if a < b:
-                    self._add(y, x + a - left, text[a:b], self._attr("phi_final_sid", bold=True), b - a)
-        self._paint_search(y, x, text, query, left, width, current=selected)
-        self._overlay_active_line_v30(y, x, text, left, width, selected)
+                    self._add(
+                        y, x + a - left, text[a:b],
+                        self._attr("phi_final_sid", bold=True), b - a,
+                    )
+
+        # Search is the final overlay and therefore remains visible through the
+        # cursor bar and every semantic surface.
+        self._paint_search(
+            y, x, text, query, left, width, current=selected
+        )
 
 
     def _draw_one(self, body_top, body_height, width):
@@ -7791,7 +9585,7 @@ class PALSpecOpsHitUI:
         rows = self._one_rows(name)
         state = self.states[name]
         if name == "asm":
-            self._asm_align_viewport_v27(rows, state)
+            self._asm_align_viewport_v27(rows, state, body_height)
         maximum = max(0, len(rows) - 1)
         state["line"] = min(max(0, int(state["line"])), maximum)
         if state["line"] < state["top"]:
@@ -7872,8 +9666,13 @@ class PALSpecOpsHitUI:
                 authority = str(row.get("output_sid") or "") == selected_phi_sid
                 base = self._attr("active_header", bold=True) if authority else self._attr("phi_list", bold=True)
                 self._add(y, text_x, text[left:left + text_width].ljust(text_width), base, text_width)
-                self._paint_search(y, text_x, text, query, left, text_width, current=selected)
-                self._overlay_active_line_v30(y, text_x, text, left, text_width, selected)
+                self._paint_active_cursor_bar_v45(
+                    y, text_x, text, left, text_width, selected
+                )
+                self._paint_search(
+                    y, text_x, text, query, left, text_width,
+                    current=selected,
+                )
                 continue
             if row.get("phi_template"):
                 self._draw_phi_template_line(y, text_x, row, text, left, text_width, selected=selected, focused=focused, query=query)
@@ -7897,17 +9696,17 @@ class PALSpecOpsHitUI:
             self._add(
                 y, text_x, text[left:left + text_width].ljust(text_width),
                 self._attr(
-                    role, selected=selected and role not in (
-                        "asm_transition_orange", "asm_jump_red", "asm_compare",
-                        "asm_relation_current", "asm_focus_block",
-                        "asm_join_block", "asm_fork_block",
-                    ),
+                    role, selected=False,
                     bold=(focused or role in (
                         "asm_block_header", "asm_transition_orange",
                         "asm_jump_red", "asm_compare", "asm_relation_current",
                         "asm_focus_block", "asm_join_block", "asm_fork_block",
                     )),
                 ), text_width,
+            )
+            self._paint_active_cursor_bar_v45(
+                y, text_x, text, left, text_width, selected,
+                underline=bool(branch_paint),
             )
             if name == "asm" and row.get("kind") == "asm":
                 match = re.match(r"\s*(0x[0-9A-Fa-f]+|[0-9A-Fa-f]{6,16})", text)
@@ -7921,12 +9720,10 @@ class PALSpecOpsHitUI:
                 self._paint_asm_jump_mnemonic_v26(
                     y, text_x, text, left, text_width, row, hovered=False
                 )
-            self._paint_search(y, text_x, text, query, left, text_width, current=selected)
-            self._overlay_active_line_v30(y, text_x, text, left, text_width, selected)
-            if name == "asm" and row.get("kind") == "asm":
-                self._paint_asm_jump_mnemonic_v26(
-                    y, text_x, text, left, text_width, row, hovered=False
-                )
+            self._paint_search(
+                y, text_x, text, query, left, text_width,
+                current=selected,
+            )
 
     def _ensure_four(self):
         if self._four_ready:
@@ -7954,9 +9751,9 @@ class PALSpecOpsHitUI:
         right_w = width - left_w
         return {
             "asm": (body_top, 0, top_h, left_w),
-            "readable": (body_top, left_w, top_h, right_w),
+            "executable": (body_top, left_w, top_h, right_w),
             "c_code": (body_top + top_h, 0, bottom_h, left_w),
-            "executable": (body_top + top_h, left_w, bottom_h, right_w),
+            "readable": (body_top + top_h, left_w, bottom_h, right_w),
         }
 
     def _draw_grid_pane(
@@ -7968,14 +9765,16 @@ class PALSpecOpsHitUI:
             return
         lines = [str(value) for value in list(lines or ())]
         row_records = [dict(value or {}) for value in list(row_records or ())]
+        inner_h = max(1, pane_h - 2)
         if pane == "asm":
             navigation_rows = row_records or [
                 {"kind": "asm", "text": value} for value in lines
             ]
-            self._asm_align_viewport_v27(navigation_rows, state)
+            self._asm_align_viewport_v27(
+                navigation_rows, state, inner_h
+            )
         maximum = max(0, len(lines) - 1)
         state["line"] = min(max(0, int(state.get("line", 0))), maximum)
-        inner_h = max(1, pane_h - 2)
         if state["line"] < state["top"]:
             state["top"] = state["line"]
         elif state["line"] >= state["top"] + inner_h:
@@ -8024,13 +9823,17 @@ class PALSpecOpsHitUI:
             elif semantic.get("asm_role") == "compare":
                 role = "asm_compare"
             else:
-                role = "active_header" if (selected and active) else "highlight" if linked_line else "default"
+                role = "highlight" if linked_line else "default"
             self._add(
                 sy, text_x, text[left:left + text_w].ljust(text_w),
                 self._attr(
                     role, selected=selected and not active,
                     bold=(linked_line or (selected and active) or semantic.get("asm_role") is not None),
                 ), text_w,
+            )
+            self._paint_active_cursor_bar_v45(
+                sy, text_x, text, left, text_w, selected and active,
+                underline=bool(branch_paint),
             )
             if pane == "asm" and semantic.get("instruction_addr"):
                 match = re.match(r"\s*(0x[0-9A-Fa-f]+|[0-9A-Fa-f]{6,16})", text)
@@ -8046,16 +9849,10 @@ class PALSpecOpsHitUI:
                 self._paint_asm_jump_mnemonic_v26(
                     sy, text_x, text, left, text_w, semantic_row, hovered=False
                 )
-            self._paint_search(sy, text_x, text, query, left, text_w, current=selected and active)
-            self._overlay_active_line_v30(
-                sy, text_x, text, left, text_w, selected and active
+            self._paint_search(
+                sy, text_x, text, query, left, text_w,
+                current=selected and active,
             )
-            if pane == "asm" and semantic.get("asm_role") == "jump":
-                semantic_row = dict(row_record or {})
-                semantic_row.update(semantic)
-                self._paint_asm_jump_mnemonic_v26(
-                    sy, text_x, text, left, text_w, semantic_row, hovered=False
-                )
 
     def _draw_four(self, body_top, body_height, width):
         self._ensure_four()
@@ -8088,6 +9885,11 @@ class PALSpecOpsHitUI:
     def _three_prepare(self):
         if self._three is not None:
             return
+        # A newly constructed STATIC DEBUG workspace starts two fresh,
+        # independent navigation ledgers.  Existing workspaces retain both
+        # histories across Tab focus changes and menu round-trips.
+        self._phi_history_v46 = []
+        self._phi_history_index_v46 = -1
         if not self._code_view_initialized.get("three"):
             self._force_readable_projection()
             self._code_view_initialized["three"] = True
@@ -8121,10 +9923,16 @@ class PALSpecOpsHitUI:
             "statement_contexts": statement_contexts,
             "all_paths": paths,
             "phi_matches": [],
+            "phi_active_matches_v47": [],
+            "phi_passive_matches_v47": [],
+            "block_activity_v47": {},
             "phi_list_rows": [],
             "phi_detail_rows": [],
             "phi_rows": [],
             "selected_phi_sid": None,
+            "selected_dropin_id": None,
+            "phi_mode": "legacy_custody",
+            "phi_materialization_full_v48": False,
             "asm_base_rows": [],
             "asm_rows": [],
             "base_focus": None,
@@ -8358,8 +10166,14 @@ class PALSpecOpsHitUI:
                 matches.append(group["anchor"])
         return matches
 
-    def _asm_align_viewport_v27(self, rows, state):
-        """Normalize any saved/legacy ASM line to its owning block anchor."""
+    def _asm_align_viewport_v27(self, rows, state, viewport_rows=None):
+        """Anchor ASM selection while preserving visual context above it.
+
+        Earlier builds placed the selected block at the first visible row.
+        That destroyed continuity while walking blocks.  When pane height is
+        known, the selected ``BLOCK`` header is now placed about one-third down
+        the viewport, leaving predecessor/context rows visible above it.
+        """
         groups = list(self._asm_block_groups_v27(rows))
         if not groups:
             return False
@@ -8370,8 +10184,13 @@ class PALSpecOpsHitUI:
         ), None)
         if group is None:
             group = min(groups, key=lambda item: abs(item["anchor"] - line))
-        state["line"] = int(group["anchor"])
-        state["top"] = int(group["start"])
+        anchor = int(group["anchor"])
+        state["line"] = anchor
+        if viewport_rows is None:
+            state["top"] = int(group["start"])
+        else:
+            context_rows = max(0, int(viewport_rows) // 3)
+            state["top"] = max(0, anchor - context_rows)
         return True
 
     def _four_asm_navigation_rows_v27(self):
@@ -8400,7 +10219,7 @@ class PALSpecOpsHitUI:
         if pane == "phi":
             return [
                 index for index, row in enumerate(rows)
-                if row.get("kind") == "phi_summary"
+                if row.get("kind") in ("phi_summary", "dropin_summary")
                 or bool(row.get("block_hotspot"))
             ]
         return list(range(len(rows)))
@@ -8412,6 +10231,7 @@ class PALSpecOpsHitUI:
             str(row.get("kind") or ""),
             str(row.get("output_sid") or row.get("sid") or ""),
             str(row.get("addr") or row.get("incoming_addr") or row.get("block") or ""),
+            str(row.get("dropin_id") or row.get("dropin_sequence_id") or ""),
             str(row.get("text") or ""),
         )
 
@@ -8436,6 +10256,10 @@ class PALSpecOpsHitUI:
             int(row.get("node_index") or -1),
             int(row.get("node_number") or -1),
             int(row.get("phi_depth") or 0),
+            str(row.get("dropin_id") or ""),
+            str(row.get("dropin_sequence_id") or ""),
+            int(row.get("dropin_index") or -1),
+            int(row.get("line_number") or -1),
         )
 
     @classmethod
@@ -8495,13 +10319,21 @@ class PALSpecOpsHitUI:
             wanted = str(preferred_sid)
             target = next((
                 index for index, row in enumerate(rows)
-                if row.get("kind") == "phi_summary"
-                and str(row.get("output_sid") or row.get("sid") or "") == wanted
+                if row.get("kind") in ("phi_summary", "dropin_summary")
+                and (
+                    str(row.get("output_sid") or row.get("sid") or "") == wanted
+                    or wanted in {
+                        str(value) for value in list(
+                            row.get("destination_sids", ()) or ()
+                        )
+                    }
+                )
             ), None)
         if target is None:
             choices = [
                 index for index, row in enumerate(rows)
-                if row.get("kind") == "phi_summary" or bool(row.get("block_hotspot"))
+                if row.get("kind") in ("phi_summary", "dropin_summary")
+                or bool(row.get("block_hotspot"))
             ]
             target = choices[0] if choices else 0
         relative = max(0, int(snapshot.get("relative", 0) or 0))
@@ -8521,68 +10353,399 @@ class PALSpecOpsHitUI:
             state["_phi_cursor_v29"] = snapshot
         return snapshot
 
+    def _phi_truth_detail_rows_v47(
+        self, selected_sid, selected_paths, focus
+    ):
+        """Tag one selected custody chain without pretending PHI is ASM work.
+
+        The underlying PHI rows remain frozen evidence.  Exact events at the
+        focal address are consolidated into a compact truth blade that states
+        whether the variable is actually read/written by the displayed block or
+        merely converges at its entry.
+        """
+        selected_sid = str(selected_sid or "")
+        focus = self.model._canonical_block_addr_v21(focus)
+        paths = [
+            dict(row or {}) for row in list(selected_paths or ())
+            if str(dict(row or {}).get("output_sid") or "") == selected_sid
+        ]
+        rows = [
+            dict(row or {}) for row in self._phi_dependency_rows(
+                selected_sid, pointer_hotspots=True
+            )
+        ]
+        if not rows or not paths or focus is None:
+            return rows
+
+        active = any(
+            str(path.get("block_activity_v47") or "") == "active"
+            for path in paths
+        )
+        uses = {
+            str(path.get("block_use_v47") or "NONE") for path in paths
+        }
+        uses.discard("NONE")
+        block_use = "+".join(sorted(uses)) if uses else "NONE"
+        relations = {
+            str(path.get("focal_relation_v47") or "") for path in paths
+        }
+        input_sids = sorted({
+            self.model.canonical_phi_sid_v33(value)
+            for path in paths
+            for value in list(path.get("input_sids", ()) or ())
+            if value
+        })
+        display_name = self.model.phi_display_name_v30(selected_sid)
+        input_names = [
+            self.model.phi_display_name_v30(value) for value in input_sids
+        ]
+        input_text = _phi_merge_values_v14(input_names)
+
+        synthetic = []
+        prefix = "        | "
+        if "merge_at_entry" in relations:
+            synthetic.append({
+                "kind": "merge",
+                "address": focus,
+                "address_display": focus,
+                "address_missing": False,
+                "address_offset": len(prefix),
+                "block_hotspot": True,
+                "phi_template": True,
+                "output_sid": selected_sid,
+                "sid": selected_sid,
+                "event_sid": selected_sid,
+                "block_activity_v47": "active" if active else "passive",
+                "activity_tag_v47": (
+                    "MERGES AT BLOCK ENTRY — ACTIVE HERE"
+                    if active else "ENTRY STATE — UNUSED HERE"
+                ),
+                "text": "%s%-21s MERGES AT BLOCK ENTRY" % (prefix, focus),
+            })
+            synthetic.append({
+                "kind": "phi_truth_note",
+                "output_sid": selected_sid,
+                "block_activity_v47": "active" if active else "passive",
+                "text": "          BLOCK USE: %s" % block_use,
+            })
+            synthetic.append({
+                "kind": "phi_truth_note",
+                "output_sid": selected_sid,
+                "block_activity_v47": "active" if active else "passive",
+                "text": "          %s <= %s" % (display_name, input_text),
+            })
+        if "carried_from_block" in relations:
+            synthetic.append({
+                "kind": "incoming",
+                "address": focus,
+                "address_display": focus,
+                "address_missing": False,
+                "address_offset": len(prefix),
+                "block_hotspot": True,
+                "phi_template": True,
+                "output_sid": selected_sid,
+                "sid": selected_sid,
+                "event_sid": selected_sid,
+                "block_activity_v47": "active" if active else "passive",
+                "activity_tag_v47": (
+                    "CARRIED FROM BLOCK — ACTIVE HERE"
+                    if active else "CHAIN CONTEXT ONLY — UNUSED HERE"
+                ),
+                "text": "%s%-21s CARRIES STATE FROM THIS BLOCK" % (
+                    prefix, focus
+                ),
+            })
+            synthetic.append({
+                "kind": "phi_truth_note",
+                "output_sid": selected_sid,
+                "block_activity_v47": "active" if active else "passive",
+                "text": "          BLOCK USE: %s" % block_use,
+            })
+
+        output = []
+        inserted = False
+        seen = set()
+        for raw in rows:
+            row = dict(raw or {})
+            row_sid = str(
+                row.get("output_sid") or row.get("sid")
+                or row.get("event_sid") or ""
+            )
+            address = self.model._canonical_block_addr_v21(
+                row.get("address") or row.get("addr")
+            )
+            if (
+                synthetic and address == focus
+                and row_sid == selected_sid
+                and row.get("kind") in ("incoming", "merge", "cycle")
+            ):
+                if not inserted:
+                    output.extend(dict(item) for item in synthetic)
+                    inserted = True
+                continue
+            identity = (
+                str(row.get("kind") or ""),
+                str(row.get("address") or row.get("addr") or ""),
+                row_sid,
+                str(row.get("text") or ""),
+            )
+            if identity in seen:
+                continue
+            seen.add(identity)
+            output.append(row)
+        if synthetic and not inserted:
+            insert_at = next((
+                index for index, row in enumerate(output)
+                if dict(row or {}).get("kind") == "final"
+            ), len(output))
+            output[insert_at:insert_at] = [dict(item) for item in synthetic]
+        return output
+
+    def _phi_materialization_detail_rows_v48(self, selected_sid, entry):
+        """Render only blocks where the selected variable materializes."""
+        selected_sid = str(selected_sid or "")
+        entry = dict(entry or {})
+        display_name = self.model.active_display_name_v38(selected_sid)
+        rows = []
+        prefix = "        | "
+        for raw_block in list(entry.get("blocks", ()) or ()):
+            block_record = dict(raw_block or {})
+            block = self.model._canonical_block_addr_v21(
+                block_record.get("block")
+            )
+            if block is None:
+                continue
+            assignments = list(
+                dict(value or {})
+                for value in list(
+                    block_record.get("assignments", ()) or ()
+                )
+            )
+            rows.append({
+                "kind": "dropin_exec",
+                "phi_template": True,
+                "block_hotspot": True,
+                "address": block,
+                "address_display": block,
+                "address_offset": len(prefix),
+                "output_sid": selected_sid,
+                "sid": selected_sid,
+                "event_sid": selected_sid,
+                "text": "%s%-21s MATERIALIZES %s" % (
+                    prefix, block, display_name
+                ),
+            })
+            occurrences = int(
+                block_record.get("occurrence_count", 0) or 0
+            )
+            if occurrences > len(assignments):
+                rows.append({
+                    "kind": "phi_truth_note",
+                    "output_sid": selected_sid,
+                    "text": "          %d execution occurrences" % occurrences,
+                })
+            for ordinal, assignment in enumerate(assignments, 1):
+                code = str(assignment.get("text") or "").strip()
+                count = int(assignment.get("occurrence_count", 0) or 0)
+                suffix = "  [x%d]" % count if count > 1 else ""
+                rows.append({
+                    "kind": "dropin_code",
+                    "output_sid": selected_sid,
+                    "sid": selected_sid,
+                    "address": block,
+                    "full_data_item": True,
+                    "text": "          [%d] %s%s" % (
+                        ordinal, code, suffix
+                    ),
+                })
+            rows.append({"kind": "blank", "text": ""})
+        while rows and dict(rows[-1] or {}).get("kind") == "blank":
+            rows.pop()
+        return rows
+
+    def _phi_focal_dropin_rows_v49(self, focus, inventory):
+        """Render every accepted drop-in in the focal block directly.
+
+        There is deliberately no root-variable menu in focal mode.  The section
+        header carries aggregate write/occurrence counts and the body lists each
+        distinct emitted assignment once beneath its exact machine block.
+        """
+        inventory = [dict(item or {}) for item in list(inventory or ())]
+        allowed = {
+            str(item.get("output_sid") or "") for item in inventory
+            if item.get("output_sid")
+        }
+        groups = list(self.model.projection_materialization_groups_v48(
+            focus,
+            projection=self.model.projection,
+            full_scope=False,
+        ) or ())
+
+        accepted_groups = []
+        total_writes = 0
+        total_occurrences = 0
+        ordered_sids = []
+        for raw_group in groups:
+            group = dict(raw_group or {})
+            block = self.model._canonical_block_addr_v21(
+                group.get("block") or focus
+            )
+            assignments = []
+            for raw_assignment in list(group.get("assignments", ()) or ()):
+                assignment = dict(raw_assignment or {})
+                destinations = tuple(
+                    self.model.canonical_phi_sid_v33(value)
+                    for value in list(
+                        assignment.get("destination_sids", ()) or ()
+                    )
+                    if value
+                )
+                visible_destinations = tuple(
+                    sid for sid in destinations if sid in allowed
+                )
+                if not visible_destinations:
+                    continue
+                assignment["visible_destination_sids_v49"] = visible_destinations
+                assignments.append(assignment)
+                total_writes += 1
+                total_occurrences += max(1, int(
+                    assignment.get("occurrence_count", 0) or 0
+                ))
+                for sid in visible_destinations:
+                    if sid not in ordered_sids:
+                        ordered_sids.append(sid)
+            if assignments and block is not None:
+                accepted_groups.append({
+                    "block": block,
+                    "assignments": tuple(assignments),
+                })
+
+        header = "MATERIALIZED IN FOCAL BLOCK | %d write%s | %d occurrence%s" % (
+            total_writes, "" if total_writes == 1 else "s",
+            total_occurrences, "" if total_occurrences == 1 else "s",
+        )
+        rows = [{"kind": "phi_section", "text": header}]
+        if not accepted_groups:
+            rows.append({
+                "kind": "empty",
+                "text": "No accepted assignment materializes in this block.",
+            })
+            return rows, tuple(ordered_sids)
+
+        for group_index, group in enumerate(accepted_groups, 1):
+            block = str(group["block"])
+            assignments = list(group["assignments"])
+            if group_index > 1:
+                rows.append({"kind": "blank", "text": ""})
+            rows.append({
+                "kind": "dropin_exec",
+                "phi_template": True,
+                "block_hotspot": True,
+                "address": block,
+                "address_display": block,
+                "address_offset": len("        | "),
+                "addr": block,
+                "dropin_id": "%s:%s:focal-v49" % (
+                    self.model.projection, block
+                ),
+                "dropin_index": group_index,
+                "output_sid": (
+                    assignments[0].get("visible_destination_sids_v49", (None,))[0]
+                    if assignments else None
+                ),
+                "text": "        | %-21s MATERIALIZATION BLOCK" % block,
+            })
+            for ordinal, assignment in enumerate(assignments, 1):
+                destinations = tuple(
+                    assignment.get("visible_destination_sids_v49", ()) or ()
+                )
+                count = max(1, int(
+                    assignment.get("occurrence_count", 0) or 0
+                ))
+                suffix = "  [x%d]" % count if count > 1 else ""
+                rows.append({
+                    "kind": "dropin_code",
+                    "block_hotspot": True,
+                    "address": block,
+                    "addr": block,
+                    "output_sid": destinations[0] if destinations else None,
+                    "sid": destinations[0] if destinations else None,
+                    "destination_sids": destinations,
+                    "dropin_id": "%s:%s:focal-v49" % (
+                        self.model.projection, block
+                    ),
+                    "dropin_index": group_index,
+                    "line_number": min(
+                        assignment.get("line_numbers", ()) or (0,)
+                    ),
+                    "full_data_item": True,
+                    "text": "          [%d] %s%s" % (
+                        ordinal,
+                        str(assignment.get("text") or "").strip(),
+                        suffix,
+                    ),
+                })
+        return rows, tuple(ordered_sids)
+
     def _three_rebuild_phi_rows(self, preferred_sid=None):
-        """Build PHI rows without discarding the user's semantic cursor."""
+        """Build direct focal drop-ins or the full materialized inventory.
+
+        Focal scope has no variable-root menu: all accepted assignments in the
+        current block are displayed immediately.  FULL scope unfolds every
+        materialized Φ into its own drop-in blade, ordered by block/write activity.
+        """
         three = self._three
+        if three is None:
+            return
         state = three["states"]["phi"]
         old_rows = list(three.get("phi_rows", ()) or ())
-        cursor_snapshot = (
-            dict(state.get("_phi_cursor_v29") or {})
-            if state.get("_phi_cursor_v29")
-            else self._phi_cursor_snapshot_v29(old_rows, state)
+        cursor_snapshot = self._phi_remember_cursor_v29(old_rows, state)
+        focus = self.model._canonical_block_addr_v21(
+            three.get("base_focus") or three.get("focus")
         )
-        unique = []
-        seen = set()
-        entries = list(self.model.phi_custody_inventory_v14() or ())
-        for path in list(three.get("phi_matches", ()) or ()):
-            path = dict(path or {})
-            sid = str(path.get("output_sid") or "")
-            if not sid or sid in seen:
-                continue
-            seen.add(sid)
-            index = self.model.phi_custody_index_for_sid_v16(sid)
-            entry = dict(entries[index] or {}) if index is not None and index < len(entries) else {}
-            display_name = self.model.phi_display_name_v30(sid)
-            display_roots = self.model.phi_display_expression_v30(entry.get("roots", ()) or (sid,))
-            node_number = int(entry.get("node_number") or ((index or 0) + 1))
-            unique.append({
-                "kind": "phi_summary",
-                "text": "#%d %s <= [%s]" % (
-                    node_number, display_name, display_roots
-                ),
-                "node_number": node_number,
-                "output_sid": sid, "sid": sid, "pal_name": display_name,
-                "root_expression": display_roots,
-                "incoming_addr": path.get("incoming_addr"),
-                "merge_addr": path.get("merge_addr"),
-                "node_index": index, "phi_list": True,
-            })
-        if not unique:
-            list_rows = [
-                {"kind": "phi_section", "text": "Implicated PHI chains"},
-                {"kind": "empty", "text": "No PHI node intersects this block."},
-            ]
-            three["selected_phi_sid"] = None
-            detail_rows = []
-        else:
-            valid = {str(row.get("output_sid") or "") for row in unique}
+        full_scope = bool(three.get("phi_materialization_full_v48"))
+        inventory = list(self.model.materialized_variable_inventory_v48(
+            block_addr=focus,
+            projection=self.model.projection,
+            full_scope=full_scope,
+        ) or ())
+
+        if not full_scope:
+            rows, ordered_sids = self._phi_focal_dropin_rows_v49(
+                focus, inventory
+            )
             selected = str(preferred_sid or three.get("selected_phi_sid") or "")
-            if selected not in valid:
-                selected = str(unique[0].get("output_sid") or "")
-            three["selected_phi_sid"] = selected
-            list_rows = [{"kind": "phi_section", "text": "Implicated PHI chains"}]
-            list_rows.extend(unique)
-            detail_rows = self._phi_dependency_rows(selected, pointer_hotspots=True)
-        three["phi_list_rows"] = list_rows
-        three["phi_detail_rows"] = detail_rows
-        rows = list(list_rows)
-        if detail_rows:
-            rows.extend((
-                {"kind": "blank", "text": ""},
-                {"kind": "phi_section", "text": "Selected result-variable custody"},
-            ))
-            rows.extend(detail_rows)
-        three["phi_rows"] = rows
+            if selected not in set(ordered_sids):
+                selected = str(ordered_sids[0]) if ordered_sids else ""
+            three["selected_phi_sid"] = selected or None
+            three["selected_dropin_id"] = None
+            three["phi_mode"] = "materialized_focal_direct_v49"
+            three["phi_list_rows"] = list(rows)
+            three["phi_detail_rows"] = []
+            three["phi_rows"] = list(rows)
+            self._phi_restore_cursor_v29(
+                rows,
+                state,
+                snapshot=cursor_snapshot,
+                preferred_sid=three.get("selected_phi_sid"),
+            )
+            return
+
+        inventory = sorted(
+            (dict(item or {}) for item in inventory),
+            key=self._materialized_activity_sort_v51,
+        )
+        valid = {str(item.get("output_sid") or "") for item in inventory}
+        selected = str(preferred_sid or three.get("selected_phi_sid") or "")
+        if selected not in valid:
+            selected = str(inventory[0].get("output_sid") if inventory else "")
+        three["selected_phi_sid"] = selected or None
+        three["selected_dropin_id"] = None
+        three["phi_mode"] = "materialized_full_blades_v51"
+        rows = self._phi_materialized_full_blades_v51(inventory)
+        three["phi_list_rows"] = list(rows)
+        three["phi_detail_rows"] = []
+        three["phi_rows"] = list(rows)
         self._phi_restore_cursor_v29(
             rows,
             state,
@@ -8629,12 +10792,16 @@ class PALSpecOpsHitUI:
         # current three-row authority header and stop at the next one.
         segment_start = 0
         for index in range(min(cursor_index, len(phi_rows) - 1), -1, -1):
-            if dict(phi_rows[index] or {}).get("kind") == "header_top":
+            if dict(phi_rows[index] or {}).get("kind") in (
+                "header_top", "dropin_summary", "dropin_sequence_header"
+            ):
                 segment_start = index
                 break
         segment_end = len(phi_rows)
         for index in range(cursor_index + 1, len(phi_rows)):
-            if dict(phi_rows[index] or {}).get("kind") == "header_top":
+            if dict(phi_rows[index] or {}).get("kind") in (
+                "header_top", "dropin_summary", "dropin_sequence_header"
+            ):
                 segment_end = index
                 break
 
@@ -8784,25 +10951,31 @@ class PALSpecOpsHitUI:
                 preferred_line=code_matches[0],
             )
 
-        phi_matches = []
-        seen = set()
-        for raw in list(three.get("all_paths", ()) or ()):
-            path = dict(raw or {})
-            incoming = self.model._canonical_block_addr_v21(path.get("incoming_addr"))
-            merge = self.model._canonical_block_addr_v21(path.get("merge_addr"))
-            if block not in (incoming, merge):
-                continue
-            identity = (
-                str(path.get("output_sid") or ""), incoming, merge,
-                tuple(path.get("input_sids", ()) or ()),
-            )
-            if identity in seen:
-                continue
-            seen.add(identity)
-            phi_matches.append(path)
-        selected_sid = three.get("selected_phi_sid")
+        classification = self.model.phi_paths_for_focal_block_v47(
+            block,
+            statement_context=None,
+            rows=three.get("all_paths", ()),
+            projection=self.model.projection,
+        )
+        phi_active = list(classification.get("active", ()) or ())
+        phi_passive = list(classification.get("passive", ()) or ())
+        phi_matches = list(classification.get("all", ()) or ())
+        three["block_activity_v47"] = dict(
+            classification.get("activity", {}) or {}
+        )
+        three["phi_active_matches_v47"] = phi_active
+        three["phi_passive_matches_v47"] = phi_passive
         three["phi_matches"] = phi_matches
-        self._three_rebuild_phi_rows(preferred_sid=selected_sid)
+        selected_sid = str(three.get("selected_phi_sid") or "")
+        active_sids = {
+            str(row.get("output_sid") or "") for row in phi_active
+        }
+        preferred_sid = (
+            selected_sid if selected_sid in active_sids
+            else str(phi_active[0].get("output_sid") or "")
+            if phi_active else selected_sid or None
+        )
+        self._three_rebuild_phi_rows(preferred_sid=preferred_sid)
 
         suffix = ""
         if role:
@@ -8884,24 +11057,32 @@ class PALSpecOpsHitUI:
             index for index, row in enumerate(asm_rows)
             if row.get("kind") == "block"
         ]
+        context = {}
         if source == "code":
             context = dict(dict(source_row or {}).get("statement_context") or {})
             if not context and source_index is not None:
                 contexts = list(three.get("statement_contexts", ()) or ())
                 if 0 <= int(source_index) < len(contexts):
                     context = dict(contexts[int(source_index)] or {})
-            phi_matches = list(self.model.phi_paths_for_code_context_v33(
-                canonical, context, rows=three["all_paths"]
-            ) or ())
-            three["statement_context"] = context
-        else:
-            phi_matches = [
-                dict(row) for row in three["all_paths"]
-                if self.model._canonical_block_addr_v21(row.get("incoming_addr")) == canonical
-            ]
-            three["statement_context"] = {}
+        classification = self.model.phi_paths_for_focal_block_v47(
+            canonical,
+            statement_context=context,
+            rows=three["all_paths"],
+            projection=self.model.projection,
+        )
+        phi_active = list(classification.get("active", ()) or ())
+        phi_passive = list(classification.get("passive", ()) or ())
+        phi_matches = list(classification.get("all", ()) or ())
+        three["statement_context"] = context
+        three["block_activity_v47"] = dict(
+            classification.get("activity", {}) or {}
+        )
         if not code_matches or not asm_headers:
+            phi_active = []
+            phi_passive = []
             phi_matches = []
+        three["phi_active_matches_v47"] = phi_active
+        three["phi_passive_matches_v47"] = phi_passive
         three["phi_matches"] = phi_matches
         if branch_resident:
             # Conditional branch mode is a persistent evidence surface.  PHI or
@@ -8913,7 +11094,13 @@ class PALSpecOpsHitUI:
                 "kind": "empty", "text": "No ASM containment for %s." % canonical,
             }]
             three["asm_rows"] = list(three["asm_base_rows"])
-        preferred_sid = next(iter(dict(three.get("statement_context") or {}).get("destination_sids", ()) or ()), None)
+        preferred_sid = next(iter(
+            dict(three.get("statement_context") or {}).get(
+                "destination_sids", ()
+            ) or ()
+        ), None)
+        if preferred_sid is None and phi_active:
+            preferred_sid = str(phi_active[0].get("output_sid") or "") or None
         self._three_rebuild_phi_rows(preferred_sid=preferred_sid)
 
         if source != "code" and code_matches:
@@ -8994,12 +11181,12 @@ class PALSpecOpsHitUI:
         if pane_h < 3 or pane_w < 8:
             return
         state = self._three["states"][pane]
+        inner_h = max(1, pane_h - 2)
         if pane == "asm":
-            self._asm_align_viewport_v27(rows, state)
+            self._asm_align_viewport_v27(rows, state, inner_h)
         choices = self._three_selectable(pane, rows)
         if choices and state["line"] not in choices:
             state["line"] = choices[0]
-        inner_h = max(1, pane_h - 2)
         if state["line"] < state["top"]:
             state["top"] = state["line"]
         elif state["line"] >= state["top"] + inner_h:
@@ -9021,8 +11208,25 @@ class PALSpecOpsHitUI:
             if pane == "asm" and self._three.get("pointer_focus")
             else "ASM CONTAINMENT [BLOCK NAV]"
         )
+        phi_title = (
+            "PHI MATERIALIZATION [FULL]"
+            if self._three.get("phi_mode") in (
+                "materialized_full_v48", "materialized_full_v49",
+                "materialized_full_blades_v51",
+            )
+            else "PHI MATERIALIZATION"
+            if self._three.get("phi_mode") in (
+                "materialized_focal_v48", "materialized_focal_direct_v49",
+            )
+            else "PHI DROP-IN PATHS"
+            if self._three.get("phi_mode") == "focal_dropin_paths"
+            else "PHI FOCAL BLOCK"
+            if self._three.get("phi_mode") == "focal_block_truth"
+            else "PHI CROSS-SECTION"
+        )
         title = " %s%s | focus=%s " % (
-            "PHI CROSS-SECTION" if pane == "phi" else asm_title if pane == "asm" else code_title,
+            phi_title if pane == "phi"
+            else asm_title if pane == "asm" else code_title,
             " [ACTIVE]" if active else "", focus_label,
         )
         self._add(y, x + 2, title, self._attr(role, bold=True), max(0, pane_w - 4))
@@ -9058,34 +11262,113 @@ class PALSpecOpsHitUI:
             if pane == "phi" and row.get("kind") == "phi_summary":
                 authority_selected = str(row.get("output_sid") or "") == str(self._three.get("selected_phi_sid") or "")
                 base = self._attr("active_header", bold=True) if authority_selected else self._attr("phi_list", bold=True)
-                self._add(sy, text_x, text[left:left + text_w].ljust(text_w), base, text_w)
-                self._paint_search(sy, text_x, text, query, left, text_w, current=selected and active)
                 phi_role, phi_hovered = self._three_phi_branch_role_v25(row)
-                phi_attr = self._branch_palette_attr_v25(phi_role, hovered=phi_hovered)
-                if phi_attr is not None:
-                    self._add(
-                        sy, text_x, text[left:left + text_w].ljust(text_w),
-                        phi_attr, text_w,
-                    )
-                else:
-                    self._overlay_active_line_v30(sy, text_x, text, left, text_w, selected and active)
+                phi_attr = self._branch_palette_attr_v25(
+                    phi_role, hovered=phi_hovered
+                )
+                self._add(
+                    sy, text_x, text[left:left + text_w].ljust(text_w),
+                    phi_attr if phi_attr is not None else base, text_w,
+                )
+                # Top layers: readable red cursor surface, then final highlights.
+                self._paint_active_cursor_bar_v45(
+                    sy, text_x, text, left, text_w, selected and active
+                )
+                self._paint_search(
+                    sy, text_x, text, query, left, text_w,
+                    current=selected and active,
+                )
+                continue
+            if pane == "phi" and row.get("kind") == "dropin_summary":
+                authority_selected = (
+                    str(row.get("dropin_id") or "")
+                    == str(self._three.get("selected_dropin_id") or "")
+                )
+                base = (
+                    self._attr("active_header", bold=True)
+                    if authority_selected
+                    else self._attr("phi_list", bold=True)
+                )
+                self._add(
+                    sy, text_x,
+                    text[left:left + text_w].ljust(text_w),
+                    base, text_w,
+                )
+                self._paint_active_cursor_bar_v45(
+                    sy, text_x, text, left, text_w,
+                    selected and active,
+                )
+                self._paint_search(
+                    sy, text_x, text, query, left, text_w,
+                    current=selected and active,
+                )
+                continue
+            if pane == "phi" and row.get("kind") == "dropin_sequence_header":
+                self._add(
+                    sy, text_x,
+                    text[left:left + text_w].ljust(text_w),
+                    self._attr("phi_header", bold=True)
+                    | curses.A_REVERSE,
+                    text_w,
+                )
+                continue
+            if pane == "phi" and row.get("kind") == "phi_sequence_note":
+                self._add(
+                    sy, text_x,
+                    text[left:left + text_w].ljust(text_w),
+                    self._attr("helper", bold=False),
+                    text_w,
+                )
+                continue
+            if pane == "phi" and row.get("kind") == "phi_truth_note":
+                truth_active = str(
+                    row.get("block_activity_v47") or ""
+                ) == "active"
+                self._add(
+                    sy, text_x,
+                    text[left:left + text_w].ljust(text_w),
+                    self._attr(
+                        "phi_incoming_addr" if truth_active else "helper",
+                        bold=truth_active,
+                    ),
+                    text_w,
+                )
+                self._paint_active_cursor_bar_v45(
+                    sy, text_x, text, left, text_w,
+                    selected and active,
+                )
+                self._paint_search(
+                    sy, text_x, text, query, left, text_w,
+                    current=selected and active,
+                )
                 continue
             if pane == "phi" and row.get("phi_template"):
-                self._draw_phi_template_line(sy, text_x, row, text, left, text_w, selected=selected and active, focused=focused, query=query)
                 phi_role, phi_hovered = self._three_phi_branch_role_v25(row)
-                phi_attr = self._branch_palette_attr_v25(phi_role, hovered=phi_hovered)
-                if phi_attr is not None:
-                    self._add(
-                        sy, text_x, text[left:left + text_w].ljust(text_w),
-                        phi_attr, text_w,
-                    )
+                phi_attr = self._branch_palette_attr_v25(
+                    phi_role, hovered=phi_hovered
+                )
+                self._draw_phi_template_line(
+                    sy, text_x, row, text, left, text_w,
+                    selected=selected and active,
+                    focused=focused,
+                    query=query,
+                    base_attr=phi_attr,
+                )
                 continue
 
             branch_paint = self._asm_branch_paint_role_v24(row) if pane == "asm" else None
             asm_hovered = bool(pane == "asm" and index in asm_hover_indices)
+            code_block = (
+                self.model._canonical_block_addr_v21(row.get("block"))
+                if pane == "code" else None
+            )
+            code_hovered = bool(
+                pane == "code" and hover_block is not None
+                and code_block == hover_block
+            )
             if asm_hovered:
-                # Full semantic section ownership comes first.  Relation/rule
-                # rows have no address of their own but belong to this block.
+                # Semantic block/linkage paint is a base surface.  The active
+                # cursor and final token overlays are rendered above it.
                 paint = self._link_hover_attr_v26()
             elif branch_paint:
                 paint = self._attr(branch_paint, bold=True)
@@ -9099,10 +11382,9 @@ class PALSpecOpsHitUI:
                 )
             elif pane == "asm" and row.get("kind") == "rule" and row.get("relation_role"):
                 paint = self._attr("asm_transition_orange", bold=True)
-            elif pane == "code" and self.model._canonical_block_addr_v21(row.get("block")) in branch_roles:
-                code_block = self.model._canonical_block_addr_v21(row.get("block"))
+            elif pane == "code" and code_block in branch_roles:
                 paint = self._branch_palette_attr_v25(
-                    branch_roles.get(code_block), hovered=(code_block == hover_block)
+                    branch_roles.get(code_block), hovered=code_hovered
                 )
             elif pane == "code" and index in code_pointer:
                 paint = self._attr("phi_incoming_addr", bold=True) | curses.A_REVERSE
@@ -9114,17 +11396,35 @@ class PALSpecOpsHitUI:
                 paint = self._attr("asm_jump_red", bold=True)
             elif pane == "asm" and row.get("asm_role") == "compare":
                 paint = self._attr("asm_compare", bold=True)
-            elif selected and active:
-                paint = self._attr("active_header", bold=True)
             elif focused:
                 paint = self._attr("phi_final", bold=True)
             else:
                 paint = self._attr("default")
-            self._add(sy, text_x, text[left:left + text_w].ljust(text_w), paint, text_w)
+            self._add(
+                sy, text_x, text[left:left + text_w].ljust(text_w),
+                paint, text_w,
+            )
+
+            # Rendering stack, bottom to top:
+            #   semantic/base surface
+            #   red cursor bar with the font repainted
+            #   final address/mnemonic/search overlays
+            self._paint_active_cursor_bar_v45(
+                sy, text_x, text, left, text_w,
+                selected and active,
+                underline=bool(
+                    asm_hovered or branch_paint or code_hovered
+                ),
+            )
+
             if pane == "asm" and row.get("kind") == "asm":
-                match = re.match(r"\s*(0x[0-9A-Fa-f]+|[0-9A-Fa-f]{6,16})", text)
+                match = re.match(
+                    r"\s*(0x[0-9A-Fa-f]+|[0-9A-Fa-f]{6,16})",
+                    text,
+                )
                 if match:
-                    a = max(match.start(1), left); b = min(match.end(1), left + text_w)
+                    a = max(match.start(1), left)
+                    b = min(match.end(1), left + text_w)
                     if a < b:
                         self._add(
                             sy, text_x + a - left, text[a:b],
@@ -9135,48 +11435,18 @@ class PALSpecOpsHitUI:
                             ), b - a,
                         )
                 self._paint_asm_jump_mnemonic_v26(
-                    sy, text_x, text, left, text_w, row, hovered=asm_hovered
+                    sy, text_x, text, left, text_w,
+                    row, hovered=asm_hovered,
                 )
-            # Search highlighting must not punch a foreign background through
-            # the active block's dark-red surface.  The linked section remains
-            # visually atomic; search resumes normally on every other block.
+
+            # Preserve the historical atomic ASM-hover surface.  Search remains
+            # the final overlay everywhere else.
             if not (pane == "asm" and asm_hovered):
                 self._paint_search(
                     sy, text_x, text, query, left, text_w,
                     current=selected and active,
                 )
-            if pane == "asm" and asm_hovered and selected and active:
-                cursor_attr = self._link_hover_attr_v26() | curses.A_UNDERLINE
-                self._add(
-                    sy, text_x, text[left:left + text_w].ljust(text_w),
-                    cursor_attr, text_w,
-                )
-                self._paint_asm_jump_mnemonic_v26(
-                    sy, text_x, text, left, text_w, row, hovered=True
-                )
-            elif pane == "asm" and branch_paint and selected and active:
-                cursor_attr = self._attr(branch_paint, bold=True) | curses.A_UNDERLINE
-                self._add(
-                    sy, text_x, text[left:left + text_w].ljust(text_w),
-                    cursor_attr, text_w,
-                )
-                self._paint_asm_jump_mnemonic_v26(
-                    sy, text_x, text, left, text_w, row, hovered=asm_hovered
-                )
-            elif pane == "code" and hover_block is not None and self.model._canonical_block_addr_v21(row.get("block")) == hover_block:
-                hover_attr = self._link_hover_attr_v26()
-                if selected and active:
-                    hover_attr |= curses.A_UNDERLINE
-                self._add(
-                    sy, text_x, text[left:left + text_w].ljust(text_w),
-                    hover_attr, text_w,
-                )
-            else:
-                self._overlay_active_line_v30(sy, text_x, text, left, text_w, selected and active)
-            if pane == "asm" and row.get("kind") == "asm":
-                self._paint_asm_jump_mnemonic_v26(
-                    sy, text_x, text, left, text_w, row, hovered=asm_hovered
-                )
+
 
     def _draw_three(self, body_top, body_height, width):
         self._three_prepare()
@@ -9191,22 +11461,49 @@ class PALSpecOpsHitUI:
         self.view_index = (self.view_index + int(step)) % len(self.VIEWS)
         self.status = "view %s" % self.LABELS[self.view]
 
+    def _commit_active_history_cursor_v51(self):
+        """Persist the current cursor into the active pane-owned history frame."""
+        if self.menu_mode:
+            return False
+        if self.view == "three":
+            self._three_prepare()
+            pane = self._three["panes"][self._three["active"]]
+            if pane == "phi":
+                self._phi_remember_cursor_v29(
+                    self._three_rows("phi"), self._three["states"]["phi"]
+                )
+                return self._phi_commit_history_frame_v46()
+            if pane == "asm":
+                return self._asm_commit_history_cursor_v24()
+            return False
+        if self.view == "asm":
+            return self._asm_commit_history_cursor_v24()
+        if self.view == "phi":
+            return self._phi_commit_history_frame_v46()
+        if self.view == "four":
+            self._ensure_four()
+            if self.owner.side_panes[self._four_active] == "asm":
+                return self._asm_commit_history_cursor_v24()
+        return False
+
     def _switch_pane(self, step):
         if self.view == "four":
             self._ensure_four()
             old_pane = self.owner.side_panes[self._four_active]
+            if old_pane == "asm":
+                self._asm_commit_history_cursor_v24()
             self._four_active = (
                 self._four_active + int(step)
             ) % len(self.owner.side_panes)
             self.owner.side_active = self._four_active
             pane = self.owner.side_panes[self._four_active]
-            if pane == "asm" and old_pane != "asm":
-                self._asm_reset_history_v35("ASM pane focus regained")
             if pane in ("readable", "executable"):
                 self.owner.last_python_pane = pane
                 self.owner._side_sync_model_cursor(pane)
                 self.owner._side_sync_python_pair(pane)
-            self.status = "pane %s" % self.owner.side_titles[pane]
+            self.status = "pane %s | ASM history retained at %s" % (
+                self.owner.side_titles[pane], self._asm_history_label_v34()
+            )
             return
         if self.view == "three":
             self._three_prepare()
@@ -9215,6 +11512,9 @@ class PALSpecOpsHitUI:
                 self._phi_remember_cursor_v29(
                     self._three_rows("phi"), self._three["states"]["phi"]
                 )
+                self._phi_commit_history_frame_v46()
+            elif old_pane == "asm":
+                self._asm_commit_history_cursor_v24()
             self._three["active"] = (
                 self._three["active"] + int(step)
             ) % len(self._three["panes"])
@@ -9228,11 +11528,15 @@ class PALSpecOpsHitUI:
                     snapshot=phi_state.get("_phi_cursor_v29"),
                     preferred_sid=self._three.get("selected_phi_sid"),
                 )
-                self.status = "pane phi | cursor retained at row %d" % (
-                    int(phi_state.get("line", 0)) + 1
+                self.status = (
+                    "pane PHI | cursor row %d | PHI history retained at %s"
+                    % (int(phi_state.get("line", 0)) + 1,
+                       self._phi_history_label_v46())
                 )
-            elif pane == "asm" and old_pane != "asm":
-                self._asm_reset_history_v35("ASM pane focus regained")
+            elif pane == "asm":
+                self.status = "pane ASM | history retained at %s" % (
+                    self._asm_history_label_v34()
+                )
             else:
                 self.status = "pane %s" % pane
             return
@@ -9320,7 +11624,7 @@ class PALSpecOpsHitUI:
             position = 0; changed = True
         elif key in (curses.KEY_END, "G"):
             position = len(choices) - 1; changed = True
-        elif key in (curses.KEY_LEFT, "h"):
+        elif key == curses.KEY_LEFT:
             if self.view == "detail":
                 state["action"] = max(0, int(state.get("action", 0)) - 1)
                 self.status = "variable destination: %s" % (
@@ -9671,20 +11975,286 @@ class PALSpecOpsHitUI:
         return None
 
     def _handle_asm_history_key_v37(self, key):
-        """Consume a history key on any open view containing an ASM surface.
-
-        History is a linked-view operation: replay refreshes ASM and every
-        synchronized pane even when keyboard focus currently rests on PHI or
-        Python.  This avoids making history responsiveness depend on the active
-        subpane after a jump focus operation.
-        """
+        """Consume angle-bracket history only when ASM owns keyboard focus."""
         step = self._asm_history_step_for_key_v37(key)
         if step is None or self.menu_mode:
             return False
-        if self.view not in ("asm", "three", "four"):
+        if self.view == "three":
+            self._three_prepare()
+            if self._three["panes"][self._three["active"]] != "asm":
+                return False
+        elif self.view == "four":
+            self._ensure_four()
+            if self.owner.side_panes[self._four_active] != "asm":
+                return False
+        elif self.view != "asm":
             return False
         self._asm_move_history_v34(step)
         return True
+
+    def _phi_history_label_v46(self):
+        if not self._phi_history_v46 or self._phi_history_index_v46 < 0:
+            return "-"
+        return "%d/%d" % (
+            self._phi_history_index_v46 + 1,
+            len(self._phi_history_v46),
+        )
+
+    @staticmethod
+    def _phi_frame_rows_v46(rows):
+        return tuple(dict(row or {}) for row in list(rows or ()))
+
+    def _phi_capture_history_frame_v46(self):
+        """Capture one exact STATIC DEBUG PHI viewport and linked surfaces.
+
+        This is a visual frame snapshot, not a semantic rewrite.  Restoring it
+        must reproduce the same PHI rows, cursor/highlight authority, linked ASM
+        surface, and Python cursor without touching the independent ASM ledger.
+        """
+        if self.view != "three" or self._three is None:
+            return None
+        three = self._three
+        model_state = {
+            "projection": self.model.projection,
+            "line": int(getattr(self.model, "line", 0) or 0),
+            "column": int(getattr(self.model, "column", 0) or 0),
+            "top": int(getattr(self.model, "top_line", 0) or 0),
+            "left": int(getattr(self.model, "left_column", 0) or 0),
+        }
+        return {
+            "kind": "pal_termui_phi_frame_v46",
+            "model": model_state,
+            "phi_rows": self._phi_frame_rows_v46(three.get("phi_rows")),
+            "phi_list_rows": self._phi_frame_rows_v46(three.get("phi_list_rows")),
+            "phi_detail_rows": self._phi_frame_rows_v46(three.get("phi_detail_rows")),
+            "phi_state": self._history_state_copy_v24(three["states"]["phi"]),
+            "asm_rows": self._phi_frame_rows_v46(three.get("asm_rows")),
+            "asm_base_rows": self._phi_frame_rows_v46(three.get("asm_base_rows")),
+            "asm_state": self._history_state_copy_v24(three["states"]["asm"]),
+            "code_state": self._history_state_copy_v24(three["states"]["code"]),
+            "selected_phi_sid": three.get("selected_phi_sid"),
+            "selected_dropin_id": three.get("selected_dropin_id"),
+            "phi_mode": three.get("phi_mode"),
+            "phi_materialization_full_v48": bool(
+                three.get("phi_materialization_full_v48")
+            ),
+            "phi_matches": self._phi_frame_rows_v46(three.get("phi_matches")),
+            "phi_active_matches_v47": self._phi_frame_rows_v46(
+                three.get("phi_active_matches_v47")
+            ),
+            "phi_passive_matches_v47": self._phi_frame_rows_v46(
+                three.get("phi_passive_matches_v47")
+            ),
+            "block_activity_v47": dict(
+                three.get("block_activity_v47") or {}
+            ),
+            "statement_context": dict(three.get("statement_context") or {}),
+            "base_focus": three.get("base_focus"),
+            "focus": three.get("focus"),
+            "source": three.get("source"),
+            "pointer_focus": three.get("pointer_focus"),
+            "phi_stack_zoom": dict(three.get("phi_stack_zoom") or {}),
+            "code_highlight_block": three.get("code_highlight_block"),
+            "branch_focus_v35": dict(three.get("branch_focus_v35") or {}),
+            "branch_role_by_block_v25": dict(three.get("branch_role_by_block_v25") or {}),
+            "asm_hover_block_v25": three.get("asm_hover_block_v25"),
+            "asm_hover_role_v25": three.get("asm_hover_role_v25"),
+        }
+
+    def _phi_commit_history_frame_v46(self):
+        if not self._phi_history_v46 or not (
+            0 <= self._phi_history_index_v46 < len(self._phi_history_v46)
+        ):
+            return False
+        frame = self._phi_capture_history_frame_v46()
+        if frame is None:
+            return False
+        self._phi_history_v46[self._phi_history_index_v46] = frame
+        return True
+
+    def _phi_prepare_enter_history_v46(self):
+        """Freeze the pre-Enter PHI viewport as the origin/current frame."""
+        if self.view != "three" or self._three is None:
+            return False
+        frame = self._phi_capture_history_frame_v46()
+        if frame is None:
+            return False
+        if self._phi_history_v46 and (
+            0 <= self._phi_history_index_v46 < len(self._phi_history_v46)
+        ):
+            self._phi_history_v46[self._phi_history_index_v46] = frame
+        else:
+            self._phi_history_v46 = [frame]
+            self._phi_history_index_v46 = 0
+        return True
+
+    def _phi_record_after_enter_v46(self, reason="PHI Enter"):
+        """Append the post-Enter PHI frame without touching ASM history."""
+        frame = self._phi_capture_history_frame_v46()
+        if frame is None:
+            return False
+        if self._phi_history_index_v46 < len(self._phi_history_v46) - 1:
+            self._phi_history_v46 = self._phi_history_v46[
+                :self._phi_history_index_v46 + 1
+            ]
+        current = (
+            self._phi_history_v46[self._phi_history_index_v46]
+            if self._phi_history_v46 and self._phi_history_index_v46 >= 0
+            else None
+        )
+        if current == frame:
+            self.status = "%s; PHI history %s" % (
+                reason, self._phi_history_label_v46()
+            )
+            return False
+        self._phi_history_v46.append(frame)
+        self._phi_history_index_v46 = len(self._phi_history_v46) - 1
+        self.status = "%s; PHI history %s" % (
+            reason, self._phi_history_label_v46()
+        )
+        return True
+
+    def _phi_apply_history_frame_v46(self, frame):
+        """Restore an exact PHI frame while preserving all PHI highlighting."""
+        if self.view != "three" or self._three is None:
+            return False
+        frame = dict(frame or {})
+        if frame.get("kind") != "pal_termui_phi_frame_v46":
+            return False
+        three = self._three
+        for key in ("phi_rows", "phi_list_rows", "phi_detail_rows", "asm_rows", "asm_base_rows"):
+            three[key] = [dict(row or {}) for row in list(frame.get(key, ()) or ())]
+        for key in (
+            "selected_phi_sid", "selected_dropin_id", "phi_mode",
+            "phi_materialization_full_v48",
+            "base_focus", "focus", "source", "pointer_focus",
+            "code_highlight_block", "asm_hover_block_v25", "asm_hover_role_v25",
+        ):
+            three[key] = frame.get(key)
+        three["phi_matches"] = [
+            dict(row or {}) for row in list(frame.get("phi_matches", ()) or ())
+        ]
+        three["phi_active_matches_v47"] = [
+            dict(row or {}) for row in list(
+                frame.get("phi_active_matches_v47", ()) or ()
+            )
+        ]
+        three["phi_passive_matches_v47"] = [
+            dict(row or {}) for row in list(
+                frame.get("phi_passive_matches_v47", ()) or ()
+            )
+        ]
+        three["block_activity_v47"] = dict(
+            frame.get("block_activity_v47") or {}
+        )
+        three["statement_context"] = dict(frame.get("statement_context") or {})
+        three["phi_stack_zoom"] = dict(frame.get("phi_stack_zoom") or {}) or None
+        three["branch_focus_v35"] = dict(frame.get("branch_focus_v35") or {}) or None
+        three["branch_role_by_block_v25"] = dict(
+            frame.get("branch_role_by_block_v25") or {}
+        )
+        three["states"]["phi"].clear()
+        three["states"]["phi"].update(dict(frame.get("phi_state") or {}))
+        three["states"]["asm"].clear()
+        three["states"]["asm"].update(dict(frame.get("asm_state") or {}))
+        three["states"]["code"].clear()
+        three["states"]["code"].update(dict(frame.get("code_state") or {}))
+        three["active"] = three["panes"].index("phi")
+
+        model_state = dict(frame.get("model") or {})
+        projection = model_state.get("projection")
+        try:
+            if projection and self.model.document.projection(projection) is not None:
+                self.model.projection = projection
+        except Exception:
+            pass
+        self.model.line = int(model_state.get("line", self.model.line) or 0)
+        self.model.column = int(model_state.get("column", self.model.column) or 0)
+        self.model.top_line = int(model_state.get("top", self.model.top_line) or 0)
+        self.model.left_column = int(model_state.get("left", self.model.left_column) or 0)
+        try:
+            self.model.clamp()
+            self.model.update_cursor_context()
+        except Exception:
+            pass
+        self.status = "PHI history %s restored | ASM history unchanged" % (
+            self._phi_history_label_v46()
+        )
+        return True
+
+    def _phi_move_history_v46(self, step):
+        if not self._phi_history_v46:
+            self.status = "PHI history is empty; Enter a PHI block/transition first"
+            return False
+        self._phi_commit_history_frame_v46()
+        target = min(
+            max(0, self._phi_history_index_v46 + int(step)),
+            len(self._phi_history_v46) - 1,
+        )
+        if target == self._phi_history_index_v46:
+            self.status = "PHI history boundary %s" % self._phi_history_label_v46()
+            return False
+        self._phi_history_index_v46 = target
+        return self._phi_apply_history_frame_v46(
+            self._phi_history_v46[target]
+        )
+
+    def _handle_history_key_v46(self, key):
+        """Dispatch `<`/`>` to the history owned by the active pane."""
+        step = self._asm_history_step_for_key_v37(key)
+        if step is None or self.menu_mode:
+            return False
+        if self.view == "three":
+            self._three_prepare()
+            active = self._three["panes"][self._three["active"]]
+            if active == "phi":
+                self._phi_move_history_v46(step)
+                return True
+            if active == "asm":
+                self._asm_move_history_v34(step)
+                return True
+            return False
+        return self._handle_asm_history_key_v37(key)
+
+    def _clear_active_history_v51(self):
+        """Clear only the history ledger owned by the focused ASM/PHI pane."""
+        if self.menu_mode:
+            self.status = "0 requires an active ASM or PHI pane"
+            return False
+        if self.view == "three":
+            self._three_prepare()
+            pane = self._three["panes"][self._three["active"]]
+            if pane == "phi":
+                self._phi_history_v46 = []
+                self._phi_history_index_v46 = -1
+                self.status = "PHI history cleared; PHI cursor retained"
+                return True
+            if pane == "asm":
+                self._asm_history_v34 = []
+                self._asm_history_index_v34 = -1
+                self.status = "ASM history cleared; ASM cursor retained"
+                return True
+            self.status = "0 is pane-local; CODE has no history ledger"
+            return False
+        if self.view == "phi":
+            self._phi_history_v46 = []
+            self._phi_history_index_v46 = -1
+            self.status = "PHI history cleared; pane cursor retained"
+            return True
+        if self.view == "asm":
+            self._asm_history_v34 = []
+            self._asm_history_index_v34 = -1
+            self.status = "ASM history cleared; pane cursor retained"
+            return True
+        if self.view == "four":
+            self._ensure_four()
+            if self.owner.side_panes[self._four_active] == "asm":
+                self._asm_history_v34 = []
+                self._asm_history_index_v34 = -1
+                self.status = "ASM history cleared; pane cursor retained"
+                return True
+        self.status = "0 requires an active ASM or PHI pane"
+        return False
 
     def _asm_history_label_v34(self):
         if not self._asm_history_v34 or self._asm_history_index_v34 < 0:
@@ -9993,8 +12563,13 @@ class PALSpecOpsHitUI:
             return
         index = min(max(0, int(state["line"])), len(rows) - 1)
         row = dict(rows[index] or {})
+        phi_enter_history_v46 = bool(
+            self.view == "three" and pane == "phi"
+        )
         if pane == "phi":
             self._phi_remember_cursor_v29(rows, state)
+            if phi_enter_history_v46:
+                self._phi_prepare_enter_history_v46()
         # mars v0.28: the cursor remains on the BLOCK header, but activation
         # inherits the block's terminal direct jump command when one exists.
         # This restores direct-jump and conditional topology actions without
@@ -10004,10 +12579,16 @@ class PALSpecOpsHitUI:
             if action_row is not None:
                 row = action_row
         if self.view == "four" and pane in ("readable", "executable"):
-            # ENTER commits this code statement as the new additive linkage root.
+            # OVERVIEW focus is a whole Python line.  Do not invoke the legacy
+            # variable/token hotspot resolver merely to commit cross-pane focus.
             self._sync_four_after_selection(pane)
-            self.model.toggle_object_focus()
+            self.model.object_focus = None
+            self.model.highlight_sid = None
             state["focus"] = None if state.get("focus") == index else index
+            self.status = (
+                "%s line %d committed; token metadata bypassed"
+                % (pane.upper(), index + 1)
+            )
         elif self.view == "four" and pane == "asm":
             semantic = self.model.asm_instruction_semantics_v33(row.get("text"))
             target = semantic.get("jump_target")
@@ -10035,6 +12616,32 @@ class PALSpecOpsHitUI:
                     state["focus"] = None if state.get("focus") == index else index
             return
         elif self.view == "three":
+            if pane == "phi" and row.get("kind") == "dropin_summary":
+                dropin_id = str(row.get("dropin_id") or "")
+                self._three["selected_dropin_id"] = dropin_id or None
+                destinations = tuple(
+                    row.get("destination_sids", ()) or ()
+                )
+                self._three["selected_phi_sid"] = (
+                    str(destinations[0])
+                    if destinations else
+                    str(row.get("output_sid") or "") or None
+                )
+                state["focus"] = index
+                self._phi_remember_cursor_v29(rows, state)
+                self.status = (
+                    "selected focal drop-in block %s @ %s; ASM/PY focus retained"
+                    % (
+                        int(row.get("dropin_index") or 0),
+                        self.model._canonical_block_addr_v21(
+                            row.get("address") or row.get("addr")
+                        ) or "-",
+                    )
+                )
+                self._phi_record_after_enter_v46(
+                    "selected focal drop-in block"
+                )
+                return
             if pane == "phi" and row.get("kind") == "phi_summary":
                 sid = str(row.get("output_sid") or "")
                 self._three["selected_phi_sid"] = sid
@@ -10045,6 +12652,9 @@ class PALSpecOpsHitUI:
                 self.status = (
                     "selected PHI result %s; cursor retained" % sid
                 )
+                self._phi_record_after_enter_v46(
+                    "selected PHI result %s" % sid
+                )
                 return
             if pane == "phi" and row.get("block_hotspot") and row.get("address"):
                 prior_focus = state.get("focus")
@@ -10053,6 +12663,13 @@ class PALSpecOpsHitUI:
                 current = int(state.get("line", 0))
                 state["focus"] = None if prior_focus == current else current
                 self._phi_remember_cursor_v29(self._three_rows("phi"), state)
+                self._phi_record_after_enter_v46(
+                    "PHI block pointer %s" % (
+                        self.model._canonical_block_addr_v21(
+                            row.get("address")
+                        ) or "-"
+                    )
+                )
                 return
             if pane == "asm":
                 if self._three.get("branch_focus_v35") and not row.get("jump_target"):
@@ -10206,6 +12823,15 @@ class PALSpecOpsHitUI:
                     self._three["phi_rows"] = list(snapshot.get("three_phi_rows") or ())
                     self._three["phi_list_rows"] = list(snapshot.get("three_phi_list_rows") or ())
                     self._three["phi_detail_rows"] = list(snapshot.get("three_phi_detail_rows") or ())
+                    self._three["phi_materialization_full_v48"] = bool(
+                        snapshot.get("three_phi_materialization_full_v48", False)
+                    )
+                    self._three["phi_mode"] = snapshot.get(
+                        "three_phi_mode", self._three.get("phi_mode")
+                    )
+                    self._three["selected_phi_sid"] = snapshot.get(
+                        "three_selected_phi_sid"
+                    )
                 if pane == "asm" and snapshot.get("three_asm_rows") is not None:
                     self._three["asm_rows"] = list(snapshot.get("three_asm_rows") or ())
                     self._three["asm_base_rows"] = list(snapshot.get("three_asm_base_rows") or ())
@@ -10245,12 +12871,17 @@ class PALSpecOpsHitUI:
                     "three_phi_rows": tuple(self._three.get("phi_rows", ()) or ()),
                     "three_phi_list_rows": tuple(self._three.get("phi_list_rows", ()) or ()),
                     "three_phi_detail_rows": tuple(self._three.get("phi_detail_rows", ()) or ()),
+                    "three_phi_materialization_full_v48": bool(
+                        self._three.get("phi_materialization_full_v48")
+                    ),
+                    "three_phi_mode": self._three.get("phi_mode"),
+                    "three_selected_phi_sid": self._three.get("selected_phi_sid"),
                 })
-                full_rows = list(self._phi_template_rows(pointer_hotspots=True))
-                self._three["phi_rows"] = full_rows
-                self._three["phi_list_rows"] = full_rows
-                self._three["phi_detail_rows"] = []
-                self._three["states"]["phi"].update({"line": 0, "top": 0, "left": 0})
+                self._three["phi_materialization_full_v48"] = True
+                self._three_rebuild_phi_rows(
+                    preferred_sid=self._three.get("selected_phi_sid")
+                )
+                self._three["states"]["phi"]["left"] = 0
             elif active == "asm":
                 data.update({
                     "three_asm_rows": tuple(self._three.get("asm_rows", ()) or ()),
@@ -10292,49 +12923,26 @@ class PALSpecOpsHitUI:
             self._four_asm_rows_v34 = list(self._full_asm_rows_v35())
             self.owner.side_state["asm"].update({"line": 0, "top": 0, "left": 0, "column": 0})
         self.full_snapshots[key] = data
-        self.status = "FULL=ON; complete %s listing; F restores focus" % self._active_subpane_label()
+        if self.view == "three" and data.get("pane") == "phi":
+            self.status = "FULL=ON; all materialized Φ unfolded by activity; F restores focal block"
+        else:
+            self.status = "FULL=ON; complete %s listing; F restores focus" % self._active_subpane_label()
 
     def _clear(self):
-        self.searches.clear()
-        self.highlight_modes.clear()
-        self.full_snapshots.clear()
-        self._asm_jump_focus = None
-        self._four_asm_focus_v34 = None
-        self._four_asm_rows_v34 = None
-        self._asm_history_v34 = []
-        self._asm_history_index_v34 = -1
-        self.model.object_focus = None
-        self.model.highlight_sid = None
-        for state in self.states.values():
-            state.update({"line": 0, "top": 0, "left": 0, "focus": None})
-        self._one_cache.clear()
-        self._digest = None
-        self._project_cache = None
-        initial = dict(self._initial_model_state or {})
-        self.model.projection = str(initial.get("projection") or self.model.projection)
-        self.model.line = int(initial.get("line", 0) or 0)
-        self.model.column = int(initial.get("column", 0) or 0)
-        self.model.top_line = int(initial.get("top_line", 0) or 0)
-        self.model.left_column = int(initial.get("left_column", 0) or 0)
-        self.model.clamp()
-        self._three = None
-        self._phi_menu_selected_sid = None
-        self._phi_full_listing_v35 = False
-        self._phi_menu_rows_cache_v29 = []
-        self._four_ready = False
-        self._code_view_initialized = {"four": False, "three": False}
-        self._four_active = self.owner.side_panes.index("readable")
-        for pane, state in self.owner.side_state.items():
-            state.update({"line": 0, "column": 0, "top": 0, "left": 0})
-        readable_state = self.owner.side_state.get("readable")
-        if readable_state is not None:
-            readable_state.update({
-                "line": int(self.model.line), "column": int(self.model.column),
-                "top": int(self.model.top_line), "left": int(self.model.left_column),
-            })
-        self.owner.last_python_pane = "readable"
-        self.owner.side_active = self._four_active
-        self.status = "cleared filters, highlights and focus; initial view restored"
+        """C clears only the focused pane's search and highlight lock."""
+        key = self._active_search_key()
+        previous = str(self.searches.get(key, "") or "")
+        self.searches[key] = ""
+        self.highlight_modes[key] = False
+        self.status = (
+            "cleared /%s and highlight lock for %s"
+            % (previous, self._active_subpane_label())
+            if previous else
+            "search/highlight already clear for %s"
+            % self._active_subpane_label()
+        )
+        return True
+
 
     def _command_prompt_v37(self, label="PAL CMD> ", initial=""):
         """Read a command directly beneath the graphic menu/key rows.
@@ -10514,6 +13122,11 @@ class PALSpecOpsHitUI:
             self._three_refresh_code()
             self._three["all_paths"] = list(self.model.phi_path_focus_rows_v21() or ())
             self._three_rebuild_phi_rows(preferred_sid=selected)
+            # Frozen PHI frames carry rendered names.  A naming-overlay change
+            # starts a fresh PHI ledger so history can never resurrect stale
+            # SSA/PAL/Humanized/operator spellings.
+            self._phi_history_v46 = []
+            self._phi_history_index_v46 = -1
         self.status = self.model.status
         return True
 
@@ -10544,6 +13157,7 @@ class PALSpecOpsHitUI:
                 if self.menu_mode:
                     break
                 self._commit_code_cursor()
+                self._commit_active_history_cursor_v51()
                 self.menu_mode = True
                 dirty = True
                 continue
@@ -10565,16 +13179,12 @@ class PALSpecOpsHitUI:
                 if key in ("\n", "\r", curses.KEY_ENTER):
                     if self.view in ("three", "four"):
                         self._maybe_show_large_loader_v35(self.LABELS[self.view])
-                    asm_regained = self.view == "asm"
-                    if self.view == "three" and self._three is not None:
-                        asm_regained = self._three["panes"][self._three["active"]] == "asm"
-                    if self.view == "four":
-                        asm_regained = self.owner.side_panes[self._four_active] == "asm"
-                    if asm_regained:
-                        self._asm_reset_history_v35("ASM focus regained")
                     self.menu_mode = False
-                    if not asm_regained:
-                        self.status = "opened %s" % self.LABELS[self.view]
+                    self.status = "opened %s | PHI history %s | ASM history %s" % (
+                        self.LABELS[self.view],
+                        self._phi_history_label_v46(),
+                        self._asm_history_label_v34(),
+                    )
                     dirty = True
                     continue
                 if key in ("\t", KEY_CTRL_TAB, getattr(curses, "KEY_BTAB", -99999)):
@@ -10588,13 +13198,15 @@ class PALSpecOpsHitUI:
             # Inside a view, M/Esc/Q returns exactly one node to MENU VIEW.
             if key in ("\x1b", "q", "Q", "m", "M"):
                 self._commit_code_cursor()
+                self._commit_active_history_cursor_v51()
                 self.menu_mode = True
-                self.status = "menu selection retained: %s" % self.LABELS[self.view]
+                self.status = "menu selection retained: %s | histories retained" % self.LABELS[self.view]
                 dirty = True
                 continue
-            # NEPTUNE: history dispatch precedes all generic controls and
-            # is linked to the containing ASM view, not only the active subpane.
-            if self._handle_asm_history_key_v37(key):
+            # v0.35a: angle-bracket history is pane-owned.  PHI replays PHI
+            # visual frames; ASM replays ASM jump frames; neither ledger mutates
+            # the other.
+            if self._handle_history_key_v46(key):
                 dirty = True
                 continue
             if self._display_control(key):
@@ -10620,8 +13232,6 @@ class PALSpecOpsHitUI:
                     else:
                         self.status = "search and highlight mode cleared"
                 dirty = True; continue
-            if key == ":":
-                self._command(); dirty = True; continue
             if key == curses.KEY_F4:
                 self._rename_active_variable_v34(); dirty = True; continue
             # mars v0.27 retained: arrows and j/k all browse ASM by machine block.
@@ -10629,13 +13239,16 @@ class PALSpecOpsHitUI:
             # PHI cursor identity across Tab focus and Enter-triggered rebuilds.
             # mars v0.28: arrows and j/k browse by BLOCK; ENTER inherits that
             # block's terminal direct jump command when present. Angle
-            # brackets remain reserved for linked jump history replay.
-            if key == "H":
+            # brackets replay the independent history of the active PHI or
+            # ASM pane.
+            if key in ("h", "H"):
                 self._toggle_highlight_mode(); dirty = True; continue
             if key in ("f", "F"):
                 self._full(); dirty = True; continue
-            if key == "C":
+            if key in ("c", "C"):
                 self._clear(); dirty = True; continue
+            if key == "0":
+                self._clear_active_history_v51(); dirty = True; continue
             if key == "n":
                 self._move_match(1); dirty = True; continue
             if key == "N":

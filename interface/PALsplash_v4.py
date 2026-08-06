@@ -24,7 +24,7 @@ VT_HIDE_CURSOR = CSI + "?25l"
 VT_SHOW_CURSOR = CSI + "?25h"
 VT_RESET = CSI + "0m"
 
-DEFAULT_SUBTITLE = "PyGhidra / Python Abstract Layer / PALTermUI (mars)"
+DEFAULT_SUBTITLE = "PyGhidra / Python Abstract Layer / PALTermUI (mars v0.24b)"
 DEFAULT_FOOTER = (
     "PAL is an execution analysis oriented binary forensics reconstructive platform."
 )
