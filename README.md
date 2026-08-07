@@ -73,7 +73,7 @@ Remy
 
 # 🐉 PAL — PyGhidra Python Abstract Layer
 
-## `mars` Alpha Release - v0.24 (mars)
+## `mars` Alpha Release - v0.24b (mars)
 
 **PAL is an execution-oriented binary reconstruction and forensic analysis layer built on Ghidra and PyGhidra.** It turns decompiler evidence into two linked Python projections—one optimized for human reading and one designed for controlled execution—while preserving a traceable connection back to assembly, p-code, control-flow structure, SSA state, physical storage, ABI carriers, and emitted runtime behavior.
 
