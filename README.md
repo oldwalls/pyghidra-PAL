@@ -1,23 +1,77 @@
-<img width="1024" height="694" alt="image" src="https://github.com/user-attachments/assets/4516c1c9-7016-4c96-a91b-e4c5e0ddd1c6" />
+<img width="320" height="320" alt="mars_3headed_ghidra" src="https://github.com/user-attachments/assets/5bac7a89-905e-4261-a882-4970aaeebddf" />
 
-## 📣 Upcoming Update
+# ⚙️ Update
 
-A new version, v0.24a, of `PALTermUI (mars)` will be released within days. Development is still pending.
+## 📣 PAL Alpha v0.24b — `PALTermUI (mars)` Finalizer + `seq` Decompilation Project
 
-It has a reworked PHI pane in the `static debug` feature of TermUI, with more functional linking to ASM and PY. A number of smaller functionality bugs—key mappings, situational lockups, etc.—will also be addressed.
+PAL Alpha v0.24b introduces a substantial update to `PALTermUI (mars)`, focused primarily on the `STATIC DEBUG` workspace.
 
-With that release, another component will be shared: a `seq` decompilation project. It contains most of `seq` in decompiled form, including the equivalent of `main()` in `seq` (~650+ LOC).
+The PHI pane has been reworked into a more practical materialization cross-section. It now presents variables through their actual materialization blocks and assignments, with direct linkage to the corresponding ASM and Python views.
 
-The PAL stack that decompiled the `seq` functions, in part, will be released after a slightly longer period of testing.
+The synchronized panes make it possible to inspect the same function state through three connected layers:
+
+```text
+PHI materialization
+ASM / machine truth
+READ.py / recovered Python
+```
+
+The PHI pane now supports:
+
+* focal-block materialization views;
+* unfolded Full mode blades for all materialized variables;
+* ordering by variable activity, block count, and write count;
+* direct display of the Python assignment associated with each materialization;
+* preservation of repeated execution occurrences;
+* classification of both human-facing variables and semantically used temporary variables;
+* removal of distracting virtual PHI ancestry and passive merge records.
+
+ASM and PHI now maintain independent navigation histories, including their cursor positions. Pane focus changes no longer clear those histories.
+
+A number of smaller interface issues have also been addressed:
+
+* corrected key mappings;
+* pane-local search and highlight controls;
+* persistent ASM and PHI history;
+* removal of the old `:` command pathway;
+* reduced legacy element-sensitive metadata work in OVERVIEW;
+* improved ASM scrolling continuity by retaining context above the focused block;
+* revised four-pane OVERVIEW layout;
+* visible loading notices for larger functions;
+* fixes for situational pane lockups and stale focus behavior.
+
+The four-pane OVERVIEW layout is now:
+
+```text
+ASM / MACHINE TRUTH     EXEC.PY
+GHIDRA C                READ.PY
+```
+
+## `seq` Decompilation Project
+
+This release also includes a PAL project containing most of the GNU `seq` binary in decompiled form.
+
+The project includes the large function corresponding approximately to `seq`’s `main()`, recovered as more than 650 lines of readable Python. This function has served as PALTermUI’s primary real-world stress specimen during development of the new PHI, ASM, and Python linkage interface.
+
+It contains substantially more complex behavior than PAL’s synthetic specimens, including:
+
+* extensive branching and early exits;
+* x87 floating-point operations;
+* reconstructed multiword values;
+* string and locale handling;
+* stack and TLS checks;
+* many temporary values and repeated materializations.
+
+The PAL stack that produced this partial `seq` decompilation is not included in this release. It will be published after a longer period of regression testing and validation.
 
 Thank you for your attention,
 Remy
 
-<img width="3800" height="1622" alt="image" src="https://github.com/user-attachments/assets/2ad633c5-e0a6-456d-9032-0dc3a7b7ad7c" />
+---
 
 ---
 
-# PAL — PyGhidra Python Abstract Layer
+# 🐉 PAL — PyGhidra Python Abstract Layer
 
 ## `mars` Alpha Release - v0.24 (mars)
 
