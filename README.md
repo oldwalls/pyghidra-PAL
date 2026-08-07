@@ -141,8 +141,7 @@ A PAL failure is expected to remain local and explainable. The system prefers an
 
 ## STATIC DEBUG — linked PHI, ASM, and Python
 
-<img width="3800" height="1890" alt="image" src="https://github.com/user-attachments/assets/8952d1d4-af1a-4a31-ac54-6c5950b468e7" />
-
+<img width="3840" height="2160" alt="image" src="https://github.com/user-attachments/assets/10331632-3d4b-4dba-9584-5848d33e963b" />
 
 STATIC DEBUG is the focused evidence workbench. A selected Python statement can refresh its owning machine block and PHI transition context; selecting an ASM block can refresh the corresponding Python and custody views.
 
