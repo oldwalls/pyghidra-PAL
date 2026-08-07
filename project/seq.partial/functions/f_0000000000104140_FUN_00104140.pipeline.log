@@ -1,0 +1,2277 @@
+
+===== CFG DEBUG =====
+
+[EDGES]
+0x104140 -> 0x1041a1  true raw=true role=raw_true_order_fallback pol=fallthrough inv=None
+0x104140 -> 0x104180  false raw=false role=raw_false_order_fallback pol=fallthrough inv=None
+0x104180 -> 0x104180  backedge raw=true role=latch_to_header pol=target inv=False
+0x104180 -> 0x104190  false raw=false role=raw_false_fallthrough pol=target inv=True
+0x104190 -> 0x1042e2  true raw=true role=raw_true_explicit_target pol=target inv=False
+0x104190 -> 0x104199  false raw=false role=raw_false_fallthrough pol=target inv=True
+0x104199 -> 0x1042e2  true raw=true role=raw_true_explicit_target pol=target inv=False
+0x104199 -> 0x1041a1  false raw=false role=raw_false_fallthrough pol=target inv=True
+0x1041a1 -> 0x1041d1  true raw=true role=raw_true_order_fallback pol=fallthrough inv=None
+0x1041a1 -> 0x1041b0  false raw=false role=raw_false_order_fallback pol=fallthrough inv=None
+0x1041b0 -> 0x1041b0  backedge raw=true role=latch_to_header pol=target inv=False
+0x1041b0 -> 0x1041c0  false raw=false role=raw_false_fallthrough pol=target inv=True
+0x1041c0 -> 0x1042da  true raw=true role=raw_true_explicit_target pol=target inv=False
+0x1041c0 -> 0x1041c9  false raw=false role=raw_false_fallthrough pol=target inv=True
+0x1041c9 -> 0x1042da  true raw=true role=raw_true_explicit_target pol=target inv=False
+0x1041c9 -> 0x1041d1  false raw=false role=raw_false_fallthrough pol=target inv=True
+0x1041d1 -> 0x1041f3  true raw=true role=raw_true_explicit_target pol=unknown inv=None
+0x1041d1 -> 0x1041ef  false raw=false role=raw_false_fallthrough pol=unknown inv=None
+0x1041ef -> 0x1041f3  uncond raw=uncond role=uncond pol=unknown inv=None
+0x1041f3 -> 0x1042ea  true raw=true role=raw_true_explicit_target pol=target inv=False
+0x1041f3 -> 0x1041fb  false raw=false role=raw_false_fallthrough pol=target inv=True
+0x1041fb -> 0x104217  true raw=true role=raw_true_explicit_target pol=unknown inv=None
+0x1041fb -> 0x104213  false raw=false role=raw_false_fallthrough pol=unknown inv=None
+0x104213 -> 0x104217  uncond raw=uncond role=uncond pol=unknown inv=None
+0x104217 -> 0x104343  true raw=true role=raw_true_explicit_target pol=unknown inv=None
+0x104217 -> 0x104291  false raw=false role=raw_false_fallthrough pol=unknown inv=None
+0x104291 -> 0x1042b1  true raw=true role=raw_true_explicit_target pol=unknown inv=None
+0x104291 -> 0x104293  false raw=false role=raw_false_fallthrough pol=unknown inv=None
+0x104293 -> 0x104343  true raw=true role=raw_true_explicit_target pol=fallthrough inv=True
+0x104293 -> 0x1042b1  false raw=false role=raw_false_fallthrough pol=fallthrough inv=False
+0x1042b1 -> 0x1042b4  uncond raw=uncond role=uncond pol=unknown inv=None
+0x1042b4 -> EXIT  uncond raw=uncond role=uncond pol=unknown inv=None
+0x1042da -> 0x1041d1  uncond raw=uncond role=uncond pol=unknown inv=None
+0x1042e2 -> 0x1041a1  uncond raw=uncond role=uncond pol=unknown inv=None
+0x1042ea -> 0x104343  uncond raw=uncond role=uncond pol=unknown inv=None
+0x104343 -> 0x104357  true raw=true role=raw_true_explicit_target pol=unknown inv=None
+0x104343 -> 0x104353  false raw=false role=raw_false_fallthrough pol=unknown inv=None
+0x104353 -> 0x104357  uncond raw=uncond role=uncond pol=unknown inv=None
+0x104357 -> 0x104393  uncond raw=uncond role=uncond pol=unknown inv=None
+0x104393 -> 0x1043d4  true raw=true role=raw_true_explicit_target pol=fallthrough inv=True
+0x104393 -> 0x1043a0  false raw=false role=raw_false_fallthrough pol=fallthrough inv=False
+0x1043a0 -> 0x1043c1  uncond raw=uncond role=uncond pol=unknown inv=None
+0x1043b0 -> 0x104478  true raw=true role=raw_true_explicit_target pol=unknown inv=None
+0x1043b0 -> 0x1043c1  backedge raw=false role=latch_to_header pol=unknown inv=None
+0x1043c1 -> 0x1043b0  true raw=true role=raw_true_explicit_target pol=fallthrough inv=True
+0x1043c1 -> 0x1043c9  false raw=false role=raw_false_fallthrough pol=fallthrough inv=False
+0x1043c9 -> 0x1043ce  uncond raw=uncond role=uncond pol=unknown inv=None
+0x1043ce -> 0x104393  backedge raw=uncond role=latch_to_header pol=unknown inv=None
+0x1043d4 -> 0x10440b  true raw=true role=raw_true_explicit_target pol=unknown inv=None
+0x1043d4 -> 0x1043d9  false raw=false role=raw_false_fallthrough pol=unknown inv=None
+0x1043d9 -> 0x10440b  true raw=true role=raw_true_explicit_target pol=target inv=False
+0x1043d9 -> 0x1043e0  false raw=false role=raw_false_fallthrough pol=target inv=True
+0x1043e0 -> 0x104510  true raw=true role=raw_true_explicit_target pol=fallthrough inv=True
+0x1043e0 -> 0x1043e9  false raw=false role=raw_false_fallthrough pol=fallthrough inv=False
+0x1043e9 -> 0x104510  true raw=true role=raw_true_explicit_target pol=fallthrough inv=True
+0x1043e9 -> 0x10440b  false raw=false role=raw_false_fallthrough pol=fallthrough inv=False
+0x10440b -> 0x10448a  true raw=true role=raw_true_explicit_target pol=target inv=False
+0x10440b -> 0x104420  false raw=false role=raw_false_fallthrough pol=target inv=True
+0x104420 -> 0x104393  backedge raw=true role=latch_to_header pol=target inv=False
+0x104420 -> 0x104444  false raw=false role=raw_false_exact_fallthrough_v19 pol=target inv=True
+0x104444 -> 0x104555  true raw=true role=raw_true_explicit_target pol=fallthrough inv=True
+0x104444 -> 0x104393  backedge raw=false role=latch_to_header pol=fallthrough inv=False
+0x104478 -> 0x1043ce  uncond raw=uncond role=uncond pol=unknown inv=None
+0x10448a -> 0x104420  true raw=true role=raw_true_explicit_target pol=fallthrough inv=True
+0x10448a -> 0x1044d8  false raw=false role=raw_false_fallthrough pol=fallthrough inv=False
+0x1044d8 -> 0x104420  uncond raw=uncond role=uncond pol=unknown inv=None
+0x104510 -> 0x104555  true raw=true role=raw_true_explicit_target pol=fallthrough inv=True
+0x104510 -> 0x10453a  false raw=false role=raw_false_fallthrough pol=fallthrough inv=False
+0x10453a -> 0x1042b4  uncond raw=uncond role=uncond pol=unknown inv=None
+0x104555 -> 0x1045ff  true raw=true role=raw_true_explicit_target pol=target inv=False
+0x104555 -> 0x104588  false raw=false role=raw_false_fallthrough pol=target inv=True
+0x104588 -> 0x1045e0  true raw=true role=raw_true_explicit_target pol=target inv=False
+0x104588 -> 0x104591  false raw=false role=raw_false_fallthrough pol=target inv=True
+0x104591 -> 0x104630  true raw=true role=raw_true_explicit_target pol=target inv=False
+0x104591 -> 0x1045a1  false raw=false role=raw_false_fallthrough pol=target inv=True
+0x1045a1 -> 0x1045ff  true raw=true role=raw_taken_by_exact_fallthrough_complement_v19 pol=target inv=False
+0x1045a1 -> 0x1045ad  false raw=false role=raw_false_exact_fallthrough_v19 pol=target inv=True
+0x1045ad -> 0x104604  true raw=true role=raw_true_explicit_target pol=fallthrough inv=True
+0x1045ad -> 0x1045c5  false raw=false role=raw_false_fallthrough pol=fallthrough inv=False
+0x1045c5 -> 0x104610  true raw=true role=raw_true_explicit_target pol=fallthrough inv=True
+0x1045c5 -> 0x1045d0  false raw=false role=raw_false_fallthrough pol=fallthrough inv=False
+0x1045d0 -> EXIT  uncond raw=uncond role=uncond pol=unknown inv=None
+0x1045d5 -> EXIT  uncond raw=uncond role=uncond pol=unknown inv=None
+0x1045e0 -> 0x104591  true raw=true role=raw_true_explicit_target pol=fallthrough inv=True
+0x1045e0 -> 0x1045ff  false raw=false role=raw_false_fallthrough pol=fallthrough inv=False
+0x1045ff -> 0x104604  uncond raw=uncond role=uncond pol=unknown inv=None
+0x104604 -> 0x1046a8  true raw=true role=raw_true_explicit_target pol=target inv=False
+0x104604 -> 0x10460c  false raw=false role=raw_false_fallthrough pol=target inv=True
+0x10460c -> 0x1045d5  true raw=true role=raw_true_explicit_target pol=target inv=False
+0x10460c -> 0x104610  false raw=false role=raw_false_fallthrough pol=target inv=True
+0x104610 -> 0x1045d0  true raw=true role=raw_true_explicit_target pol=target inv=False
+0x104610 -> 0x104615  false raw=false role=raw_false_fallthrough pol=target inv=True
+0x104615 -> EXIT  uncond raw=uncond role=uncond pol=unknown inv=None
+0x104630 -> 0x1045a1  true raw=true role=raw_true_explicit_target pol=fallthrough inv=True
+0x104630 -> 0x10463d  false raw=false role=raw_false_fallthrough pol=fallthrough inv=False
+0x10463d -> 0x104660  true raw=true role=raw_true_explicit_target pol=target inv=False
+0x10463d -> 0x104647  false raw=false role=raw_false_fallthrough pol=target inv=True
+0x104647 -> 0x1045a1  uncond raw=uncond role=uncond pol=unknown inv=None
+0x104660 -> 0x104647  true raw=true role=raw_true_explicit_target pol=fallthrough inv=True
+0x104660 -> 0x10466a  false raw=false role=raw_false_fallthrough pol=fallthrough inv=False
+0x10466a -> 0x104647  true raw=true role=raw_true_explicit_target pol=fallthrough inv=True
+0x10466a -> 0x104671  false raw=false role=raw_false_fallthrough pol=fallthrough inv=False
+0x104671 -> 0x1045a1  true raw=true role=raw_true_explicit_target pol=fallthrough inv=True
+0x104671 -> 0x104691  false raw=false role=raw_false_fallthrough pol=fallthrough inv=False
+0x104691 -> 0x1045a1  uncond raw=uncond role=uncond pol=unknown inv=None
+0x1046a8 -> 0x1045d0  true raw=true role=raw_true_explicit_target pol=target inv=False
+
+[BRANCH RESOLUTION EVENTS]
+{'kind': 'binary_branch_truth_unresolved_v21d', 'src': 1065280, 'first_dst': 1065377, 'second_dst': 1065344, 'hf_target': 1066309, 'hf_normalized_target': 1065377, 'direct_dst': None, 'first_invert': None, 'second_invert': None, 'condition_truth_authority': 'unresolved_cfg_edge_custody', 'reason': 'branch_truth_evidence_v21d hf_target=0x1041a1 raw_target=0x1041a1 raw_fallthrough=0x104180 legacy_hint=(mnemonic=JNZ hf_cond_opcode=INT_EQUAL) class=direct_flags cfg_binding=unresolved'}
+{'kind': 'binary_branch_unresolved_order_fallback_v19', 'src': 1065280, 'raw_branch_target': 1066309, 'raw_fallthrough': 1065332, 'first_dst': 1065377, 'second_dst': 1065344, 'condition_polarity': 'fallthrough', 'first_invert': None, 'second_invert': None, 'condition_truth_authority': 'unresolved_cfg_edge_custody', 'reason': 'raw target and fallthrough did not uniquely map to HF successors'}
+{'kind': 'binary_branch_truth_bound_by_evidence_class_v21d', 'src': 1065344, 'first_dst': 1065344, 'second_dst': 1065360, 'hf_target': 1065344, 'hf_normalized_target': 1065344, 'direct_dst': 1065344, 'first_invert': False, 'second_invert': True, 'condition_truth_authority': 'raw_jcc_hf_relation_direct_flags', 'reason': 'branch_truth_evidence_v21d hf_target=0x104180 raw_target=0x104180 raw_fallthrough=0x104190 legacy_hint=(mnemonic=JZ hf_cond_opcode=INT_EQUAL) class=direct_flags'}
+{'kind': 'binary_branch_truth_bound_by_evidence_class_v21d', 'src': 1065360, 'first_dst': 1065698, 'second_dst': 1065369, 'hf_target': 1065698, 'hf_normalized_target': 1065698, 'direct_dst': 1065698, 'first_invert': False, 'second_invert': True, 'condition_truth_authority': 'raw_jcc_hf_relation_direct_flags', 'reason': 'branch_truth_evidence_v21d hf_target=0x1042e2 raw_target=0x1042e2 raw_fallthrough=0x104199 legacy_hint=(mnemonic=JZ hf_cond_opcode=INT_EQUAL) class=direct_flags'}
+{'kind': 'binary_branch_truth_bound_by_evidence_class_v21d', 'src': 1065369, 'first_dst': 1065698, 'second_dst': 1065377, 'hf_target': 1065698, 'hf_normalized_target': 1065698, 'direct_dst': 1065698, 'first_invert': False, 'second_invert': True, 'condition_truth_authority': 'raw_jcc_hf_relation_direct_flags', 'reason': 'branch_truth_evidence_v21d hf_target=0x1042e2 raw_target=0x1042e2 raw_fallthrough=0x1041a1 legacy_hint=(mnemonic=JNZ hf_cond_opcode=INT_NOTEQUAL) class=direct_flags'}
+{'kind': 'binary_branch_truth_unresolved_v21d', 'src': 1065377, 'first_dst': 1065425, 'second_dst': 1065392, 'hf_target': 1066317, 'hf_normalized_target': 1065425, 'direct_dst': None, 'first_invert': None, 'second_invert': None, 'condition_truth_authority': 'unresolved_cfg_edge_custody', 'reason': 'branch_truth_evidence_v21d hf_target=0x1041d1 raw_target=0x1041d1 raw_fallthrough=0x1041b0 legacy_hint=(mnemonic=JNZ hf_cond_opcode=INT_EQUAL) class=direct_flags cfg_binding=unresolved'}
+{'kind': 'binary_branch_unresolved_order_fallback_v19', 'src': 1065377, 'raw_branch_target': 1066317, 'raw_fallthrough': 1065386, 'first_dst': 1065425, 'second_dst': 1065392, 'condition_polarity': 'fallthrough', 'first_invert': None, 'second_invert': None, 'condition_truth_authority': 'unresolved_cfg_edge_custody', 'reason': 'raw target and fallthrough did not uniquely map to HF successors'}
+{'kind': 'binary_branch_truth_bound_by_evidence_class_v21d', 'src': 1065392, 'first_dst': 1065392, 'second_dst': 1065408, 'hf_target': 1065392, 'hf_normalized_target': 1065392, 'direct_dst': 1065392, 'first_invert': False, 'second_invert': True, 'condition_truth_authority': 'raw_jcc_hf_relation_direct_flags', 'reason': 'branch_truth_evidence_v21d hf_target=0x1041b0 raw_target=0x1041b0 raw_fallthrough=0x1041c0 legacy_hint=(mnemonic=JZ hf_cond_opcode=INT_EQUAL) class=direct_flags'}
+{'kind': 'binary_branch_truth_bound_by_evidence_class_v21d', 'src': 1065408, 'first_dst': 1065690, 'second_dst': 1065417, 'hf_target': 1065690, 'hf_normalized_target': 1065690, 'direct_dst': 1065690, 'first_invert': False, 'second_invert': True, 'condition_truth_authority': 'raw_jcc_hf_relation_direct_flags', 'reason': 'branch_truth_evidence_v21d hf_target=0x1042da raw_target=0x1042da raw_fallthrough=0x1041c9 legacy_hint=(mnemonic=JZ hf_cond_opcode=INT_EQUAL) class=direct_flags'}
+{'kind': 'binary_branch_truth_bound_by_evidence_class_v21d', 'src': 1065417, 'first_dst': 1065690, 'second_dst': 1065425, 'hf_target': 1065690, 'hf_normalized_target': 1065690, 'direct_dst': 1065690, 'first_invert': False, 'second_invert': True, 'condition_truth_authority': 'raw_jcc_hf_relation_direct_flags', 'reason': 'branch_truth_evidence_v21d hf_target=0x1042da raw_target=0x1042da raw_fallthrough=0x1041d1 legacy_hint=(mnemonic=JNZ hf_cond_opcode=INT_NOTEQUAL) class=direct_flags'}
+{'kind': 'binary_branch_truth_unresolved_v21d', 'src': 1065425, 'first_dst': 1065459, 'second_dst': 1065455, 'hf_target': 1065459, 'hf_normalized_target': 1065459, 'direct_dst': None, 'first_invert': None, 'second_invert': None, 'condition_truth_authority': 'unresolved_cfg_edge_custody', 'reason': 'branch_truth_evidence_v21d hf_target=0x1041f3 raw_target=None raw_fallthrough=0x1041ef legacy_hint=(mnemonic=CMP hf_cond_opcode=INT_LESS) class=direct_flags binding=unresolved cfg_binding=unresolved'}
+{'kind': 'binary_branch_truth_bound_by_evidence_class_v21d', 'src': 1065459, 'first_dst': 1065706, 'second_dst': 1065467, 'hf_target': 1065706, 'hf_normalized_target': 1065706, 'direct_dst': 1065706, 'first_invert': False, 'second_invert': True, 'condition_truth_authority': 'raw_jcc_hf_relation_direct_flags', 'reason': 'branch_truth_evidence_v21d hf_target=0x1042ea raw_target=0x1042ea raw_fallthrough=0x1041fb legacy_hint=(mnemonic=JZ hf_cond_opcode=INT_EQUAL) class=direct_flags'}
+{'kind': 'binary_branch_truth_unresolved_v21d', 'src': 1065467, 'first_dst': 1065495, 'second_dst': 1065491, 'hf_target': 1065495, 'hf_normalized_target': 1065495, 'direct_dst': None, 'first_invert': None, 'second_invert': None, 'condition_truth_authority': 'unresolved_cfg_edge_custody', 'reason': 'branch_truth_evidence_v21d hf_target=0x104217 raw_target=None raw_fallthrough=0x104213 legacy_hint=(mnemonic=MOV hf_cond_opcode=INT_LESS) class=direct_flags binding=unresolved cfg_binding=unresolved'}
+{'kind': 'binary_branch_truth_unresolved_v21d', 'src': 1065495, 'first_dst': 1065795, 'second_dst': 1065617, 'hf_target': 1065795, 'hf_normalized_target': 1065795, 'direct_dst': None, 'first_invert': None, 'second_invert': None, 'condition_truth_authority': 'unresolved_cfg_edge_custody', 'reason': 'branch_truth_evidence_v21d hf_target=0x104343 raw_target=0x104343 raw_fallthrough=0x104291 legacy_hint=(mnemonic=JC hf_cond_opcode=INT_LESSEQUAL) class=direct_flags binding=unresolved cfg_binding=unresolved'}
+{'kind': 'binary_branch_truth_unresolved_v21d', 'src': 1065617, 'first_dst': 1065649, 'second_dst': 1065619, 'hf_target': 1065649, 'hf_normalized_target': 1065649, 'direct_dst': None, 'first_invert': None, 'second_invert': None, 'condition_truth_authority': 'unresolved_cfg_edge_custody', 'reason': 'branch_truth_evidence_v21d hf_target=0x1042b1 raw_target=0x1042b1 raw_fallthrough=0x104293 legacy_hint=(mnemonic=JA hf_cond_opcode=INT_NOTEQUAL) class=direct_flags binding=unresolved cfg_binding=unresolved'}
+{'kind': 'binary_branch_truth_bound_by_evidence_class_v21d', 'src': 1065619, 'first_dst': 1065795, 'second_dst': 1065649, 'hf_target': 1065795, 'hf_normalized_target': 1065795, 'direct_dst': 1065649, 'first_invert': True, 'second_invert': False, 'condition_truth_authority': 'raw_jcc_hf_relation_direct_flags', 'reason': 'branch_truth_evidence_v21d hf_target=0x104343 raw_target=0x104343 raw_fallthrough=0x1042b1 legacy_hint=(mnemonic=JLE hf_cond_opcode=INT_SLESS) class=direct_flags'}
+{'kind': 'binary_branch_truth_unresolved_v21d', 'src': 1065795, 'first_dst': 1065815, 'second_dst': 1065811, 'hf_target': 1065815, 'hf_normalized_target': 1065815, 'direct_dst': None, 'first_invert': None, 'second_invert': None, 'condition_truth_authority': 'unresolved_cfg_edge_custody', 'reason': 'branch_truth_evidence_v21d hf_target=0x104357 raw_target=None raw_fallthrough=0x104353 legacy_hint=(mnemonic=CMP hf_cond_opcode=INT_LESS) class=direct_flags binding=unresolved cfg_binding=unresolved'}
+{'kind': 'binary_branch_truth_bound_by_evidence_class_v21d', 'src': 1065875, 'first_dst': 1065940, 'second_dst': 1065888, 'hf_target': 1065940, 'hf_normalized_target': 1065940, 'direct_dst': 1065888, 'first_invert': True, 'second_invert': False, 'condition_truth_authority': 'raw_jcc_hf_relation_direct_flags', 'reason': 'branch_truth_evidence_v21d hf_target=0x1043d4 raw_target=0x1043d4 raw_fallthrough=0x1043a0 legacy_hint=(mnemonic=JZ hf_cond_opcode=INT_NOTEQUAL) class=direct_flags'}
+{'kind': 'binary_branch_truth_bound_by_evidence_class_v21d', 'src': 1065921, 'first_dst': 1065904, 'second_dst': 1065929, 'hf_target': 1065904, 'hf_normalized_target': 1065904, 'direct_dst': 1065929, 'first_invert': True, 'second_invert': False, 'condition_truth_authority': 'raw_jcc_hf_relation_direct_flags', 'reason': 'branch_truth_evidence_v21d hf_target=0x1043b0 raw_target=0x1043b0 raw_fallthrough=0x1043c9 legacy_hint=(mnemonic=JG hf_cond_opcode=INT_SLESS) class=direct_flags'}
+{'kind': 'binary_branch_truth_unresolved_v21d', 'src': 1065904, 'first_dst': 1066104, 'second_dst': 1065921, 'hf_target': 1066104, 'hf_normalized_target': 1066104, 'direct_dst': None, 'first_invert': None, 'second_invert': None, 'condition_truth_authority': 'unresolved_cfg_edge_custody', 'reason': 'branch_truth_evidence_v21d hf_target=0x104478 raw_target=0x104478 raw_fallthrough=0x1043c1 legacy_hint=(mnemonic=JC hf_cond_opcode=INT_LESSEQUAL) class=direct_flags binding=unresolved cfg_binding=unresolved'}
+{'kind': 'binary_branch_truth_unresolved_v21d', 'src': 1065940, 'first_dst': 1065995, 'second_dst': 1065945, 'hf_target': 1065995, 'hf_normalized_target': 1065995, 'direct_dst': None, 'first_invert': None, 'second_invert': None, 'condition_truth_authority': 'unresolved_cfg_edge_custody', 'reason': 'branch_truth_evidence_v21d hf_target=0x10440b raw_target=0x10440b raw_fallthrough=0x1043d9 legacy_hint=(mnemonic=JC hf_cond_opcode=INT_LESSEQUAL) class=direct_flags binding=unresolved cfg_binding=unresolved'}
+{'kind': 'binary_branch_truth_bound_by_evidence_class_v21d', 'src': 1065945, 'first_dst': 1065995, 'second_dst': 1065952, 'hf_target': 1065995, 'hf_normalized_target': 1065995, 'direct_dst': 1065995, 'first_invert': False, 'second_invert': True, 'condition_truth_authority': 'raw_jcc_hf_relation_direct_flags', 'reason': 'branch_truth_evidence_v21d hf_target=0x10440b raw_target=0x10440b raw_fallthrough=0x1043e0 legacy_hint=(mnemonic=JNZ hf_cond_opcode=INT_NOTEQUAL) class=direct_flags'}
+{'kind': 'binary_branch_truth_bound_by_evidence_class_v21d', 'src': 1065952, 'first_dst': 1066256, 'second_dst': 1065961, 'hf_target': 1066256, 'hf_normalized_target': 1066256, 'direct_dst': 1065961, 'first_invert': True, 'second_invert': False, 'condition_truth_authority': 'raw_jcc_hf_relation_direct_flags', 'reason': 'branch_truth_evidence_v21d hf_target=0x104510 raw_target=0x104510 raw_fallthrough=0x1043e9 legacy_hint=(mnemonic=JA hf_cond_opcode=INT_LESS) class=direct_flags'}
+{'kind': 'binary_branch_truth_bound_by_evidence_class_v21d', 'src': 1065961, 'first_dst': 1066256, 'second_dst': 1065995, 'hf_target': 1066256, 'hf_normalized_target': 1066256, 'direct_dst': 1065995, 'first_invert': True, 'second_invert': False, 'condition_truth_authority': 'raw_jcc_hf_relation_direct_flags', 'reason': 'branch_truth_evidence_v21d hf_target=0x104510 raw_target=0x104510 raw_fallthrough=0x10440b legacy_hint=(mnemonic=JG hf_cond_opcode=INT_SLESS) class=direct_flags'}
+{'kind': 'binary_branch_truth_bound_by_evidence_class_v21d', 'src': 1066256, 'first_dst': 1066325, 'second_dst': 1066298, 'hf_target': 1066325, 'hf_normalized_target': 1066325, 'direct_dst': 1066298, 'first_invert': True, 'second_invert': False, 'condition_truth_authority': 'raw_jcc_hf_relation_direct_flags', 'reason': 'branch_truth_evidence_v21d hf_target=0x104555 raw_target=0x104555 raw_fallthrough=0x10453a legacy_hint=(mnemonic=JNZ hf_cond_opcode=INT_EQUAL) class=direct_flags'}
+{'kind': 'binary_branch_truth_bound_by_evidence_class_v21d', 'src': 1065995, 'first_dst': 1066122, 'second_dst': 1066016, 'hf_target': 1066122, 'hf_normalized_target': 1066122, 'direct_dst': 1066122, 'first_invert': False, 'second_invert': True, 'condition_truth_authority': 'raw_jcc_hf_relation_direct_flags', 'reason': 'branch_truth_evidence_v21d hf_target=0x10448a raw_target=0x10448a raw_fallthrough=0x104420 legacy_hint=(mnemonic=JZ hf_cond_opcode=INT_EQUAL) class=direct_flags'}
+{'kind': 'binary_branch_truth_bound_by_evidence_class_v21d', 'src': 1066122, 'first_dst': 1066016, 'second_dst': 1066200, 'hf_target': 1066016, 'hf_normalized_target': 1066016, 'direct_dst': 1066200, 'first_invert': True, 'second_invert': False, 'condition_truth_authority': 'raw_jcc_hf_relation_direct_flags', 'reason': 'branch_truth_evidence_v21d hf_target=0x104420 raw_target=0x104420 raw_fallthrough=0x1044d8 legacy_hint=(mnemonic=JBE hf_cond_opcode=INT_LESS) class=direct_flags'}
+{'kind': 'binary_branch_truth_bound_by_evidence_class_v21d', 'src': 1066016, 'first_dst': 1065875, 'second_dst': 1066052, 'hf_target': 1065872, 'hf_normalized_target': 1065875, 'direct_dst': 1065875, 'first_invert': False, 'second_invert': True, 'condition_truth_authority': 'raw_jcc_hf_relation_direct_flags', 'reason': 'branch_truth_evidence_v21d hf_target=0x104393 raw_target=0x104393 raw_fallthrough=0x104444 legacy_hint=(mnemonic=JBE hf_cond_opcode=INT_LESSEQUAL) class=direct_flags'}
+{'kind': 'binary_branch_resolved_by_exact_fallthrough_complement_v19', 'src': 1066016, 'raw_branch_target': 1065872, 'raw_fallthrough': 1066052, 'taken_dst': 1065875, 'fallthrough_dst': 1066052, 'condition_polarity': 'target', 'taken_invert': False, 'fallthrough_invert': True, 'reason': 'branch_truth_evidence_v21d hf_target=0x104393 raw_target=0x104393 raw_fallthrough=0x104444 legacy_hint=(mnemonic=JBE hf_cond_opcode=INT_LESSEQUAL) class=direct_flags', 'condition_truth_authority': 'raw_jcc_hf_relation_direct_flags'}
+{'kind': 'binary_branch_truth_bound_by_evidence_class_v21d', 'src': 1066052, 'first_dst': 1066325, 'second_dst': 1065875, 'hf_target': 1066325, 'hf_normalized_target': 1066325, 'direct_dst': 1065875, 'first_invert': True, 'second_invert': False, 'condition_truth_authority': 'raw_jcc_hf_relation_direct_flags', 'reason': 'branch_truth_evidence_v21d hf_target=0x104555 raw_target=0x104555 raw_fallthrough=0x104393 legacy_hint=(mnemonic=JNZ hf_cond_opcode=INT_EQUAL) class=direct_flags'}
+{'kind': 'binary_branch_truth_bound_by_evidence_class_v21d', 'src': 1066325, 'first_dst': 1066495, 'second_dst': 1066376, 'hf_target': 1066495, 'hf_normalized_target': 1066495, 'direct_dst': 1066495, 'first_invert': False, 'second_invert': True, 'condition_truth_authority': 'raw_jcc_hf_relation_direct_flags', 'reason': 'branch_truth_evidence_v21d hf_target=0x1045ff raw_target=0x1045ff raw_fallthrough=0x104588 legacy_hint=(mnemonic=JS hf_cond_opcode=INT_SLESS hf_sign_shape=negative) class=direct_flags'}
+{'kind': 'binary_branch_truth_bound_by_evidence_class_v21d', 'src': 1066376, 'first_dst': 1066464, 'second_dst': 1066385, 'hf_target': 1066464, 'hf_normalized_target': 1066464, 'direct_dst': 1066464, 'first_invert': False, 'second_invert': True, 'condition_truth_authority': 'raw_jcc_hf_relation_direct_flags', 'reason': 'branch_truth_evidence_v21d hf_target=0x1045e0 raw_target=0x1045e0 raw_fallthrough=0x104591 legacy_hint=(mnemonic=JNZ hf_cond_opcode=INT_NOTEQUAL) class=direct_flags'}
+{'kind': 'binary_branch_truth_bound_by_evidence_class_v21d', 'src': 1066464, 'first_dst': 1066385, 'second_dst': 1066495, 'hf_target': 1066385, 'hf_normalized_target': 1066385, 'direct_dst': 1066495, 'first_invert': True, 'second_invert': False, 'condition_truth_authority': 'raw_jcc_hf_relation_direct_flags', 'reason': 'branch_truth_evidence_v21d hf_target=0x104591 raw_target=0x104591 raw_fallthrough=0x1045ff legacy_hint=(mnemonic=JNZ hf_cond_opcode=INT_EQUAL) class=direct_flags'}
+{'kind': 'binary_branch_truth_bound_by_evidence_class_v21d', 'src': 1066385, 'first_dst': 1066544, 'second_dst': 1066401, 'hf_target': 1066544, 'hf_normalized_target': 1066544, 'direct_dst': 1066544, 'first_invert': False, 'second_invert': True, 'condition_truth_authority': 'raw_jcc_hf_relation_direct_flags', 'reason': 'branch_truth_evidence_v21d hf_target=0x104630 raw_target=0x104630 raw_fallthrough=0x1045a1 legacy_hint=(mnemonic=JNZ hf_cond_opcode=INT_NOTEQUAL) class=direct_flags'}
+{'kind': 'binary_branch_truth_bound_by_evidence_class_v21d', 'src': 1066544, 'first_dst': 1066401, 'second_dst': 1066557, 'hf_target': 1066401, 'hf_normalized_target': 1066401, 'direct_dst': 1066557, 'first_invert': True, 'second_invert': False, 'condition_truth_authority': 'raw_jcc_hf_relation_direct_flags', 'reason': 'branch_truth_evidence_v21d hf_target=0x1045a1 raw_target=0x1045a1 raw_fallthrough=0x10463d legacy_hint=(mnemonic=JZ hf_cond_opcode=INT_NOTEQUAL) class=direct_flags'}
+{'kind': 'binary_branch_truth_bound_by_evidence_class_v21d', 'src': 1066557, 'first_dst': 1066592, 'second_dst': 1066567, 'hf_target': 1066592, 'hf_normalized_target': 1066592, 'direct_dst': 1066592, 'first_invert': False, 'second_invert': True, 'condition_truth_authority': 'raw_jcc_hf_relation_direct_flags', 'reason': 'branch_truth_evidence_v21d hf_target=0x104660 raw_target=0x104660 raw_fallthrough=0x104647 legacy_hint=(mnemonic=JZ hf_cond_opcode=INT_EQUAL) class=direct_flags'}
+{'kind': 'binary_branch_truth_bound_by_evidence_class_v21d', 'src': 1066592, 'first_dst': 1066567, 'second_dst': 1066602, 'hf_target': 1066567, 'hf_normalized_target': 1066567, 'direct_dst': 1066602, 'first_invert': True, 'second_invert': False, 'condition_truth_authority': 'raw_jcc_hf_relation_direct_flags', 'reason': 'branch_truth_evidence_v21d hf_target=0x104647 raw_target=0x104647 raw_fallthrough=0x10466a legacy_hint=(mnemonic=JNZ hf_cond_opcode=INT_EQUAL) class=direct_flags'}
+{'kind': 'binary_branch_truth_bound_by_evidence_class_v21d', 'src': 1066602, 'first_dst': 1066567, 'second_dst': 1066609, 'hf_target': 1066567, 'hf_normalized_target': 1066567, 'direct_dst': 1066609, 'first_invert': True, 'second_invert': False, 'condition_truth_authority': 'raw_jcc_hf_relation_direct_flags', 'reason': 'branch_truth_evidence_v21d hf_target=0x104647 raw_target=0x104647 raw_fallthrough=0x104671 legacy_hint=(mnemonic=JNZ hf_cond_opcode=INT_EQUAL) class=direct_flags'}
+{'kind': 'binary_branch_truth_bound_by_evidence_class_v21d', 'src': 1066609, 'first_dst': 1066401, 'second_dst': 1066641, 'hf_target': 1066401, 'hf_normalized_target': 1066401, 'direct_dst': 1066641, 'first_invert': True, 'second_invert': False, 'condition_truth_authority': 'raw_jcc_hf_relation_direct_flags', 'reason': 'branch_truth_evidence_v21d hf_target=0x1045a1 raw_target=0x1045a1 raw_fallthrough=0x104691 legacy_hint=(mnemonic=JZ hf_cond_opcode=INT_NOTEQUAL) class=direct_flags'}
+{'kind': 'binary_branch_truth_bound_by_evidence_class_v21d', 'src': 1066401, 'first_dst': 1066495, 'second_dst': 1066413, 'hf_target': 1066492, 'hf_normalized_target': 1066495, 'direct_dst': 1066495, 'first_invert': False, 'second_invert': True, 'condition_truth_authority': 'raw_jcc_hf_relation_direct_flags', 'reason': 'branch_truth_evidence_v21d hf_target=0x1045ff raw_target=0x1045ff raw_fallthrough=0x1045ad legacy_hint=(mnemonic=JZ hf_cond_opcode=INT_EQUAL) class=direct_flags'}
+{'kind': 'binary_branch_resolved_by_exact_fallthrough_complement_v19', 'src': 1066401, 'raw_branch_target': 1066492, 'raw_fallthrough': 1066413, 'taken_dst': 1066495, 'fallthrough_dst': 1066413, 'condition_polarity': 'target', 'taken_invert': False, 'fallthrough_invert': True, 'reason': 'branch_truth_evidence_v21d hf_target=0x1045ff raw_target=0x1045ff raw_fallthrough=0x1045ad legacy_hint=(mnemonic=JZ hf_cond_opcode=INT_EQUAL) class=direct_flags', 'condition_truth_authority': 'raw_jcc_hf_relation_direct_flags'}
+{'kind': 'binary_branch_truth_bound_by_evidence_class_v21d', 'src': 1066413, 'first_dst': 1066500, 'second_dst': 1066437, 'hf_target': 1066500, 'hf_normalized_target': 1066500, 'direct_dst': 1066437, 'first_invert': True, 'second_invert': False, 'condition_truth_authority': 'raw_jcc_hf_relation_direct_flags', 'reason': 'branch_truth_evidence_v21d hf_target=0x104604 raw_target=0x104604 raw_fallthrough=0x1045c5 legacy_hint=(mnemonic=JZ hf_cond_opcode=INT_NOTEQUAL) class=direct_flags'}
+{'kind': 'binary_branch_truth_bound_by_evidence_class_v21d', 'src': 1066500, 'first_dst': 1066664, 'second_dst': 1066508, 'hf_target': 1066664, 'hf_normalized_target': 1066664, 'direct_dst': 1066664, 'first_invert': False, 'second_invert': True, 'condition_truth_authority': 'raw_jcc_hf_relation_direct_flags', 'reason': 'branch_truth_evidence_v21d hf_target=0x1046a8 raw_target=0x1046a8 raw_fallthrough=0x10460c legacy_hint=(mnemonic=JNZ hf_cond_opcode=INT_NOTEQUAL) class=direct_flags'}
+{'kind': 'binary_branch_truth_bound_by_evidence_class_v21d', 'src': 1066664, 'first_dst': 1066448, 'second_dst': None, 'hf_target': 1066448, 'hf_normalized_target': 1066448, 'direct_dst': 1066448, 'first_invert': False, 'second_invert': True, 'condition_truth_authority': 'raw_jcc_hf_relation_direct_flags', 'reason': 'branch_truth_evidence_v21d hf_target=0x1045d0 raw_target=0x1045d0 raw_fallthrough=0x1045d0 legacy_hint=(mnemonic=JNZ hf_cond_opcode=INT_NOTEQUAL) class=direct_flags'}
+{'kind': 'binary_branch_truth_bound_by_evidence_class_v21d', 'src': 1066508, 'first_dst': 1066453, 'second_dst': 1066512, 'hf_target': 1066453, 'hf_normalized_target': 1066453, 'direct_dst': 1066453, 'first_invert': False, 'second_invert': True, 'condition_truth_authority': 'raw_jcc_hf_relation_direct_flags', 'reason': 'branch_truth_evidence_v21d hf_target=0x1045d5 raw_target=0x1045d5 raw_fallthrough=0x104610 legacy_hint=(mnemonic=JZ hf_cond_opcode=INT_EQUAL) class=direct_flags'}
+{'kind': 'binary_branch_truth_bound_by_evidence_class_v21d', 'src': 1066437, 'first_dst': 1066512, 'second_dst': 1066448, 'hf_target': 1066512, 'hf_normalized_target': 1066512, 'direct_dst': 1066448, 'first_invert': True, 'second_invert': False, 'condition_truth_authority': 'raw_jcc_hf_relation_direct_flags', 'reason': 'branch_truth_evidence_v21d hf_target=0x104610 raw_target=0x104610 raw_fallthrough=0x1045d0 legacy_hint=(mnemonic=JZ hf_cond_opcode=INT_NOTEQUAL) class=direct_flags'}
+{'kind': 'binary_branch_truth_bound_by_evidence_class_v21d', 'src': 1066512, 'first_dst': 1066448, 'second_dst': 1066517, 'hf_target': 1066448, 'hf_normalized_target': 1066448, 'direct_dst': 1066448, 'first_invert': False, 'second_invert': True, 'condition_truth_authority': 'raw_jcc_hf_relation_direct_flags', 'reason': 'branch_truth_evidence_v21d hf_target=0x1045d0 raw_target=0x1045d0 raw_fallthrough=0x104615 legacy_hint=(mnemonic=JNZ hf_cond_opcode=INT_NOTEQUAL) class=direct_flags'}
+
+[IPDOM]
+0x104140 -> ipdom: 0x1041a1
+0x104180 -> ipdom: 0x104190
+0x104190 -> ipdom: 0x1041a1
+0x104199 -> ipdom: 0x1041a1
+0x1041a1 -> ipdom: 0x1041d1
+0x1041b0 -> ipdom: 0x1041c0
+0x1041c0 -> ipdom: 0x1041d1
+0x1041c9 -> ipdom: 0x1041d1
+0x1041d1 -> ipdom: 0x1041f3
+0x1041ef -> ipdom: 0x1041f3
+0x1041f3 -> ipdom: EXIT
+0x1041fb -> ipdom: 0x104217
+0x104213 -> ipdom: 0x104217
+0x104217 -> ipdom: EXIT
+0x104291 -> ipdom: EXIT
+0x104293 -> ipdom: EXIT
+0x1042b1 -> ipdom: 0x1042b4
+0x1042b4 -> ipdom: EXIT
+0x1042da -> ipdom: 0x1041d1
+0x1042e2 -> ipdom: 0x1041a1
+0x1042ea -> ipdom: 0x104343
+0x104343 -> ipdom: 0x104357
+0x104353 -> ipdom: 0x104357
+0x104357 -> ipdom: 0x104393
+0x104393 -> ipdom: 0x1043d4
+0x1043a0 -> ipdom: 0x1043c1
+0x1043b0 -> ipdom: 0x1043ce
+0x1043c1 -> ipdom: 0x1043ce
+0x1043c9 -> ipdom: 0x1043ce
+0x1043ce -> ipdom: 0x104393
+0x1043d4 -> ipdom: EXIT
+0x1043d9 -> ipdom: EXIT
+0x1043e0 -> ipdom: EXIT
+0x1043e9 -> ipdom: EXIT
+0x10440b -> ipdom: 0x104420
+0x104420 -> ipdom: EXIT
+0x104444 -> ipdom: EXIT
+0x104478 -> ipdom: 0x1043ce
+0x10448a -> ipdom: 0x104420
+0x1044d8 -> ipdom: 0x104420
+0x104510 -> ipdom: EXIT
+0x10453a -> ipdom: 0x1042b4
+0x104555 -> ipdom: EXIT
+0x104588 -> ipdom: EXIT
+0x104591 -> ipdom: 0x1045a1
+0x1045a1 -> ipdom: EXIT
+0x1045ad -> ipdom: EXIT
+0x1045c5 -> ipdom: EXIT
+0x1045d0 -> ipdom: EXIT
+0x1045d5 -> ipdom: EXIT
+0x1045e0 -> ipdom: EXIT
+0x1045ff -> ipdom: 0x104604
+0x104604 -> ipdom: EXIT
+0x10460c -> ipdom: EXIT
+0x104610 -> ipdom: EXIT
+0x104615 -> ipdom: EXIT
+0x104630 -> ipdom: 0x1045a1
+0x10463d -> ipdom: 0x1045a1
+0x104647 -> ipdom: 0x1045a1
+0x104660 -> ipdom: 0x1045a1
+0x10466a -> ipdom: 0x1045a1
+0x104671 -> ipdom: 0x1045a1
+0x104691 -> ipdom: 0x1045a1
+0x1046a8 -> ipdom: 0x1045d0
+
+[BACKEDGES]
+0x104180 -> 0x104180
+0x1041b0 -> 0x1041b0
+0x1043b0 -> 0x1043c1
+0x1043ce -> 0x104393
+0x104420 -> 0x104393
+0x104444 -> 0x104393
+
+=====================
+
+===== PAL RESOLVER INDIRECT STORAGE v22c =====
+
+[INVENTORY]
+{'active': True,
+ 'address_tied_families': 2,
+ 'custody_transitions': 95,
+ 'effect_owner_groups': 46,
+ 'escape_barrier_sids': 120,
+ 'input_contracts': 95,
+ 'kind': 'resolver_indirect_storage_inventory_v22c',
+ 'machine_state_families': 1,
+ 'machine_state_sids': 6,
+ 'owner_categories': {'call_boundary': 77, 'memory_store': 18},
+ 'parameter_initializers': 0,
+ 'persistent_families': 2,
+ 'rule': 'HighVariable_identity_families_plus_address_escape_alias_barrier',
+ 'runtime_order': 'CFG_governed_not_linearized',
+ 'storage_families': 3,
+ 'version': 'v22c_indirect_storage_families',
+ 'warnings': 0}
+
+[STORAGE FAMILIES]
+{'address_tied': True,
+ 'classification': 'persistent_address_tied_storage',
+ 'entry_sids': ['v_13514',
+                'v_9783',
+                'v_9753',
+                'v_13704',
+                'v_9777',
+                'v_9770',
+                'v_9773',
+                'v_9766',
+                'v_9759',
+                'v_9756',
+                'v_9721',
+                'v_9744',
+                'v_9735',
+                'v_9727'],
+ 'family_id': 'storage_family:high_rep:13514',
+ 'high_identity_key': 'high_rep:13514',
+ 'high_name': 'PTR_stdout_0010bfb0',
+ 'member_sids': ['v_13514',
+                 'v_9578',
+                 'v_9581',
+                 'v_9584',
+                 'v_9587',
+                 'v_9590',
+                 'v_9593',
+                 'v_9596',
+                 'v_9599',
+                 'v_9602',
+                 'v_9605',
+                 'v_9783',
+                 'v_9608',
+                 'v_9611',
+                 'v_9753',
+                 'v_9695',
+                 'v_9716',
+                 'v_9719',
+                 'v_13704',
+                 'v_9614',
+                 'v_9777',
+                 'v_9713',
+                 'v_9617',
+                 'v_9770',
+                 'v_9683',
+                 'v_9686',
+                 'v_9773',
+                 'v_9698',
+                 'v_9620',
+                 'v_9623',
+                 'v_9626',
+                 'v_9766',
+                 'v_9629',
+                 'v_9632',
+                 'v_9759',
+                 'v_9635',
+                 'v_9638',
+                 'v_9641',
+                 'v_9644',
+                 'v_9647',
+                 'v_9650',
+                 'v_9756',
+                 'v_9653',
+                 'v_9662',
+                 'v_9656',
+                 'v_9659',
+                 'v_9707',
+                 'v_9710',
+                 'v_9721',
+                 'v_9665',
+                 'v_9744',
+                 'v_9668',
+                 'v_9671',
+                 'v_9674',
+                 'v_9735',
+                 'v_9677',
+                 'v_9704',
+                 'v_9701',
+                 'v_9727',
+                 'v_9680'],
+ 'parameter_initializers': 0,
+ 'persistent': True,
+ 'transitions': 46}
+{'address_tied': True,
+ 'classification': 'persistent_address_tied_storage',
+ 'entry_sids': ['v_13515',
+                'v_9996',
+                'v_9966',
+                'v_13705',
+                'v_9990',
+                'v_9983',
+                'v_9986',
+                'v_9979',
+                'v_9972',
+                'v_9969',
+                'v_9934',
+                'v_9957',
+                'v_9948',
+                'v_9940'],
+ 'family_id': 'storage_family:high_rep:13515',
+ 'high_identity_key': 'high_rep:13515',
+ 'high_name': 'DAT_0010c1f0',
+ 'member_sids': ['v_13515',
+                 'v_9791',
+                 'v_9794',
+                 'v_9797',
+                 'v_9800',
+                 'v_9803',
+                 'v_9806',
+                 'v_9809',
+                 'v_9812',
+                 'v_9815',
+                 'v_9818',
+                 'v_9996',
+                 'v_9821',
+                 'v_9824',
+                 'v_9966',
+                 'v_9908',
+                 'v_9929',
+                 'v_9932',
+                 'v_13705',
+                 'v_9827',
+                 'v_9990',
+                 'v_9926',
+                 'v_9830',
+                 'v_9983',
+                 'v_9896',
+                 'v_9899',
+                 'v_9986',
+                 'v_9911',
+                 'v_9833',
+                 'v_9836',
+                 'v_9839',
+                 'v_9979',
+                 'v_9842',
+                 'v_9845',
+                 'v_9972',
+                 'v_9848',
+                 'v_9851',
+                 'v_9854',
+                 'v_9857',
+                 'v_9860',
+                 'v_9863',
+                 'v_9969',
+                 'v_9866',
+                 'v_9875',
+                 'v_9869',
+                 'v_9872',
+                 'v_9920',
+                 'v_9923',
+                 'v_9934',
+                 'v_9878',
+                 'v_9957',
+                 'v_9881',
+                 'v_9884',
+                 'v_9887',
+                 'v_9948',
+                 'v_9890',
+                 'v_9917',
+                 'v_9914',
+                 'v_9940',
+                 'v_9893'],
+ 'parameter_initializers': 0,
+ 'persistent': True,
+ 'transitions': 46}
+{'address_tied': False,
+ 'classification': 'non_address_tied_machine_state',
+ 'entry_sids': ['v_13719', 'v_13779', 'v_6809'],
+ 'family_id': 'storage_family:high_rep:6709',
+ 'high_identity_key': 'high_rep:6709',
+ 'high_name': '__stream',
+ 'member_sids': ['v_13719', 'v_6709', 'v_13779', 'v_6726', 'v_6809', 'v_6730'],
+ 'parameter_initializers': 0,
+ 'persistent': False,
+ 'transitions': 3}
+
+[PARAMETER INITIALIZERS / STORAGE WRITES]
+[]
+
+[WARNINGS]
+[]
+===== END PAL RESOLVER INDIRECT STORAGE =====
+
+========================================================================
+PALRAW AUDIT v0.3 :: raw instruction BLOCK p-code vs HF/PAL CFG
+========================================================================
+
+--- 0x10127f ---
+Raw block  : 0x10127f -> next 0x104140
+Instr count: 0
+Terminal   : None None
+Raw succs  : []
+Norm succs : None
+HF block   : None
+CFG edges  : []
+STATUS     : no_hf_block
+NOTE       : No PAL/HighFunction block mapped to this address.
+Raw instructions:
+Terminal raw p-code:
+HF/PAL ops :
+
+--- 0x1011b6 ---
+Raw block  : 0x1011b6 -> next 0x104140
+Instr count: 0
+Terminal   : None None
+Raw succs  : []
+Norm succs : None
+HF block   : None
+CFG edges  : []
+STATUS     : no_hf_block
+NOTE       : No PAL/HighFunction block mapped to this address.
+Raw instructions:
+Terminal raw p-code:
+HF/PAL ops :
+
+--- 0x101219 ---
+Raw block  : 0x101219 -> next 0x104140
+Instr count: 0
+Terminal   : None None
+Raw succs  : []
+Norm succs : None
+HF block   : None
+CFG edges  : []
+STATUS     : no_hf_block
+NOTE       : No PAL/HighFunction block mapped to this address.
+Raw instructions:
+Terminal raw p-code:
+HF/PAL ops :
+
+--- 0x10120f ---
+Raw block  : 0x10120f -> next 0x104140
+Instr count: 0
+Terminal   : None None
+Raw succs  : []
+Norm succs : None
+HF block   : None
+CFG edges  : []
+STATUS     : no_hf_block
+NOTE       : No PAL/HighFunction block mapped to this address.
+Raw instructions:
+Terminal raw p-code:
+HF/PAL ops :
+
+--- 0x101221 ---
+Raw block  : 0x101221 -> next 0x104140
+Instr count: 0
+Terminal   : None None
+Raw succs  : []
+Norm succs : None
+HF block   : None
+CFG edges  : []
+STATUS     : no_hf_block
+NOTE       : No PAL/HighFunction block mapped to this address.
+Raw instructions:
+Terminal raw p-code:
+HF/PAL ops :
+
+--- 0x101284 ---
+Raw block  : 0x101284 -> next 0x104140
+Instr count: 0
+Terminal   : None None
+Raw succs  : []
+Norm succs : None
+HF block   : None
+CFG edges  : []
+STATUS     : no_hf_block
+NOTE       : No PAL/HighFunction block mapped to this address.
+Raw instructions:
+Terminal raw p-code:
+HF/PAL ops :
+
+--- 0x10127f ---
+Raw block  : 0x10127f -> next 0x104140
+Instr count: 0
+Terminal   : None None
+Raw succs  : []
+Norm succs : None
+HF block   : None
+CFG edges  : []
+STATUS     : no_hf_block
+NOTE       : No PAL/HighFunction block mapped to this address.
+Raw instructions:
+Terminal raw p-code:
+HF/PAL ops :
+
+========================================================================
+
+===== PAL COMPUTE ANALYZER =====
+{'kind': 'pal_compute_inventory_v22',
+ 'version': 'v23b_abi_thunk_compatibility_return_reconciliation',
+ 'runtime_representation': 'raw_unsigned_bitvector_at_ssa_boundaries',
+ 'operations': 432,
+ 'output_plans': 419,
+ 'control_contracts': 58,
+ 'c_compute_filtered': 383,
+ 'use_site_overrides': 8,
+ 'return_observation_view_mismatches': 0,
+ 'storage_custody_related_ops': 204,
+ 'indirect_custody_contracts': 95,
+ 'indirect_custody_resolved': 95,
+ 'indirect_custody_deferred': 0,
+ 'indirect_effect_owner_compute_ops': 46,
+ 'storage_family_bindings': 126,
+ 'function_entry_abi_plan': True,
+ 'call_site_abi_plans': 37,
+ 'internal_call_plan_failures': 7,
+ 'unsupported_implicit_inputs': 0,
+ 'abi_runtime_helper_assignments': 0,
+ 'no_return_calls': 0,
+ 'reachable_return_boundaries': 7,
+ 'unreachable_return_boundaries': 0,
+ 'synthetic_no_return_continuations_suppressed': 0,
+ 'statuses': {'metadata_only': 265,
+              'deferred_external': 37,
+              'deferred_memory': 50,
+              'helper_required': 80},
+ 'categories': {'transport': 70,
+                'storage_custody': 95,
+                'call_boundary': 37,
+                'memory': 27,
+                'comparison': 44,
+                'phi_merge': 68,
+                'pointer_arithmetic': 23,
+                'integer_arithmetic': 31,
+                'conversion': 33,
+                'integer_bitwise': 4},
+ 'helpers': {'c_load': 18,
+             'c_eq': 16,
+             'c_ptradd': 8,
+             'c_ne': 15,
+             'c_add': 20,
+             'c_ult': 5,
+             'c_sub': 7,
+             'c_ule': 4,
+             'c_slt': 4,
+             'c_mul': 3,
+             'c_ptrsub': 15,
+             'c_store': 9,
+             'c_not': 1,
+             'c_and': 3,
+             'c_zext': 1,
+             'c_neg': 1},
+ 'opcodes': {'COPY': 70,
+             'INDIRECT': 95,
+             'CALL': 37,
+             'LOAD': 18,
+             'INT_EQUAL': 16,
+             'MULTIEQUAL': 68,
+             'PTRADD': 8,
+             'INT_NOTEQUAL': 15,
+             'INT_ADD': 20,
+             'INT_LESS': 5,
+             'CAST': 32,
+             'INT_SUB': 7,
+             'INT_LESSEQUAL': 4,
+             'INT_SLESS': 4,
+             'INT_MULT': 3,
+             'PTRSUB': 15,
+             'STORE': 9,
+             'INT_NEGATE': 1,
+             'INT_AND': 3,
+             'INT_ZEXT': 1,
+             'INT_2COMP': 1},
+ 'warnings': 0}
+
+[WARNINGS]
+[]
+
+[METADATA-ONLY COMPUTE BOUNDARIES]
+0x104140 INDIRECT ['v_13514', 'c_34_4'] -> v_9578 classification=None
+0x104140 INDIRECT ['v_13515', 'c_34_4'] -> v_9791 classification=None
+0x104180 MULTIEQUAL ['v_13771', 'v_13772'] -> v_13773 classification=None
+0x1041a1 MULTIEQUAL ['v_13784', 'v_13785', 'v_8684'] -> v_7314 classification=None
+0x1041b0 MULTIEQUAL ['v_13768', 'v_13769'] -> v_13770 classification=None
+0x1041d1 MULTIEQUAL ['v_13782', 'v_13783', 'v_8686'] -> v_7280 classification=None
+0x1041d1 INDIRECT ['v_9578', 'c_166_4'] -> v_9581 classification=None
+0x1041d1 INDIRECT ['v_9791', 'c_166_4'] -> v_9794 classification=None
+0x1041f3 MULTIEQUAL ['v_13777', 'v_13778'] -> v_6334 classification=None
+0x1042ea COPY ['c_0_8'] -> v_6409 classification=same_width_copy_recast
+0x1042ea INDIRECT ['v_9581', 'c_1324_4'] -> v_9584 classification=None
+0x1042ea INDIRECT ['v_9794', 'c_1324_4'] -> v_9797 classification=None
+0x1042ea CAST ['v_13807'] -> v_5687 classification=same_width_explicit_recast
+0x1042ea CAST ['v_5687'] -> v_13808 classification=same_width_explicit_recast
+0x1042ea CAST ['v_13809'] -> v_3537 classification=same_width_explicit_recast
+0x1042ea INDIRECT ['v_9584', 'c_1355_4'] -> v_9587 classification=None
+0x1042ea INDIRECT ['v_9797', 'c_1355_4'] -> v_9800 classification=None
+0x1042ea COPY ['c_0_8'] -> v_9494 classification=same_width_copy_recast
+0x1042ea COPY ['c_0_8'] -> v_9495 classification=same_width_copy_recast
+0x1041fb INDIRECT ['v_9581', 'c_209_4'] -> v_9590 classification=None
+0x1041fb INDIRECT ['v_9794', 'c_209_4'] -> v_9803 classification=None
+0x104217 MULTIEQUAL ['v_13775', 'v_13776'] -> v_6327 classification=None
+0x104217 INDIRECT ['v_9590', 'c_232_4'] -> v_9593 classification=None
+0x104217 INDIRECT ['v_9803', 'c_232_4'] -> v_9806 classification=None
+0x104217 CAST ['v_13810'] -> v_5690 classification=same_width_explicit_recast
+0x104217 CAST ['v_5690'] -> v_13811 classification=same_width_explicit_recast
+0x104217 CAST ['v_13812'] -> v_679 classification=same_width_explicit_recast
+0x104217 INDIRECT ['v_9593', 'c_267_4'] -> v_9596 classification=None
+0x104217 INDIRECT ['v_9806', 'c_267_4'] -> v_9809 classification=None
+0x104217 INDIRECT ['v_9596', 'c_276_4'] -> v_9599 classification=None
+0x104217 INDIRECT ['v_9809', 'c_276_4'] -> v_9812 classification=None
+0x104217 CAST ['v_13813'] -> v_5693 classification=same_width_explicit_recast
+0x104217 CAST ['v_5693'] -> v_13814 classification=same_width_explicit_recast
+0x104217 CAST ['v_13815'] -> v_779 classification=same_width_explicit_recast
+0x104217 INDIRECT ['v_9599', 'c_304_4'] -> v_9602 classification=None
+0x104217 INDIRECT ['v_9812', 'c_304_4'] -> v_9815 classification=None
+0x104293 INDIRECT ['v_9602', 'c_334_4'] -> v_9605 classification=None
+0x104293 INDIRECT ['v_9815', 'c_334_4'] -> v_9818 classification=None
+0x1042b1 MULTIEQUAL ['v_9815', 'v_9818'] -> v_10000 classification=None
+0x1042b1 MULTIEQUAL ['v_9602', 'v_9605'] -> v_9787 classification=None
+0x1042b1 COPY ['c_0_4'] -> v_13627 classification=same_width_copy_recast
+0x104343 MULTIEQUAL ['v_3787', 'v_3787', 'v_9495'] -> v_11905 classification=None
+0x104343 MULTIEQUAL ['v_5693', 'v_5693', 'v_9494'] -> v_11727 classification=None
+0x104343 MULTIEQUAL ['v_5690', 'v_5690', 'v_5687'] -> v_11375 classification=None
+0x104343 MULTIEQUAL ['v_9815', 'v_9818', 'v_9800'] -> v_9996 classification=None
+0x104343 MULTIEQUAL ['v_9602', 'v_9605', 'v_9587'] -> v_9783 classification=None
+0x104343 MULTIEQUAL ['v_3773', 'v_3773', 'v_3752'] -> v_7310 classification=None
+0x104343 MULTIEQUAL ['v_3759', 'v_3759', 'v_6409'] -> v_6410 classification=None
+0x104343 MULTIEQUAL ['v_6327', 'v_6327', 'v_6334'] -> v_6330 classification=None
+0x104343 MULTIEQUAL ['v_591', 'v_591', 'v_3418'] -> v_6013 classification=None
+0x104343 CAST ['v_8934'] -> v_13816 classification=same_width_explicit_recast
+0x104353 COPY ['v_8934'] -> v_13767 classification=same_width_copy_recast
+0x104357 MULTIEQUAL ['v_13766', 'v_13767'] -> v_5825 classification=None
+0x104357 INDIRECT ['v_9783', 'c_446_4'] -> v_9608 classification=None
+0x104357 INDIRECT ['v_9996', 'c_446_4'] -> v_9821 classification=None
+0x104357 CAST ['v_13817'] -> v_5699 classification=same_width_explicit_recast
+0x104357 CAST ['v_13654'] -> v_13818 classification=same_width_explicit_recast
+0x104357 INDIRECT ['v_9608', 'c_469_4'] -> v_9611 classification=None
+0x104357 INDIRECT ['v_9821', 'c_469_4'] -> v_9824 classification=None
+0x104393 MULTIEQUAL ['v_13802', 'v_13803', 'v_13804', 'v_13805'] -> v_13721 classification=None
+0x104393 MULTIEQUAL ['v_13798', 'v_13799', 'v_13800', 'v_13800'] -> v_13720 classification=None
+0x104393 MULTIEQUAL ['v_13806', 'v_13794', 'v_13795', 'v_13796'] -> v_13797 classification=None
+0x104393 MULTIEQUAL ['v_13718', 'v_1205', 'v_11190', 'v_11190'] -> v_13718 classification=None
+0x104393 MULTIEQUAL ['v_13717', 'v_11375', 'v_11358', 'v_11358'] -> v_13717 classification=None
+0x104393 MULTIEQUAL ['v_13716', 'v_5825', 'v_12254', 'v_12254'] -> v_13716 classification=None
+0x104393 MULTIEQUAL ['v_7221', 'v_3738', 'v_13701', 'v_13701'] -> v_13701 classification=None
+0x104393 MULTIEQUAL ['v_7287', 'v_7310', 'v_7296', 'v_7296'] -> v_13702 classification=None
+0x104393 MULTIEQUAL ['v_13789', 'v_13790', 'v_13791', 'v_13792'] -> v_13703 classification=None
+0x104393 MULTIEQUAL ['v_9738', 'v_9611', 'v_9629', 'v_9632'] -> v_13704 classification=None
+0x104393 MULTIEQUAL ['v_9951', 'v_9824', 'v_9842', 'v_9845'] -> v_13705 classification=None
+0x104393 COPY ['v_13797'] -> v_13719 classification=bit_preserving_copy
+0x104393 COPY ['v_13719'] -> v_13806 classification=bit_preserving_copy
+0x1043c1 MULTIEQUAL ['v_13705', 'v_9929'] -> v_9966 classification=None
+0x1043c1 MULTIEQUAL ['v_13704', 'v_9716'] -> v_9753 classification=None
+0x1043c1 MULTIEQUAL ['v_13764', 'v_13765'] -> v_5793 classification=None
+0x1043c9 INDIRECT ['v_9753', 'c_532_4'] -> v_9695 classification=None
+0x1043c9 INDIRECT ['v_9966', 'c_532_4'] -> v_9908 classification=None
+0x1043b0 INDIRECT ['v_9753', 'c_1267_4'] -> v_9716 classification=None
+0x1043b0 INDIRECT ['v_9966', 'c_1267_4'] -> v_9929 classification=None
+0x104478 INDIRECT ['v_9716', 'c_1281_4'] -> v_9719 classification=None
+0x104478 INDIRECT ['v_9929', 'c_1281_4'] -> v_9932 classification=None
+0x1043ce MULTIEQUAL ['v_9908', 'v_9932'] -> v_9951 classification=None
+0x1043ce MULTIEQUAL ['v_9695', 'v_9719'] -> v_9738 classification=None
+0x1043ce MULTIEQUAL ['v_13702', 'v_3397'] -> v_7287 classification=None
+0x1043ce MULTIEQUAL ['v_13701', 'v_3371'] -> v_7221 classification=None
+0x1043e9 INDIRECT ['v_13704', 'c_592_4'] -> v_9614 classification=None
+0x1043e9 INDIRECT ['v_13705', 'c_592_4'] -> v_9827 classification=None
+0x104510 MULTIEQUAL ['v_13705', 'v_9827'] -> v_9990 classification=None
+0x104510 MULTIEQUAL ['v_13704', 'v_9614'] -> v_9777 classification=None
+0x104510 INDIRECT ['v_9777', 'c_1215_4'] -> v_9713 classification=None
+0x104510 INDIRECT ['v_9990', 'c_1215_4'] -> v_9926 classification=None
+0x104510 CAST ['v_13719'] -> v_13820 classification=same_width_explicit_recast
+0x104510 CAST ['v_13721'] -> v_13821 classification=same_width_explicit_recast
+0x104510 CAST ['v_9713'] -> v_13822 classification=same_width_explicit_view_boundary
+0x104510 INDIRECT ['v_13719', 'c_1242_4'] -> v_6709 classification=None
+0x104510 INDIRECT ['v_9713', 'c_1242_4'] -> v_9617 classification=None
+0x104510 INDIRECT ['v_9926', 'c_1242_4'] -> v_9830 classification=None
+0x1042b4 MULTIEQUAL ['v_5693', 'v_11727'] -> v_11714 classification=None
+0x1042b4 MULTIEQUAL ['v_5690', 'v_13717'] -> v_11362 classification=None
+0x1042b4 MULTIEQUAL ['v_10000', 'v_9830'] -> v_9983 classification=None
+0x1042b4 MULTIEQUAL ['v_9787', 'v_9617'] -> v_9770 classification=None
+0x1042b4 MULTIEQUAL ['v_13627', 'v_13626'] -> v_13625 classification=None
+0x1042b4 INDIRECT ['v_9770', 'c_367_4'] -> v_9683 classification=None
+0x1042b4 INDIRECT ['v_9983', 'c_367_4'] -> v_9896 classification=None
+0x1042b4 INDIRECT ['v_9683', 'c_373_4'] -> v_9686 classification=None
+0x1042b4 INDIRECT ['v_9896', 'c_373_4'] -> v_9899 classification=None
+0x1042b4 COPY ['v_9686'] -> v_9688 classification=bit_preserving_copy
+0x1042b4 COPY ['v_9899'] -> v_9901 classification=bit_preserving_copy
+0x10440b MULTIEQUAL ['v_13705', 'v_13705', 'v_9827'] -> v_9986 classification=None
+0x10440b MULTIEQUAL ['v_13704', 'v_13704', 'v_9614'] -> v_9773 classification=None
+0x10440b CAST ['v_13662'] -> v_13823 classification=same_width_explicit_recast
+0x10440b CAST ['v_13824'] -> v_1611 classification=same_width_explicit_recast
+0x10440b INDIRECT ['v_9773', 'c_616_4'] -> v_9698 classification=None
+0x10440b INDIRECT ['v_9986', 'c_616_4'] -> v_9911 classification=None
+0x10448a INDIRECT ['v_9698', 'c_1128_4'] -> v_9620 classification=None
+0x10448a INDIRECT ['v_9911', 'c_1128_4'] -> v_9833 classification=None
+0x10448a CAST ['v_13826'] -> v_5705 classification=same_width_explicit_recast
+0x10448a CAST ['v_5705'] -> v_13827 classification=same_width_explicit_recast
+0x10448a CAST ['v_13828'] -> v_2964 classification=same_width_explicit_recast
+0x10448a INDIRECT ['v_9620', 'c_1140_4'] -> v_9623 classification=None
+0x10448a INDIRECT ['v_9833', 'c_1140_4'] -> v_9836 classification=None
+0x1044d8 CAST ['v_1611'] -> v_13829 classification=same_width_explicit_recast
+0x1044d8 CAST ['v_13719'] -> v_13830 classification=same_width_explicit_recast
+0x1044d8 INDIRECT ['v_9623', 'c_1189_4'] -> v_9626 classification=None
+0x1044d8 INDIRECT ['v_9836', 'c_1189_4'] -> v_9839 classification=None
+0x1044d8 CAST ['v_13831'] -> v_5708 classification=same_width_explicit_recast
+0x1044d8 CAST ['v_13674'] -> v_13832 classification=same_width_explicit_recast
+0x1044d8 CAST ['v_5708'] -> v_13833 classification=same_width_explicit_recast
+0x1044d8 CAST ['v_13834'] -> v_3156 classification=same_width_explicit_recast
+0x104420 MULTIEQUAL ['v_13786', 'v_13787', 'v_13788'] -> v_12254 classification=None
+0x104420 MULTIEQUAL ['v_13717', 'v_5705', 'v_5705'] -> v_11358 classification=None
+0x104420 MULTIEQUAL ['v_13718', 'v_13718', 'v_3137'] -> v_11190 classification=None
+0x104420 MULTIEQUAL ['v_9911', 'v_9836', 'v_9839'] -> v_9979 classification=None
+0x104420 MULTIEQUAL ['v_9698', 'v_9623', 'v_9626'] -> v_9766 classification=None
+0x104420 MULTIEQUAL ['v_13702', 'v_3843', 'v_3843'] -> v_7296 classification=None
+0x104420 MULTIEQUAL ['v_13806', 'v_13806', 'v_5708'] -> v_7263 classification=None
+0x104420 MULTIEQUAL ['v_1611', 'v_1611', 'v_3156'] -> v_7007 classification=None
+0x104420 MULTIEQUAL ['v_13774', 'v_9009', 'v_9009'] -> v_6313 classification=None
+0x104420 INDIRECT ['v_9766', 'c_633_4'] -> v_9629 classification=None
+0x104420 INDIRECT ['v_9979', 'c_633_4'] -> v_9842 classification=None
+0x104420 CAST ['v_13835'] -> v_1693 classification=same_width_explicit_recast
+0x104444 CAST ['v_3857'] -> v_13836 classification=same_width_explicit_recast
+0x104444 CAST ['v_7263'] -> v_13837 classification=same_width_explicit_recast
+0x104444 CAST ['v_9629'] -> v_13838 classification=same_width_explicit_view_boundary
+0x104444 COPY ['v_7263'] -> v_13779 classification=bit_preserving_copy
+0x104444 INDIRECT ['v_13779', 'c_678_4'] -> v_6726 classification=None
+0x104444 INDIRECT ['v_9629', 'c_678_4'] -> v_9632 classification=None
+0x104444 INDIRECT ['v_9842', 'c_678_4'] -> v_9845 classification=None
+0x104555 MULTIEQUAL ['v_9845', 'v_9830'] -> v_9972 classification=None
+0x104555 MULTIEQUAL ['v_9632', 'v_9617'] -> v_9759 classification=None
+0x104555 MULTIEQUAL ['v_6726', 'v_6709'] -> v_6809 classification=None
+0x104555 INDIRECT ['v_6809', 'c_695_4'] -> v_6730 classification=None
+0x104555 INDIRECT ['v_9759', 'c_695_4'] -> v_9635 classification=None
+0x104555 INDIRECT ['v_9972', 'c_695_4'] -> v_9848 classification=None
+0x104555 INDIRECT ['v_9635', 'c_716_4'] -> v_9638 classification=None
+0x104555 INDIRECT ['v_9848', 'c_716_4'] -> v_9851 classification=None
+0x104555 INDIRECT ['v_9638', 'c_724_4'] -> v_9641 classification=None
+0x104555 INDIRECT ['v_9851', 'c_724_4'] -> v_9854 classification=None
+0x104588 INDIRECT ['v_9641', 'c_748_4'] -> v_9644 classification=None
+0x104588 INDIRECT ['v_9854', 'c_748_4'] -> v_9857 classification=None
+0x1045e0 INDIRECT ['v_9644', 'c_1076_4'] -> v_9647 classification=None
+0x1045e0 INDIRECT ['v_9857', 'c_1076_4'] -> v_9860 classification=None
+0x1045e0 INDIRECT ['v_9647', 'c_1092_4'] -> v_9650 classification=None
+0x1045e0 INDIRECT ['v_9860', 'c_1092_4'] -> v_9863 classification=None
+0x104591 MULTIEQUAL ['v_9857', 'v_9863'] -> v_9969 classification=None
+0x104591 MULTIEQUAL ['v_9644', 'v_9650'] -> v_9756 classification=None
+0x104591 INDIRECT ['v_9756', 'c_763_4'] -> v_9653 classification=None
+0x104591 INDIRECT ['v_9969', 'c_763_4'] -> v_9866 classification=None
+0x104647 INDIRECT ['v_9653', 'c_991_4'] -> v_9662 classification=None
+0x104647 INDIRECT ['v_9866', 'c_991_4'] -> v_9875 classification=None
+0x104671 INDIRECT ['v_9653', 'c_1027_4'] -> v_9656 classification=None
+0x104671 INDIRECT ['v_9866', 'c_1027_4'] -> v_9869 classification=None
+0x104671 INDIRECT ['v_9656', 'c_1043_4'] -> v_9659 classification=None
+0x104671 INDIRECT ['v_9869', 'c_1043_4'] -> v_9872 classification=None
+0x104691 INDIRECT ['v_9659', 'c_1059_4'] -> v_9707 classification=None
+0x104691 INDIRECT ['v_9872', 'c_1059_4'] -> v_9920 classification=None
+0x104691 INDIRECT ['v_9707', 'c_1071_4'] -> v_9710 classification=None
+0x104691 INDIRECT ['v_9920', 'c_1071_4'] -> v_9923 classification=None
+0x1045a1 MULTIEQUAL ['v_9866', 'v_9866', 'v_9875', 'v_9872', 'v_9923'] -> v_9934 classification=None
+0x1045a1 MULTIEQUAL ['v_9653', 'v_9653', 'v_9662', 'v_9659', 'v_9710'] -> v_9721 classification=None
+0x1045a1 INDIRECT ['v_9721', 'c_778_4'] -> v_9665 classification=None
+0x1045a1 INDIRECT ['v_9934', 'c_778_4'] -> v_9878 classification=None
+0x1045ff MULTIEQUAL ['v_9854', 'v_9878', 'v_9863'] -> v_9957 classification=None
+0x1045ff MULTIEQUAL ['v_9641', 'v_9665', 'v_9650'] -> v_9744 classification=None
+0x1045ff INDIRECT ['v_9744', 'c_949_4'] -> v_9668 classification=None
+0x1045ff INDIRECT ['v_9957', 'c_949_4'] -> v_9881 classification=None
+0x1045ad INDIRECT ['v_9665', 'c_791_4'] -> v_9671 classification=None
+0x1045ad INDIRECT ['v_9878', 'c_791_4'] -> v_9884 classification=None
+0x1045ad INDIRECT ['v_9671', 'c_799_4'] -> v_9674 classification=None
+0x1045ad INDIRECT ['v_9884', 'c_799_4'] -> v_9887 classification=None
+0x104604 MULTIEQUAL ['v_9887', 'v_9881'] -> v_9948 classification=None
+0x104604 MULTIEQUAL ['v_9674', 'v_9668'] -> v_9735 classification=None
+0x104604 MULTIEQUAL ['v_3962', 'v_3949'] -> v_13620 classification=None
+0x1045d0 INDIRECT ['v_9735', 'c_942_4'] -> v_9677 classification=None
+0x1045d0 INDIRECT ['v_9948', 'c_942_4'] -> v_9890 classification=None
+0x1045d0 INDIRECT ['v_9677', 'c_944_4'] -> v_9704 classification=None
+0x1045d0 INDIRECT ['v_9890', 'c_944_4'] -> v_9917 classification=None
+0x1045d0 COPY ['v_9704'] -> v_13736 classification=bit_preserving_copy
+0x1045d0 COPY ['v_9917'] -> v_13737 classification=bit_preserving_copy
+0x1045d0 COPY ['v_9735'] -> v_13745 classification=bit_preserving_copy
+0x1045d0 COPY ['v_9948'] -> v_13746 classification=bit_preserving_copy
+0x1045d5 COPY ['c_0_4'] -> v_13724 classification=same_width_copy_recast
+0x1045d5 COPY ['v_9735'] -> v_13725 classification=bit_preserving_copy
+0x1045d5 COPY ['v_9948'] -> v_13726 classification=bit_preserving_copy
+0x1045c5 INDIRECT ['v_9674', 'c_811_4'] -> v_9701 classification=None
+0x1045c5 INDIRECT ['v_9887', 'c_811_4'] -> v_9914 classification=None
+0x1045d0 COPY ['v_9701'] -> v_13754 classification=bit_preserving_copy
+0x1045d0 COPY ['v_9914'] -> v_13755 classification=bit_preserving_copy
+0x104610 MULTIEQUAL ['v_9914', 'v_9948'] -> v_9940 classification=None
+0x104610 MULTIEQUAL ['v_9701', 'v_9735'] -> v_9727 classification=None
+0x104615 INDIRECT ['v_9727', 'c_859_4'] -> v_9680 classification=None
+0x104615 INDIRECT ['v_9940', 'c_859_4'] -> v_9893 classification=None
+0x104615 COPY ['v_9680'] -> v_9692 classification=bit_preserving_copy
+0x104615 COPY ['v_9893'] -> v_9905 classification=bit_preserving_copy
+0x1045d0 COPY ['v_9940'] -> v_9993 classification=bit_preserving_copy
+0x1045d0 COPY ['v_9727'] -> v_9780 classification=bit_preserving_copy
+
+[HELPER-REQUIRED CONTRACTS]
+0x104140 INT_EQUAL v_109 helper=c_eq widths=[8, 8]->8 overrides=0
+0x104180 INT_EQUAL v_195 helper=c_eq widths=[8, 8]->8 overrides=0
+0x104190 INT_EQUAL v_225 helper=c_eq widths=[64, 64]->8 overrides=0
+0x104199 INT_NOTEQUAL v_251 helper=c_ne widths=[8, 8]->8 overrides=0
+0x1041a1 INT_EQUAL v_286 helper=c_eq widths=[8, 8]->8 overrides=0
+0x1041b0 INT_EQUAL v_358 helper=c_eq widths=[8, 8]->8 overrides=0
+0x1041c0 INT_EQUAL v_388 helper=c_eq widths=[64, 64]->8 overrides=0
+0x1041c9 INT_NOTEQUAL v_414 helper=c_ne widths=[8, 8]->8 overrides=0
+0x1041d1 INT_ADD v_444 helper=c_add widths=[64, 64]->64 overrides=0
+0x1041d1 INT_LESS v_465 helper=c_ult widths=[64, 64]->8 overrides=0
+0x1041f3 INT_EQUAL v_511 helper=c_eq widths=[32, 32]->8 overrides=0
+0x1042ea INT_ADD v_3418 helper=c_add widths=[64, 64]->64 overrides=0
+0x1042ea INT_SUB v_3511 helper=c_sub widths=[64, 64]->64 overrides=0
+0x1042ea INT_ADD v_13809 helper=c_add widths=[64, 64]->64 overrides=0
+0x1041fb INT_LESS v_555 helper=c_ult widths=[64, 64]->8 overrides=0
+0x104217 INT_ADD v_591 helper=c_add widths=[64, 64]->64 overrides=0
+0x104217 INT_SUB v_645 helper=c_sub widths=[64, 64]->64 overrides=0
+0x104217 INT_ADD v_13812 helper=c_add widths=[64, 64]->64 overrides=0
+0x104217 INT_ADD v_734 helper=c_add widths=[64, 64]->64 overrides=0
+0x104217 INT_SUB v_745 helper=c_sub widths=[64, 64]->64 overrides=0
+0x104217 INT_ADD v_13815 helper=c_add widths=[64, 64]->64 overrides=0
+0x104217 INT_LESSEQUAL v_832 helper=c_ule widths=[64, 64]->8 overrides=0
+0x104217 INT_NOTEQUAL v_844 helper=c_ne widths=[64, 64]->8 overrides=0
+0x104293 INT_SLESS v_925 helper=c_slt widths=[32, 32]->8 overrides=1
+0x104343 INT_MULT v_8934 helper=c_mul widths=[64, 64]->64 overrides=0
+0x104343 INT_LESS v_1123 helper=c_ult widths=[64, 64]->8 overrides=0
+0x104357 INT_ADD v_1205 helper=c_add widths=[64, 64]->64 overrides=0
+0x104357 INT_NOTEQUAL v_1258 helper=c_ne widths=[32, 32]->8 overrides=0
+0x104393 INT_NOTEQUAL v_13700 helper=c_ne widths=[64, 64]->8 overrides=0
+0x1043a0 INT_SUB v_13656 helper=c_sub widths=[64, 64]->64 overrides=0
+0x1043c1 INT_SLESS v_1368 helper=c_slt widths=[8, 8]->8 overrides=0
+0x1043c9 INT_ADD v_8958 helper=c_add widths=[8, 8]->8 overrides=0
+0x1043b0 INT_LESSEQUAL v_3329 helper=c_ule widths=[64, 64]->8 overrides=2
+0x104478 INT_ADD v_3371 helper=c_add widths=[64, 64]->64 overrides=0
+0x1043ce INT_ADD v_1412 helper=c_add widths=[64, 64]->64 overrides=0
+0x1043d4 INT_LESSEQUAL v_1438 helper=c_ule widths=[64, 64]->8 overrides=0
+0x1043e0 INT_LESS v_1532 helper=c_ult widths=[64, 64]->8 overrides=0
+0x1043e9 INT_SLESS v_1604 helper=c_slt widths=[32, 32]->8 overrides=1
+0x104510 INT_SUB v_13678 helper=c_sub widths=[64, 64]->64 overrides=0
+0x104510 INT_ADD v_3225 helper=c_add widths=[64, 64]->64 overrides=0
+0x104510 INT_EQUAL v_3272 helper=c_eq widths=[64, 64]->8 overrides=0
+0x10440b INT_ADD v_13824 helper=c_add widths=[64, 64]->64 overrides=0
+0x10440b INT_EQUAL v_1642 helper=c_eq widths=[64, 64]->8 overrides=0
+0x10448a INT_MULT v_9009 helper=c_mul widths=[64, 64]->64 overrides=0
+0x10448a INT_ADD v_2931 helper=c_add widths=[64, 64]->64 overrides=0
+0x10448a INT_ADD v_2954 helper=c_add widths=[64, 64]->64 overrides=0
+0x10448a INT_ADD v_13828 helper=c_add widths=[64, 64]->64 overrides=0
+0x10448a INT_MULT v_13669 helper=c_mul widths=[64, 64]->64 overrides=0
+0x10448a INT_ADD v_9021 helper=c_add widths=[64, 64]->64 overrides=0
+0x10448a INT_LESS v_3063 helper=c_ult widths=[64, 64]->8 overrides=0
+0x1044d8 INT_SUB v_3074 helper=c_sub widths=[64, 64]->64 overrides=0
+0x1044d8 INT_ADD v_3137 helper=c_add widths=[64, 64]->64 overrides=0
+0x1044d8 INT_ADD v_13834 helper=c_add widths=[64, 64]->64 overrides=0
+0x104420 INT_NEGATE v_1676 helper=c_not widths=[64]->64 overrides=0
+0x104420 INT_ADD v_13835 helper=c_add widths=[64, 64]->64 overrides=0
+0x104420 INT_LESSEQUAL v_1741 helper=c_ule widths=[64, 64]->8 overrides=2
+0x104444 INT_SUB v_1754 helper=c_sub widths=[64, 64]->64 overrides=0
+0x104444 INT_EQUAL v_1807 helper=c_eq widths=[64, 64]->8 overrides=0
+0x104555 INT_AND v_1915 helper=c_and widths=[32, 32]->32 overrides=0
+0x104555 INT_SLESS v_1946 helper=c_slt widths=[32, 32]->8 overrides=1
+0x104588 INT_NOTEQUAL v_1983 helper=c_ne widths=[32, 32]->8 overrides=0
+0x1045e0 INT_EQUAL v_2871 helper=c_eq widths=[64, 64]->8 overrides=0
+0x104591 INT_NOTEQUAL v_2021 helper=c_ne widths=[32, 32]->8 overrides=0
+0x104630 INT_AND v_2490 helper=c_and widths=[32, 32]->32 overrides=0
+0x104630 INT_NOTEQUAL v_2496 helper=c_ne widths=[32, 32]->8 overrides=0
+0x10463d INT_EQUAL v_2540 helper=c_eq widths=[64, 64]->8 overrides=0
+0x104660 INT_EQUAL v_2623 helper=c_eq widths=[64, 64]->8 overrides=0
+0x10466a INT_EQUAL v_2661 helper=c_eq widths=[64, 64]->8 overrides=0
+0x104671 INT_NOTEQUAL v_2743 helper=c_ne widths=[64, 64]->8 overrides=0
+0x104691 INT_AND v_2766 helper=c_and widths=[32, 32]->32 overrides=0
+0x1045a1 INT_EQUAL v_2059 helper=c_eq widths=[32, 32]->8 overrides=0
+0x1045ad INT_NOTEQUAL v_2112 helper=c_ne widths=[32, 32]->8 overrides=0
+0x104604 INT_NOTEQUAL v_2387 helper=c_ne widths=[32, 32]->8 overrides=0
+0x1046a8 INT_NOTEQUAL v_2441 helper=c_ne widths=[32, 32]->8 overrides=0
+0x10460c INT_EQUAL v_2415 helper=c_eq widths=[32, 32]->8 overrides=0
+0x1045c5 INT_NOTEQUAL v_2143 helper=c_ne widths=[32, 32]->8 overrides=0
+0x104610 INT_NOTEQUAL v_2228 helper=c_ne widths=[64, 64]->8 overrides=0
+0x104615 INT_NOTEQUAL v_2291 helper=c_ne widths=[32, 32]->8 overrides=0
+0x104615 INT_ZEXT v_2350 helper=c_zext widths=[8]->32 overrides=1
+0x104615 INT_2COMP v_2349 helper=c_neg widths=[32]->32 overrides=0
+
+[INDIRECT STORAGE-CUSTODY CONTRACTS]
+0x104140 v_13514 -> v_9578 family=storage_family:high_rep:13514 owner=CALL/0x22 owner_compute=1065280:(ram, 0x104161, 34, 3):3 status=metadata_only
+0x104140 v_13515 -> v_9791 family=storage_family:high_rep:13515 owner=CALL/0x22 owner_compute=1065280:(ram, 0x104161, 34, 3):3 status=metadata_only
+0x1041d1 v_9578 -> v_9581 family=storage_family:high_rep:13514 owner=CALL/0xa6 owner_compute=1065425:(ram, 0x1041d9, 166, 4):4 status=metadata_only
+0x1041d1 v_9791 -> v_9794 family=storage_family:high_rep:13515 owner=CALL/0xa6 owner_compute=1065425:(ram, 0x1041d9, 166, 4):4 status=metadata_only
+0x1042ea v_9581 -> v_9584 family=storage_family:high_rep:13514 owner=CALL/0x52c owner_compute=1065706:(ram, 0x104301, 1324, 4):4 status=metadata_only
+0x1042ea v_9794 -> v_9797 family=storage_family:high_rep:13515 owner=CALL/0x52c owner_compute=1065706:(ram, 0x104301, 1324, 4):4 status=metadata_only
+0x1042ea v_9584 -> v_9587 family=storage_family:high_rep:13514 owner=CALL/0x54b owner_compute=1065706:(ram, 0x104320, 1355, 12):12 status=metadata_only
+0x1042ea v_9797 -> v_9800 family=storage_family:high_rep:13515 owner=CALL/0x54b owner_compute=1065706:(ram, 0x104320, 1355, 12):12 status=metadata_only
+0x1041fb v_9581 -> v_9590 family=storage_family:high_rep:13514 owner=CALL/0xd1 owner_compute=1065467:(ram, 0x104208, 209, 2):2 status=metadata_only
+0x1041fb v_9794 -> v_9803 family=storage_family:high_rep:13515 owner=CALL/0xd1 owner_compute=1065467:(ram, 0x104208, 209, 2):2 status=metadata_only
+0x104217 v_9590 -> v_9593 family=storage_family:high_rep:13514 owner=CALL/0xe8 owner_compute=1065495:(ram, 0x104222, 232, 4):4 status=metadata_only
+0x104217 v_9803 -> v_9806 family=storage_family:high_rep:13515 owner=CALL/0xe8 owner_compute=1065495:(ram, 0x104222, 232, 4):4 status=metadata_only
+0x104217 v_9593 -> v_9596 family=storage_family:high_rep:13514 owner=CALL/0x10b owner_compute=1065495:(ram, 0x104247, 267, 12):12 status=metadata_only
+0x104217 v_9806 -> v_9809 family=storage_family:high_rep:13515 owner=CALL/0x10b owner_compute=1065495:(ram, 0x104247, 267, 12):12 status=metadata_only
+0x104217 v_9596 -> v_9599 family=storage_family:high_rep:13514 owner=CALL/0x114 owner_compute=1065495:(ram, 0x104258, 276, 15):15 status=metadata_only
+0x104217 v_9809 -> v_9812 family=storage_family:high_rep:13515 owner=CALL/0x114 owner_compute=1065495:(ram, 0x104258, 276, 15):15 status=metadata_only
+0x104217 v_9599 -> v_9602 family=storage_family:high_rep:13514 owner=CALL/0x130 owner_compute=1065495:(ram, 0x104272, 304, 24):24 status=metadata_only
+0x104217 v_9812 -> v_9815 family=storage_family:high_rep:13515 owner=CALL/0x130 owner_compute=1065495:(ram, 0x104272, 304, 24):24 status=metadata_only
+0x104293 v_9602 -> v_9605 family=storage_family:high_rep:13514 owner=CALL/0x14e owner_compute=1065619:(ram, 0x10429b, 334, 2):2 status=metadata_only
+0x104293 v_9815 -> v_9818 family=storage_family:high_rep:13515 owner=CALL/0x14e owner_compute=1065619:(ram, 0x10429b, 334, 2):2 status=metadata_only
+0x104357 v_9783 -> v_9608 family=storage_family:high_rep:13514 owner=CALL/0x1be owner_compute=1065815:(ram, 0x10435f, 446, 3):3 status=metadata_only
+0x104357 v_9996 -> v_9821 family=storage_family:high_rep:13515 owner=CALL/0x1be owner_compute=1065815:(ram, 0x10435f, 446, 3):3 status=metadata_only
+0x104357 v_9608 -> v_9611 family=storage_family:high_rep:13514 owner=CALL/0x1d5 owner_compute=1065815:(ram, 0x10437e, 469, 10):10 status=metadata_only
+0x104357 v_9821 -> v_9824 family=storage_family:high_rep:13515 owner=CALL/0x1d5 owner_compute=1065815:(ram, 0x10437e, 469, 10):10 status=metadata_only
+0x1043c9 v_9753 -> v_9695 family=storage_family:high_rep:13514 owner=STORE/0x214 owner_compute=1065929:(ram, 0x1043cc, 532, 3):3 status=metadata_only
+0x1043c9 v_9966 -> v_9908 family=storage_family:high_rep:13515 owner=STORE/0x214 owner_compute=1065929:(ram, 0x1043cc, 532, 3):3 status=metadata_only
+0x1043b0 v_9753 -> v_9716 family=storage_family:high_rep:13514 owner=STORE/0x4f3 owner_compute=1065904:(ram, 0x1043b4, 1267, 3):3 status=metadata_only
+0x1043b0 v_9966 -> v_9929 family=storage_family:high_rep:13515 owner=STORE/0x4f3 owner_compute=1065904:(ram, 0x1043b4, 1267, 3):3 status=metadata_only
+0x104478 v_9716 -> v_9719 family=storage_family:high_rep:13514 owner=STORE/0x501 owner_compute=1066104:(ram, 0x104478, 1281, 3):3 status=metadata_only
+0x104478 v_9929 -> v_9932 family=storage_family:high_rep:13515 owner=STORE/0x501 owner_compute=1066104:(ram, 0x104478, 1281, 3):3 status=metadata_only
+0x1043e9 v_13704 -> v_9614 family=storage_family:high_rep:13514 owner=CALL/0x250 owner_compute=1065961:(ram, 0x1043f9, 592, 2):2 status=metadata_only
+0x1043e9 v_13705 -> v_9827 family=storage_family:high_rep:13515 owner=CALL/0x250 owner_compute=1065961:(ram, 0x1043f9, 592, 2):2 status=metadata_only
+0x104510 v_9777 -> v_9713 family=storage_family:high_rep:13514 owner=STORE/0x4bf owner_compute=1066256:(ram, 0x104510, 1215, 6):6 status=metadata_only
+0x104510 v_9990 -> v_9926 family=storage_family:high_rep:13515 owner=STORE/0x4bf owner_compute=1066256:(ram, 0x104510, 1215, 6):6 status=metadata_only
+0x104510 v_13719 -> v_6709 family=storage_family:high_rep:6709 owner=CALL/0x4da owner_compute=1066256:(ram, 0x10452f, 1242, 16):16 status=metadata_only
+0x104510 v_9713 -> v_9617 family=storage_family:high_rep:13514 owner=CALL/0x4da owner_compute=1066256:(ram, 0x10452f, 1242, 16):16 status=metadata_only
+0x104510 v_9926 -> v_9830 family=storage_family:high_rep:13515 owner=CALL/0x4da owner_compute=1066256:(ram, 0x10452f, 1242, 16):16 status=metadata_only
+0x1042b4 v_9770 -> v_9683 family=storage_family:high_rep:13514 owner=CALL/0x16f owner_compute=1065652:(ram, 0x1042b9, 367, 7):7 status=metadata_only
+0x1042b4 v_9983 -> v_9896 family=storage_family:high_rep:13515 owner=CALL/0x16f owner_compute=1065652:(ram, 0x1042b9, 367, 7):7 status=metadata_only
+0x1042b4 v_9683 -> v_9686 family=storage_family:high_rep:13514 owner=CALL/0x175 owner_compute=1065652:(ram, 0x1042c3, 373, 10):10 status=metadata_only
+0x1042b4 v_9896 -> v_9899 family=storage_family:high_rep:13515 owner=CALL/0x175 owner_compute=1065652:(ram, 0x1042c3, 373, 10):10 status=metadata_only
+0x10440b v_9773 -> v_9698 family=storage_family:high_rep:13514 owner=STORE/0x268 owner_compute=1065995:(ram, 0x104419, 616, 11):11 status=metadata_only
+0x10440b v_9986 -> v_9911 family=storage_family:high_rep:13515 owner=STORE/0x268 owner_compute=1065995:(ram, 0x104419, 616, 11):11 status=metadata_only
+0x10448a v_9698 -> v_9620 family=storage_family:high_rep:13514 owner=CALL/0x468 owner_compute=1066122:(ram, 0x1044a3, 1128, 4):4 status=metadata_only
+0x10448a v_9911 -> v_9833 family=storage_family:high_rep:13515 owner=CALL/0x468 owner_compute=1066122:(ram, 0x1044a3, 1128, 4):4 status=metadata_only
+0x10448a v_9620 -> v_9623 family=storage_family:high_rep:13514 owner=CALL/0x474 owner_compute=1066122:(ram, 0x1044b8, 1140, 12):12 status=metadata_only
+0x10448a v_9833 -> v_9836 family=storage_family:high_rep:13515 owner=CALL/0x474 owner_compute=1066122:(ram, 0x1044b8, 1140, 12):12 status=metadata_only
+0x1044d8 v_9623 -> v_9626 family=storage_family:high_rep:13514 owner=CALL/0x4a5 owner_compute=1066200:(ram, 0x1044ea, 1189, 5):5 status=metadata_only
+0x1044d8 v_9836 -> v_9839 family=storage_family:high_rep:13515 owner=CALL/0x4a5 owner_compute=1066200:(ram, 0x1044ea, 1189, 5):5 status=metadata_only
+0x104420 v_9766 -> v_9629 family=storage_family:high_rep:13514 owner=CALL/0x279 owner_compute=1066016:(ram, 0x104429, 633, 11):11 status=metadata_only
+0x104420 v_9979 -> v_9842 family=storage_family:high_rep:13515 owner=CALL/0x279 owner_compute=1066016:(ram, 0x104429, 633, 11):11 status=metadata_only
+0x104444 v_13779 -> v_6726 family=storage_family:high_rep:6709 owner=CALL/0x2a6 owner_compute=1066052:(ram, 0x10445c, 678, 9):9 status=metadata_only
+0x104444 v_9629 -> v_9632 family=storage_family:high_rep:13514 owner=CALL/0x2a6 owner_compute=1066052:(ram, 0x10445c, 678, 9):9 status=metadata_only
+0x104444 v_9842 -> v_9845 family=storage_family:high_rep:13515 owner=CALL/0x2a6 owner_compute=1066052:(ram, 0x10445c, 678, 9):9 status=metadata_only
+0x104555 v_6809 -> v_6730 family=storage_family:high_rep:6709 owner=CALL/0x2b7 owner_compute=1066325:(ram, 0x104555, 695, 6):6 status=metadata_only
+0x104555 v_9759 -> v_9635 family=storage_family:high_rep:13514 owner=CALL/0x2b7 owner_compute=1066325:(ram, 0x104555, 695, 6):6 status=metadata_only
+0x104555 v_9972 -> v_9848 family=storage_family:high_rep:13515 owner=CALL/0x2b7 owner_compute=1066325:(ram, 0x104555, 695, 6):6 status=metadata_only
+0x104555 v_9635 -> v_9638 family=storage_family:high_rep:13514 owner=CALL/0x2cc owner_compute=1066325:(ram, 0x10456b, 716, 9):9 status=metadata_only
+0x104555 v_9848 -> v_9851 family=storage_family:high_rep:13515 owner=CALL/0x2cc owner_compute=1066325:(ram, 0x10456b, 716, 9):9 status=metadata_only
+0x104555 v_9638 -> v_9641 family=storage_family:high_rep:13514 owner=CALL/0x2d4 owner_compute=1066325:(ram, 0x104579, 724, 14):14 status=metadata_only
+0x104555 v_9851 -> v_9854 family=storage_family:high_rep:13515 owner=CALL/0x2d4 owner_compute=1066325:(ram, 0x104579, 724, 14):14 status=metadata_only
+0x104588 v_9641 -> v_9644 family=storage_family:high_rep:13514 owner=CALL/0x2ec owner_compute=1066376:(ram, 0x104588, 748, 2):2 status=metadata_only
+0x104588 v_9854 -> v_9857 family=storage_family:high_rep:13515 owner=CALL/0x2ec owner_compute=1066376:(ram, 0x104588, 748, 2):2 status=metadata_only
+0x1045e0 v_9644 -> v_9647 family=storage_family:high_rep:13514 owner=CALL/0x434 owner_compute=1066464:(ram, 0x1045e3, 1076, 2):2 status=metadata_only
+0x1045e0 v_9857 -> v_9860 family=storage_family:high_rep:13515 owner=CALL/0x434 owner_compute=1066464:(ram, 0x1045e3, 1076, 2):2 status=metadata_only
+0x1045e0 v_9647 -> v_9650 family=storage_family:high_rep:13514 owner=CALL/0x444 owner_compute=1066464:(ram, 0x1045f1, 1092, 5):5 status=metadata_only
+0x1045e0 v_9860 -> v_9863 family=storage_family:high_rep:13515 owner=CALL/0x444 owner_compute=1066464:(ram, 0x1045f1, 1092, 5):5 status=metadata_only
+0x104591 v_9756 -> v_9653 family=storage_family:high_rep:13514 owner=CALL/0x2fb owner_compute=1066385:(ram, 0x104594, 763, 4):4 status=metadata_only
+0x104591 v_9969 -> v_9866 family=storage_family:high_rep:13515 owner=CALL/0x2fb owner_compute=1066385:(ram, 0x104594, 763, 4):4 status=metadata_only
+0x104647 v_9653 -> v_9662 family=storage_family:high_rep:13514 owner=CALL/0x3df owner_compute=1066567:(ram, 0x104651, 991, 2):2 status=metadata_only
+0x104647 v_9866 -> v_9875 family=storage_family:high_rep:13515 owner=CALL/0x3df owner_compute=1066567:(ram, 0x104651, 991, 2):2 status=metadata_only
+0x104671 v_9653 -> v_9656 family=storage_family:high_rep:13514 owner=CALL/0x403 owner_compute=1066609:(ram, 0x104674, 1027, 2):2 status=metadata_only
+0x104671 v_9866 -> v_9869 family=storage_family:high_rep:13515 owner=CALL/0x403 owner_compute=1066609:(ram, 0x104674, 1027, 2):2 status=metadata_only
+0x104671 v_9656 -> v_9659 family=storage_family:high_rep:13514 owner=CALL/0x413 owner_compute=1066609:(ram, 0x104682, 1043, 5):5 status=metadata_only
+0x104671 v_9869 -> v_9872 family=storage_family:high_rep:13515 owner=CALL/0x413 owner_compute=1066609:(ram, 0x104682, 1043, 5):5 status=metadata_only
+0x104691 v_9659 -> v_9707 family=storage_family:high_rep:13514 owner=STORE/0x423 owner_compute=1066641:(ram, 0x104691, 1059, 6):6 status=metadata_only
+0x104691 v_9872 -> v_9920 family=storage_family:high_rep:13515 owner=STORE/0x423 owner_compute=1066641:(ram, 0x104691, 1059, 6):6 status=metadata_only
+0x104691 v_9707 -> v_9710 family=storage_family:high_rep:13514 owner=STORE/0x42f owner_compute=1066641:(ram, 0x104695, 1071, 10):10 status=metadata_only
+0x104691 v_9920 -> v_9923 family=storage_family:high_rep:13515 owner=STORE/0x42f owner_compute=1066641:(ram, 0x104695, 1071, 10):10 status=metadata_only
+0x1045a1 v_9721 -> v_9665 family=storage_family:high_rep:13514 owner=CALL/0x30a owner_compute=1066401:(ram, 0x1045a4, 778, 4):4 status=metadata_only
+0x1045a1 v_9934 -> v_9878 family=storage_family:high_rep:13515 owner=CALL/0x30a owner_compute=1066401:(ram, 0x1045a4, 778, 4):4 status=metadata_only
+0x1045ff v_9744 -> v_9668 family=storage_family:high_rep:13514 owner=CALL/0x3b5 owner_compute=1066495:(ram, 0x1045ff, 949, 4):4 status=metadata_only
+0x1045ff v_9957 -> v_9881 family=storage_family:high_rep:13515 owner=CALL/0x3b5 owner_compute=1066495:(ram, 0x1045ff, 949, 4):4 status=metadata_only
+0x1045ad v_9665 -> v_9671 family=storage_family:high_rep:13514 owner=CALL/0x317 owner_compute=1066413:(ram, 0x1045ad, 791, 2):2 status=metadata_only
+0x1045ad v_9878 -> v_9884 family=storage_family:high_rep:13515 owner=CALL/0x317 owner_compute=1066413:(ram, 0x1045ad, 791, 2):2 status=metadata_only
+0x1045ad v_9671 -> v_9674 family=storage_family:high_rep:13514 owner=CALL/0x31f owner_compute=1066413:(ram, 0x1045bb, 799, 6):6 status=metadata_only
+0x1045ad v_9884 -> v_9887 family=storage_family:high_rep:13515 owner=CALL/0x31f owner_compute=1066413:(ram, 0x1045bb, 799, 6):6 status=metadata_only
+0x1045d0 v_9735 -> v_9677 family=storage_family:high_rep:13514 owner=CALL/0x3ae owner_compute=1066448:(ram, 0x1046b0, 942, 2):2 status=metadata_only
+0x1045d0 v_9948 -> v_9890 family=storage_family:high_rep:13515 owner=CALL/0x3ae owner_compute=1066448:(ram, 0x1046b0, 942, 2):2 status=metadata_only
+0x1045d0 v_9677 -> v_9704 family=storage_family:high_rep:13514 owner=STORE/0x3b0 owner_compute=1066448:(ram, 0x1046b5, 944, 5):5 status=metadata_only
+0x1045d0 v_9890 -> v_9917 family=storage_family:high_rep:13515 owner=STORE/0x3b0 owner_compute=1066448:(ram, 0x1046b5, 944, 5):5 status=metadata_only
+0x1045c5 v_9674 -> v_9701 family=storage_family:high_rep:13514 owner=STORE/0x32b owner_compute=1066437:(ram, 0x1045c5, 811, 2):2 status=metadata_only
+0x1045c5 v_9887 -> v_9914 family=storage_family:high_rep:13515 owner=STORE/0x32b owner_compute=1066437:(ram, 0x1045c5, 811, 2):2 status=metadata_only
+0x104615 v_9727 -> v_9680 family=storage_family:high_rep:13514 owner=CALL/0x35b owner_compute=1066517:(ram, 0x104615, 859, 2):2 status=metadata_only
+0x104615 v_9940 -> v_9893 family=storage_family:high_rep:13515 owner=CALL/0x35b owner_compute=1066517:(ram, 0x104615, 859, 2):2 status=metadata_only
+
+[INDIRECT CUSTODY INVENTORY]
+{'kind': 'pal_compute_indirect_custody_inventory_v22d',
+ 'version': 'v23b_abi_thunk_compatibility_return_reconciliation',
+ 'resolver_transitions': 95,
+ 'compute_indirect_contracts': 95,
+ 'resolved_custody': 95,
+ 'deferred_custody': 0,
+ 'effect_owner_compute_bindings': 95,
+ 'effect_owner_compute_ops': 46,
+ 'owner_categories': {'call_boundary': 77, 'memory_store': 18},
+ 'storage_families': 3,
+ 'storage_sid_bindings': 126,
+ 'address_escape_barrier_sids': 120,
+ 'parameter_storage_initializers': 0,
+ 'runtime_helpers': 0,
+ 'warnings': 0,
+ 'rule': 'INDIRECT_is_metadata_only_owner_bound_storage_transition'}
+
+[ABI-D ENTRY/CALL PLAN INVENTORY]
+{'kind': 'pal_compute_abi_plan_inventory_v23',
+ 'version': 'v23b_abi_thunk_compatibility_return_reconciliation',
+ 'function': 'FUN_00104140',
+ 'entry_plan_present': True,
+ 'entry_plan_status': 'ready',
+ 'fixed_arguments': 3,
+ 'implicit_inputs': 0,
+ 'implicit_inputs_unsupported': 0,
+ 'call_compute_contracts': 37,
+ 'call_site_plans': 37,
+ 'call_sites_without_plan': 0,
+ 'call_statuses': {'ready': 34, 'deferred_target_dispatch': 3},
+ 'dispatch_classes': {'external_via_import_thunk': 27,
+                      'internal_resolved': 7,
+                      'resolved_thunk_endpoint_deferred': 3},
+ 'internal_calls': 7,
+ 'internal_calls_with_target_compatible_plan': 0,
+ 'internal_calls_without_target_compatible_plan': 7,
+ 'internal_calls_with_deferred_target_compatibility': 7,
+ 'internal_calls_with_incompatible_target': 0,
+ 'internal_calls_without_transport_plan': 0,
+ 'external_calls': 27,
+ 'thunk_calls': 30,
+ 'external_via_thunk_calls': 27,
+ 'thunk_endpoint_deferred_calls': 3,
+ 'thunk_calls_misclassified_internal': 0,
+ 'target_compatibility_overclaims': 0,
+ 'no_return_calls': 0,
+ 'result_carrier_contracts': 37,
+ 'abi_runtime_helper_assignments': 0,
+ 'warnings': 0,
+ 'acceptance_gates': {'every_emitted_function_has_entry_plan': True,
+                      'every_call_has_call_site_plan': True,
+                      'every_internal_call_has_target_compatible_plan': False,
+                      'every_internal_call_has_carrier_transport_plan': True,
+                      'no_resolved_thunk_misclassified_internal': True,
+                      'no_target_compatibility_overclaim': True,
+                      'no_implicit_input_is_unsupported': True,
+                      'no_runtime_helper_assigned_by_ABI_guesswork': True},
+ 'return_boundary_reconciliation': {'kind': 'pal_compute_return_boundary_reconciliation_v23b',
+                                    'version': 'v23b_abi_thunk_compatibility_return_reconciliation',
+                                    'function': 'FUN_00104140',
+                                    'entry_block_addr': 1065280,
+                                    'cfg_evidence_available': True,
+                                    'no_return_terminating_blocks': [],
+                                    'no_return_call_op_keys': [],
+                                    'return_boundaries': 7,
+                                    'reachable_return_boundaries': 7,
+                                    'unreachable_return_boundaries': 0,
+                                    'deferred_return_boundaries': 0,
+                                    'reachable_return_widths': [32],
+                                    'width_reconciled': True,
+                                    'synthetic_no_return_continuations_suppressed': 0,
+                                    'rule': 'traverse_CFG_with_no_return_blocks_as_terminal_then_reconcile_reachable_raw_return_transports_only'},
+ 'rule': 'ABI_A_B_C_authority_only_thunk_endpoint_and_compatibility_tri_state_no_downstream_argument_reinference'}
+
+[FUNCTION ENTRY ABI PLAN]
+{'plan_id': 'function_entry:1065280',
+ 'status': 'ready',
+ 'callable_signature_status': 'legacy_non_variadic_fallback',
+ 'fixed_argument_count': 3,
+ 'implicit_input_count': 0,
+ 'variadic_register_save_area': {'required': False,
+                                 'status': 'not_required',
+                                 'slots': [{'sid': 'v_8684',
+                                            'bank': 'gp',
+                                            'index': 0,
+                                            'register': 'RDI',
+                                            'width_bits': 64,
+                                            'canonical_alias': 'param_0',
+                                            'owner_namespace': 'logical_parameter',
+                                            'owner_role': 'callable_parameter_carrier',
+                                            'materialization': 'capture_entry_register_bits',
+                                            'source': 'abi_context.registers',
+                                            'runtime_helper': None,
+                                            'authority': 'PALSymbolResolver_ABI_C_physical_carrier_binding'},
+                                           {'sid': 'v_8686',
+                                            'bank': 'gp',
+                                            'index': 1,
+                                            'register': 'RSI',
+                                            'width_bits': 64,
+                                            'canonical_alias': 'param_1',
+                                            'owner_namespace': 'logical_parameter',
+                                            'owner_role': 'callable_parameter_carrier',
+                                            'materialization': 'capture_entry_register_bits',
+                                            'source': 'abi_context.registers',
+                                            'runtime_helper': None,
+                                            'authority': 'PALSymbolResolver_ABI_C_physical_carrier_binding'},
+                                           {'sid': 'v_8682',
+                                            'bank': 'gp',
+                                            'index': 2,
+                                            'register': 'RDX',
+                                            'width_bits': 64,
+                                            'canonical_alias': 'param_2',
+                                            'owner_namespace': 'logical_parameter',
+                                            'owner_role': 'callable_parameter_carrier',
+                                            'materialization': 'capture_entry_register_bits',
+                                            'source': 'abi_context.registers',
+                                            'runtime_helper': None,
+                                            'authority': 'PALSymbolResolver_ABI_C_physical_carrier_binding'}],
+                                 'gp_slots': [{'sid': 'v_8684',
+                                               'bank': 'gp',
+                                               'index': 0,
+                                               'register': 'RDI',
+                                               'width_bits': 64,
+                                               'canonical_alias': 'param_0',
+                                               'owner_namespace': 'logical_parameter',
+                                               'owner_role': 'callable_parameter_carrier',
+                                               'materialization': 'capture_entry_register_bits',
+                                               'source': 'abi_context.registers',
+                                               'runtime_helper': None,
+                                               'authority': 'PALSymbolResolver_ABI_C_physical_carrier_binding'},
+                                              {'sid': 'v_8686',
+                                               'bank': 'gp',
+                                               'index': 1,
+                                               'register': 'RSI',
+                                               'width_bits': 64,
+                                               'canonical_alias': 'param_1',
+                                               'owner_namespace': 'logical_parameter',
+                                               'owner_role': 'callable_parameter_carrier',
+                                               'materialization': 'capture_entry_register_bits',
+                                               'source': 'abi_context.registers',
+                                               'runtime_helper': None,
+                                               'authority': 'PALSymbolResolver_ABI_C_physical_carrier_binding'},
+                                              {'sid': 'v_8682',
+                                               'bank': 'gp',
+                                               'index': 2,
+                                               'register': 'RDX',
+                                               'width_bits': 64,
+                                               'canonical_alias': 'param_2',
+                                               'owner_namespace': 'logical_parameter',
+                                               'owner_role': 'callable_parameter_carrier',
+                                               'materialization': 'capture_entry_register_bits',
+                                               'source': 'abi_context.registers',
+                                               'runtime_helper': None,
+                                               'authority': 'PALSymbolResolver_ABI_C_physical_carrier_binding'}],
+                                 'sse_slots': [],
+                                 'fixed_variadic_partition_status': 'deferred_to_entry_protocol_analysis',
+                                 'source': 'abi_context.registers',
+                                 'authority': 'ABI_C_carriers_plus_variadic_contract'},
+ 'overflow_argument_area': {'required': False,
+                            'status': 'not_required',
+                            'source': 'abi_context.overflow_argument_area',
+                            'observed_stack_carriers': [],
+                            'materialization': 'consume_preclassified_overflow_slots',
+                            'offset_inference_allowed': False,
+                            'authority': 'ABI_C_stack_carriers_or_variadic_protocol'},
+ 'variadic_al': {'required': False,
+                 'status': 'not_required',
+                 'source': 'abi_context.variadic_xmm_count',
+                 'inputs': [],
+                 'default_allowed': False,
+                 'authority': 'ABI_C_variadic_xmm_count_contract'},
+ 'frame_base': {'required': False,
+                'status': 'not_observed',
+                'source': 'abi_context.frame_base',
+                'inputs': [],
+                'derive_from_parameter_names': False,
+                'authority': 'ABI_C_frame_state_custody'},
+ 'tls_base': {'required': False,
+              'status': 'not_observed',
+              'source': 'abi_context.tls_base',
+              'inputs': [],
+              'derive_from_expression_names': False,
+              'authority': 'ABI_C_tls_state_custody'},
+ 'return_contract': {'kind': 'pal_compute_return_carrier_contract_abi_d',
+                     'version': 'v23b_abi_thunk_compatibility_return_reconciliation',
+                     'status': 'return_width_proven_carrier_deferred',
+                     'no_return': False,
+                     'output_sid': None,
+                     'output_width_bits': None,
+                     'declared_width_bits': None,
+                     'effective_result_width_bits': 32,
+                     'declared_return': {'name': 'undefined',
+                                         'display_name': 'undefined',
+                                         'class_name': 'DefaultDataType',
+                                         'length_bytes': 1,
+                                         'width_bits': 8,
+                                         'signed': None,
+                                         'kind_hint': None},
+                     'return_storage': {'repr': '<UNASSIGNED>',
+                                        'size_bytes': 0,
+                                        'flags': {'register': False,
+                                                  'stack': False,
+                                                  'memory': False,
+                                                  'unassigned': True,
+                                                  'void': False,
+                                                  'auto': False},
+                                        'pieces': [],
+                                        'storage_keys': []},
+                     'carrier_pieces': [],
+                     'normalization': {'mode': 'mask_to_output_width',
+                                       'width_bits': 32,
+                                       'mask': 4294967295},
+                     'runtime_helper': None,
+                     'runtime_helper_authority': 'no_ABI_runtime_helper_assigned',
+                     'authority': 'reachable_raw_return_transport',
+                     'reported_declared_width_bits': 8,
+                     'declared_width_authoritative': False,
+                     'declared_return_evidence_status': 'non_authoritative_default_or_unresolved_prototype',
+                     'transport_width_bits': 32,
+                     'logical_result_width_bits': 32,
+                     'reachable_return_widths': [32],
+                     'reachable_return_boundary_count': 7,
+                     'unreachable_return_boundary_count': 0,
+                     'deferred_return_boundary_count': 0},
+ 'reachable_return_boundaries': [{'block_addr': 1065652,
+                                  'return_value_sid': 'v_13624',
+                                  'return_value_width_bits': 32,
+                                  'return_transport_width_bits': 32,
+                                  'return_logical_width_bits': 32,
+                                  'return_declared_view': None,
+                                  'return_boundary_authority': 'raw_return_register_transport',
+                                  'return_reachability': 'reachable',
+                                  'reachable_return': True,
+                                  'execution_suppressed': False,
+                                  'emission_policy': 'emit_reachable_return_boundary',
+                                  'cut_by_no_return_blocks': [],
+                                  'cut_by_no_return_call_op_keys': []},
+                                 {'block_addr': 1066448,
+                                  'return_value_sid': 'v_13735',
+                                  'return_value_width_bits': 32,
+                                  'return_transport_width_bits': 32,
+                                  'return_logical_width_bits': 32,
+                                  'return_declared_view': None,
+                                  'return_boundary_authority': 'raw_return_register_transport',
+                                  'return_reachability': 'reachable',
+                                  'reachable_return': True,
+                                  'execution_suppressed': False,
+                                  'emission_policy': 'emit_reachable_return_boundary',
+                                  'cut_by_no_return_blocks': [],
+                                  'cut_by_no_return_call_op_keys': []},
+                                 {'block_addr': 1066448,
+                                  'return_value_sid': 'v_13744',
+                                  'return_value_width_bits': 32,
+                                  'return_transport_width_bits': 32,
+                                  'return_logical_width_bits': 32,
+                                  'return_declared_view': None,
+                                  'return_boundary_authority': 'raw_return_register_transport',
+                                  'return_reachability': 'reachable',
+                                  'reachable_return': True,
+                                  'execution_suppressed': False,
+                                  'emission_policy': 'emit_reachable_return_boundary',
+                                  'cut_by_no_return_blocks': [],
+                                  'cut_by_no_return_call_op_keys': []},
+                                 {'block_addr': 1066448,
+                                  'return_value_sid': 'v_13753',
+                                  'return_value_width_bits': 32,
+                                  'return_transport_width_bits': 32,
+                                  'return_logical_width_bits': 32,
+                                  'return_declared_view': None,
+                                  'return_boundary_authority': 'raw_return_register_transport',
+                                  'return_reachability': 'reachable',
+                                  'reachable_return': True,
+                                  'execution_suppressed': False,
+                                  'emission_policy': 'emit_reachable_return_boundary',
+                                  'cut_by_no_return_blocks': [],
+                                  'cut_by_no_return_call_op_keys': []},
+                                 {'block_addr': 1066448,
+                                  'return_value_sid': 'v_13621',
+                                  'return_value_width_bits': 32,
+                                  'return_transport_width_bits': 32,
+                                  'return_logical_width_bits': 32,
+                                  'return_declared_view': None,
+                                  'return_boundary_authority': 'raw_return_register_transport',
+                                  'return_reachability': 'reachable',
+                                  'reachable_return': True,
+                                  'execution_suppressed': False,
+                                  'emission_policy': 'emit_reachable_return_boundary',
+                                  'cut_by_no_return_blocks': [],
+                                  'cut_by_no_return_call_op_keys': []},
+                                 {'block_addr': 1066453,
+                                  'return_value_sid': 'v_13724',
+                                  'return_value_width_bits': 32,
+                                  'return_transport_width_bits': 32,
+                                  'return_logical_width_bits': 32,
+                                  'return_declared_view': None,
+                                  'return_boundary_authority': 'raw_return_register_transport',
+                                  'return_reachability': 'reachable',
+                                  'reachable_return': True,
+                                  'execution_suppressed': False,
+                                  'emission_policy': 'emit_reachable_return_boundary',
+                                  'cut_by_no_return_blocks': [],
+                                  'cut_by_no_return_call_op_keys': []},
+                                 {'block_addr': 1066517,
+                                  'return_value_sid': 'v_13622',
+                                  'return_value_width_bits': 32,
+                                  'return_transport_width_bits': 32,
+                                  'return_logical_width_bits': 32,
+                                  'return_declared_view': None,
+                                  'return_boundary_authority': 'raw_return_register_transport',
+                                  'return_reachability': 'reachable',
+                                  'reachable_return': True,
+                                  'execution_suppressed': False,
+                                  'emission_policy': 'emit_reachable_return_boundary',
+                                  'cut_by_no_return_blocks': [],
+                                  'cut_by_no_return_call_op_keys': []}],
+ 'unreachable_return_boundaries': []}
+
+[RETURN BOUNDARY RECONCILIATION]
+{'kind': 'pal_compute_return_boundary_reconciliation_v23b',
+ 'version': 'v23b_abi_thunk_compatibility_return_reconciliation',
+ 'function': 'FUN_00104140',
+ 'entry_block_addr': 1065280,
+ 'cfg_evidence_available': True,
+ 'no_return_terminating_blocks': [],
+ 'no_return_call_op_keys': [],
+ 'return_boundaries': 7,
+ 'reachable_return_boundaries': 7,
+ 'unreachable_return_boundaries': 0,
+ 'deferred_return_boundaries': 0,
+ 'reachable_return_widths': [32],
+ 'width_reconciled': True,
+ 'synthetic_no_return_continuations_suppressed': 0,
+ 'rule': 'traverse_CFG_with_no_return_blocks_as_terminal_then_reconcile_reachable_raw_return_transports_only'}
+
+[CALL SITE ABI PLANS]
+{'op_key': '1065280:(ram, 0x104161, 34, 3):3',
+ 'target': 'strcmp',
+ 'dispatch_class': 'external_via_import_thunk',
+ 'status': 'ready',
+ 'argument_count': 2,
+ 'carrier_allocation_status': 'complete',
+ 'target_compatibility_status': 'compatible',
+ 'target_compatible': True,
+ 'no_return': False,
+ 'result_width_bits': 32}
+{'op_key': '1065425:(ram, 0x1041d9, 166, 4):4',
+ 'target': 'strlen',
+ 'dispatch_class': 'external_via_import_thunk',
+ 'status': 'ready',
+ 'argument_count': 1,
+ 'carrier_allocation_status': 'complete',
+ 'target_compatibility_status': 'compatible',
+ 'target_compatible': True,
+ 'no_return': False,
+ 'result_width_bits': 64}
+{'op_key': '1065706:(ram, 0x104301, 1324, 4):4',
+ 'target': 'FUN_001040e0',
+ 'dispatch_class': 'internal_resolved',
+ 'status': 'ready',
+ 'argument_count': 1,
+ 'carrier_allocation_status': 'complete',
+ 'target_compatibility_status': 'deferred',
+ 'target_compatible': None,
+ 'no_return': False,
+ 'result_width_bits': 64}
+{'op_key': '1065706:(ram, 0x104320, 1355, 12):12',
+ 'target': 'memcpy',
+ 'dispatch_class': 'external_via_import_thunk',
+ 'status': 'ready',
+ 'argument_count': 3,
+ 'carrier_allocation_status': 'complete',
+ 'target_compatibility_status': 'compatible',
+ 'target_compatible': True,
+ 'no_return': False,
+ 'result_width_bits': 64}
+{'op_key': '1065467:(ram, 0x104208, 209, 2):2',
+ 'target': 'strlen',
+ 'dispatch_class': 'external_via_import_thunk',
+ 'status': 'ready',
+ 'argument_count': 1,
+ 'carrier_allocation_status': 'complete',
+ 'target_compatibility_status': 'compatible',
+ 'target_compatible': True,
+ 'no_return': False,
+ 'result_width_bits': 64}
+{'op_key': '1065495:(ram, 0x104222, 232, 4):4',
+ 'target': 'FUN_001040e0',
+ 'dispatch_class': 'internal_resolved',
+ 'status': 'ready',
+ 'argument_count': 1,
+ 'carrier_allocation_status': 'complete',
+ 'target_compatibility_status': 'deferred',
+ 'target_compatible': None,
+ 'no_return': False,
+ 'result_width_bits': 64}
+{'op_key': '1065495:(ram, 0x104247, 267, 12):12',
+ 'target': 'memcpy',
+ 'dispatch_class': 'external_via_import_thunk',
+ 'status': 'ready',
+ 'argument_count': 3,
+ 'carrier_allocation_status': 'complete',
+ 'target_compatibility_status': 'compatible',
+ 'target_compatible': True,
+ 'no_return': False,
+ 'result_width_bits': 64}
+{'op_key': '1065495:(ram, 0x104258, 276, 15):15',
+ 'target': 'FUN_001040e0',
+ 'dispatch_class': 'internal_resolved',
+ 'status': 'ready',
+ 'argument_count': 1,
+ 'carrier_allocation_status': 'complete',
+ 'target_compatibility_status': 'deferred',
+ 'target_compatible': None,
+ 'no_return': False,
+ 'result_width_bits': 64}
+{'op_key': '1065495:(ram, 0x104272, 304, 24):24',
+ 'target': 'memcpy',
+ 'dispatch_class': 'external_via_import_thunk',
+ 'status': 'ready',
+ 'argument_count': 3,
+ 'carrier_allocation_status': 'complete',
+ 'target_compatibility_status': 'compatible',
+ 'target_compatible': True,
+ 'no_return': False,
+ 'result_width_bits': 64}
+{'op_key': '1065619:(ram, 0x10429b, 334, 2):2',
+ 'target': 'memcmp',
+ 'dispatch_class': 'external_via_import_thunk',
+ 'status': 'ready',
+ 'argument_count': 3,
+ 'carrier_allocation_status': 'complete',
+ 'target_compatibility_status': 'compatible',
+ 'target_compatible': True,
+ 'no_return': False,
+ 'result_width_bits': 32}
+{'op_key': '1065815:(ram, 0x10435f, 446, 3):3',
+ 'target': 'FUN_001040e0',
+ 'dispatch_class': 'internal_resolved',
+ 'status': 'ready',
+ 'argument_count': 1,
+ 'carrier_allocation_status': 'complete',
+ 'target_compatibility_status': 'deferred',
+ 'target_compatible': None,
+ 'no_return': False,
+ 'result_width_bits': 64}
+{'op_key': '1065815:(ram, 0x10437e, 469, 10):10',
+ 'target': 'mempcpy',
+ 'dispatch_class': 'external_via_import_thunk',
+ 'status': 'ready',
+ 'argument_count': 3,
+ 'carrier_allocation_status': 'complete',
+ 'target_compatibility_status': 'compatible',
+ 'target_compatible': True,
+ 'no_return': False,
+ 'result_width_bits': 64}
+{'op_key': '1065961:(ram, 0x1043f9, 592, 2):2',
+ 'target': 'memcmp',
+ 'dispatch_class': 'external_via_import_thunk',
+ 'status': 'ready',
+ 'argument_count': 3,
+ 'carrier_allocation_status': 'complete',
+ 'target_compatibility_status': 'compatible',
+ 'target_compatible': True,
+ 'no_return': False,
+ 'result_width_bits': 32}
+{'op_key': '1066256:(ram, 0x10452f, 1242, 16):16',
+ 'target': 'fwrite_unlocked',
+ 'dispatch_class': 'external_via_import_thunk',
+ 'status': 'ready',
+ 'argument_count': 4,
+ 'carrier_allocation_status': 'complete',
+ 'target_compatibility_status': 'compatible',
+ 'target_compatible': True,
+ 'no_return': False,
+ 'result_width_bits': 64}
+{'op_key': '1065652:(ram, 0x1042b9, 367, 7):7',
+ 'target': 'free',
+ 'dispatch_class': 'external_via_import_thunk',
+ 'status': 'ready',
+ 'argument_count': 1,
+ 'carrier_allocation_status': 'complete',
+ 'target_compatibility_status': 'compatible',
+ 'target_compatible': True,
+ 'no_return': False,
+ 'result_width_bits': None}
+{'op_key': '1065652:(ram, 0x1042c3, 373, 10):10',
+ 'target': 'free',
+ 'dispatch_class': 'external_via_import_thunk',
+ 'status': 'ready',
+ 'argument_count': 1,
+ 'carrier_allocation_status': 'complete',
+ 'target_compatibility_status': 'compatible',
+ 'target_compatible': True,
+ 'no_return': False,
+ 'result_width_bits': None}
+{'op_key': '1066122:(ram, 0x1044a3, 1128, 4):4',
+ 'target': 'FUN_00104100',
+ 'dispatch_class': 'internal_resolved',
+ 'status': 'ready',
+ 'argument_count': 2,
+ 'carrier_allocation_status': 'complete',
+ 'target_compatibility_status': 'deferred',
+ 'target_compatible': None,
+ 'no_return': False,
+ 'result_width_bits': 64}
+{'op_key': '1066122:(ram, 0x1044b8, 1140, 12):12',
+ 'target': 'memmove',
+ 'dispatch_class': 'external_via_import_thunk',
+ 'status': 'ready',
+ 'argument_count': 3,
+ 'carrier_allocation_status': 'complete',
+ 'target_compatibility_status': 'compatible',
+ 'target_compatible': True,
+ 'no_return': False,
+ 'result_width_bits': 64}
+{'op_key': '1066200:(ram, 0x1044ea, 1189, 5):5',
+ 'target': 'FUN_00104100',
+ 'dispatch_class': 'internal_resolved',
+ 'status': 'ready',
+ 'argument_count': 2,
+ 'carrier_allocation_status': 'complete',
+ 'target_compatibility_status': 'deferred',
+ 'target_compatible': None,
+ 'no_return': False,
+ 'result_width_bits': 64}
+{'op_key': '1066016:(ram, 0x104429, 633, 11):11',
+ 'target': 'mempcpy',
+ 'dispatch_class': 'external_via_import_thunk',
+ 'status': 'ready',
+ 'argument_count': 3,
+ 'carrier_allocation_status': 'complete',
+ 'target_compatibility_status': 'compatible',
+ 'target_compatible': True,
+ 'no_return': False,
+ 'result_width_bits': 64}
+{'op_key': '1066052:(ram, 0x10445c, 678, 9):9',
+ 'target': 'fwrite_unlocked',
+ 'dispatch_class': 'external_via_import_thunk',
+ 'status': 'ready',
+ 'argument_count': 4,
+ 'carrier_allocation_status': 'complete',
+ 'target_compatibility_status': 'compatible',
+ 'target_compatible': True,
+ 'no_return': False,
+ 'result_width_bits': 64}
+{'op_key': '1066325:(ram, 0x104555, 695, 6):6',
+ 'target': 'FUN_00103c60',
+ 'dispatch_class': 'internal_resolved',
+ 'status': 'ready',
+ 'argument_count': 0,
+ 'carrier_allocation_status': 'complete',
+ 'target_compatibility_status': 'deferred',
+ 'target_compatible': None,
+ 'no_return': False,
+ 'result_width_bits': 8}
+{'op_key': '1066325:(ram, 0x10456b, 716, 9):9',
+ 'target': '__fpending',
+ 'dispatch_class': 'resolved_thunk_endpoint_deferred',
+ 'status': 'deferred_target_dispatch',
+ 'argument_count': 0,
+ 'carrier_allocation_status': 'complete',
+ 'target_compatibility_status': 'deferred',
+ 'target_compatible': None,
+ 'no_return': False,
+ 'result_width_bits': 64}
+{'op_key': '1066325:(ram, 0x104579, 724, 14):14',
+ 'target': 'fileno',
+ 'dispatch_class': 'external_via_import_thunk',
+ 'status': 'ready',
+ 'argument_count': 1,
+ 'carrier_allocation_status': 'complete',
+ 'target_compatibility_status': 'compatible',
+ 'target_compatible': True,
+ 'no_return': False,
+ 'result_width_bits': 32}
+{'op_key': '1066376:(ram, 0x104588, 748, 2):2',
+ 'target': '__freading',
+ 'dispatch_class': 'resolved_thunk_endpoint_deferred',
+ 'status': 'deferred_target_dispatch',
+ 'argument_count': 0,
+ 'carrier_allocation_status': 'complete',
+ 'target_compatibility_status': 'deferred',
+ 'target_compatible': None,
+ 'no_return': False,
+ 'result_width_bits': 32}
+{'op_key': '1066464:(ram, 0x1045e3, 1076, 2):2',
+ 'target': 'fileno',
+ 'dispatch_class': 'external_via_import_thunk',
+ 'status': 'ready',
+ 'argument_count': 1,
+ 'carrier_allocation_status': 'complete',
+ 'target_compatibility_status': 'compatible',
+ 'target_compatible': True,
+ 'no_return': False,
+ 'result_width_bits': 32}
+{'op_key': '1066464:(ram, 0x1045f1, 1092, 5):5',
+ 'target': 'lseek',
+ 'dispatch_class': 'external_via_import_thunk',
+ 'status': 'ready',
+ 'argument_count': 3,
+ 'carrier_allocation_status': 'complete',
+ 'target_compatibility_status': 'compatible',
+ 'target_compatible': True,
+ 'no_return': False,
+ 'result_width_bits': 64}
+{'op_key': '1066385:(ram, 0x104594, 763, 4):4',
+ 'target': '__freading',
+ 'dispatch_class': 'resolved_thunk_endpoint_deferred',
+ 'status': 'deferred_target_dispatch',
+ 'argument_count': 1,
+ 'carrier_allocation_status': 'complete',
+ 'target_compatibility_status': 'deferred',
+ 'target_compatible': None,
+ 'no_return': False,
+ 'result_width_bits': 32}
+{'op_key': '1066567:(ram, 0x104651, 991, 2):2',
+ 'target': 'fseeko',
+ 'dispatch_class': 'external_via_import_thunk',
+ 'status': 'ready',
+ 'argument_count': 3,
+ 'carrier_allocation_status': 'complete',
+ 'target_compatibility_status': 'compatible',
+ 'target_compatible': True,
+ 'no_return': False,
+ 'result_width_bits': 32}
+{'op_key': '1066609:(ram, 0x104674, 1027, 2):2',
+ 'target': 'fileno',
+ 'dispatch_class': 'external_via_import_thunk',
+ 'status': 'ready',
+ 'argument_count': 1,
+ 'carrier_allocation_status': 'complete',
+ 'target_compatibility_status': 'compatible',
+ 'target_compatible': True,
+ 'no_return': False,
+ 'result_width_bits': 32}
+{'op_key': '1066609:(ram, 0x104682, 1043, 5):5',
+ 'target': 'lseek',
+ 'dispatch_class': 'external_via_import_thunk',
+ 'status': 'ready',
+ 'argument_count': 3,
+ 'carrier_allocation_status': 'complete',
+ 'target_compatibility_status': 'compatible',
+ 'target_compatible': True,
+ 'no_return': False,
+ 'result_width_bits': 64}
+{'op_key': '1066401:(ram, 0x1045a4, 778, 4):4',
+ 'target': 'fflush',
+ 'dispatch_class': 'external_via_import_thunk',
+ 'status': 'ready',
+ 'argument_count': 1,
+ 'carrier_allocation_status': 'complete',
+ 'target_compatibility_status': 'compatible',
+ 'target_compatible': True,
+ 'no_return': False,
+ 'result_width_bits': 32}
+{'op_key': '1066495:(ram, 0x1045ff, 949, 4):4',
+ 'target': 'fclose',
+ 'dispatch_class': 'external_via_import_thunk',
+ 'status': 'ready',
+ 'argument_count': 1,
+ 'carrier_allocation_status': 'complete',
+ 'target_compatibility_status': 'compatible',
+ 'target_compatible': True,
+ 'no_return': False,
+ 'result_width_bits': 32}
+{'op_key': '1066413:(ram, 0x1045ad, 791, 2):2',
+ 'target': '__errno_location',
+ 'dispatch_class': 'external_via_import_thunk',
+ 'status': 'ready',
+ 'argument_count': 0,
+ 'carrier_allocation_status': 'complete',
+ 'target_compatibility_status': 'compatible',
+ 'target_compatible': True,
+ 'no_return': False,
+ 'result_width_bits': 64}
+{'op_key': '1066413:(ram, 0x1045bb, 799, 6):6',
+ 'target': 'fclose',
+ 'dispatch_class': 'external_via_import_thunk',
+ 'status': 'ready',
+ 'argument_count': 1,
+ 'carrier_allocation_status': 'complete',
+ 'target_compatibility_status': 'compatible',
+ 'target_compatible': True,
+ 'no_return': False,
+ 'result_width_bits': 32}
+{'op_key': '1066448:(ram, 0x1046b0, 942, 2):2',
+ 'target': '__errno_location',
+ 'dispatch_class': 'external_via_import_thunk',
+ 'status': 'ready',
+ 'argument_count': 0,
+ 'carrier_allocation_status': 'complete',
+ 'target_compatibility_status': 'compatible',
+ 'target_compatible': True,
+ 'no_return': False,
+ 'result_width_bits': 64}
+{'op_key': '1066517:(ram, 0x104615, 859, 2):2',
+ 'target': '__errno_location',
+ 'dispatch_class': 'external_via_import_thunk',
+ 'status': 'ready',
+ 'argument_count': 0,
+ 'carrier_allocation_status': 'complete',
+ 'target_compatibility_status': 'compatible',
+ 'target_compatible': True,
+ 'no_return': False,
+ 'result_width_bits': 64}
+===== END PAL COMPUTE ANALYZER =====
+
+
+[PHI DROP-INS]
+------------------------------------------------------------
+pred=0x104180 -> join=0x104180 :: v_13773 = v_13771
+pred=0x104140 -> join=0x104180 :: v_13773 = v_13772
+pred=0x104199 -> join=0x1041a1 :: v_7314 = v_13784
+pred=0x1042e2 -> join=0x1041a1 :: v_7314 = v_13785
+pred=0x104140 -> join=0x1041a1 :: v_7314 = param_0
+pred=0x1041b0 -> join=0x1041b0 :: v_13770 = v_13768
+pred=0x1041a1 -> join=0x1041b0 :: v_13770 = v_13769
+pred=0x1041c9 -> join=0x1041d1 :: v_7280 = v_13782
+pred=0x1042da -> join=0x1041d1 :: v_7280 = v_13783
+pred=0x1041a1 -> join=0x1041d1 :: v_7280 = param_1
+pred=0x1041d1 -> join=0x1041f3 :: v_6334 = v_13777
+pred=0x1041ef -> join=0x1041f3 :: v_6334 = v_13778
+pred=0x1041fb -> join=0x104217 :: v_6327 = v_13775
+pred=0x104213 -> join=0x104217 :: v_6327 = v_13776
+pred=0x104217 -> join=0x104343 :: local_58 = v_3787
+pred=0x104293 -> join=0x104343 :: local_58 = v_3787
+pred=0x104217 -> join=0x104343 :: local_60 = v_5693
+pred=0x104293 -> join=0x104343 :: local_60 = v_5693
+pred=0x104217 -> join=0x104343 :: local_70 = v_5690
+pred=0x1042ea -> join=0x104343 :: local_70 = v_5687
+pred=0x104293 -> join=0x104343 :: local_70 = v_5690
+pred=0x104217 -> join=0x104343 :: v_7310 = v_3773
+pred=0x1042ea -> join=0x104343 :: v_7310 = v_3752
+pred=0x104293 -> join=0x104343 :: v_7310 = v_3773
+pred=0x1042ea -> join=0x104343 :: v_6410 = v_6409
+pred=0x104217 -> join=0x104343 :: v_6410 = v_3759
+pred=0x104293 -> join=0x104343 :: v_6410 = v_3759
+pred=0x104217 -> join=0x104343 :: v_6330 = v_6327
+pred=0x1042ea -> join=0x104343 :: v_6330 = v_6327
+pred=0x104293 -> join=0x104343 :: v_6330 = v_6334
+pred=0x104217 -> join=0x104343 :: v_6013 = v_591
+pred=0x1042ea -> join=0x104343 :: v_6013 = v_3418
+pred=0x104293 -> join=0x104343 :: v_6013 = v_591
+pred=0x104343 -> join=0x104357 :: v_5825 = v_13766
+pred=0x104353 -> join=0x104357 :: v_5825 = v_13767
+pred=0x1043ce -> join=0x104393 :: v_13721 = v_13802
+pred=0x104357 -> join=0x104393 :: v_13721 = v_13803
+pred=0x104420 -> join=0x104393 :: v_13721 = v_13804
+pred=0x104444 -> join=0x104393 :: v_13721 = v_13805
+pred=0x1043ce -> join=0x104393 :: v_13720 = v_13798
+pred=0x104357 -> join=0x104393 :: v_13720 = v_13799
+pred=0x104420 -> join=0x104393 :: v_13720 = v_13800
+pred=0x104444 -> join=0x104393 :: v_13720 = v_13800
+pred=0x104357 -> join=0x104393 :: v_13797 = v_13794
+pred=0x104420 -> join=0x104393 :: v_13797 = v_13795
+pred=0x104444 -> join=0x104393 :: v_13797 = v_13796
+pred=0x1043ce -> join=0x104393 :: v_13797 = v_13806
+pred=0x104357 -> join=0x104393 :: local_78 = v_1205
+pred=0x104357 -> join=0x104393 :: local_48 = v_5825
+pred=0x1043ce -> join=0x104393 :: v_13701 = v_7221
+pred=0x104357 -> join=0x104393 :: v_13701 = v_3738
+pred=0x104420 -> join=0x104393 :: v_13701 = v_13701
+pred=0x104444 -> join=0x104393 :: v_13701 = v_13701
+pred=0x1043ce -> join=0x104393 :: v_13702 = v_7287
+pred=0x104420 -> join=0x104393 :: v_13702 = v_7296
+pred=0x104357 -> join=0x104393 :: v_13702 = v_7310
+pred=0x104444 -> join=0x104393 :: v_13702 = v_7296
+pred=0x1043ce -> join=0x104393 :: v_13703 = v_13789
+pred=0x104357 -> join=0x104393 :: v_13703 = v_13790
+pred=0x104420 -> join=0x104393 :: v_13703 = v_13791
+pred=0x104444 -> join=0x104393 :: v_13703 = v_13792
+pred=0x1043ce -> join=0x104393 :: v_13704 = PTR_stdout_0010bfb0
+pred=0x104357 -> join=0x104393 :: v_13704 = PTR_stdout_0010bfb0
+pred=0x104420 -> join=0x104393 :: v_13704 = PTR_stdout_0010bfb0
+pred=0x104444 -> join=0x104393 :: v_13704 = PTR_stdout_0010bfb0
+pred=0x1043ce -> join=0x104393 :: v_13705 = DAT_0010c1f0
+pred=0x104357 -> join=0x104393 :: v_13705 = DAT_0010c1f0
+pred=0x104420 -> join=0x104393 :: v_13705 = DAT_0010c1f0
+pred=0x104444 -> join=0x104393 :: v_13705 = DAT_0010c1f0
+pred=0x1043a0 -> join=0x1043c1 :: DAT_0010c1f0 = v_13705
+pred=0x1043a0 -> join=0x1043c1 :: PTR_stdout_0010bfb0 = v_13704
+pred=0x1043a0 -> join=0x1043c1 :: v_5793 = v_13764
+pred=0x1043b0 -> join=0x1043c1 :: v_5793 = v_13765
+pred=0x1043c9 -> join=0x1043ce :: v_7287 = v_13702
+pred=0x1043c9 -> join=0x1043ce :: v_7221 = v_13701
+pred=0x1043e0 -> join=0x104510 :: DAT_0010c1f0 = v_13705
+pred=0x1043e0 -> join=0x104510 :: PTR_stdout_0010bfb0 = v_13704
+pred=0x1042b1 -> join=0x1042b4 :: local_60 = v_5693
+pred=0x1042b1 -> join=0x1042b4 :: local_70 = v_5690
+pred=0x1042b1 -> join=0x1042b4 :: v_13625 = v_13627
+pred=0x10453a -> join=0x1042b4 :: v_13625 = v_13626
+pred=0x1043d4 -> join=0x10440b :: DAT_0010c1f0 = v_13705
+pred=0x1043d9 -> join=0x10440b :: DAT_0010c1f0 = v_13705
+pred=0x1043d4 -> join=0x10440b :: PTR_stdout_0010bfb0 = v_13704
+pred=0x1043d9 -> join=0x10440b :: PTR_stdout_0010bfb0 = v_13704
+pred=0x10440b -> join=0x104420 :: local_48 = v_13786
+pred=0x10448a -> join=0x104420 :: local_48 = v_13787
+pred=0x1044d8 -> join=0x104420 :: local_48 = v_13788
+pred=0x10448a -> join=0x104420 :: local_70 = v_5705
+pred=0x1044d8 -> join=0x104420 :: local_70 = v_5705
+pred=0x1044d8 -> join=0x104420 :: local_78 = v_3137
+pred=0x10448a -> join=0x104420 :: v_7296 = v_3843
+pred=0x10440b -> join=0x104420 :: v_7296 = v_13702
+pred=0x1044d8 -> join=0x104420 :: v_7296 = v_3843
+pred=0x1044d8 -> join=0x104420 :: v_7263 = v_5708
+pred=0x10440b -> join=0x104420 :: v_7263 = v_13806
+pred=0x10448a -> join=0x104420 :: v_7263 = v_13806
+pred=0x10440b -> join=0x104420 :: v_7007 = v_1611
+pred=0x1044d8 -> join=0x104420 :: v_7007 = v_3156
+pred=0x10448a -> join=0x104420 :: v_7007 = v_1611
+pred=0x10440b -> join=0x104420 :: v_6313 = v_13774
+pred=0x10448a -> join=0x104420 :: v_6313 = v_9009
+pred=0x1044d8 -> join=0x104420 :: v_6313 = v_9009
+pred=0x104444 -> join=0x104555 :: v_6809 = v_6726
+pred=0x104510 -> join=0x104555 :: v_6809 = v_6709
+pred=0x1045ad -> join=0x104604 :: v_13620 = v_3962
+pred=0x1045ff -> join=0x104604 :: v_13620 = v_3949
+------------------------------------------------------------
+{'active': True,
+ 'bound_plans': 419,
+ 'control_contracts_forwarded': 58,
+ 'input_op_contracts': 432,
+ 'input_plans': 419,
+ 'kind': 'phi_compute_consumer_inventory_v21',
+ 'outputless_contracts_forwarded': 13,
+ 'phi_merge_contracts': 68,
+ 'phi_transition_contracts': 107,
+ 'preserved_compute_boundaries': 370,
+ 'preserved_deferred_contracts': 74,
+ 'preserved_outputless_boundaries': 13,
+ 'preserved_outputless_deferred_contracts': 13,
+ 'preserved_outputless_helpers': 9,
+ 'preserved_runtime_helpers': 121,
+ 'rule': 'preserve_PALCompute_authority_remap_execution_destination_only',
+ 'state_alias_bindings': 41,
+ 'transition_owners': {'predecessor_phi_dropin': 57, 'source_state_alias': 50},
+ 'version': 'v21_compute_contract_consumers',
+ 'warnings': 0}
+[]
+
+===== PAL EMITTER INDIRECT STORAGE CUSTODY =====
+{'active': True,
+ 'address_resolved_families': 2,
+ 'condition_custody_bindings': 1,
+ 'condition_storage_observation_sids': 0,
+ 'effect_owners_rendered': 1,
+ 'effect_owners_required': 46,
+ 'effect_owners_unobserved': 45,
+ 'indirect_contracts': 95,
+ 'indirect_metadata_transitions_consumed': 2,
+ 'kind': 'emitter_indirect_storage_custody_inventory_v45',
+ 'memory_backed_families': 2,
+ 'parameter_storage_initializers_missing': 0,
+ 'parameter_storage_initializers_rendered': 0,
+ 'parameter_storage_initializers_required': 0,
+ 'projection': 'executable',
+ 'raw_indirect_expression_leaks': 0,
+ 'rule': 'INDIRECT_is_metadata_only_effect_owner_executes_once_family_reads_and_writes_observe_shared_storage',
+ 'storage_families': 3,
+ 'storage_reads': 6,
+ 'storage_write_throughs': 0,
+ 'unresolved_address_families': 0,
+ 'version': 'v46f_canonical_ABI_SSA_predicate_bridge',
+ 'warnings': 1}
+
+[WARNINGS]
+[{'kind': 'emitter_effect_owner_not_observed_in_projection_v45',
+  'note': 'may_be_structurally_unreachable_or_missing_from_ExecTree',
+  'owner_compute_op_keys': ['1065425:(ram, 0x1041d9, 166, 4):4',
+                            '1065467:(ram, 0x104208, 209, 2):2',
+                            '1065495:(ram, 0x104222, 232, 4):4',
+                            '1065495:(ram, 0x104247, 267, 12):12',
+                            '1065495:(ram, 0x104258, 276, 15):15',
+                            '1065495:(ram, 0x104272, 304, 24):24',
+                            '1065619:(ram, 0x10429b, 334, 2):2',
+                            '1065652:(ram, 0x1042b9, 367, 7):7',
+                            '1065652:(ram, 0x1042c3, 373, 10):10',
+                            '1065706:(ram, 0x104301, 1324, 4):4',
+                            '1065706:(ram, 0x104320, 1355, 12):12',
+                            '1065815:(ram, 0x10435f, 446, 3):3',
+                            '1065815:(ram, 0x10437e, 469, 10):10',
+                            '1065904:(ram, 0x1043b4, 1267, 3):3',
+                            '1065929:(ram, 0x1043cc, 532, 3):3',
+                            '1065961:(ram, 0x1043f9, 592, 2):2',
+                            '1065995:(ram, 0x104419, 616, 11):11',
+                            '1066016:(ram, 0x104429, 633, 11):11',
+                            '1066052:(ram, 0x10445c, 678, 9):9',
+                            '1066104:(ram, 0x104478, 1281, 3):3',
+                            '1066122:(ram, 0x1044a3, 1128, 4):4',
+                            '1066122:(ram, 0x1044b8, 1140, 12):12',
+                            '1066200:(ram, 0x1044ea, 1189, 5):5',
+                            '1066256:(ram, 0x104510, 1215, 6):6',
+                            '1066256:(ram, 0x10452f, 1242, 16):16',
+                            '1066325:(ram, 0x104555, 695, 6):6',
+                            '1066325:(ram, 0x10456b, 716, 9):9',
+                            '1066325:(ram, 0x104579, 724, 14):14',
+                            '1066376:(ram, 0x104588, 748, 2):2',
+                            '1066385:(ram, 0x104594, 763, 4):4',
+                            '1066401:(ram, 0x1045a4, 778, 4):4',
+                            '1066413:(ram, 0x1045ad, 791, 2):2',
+                            '1066413:(ram, 0x1045bb, 799, 6):6',
+                            '1066437:(ram, 0x1045c5, 811, 2):2',
+                            '1066448:(ram, 0x1046b0, 942, 2):2',
+                            '1066448:(ram, 0x1046b5, 944, 5):5',
+                            '1066464:(ram, 0x1045e3, 1076, 2):2',
+                            '1066464:(ram, 0x1045f1, 1092, 5):5',
+                            '1066495:(ram, 0x1045ff, 949, 4):4',
+                            '1066517:(ram, 0x104615, 859, 2):2',
+                            '1066567:(ram, 0x104651, 991, 2):2',
+                            '1066609:(ram, 0x104674, 1027, 2):2',
+                            '1066609:(ram, 0x104682, 1043, 5):5',
+                            '1066641:(ram, 0x104691, 1059, 6):6',
+                            '1066641:(ram, 0x104695, 1071, 10):10'],
+  'projection': 'executable'}]
+
+[RAW INDIRECT LEAKS]
+[]
+
+[UNOBSERVED EFFECT OWNERS]
+['1065425:(ram, 0x1041d9, 166, 4):4',
+ '1065467:(ram, 0x104208, 209, 2):2',
+ '1065495:(ram, 0x104222, 232, 4):4',
+ '1065495:(ram, 0x104247, 267, 12):12',
+ '1065495:(ram, 0x104258, 276, 15):15',
+ '1065495:(ram, 0x104272, 304, 24):24',
+ '1065619:(ram, 0x10429b, 334, 2):2',
+ '1065652:(ram, 0x1042b9, 367, 7):7',
+ '1065652:(ram, 0x1042c3, 373, 10):10',
+ '1065706:(ram, 0x104301, 1324, 4):4',
+ '1065706:(ram, 0x104320, 1355, 12):12',
+ '1065815:(ram, 0x10435f, 446, 3):3',
+ '1065815:(ram, 0x10437e, 469, 10):10',
+ '1065904:(ram, 0x1043b4, 1267, 3):3',
+ '1065929:(ram, 0x1043cc, 532, 3):3',
+ '1065961:(ram, 0x1043f9, 592, 2):2',
+ '1065995:(ram, 0x104419, 616, 11):11',
+ '1066016:(ram, 0x104429, 633, 11):11',
+ '1066052:(ram, 0x10445c, 678, 9):9',
+ '1066104:(ram, 0x104478, 1281, 3):3',
+ '1066122:(ram, 0x1044a3, 1128, 4):4',
+ '1066122:(ram, 0x1044b8, 1140, 12):12',
+ '1066200:(ram, 0x1044ea, 1189, 5):5',
+ '1066256:(ram, 0x104510, 1215, 6):6',
+ '1066256:(ram, 0x10452f, 1242, 16):16',
+ '1066325:(ram, 0x104555, 695, 6):6',
+ '1066325:(ram, 0x10456b, 716, 9):9',
+ '1066325:(ram, 0x104579, 724, 14):14',
+ '1066376:(ram, 0x104588, 748, 2):2',
+ '1066385:(ram, 0x104594, 763, 4):4',
+ '1066401:(ram, 0x1045a4, 778, 4):4',
+ '1066413:(ram, 0x1045ad, 791, 2):2',
+ '1066413:(ram, 0x1045bb, 799, 6):6',
+ '1066437:(ram, 0x1045c5, 811, 2):2',
+ '1066448:(ram, 0x1046b0, 942, 2):2',
+ '1066448:(ram, 0x1046b5, 944, 5):5',
+ '1066464:(ram, 0x1045e3, 1076, 2):2',
+ '1066464:(ram, 0x1045f1, 1092, 5):5',
+ '1066495:(ram, 0x1045ff, 949, 4):4',
+ '1066517:(ram, 0x104615, 859, 2):2',
+ '1066567:(ram, 0x104651, 991, 2):2',
+ '1066609:(ram, 0x104674, 1027, 2):2',
+ '1066609:(ram, 0x104682, 1043, 5):5',
+ '1066641:(ram, 0x104691, 1059, 6):6',
+ '1066641:(ram, 0x104695, 1071, 10):10']
+
+[STORAGE FAMILIES]
+[{'address_resolved': True,
+  'address_tied': True,
+  'classification': 'persistent_address_tied_storage',
+  'family_id': 'storage_family:high_rep:13514',
+  'high_name': 'PTR_stdout_0010bfb0',
+  'kind': 'emitter_storage_family_descriptor_v45',
+  'member_sids': ['v_13514',
+                  'v_13704',
+                  'v_9578',
+                  'v_9581',
+                  'v_9584',
+                  'v_9587',
+                  'v_9590',
+                  'v_9593',
+                  'v_9596',
+                  'v_9599',
+                  'v_9602',
+                  'v_9605',
+                  'v_9608',
+                  'v_9611',
+                  'v_9614',
+                  'v_9617',
+                  'v_9620',
+                  'v_9623',
+                  'v_9626',
+                  'v_9629',
+                  'v_9632',
+                  'v_9635',
+                  'v_9638',
+                  'v_9641',
+                  'v_9644',
+                  'v_9647',
+                  'v_9650',
+                  'v_9653',
+                  'v_9656',
+                  'v_9659',
+                  'v_9662',
+                  'v_9665',
+                  'v_9668',
+                  'v_9671',
+                  'v_9674',
+                  'v_9677',
+                  'v_9680',
+                  'v_9683',
+                  'v_9686',
+                  'v_9695',
+                  'v_9698',
+                  'v_9701',
+                  'v_9704',
+                  'v_9707',
+                  'v_9710',
+                  'v_9713',
+                  'v_9716',
+                  'v_9719',
+                  'v_9721',
+                  'v_9727',
+                  'v_9735',
+                  'v_9744',
+                  'v_9753',
+                  'v_9756',
+                  'v_9759',
+                  'v_9766',
+                  'v_9770',
+                  'v_9773',
+                  'v_9777',
+                  'v_9783'],
+  'memory_backed': True,
+  'persistent': True,
+  'representative': {'offset': 1097648,
+                     'repr': '(ram, 0x10bfb0, 8)',
+                     'size': 8,
+                     'space': 'ram',
+                     'unique_id': 13514},
+  'stack_base': None,
+  'storage_offset': 1097648,
+  'storage_space': 'ram',
+  'version': 'v46f_canonical_ABI_SSA_predicate_bridge',
+  'width_bits': 64},
+ {'address_resolved': True,
+  'address_tied': True,
+  'classification': 'persistent_address_tied_storage',
+  'family_id': 'storage_family:high_rep:13515',
+  'high_name': 'DAT_0010c1f0',
+  'kind': 'emitter_storage_family_descriptor_v45',
+  'member_sids': ['v_13515',
+                  'v_13705',
+                  'v_9791',
+                  'v_9794',
+                  'v_9797',
+                  'v_9800',
+                  'v_9803',
+                  'v_9806',
+                  'v_9809',
+                  'v_9812',
+                  'v_9815',
+                  'v_9818',
+                  'v_9821',
+                  'v_9824',
+                  'v_9827',
+                  'v_9830',
+                  'v_9833',
+                  'v_9836',
+                  'v_9839',
+                  'v_9842',
+                  'v_9845',
+                  'v_9848',
+                  'v_9851',
+                  'v_9854',
+                  'v_9857',
+                  'v_9860',
+                  'v_9863',
+                  'v_9866',
+                  'v_9869',
+                  'v_9872',
+                  'v_9875',
+                  'v_9878',
+                  'v_9881',
+                  'v_9884',
+                  'v_9887',
+                  'v_9890',
+                  'v_9893',
+                  'v_9896',
+                  'v_9899',
+                  'v_9908',
+                  'v_9911',
+                  'v_9914',
+                  'v_9917',
+                  'v_9920',
+                  'v_9923',
+                  'v_9926',
+                  'v_9929',
+                  'v_9932',
+                  'v_9934',
+                  'v_9940',
+                  'v_9948',
+                  'v_9957',
+                  'v_9966',
+                  'v_9969',
+                  'v_9972',
+                  'v_9979',
+                  'v_9983',
+                  'v_9986',
+                  'v_9990',
+                  'v_9996'],
+  'memory_backed': True,
+  'persistent': True,
+  'representative': {'offset': 1098224,
+                     'repr': '(ram, 0x10c1f0, 8)',
+                     'size': 8,
+                     'space': 'ram',
+                     'unique_id': 13515},
+  'stack_base': None,
+  'storage_offset': 1098224,
+  'storage_space': 'ram',
+  'version': 'v46f_canonical_ABI_SSA_predicate_bridge',
+  'width_bits': 64},
+ {'address_resolved': False,
+  'address_tied': False,
+  'classification': 'non_address_tied_machine_state',
+  'family_id': 'storage_family:high_rep:6709',
+  'high_name': '__stream',
+  'kind': 'emitter_storage_family_descriptor_v45',
+  'member_sids': ['v_13719', 'v_13779', 'v_6709', 'v_6726', 'v_6730', 'v_6809'],
+  'memory_backed': False,
+  'persistent': False,
+  'representative': {'offset': 56,
+                     'repr': '(register, 0x38, 8)',
+                     'size': 8,
+                     'space': 'register',
+                     'unique_id': 6709},
+  'stack_base': None,
+  'storage_offset': 56,
+  'storage_space': 'register',
+  'version': 'v46f_canonical_ABI_SSA_predicate_bridge',
+  'width_bits': 64}]
+
+[INDIRECT METADATA TRANSITIONS]
+[{'effect_owner_compute_op_key': '1065280:(ram, 0x104161, 34, 3):3',
+  'emitted_runtime_expression': False,
+  'family_id': 'storage_family:high_rep:13514',
+  'high_name': 'PTR_stdout_0010bfb0',
+  'indirect_op_key': '1065280:(ram, 0x104161, 3133, 1):1',
+  'kind': 'emitter_indirect_metadata_transition_suppressed_v45',
+  'projection': 'executable',
+  'resolved': True,
+  'sid': 'v_9578',
+  'version': 'v46f_canonical_ABI_SSA_predicate_bridge'},
+ {'effect_owner_compute_op_key': '1065280:(ram, 0x104161, 34, 3):3',
+  'emitted_runtime_expression': False,
+  'family_id': 'storage_family:high_rep:13515',
+  'high_name': 'DAT_0010c1f0',
+  'indirect_op_key': '1065280:(ram, 0x104161, 3202, 2):2',
+  'kind': 'emitter_indirect_metadata_transition_suppressed_v45',
+  'projection': 'executable',
+  'resolved': True,
+  'sid': 'v_9791',
+  'version': 'v46f_canonical_ABI_SSA_predicate_bridge'}]
+
+[EFFECT OWNERS]
+[{'custody_transitions': 2,
+  'kind': 'emitter_storage_effect_owner_rendered_v45',
+  'output_sids': ['v_9578', 'v_9791'],
+  'owner_block_addr': 1065280,
+  'owner_compute_op_key': '1065280:(ram, 0x104161, 34, 3):3',
+  'owner_op_id': '(ram, 0x104161, 34, 3)',
+  'owner_opcode': 'CALL',
+  'projection': 'executable',
+  'runtime_policy': 'owner_executes_once_later_reads_observe_family_storage',
+  'storage_family_ids': ['storage_family:high_rep:13514',
+                         'storage_family:high_rep:13515'],
+  'version': 'v46f_canonical_ABI_SSA_predicate_bridge'}]
+
+[STORAGE READS]
+[{'address_resolved': False,
+  'context': 'raw_condition_legacy',
+  'family_id': 'storage_family:high_rep:6709',
+  'high_name': '__stream',
+  'kind': 'emitter_storage_family_read_v45',
+  'memory_backed': False,
+  'projection': 'executable',
+  'rendered': '__stream',
+  'sid': 'v_13719',
+  'version': 'v46f_canonical_ABI_SSA_predicate_bridge'},
+ {'address_resolved': False,
+  'context': 'raw_condition_surface',
+  'family_id': 'storage_family:high_rep:6709',
+  'high_name': '__stream',
+  'kind': 'emitter_storage_family_read_v45',
+  'memory_backed': False,
+  'projection': 'executable',
+  'rendered': '__stream',
+  'sid': 'v_13719',
+  'version': 'v46f_canonical_ABI_SSA_predicate_bridge'},
+ {'address_resolved': True,
+  'context': 'raw_condition_surface',
+  'family_id': 'storage_family:high_rep:13514',
+  'high_name': 'PTR_stdout_0010bfb0',
+  'kind': 'emitter_storage_family_read_v45',
+  'memory_backed': True,
+  'projection': 'executable',
+  'rendered': 'c_load(MEM, 0x10bfb0, 64)',
+  'sid': 'v_9713',
+  'version': 'v46f_canonical_ABI_SSA_predicate_bridge'},
+ {'address_resolved': True,
+  'context': 'raw_condition_surface',
+  'family_id': 'storage_family:high_rep:13515',
+  'high_name': 'DAT_0010c1f0',
+  'kind': 'emitter_storage_family_read_v45',
+  'memory_backed': True,
+  'projection': 'executable',
+  'rendered': 'c_load(MEM, 0x10c1f0, 64)',
+  'sid': 'v_9986',
+  'version': 'v46f_canonical_ABI_SSA_predicate_bridge'},
+ {'address_resolved': True,
+  'context': 'raw_condition_surface',
+  'family_id': 'storage_family:high_rep:13514',
+  'high_name': 'PTR_stdout_0010bfb0',
+  'kind': 'emitter_storage_family_read_v45',
+  'memory_backed': True,
+  'projection': 'executable',
+  'rendered': 'c_load(MEM, 0x10bfb0, 64)',
+  'sid': 'v_9629',
+  'version': 'v46f_canonical_ABI_SSA_predicate_bridge'},
+ {'address_resolved': False,
+  'context': 'raw_condition_surface',
+  'family_id': 'storage_family:high_rep:6709',
+  'high_name': '__stream',
+  'kind': 'emitter_storage_family_read_v45',
+  'memory_backed': False,
+  'projection': 'executable',
+  'rendered': '__stream',
+  'sid': 'v_6730',
+  'version': 'v46f_canonical_ABI_SSA_predicate_bridge'}]
+
+[STORAGE WRITES]
+[]
+
+[PARAMETER STORAGE INITIALIZERS]
+[]
+===== END PAL EMITTER INDIRECT STORAGE CUSTODY =====
+
+=== PAL BATCH FAILURE ===
+Traceback (most recent call last):
+  File "/home/rem/gh/PAL/PALBatchDecompiler.py", line 716, in _decompile_one
+    compile(executable_text, executable_path, "exec")
+    ~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/rem/gh/PAL/project/seq/functions/f_0000000000104140_FUN_00104140.exec.py", line 16
+SyntaxError: 'break' outside loop
